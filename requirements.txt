@@ -1,0 +1,5 @@
+# evez-agentnet requirements
+# No heavy deps -- stdlib + optional Groq for AI synthesis
+# Python 3.10+
+requests>=2.31.0
+python-dotenv>=1.0.0
