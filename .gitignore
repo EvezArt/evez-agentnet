@@ -1,0 +1,11 @@
+.env
+logs/
+drafts/
+scanner/scan_results.jsonl
+predictor/predictions.jsonl
+shipper/ship_log.jsonl
+worldsim/worldsim_state.json
+spine/spine.jsonl
+__pycache__/
+*.pyc
+.DS_Store
