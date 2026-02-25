@@ -9,9 +9,13 @@ jobs:
   run-orchestrator:
     runs-on: ubuntu-latest
     timeout-minutes: 25
+    continue-on-error: false
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v5
