@@ -9,11 +9,9 @@ jobs:
   run-orchestrator:
     runs-on: ubuntu-latest
     timeout-minutes: 25
-    continue-on-error: false
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
@@ -25,30 +23,19 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Write .env from secrets
-        run: |
-          cat > .env << 'EOF'
-          GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}
-          TWITTER_BEARER_TOKEN=${{ secrets.TWITTER_BEARER_TOKEN }}
-          PERPLEXITY_API_KEY=${{ secrets.PERPLEXITY_API_KEY }}
-          GUMROAD_ACCESS_TOKEN=${{ secrets.GUMROAD_ACCESS_TOKEN }}
-          GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
-          HYPERBROWSER_API_KEY=${{ secrets.HYPERBROWSER_API_KEY }}
-          HYPERBROWSER_PROXY_COUNTRY=${{ secrets.HYPERBROWSER_PROXY_COUNTRY }}
-          EVEZ_OS_PATH=../evez-os
-          LOG_LEVEL=INFO
-          MAX_DRAFTS_PER_ROUND=3
-          MAX_SHIPS_PER_ROUND=2
-          EOF
-
       - name: Run orchestrator
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
           PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
           GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HYPERBROWSER_API_KEY: ${{ secrets.HYPERBROWSER_API_KEY }}
           HYPERBROWSER_PROXY_COUNTRY: ${{ secrets.HYPERBROWSER_PROXY_COUNTRY }}
+          EVEZ_OS_PATH: ../evez-os
+          LOG_LEVEL: INFO
+          MAX_DRAFTS_PER_ROUND: '3'
+          MAX_SHIPS_PER_ROUND: '2'
         run: python orchestrator.py
 
       - name: Commit spine + logs
