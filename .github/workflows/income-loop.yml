@@ -1,0 +1,47 @@
+name: EVEZ AgentNet — Income Loop
+# Runs every 30 minutes synced with hyperloop
+# scan -> predict -> generate -> ship -> earn
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    env:
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+      GUMROAD_ACCESS_TOKEN: ${{ secrets.GUMROAD_ACCESS_TOKEN }}
+      LOG_LEVEL: INFO
+      MAX_DRAFTS_PER_ROUND: 3
+      MAX_SHIPS_PER_ROUND: 2
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run EVEZ AgentNet income loop
+        run: python orchestrator.py
+
+      - name: Commit outputs
+        if: always()
+        run: |
+          git config --local user.email "evez-agentnet@github-actions"
+          git config --local user.name "EVEZ AgentNet"
+          git add -f logs/ drafts/ *.jsonl 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "agentnet: round $(date -u +%Y%m%dT%H%M%S)"
+          git push 2>/dev/null || true
