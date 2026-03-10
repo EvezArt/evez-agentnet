@@ -88,6 +88,25 @@ crontab -e
 # Add: */30 * * * * cd /path/to/evez-agentnet && python orchestrator.py >> logs/run.log 2>&1
 ```
 
+## Claude Fast Lane Runtime
+
+`claude_fast.py` provides a low-latency Claude lane with optional L1 consensus escalation,
+plus append-only evidence logging back into the local EVEZ spine JSONL.
+
+```bash
+# Fast lane (returns JSON metadata)
+python claude_fast.py "summarize the last scan cycle" --json
+
+# Force consensus when layer1_witness is available
+python claude_fast.py "approve deploy" --force-consensus --json
+
+# Persist runtime event into spine
+python claude_fast.py "status check" --spine-log spine/spine.jsonl --json
+```
+
+If Anthropic is unavailable (missing package/key/network), runtime returns a deterministic
+fallback payload instead of crashing so upstream automations can keep running.
+
 ## WorldSim: Reputation Staking
 
 Agents bid on tasks using a budget. Lying (hallucinating, low sigma_f output) costs reputation.
