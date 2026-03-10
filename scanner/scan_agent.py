@@ -11,7 +11,7 @@ Adds: sentiment scoring via Jigsawstack on every signal title before ship.
 import os
 import json
 import logging
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 log = logging.getLogger("agentnet.scanner")
@@ -186,7 +186,7 @@ def _scan_github_trending() -> list:
     """Scan GitHub for trending repos pushed in last 30 days."""
     import urllib.request
     GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
-    url = "https://api.github.com/search/repositories?q=stars:>100+pushed:>2026-01-25&sort=stars&order=desc&per_page=15"
+    url = _github_trending_search_url()
     headers = {"User-Agent": "evez-agentnet/1.0", "Accept": "application/vnd.github.v3+json"}
     if GITHUB_TOKEN:
         headers["Authorization"] = f"token {GITHUB_TOKEN}"
@@ -203,6 +203,16 @@ def _scan_github_trending() -> list:
         "url": repo.get("html_url", ""),
         "opportunity": "tutorial_or_integration",
     } for repo in data.get("items", [])]
+
+
+def _github_trending_search_url(days_back: int = 30) -> str:
+    """Build GitHub search URL with a rolling pushed date filter."""
+    pushed_after = (datetime.now(timezone.utc) - timedelta(days=days_back)).date().isoformat()
+    query = f"stars:>100 pushed:>{pushed_after}"
+    return (
+        "https://api.github.com/search/repositories"
+        f"?q={query.replace(' ', '+')}&sort=stars&order=desc&per_page=15"
+    )
 
 
 def _scan_twitter_live() -> list:
