@@ -12,11 +12,13 @@ import logging
 import urllib.request
 from typing import Optional
 
+import nacl.public
+
 log = logging.getLogger("agentnet.browser_agent.vault")
 
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
-REPO_OWNER = "EvezArt"
-REPO_NAME = "evez-agentnet"
+REPO_OWNER = os.environ.get("GITHUB_REPO_OWNER", "EvezArt")
+REPO_NAME = os.environ.get("GITHUB_REPO_NAME", "evez-agentnet")
 
 
 def get(key: str) -> Optional[str]:
@@ -58,7 +60,6 @@ def _get_public_key() -> tuple:
 
 
 def _encrypt(public_key_bytes: bytes, secret_value: str) -> str:
-    import nacl.public
     pub_key = nacl.public.PublicKey(public_key_bytes)
     sealed = nacl.public.SealedBox(pub_key)
     encrypted = sealed.encrypt(secret_value.encode())

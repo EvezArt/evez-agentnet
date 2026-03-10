@@ -35,6 +35,7 @@ class BrowserAgent:
     def __init__(self, profile_id: str, otp_sender_domain: str = ""):
         self.profile_id = profile_id
         self.otp_sender = otp_sender_domain
+        self._last_otp: Optional[dict] = None
         self.profiles = self._load_profiles()
 
     # ------------------------------------------------------------------ #
@@ -78,6 +79,8 @@ class BrowserAgent:
     # ------------------------------------------------------------------ #
 
     def _start_task(self, task: str, start_url: str = "") -> str:
+        if not HYPERBROWSER_API_KEY:
+            raise RuntimeError("HYPERBROWSER_API_KEY is required for browser tasks")
         profile_id = self._get_or_create_profile()
         payload = {
             "task": task,

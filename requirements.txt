@@ -6,3 +6,6 @@ python-dotenv>=1.0.0
 
 # Optional: lightweight Claude runtime
 anthropic>=0.34.0
+
+# Browser agent secret encryption
+PyNaCl>=1.5.0

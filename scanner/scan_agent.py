@@ -13,6 +13,7 @@ import json
 import logging
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from urllib.parse import quote_plus
 
 log = logging.getLogger("agentnet.scanner")
 
@@ -211,7 +212,7 @@ def _github_trending_search_url(days_back: int = 30) -> str:
     query = f"stars:>100 pushed:>{pushed_after}"
     return (
         "https://api.github.com/search/repositories"
-        f"?q={query.replace(' ', '+')}&sort=stars&order=desc&per_page=15"
+        f"?q={quote_plus(query)}&sort=stars&order=desc&per_page=15"
     )
 
 
