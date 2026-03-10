@@ -3,3 +3,6 @@
 # Python 3.10+
 requests>=2.31.0
 python-dotenv>=1.0.0
+
+# Optional: lightweight Claude runtime
+anthropic>=0.34.0
