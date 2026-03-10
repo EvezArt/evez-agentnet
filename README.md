@@ -111,6 +111,22 @@ Reputation IS the safety basin — maps directly to evez-os `truth_plane`:
 | 0.40-0.60 | HYPER | generate only |
 | < 0.40 | THEATRICAL | blocked, evidence-seeking |
 
+
+## Extensions and adapters
+
+`evez-agentnet` currently ships extension-like adapters under `browser_agent/`:
+
+- `browser_agent/tasks/groq_login.py` — Hyperbrowser automation task to rotate/recover GROQ keys and write repo secrets.
+- `browser_agent/tasks/twitter_bearer.py` — Hyperbrowser automation task to recover Twitter bearer token and write repo secrets.
+- `browser_agent/otp_relay.py` — Gmail OTP/magic-link relay used by browser tasks.
+- `browser_agent/credential_vault.py` — GitHub Actions secret writer (`GITHUB_REPO_OWNER`/`GITHUB_REPO_NAME` override supported).
+
+### Smoke tests
+
+```bash
+python -m unittest discover -s tests -p 'test_*.py'
+```
+
 ## License
 
 Copyright © Steven Crawford-Maggard (EVEZ666). All rights reserved.  
