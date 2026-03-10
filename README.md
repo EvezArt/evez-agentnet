@@ -88,6 +88,17 @@ crontab -e
 # Add: */30 * * * * cd /path/to/evez-agentnet && python orchestrator.py >> logs/run.log 2>&1
 ```
 
+
+### Secret Level Autoplay (OpenClaw + EVEZ Lord.exe)
+
+Run the recursive game sim until secret levels unlock and spawn living entities:
+
+```bash
+python -m worldsim.play_secret_levels
+```
+
+This writes `worldsim/secret_levels_state.json` with unlocked levels and spawned entities.
+
 ## WorldSim: Reputation Staking
 
 Agents bid on tasks using a budget. Lying (hallucinating, low sigma_f output) costs reputation.
