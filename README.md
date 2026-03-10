@@ -1,6 +1,6 @@
 # evez-agentnet
 
-**Scan. Predict. Generate. Ship.**
+**Scan. Predict. Generate. Review. Approve. Dispatch.**
 
 Income-generating multi-agent swarm built on the EVEZ-OS spine.
 
@@ -17,7 +17,8 @@ Status: R37 cross_agent_governance building
 | `scanner/` | Pull live signals (jobs, markets, GitHub, Twitter trends, Polymarket) | `scan_results.jsonl` |
 | `predictor/` | Rank opportunities, synthesize signals (Groq llama-3.3-70b) | `predictions.jsonl` |
 | `generator/` | Draft deliverables (reports, tweets, Gumroad products, code) | `drafts/` |
-| `shipper/` | Post to Twitter, upload to Gumroad, commit to GitHub | `ship_log.jsonl` |
+| `review_queue/` | Queue drafts for human review + approval records | `review_queue.jsonl`, `approvals.jsonl` |
+| `shipper/` | Dispatch approved drafts to Twitter/Gumroad/GitHub | `ship_log.jsonl` |
 | `worldsim/` | Internal economy: agents bid on tasks, reputation staking | `worldsim_state.json` |
 | `spine/` | EVEZ provenance: append-only events, hash chain, replay | `spine.jsonl` |
 
@@ -37,11 +38,13 @@ evez-agentnet/
     gumroad_gen.py    # product descriptions + pricing
     code_gen.py       # code artifacts
     generate_agent.py
+  review_queue/
+    dispatcher.py      # review_queue -> human_approve
   shipper/
     twitter_ship.py
     gumroad_ship.py
     github_ship.py
-    ship_agent.py
+    ship_agent.py      # dispatch approved drafts
   worldsim/
     economy.py        # budget/resource/reputation state
     agent_market.py   # agents bid on tasks
@@ -51,7 +54,7 @@ evez-agentnet/
     spine.py          # append-only JSONL writer
     hash_chain.py     # sha256 commitment chain
     replay.py         # deterministic replay
-  orchestrator.py     # main loop: scan -> predict -> generate -> ship
+  orchestrator.py     # main loop: scan -> predict -> generate -> review_queue -> human_approve -> dispatch
   config.py           # env vars, API keys, targets
   requirements.txt
 ```
@@ -59,10 +62,24 @@ evez-agentnet/
 ## Revenue Loop
 
 ```
-scan() -> rank_opportunities() -> generate_deliverable() -> ship() -> earn()
+scan() -> rank_opportunities() -> generate_deliverable() -> review_queue() -> human_approve() -> dispatch()
 ```
 
 One full loop runs every 30 minutes (synced with evez-os hyperloop).
+
+Root policy preset for the defensive control-room build lives in `defensive-war-room.json`.
+
+
+## ESIU: Event Source Investigation Unit
+
+A defensive investigation module is available under `esiu/` for suspicious event tracing and isolation recommendations with human-approval gates for high-severity actions.
+
+Quick run:
+
+```bash
+python -m pytest tests/test_esiu.py -q
+uvicorn esiu.api:app --reload
+```
 
 ## Termux (Android) Setup
 

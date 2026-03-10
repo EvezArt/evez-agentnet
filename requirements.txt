@@ -1,5 +1,9 @@
 # evez-agentnet requirements
-# No heavy deps -- stdlib + optional Groq for AI synthesis
-# Python 3.10+
+# Core runtime deps
 requests>=2.31.0
 python-dotenv>=1.0.0
+
+# ESIU API (defensive event investigation surface)
+fastapi>=0.115.0
+uvicorn>=0.30.0
+pydantic>=2.8.0

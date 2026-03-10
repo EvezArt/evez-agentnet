@@ -1,0 +1,19 @@
+{
+  "project_name": "defensive-war-room",
+  "mode": "human-in-the-loop",
+  "default_action_policy": "review_required",
+  "event_store": "jsonl",
+  "provenance_store": "spine/spine.jsonl",
+  "ui_panels": [
+    "event_timeline",
+    "node_status",
+    "review_queue",
+    "simulation_hud",
+    "vault_status"
+  ],
+  "forbidden_capabilities": [
+    "autonomous targeting",
+    "weaponization",
+    "self-authorizing execution"
+  ]
+}

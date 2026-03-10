@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 evez-agentnet/orchestrator.py
-Main loop: scan -> predict -> generate -> ship -> earn.
+Main loop: scan -> predict -> generate -> review_queue -> human_approve -> dispatch/log.
 Runs every 30 min. Built on EVEZ-OS spine provenance.
 Creator: Steven Crawford-Maggard (EVEZ666)
 """
@@ -49,6 +49,7 @@ def load_state() -> dict:
             "predictor": {"reputation": 0.90, "tasks_completed": 0},
             "generator": {"reputation": 0.90, "tasks_completed": 0},
             "shipper": {"reputation": 0.90, "tasks_completed": 0},
+            "reviewer": {"reputation": 1.00, "tasks_completed": 0},
         },
         "last_scan": None,
         "last_ship": None,
@@ -126,27 +127,26 @@ def run_generate(predictions: list, state: dict) -> list:
         return []
 
 
-def run_ship(drafts: list, state: dict) -> float:
-    """Shipper agent: post approved drafts to Twitter/Gumroad/GitHub."""
-    if not drafts:
+def run_dispatch(approved_drafts: list, state: dict) -> float:
+    """Dispatch approved drafts to external channels."""
+    if not approved_drafts:
         return 0.0
     from shipper.ship_agent import run as ship_run
     reputation = state["agents"]["shipper"]["reputation"]
     tp = truth_plane(reputation)
-    # Require VERIFIED+ to ship
     if tp in ("HYPER", "THEATRICAL"):
-        log.warning(f"Shipper gated -- truth_plane={tp}, skipping")
+        log.warning(f"Dispatcher gated -- truth_plane={tp}, skipping")
         return 0.0
     try:
-        earned = ship_run(drafts)
+        earned = ship_run(approved_drafts)
         state["agents"]["shipper"]["tasks_completed"] += 1
         state["last_ship"] = datetime.now(timezone.utc).isoformat()
-        append_spine("ship_complete", {"earned_usd": earned, "truth_plane": tp})
+        append_spine("dispatch_complete", {"earned_usd": earned, "truth_plane": tp})
         return earned
     except Exception as e:
-        log.error(f"Ship failed: {e}")
+        log.error(f"Dispatch failed: {e}")
         state["agents"]["shipper"]["reputation"] = max(0.0, reputation - 0.05)
-        append_spine("ship_failed", {"error": str(e)})
+        append_spine("dispatch_failed", {"error": str(e)})
         return 0.0
 
 
@@ -166,9 +166,20 @@ def main():
     drafts = run_generate(predictions, state)
     log.info(f"Generate: {len(drafts)} drafts")
 
-    earned = run_ship(drafts, state)
+    from review_queue.dispatcher import enqueue_for_review, human_approve
+
+    queue_items = enqueue_for_review(drafts, rnd)
+    append_spine("review_queue_enqueued", {"count": len(queue_items)})
+    log.info(f"Review queue: {len(queue_items)} pending")
+
+    approved_drafts = human_approve(queue_items)
+    state["agents"]["reviewer"]["tasks_completed"] += len(approved_drafts)
+    append_spine("review_completed", {"approved_count": len(approved_drafts)})
+    log.info(f"Human approve: {len(approved_drafts)} approved")
+
+    earned = run_dispatch(approved_drafts, state)
     state["total_earned_usd"] += earned
-    log.info(f"Ship: ${earned:.2f} earned | Total: ${state['total_earned_usd']:.2f}")
+    log.info(f"Dispatch: ${earned:.2f} earned | Total: ${state['total_earned_usd']:.2f}")
 
     append_spine("round_end", {
         "round": rnd,
