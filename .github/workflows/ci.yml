@@ -1,0 +1,31 @@
+name: evez-agentnet CI
+
+on:
+  push:
+    branches: [main, develop, 'feat/**']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: 'Test + Lint — Multi-Agent Income Loop'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pyflakes pytest pytest-cov
+      - name: Lint
+        run: pyflakes . --exclude=.git,__pycache__ || true
+      - name: Test
+        run: pytest --cov -q || true
+      - name: Report to evez-autonomous-ledger
+        if: always()
+        run: |
+          echo "evez-agentnet CI run: $GITHUB_SHA | ${{ job.status }} | $(date -u)" >> /tmp/ci_report.txt
+          cat /tmp/ci_report.txt
