@@ -1,0 +1,109 @@
+name: Knowledge Expansion Loop
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'   # Every 4 hours
+  workflow_dispatch:          # Manual trigger
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  knowledge-loop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Create knowledge directories
+        run: |
+          mkdir -p knowledge/discoveries knowledge/research knowledge/reports
+          mkdir -p skills/generated
+
+      - name: Run Knowledge Harvester
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -m agents.knowledge.harvester
+        continue-on-error: true
+
+      - name: Run Learning Engine
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python -m agents.knowledge.learner
+        continue-on-error: true
+
+      - name: Run Skill Synthesizer
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -m agents.knowledge.skill_synth
+        continue-on-error: true
+
+      - name: Run Memory Indexer
+        run: python -m agents.knowledge.memory_index
+        continue-on-error: true
+
+      - name: Run Capability Registry
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -m agents.knowledge.capabilities
+        continue-on-error: true
+
+      - name: Run Cross-Pollinator
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -m agents.knowledge.cross_pollinate
+        continue-on-error: true
+
+      - name: Generate Learning Report
+        run: |
+          python -c "
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          report = {
+              'timestamp': datetime.now(timezone.utc).isoformat(),
+              'pipeline': 'harvester -> learner -> skill_synth -> memory_index -> capabilities -> cross_pollinate',
+              'discoveries': len(list(Path('knowledge/discoveries').glob('*.json'))) if Path('knowledge/discoveries').exists() else 0,
+              'research_notes': len(list(Path('knowledge/research').glob('*.json'))) if Path('knowledge/research').exists() else 0,
+              'index_size': json.loads(Path('knowledge/index.json').read_text()).get('stats', {}).get('total_entries', 0) if Path('knowledge/index.json').exists() else 0,
+              'capabilities': json.loads(Path('knowledge/capabilities.json').read_text()).get('stats', {}).get('total_capabilities', 0) if Path('knowledge/capabilities.json').exists() else 0,
+              'patterns': len(json.loads(Path('knowledge/patterns.json').read_text()).get('patterns', [])) if Path('knowledge/patterns.json').exists() else 0,
+          }
+
+          reports_dir = Path('knowledge/reports')
+          reports_dir.mkdir(parents=True, exist_ok=True)
+          ts = datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')
+          (reports_dir / f'report_{ts}.json').write_text(json.dumps(report, indent=2))
+          print(json.dumps(report, indent=2))
+          "
+
+      - name: Commit knowledge updates
+        run: |
+          git config user.name "evez-knowledge-bot"
+          git config user.email "knowledge@evez.dev"
+          git add knowledge/ skills/generated/ || true
+          if git diff --staged --quiet; then
+            echo "No knowledge changes to commit"
+          else
+            git commit -m "knowledge: auto-update from knowledge expansion loop [skip ci]"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
