@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
     name: 'Test + Lint — Multi-Agent Income Loop'
     steps:
       - uses: actions/checkout@v4
