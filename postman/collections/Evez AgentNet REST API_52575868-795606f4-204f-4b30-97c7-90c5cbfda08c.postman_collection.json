@@ -1,0 +1,849 @@
+{
+  "info": {
+    "_postman_id": "795606f4-204f-4b30-97c7-90c5cbfda08c",
+    "name": "Evez AgentNet REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Content Agent",
+      "item": [
+        {
+          "name": "List Ideas",
+          "id": "d0f36e0c-ce4f-4ae3-a8a3-95f88551509a",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/content/ideas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "content",
+                "ideas"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "679ae8f3-f66b-40de-9c15-9e90b85ac55f",
+              "name": "List Ideas Example",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"id\":\"idea_1\",\"title\":\"Decentralized agent scheduling\",\"status\":\"draft\"}]"
+            }
+          ]
+        },
+        {
+          "name": "Create Idea",
+          "id": "f86e69fa-df41-4778-b8c0-b65abdeb11db",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"title\":\"New content workflow\",\"description\":\"Automation suggestions\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/content/ideas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "content",
+                "ideas"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c8ee32d4-f99b-4e28-b7a9-a2a9b9e96540",
+              "name": "Create Idea Example",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"id\":\"idea_2\",\"title\":\"New content workflow\",\"status\":\"draft\"}"
+            }
+          ]
+        },
+        {
+          "name": "Draft Workflow",
+          "id": "4890476e-9001-43b5-9b8d-d723da8f1aea",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"ideaId\":\"idea_1\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/content/drafts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "content",
+                "drafts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3a62530f-c8e9-4e2b-ba9c-73ec29dc0532",
+              "name": "Draft Workflow Example",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"draftId\":\"draft_1\",\"ideaId\":\"idea_1\",\"status\":\"in_queue\"}"
+            }
+          ]
+        },
+        {
+          "name": "Weekly Content Plan",
+          "id": "1bb34730-6a34-4fc0-a5f4-bab0b0586155",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/content/plans/weekly",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "content",
+                "plans",
+                "weekly"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a3e6fc0d-fcb0-4158-9b22-6e9a113720c5",
+              "name": "Weekly Content Plan Example",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"week\":\"2024-W24\",\"items\":[{\"draftId\":\"draft_1\",\"day\":\"Monday\"}]}]"
+            }
+          ]
+        }
+      ],
+      "id": "7484105c-40bd-42e3-9b5d-c4ac311372bb"
+    },
+    {
+      "name": "Research Agent",
+      "item": [
+        {
+          "name": "List Questions",
+          "id": "7d58f5b5-b512-40ab-a5cc-a4184dcb11eb",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/research/questions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "research",
+                "questions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "343cba9a-7144-4f14-80d3-102f7d5c091e",
+              "name": "List Questions Example",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"id\":\"q_1\",\"text\":\"What is agent orchestration?\"}]"
+            }
+          ]
+        },
+        {
+          "name": "Submit Finding",
+          "id": "ce13e633-41f6-41c9-a3db-fae4be727d84",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"questionId\":\"q_1\",\"finding\":\"Agent orchestration automates multi-agent tasks\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/research/findings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "research",
+                "findings"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9009a112-a922-45a0-9fa3-96fee95f0db2",
+              "name": "Submit Finding Example",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"findingId\":\"f_1\",\"questionId\":\"q_1\",\"finding\":\"Agent orchestration automates multi-agent tasks\"}"
+            }
+          ]
+        },
+        {
+          "name": "Daily Morning Brief",
+          "id": "26d98d71-76c6-4d1b-9a9a-92266c63f246",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/research/briefs/daily",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "research",
+                "briefs",
+                "daily"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "027bd9c9-275b-46f2-9151-5cb9a680f694",
+              "name": "Daily Morning Brief Example",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"date\":\"2024-06-08\",\"questions\":[{\"id\":\"q_1\",\"brief\":\"Automated agent orchestration research\"}]}]"
+            }
+          ]
+        },
+        {
+          "name": "New Request",
+          "id": "6d418af0-3c07-4f4a-9106-61776f8d16cc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ],
+      "id": "d7ca886a-9360-4108-8fcd-44990e810c7d"
+    },
+    {
+      "name": "Team Pulse",
+      "item": [
+        {
+          "name": "Get Daily Pulse",
+          "id": "87afcd4e-eca1-43b1-8b0e-891329137b94",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/pulse/daily",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pulse",
+                "daily"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "85dba0e9-27a8-4c56-995f-131fbe60ce69",
+              "name": "Get Daily Pulse Example",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"date\":\"2024-06-08\",\"summary\":\"Key discussions: Workflow triggers, role orchestration\"}"
+            }
+          ]
+        },
+        {
+          "name": "List Triggers",
+          "id": "1d617219-155e-4ef8-a0c9-19109d6761a1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/pulse/triggers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pulse",
+                "triggers"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a90e9278-bce6-400a-99d4-e562a141c036",
+              "name": "List Triggers Example",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"type\":\"mention\"},{\"type\":\"reaction\"}]"
+            }
+          ]
+        }
+      ],
+      "id": "a6faa22a-e99c-4190-836d-a979195b3950"
+    },
+    {
+      "name": "Sales Pipeline",
+      "item": [
+        {
+          "name": "List Deals",
+          "id": "5f1b7257-5fe3-4ab2-8d3a-469667d00c04",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/sales/deals",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sales",
+                "deals"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bd0e7c18-dadd-47f4-a67e-061daf8211dc",
+              "name": "List Deals Example",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"id\":\"deal_1\",\"stage\":\"contacted\",\"nextAction\":\"Demo scheduled\"}]"
+            }
+          ]
+        },
+        {
+          "name": "Move Deal",
+          "id": "d618eeab-9765-4e2b-bb40-31d7ce84a647",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"dealId\":\"deal_1\",\"stage\":\"negotiation\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sales/deals/move",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sales",
+                "deals",
+                "move"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b8dd2141-34bc-44fe-a40c-ee71380c8bbf",
+              "name": "Move Deal Example",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"dealId\":\"deal_1\",\"stage\":\"negotiation\"}"
+            }
+          ]
+        }
+      ],
+      "id": "11de0baf-5574-40fa-a511-8c988ef57d95"
+    },
+    {
+      "name": "Dev Status",
+      "item": [
+        {
+          "name": "List Issues",
+          "id": "d0cf8028-4345-4544-ac2f-cf339be5dbf7",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/dev/issues",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dev",
+                "issues"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f715c854-d678-4d80-a711-32304b0e2cf3",
+              "name": "List Issues Example",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"id\":\"iss_1\",\"title\":\"Webhook reliability\",\"status\":\"open\"}]"
+            }
+          ]
+        },
+        {
+          "name": "Create PR",
+          "id": "1f29d251-b48c-4d29-bbb9-8d30ffc9bc8b",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"issueId\":\"iss_1\",\"branch\":\"fix/webhooks\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/dev/prs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dev",
+                "prs"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c84a8b44-08e9-4099-8e1c-9e26a6d63383",
+              "name": "Create PR Example",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"prId\":\"pr_1\",\"issueId\":\"iss_1\",\"status\":\"opened\"}"
+            }
+          ]
+        },
+        {
+          "name": "Weekly Engineering Digest",
+          "id": "614a080c-0f77-4c99-989e-c9c0e0c1da0d",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/dev/weekly-digest",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dev",
+                "weekly-digest"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "83d175fa-c6fd-4795-ae87-b5480e4bd773",
+              "name": "Weekly Engineering Digest Example",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"week\":\"2024-W24\",\"summary\":\"Closed 5 issues, merged 3 PRs\"}"
+            }
+          ]
+        }
+      ],
+      "id": "beaa8df0-f9e6-4ffb-ab26-775660924f59"
+    },
+    {
+      "name": "Agent Control",
+      "item": [
+        {
+          "name": "Schedule Command",
+          "id": "1909ce88-c775-4305-b01d-f6ac586f3f11",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"role\":\"editor\",\"command\":\"review-drafts\",\"runAt\":\"2024-06-09T09:00:00Z\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agents/control/schedule",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agents",
+                "control",
+                "schedule"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "68b978a1-a8c8-408f-be2c-65b59ca52d85",
+              "name": "Schedule Command Example",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"id\":\"cmd_1\",\"role\":\"editor\",\"command\":\"review-drafts\",\"scheduled\":true}"
+            }
+          ]
+        },
+        {
+          "name": "Agent State Change",
+          "id": "6b4be103-7305-443c-ad3f-80e27e2ba481",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agentId\":\"agent_1\",\"state\":\"idle\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/agents/control/state",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agents",
+                "control",
+                "state"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e6959a7d-e248-488d-b377-497c49d9f8e1",
+              "name": "Agent State Change Example",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"agentId\":\"agent_1\",\"state\":\"idle\"}"
+            }
+          ]
+        }
+      ],
+      "id": "41d575db-1314-4fea-8871-c2b72fcd53a5"
+    },
+    {
+      "name": "Workspace Assistant",
+      "item": [
+        {
+          "name": "Suggest Next Action",
+          "id": "3e8ce869-c36a-41bf-b929-b2edde95f82a",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"userId\":\"user_1\",\"context\":\"editing-draft\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/workspace/assistant/next-action",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workspace",
+                "assistant",
+                "next-action"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "050681a0-683a-4149-9da6-81b760354f17",
+              "name": "Suggest Next Action Example",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"action\":\"Submit for review\",\"confidence\":0.89}"
+            }
+          ]
+        }
+      ],
+      "id": "c212692d-3b4b-499c-9b9b-dcdfd553e73b"
+    },
+    {
+      "name": "Core Workspace",
+      "item": [
+        {
+          "name": "Workspace State",
+          "id": "46105a67-2e73-4fcf-8581-43b01c748bff",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/workspace/state",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workspace",
+                "state"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d933458d-ff1a-46dc-b835-016abe2b39cd",
+              "name": "Workspace State Example",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"projects\":[{\"id\":\"p_1\",\"name\":\"Content Agent\",\"state\":\"active\"}]}"
+            }
+          ]
+        },
+        {
+          "name": "New Request",
+          "id": "b5e6b2f4-b838-496d-8e79-2de4e39f38ec",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ],
+      "id": "bad1e792-125f-4b93-ae92-e5b328303037"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.evez-agentnet.dev"
+    }
+  ]
+}

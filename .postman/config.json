@@ -1,0 +1,19 @@
+{
+  "workspace": {
+    "id": "e8cd3c39-c456-4bf5-8b89-57a5bd8dd569"
+  },
+  "entities": {
+    "collections": [
+      "../postman/collections/My Collection_52575868-5d5653f4-14fa-46d8-9593-9de68948e9e3.postman_collection.json",
+      "../postman/collections/Evez AgentNet REST API_52575868-795606f4-204f-4b30-97c7-90c5cbfda08c.postman_collection.json",
+      "../postman/collections/Evez AgentNet REST API_52575868-9b9f976e-f06f-41b6-b3a0-3aee945cc027.postman_collection.json",
+      "../postman/collections/My Collection_52575868-f5168b1f-14de-4e12-a4b6-1ece598c29ef.postman_collection.json"
+    ],
+    "environments": [
+      "../postman/environments/New Environment_52575868-cbc73114-2b07-4140-914c-5bb73315ef94.postman_environment.json"
+    ],
+    "specs": [],
+    "flows": [],
+    "globals": []
+  }
+}
