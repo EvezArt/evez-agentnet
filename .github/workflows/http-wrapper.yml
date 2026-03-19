@@ -1,0 +1,28 @@
+name: evez-agentnet-http-wrapper
+
+on:
+  push:
+    branches: [main, 'feat/**']
+  pull_request:
+    branches: [main]
+
+jobs:
+  http-wrapper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install base deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f requirements-http.txt ]; then pip install -r requirements-http.txt; fi
+      - name: Smoke import
+        run: |
+          python -c "from api.main import app; print(app.title)"
+          python -c "from agents.spine_bridge import fire_task_complete; print(callable(fire_task_complete))"
+      - name: Version contract
+        run: |
+          python scripts/check_versions.py || true
