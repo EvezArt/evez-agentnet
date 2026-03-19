@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "ecosystem": "evez-agentnet",
+  "updated_at": "2026-03-19",
+  "versions": {
+    "python": "3.11",
+    "requests": ">=2.31.0",
+    "python-dotenv": ">=1.0.0",
+    "anthropic": ">=0.34.0"
+  }
+}
