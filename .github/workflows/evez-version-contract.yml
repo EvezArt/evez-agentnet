@@ -1,0 +1,54 @@
+name: evez-agentnet-version-contract
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependency floor
+        run: pip install -r requirements.txt
+
+      - name: Validate .evez-versions structure
+        run: |
+          python - <<'PY'
+          import json
+          import pathlib
+
+          path = pathlib.Path('.evez-versions')
+          if not path.exists():
+              raise SystemExit('Missing .evez-versions')
+
+          data = json.loads(path.read_text(encoding='utf-8'))
+          if data.get('schema') != 1:
+              raise SystemExit(f"Expected schema=1, found {data.get('schema')!r}")
+          if data.get('ecosystem') != 'evez-agentnet':
+              raise SystemExit(f"Expected ecosystem=\"evez-agentnet\", found {data.get('ecosystem')!r}")
+
+          versions = data.get('versions')
+          if not isinstance(versions, dict):
+              raise SystemExit('versions must be an object')
+
+          required = {'python', 'requests', 'python-dotenv', 'anthropic'}
+          missing = sorted(required - set(versions))
+          if missing:
+              raise SystemExit(f'Missing required version specs: {missing}')
+
+          print('Contract structure OK')
+          PY
+
+      - name: Compile checker
+        run: python -m py_compile scripts/check_versions.py
+
+      - name: Validate installed versions against contract
+        run: python scripts/check_versions.py
