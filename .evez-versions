@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "ecosystem": "evez",
+  "updated_at": "2026-03-19",
+  "versions": {
+    "python": "3.11",
+    "fastapi": "0.115.0",
+    "uvicorn": "0.30.0",
+    "httpx": "0.27.0",
+    "groq": "0.9.0",
+    "agno": "1.2.0",
+    "evez-os": "0.1.0",
+    "evez-agentnet": "1.0.0",
+    "openclaw": "2.1.0"
+  }
+}
