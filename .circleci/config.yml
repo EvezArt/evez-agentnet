@@ -1,0 +1,20 @@
+version: 2.1
+
+jobs:
+  validate:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: Validate runtime scaffold
+          command: |
+            test -f apps/evez-os-runtime/index.html
+            test -f apps/evez-os-runtime/app.js
+            test -f apps/evez-os-runtime/styles.css
+            echo "EVEZ OS runtime scaffold present."
+
+workflows:
+  runtime-check:
+    jobs:
+      - validate
