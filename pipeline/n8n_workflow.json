@@ -1,0 +1,59 @@
+{
+  "name": "EVEZ AGI Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "evez-agi",
+        "responseMode": "responseNode"
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $input.first().json;\nconst runId = body.run_id || 'unknown';\nconst results = body.results || [];\nconst best = results.sort((a,b) => (a.latency_ms||9999)-(b.latency_ms||9999))[0] || {};\nreturn [{json: {run_id: runId, best_model: best.model, latency_ms: best.latency_ms, content: (best.content||'').slice(0,300), hash: best.hash, ts: new Date().toISOString()}}];"
+      },
+      "name": "Extract Best Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{ $env.SLACK_WEBHOOK_URL }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "=*n8n → EVEZ AGI* `{{ $json.run_id.slice(0,12) }}`\nModel: `{{ $json.best_model }}` @ `{{ $json.latency_ms }}ms`\n{{ $json.content }}"
+            }
+          ]
+        }
+      },
+      "name": "Post to Slack",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ok: true, run_id: $('Extract Best Result').first().json.run_id}) }}"
+      },
+      "name": "Respond",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {"main": [[{"node": "Extract Best Result", "type": "main", "index": 0}]]},
+    "Extract Best Result": {"main": [[{"node": "Post to Slack", "type": "main", "index": 0}]]},
+    "Post to Slack": {"main": [[{"node": "Respond", "type": "main", "index": 0}]]}
+  },
+  "settings": {"executionOrder": "v1"}
+}
