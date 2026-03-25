@@ -1,0 +1,28 @@
+# .github/workflows/daemon_health.yml — evez-agentnet
+# Keeps Vercel daemon alive by pinging /api/daemon every 5 min.
+# Resolves: evez-agentnet#15
+
+name: Daemon Health Ping
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping daemon
+        run: |
+          URL="${DAEMON_URL:-https://evez-agentnet.vercel.app/api/daemon}"
+          echo "Pinging $URL"
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL" --max-time 20 || echo "000")
+          echo "Response: $STATUS"
+          if [ "$STATUS" = "200" ]; then
+            echo "Daemon healthy."
+          else
+            echo "WARNING: Daemon returned $STATUS"
+          fi
+        env:
+          DAEMON_URL: ${{ secrets.DAEMON_URL }}

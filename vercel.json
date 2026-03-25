@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/daemon.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/daemon",
+      "dest": "api/daemon.py"
+    },
+    {
+      "src": "/health",
+      "dest": "api/daemon.py"
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/daemon",
+      "schedule": "*/5 * * * *"
+    }
+  ]
+}
