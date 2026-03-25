@@ -2,6 +2,7 @@
 """
 evez-agentnet/orchestrator.py
 Main loop: scan -> predict -> generate -> ship -> earn.
+Also triggers OpenClaw secret level autoplay when enabled.
 Runs every 30 min. Built on EVEZ-OS spine provenance.
 Creator: Steven Crawford-Maggard (EVEZ666)
 """
@@ -22,6 +23,9 @@ STATE_PATH = Path("worldsim/worldsim_state.json")
 LOGS_PATH = Path("logs")
 LOGS_PATH.mkdir(exist_ok=True)
 SPINE_PATH.parent.mkdir(exist_ok=True)
+
+# OpenClaw integration flag
+OPENCLAW_ENABLED = os.environ.get("OPENCLAW_ENABLED", "1") == "1"
 
 
 def append_spine(event_type: str, data: dict):
@@ -52,6 +56,11 @@ def load_state() -> dict:
         },
         "last_scan": None,
         "last_ship": None,
+        "openclaw": {
+            "levels_cleared": 0,
+            "lord_unlocked": False,
+            "last_run": None,
+        },
     }
 
 
@@ -150,6 +159,55 @@ def run_ship(drafts: list, state: dict) -> float:
         return 0.0
 
 
+def run_openclaw(state: dict):
+    """OpenClaw agent: autoplay secret levels + optional LordBridge sync."""
+    if not OPENCLAW_ENABLED:
+        return
+    try:
+        from openclaw.agent import OpenClawAgent
+        from openclaw.engine import OpenClawEngine
+        from worldsim.secret_levels import SECRET_LEVELS
+
+        lord_enabled = os.environ.get("OPENCLAW_LORD", "0") == "1"
+        engine = OpenClawEngine(level_pack=SECRET_LEVELS)
+        agent = OpenClawAgent(agent_id="orchestrator-openclaw", engine=engine)
+
+        if lord_enabled:
+            from openclaw.lord_bridge import LordBridge
+            bridge = LordBridge()
+            bridge.sync_entropy()
+            agent.set_lord_bridge(bridge)
+            log.info("[OpenClaw] LordBridge entropy sync active")
+
+        results = []
+        for level_name in SECRET_LEVELS.keys():
+            result = agent.play_level(level_name)
+            results.append((level_name, result))
+
+        passed = sum(1 for _, r in results if r.get("success"))
+        log.info(f"[OpenClaw] {passed}/{len(results)} secret levels cleared")
+
+        # Update state
+        if "openclaw" not in state:
+            state["openclaw"] = {}
+        state["openclaw"]["levels_cleared"] = passed
+        state["openclaw"]["last_run"] = datetime.now(timezone.utc).isoformat()
+        if passed == len(results):
+            state["openclaw"]["lord_unlocked"] = True
+            log.info("[OpenClaw] ALL SECRET LEVELS CLEARED - EVEZ LORD PROTOCOL UNLOCKED")
+
+        append_spine("openclaw_run", {
+            "levels_cleared": passed,
+            "total_levels": len(results),
+            "lord_unlocked": state["openclaw"].get("lord_unlocked", False),
+        })
+    except ImportError:
+        log.warning("[OpenClaw] Module not available, skipping")
+    except Exception as e:
+        log.error(f"[OpenClaw] Run failed: {e}")
+        append_spine("openclaw_failed", {"error": str(e)})
+
+
 def main():
     state = load_state()
     state["round"] += 1
@@ -170,11 +228,15 @@ def main():
     state["total_earned_usd"] += earned
     log.info(f"Ship: ${earned:.2f} earned | Total: ${state['total_earned_usd']:.2f}")
 
+    # OpenClaw secret level autoplay
+    run_openclaw(state)
+
     append_spine("round_end", {
         "round": rnd,
         "earned_usd": earned,
         "total_earned_usd": state["total_earned_usd"],
         "agent_reputations": {k: v["reputation"] for k, v in state["agents"].items()},
+        "openclaw_cleared": state.get("openclaw", {}).get("levels_cleared", 0),
     })
     save_state(state)
     log.info(f"Round {rnd} complete.")
