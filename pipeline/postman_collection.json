@@ -1,0 +1,89 @@
+{
+  "info": {
+    "name": "EVEZ AGI Full Pipeline",
+    "_postman_id": "evez-agi-pipeline-v1",
+    "description": "End-to-end test: Vercel API → n8n → OpenRouter → Sentry → Slack. Target: evezart-285668.postman.co",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "vercel_url", "value": "https://evez-agentnet.vercel.app"},
+    {"key": "n8n_url",    "value": "{{N8N_WEBHOOK_URL}}"},
+    {"key": "openrouter_key", "value": "{{OPENROUTER_API_KEY}}"}
+  ],
+  "item": [
+    {
+      "name": "1. Health Check (GET)",
+      "request": {
+        "method": "GET",
+        "url": "{{vercel_url}}/api/pipeline"
+      },
+      "event": [{
+        "listen": "test",
+        "script": {"exec": [
+          "pm.test('Status 200', () => pm.response.to.have.status(200));",
+          "pm.test('Has run_id', () => { const b = pm.response.json(); pm.expect(b.run_id).to.be.a('string'); });"
+        ]}
+      }]
+    },
+    {
+      "name": "2. Full Pipeline (POST)",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": "{{vercel_url}}/api/pipeline",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"prompt\": \"EVEZ AGI — run full cognitive surface test across all systems\"}"
+        }
+      },
+      "event": [{
+        "listen": "test",
+        "script": {"exec": [
+          "pm.test('Status 200', () => pm.response.to.have.status(200));",
+          "pm.test('Has results array', () => { const b = pm.response.json(); pm.expect(b.results).to.be.an('array'); });",
+          "pm.test('Latency under 5s', () => pm.expect(pm.response.responseTime).to.be.below(5000));",
+          "pm.environment.set('last_run_id', pm.response.json().run_id);"
+        ]}
+      }]
+    },
+    {
+      "name": "3. n8n Webhook Direct",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": "{{n8n_url}}",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"run_id\": \"{{last_run_id}}\", \"results\": [{\"model\": \"test\", \"latency_ms\": 42, \"content\": \"n8n direct test\"}]}"
+        }
+      },
+      "event": [{
+        "listen": "test",
+        "script": {"exec": [
+          "pm.test('n8n responded', () => pm.response.to.have.status(200));"
+        ]}
+      }]
+    },
+    {
+      "name": "4. OpenRouter Direct",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{openrouter_key}}"},
+          {"key": "Content-Type",   "value": "application/json"}
+        ],
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"model\": \"openai/gpt-4o\", \"messages\": [{\"role\": \"user\", \"content\": \"EVEZ AGI Postman pipeline test\"}]}"
+        }
+      },
+      "event": [{
+        "listen": "test",
+        "script": {"exec": [
+          "pm.test('Has choices', () => { const b = pm.response.json(); pm.expect(b.choices).to.be.an('array'); });"
+        ]}
+      }]
+    }
+  ]
+}
