@@ -1,0 +1,46 @@
+{
+  "ranked": [
+    {
+      "source": "polymarket",
+      "title": "Open-source agent governance market spikes after model release",
+      "opportunity": "prediction_report",
+      "opportunity_score": 1.0,
+      "deliverable_type": "gumroad_report",
+      "action_plan": "Generate a governed-agent market report comparing fast autonomy stacks with checkpointed, lineage-aware runtimes. Package as a premium report and cross-post the thesis as a summary thread."
+    },
+    {
+      "source": "github_trending",
+      "title": "New lightweight runtime graph for local agents",
+      "opportunity": "tutorial_or_integration",
+      "opportunity_score": 0.63,
+      "deliverable_type": "github_post",
+      "action_plan": "Write an integration teardown showing how a lightweight local runtime can be combined with a governed cognition layer, proof receipts, and ship gating."
+    },
+    {
+      "source": "jobs",
+      "title": "AI operations lead roles mention audit trails and human override",
+      "opportunity": "twitter_thread",
+      "opportunity_score": 0.60,
+      "deliverable_type": "twitter_thread",
+      "action_plan": "Write a 5-part thread explaining why enterprises are hiring for governance, observability, and controlled autonomy instead of raw agent hype."
+    }
+  ],
+  "uncertainty": {
+    "entropy": 1.19,
+    "rival_count": 2,
+    "top_rivals": [
+      {
+        "title": "New lightweight runtime graph for local agents",
+        "source": "github_trending",
+        "opportunity": "tutorial_or_integration",
+        "opportunity_score": 0.63
+      },
+      {
+        "title": "AI operations lead roles mention audit trails and human override",
+        "source": "jobs",
+        "opportunity": "twitter_thread",
+        "opportunity_score": 0.60
+      }
+    ]
+  }
+}
