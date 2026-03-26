@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evez-agentnet.local/schemas/first-harvest-receipt.schema.json",
+  "title": "FirstHarvestReceipt",
+  "type": "object",
+  "required": [
+    "skill_id",
+    "version",
+    "event_id",
+    "timestamp",
+    "final_status",
+    "consistent",
+    "consistency_score",
+    "battery_pass",
+    "aggregate_score",
+    "min_rotation_score",
+    "commit_hash",
+    "lineage_hash"
+  ],
+  "properties": {
+    "skill_id": { "type": "string" },
+    "version": { "type": "string" },
+    "event_id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "final_status": { "type": "string", "enum": ["KEPT", "TEST"] },
+    "consistent": { "type": "boolean" },
+    "consistency_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "defeaters": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "battery_pass": { "type": "boolean" },
+    "aggregate_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "min_rotation_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "checkpoint_ref": { "type": "string" },
+    "receipt_ref": { "type": "string" },
+    "commit_hash": { "type": "string" },
+    "lineage_hash": { "type": "string" }
+  },
+  "additionalProperties": false
+}
