@@ -1,0 +1,34 @@
+{
+  "checkpoint_id": "demo-checkpoint-42",
+  "checkpoint_path": ".state/checkpoint-demo-checkpoint-42.json",
+  "lineage_hash": "demo-lineage-7f31b9a2",
+  "active_identity": "builder",
+  "action_mode": "construct",
+  "predictor_entropy": 1.19,
+  "rsi_branch_entropy": 1.47,
+  "branch_count": 7,
+  "unresolved_count": 4,
+  "dark_pressure_count": 2,
+  "build_queue_depth": 1,
+  "latest_ship_governance": {
+    "status": "shipped",
+    "reason": "passed",
+    "action_mode": "construct",
+    "unresolved_count": 4,
+    "predictor_entropy": 1.19,
+    "lineage_hash": "demo-lineage-7f31b9a2",
+    "draft_count": 2,
+    "earned_usd": 0.0
+  },
+  "recent_spine_events": [
+    "round_start",
+    "maes_tick",
+    "scan_complete",
+    "cognition_step",
+    "predict_complete",
+    "generate_complete",
+    "ship_governance",
+    "rsi_branch_injection",
+    "round_end"
+  ]
+}
