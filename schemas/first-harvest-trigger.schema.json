@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evez-agentnet.local/schemas/first-harvest-trigger.schema.json",
+  "title": "FirstHarvestTrigger",
+  "type": "object",
+  "required": [
+    "skill_id",
+    "event_id",
+    "timestamp",
+    "window_s",
+    "threshold_pct",
+    "quotes"
+  ],
+  "properties": {
+    "skill_id": { "type": "string" },
+    "event_id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "window_s": { "type": "number", "minimum": 1 },
+    "threshold_pct": { "type": "number", "minimum": 0 },
+    "goal_mode": {
+      "type": "string",
+      "enum": ["max_profit", "max_safety", "neutral"]
+    },
+    "source": { "type": "string" },
+    "quotes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "venue",
+          "pair",
+          "bid",
+          "ask",
+          "fee_bps",
+          "slippage_bps_est",
+          "freshness_ms"
+        ],
+        "properties": {
+          "venue": { "type": "string" },
+          "pair": { "type": "string" },
+          "bid": { "type": "number" },
+          "ask": { "type": "number" },
+          "fee_bps": { "type": "number" },
+          "slippage_bps_est": { "type": "number" },
+          "freshness_ms": { "type": "number", "minimum": 0 }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
