@@ -1,0 +1,32 @@
+[
+  {
+    "source": "polymarket",
+    "title": "Open-source agent governance market spikes after model release",
+    "opportunity": "prediction_report",
+    "volume_usd": 1850000,
+    "summary": "Traders are pricing in a sharp increase in demand for governed agent infrastructure after a major model launch.",
+    "signal_reason": "High-volume market + direct relevance to autonomous tooling"
+  },
+  {
+    "source": "github_trending",
+    "title": "New lightweight runtime graph for local agents",
+    "opportunity": "tutorial_or_integration",
+    "stars": 12800,
+    "summary": "A trending repo is gaining attention for low-latency local agent orchestration but lacks governance receipts and branch preservation.",
+    "signal_reason": "Strong integration angle against current governed runtime stack"
+  },
+  {
+    "source": "jobs",
+    "title": "AI operations lead roles mention audit trails and human override",
+    "opportunity": "twitter_thread",
+    "summary": "Enterprise postings increasingly ask for agent governance, observability, and approval chains rather than pure prompt engineering.",
+    "signal_reason": "Clear narrative fit for governance-focused content"
+  },
+  {
+    "source": "twitter_trends",
+    "title": "Debate rises over whether agent swarms are mostly theater",
+    "opportunity": "twitter_thread",
+    "summary": "Developers are questioning whether multi-agent stacks have real authority models or only roleplay wrappers around one model.",
+    "signal_reason": "Direct differentiation opportunity"
+  }
+]
