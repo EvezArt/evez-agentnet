@@ -1,0 +1,97 @@
+{
+  "flow_id": "stablecoin_dislocation_v1_flow",
+  "version": "0.1.0",
+  "description": "Webhook-triggered first harvest flow for stablecoin dislocation assertion with self-consistency, invariance battery, and ledger commit.",
+  "nodes": [
+    {
+      "id": "trigger_webhook",
+      "type": "trigger",
+      "kind": "webhook",
+      "path": "/api/first-harvest"
+    },
+    {
+      "id": "normalize_quotes",
+      "type": "compute",
+      "kind": "normalize_quotes"
+    },
+    {
+      "id": "assertion_check",
+      "type": "compute",
+      "kind": "binary_assertion",
+      "assertion": "A1 = normalized net-executable USDC/USDT spread > 2.5% for >=30s across >=2 venues"
+    },
+    {
+      "id": "self_consistency",
+      "type": "compute",
+      "kind": "self_consistency_check"
+    },
+    {
+      "id": "consistent_gate",
+      "type": "condition",
+      "expression": "consistent == true"
+    },
+    {
+      "id": "alert_or_retry",
+      "type": "action",
+      "kind": "alert_retry_test",
+      "status": "TEST"
+    },
+    {
+      "id": "invariance_battery",
+      "type": "compute",
+      "kind": "battery",
+      "rotations": [
+        "time_shift",
+        "state_shift",
+        "frame_shift",
+        "adversarial_shift",
+        "identity_goal_shift"
+      ]
+    },
+    {
+      "id": "battery_pass_gate",
+      "type": "condition",
+      "expression": "aggregate_score >= 0.90 && min_rotation_score >= 0.85 && assert_true == true"
+    },
+    {
+      "id": "hold_test",
+      "type": "action",
+      "kind": "hold_with_defeater_trace",
+      "status": "TEST"
+    },
+    {
+      "id": "mint_candidate",
+      "type": "action",
+      "kind": "mint_candidate",
+      "status": "MINT_CANDIDATE"
+    },
+    {
+      "id": "ledger_commit",
+      "type": "action",
+      "kind": "ledger_commit"
+    },
+    {
+      "id": "emit_proof_receipt",
+      "type": "action",
+      "kind": "emit_artifacts",
+      "artifacts": [
+        "proof",
+        "receipt"
+      ]
+    }
+  ],
+  "edges": [
+    ["trigger_webhook", "normalize_quotes"],
+    ["normalize_quotes", "assertion_check"],
+    ["assertion_check", "self_consistency"],
+    ["self_consistency", "consistent_gate"],
+    ["consistent_gate", "alert_or_retry", {"when": false}],
+    ["consistent_gate", "invariance_battery", {"when": true}],
+    ["invariance_battery", "battery_pass_gate"],
+    ["battery_pass_gate", "hold_test", {"when": false}],
+    ["battery_pass_gate", "mint_candidate", {"when": true}],
+    ["hold_test", "ledger_commit"],
+    ["mint_candidate", "ledger_commit"],
+    ["ledger_commit", "emit_proof_receipt"]
+  ]
+}
