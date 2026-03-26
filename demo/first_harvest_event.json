@@ -1,0 +1,38 @@
+{
+  "skill_id": "stablecoin_dislocation_v1",
+  "event_id": "evt_2026_03_26_0001",
+  "timestamp": "2026-03-26T05:01:00Z",
+  "window_s": 30,
+  "threshold_pct": 2.5,
+  "goal_mode": "neutral",
+  "source": "first_harvest_webhook",
+  "quotes": [
+    {
+      "venue": "venue_a",
+      "pair": "USDC/USDT",
+      "bid": 0.986,
+      "ask": 0.989,
+      "fee_bps": 10,
+      "slippage_bps_est": 18,
+      "freshness_ms": 220
+    },
+    {
+      "venue": "venue_b",
+      "pair": "USDC/USDT",
+      "bid": 1.013,
+      "ask": 1.016,
+      "fee_bps": 8,
+      "slippage_bps_est": 15,
+      "freshness_ms": 180
+    },
+    {
+      "venue": "venue_c",
+      "pair": "USDC/USDT",
+      "bid": 0.999,
+      "ask": 1.001,
+      "fee_bps": 12,
+      "slippage_bps_est": 14,
+      "freshness_ms": 4200
+    }
+  ]
+}
