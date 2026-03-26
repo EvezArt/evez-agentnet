@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evez-agentnet.local/schemas/first-harvest-proof.schema.json",
+  "title": "FirstHarvestProof",
+  "type": "object",
+  "required": [
+    "skill_id",
+    "version",
+    "assertion",
+    "result",
+    "raw_spread_pct",
+    "net_spread_bps",
+    "rotation_scores",
+    "aggregate_score",
+    "commit_hash",
+    "lineage_hash"
+  ],
+  "properties": {
+    "skill_id": { "type": "string" },
+    "version": { "type": "string" },
+    "assertion": { "type": "string" },
+    "result": { "type": "string", "enum": ["KEPT", "TEST"] },
+    "raw_spread_pct": { "type": "number" },
+    "net_spread_bps": { "type": "number" },
+    "aggregate_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "commit_hash": { "type": "string" },
+    "lineage_hash": { "type": "string" },
+    "rotation_scores": {
+      "type": "object",
+      "required": [
+        "time_shift",
+        "state_shift",
+        "frame_shift",
+        "adversarial_shift",
+        "identity_goal_shift"
+      ],
+      "properties": {
+        "time_shift": { "type": "number", "minimum": 0, "maximum": 1 },
+        "state_shift": { "type": "number", "minimum": 0, "maximum": 1 },
+        "frame_shift": { "type": "number", "minimum": 0, "maximum": 1 },
+        "adversarial_shift": { "type": "number", "minimum": 0, "maximum": 1 },
+        "identity_goal_shift": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
