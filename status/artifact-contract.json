@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_id": "artifact-round-0",
+  "artifact_type": "status_bundle",
+  "timestamp": "2026-03-27T04:20:00Z",
+  "producer": "orchestration/emit_governed_artifacts.py",
+  "path": "status/",
+  "content_hash": "",
+  "lineage": {
+    "execution_id": "round-0",
+    "event_hash": ""
+  },
+  "labels": ["governed", "status", "schema-bound"]
+}
