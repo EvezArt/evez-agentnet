@@ -14,6 +14,11 @@ import logging
 from datetime import datetime, timezone
 from pathlib import Path
 
+try:
+    from orchestration.emit_governed_artifacts import emit as emit_governed_artifacts
+except Exception:
+    emit_governed_artifacts = None
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 log = logging.getLogger("agentnet")
 
@@ -177,6 +182,15 @@ def main():
         "agent_reputations": {k: v["reputation"] for k, v in state["agents"].items()},
     })
     save_state(state)
+
+    if emit_governed_artifacts is not None:
+        try:
+            emit_governed_artifacts()
+            log.info("Governed artifacts emitted.")
+        except Exception as e:
+            log.error(f"Governed artifact emission failed: {e}")
+            append_spine("governed_artifacts_failed", {"round": rnd, "error": str(e)})
+
     log.info(f"Round {rnd} complete.")
 
 
