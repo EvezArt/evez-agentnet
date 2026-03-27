@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SystemState",
+  "description": "Canonical system state snapshot for evez-agentnet artifacts.",
+  "type": "object",
+  "required": ["schema_version", "state_id", "system", "timestamp", "status"],
+  "properties": {
+    "schema_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "state_id": { "type": "string" },
+    "system": { "type": "string" },
+    "component": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "status": { "type": "string", "enum": ["nominal", "degraded", "recovering", "failed", "paused"] },
+    "mode": { "type": "string", "enum": ["observe", "prepare", "construct", "ship", "hold"] },
+    "metrics": { "type": "object", "additionalProperties": { "type": ["number", "integer", "string", "boolean", "null"] } },
+    "notes": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}
