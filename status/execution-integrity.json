@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "execution_id": "round-0",
+  "timestamp": "2026-03-27T04:20:00Z",
+  "outcome": "degraded",
+  "checks": [
+    {
+      "name": "worldsim_state_present",
+      "status": "warning",
+      "details": "Seed artifact before live emission"
+    }
+  ],
+  "runtime": "python",
+  "transform_hash": "",
+  "event_hash": ""
+}
