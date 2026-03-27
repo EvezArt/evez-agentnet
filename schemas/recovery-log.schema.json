@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RecoveryLog",
+  "description": "Append-only record of recovery actions and replay attempts.",
+  "type": "object",
+  "required": ["schema_version", "recovery_id", "timestamp", "trigger", "action", "result"],
+  "properties": {
+    "schema_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "recovery_id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "trigger": { "type": "string" },
+    "action": { "type": "string" },
+    "result": { "type": "string", "enum": ["recovered", "retrying", "failed", "aborted"] },
+    "attempt": { "type": "integer", "minimum": 1 },
+    "related_execution_id": { "type": "string" },
+    "details": { "type": "object", "additionalProperties": { "type": ["string", "number", "boolean", "null"] } }
+  },
+  "additionalProperties": false
+}
