@@ -1,0 +1,49 @@
+name: Governed Artifact Emission
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'orchestrator.py'
+      - 'worldsim/**'
+      - 'spine/**'
+      - 'orchestration/emit_governed_artifacts.py'
+      - 'schemas/**'
+
+jobs:
+  emit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Emit governed artifacts
+        run: python orchestration/emit_governed_artifacts.py
+      - name: Validate governed artifacts
+        run: |
+          pip install jsonschema
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from jsonschema import validate
+
+          pairs = [
+              ('status/system-state.json', 'schemas/system-state.schema.json'),
+              ('status/execution-integrity.json', 'schemas/execution-integrity.schema.json'),
+              ('status/artifact-contract.json', 'schemas/artifact-contract.schema.json'),
+          ]
+          for artifact_path, schema_path in pairs:
+              artifact = json.loads(Path(artifact_path).read_text())
+              schema = json.loads(Path(schema_path).read_text())
+              validate(instance=artifact, schema=schema)
+              print(f'validated {artifact_path} against {schema_path}')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: governed-artifacts
+          path: |
+            status/system-state.json
+            status/execution-integrity.json
+            status/artifact-contract.json
