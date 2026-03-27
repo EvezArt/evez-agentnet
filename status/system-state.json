@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "state_id": "agentnet-round-0",
+  "system": "evez-agentnet",
+  "component": "orchestrator",
+  "timestamp": "2026-03-27T04:20:00Z",
+  "status": "paused",
+  "mode": "construct",
+  "metrics": {
+    "round": 0,
+    "total_earned_usd": 0.0,
+    "spine_events": 0,
+    "agent_count": 0
+  },
+  "notes": [
+    "Seed governed artifact.",
+    "Emitter script will overwrite this using live state and spine outputs."
+  ]
+}
