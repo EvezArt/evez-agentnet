@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EVEZ Narrative Evidence Ledger",
+  "type": "object",
+  "required": [
+    "post_id",
+    "timestamp",
+    "canonical_url",
+    "raw_text",
+    "claims",
+    "evidence_state",
+    "narrative_function",
+    "risk_flags"
+  ],
+  "properties": {
+    "post_id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "canonical_url": { "type": "string" },
+    "raw_text": { "type": "string" },
+    "entities": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "classification"],
+        "properties": {
+          "text": { "type": "string" },
+          "classification": {
+            "type": "string",
+            "enum": ["quote", "observation", "inference", "allegation", "prediction"]
+          },
+          "source_links": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "evidence_state": {
+            "type": "string",
+            "enum": ["verified", "supported", "unverified", "speculative", "contradicted"]
+          }
+        }
+      }
+    },
+    "evidence_state": {
+      "type": "string",
+      "enum": ["verified", "supported", "unverified", "speculative", "contradicted"]
+    },
+    "narrative_function": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "identity_construction",
+          "audience_signaling",
+          "adversarial_framing",
+          "memetic_escalation",
+          "research_prompt",
+          "protective_ambiguity",
+          "performance_art",
+          "operational_update"
+        ]
+      }
+    },
+    "risk_flags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "misinformation_risk",
+          "reputational_risk",
+          "harassment_risk",
+          "platform_policy_risk",
+          "privacy_risk"
+        ]
+      }
+    },
+    "analyst_notes": { "type": "string" }
+  }
+}
