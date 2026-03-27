@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "status_id": "schema-compliance",
+  "timestamp": "2026-03-27T03:45:00Z",
+  "state": "pending",
+  "checked_files": 0,
+  "violations": [],
+  "notes": [
+    "Seed artifact for schema validation workflow.",
+    "Workflow will overwrite this file with current compliance state."
+  ]
+}
