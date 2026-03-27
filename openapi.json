@@ -1,0 +1,45 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "EVEZ AgentNet Spine",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/trunk/run": {
+      "post": {
+        "operationId": "runTask",
+        "summary": "Execute runtime task"
+      }
+    },
+    "/api/first-harvest": {
+      "post": {
+        "operationId": "runAssertion",
+        "summary": "Execute assertion engine"
+      }
+    },
+    "/api/trunk/status": {
+      "get": {
+        "operationId": "getStatus",
+        "summary": "Fetch runtime state"
+      }
+    },
+    "/api/slack/route": {
+      "post": {
+        "operationId": "routeSlack",
+        "summary": "Route Slack message"
+      }
+    },
+    "/api/memory/upsert": {
+      "post": {
+        "operationId": "upsertMemory",
+        "summary": "Persist system memory"
+      }
+    },
+    "/api/receipt/write": {
+      "post": {
+        "operationId": "writeReceipt",
+        "summary": "Write execution receipt"
+      }
+    }
+  }
+}
