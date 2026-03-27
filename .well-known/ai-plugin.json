@@ -1,0 +1,13 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "EVEZ AgentNet",
+  "name_for_model": "evez_agentnet",
+  "description_for_model": "Autonomous runtime spine for executing tasks, routing Slack, managing memory, and writing receipts.",
+  "api": {
+    "type": "openapi",
+    "url": "https://YOUR-VERCEL-DOMAIN/openapi.json"
+  },
+  "auth": {
+    "type": "none"
+  }
+}
