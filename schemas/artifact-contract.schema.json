@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ArtifactContract",
+  "description": "Contract for emitted artifacts in evez-agentnet.",
+  "type": "object",
+  "required": ["schema_version", "artifact_id", "artifact_type", "timestamp", "producer", "path"],
+  "properties": {
+    "schema_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "artifact_id": { "type": "string" },
+    "artifact_type": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "producer": { "type": "string" },
+    "path": { "type": "string" },
+    "content_hash": { "type": "string" },
+    "lineage": {
+      "type": "object",
+      "properties": {
+        "execution_id": { "type": "string" },
+        "evidence_hash": { "type": "string" },
+        "event_hash": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "labels": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}
