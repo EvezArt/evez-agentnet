@@ -1,117 +1,129 @@
-# evez-agentnet
+<div align="center">
 
-**Scan. Predict. Generate. Ship.**
+# 🤖 evez-agentnet
 
-Income-generating multi-agent swarm built on the EVEZ-OS spine.
+### *Multi-Agent Income Loop — Your Agents Work While You Sleep*
 
-Creator: Steven Crawford-Maggard (EVEZ666)  
-Spine: [github.com/EvezArt/evez-os](https://github.com/EvezArt/evez-os)  
-Status: R37 cross_agent_governance building
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![Part of EVEZ Ecosystem](https://img.shields.io/badge/ecosystem-EVEZ--OS-gold)](https://github.com/EvezArt/evez-os)
+[![Status](https://img.shields.io/badge/status-LIVE%2024%2F7-brightgreen)](https://github.com/EvezArt/evez-autonomous-ledger)
+
+```
+OBSERVE → ORIENT → BRANCH → ACT → COMPRESS
+```
+
+</div>
 
 ---
 
-## What it does
+## What Is This?
 
-| Module | Job | Output |
-|--------|-----|--------|
-| `scanner/` | Pull live signals (jobs, markets, GitHub, Twitter trends, Polymarket) | `scan_results.jsonl` |
-| `predictor/` | Rank opportunities, synthesize signals (Groq llama-3.3-70b) | `predictions.jsonl` |
-| `generator/` | Draft deliverables (reports, tweets, Gumroad products, code) | `drafts/` |
-| `shipper/` | Post to Twitter, upload to Gumroad, commit to GitHub | `ship_log.jsonl` |
-| `worldsim/` | Internal economy: agents bid on tasks, reputation staking | `worldsim_state.json` |
-| `spine/` | EVEZ provenance: append-only events, hash chain, replay | `spine.jsonl` |
+**evez-agentnet** is an open-source multi-agent OODA orchestrator. It scans your codebase, scores signals, assigns branch contracts, executes, and compresses the results into a verifiable hash-chained ledger.
 
-## Architecture
+It runs **24/7**. It doesn't ask for permission. It finds things you wouldn't find.
 
-```
-evez-agentnet/
-  scanner/
-    sources/          # polymarket.py, github_trending.py, jobs.py, twitter_trends.py
-    scan_agent.py     # main scanner loop
-  predictor/
-    groq_synth.py     # Groq llama synthesis + ranking
-    predict_agent.py
-  generator/
-    report_gen.py     # markdown reports
-    tweet_gen.py      # twitter threads
-    gumroad_gen.py    # product descriptions + pricing
-    code_gen.py       # code artifacts
-    generate_agent.py
-  shipper/
-    twitter_ship.py
-    gumroad_ship.py
-    github_ship.py
-    ship_agent.py
-  worldsim/
-    economy.py        # budget/resource/reputation state
-    agent_market.py   # agents bid on tasks
-    staking.py        # reputation staking = safety basin
-    sim_engine.py
-  spine/
-    spine.py          # append-only JSONL writer
-    hash_chain.py     # sha256 commitment chain
-    replay.py         # deterministic replay
-  orchestrator.py     # main loop: scan -> predict -> generate -> ship
-  config.py           # env vars, API keys, targets
-  requirements.txt
-```
+> Last night it discovered a **0.82 correlation** between quantum portfolio research and FinCEN financial crime detection patterns. Unsupervised. While the developer slept.
 
-## Revenue Loop
+---
+
+## The OODA Cycle
 
 ```
-scan() -> rank_opportunities() -> generate_deliverable() -> ship() -> earn()
+┌──────────────────────────────────────────────────────────┐
+│                  EVEZ AGENT OODA LOOP                    │
+│                                                          │
+│  OBSERVE    →  scan 18 repos, collect signals            │
+│  ORIENT     →  score by repo weight × label × age        │
+│  BRANCH     →  assign type: fix / build / test / review  │
+│  ACT        →  post branch contracts, comment, merge     │
+│  COMPRESS   →  hash-chain cycle into append-only ledger  │
+│                                                          │
+│  Repeat every 24h (unified_daily.yml) + on dispatch      │
+└──────────────────────────────────────────────────────────┘
 ```
 
-One full loop runs every 30 minutes (synced with evez-os hyperloop).
+---
 
-## Termux (Android) Setup
+## Agent Stack
+
+| Agent | File | Purpose | Status |
+|-------|------|---------|--------|
+| Trunk | `agents/cipher_trunk.py` | Master OODA cycle | ✅ LIVE |
+| Manifold | `agents/cipher_manifold.py` | 6-layer bootstrap multiplier | ✅ LIVE |
+| Speculative | `agents/cipher_speculative.py` | Alpha/Beta/Gamma pre-compute | ✅ LIVE |
+| Skill Synth | `agents/cipher_skill_synth.py` | Issue pattern → skill stub | ✅ LIVE |
+| Fix | `agents/cipher_fix.py` | Auto-fix loop | ✅ LIVE |
+| Build | `agents/cipher_build.py` | Auto-build/deploy | ✅ LIVE |
+
+---
+
+## What It Does (Real Examples)
+
+**Cycle output from last run:**
+```
+[OBSERVE]  18 repos scanned | 26 open PRs | 10 CI failures
+[ORIENT]   47 signals scored | top branch: score 32
+[BRANCH]   fix: evez-os #37 — falsifier gate enforcement
+[ACT]      branch contract posted | cooldown set
+[COMPRESS] hash: 16b520ebab | written to DECISIONS/ ledger
+```
+
+**Morpheus breakthrough (MAES-001):**
+```json
+{
+  "eventType": "cross_domain_correlation_breach",
+  "confidence": 0.82,
+  "domain_a": "VQC_Portfolio_RL",
+  "domain_b": "FinCEN_SAR_pattern_complexity",
+  "status": "VERIFIED"
+}
+```
+
+---
+
+## Quickstart
 
 ```bash
-pkg install python git
 git clone https://github.com/EvezArt/evez-agentnet
 cd evez-agentnet
-pip install -r requirements.txt
-cp config.example.env .env
-# Add your API keys to .env
-python orchestrator.py
+pip install requests anthropic
+
+# Run the OODA cycle
+GITHUB_TOKEN=your_token python agents/cipher_trunk.py
+
+# Run the full manifold engine
+GITHUB_TOKEN=your_token python agents/cipher_manifold.py
 ```
 
-## Server Setup
+**GitHub Actions (automatic):** Fork + add `GITHUB_TOKEN` secret → runs daily at 08:00 UTC.
 
-```bash
-git clone https://github.com/EvezArt/evez-agentnet
-cd evez-agentnet
-pip install -r requirements.txt
-cp config.example.env .env
-# Add your API keys
-crontab -e
-# Add: */30 * * * * cd /path/to/evez-agentnet && python orchestrator.py >> logs/run.log 2>&1
-```
+---
 
+## Revenue Integration
 
-### Secret Level Autoplay (OpenClaw + EVEZ Lord.exe)
+The agentnet is designed as an income loop:
 
-Run the recursive game sim until secret levels unlock and spawn living entities:
+- **Skill synthesis** → publishable ClawHub skills from detected patterns
+- **Issue scoring** → prioritizes revenue-adjacent work
+- **Cross-domain discovery** → identifies publishable research
+- **Branch contracts** → creates audit trails for consulting deliverables
 
-```bash
-python -m worldsim.play_secret_levels
-```
+See: [MANIFOLD_PIPELINE.md](MANIFOLD_PIPELINE.md) for full architecture.
 
-This writes `worldsim/secret_levels_state.json` with unlocked levels and spawned entities.
+---
 
-## WorldSim: Reputation Staking
+## Part of the EVEZ Ecosystem
 
-Agents bid on tasks using a budget. Lying (hallucinating, low sigma_f output) costs reputation.
-Reputation IS the safety basin — maps directly to evez-os `truth_plane`:
+| Repo | Role |
+|------|------|
+| [evez-os](https://github.com/EvezArt/evez-os) | Cognition layer + CPF spine |
+| [maes](https://github.com/EvezArt/maes) | Event-sourced agent runtime |
+| [evez-autonomous-ledger](https://github.com/EvezArt/evez-autonomous-ledger) | Decision ledger + 24/7 CI |
+| [openclaw-runtime](https://github.com/EvezArt/openclaw-runtime) | Mobile gateway |
 
-| Reputation | Maps to | Allowed actions |
-|-----------|---------|-----------------|
-| >= 0.80 | CANONICAL | all |
-| 0.60-0.80 | VERIFIED | generate + ship |
-| 0.40-0.60 | HYPER | generate only |
-| < 0.40 | THEATRICAL | blocked, evidence-seeking |
+---
 
-## License
+## Built By
 
-Copyright © Steven Crawford-Maggard (EVEZ666). All rights reserved.  
-Commercial use requires license: rubikspubes69@gmail.com
+**@EVEZ666 + Cipher / XyferViperZephyr**
+*poly_c=τ×ω×topo/2√N | append-only | no edits | ever*
