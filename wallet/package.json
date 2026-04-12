@@ -1,0 +1,28 @@
+{
+  "name": "evez-wallet",
+  "version": "1.0.0",
+  "description": "EVEZ-OS wallet infrastructure — HD wallets, position monitor, loop proposer. Human signs everything.",
+  "type": "module",
+  "scripts": {
+    "build":           "tsc",
+    "wallet:init":     "tsx wallet-factory.ts init",
+    "wallet:show":     "tsx wallet-factory.ts show",
+    "monitor":         "tsx position-monitor.ts",
+    "monitor:prod":    "POLL_MS=30000 node dist/position-monitor.js",
+    "proposer":        "tsx loop-proposer.ts",
+    "proposer:prod":   "node dist/loop-proposer.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "@scure/bip32":  "^1.4.0",
+    "@scure/bip39":  "^1.3.0",
+    "bs58":          "^6.0.0",
+    "ethers":        "^6.13.0",
+    "zod":           "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx":         "^4.19.2",
+    "typescript":  "^5.7.2"
+  }
+}
