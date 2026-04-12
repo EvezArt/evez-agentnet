@@ -1,24 +1,54 @@
 {
   "version": 2,
+  "name": "evez-agentnet",
   "builds": [
     {
-      "src": "api/daemon.py",
+      "src": "api/**/*.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/api/daemon",
-      "dest": "api/daemon.py"
+      "src": "/api/trunk/status",
+      "dest": "/api/trunk/status.py"
     },
     {
-      "src": "/health",
-      "dest": "api/daemon.py"
+      "src": "/api/slack/route",
+      "dest": "/api/slack/route.py"
+    },
+    {
+      "src": "/api/spawn",
+      "dest": "/api/spawn.py"
+    },
+    {
+      "src": "/api/ledger",
+      "dest": "/api/ledger.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ],
+  "env": {
+    "PYTHONPATH": ".",
+    "EVEZ_MODE": "TRUNK_BRANCH_AUTOMATION",
+    "RULE_2_REFUSAL_ENABLED": "true",
+    "PROVENANCE_LOGGING": "STRICT",
+    "HUMAN_APPROVAL_MODE": "BOUNDARY_ONLY",
+    "AUTO_BRANCH_RETURN": "true",
+    "AUTO_SUMMARY_INTERVAL": "4",
+    "LEDGER_SYNC_INTERVAL_MS": "500",
+    "LATENCY_THRESHOLD_MS": "20",
+    "PHI_TARGET": "0.995",
+    "RECURSIVE_DEPTH_MAX": "7"
+  },
   "crons": [
     {
-      "path": "/api/daemon",
+      "path": "/api/trunk/run",
+      "schedule": "*/4 * * * *"
+    },
+    {
+      "path": "/api/audit",
       "schedule": "*/5 * * * *"
     }
   ]
