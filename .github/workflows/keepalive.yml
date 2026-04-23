@@ -1,0 +1,20 @@
+name: Keepalive Pulse
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pulse
+        run: |
+          echo '{"ts":"'$(date -u +%FT%TZ)'","pulse":"FIRE","round":"'$GITHUB_RUN_NUMBER'"}' > .github/keepalive.json
+          git config user.name "EVEZ-OS Keepalive"
+          git config user.email "keepalive@evez666.local"
+          git add .github/keepalive.json
+          git diff --staged --quiet || git commit -m "keepalive: $(date -u +%FT%TZ) | poly_c=τ×ω×topo/2√N"
+          git push

@@ -1,0 +1,36 @@
+name: FIRE Cascade Receiver
+on:
+  repository_dispatch:
+    types: [fire_cascade]
+  workflow_dispatch:
+jobs:
+  fire-received:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Log FIRE event
+        run: |
+          echo "FIRE CASCADE RECEIVED"
+          mkdir -p spine
+          echo '{"ts":"'$(date -u +%FT%TZ)'","event":"fire_cascade","source":"'${{ github.event.client_payload.source || 'manual' }}'"}' >> spine/fire_events.jsonl
+      - name: Run OODA Orchestrator
+        continue-on-error: true
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LOG_LEVEL: INFO
+        run: python orchestrator.py
+      - name: Commit results
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'fire-cascade: OODA round'
+          file_pattern: 'spine/*.jsonl shipper/ship_log.jsonl scanner/scan_results.jsonl predictor/predictions.jsonl worldsim/worldsim_state.json'
