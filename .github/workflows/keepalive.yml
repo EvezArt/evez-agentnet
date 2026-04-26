@@ -1,20 +1,22 @@
-name: Keepalive Pulse
+name: EVEZ Keepalive
 on:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: '0 6 * * 1'
   workflow_dispatch:
+
+permissions:
+  contents: write
+
 jobs:
   keepalive:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Pulse
+      - name: Keepalive commit
         run: |
-          echo '{"ts":"'$(date -u +%FT%TZ)'","pulse":"FIRE","round":"'$GITHUB_RUN_NUMBER'"}' > .github/keepalive.json
-          git config user.name "EVEZ-OS Keepalive"
-          git config user.email "keepalive@evez666.local"
-          git add .github/keepalive.json
-          git diff --staged --quiet || git commit -m "keepalive: $(date -u +%FT%TZ) | poly_c=τ×ω×topo/2√N"
-          git push
+          git config user.name "evez-bot"
+          git config user.email "evezproductions@gmail.com"
+          date > .keepalive
+          git add .keepalive
+          git commit -m "keepalive: $(date -u +%Y-%m-%dT%H:%M:%SZ)" || echo "No changes"
+          git push || echo "Push skipped"
