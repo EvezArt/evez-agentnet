@@ -1,0 +1,916 @@
+{
+  "info": {
+    "_postman_id": "9b9f976e-f06f-41b6-b3a0-3aee945cc027",
+    "name": "Evez AgentNet REST API",
+    "description": "Decentralized DAG multi-agent platform. APIs for agents, projects, workflow, schedules, notifications, and DAG topology.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "AgentNet Core",
+      "item": [
+        {
+          "name": "List Agents",
+          "id": "e7470d79-3665-4b89-9015-2451d3167994",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/agents",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "agents"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "917ab4d0-1f08-43fd-8cdd-da545e7ba7a2",
+              "name": "OK",
+              "originalRequest": {
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"id\":\"a1\",\"name\":\"Core Agent\",\"roles\":[\"perceive\",\"reason\",\"act\",\"evolve\",\"discover\"]},{\"id\":\"a2\",\"name\":\"Easter-Egg Engine\",\"roles\":[\"discover\"]}]"
+            }
+          ]
+        },
+        {
+          "name": "DAG Network Topology",
+          "id": "03cabf84-b14b-4160-90d2-8ae0584061ac",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/topology",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "topology"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3bc2cffc-2770-4b1b-9bae-281e649dfb7c",
+              "name": "OK",
+              "originalRequest": {
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"nodes\":[{\"id\":\"a1\",\"name\":\"Core Agent\"}],\"edges\":[{\"from\":\"a1\",\"to\":\"a2\"}]} "
+            }
+          ]
+        }
+      ],
+      "id": "9a0f8f1b-e2fb-4384-8b24-2633e66301e0"
+    },
+    {
+      "name": "Content Agent App",
+      "item": [
+        {
+          "name": "List Content Projects",
+          "id": "a995777a-f672-40ca-b0ac-ea69c9e3184f",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/content/projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "content",
+                "projects"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0346dfb3-fa5c-4e2d-aa75-9f851e1d2ac9",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/content/projects",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "content",
+                    "projects"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"id\":\"p1\",\"title\":\"AI Writing System\",\"status\":\"Published\"}]"
+            }
+          ]
+        },
+        {
+          "name": "Create Project Idea",
+          "id": "18da98ba-bd2f-4aef-8946-72a0c0e1b561",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"title\":\"New Content Idea\",\"description\":\"A proactive agent-driven article\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/content/projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "content",
+                "projects"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7ba7b89b-353a-4cce-b71d-ac42fb3b0237",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"title\":\"New Content Idea\",\"description\":\"A proactive agent-driven article\"}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/content/projects",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "content",
+                    "projects"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"id\":\"p2\",\"title\":\"New Content Idea\",\"status\":\"Idea\"}"
+            }
+          ]
+        }
+      ],
+      "id": "44be2f8e-b71b-450f-8497-43223a8ac911"
+    },
+    {
+      "name": "Research Agent App",
+      "item": [
+        {
+          "name": "List Research Projects",
+          "id": "0581fc65-d3d6-4886-afba-5a66374918ba",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/research/projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "research",
+                "projects"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0cd1e27f-d58a-45d7-8186-725107d66839",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/research/projects",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "research",
+                    "projects"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"id\":\"r1\",\"question\":\"How do agents evolve?\",\"status\":\"Briefed\"}]"
+            }
+          ]
+        },
+        {
+          "name": "Create Research Question",
+          "id": "911bdd30-eebd-42d9-9a85-d1f83880296b",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"question\":\"What is emergent behavior in DAGs?\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/research/projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "research",
+                "projects"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7abe31f7-8615-47a3-b519-9b7c71b6c513",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"question\":\"What is emergent behavior in DAGs?\"}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/research/projects",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "research",
+                    "projects"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"id\":\"r2\",\"question\":\"What is emergent behavior in DAGs?\",\"status\":\"Question\"}"
+            }
+          ]
+        }
+      ],
+      "id": "d98b1d9c-3ce8-433c-a3dc-5889c28a1780"
+    },
+    {
+      "name": "Team Pulse Project",
+      "item": [
+        {
+          "name": "Get Team Pulse",
+          "id": "3c00288a-1d06-4595-a1af-b0f4dedfc5b9",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/team/pulse",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "team",
+                "pulse"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f5f906f9-93bc-4178-a73e-439a518ab217",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/team/pulse",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "team",
+                    "pulse"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"summary\":\"Yesterday we aligned on project scoping and reviewed two briefs.\"}"
+            }
+          ]
+        }
+      ],
+      "id": "3a3e98b9-9a15-4d8b-a810-bfa841859642"
+    },
+    {
+      "name": "Sales Pipeline Project",
+      "item": [
+        {
+          "name": "List Deals",
+          "id": "42db5b7b-90ec-470a-9625-753dc25bfe92",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/sales/deals",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sales",
+                "deals"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4cacd99d-e7a3-495e-af5d-6aab5d9d2df1",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/sales/deals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sales",
+                    "deals"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"id\":\"d1\",\"stage\":\"Negotiation\",\"nextAction\":\"Send new proposal\"}]"
+            }
+          ]
+        }
+      ],
+      "id": "e79fe9e0-9e09-42c7-8fa2-b5d612a06154"
+    },
+    {
+      "name": "Dev Status Project",
+      "item": [
+        {
+          "name": "List Issues",
+          "id": "773e53af-e8a8-4758-b11e-35fc2f6c31f1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/dev/issues",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dev",
+                "issues"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "410088f4-9041-4b42-a6d9-2850ace06ca9",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/dev/issues",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dev",
+                    "issues"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"id\":\"i1\",\"title\":\"Fix DAG sync bug\",\"status\":\"Open\"}]"
+            }
+          ]
+        }
+      ],
+      "id": "0f9ee201-1192-4afb-ac93-8a3697a29c6d"
+    },
+    {
+      "name": "Agent Control Project",
+      "item": [
+        {
+          "name": "List Agents with Roles",
+          "id": "3086b548-7ef2-4e72-9a6b-a49898d79b5a",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/control/agents",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "control",
+                "agents"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a01060f1-74a0-4aaa-b8b8-58129a6cb752",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/control/agents",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "control",
+                    "agents"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"id\":\"a4\",\"role\":\"Supervisor\"},{\"id\":\"a5\",\"role\":\"Worker\"}]"
+            }
+          ]
+        }
+      ],
+      "id": "28ef0fd8-4e3a-4c83-be1c-fb4bdcbf7e18"
+    },
+    {
+      "name": "Workspace Assistant Agent",
+      "item": [
+        {
+          "name": "Ask Assistant",
+          "id": "7ccb3c04-2d4c-4ac6-b2ae-fcad42da413e",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"question\":\"What is the next action on the Research project?\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/assistant/ask",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "assistant",
+                "ask"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e0e42ac3-da07-4cad-a878-88ae92bd4c48",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"question\":\"What is the next action on the Research project?\"}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/assistant/ask",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assistant",
+                    "ask"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"answer\":\"Draft research brief for pending question.\"}"
+            }
+          ]
+        },
+        {
+          "name": "New Request",
+          "id": "7d4c3a68-4ac3-43ab-bdde-150d502b1159",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ],
+      "id": "7192a560-7b97-4a3c-ad72-905f3c0c649e"
+    },
+    {
+      "name": "Core Workspace Project",
+      "item": [
+        {
+          "name": "Get Project State",
+          "id": "8ddcfbd3-f9a8-4c57-b41c-55bfb0d38893",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/workspace/state",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workspace",
+                "state"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d6c6eeee-f6d6-4b27-8c58-18f1ee5db8e4",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/workspace/state",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspace",
+                    "state"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"projectsUpdated\":2,\"recentChange\":\"Brief on agent evolution updated.\"}"
+            }
+          ]
+        }
+      ],
+      "id": "979a4b47-a618-4810-8fdc-5ec1c70dcb5a"
+    },
+    {
+      "name": "Workflows",
+      "item": [
+        {
+          "name": "List Workflows",
+          "id": "069c6ac3-0c42-4530-ba89-d72b7e010228",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/workflows",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workflows"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3d178596-f94c-4d1a-a3ca-2b71fa9fdc93",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/workflows",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workflows"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"id\":\"w1\",\"trigger\":\"on project update\",\"action\":\"notify\"}]"
+            }
+          ]
+        },
+        {
+          "name": "Trigger Workflow",
+          "id": "3fc72811-a60e-4d12-a798-a33f65b8e29b",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"workflowId\":\"w1\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/workflows/trigger",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workflows",
+                "trigger"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4b4edb83-845e-4739-9aee-294b082856c6",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"workflowId\":\"w1\"}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/workflows/trigger",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workflows",
+                    "trigger"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"status\":\"Triggered\"}"
+            }
+          ]
+        }
+      ],
+      "id": "17c92344-b9cb-47e9-9985-31ee19de3a2e"
+    },
+    {
+      "name": "Schedules",
+      "item": [
+        {
+          "name": "List Schedules",
+          "id": "e46b11d9-d5d3-4fe9-9f4b-b0fb92ad4dde",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/schedules",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "schedules"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ba1e955a-9cc0-43a8-9c64-f40f1a7be4bd",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/schedules",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "schedules"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"id\":\"s1\",\"interval\":\"weekly\"}]"
+            }
+          ]
+        }
+      ],
+      "id": "9120a3ef-18c0-44bd-94ad-8271bf0a0635"
+    },
+    {
+      "name": "Notifications",
+      "item": [
+        {
+          "name": "List Notifications",
+          "id": "7215c3b4-92ca-45b3-b825-f9f48809d587",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/notifications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notifications"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7f8568d2-1b4c-4bcb-896c-21b79185a50c",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/notifications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notifications"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[{\"id\":\"n1\",\"type\":\"update\",\"message\":\"Agent acted independently\"}]"
+            }
+          ]
+        }
+      ],
+      "id": "e7d4aac7-355d-4f2a-9524-a4a8dcea9792"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.evez-agentnet.fake"
+    }
+  ]
+}
