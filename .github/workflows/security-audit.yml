@@ -1,10 +1,8 @@
 name: Security Audit
-
 on:
   schedule:
     - cron: '0 8 * * 1'
   workflow_dispatch:
-
 jobs:
   audit:
     runs-on: ubuntu-latest
@@ -16,13 +14,5 @@ jobs:
       - name: Security scan
         run: |
           pip install bandit safety
-          if [ -f requirements.txt ]; then
-            safety check -r requirements.txt || true
-          fi
+          if [ -f requirements.txt ]; then safety check -r requirements.txt || true; fi
           find . -name '*.py' -not -path './.git/*' | head -50 | xargs bandit -f json -o bandit-report.json || true
-      - name: Upload results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: security-report
-          path: bandit-report.json
