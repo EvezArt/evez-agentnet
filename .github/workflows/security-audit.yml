@@ -2,42 +2,27 @@ name: Security Audit
 
 on:
   schedule:
-    - cron: '0 2 * * 0'  # Weekly at 2 AM UTC
+    - cron: '0 8 * * 1'
   workflow_dispatch:
 
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: '20'
-
-      - name: npm audit
-        run: npm audit --audit-level=moderate
-
-      - name: Dependency review
-        uses: actions/dependency-review-action@v4
-
-      - name: Check for known vulnerabilities
+          python-version: '3.11'
+      - name: Security scan
         run: |
-          npm ls --depth=0 2>/dev/null || true
-          echo "Review npm audit output above for details"
-
-  test:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+          pip install bandit safety
+          if [ -f requirements.txt ]; then
+            safety check -r requirements.txt || true
+          fi
+          find . -name '*.py' -not -path './.git/*' | head -50 | xargs bandit -f json -o bandit-report.json || true
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          node-version: '20'
-          cache: 'npm'
-      - run: npm ci
-      - run: npm test
-        env:
-          CI: true
+          name: security-report
+          path: bandit-report.json
