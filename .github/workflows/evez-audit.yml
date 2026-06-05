@@ -1,0 +1,55 @@
+name: EvezArt Security Audit
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 3 * * 0'
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  gitleaks:
+    name: Gitleaks Secret Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: detect --source . --verbose --redact --exit-code 1
+
+  detect-secrets:
+    name: detect-secrets Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: pip install detect-secrets
+      - run: |
+          detect-secrets scan --all-files > .secrets.baseline
+          python3 -c "
+import json, sys
+data = json.load(open('.secrets.baseline'))
+total = sum(len(v) for v in data.get('results', {}).values())
+print(f'Potential secrets: {total}')
+if total: sys.exit(1)
+"
+
+  deps:
+    name: Dependency Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - if: hashFiles('requirements*.txt') != ''
+        run: pip install pip-audit && pip-audit -r requirements.txt || true
+      - if: hashFiles('package.json') != ''
+        run: npm audit --audit-level=moderate || true
