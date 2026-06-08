@@ -1,0 +1,53 @@
+name: EVEZ VCL Honeypot Watcher
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Re-trigger every 350 min (just before the 355-min job timeout)
+    # so the watcher runs 24/7 with no gap
+    - cron: '*/350 * * * *'
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install requests
+
+      - name: Run VCL Honeypot Watcher
+        timeout-minutes: 350
+        env:
+          ABLY_API_KEY:    ${{ secrets.ABLY_API_KEY }}
+          YT_API_KEY:      ${{ secrets.YT_API_KEY }}
+          YT_LIVECHAT_ID:  ${{ secrets.YT_LIVECHAT_ID }}
+          YT_CHANNEL_ID:   ${{ secrets.YT_CHANNEL_ID }}
+          HONEYPOT_PORT:   '18666'
+        run: |
+          cd honeypot
+          python vcl_watcher.py
+
+      - name: Commit naughty list
+        if: always()
+        run: |
+          git config user.name  "evez-honeypot-bot"
+          git config user.email "honeypot@evez.art"
+          git add honeypot/output/naughty_list.json || true
+          git diff --cached --quiet || git commit -m "chore: honeypot naughty_list update $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push || true
+
+      - name: Auto-retrigger
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run honeypot-watcher.yml --repo EvezArt/evez-agentnet || true
