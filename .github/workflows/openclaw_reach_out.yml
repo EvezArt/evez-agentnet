@@ -1,0 +1,36 @@
+name: OpenClaw Self-Reach-Out Sweep
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'   # every 15 minutes, 24/7
+  workflow_dispatch:
+
+jobs:
+  reach-out-sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install requests
+
+      - name: Run OpenClaw Reach-Out
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          ABLY_API_KEY: ${{ secrets.ABLY_API_KEY }}
+        run: python openclaw/reach_out.py
+
+      - name: Commit scan results
+        run: |
+          git config user.name "openclaw-bot"
+          git config user.email "openclaw@evez.art"
+          git add scanner/scan_results.jsonl spine/reach_out_events.jsonl || true
+          git diff --cached --quiet || git commit -m "chore: reach-out sweep $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push || true
