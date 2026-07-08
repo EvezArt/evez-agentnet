@@ -123,6 +123,7 @@ def discover_live_chat_id() -> str:
 # ── YOUTUBE CHAT COLLECTOR ────────────────────────────────────────────────────
 
 def get_livechat_messages(page_token: str = "") -> tuple[list[dict], str]:
+    global _chat_id
     lcid = _chat_id or discover_live_chat_id()
     if not lcid or not YT_API_KEY:
         return [], ""
@@ -152,7 +153,6 @@ def get_livechat_messages(page_token: str = "") -> tuple[list[dict], str]:
         print(f"[watcher] YT chat error: {e}", flush=True)
         # if chat ID went stale, force rediscovery next cycle
         if "liveChatNotFound" in str(e) or "403" in str(e):
-            global _chat_id
             _chat_id = ""
         return [], ""
 

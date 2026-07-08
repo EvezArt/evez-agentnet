@@ -106,7 +106,8 @@ Format: TITLE: <title>\nBODY: <body>"""
             if title:
                 full_body = f"{body}\n\n*🤖 Auto-proposed by build_agent.py | Score: {score:.3f} | WIN gap: {gap:.3f} | Requires human approval before any action.*"
                 opened = open_build_issue(repo, f"🔨 [BUILD] {title}", full_body)
-                print(f"  {'\u2705' if opened else '\u274c'} Build issue opened on {repo}: {title[:50]}")
+                _icon = "\u2705" if opened else "\u274c"
+                print(f"  {_icon} Build issue opened on {repo}: {title[:50]}")
         else:
             print(f"  ⚠️  No Claude suggestion for {repo} (key missing or parse fail)")
 
