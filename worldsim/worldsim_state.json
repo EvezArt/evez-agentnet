@@ -1,0 +1,59 @@
+{
+  "round": 12,
+  "total_earned_usd": 0.0,
+  "agents": {
+    "scanner": {
+      "reputation": 1.0,
+      "tasks_completed": 12,
+      "streak": 12
+    },
+    "predictor": {
+      "reputation": 1.0,
+      "tasks_completed": 12,
+      "streak": 12
+    },
+    "generator": {
+      "reputation": 1.0,
+      "tasks_completed": 12,
+      "streak": 12
+    },
+    "shipper": {
+      "reputation": 1.0,
+      "tasks_completed": 12,
+      "streak": 12
+    },
+    "maes": {
+      "reputation": 1.0,
+      "tasks_completed": 11,
+      "streak": 11
+    }
+  },
+  "last_scan": null,
+  "last_ship": "2026-07-26T16:42:48.628421+00:00",
+  "maes": {
+    "agent_count": 0,
+    "player_count": 0,
+    "fire_events_total": 0,
+    "last_tick": "2026-07-26T16:42:46.686669+00:00"
+  },
+  "openclaw": {
+    "levels_cleared": 0,
+    "lord_unlocked": false,
+    "last_run": null
+  },
+  "rsi": {
+    "hypotheses": [
+      "Evolve scanner agent: reputation=1.00 \u2192 inject synthetic task to recover via streak",
+      "Grow player base: currently 0/0 verified, emit verification challenge events to improve ratio",
+      "Evolve moral registry round 13: 0 FIRE events accumulated \u2192 expand compassion_layer to anticipate external suffering signals"
+    ],
+    "accepted": 0,
+    "rejected": 0
+  },
+  "temporal_wormhole": {
+    "source": "meta-orchestrator",
+    "destination": "meta-orchestrator",
+    "purpose": "Bridge past-present-future for recursive intent",
+    "created_at": "2026-07-26T14:00:55.457524+00:00"
+  }
+}
