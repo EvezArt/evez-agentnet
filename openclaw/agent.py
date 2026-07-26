@@ -128,3 +128,32 @@ class OpenClawAgent:
                   f"iterations={iterations} "
                   f"entities={orientation['living_entities']}")
         return self.act(iterations)
+
+    # ─── ORCHESTRATOR COMPATIBILITY ──────────────────────────────────────────
+    def set_lord_bridge(self, bridge):
+        """Inject a LordBridge into the agent and its engine."""
+        self.lord_bridge = bridge
+        self.engine.lord_bridge = bridge
+
+    def play_level(self, level_data):
+        """Play a single secret level via the engine. Returns result dict."""
+        if isinstance(level_data, dict):
+            level_name = level_data.get("description", "unknown")
+            lord_required = level_data.get("lord_required", False)
+        else:
+            level_name = str(level_data)
+            lord_required = False
+
+        # Run engine iterations
+        result = self.engine.run()
+        success = result.get("status") == "complete" or result.get("iterations", 0) > 0
+
+        if self.verbose:
+            print(f"[OpenClawAgent] Level '{level_name}' — success={success}")
+
+        return {
+            "success": success,
+            "level": level_name,
+            "lord_required": lord_required,
+            "engine_result": result,
+        }

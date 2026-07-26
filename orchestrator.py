@@ -283,8 +283,8 @@ def run_openclaw(state: dict):
         from openclaw.engine import OpenClawEngine
         from worldsim.secret_levels import SECRET_LEVELS
         lord_enabled = os.environ.get("OPENCLAW_LORD", "0") == "1"
-        engine = OpenClawEngine(level_pack=SECRET_LEVELS)
-        agent  = OpenClawAgent(agent_id="orchestrator-openclaw", engine=engine)
+        engine = OpenClawEngine()
+        agent  = OpenClawAgent()
         if lord_enabled:
             from openclaw.lord_bridge import LordBridge
             bridge = LordBridge()
