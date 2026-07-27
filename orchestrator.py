@@ -278,6 +278,10 @@ def run_ship(drafts: list, state: dict) -> float:
 def run_openclaw(state: dict):
     if not OPENCLAW_ENABLED:
         return
+    oc = state.setdefault("openclaw", {})
+    if oc.get("broken"):
+        log.warning("[OpenClaw] Module marked broken (previous failure), skipping this round")
+        return
     try:
         from openclaw.agent import OpenClawAgent
         from openclaw.engine import OpenClawEngine
@@ -304,8 +308,13 @@ def run_openclaw(state: dict):
     except ImportError:
         log.warning("[OpenClaw] Module not available, skipping")
     except Exception as e:
-        log.error(f"[OpenClaw] Run failed: {e}")
-        append_spine("openclaw_failed", {"error": str(e)})
+        log.error(f"[OpenClaw] Run FAILED — module marked broken for subsequent rounds: {e}")
+        oc["broken"] = True
+        oc["broken_at"] = datetime.now(timezone.utc).isoformat()
+        oc["broken_error"] = str(e)
+        append_spine("openclaw_broken", {"error": str(e), "broken_at": oc["broken_at"]})
+        oc.pop("levels_cleared", None)
+        oc.pop("last_run", None)
 
 
 # ── Main Loop ─────────────────────────────────────────────────────────────────
