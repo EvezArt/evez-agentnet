@@ -46,7 +46,10 @@ class OpenClawEngine:
     def _load_state(self):
         if STATE_FILE.exists():
             with open(STATE_FILE) as f:
-                return json.load(f)
+                data = json.load(f)
+            if "run_id" not in data:
+                data["run_id"] = hashlib.sha256(str(time.time()).encode()).hexdigest()[:12]
+            return data
         return {
             "run_id": hashlib.sha256(str(time.time()).encode()).hexdigest()[:12],
             "iteration": 0,
