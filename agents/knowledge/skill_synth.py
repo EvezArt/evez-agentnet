@@ -15,7 +15,7 @@ from pathlib import Path
 
 log = logging.getLogger("agentnet.knowledge.skill_synth")
 
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
+OPENROUTER_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 OWNER = "EvezArt"
 
@@ -29,9 +29,9 @@ def now_iso():
     return datetime.now(timezone.utc).isoformat()
 
 
-def _call_groq(prompt: str) -> str:
+def _call_openrouter(prompt: str) -> str:
     """Call Groq for AI-powered skill synthesis."""
-    if not GROQ_API_KEY:
+    if not OPENROUTER_KEY:
         return ""
     try:
         body = json.dumps({
@@ -44,7 +44,7 @@ def _call_groq(prompt: str) -> str:
             "https://openrouter.ai/api/v1/chat/completions",
             data=body,
             headers={
-                "Authorization": f"Bearer {GROQ_API_KEY}",
+                "Authorization": f"Bearer {OPENROUTER_KEY}",
                 "Content-Type": "application/json",
             },
         )
@@ -158,7 +158,7 @@ Generate a simple, fault-tolerant Python module that:
 
 Output ONLY the Python code, no markdown fences."""
 
-    code = _call_groq(prompt)
+    code = _call_openrouter(prompt)
     if not code:
         # Fallback template
         name = opportunity.get("concept", "unknown").replace(" ", "_").lower()
