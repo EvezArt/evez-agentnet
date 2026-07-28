@@ -50,9 +50,17 @@ class OpenClawAgent:
                 lines = SCAN_RESULTS.read_text().strip().splitlines()
                 signals["scan_count"] = len(lines)
                 if lines:
-                    last = json.loads(lines[-1])
-                    signals["market_confidence"] = last.get("confidence", 0.5)
-                    signals["trending_topics"] = last.get("topics", [])
+                    for line in reversed(lines):
+                        try:
+                            last = json.loads(line)
+                            signals["market_confidence"] = last.get("confidence", 0.5)
+                            signals["trending_topics"] = last.get("topics", [])
+                            break
+                        except (json.JSONDecodeError, ValueError):
+                            continue
+                    else:
+                        signals["market_confidence"] = 0.5
+                        signals["trending_topics"] = []
             except Exception as e:
                 if self.verbose:
                     print(f"[OpenClawAgent] Observe error: {e}")
