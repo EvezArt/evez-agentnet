@@ -113,7 +113,7 @@ class OpenClawEngine:
 
     def run(self):
         if self.verbose:
-            print(f"[OpenClaw] run={self.state['run_id']} max_iter={self.max_iterations}")
+            print(f"[OpenClaw] run={self.state.get('run_id', 'run-'1785259768)} max_iter={self.max_iterations}")
         for _ in range(self.max_iterations):
             self._sim_tick()
             self._check_unlocks()
