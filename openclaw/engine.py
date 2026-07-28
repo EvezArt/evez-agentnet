@@ -44,11 +44,23 @@ class OpenClawEngine:
         self.state = self._load_state()
 
     def _load_state(self):
+        _DEFAULTS = {
+            "run_id": "", "iteration": 0, "reputation": 0.50,
+            "canonical_streak": 0, "economy_surplus": 0,
+            "living_entities": 0, "lord_entropy": 1.0,
+            "unlocked_levels": [], "spawned_entities": [],
+            "TIER_1_unlocked": False, "TIER_2_unlocked": False,
+            "TIER_3_SECRET_unlocked": False,
+            "started_at": datetime.utcnow().isoformat(),
+            "last_updated": datetime.utcnow().isoformat(),
+        }
         if STATE_FILE.exists():
             with open(STATE_FILE) as f:
                 data = json.load(f)
             if "run_id" not in data:
                 data["run_id"] = hashlib.sha256(str(time.time()).encode()).hexdigest()[:12]
+            for k, v in _DEFAULTS.items():
+                data.setdefault(k, v)
             return data
         return {
             "run_id": hashlib.sha256(str(time.time()).encode()).hexdigest()[:12],
