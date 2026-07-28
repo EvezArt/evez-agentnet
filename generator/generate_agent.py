@@ -10,7 +10,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 log = logging.getLogger("agentnet.generator")
-GROQ_KEY = os.environ.get("GROQ_API_KEY", "")
+OPENROUTER_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 DRAFTS_DIR = Path("drafts")
 DRAFTS_DIR.mkdir(exist_ok=True)
 
@@ -60,7 +60,7 @@ def _generate_draft(pred: dict, truth_plane: str) -> dict | None:
 
 def _gen_tweet_thread(title: str, plan: str) -> str:
     """Generate a 5-tweet thread."""
-    if GROQ_KEY:
+    if OPENROUTER_KEY:
         try:
             return _groq_gen(f"Write a 5-tweet numbered thread about: {title}\nPlan: {plan}\nStyle: EVEZ666 -- technical, direct, no fluff. Include EVEZ-OS angle.", max_tokens=400)
         except:
@@ -79,7 +79,7 @@ def _gen_tweet_thread(title: str, plan: str) -> str:
 
 def _gen_gumroad_product(title: str, plan: str) -> str:
     """Generate a Gumroad product description + pricing."""
-    if GROQ_KEY:
+    if OPENROUTER_KEY:
         try:
             return _groq_gen(f"Write a Gumroad product description for: {title}\nPlan: {plan}\nFormat: 2-3 paragraphs, bullet list of what's included, price recommendation $9-29.", max_tokens=300)
         except:
@@ -106,7 +106,7 @@ def _gen_github_readme(title: str, plan: str) -> str:
 def _groq_gen(prompt: str, max_tokens: int = 300) -> str:
     import urllib.request, urllib.error
     payload = {
-        "model": "llama-3.3-70b-versatile",
+         "model": "deepseek/deepseek-chat-3.3-70b-versatile",
         "messages": [
             {"role": "system", "content": "You are EVEZ666, creator of EVEZ-OS. Write direct, technical, no-BS content."},
             {"role": "user", "content": prompt}
@@ -114,9 +114,9 @@ def _groq_gen(prompt: str, max_tokens: int = 300) -> str:
         "max_tokens": max_tokens, "temperature": 0.5,
     }
     req = urllib.request.Request(
-        "https://api.groq.com/openai/v1/chat/completions",
+        "https://openrouter.ai/api/v1/chat/completions",
         data=json.dumps(payload).encode(),
-        headers={"Authorization": f"Bearer {GROQ_KEY}", "Content-Type": "application/json"}
+        headers={"Authorization": f"Bearer {OPENROUTER_KEY}", "Content-Type": "application/json"}
     )
     with urllib.request.urlopen(req, timeout=20) as r:
         resp = json.loads(r.read())

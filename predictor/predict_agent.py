@@ -12,7 +12,7 @@ from pathlib import Path
 
 log = logging.getLogger("agentnet.predictor")
 
-GROQ_KEY = os.environ.get("GROQ_API_KEY", "")
+OPENROUTER_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 
 
 def run(scan_results: list) -> list:
@@ -92,7 +92,7 @@ def _generate_action_plan(item: dict) -> dict:
         plan["action_plan"] = f"Write tweet thread on: {title}."
 
     # If Groq available, enhance plan
-    if GROQ_KEY:
+    if OPENROUTER_KEY:
         try:
             plan["action_plan"] = _groq_enhance(plan["action_plan"], item)
         except Exception as e:
@@ -105,7 +105,7 @@ def _groq_enhance(base_plan: str, context: dict) -> str:
     """Enhance action plan with Groq llama synthesis."""
     import urllib.request, urllib.error
     payload = {
-        "model": "llama-3.3-70b-versatile",
+         "model": "deepseek/deepseek-chat-3.3-70b-versatile",
         "messages": [
             {"role": "system", "content": "You are EVEZ-OS, an income-generating AI agent. Be specific and actionable. 1 paragraph max."},
             {"role": "user", "content": f"Enhance this action plan into a specific, executable step:\n{base_plan}\nContext: {json.dumps(context, default=str)[:300]}"}
@@ -114,9 +114,9 @@ def _groq_enhance(base_plan: str, context: dict) -> str:
         "temperature": 0.3,
     }
     req = urllib.request.Request(
-        "https://api.groq.com/openai/v1/chat/completions",
+        "https://openrouter.ai/api/v1/chat/completions",
         data=json.dumps(payload).encode(),
-        headers={"Authorization": f"Bearer {GROQ_KEY}", "Content-Type": "application/json"}
+        headers={"Authorization": f"Bearer {OPENROUTER_KEY}", "Content-Type": "application/json"}
     )
     with urllib.request.urlopen(req, timeout=15) as r:
         resp = json.loads(r.read())

@@ -105,7 +105,7 @@ def _call_groq(prompt: str) -> str:
             "temperature": 0.3,
         }).encode()
         req = urllib.request.Request(
-            "https://api.groq.com/openai/v1/chat/completions",
+            "https://openrouter.ai/api/v1/chat/completions",
             data=body,
             headers={
                 "Authorization": f"Bearer {GROQ_API_KEY}",
