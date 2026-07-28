@@ -21,7 +21,7 @@ jobs:
     runs-on: build9-arm-ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # Using canary CLI for consistency with E2E test workflow
       - name: Install Postman CLI
