@@ -25,7 +25,7 @@ SPINE_PATH = Path("spine/spine.jsonl")
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
-OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY") or os.environ.get("GROQ_API_KEY")
+OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 N8N_WEBHOOK_URL    = os.environ.get("N8N_WEBHOOK_URL", "")
 SLACK_WEBHOOK_URL  = os.environ.get("SLACK_WEBHOOK_URL", "")
 SENTRY_DSN         = os.environ.get("SENTRY_DSN", "")
@@ -60,14 +60,13 @@ def append_spine(event_type: str, data: dict) -> dict:
 
 def openrouter_complete(prompt: str, model: str, system: str = TRUNK_PROMPT) -> Optional[str]:
     if not OPENROUTER_API_KEY:
-        log.warning("No OPENROUTER_API_KEY or GROQ_API_KEY set")
+        log.warning("No OPENROUTER_API_KEY set")
         return None
     try:
         # Try OpenRouter first, fallback to Groq
-        if OPENROUTER_API_KEY.startswith("gsk_"):
             # Groq
             r = requests.post(
-                "https://api.groq.com/openai/v1/chat/completions",
+                "https://openrouter.ai/api/v1/chat/completions",
                 headers={"Authorization": f"Bearer {OPENROUTER_API_KEY}", "Content-Type": "application/json"},
                 json={"model": "llama-3.1-8b-instant", "messages": [
                     {"role": "system", "content": system},
