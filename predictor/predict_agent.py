@@ -94,14 +94,14 @@ def _generate_action_plan(item: dict) -> dict:
     # If Groq available, enhance plan
     if OPENROUTER_KEY:
         try:
-            plan["action_plan"] = _groq_enhance(plan["action_plan"], item)
+            plan["action_plan"] = _openrouter_enhance(plan["action_plan"], item)
         except Exception as e:
             log.debug(f"Groq enhance failed: {e}")
 
     return plan
 
 
-def _groq_enhance(base_plan: str, context: dict) -> str:
+def _openrouter_enhance(base_plan: str, context: dict) -> str:
     """Enhance action plan with Groq llama synthesis."""
     import urllib.request, urllib.error
     payload = {
