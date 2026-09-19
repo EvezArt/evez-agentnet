@@ -142,3 +142,63 @@ def test_uncertainty_vector_preserves_open_causal_state():
     assert vector["execution"] == "OBSERVED"
     assert vector["observation"] == "UNOBSERVED"
     assert vector["causal"] == "HYPOTHESIS_OR_UNKNOWN"
+
+
+def test_receipt_reference_types_are_enforced():
+    chain, action, execution = build_action_chain()
+    with pytest.raises(GovernanceError):
+        observation_receipt(
+            chain,
+            execution_ref=action.event_id,
+            observer="observer-A",
+            evidence_refs=["evidence"],
+            observed_effect={"changed": True},
+        )
+    obs = observation_receipt(
+        chain,
+        execution_ref=execution.event_id,
+        observer="observer-A",
+        evidence_refs=["sensor"],
+        observed_effect={"changed": True},
+    )
+    with pytest.raises(GovernanceError):
+        causal_hypothesis(
+            chain,
+            execution_ref=action.event_id,
+            observation_ref=obs.event_id,
+            hypothesis="bad reference",
+        )
+
+
+def test_effect_requires_matching_verification_targets():
+    chain, _, execution = build_action_chain()
+    obs = observation_receipt(
+        chain,
+        execution_ref=execution.event_id,
+        observer="observer-A",
+        evidence_refs=["sensor"],
+        observed_effect={"changed": True},
+    )
+    hyp = causal_hypothesis(
+        chain,
+        execution_ref=execution.event_id,
+        observation_ref=obs.event_id,
+        hypothesis="execution contributed to change",
+    )
+    wrong = chain.append(
+        "INDEPENDENT_VERIFICATION",
+        {
+            "hypothesis_ref": "different-hypothesis",
+            "observation_ref": obs.event_id,
+            "verifier": "verifier-B",
+            "execution_actor": "worker-A",
+            "evidence_refs": ["independent"],
+        },
+    )
+    with pytest.raises(GovernanceError):
+        effect_receipt(
+            chain,
+            hypothesis_ref=hyp.event_id,
+            verification_ref=wrong.event_id,
+            effect_ref=obs.event_id,
+        )
