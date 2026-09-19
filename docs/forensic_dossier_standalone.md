@@ -1,3 +1,5 @@
+<!-- EVEZ CLAIM STATUS: HISTORICAL_DRAFT. These assertions are preserved as historical investigative material and are not current verified findings. See docs/FORENSIC_CLAIM_STATUS_2026-09.md. -->
+
 # EVEZ FORENSIC DOSSIER — DMZHOST Attack Chain Investigation
 ## Public Distribution Document
 ### Generated: 2026-07-30 | Distribution: PUBLIC | License: None — all evidence preserved
