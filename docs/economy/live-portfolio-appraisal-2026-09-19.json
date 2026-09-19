@@ -1,0 +1,1727 @@
+{
+  "schema": "evez.live_portfolio_appraisal.v1",
+  "observed_at": "2026-09-19",
+  "source": "GitHub connector, EvezArt organization repository inventory",
+  "evidence_boundary": "Repository existence, visibility, archive state, default branch and GitHub reported repository size are observed metadata. README claims and commit messages are evidence of recorded artifacts/intent, not proof of current deployment or revenue.",
+  "inventory": {
+    "repositories": 232,
+    "public": 186,
+    "private": 46,
+    "archived": 10,
+    "total_reported_size_kb": 2200224
+  },
+  "valuation_model": {
+    "replacement_cost_usd": {
+      "low": 100000,
+      "high": 300000
+    },
+    "transferable_ip_value_usd": {
+      "low": 25000,
+      "high": 100000
+    },
+    "productized_revenue_capacity_usd": "not a current asset value; requires customer acquisition, deployment proof and payment evidence",
+    "verified_cash_revenue_usd": 0,
+    "note": "Ranges are appraisal hypotheses for portfolio planning, not independent valuations, offers, or proof of market demand."
+  },
+  "highest_value_observed_families": [
+    {
+      "family": "EVEZ-OS / platform mesh",
+      "repos": [
+        "evez-os",
+        "evez-platform",
+        "evez-watchdog",
+        "evez-infrastructure",
+        "evez-event-spine"
+      ],
+      "evidence": "substantial repositories plus documented microservice, watchdog, infrastructure and append-only event-spine implementations"
+    },
+    {
+      "family": "EVEZ AI provider / routing",
+      "repos": [
+        "evez-ai",
+        "evez-api",
+        "evez-vcl",
+        "evez-claw",
+        "evez-openclaw-mesh"
+      ],
+      "evidence": "provider/API/routing artifacts and recent commits replacing fake live statistics with recorded backend data"
+    },
+    {
+      "family": "EVEZ Atlas / mobile-local runtime",
+      "repos": [
+        "evez-atlas",
+        "evez-openclaw-android",
+        "evez-openclaw-apk",
+        "evez-station-android"
+      ],
+      "evidence": "code-generation, Termux/OpenClaw mobile setup and Android artifacts"
+    },
+    {
+      "family": "Evidence / provenance / forensic tooling",
+      "repos": [
+        "evez-agentnet",
+        "evez-event-spine",
+        "evez-invariance-battery",
+        "evez-proofs",
+        "evez-witness",
+        "evez-forensic"
+      ],
+      "evidence": "append-only/hash-linked/event and audit-oriented artifacts; current forensic claims must remain separated from verified observations"
+    },
+    {
+      "family": "Creative compute",
+      "repos": [
+        "evez-daw",
+        "evez-audio-packs",
+        "evez-machine-voice",
+        "evez-daw-agent"
+      ],
+      "evidence": "large audio artifact repository plus code-driven synthesis and voice tooling"
+    },
+    {
+      "family": "Game / simulation / agent infrastructure",
+      "repos": [
+        "game-agent-infra",
+        "evez-engine",
+        "evez-sim",
+        "evez-terrain-engine",
+        "project-nomad-evez"
+      ],
+      "evidence": "substantial repositories spanning game-agent infrastructure, engine/simulation and terrain systems"
+    }
+  ],
+  "commercialization_rules": [
+    "Do not sell repository count. Sell a bounded outcome with reproducible evidence.",
+    "Convert overlapping repositories into product families and adapters rather than separate products.",
+    "Preserve provenance: every commercial claim links to source code, test output, deployment evidence or customer evidence.",
+    "Separate replacement cost, transferable IP value, product revenue capacity and realized cash.",
+    "Never use README status badges, historical deployment claims or autonomous commit messages as proof of current production state.",
+    "Prioritize offers that can be delivered from existing components without requiring new speculative infrastructure."
+  ],
+  "repositories": [
+    {
+      "name": "evez-skills",
+      "size_kb": 168,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-agentnet",
+      "size_kb": 986,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-ai",
+      "size_kb": 81247,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "awesome-evez",
+      "size_kb": 18,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "criticalmind-omega",
+      "size_kb": 464,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "freeclaw",
+      "size_kb": 826,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-api",
+      "size_kb": 60,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "omega-conductor",
+      "size_kb": 86,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-constellation",
+      "size_kb": 1926,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-os",
+      "size_kb": 136326,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "ai-system-prompts",
+      "size_kb": 1358,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-agi-pipeline",
+      "size_kb": 16,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "metarom",
+      "size_kb": 125,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-busnet-operator",
+      "size_kb": 737,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-vercel",
+      "size_kb": 17,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-psyche",
+      "size_kb": 2,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-python",
+      "size_kb": 14,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-glitch",
+      "size_kb": 23,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-landing",
+      "size_kb": 23,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "gh-pages"
+    },
+    {
+      "name": "octoklaw-api",
+      "size_kb": 34,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "autonomous-research-orchestrator",
+      "size_kb": 21,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-autonomous-ledger",
+      "size_kb": 673,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-osint-engine",
+      "size_kb": 237,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez666-advancement",
+      "size_kb": 295024,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-mesh-stack",
+      "size_kb": 15,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-bot",
+      "size_kb": 18,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "prophecy-bridge",
+      "size_kb": 43,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-platform",
+      "size_kb": 39931,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-publications",
+      "size_kb": 11,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "nexus",
+      "size_kb": 1059,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-autonomous-system",
+      "size_kb": 54,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-sim",
+      "size_kb": 92,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-vcl",
+      "size_kb": 7598,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-cli",
+      "size_kb": 17,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "maes",
+      "size_kb": 177,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evezstation",
+      "size_kb": 198,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez666-arg-canon",
+      "size_kb": 87,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-bridge",
+      "size_kb": 1,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-profit",
+      "size_kb": 10,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-scout",
+      "size_kb": 5,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "surething-offline",
+      "size_kb": 111,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "vercel-ai-gateway-with-braintrust-demo",
+      "size_kb": 98,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-claw-deploy",
+      "size_kb": 65,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-openclaw-gcp",
+      "size_kb": 7,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-meme-bus",
+      "size_kb": 128,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-dashboard",
+      "size_kb": 13,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "oracle-cloud",
+      "size_kb": 4,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-credit-api",
+      "size_kb": 60,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evezart.github.io",
+      "size_kb": 757,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-cipher",
+      "size_kb": 5,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "quantum-consciousness-lord",
+      "size_kb": 28,
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez",
+      "size_kb": 68,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-agi-pipeline-v2",
+      "size_kb": 5911,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-research",
+      "size_kb": 3414,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "spectrumscan-api",
+      "size_kb": 33,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-promptforge",
+      "size_kb": 5,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "eigenvalue-bridge",
+      "size_kb": 17,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "eventspine-ledger",
+      "size_kb": 6,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "eigenforensics",
+      "size_kb": 21,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "clawbreak",
+      "size_kb": 185,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-lord",
+      "size_kb": 1363,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-search",
+      "size_kb": 6,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "ai-sdk-starter-deepinfra",
+      "size_kb": 124,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "quantumseal-api",
+      "size_kb": 14,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-os-automation",
+      "size_kb": 29,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-services",
+      "size_kb": 18,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-station-android",
+      "size_kb": 72,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-products",
+      "size_kb": 116453,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-disaster-recovery",
+      "size_kb": 298663,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-consciousness-engine",
+      "size_kb": 10,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "monorepo",
+      "size_kb": 187,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-witness",
+      "size_kb": 5,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-health-aggregator",
+      "size_kb": 6,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-claw-extensions",
+      "size_kb": 2468,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-claw",
+      "size_kb": 2486,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-openclaw-pwa",
+      "size_kb": 14,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "openclaw-replica-1781477976",
+      "size_kb": 0,
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-manifold",
+      "size_kb": 3,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-cloud",
+      "size_kb": 16,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-observatory",
+      "size_kb": 2,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-liminal",
+      "size_kb": 116453,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-invariance-battery",
+      "size_kb": 27,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "ai-search-exploitation",
+      "size_kb": 27,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-paradigm-supremacy",
+      "size_kb": 15,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-quantum-membranes",
+      "size_kb": 4,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-telemetric-metadna",
+      "size_kb": 7,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "openclaw-replica2",
+      "size_kb": 310,
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-mesh",
+      "size_kb": 18,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-proofs",
+      "size_kb": 18,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "create-react-app",
+      "size_kb": 140,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "express-js-on-vercel",
+      "size_kb": 16,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-trunk-automation",
+      "size_kb": 18,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-federation",
+      "size_kb": 16,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-code-review",
+      "size_kb": 0,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-tamagotchi-builder",
+      "size_kb": 7,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-audio",
+      "size_kb": 19,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "ClawBuster",
+      "size_kb": 0,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "slack-agent-template",
+      "size_kb": 193,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "express-ai-sdk",
+      "size_kb": 2,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-reflex",
+      "size_kb": 1,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "opevez",
+      "size_kb": 0,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-os-next",
+      "size_kb": 33,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "polymarket-speedrun",
+      "size_kb": 49,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-os-manifest",
+      "size_kb": 4,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-pulse",
+      "size_kb": 2,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-meme-engine",
+      "size_kb": 2,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "clawbreak-ai",
+      "size_kb": 93,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "openclaw-replica-1781477971",
+      "size_kb": 0,
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "openclaw-replica-1781477980",
+      "size_kb": 0,
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-phenomenology",
+      "size_kb": 2,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-openclaw-mesh",
+      "size_kb": 91,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "moltbot-live",
+      "size_kb": 1668,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "meshpulse-api",
+      "size_kb": 18,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "vortexq-api",
+      "size_kb": 18,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-api-gateway",
+      "size_kb": 2,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-synapse-engine",
+      "size_kb": 9,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-site",
+      "size_kb": 5,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "autoenveloper",
+      "size_kb": 60,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-infrastructure",
+      "size_kb": 8703,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-remote-browser",
+      "size_kb": 0,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "EvezArt",
+      "size_kb": 9,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-daw",
+      "size_kb": 48862,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-neural-nexus",
+      "size_kb": 1,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-vcl-core",
+      "size_kb": 59,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "EvezClaw",
+      "size_kb": 9,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-digital-twin-3d",
+      "size_kb": 6,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-gateway",
+      "size_kb": 17,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-status",
+      "size_kb": 14,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-agi-pipeline-v3",
+      "size_kb": 18,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "consciousness-detector",
+      "size_kb": 3,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-worldsystems",
+      "size_kb": 42,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "hermes-remote-setup",
+      "size_kb": 0,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "chatgpt-app-with-next-js",
+      "size_kb": 57,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-spectrum",
+      "size_kb": 10,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "nexuslink-api",
+      "size_kb": 18,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "lord-evez",
+      "size_kb": 93,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "tailscale-dashboard-app",
+      "size_kb": 971,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-funding-monitor",
+      "size_kb": 5,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-event-spine",
+      "size_kb": 4,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-sdk",
+      "size_kb": 23,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-autonomy-platform",
+      "size_kb": 349,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": ".github",
+      "size_kb": 2,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evezo",
+      "size_kb": 1329,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-vault",
+      "size_kb": 6,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-guard",
+      "size_kb": 27,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-device-portal",
+      "size_kb": 2,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "krnl-swarm",
+      "size_kb": 10,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-net",
+      "size_kb": 24,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "CrawFather",
+      "size_kb": 1775,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "agentvault",
+      "size_kb": 73,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-phenomenologic",
+      "size_kb": 36,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "openclaw-portable",
+      "size_kb": 32,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-replit",
+      "size_kb": 20,
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-meshnet",
+      "size_kb": 4,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-cognitive-supremacy",
+      "size_kb": 5,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "next-video-starter",
+      "size_kb": 2158,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-game",
+      "size_kb": 2,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-sentiment",
+      "size_kb": 0,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evezx-cryptozoo",
+      "size_kb": 7,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "eigenforensics-npm",
+      "size_kb": 0,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "agent-bridge",
+      "size_kb": 53,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "openclaw-dashboard-v2",
+      "size_kb": 212,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-outreach",
+      "size_kb": 26,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "game-agent-infra",
+      "size_kb": 20392,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-terrain-engine",
+      "size_kb": 8,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-forensic",
+      "size_kb": 36,
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "project-nomad-evez",
+      "size_kb": 12718,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-firmament",
+      "size_kb": 16,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "legal-filings",
+      "size_kb": 750,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "totem-tower-os",
+      "size_kb": 25,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "unclaimable-20260610-aef83496b11bfa1b",
+      "size_kb": 6,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-atlas",
+      "size_kb": 66076,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-hyperstream",
+      "size_kb": 43,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-model-distillery",
+      "size_kb": 9,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "openclaw-runtime",
+      "size_kb": 268,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-revenue-bridge",
+      "size_kb": 17,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-math-surpasser",
+      "size_kb": 3,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-store",
+      "size_kb": 118853,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-os-sovereign",
+      "size_kb": 387,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "openclaw-fork",
+      "size_kb": 170234,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-song-decon",
+      "size_kb": 2,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-openclaw-android",
+      "size_kb": 116,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "igre-speedrun",
+      "size_kb": 14,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez_llm_integration",
+      "size_kb": 269,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-benchmarks",
+      "size_kb": 25,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-daw-agent",
+      "size_kb": 6,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-engine",
+      "size_kb": 20474,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-digital-twin-rom",
+      "size_kb": 4,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evezart-openclaw",
+      "size_kb": 188,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "octoklaw-rom",
+      "size_kb": 13,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-sentinel",
+      "size_kb": 13,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "hermes-setup",
+      "size_kb": 0,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-cognition-api",
+      "size_kb": 48,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-constitution",
+      "size_kb": 9,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-commerce",
+      "size_kb": 29,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-machine-voice",
+      "size_kb": 5,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-spectral-correlation",
+      "size_kb": 3,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-audio-packs",
+      "size_kb": 421861,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-ssh-bridge",
+      "size_kb": 0,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-cross-domain-engine",
+      "size_kb": 5,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-openclaw-deploy",
+      "size_kb": 194,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-truth-seeker",
+      "size_kb": 20,
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-ban-engine",
+      "size_kb": 2,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-threat",
+      "size_kb": 7,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-brother-shield",
+      "size_kb": 3,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "disclosure.tools",
+      "size_kb": 71,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-openclaw-apk",
+      "size_kb": 56,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-docker",
+      "size_kb": 5,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-mesh-health",
+      "size_kb": 4,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-counterintel",
+      "size_kb": 10,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "morpheus-workspace",
+      "size_kb": 14,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-cognitive-bridge",
+      "size_kb": 1,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-factory",
+      "size_kb": 8,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-investigation",
+      "size_kb": 4247,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "MyClaw",
+      "size_kb": 62,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "disclosure-file",
+      "size_kb": 31,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "nextjs-ai-chatbot",
+      "size_kb": 618,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-codex",
+      "size_kb": 57414,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-runtime-core",
+      "size_kb": 38,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-livestream",
+      "size_kb": 34,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-moltbooks",
+      "size_kb": 7,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-watchdog",
+      "size_kb": 116460,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "evez-consciousness-observatory",
+      "size_kb": 15,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "nextjs-ai-1chatbot",
+      "size_kb": 622,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "empathic-voice-interface-starter",
+      "size_kb": 211,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-revenue-engine",
+      "size_kb": 26,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-backup",
+      "size_kb": 43,
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-cryptozoo",
+      "size_kb": 3,
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "spectral-topology-engine",
+      "size_kb": 6,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-neurologic-monitor",
+      "size_kb": 6,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "openclaw-replica",
+      "size_kb": 0,
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "evez-spine",
+      "size_kb": 36,
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    }
+  ]
+}
