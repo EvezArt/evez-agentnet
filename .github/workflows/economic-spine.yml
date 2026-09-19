@@ -37,5 +37,7 @@ jobs:
         run: python tools/economic_spine_test.py
       - name: Test economic permasignal bridge
         run: python tools/economic_permasignal_test.py
+      - name: Test economic loop safety
+        run: python tools/economic_loop_test.py
       - name: Compile economic tools
-        run: python -m py_compile tools/economic_spine.py tools/economic_spine_test.py tools/economic_permasignal.py tools/economic_permasignal_test.py tools/opportunity_engine.py tools/economic_reducer.py
+        run: python -m py_compile tools/economic_spine.py tools/economic_spine_test.py tools/economic_permasignal.py tools/economic_permasignal_test.py tools/economic_loop.py tools/economic_loop_test.py tools/opportunity_engine.py tools/economic_reducer.py
