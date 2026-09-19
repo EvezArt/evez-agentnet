@@ -8,7 +8,10 @@ on:
     paths:
       - evez_unacknowledged.py
       - tests/test_unacknowledged_layer.py
+      - tests/test_self_audit.py
       - schemas/evez-unacknowledged-event.schema.json
+      - tools/self_audit.py
+      - .github/workflows/unacknowledged-layer.yml
 
 jobs:
   test:
@@ -19,3 +22,4 @@ jobs:
         with:
           python-version: "3.11"
       - run: python tests/test_unacknowledged_layer.py
+      - run: python tests/test_self_audit.py
