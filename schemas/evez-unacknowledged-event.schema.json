@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evez.art/schemas/evez-unacknowledged-event.schema.json",
+  "title": "EVEZ Unacknowledged Layer Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_type", "observed_at", "source_layer", "payload", "content_hash", "parent_hash", "event_hash"],
+  "properties": {
+    "event_type": {"type": "string", "minLength": 1},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "source_layer": {"enum": ["REAL", "SIMULATED", "DERIVED", "HYPOTHETICAL", "CROSS_DOMAIN"]},
+    "payload": {"type": "object"},
+    "content_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "parent_hash": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "event_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}
