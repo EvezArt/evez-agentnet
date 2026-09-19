@@ -1,0 +1,27 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://evez.art/schemas/evez1-message.schema.json",
+  "title":"EVEZ/1 Wire Envelope",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["protocol","message_id","sender","recipient","capability","version","nonce","timestamp","permissions","constraints","evidence_refs","parent_event","content_hash"],
+  "properties":{
+    "protocol":{"const":"EVEZ/1"},
+    "message_id":{"type":"string","minLength":1},
+    "sender":{"type":"string","minLength":1},
+    "recipient":{"type":"string","minLength":1},
+    "capability":{"type":"string","minLength":1},
+    "version":{"type":"string","minLength":1},
+    "nonce":{"type":"string","minLength":1},
+    "timestamp":{"type":"string","format":"date-time"},
+    "input_ref":{"type":["string","null"]},
+    "output_ref":{"type":["string","null"]},
+    "permissions":{"type":"array","items":{"type":"string"}},
+    "constraints":{"type":"array","items":{"type":"string"}},
+    "evidence_refs":{"type":"array","items":{"type":"string"}},
+    "parent_event":{"type":["string","null"]},
+    "attestation":{"type":["string","null"]},
+    "content_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "message_type":{"enum":["HELLO","CAPABILITY_MANIFEST","CHALLENGE","ATTEST","NEGOTIATE","SESSION_OPEN","EXECUTE","OBSERVE","VERIFY","COMMIT","REVOKE","HANDOFF"]}
+  }
+}
