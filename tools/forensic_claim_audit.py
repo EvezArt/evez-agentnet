@@ -92,7 +92,10 @@ def security_scan():
     env_pattern=re.compile(r"(^|/)\.env(?:\.|$)|(?:\.pem|\.p12|\.pfx)$|(^|/)(?:id_rsa|id_ed25519)(?:$|\.)",re.I)
     for path in tracked:
         rel=path.relative_to(ROOT)
-        if env_pattern.search(str(rel)): findings.append(f"ERROR:SECRET_FILE_TRACKED:{rel}")
+        rel_text=str(rel)
+        documented_example = ".example." in rel_text or rel_text.endswith(".example.env") or rel_text.startswith("docs/examples/")
+        if env_pattern.search(rel_text) and not documented_example:
+            findings.append(f"ERROR:SECRET_FILE_TRACKED:{rel}")
         if path.suffix.lower() in {".png",".jpg",".jpeg",".gif",".zip",".pdf",".woff",".woff2"}: continue
         try: text=path.read_text(encoding="utf-8",errors="replace")
         except OSError: continue
