@@ -1,0 +1,24 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://evez.art/schemas/reality-observation.schema.json",
+  "type":"object","additionalProperties":false,
+  "required":["id","state","uri","observed_at","evidence_type"],
+  "properties":{
+    "id":{"type":"string"},
+    "state":{"enum":["observed","blocked"]},
+    "uri":{"type":"string","format":"uri"},
+    "requested_uri":{"type":"string","format":"uri"},
+    "representation":{"enum":["html","json","text"]},
+    "status_code":{"type":"integer"},
+    "content_type":{"type":"string"},
+    "content_length":{"type":"integer","minimum":0},
+    "truncated":{"type":"boolean"},
+    "content_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "observed_at":{"type":"string","format":"date-time"},
+    "auth_boundary":{"enum":["public","authenticated","unknown","forbidden"]},
+    "robots_url":{"type":"string","format":"uri"},
+    "robots_status":{"type":["integer","string"]},
+    "reason":{"type":"string"},
+    "evidence_type":{"const":"runtime_http_observation"}
+  }
+}
