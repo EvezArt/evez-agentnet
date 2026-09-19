@@ -17,6 +17,9 @@ def test_chain():
         second = append_event(ledger, "REVISION", {"value": 2}, observed_at="2026-09-19T00:01:00Z")
         assert second["parent_hash"] == first["event_hash"]
         assert verify_chain(ledger) == (True, [])
+    ledger.write_text(ledger.read_text() + "[1,2]\n", encoding="utf-8")
+    ok, errors = verify_chain(ledger)
+    assert ok is False and any("invalid event" in e for e in errors)
 
 def test_situated_capability():
     record = situated_capability(
@@ -42,6 +45,14 @@ def test_latent_requirements():
     assert result["state"] == "PROPOSED"
     assert all(item["state"] == "PROPOSED" for item in result["requirements"])
 
+def test_invalid_timestamp():
+    try:
+        append_event(Path(tempfile.mkdtemp()) / "events.jsonl", "OBSERVATION", {}, observed_at="not-a-date")
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("invalid timestamp must fail")
+
 def test_prediction():
     result = prediction(
         "p1", model_ref="model:1", expected={"status": "ok"}, action_ref="run:1",
@@ -49,6 +60,8 @@ def test_prediction():
     )
     assert result["surprise"] is True
     assert result["error"]["expected"]["status"] == "ok"
+    null_result = prediction("p2", model_ref="model:1", expected=1, action_ref="run:2", observed=None)
+    assert null_result["status"] == "OBSERVED"
 
 def test_ontology_break():
     result = ontology_break(
@@ -73,6 +86,14 @@ def test_genealogy_and_protocol():
         pass
     else:
         raise AssertionError("authorization without evidence must fail")
+    try:
+        handshake(participant="surface:1", steps=["VERIFY"])
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("VERIFY without OBSERVE must fail")
+    verified = handshake(participant="surface:1", steps=["OBSERVE", "VERIFY"], authorization_evidence=["obs:1"])
+    assert verified["state"] == "VERIFIED"
 
 def test_witness():
     result = witness("w1", origin="artifact:0", continuity_basis=["shared hash ancestry"])
@@ -80,7 +101,7 @@ def test_witness():
 
 if __name__ == "__main__":
     tests = [test_chain, test_situated_capability, test_negative_space,
-             test_latent_requirements, test_prediction, test_ontology_break,
+             test_latent_requirements, test_invalid_timestamp, test_prediction, test_ontology_break,
              test_genealogy_and_protocol, test_witness]
     for test in tests:
         test()
