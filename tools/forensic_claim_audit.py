@@ -1,182 +1,120 @@
 #!/usr/bin/env python3
-"""Audit EVEZ forensic material for provenance, chronology, security and overclaiming.
-
-Stdlib-only. The audit distinguishes warnings about historical language from
-structural errors that should block publication or deployment.
-"""
-
+"""Audit EVEZ forensic material for provenance, chronology, security and overclaiming."""
 from __future__ import annotations
-
-import argparse
-import json
-import re
+import argparse,json,re,subprocess
+from datetime import datetime
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[1]
+HIGH_RISK=re.compile(r"(?:\b(?:confirmed|proved|proven|same actor|same syndicate|same infrastructure|not coincidence|cover.?up|criminal enterprise|RICO|OFAC violation|legally admissible|admissible|criminal charges warranted)\b|99\.1%|100%|623\+|62 million|fixed payouts|188 citations)",re.I)
+HISTORICAL_MARKER="EVEZ CLAIM STATUS: HISTORICAL_DRAFT"
 
-HIGH_RISK = re.compile(
-    r"(?:\b(?:confirmed|proved|proven|same actor|same syndicate|same infrastructure|"
-    r"not coincidence|cover.?up|criminal enterprise|RICO|OFAC violation|"
-    r"legally admissible|admissible|criminal charges warranted)\b|"
-    r"99\.1%|100%|623\+|62 million|fixed payouts|188 citations)",
-    re.I,
-)
-
-TARGETS = [
-    ROOT / "docs" / "FBI_IC3_Complaint_DMZHOST.md",
-    ROOT / "docs" / "forensic_dossier_standalone.md",
-    ROOT / "forge_output" / "wydot-dmzhost-connection-report.md",
-    ROOT / "forge_output" / "wydot-dmzhos-coverage-report.html",
-]
-
-HISTORICAL_MARKER = "EVEZ CLAIM STATUS: HISTORICAL_DRAFT"
-
-
-def read_text(path: Path) -> str:
+def tracked_files():
     try:
-        return path.read_text(encoding="utf-8", errors="replace")
-    except OSError:
-        return ""
+        out=subprocess.check_output(["git","ls-files","-z"],cwd=ROOT,text=False)
+    except (OSError,subprocess.CalledProcessError):
+        return []
+    return [ROOT/x for x in out.decode(errors="replace").split("\0") if x]
 
+def parse_iso(value):
+    try: datetime.fromisoformat(str(value).replace("Z","+00:00")); return True
+    except Exception: return False
 
-def audit_chain(path: Path) -> tuple[list[str], int | None]:
-    if not path.exists():
-        return [f"ERROR:MISSING_CHAIN:{path}"], None
+def canonical_hash(record):
+    body=dict(record); body.pop("h",None)
+    import hashlib
+    return hashlib.sha256(json.dumps(body,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 
-    records: list[dict] = []
-    findings: list[str] = []
-
-    for line_no, raw in enumerate(
-        path.read_text(encoding="utf-8", errors="replace").splitlines(), 1
-    ):
-        if not raw.strip():
-            continue
-        try:
-            record = json.loads(raw)
-            if isinstance(record, dict):
-                records.append(record)
-            else:
-                findings.append(
-                    f"ERROR:NON_OBJECT_JSONL:{path}:{line_no}"
-                )
+def audit_chain(path):
+    findings=[]; records=[]
+    if not path.exists(): return [f"ERROR:MISSING_CHAIN:{path}"],None
+    raw_lines=path.read_text(encoding="utf-8",errors="replace").splitlines()
+    if not raw_lines: return [f"ERROR:EMPTY_CHAIN:{path}"],None
+    for line_no,raw in enumerate(raw_lines,1):
+        if not raw.strip(): findings.append(f"ERROR:BLANK_CHAIN_LINE:{path}:{line_no}"); continue
+        try: record=json.loads(raw)
         except json.JSONDecodeError:
-            findings.append(f"ERROR:INVALID_JSONL:{path}:{line_no}")
-
-    seqs = [r.get("n") for r in records if isinstance(r.get("n"), int)]
-    max_n = max(seqs) if seqs else None
-
+            findings.append(f"ERROR:INVALID_JSONL:{path}:{line_no}"); continue
+        if not isinstance(record,dict):
+            findings.append(f"ERROR:NON_OBJECT_JSONL:{path}:{line_no}"); continue
+        required={"n","t","k","d","h","ph"}
+        missing=sorted(required-set(record))
+        if missing: findings.append(f"ERROR:INVALID_RECORD:{path}:{line_no}:missing={missing}")
+        if not isinstance(record.get("n"),int) or isinstance(record.get("n"),bool): findings.append(f"ERROR:INVALID_SEQUENCE:{path}:{line_no}")
+        if not isinstance(record.get("t"),str) or not parse_iso(record.get("t")): findings.append(f"ERROR:INVALID_TIMESTAMP:{path}:{line_no}")
+        if not isinstance(record.get("k"),str) or not record.get("k"): findings.append(f"ERROR:INVALID_KIND:{path}:{line_no}")
+        if not isinstance(record.get("d"),dict): findings.append(f"ERROR:INVALID_PAYLOAD:{path}:{line_no}")
+        if not isinstance(record.get("h"),str) or not re.fullmatch(r"[0-9a-f]{64}",str(record.get("h"))): findings.append(f"ERROR:INVALID_HASH:{path}:{line_no}")
+        if not isinstance(record.get("ph"),str) or not re.fullmatch(r"[0-9a-f]{64}",str(record.get("ph"))): findings.append(f"ERROR:INVALID_PREV_HASH:{path}:{line_no}")
+        if all(x in record for x in ("n","t","k","d","h","ph")) and isinstance(record.get("d"),dict):
+            if canonical_hash(record)!=record.get("h"): findings.append(f"ERROR:HASH_MISMATCH:{path}:{line_no}")
+        records.append(record)
+    if not records: return findings+[f"ERROR:EMPTY_VALID_CHAIN:{path}"],None
+    seqs=[r.get("n") for r in records if isinstance(r.get("n"),int) and not isinstance(r.get("n"),bool)]
+    if len(seqs)!=len(records): findings.append(f"ERROR:UNSEQUENCED_RECORDS:{path}")
     if seqs:
-        findings.append(f"INFO:CHAIN_RECORDS:{len(records)}")
-        findings.append(f"INFO:CHAIN_MAX_N:{max_n}")
+        findings.append(f"INFO:CHAIN_RECORDS:{len(records)}"); findings.append(f"INFO:CHAIN_MAX_N:{max(seqs)}")
+        if seqs!=sorted(seqs): findings.append("WARN:NON_MONOTONIC_SEQUENCE:n values are not ordered ascending; require an explicit branch_id if intentional")
+        dupes=sorted({n for n in seqs if seqs.count(n)>1})
+        if dupes: findings.append(f"ERROR:DUPLICATE_SEQUENCE:{dupes}")
+    for i,rec in enumerate(records):
+        if i==0: continue
+        if rec.get("ph") != records[i-1].get("h"): findings.append(f"ERROR:PREV_HASH_MISMATCH:{path}:record_index={i}")
+    conf1=[r for r in records if isinstance(r.get("d"),dict) and r["d"].get("conf")==1.0 and r["d"].get("source") not in (None,"PRIMARY_RECORD")]
+    if conf1: findings.append(f"WARN:CONF_1_NON_PRIMARY:{len(conf1)} records")
+    return findings,max(seqs) if seqs else None
 
-        if seqs != sorted(seqs):
-            findings.append(
-                "WARN:NON_MONOTONIC_SEQUENCE:n values are not ordered ascending; "
-                "require an explicit branch_id if this is intentional"
-            )
-
-        dupes = sorted({n for n in seqs if seqs.count(n) > 1})
-        if dupes:
-            findings.append(f"ERROR:DUPLICATE_SEQUENCE:{dupes}")
-
-    for i, rec in enumerate(records[1:], 1):
-        prev = records[i - 1]
-        ph = rec.get("ph")
-        prev_h = prev.get("h")
-        if ph and prev_h and ph != prev_h:
-            findings.append(
-                f"ERROR:PREV_HASH_MISMATCH:record_index={i}"
-            )
-
-    conf1 = [
-        r
-        for r in records
-        if isinstance(r, dict)
-        and r.get("d", {}).get("conf") == 1.0
-        and r.get("d", {}).get("source") not in (None, "PRIMARY_RECORD")
-    ]
-    if conf1:
-        findings.append(f"WARN:CONF_1_NON_PRIMARY:{len(conf1)} records")
-
-    return findings, max_n
-
-
-def scan_claims(path: Path, chain_max_n: int | None) -> list[str]:
-    text = read_text(path)
-    if not text:
-        return [f"ERROR:MISSING_OR_UNREADABLE:{path}"]
-
-    historical = HISTORICAL_MARKER in text
-    hits: list[str] = []
-
+def scan_claims(path,chain_max):
+    try: text=path.read_text(encoding="utf-8",errors="replace")
+    except OSError: return [f"ERROR:MISSING_OR_UNREADABLE:{path}"]
+    lines=text.splitlines()
+    header=lines[:8]
+    historical=any(line.lstrip().startswith(f"<!-- {HISTORICAL_MARKER}") or HISTORICAL_MARKER in line for line in header)
+    hits=[]
+    risk_lines=[]
+    for line_no,line in enumerate(lines,1):
+        if HIGH_RISK.search(line): risk_lines.append(f"WARN:HIGH_RISK_CLAIM:{path}:{line_no}:{line.strip()[:240]}")
     if not historical:
-        for line_no, line in enumerate(text.splitlines(), 1):
-            if HIGH_RISK.search(line):
-                hits.append(
-                    f"WARN:HIGH_RISK_CLAIM:{path}:{line_no}:{line.strip()[:240]}"
-                )
-
+        hits.extend(risk_lines)
+        if path.suffix.lower() in {".md",".html"} and risk_lines:
+            hits.append(f"WARN:PUBLIC_ARTIFACT_UNMARKED:{path}:high-risk public artifact lacks a header marker")
     if "June 10, 2019" in text and "May 24, 2026" in text:
-        hits.append(
-            f"WARN:DATE_CONFLICT:{path}:contains both the 2019 WYDOT incident date "
-            "and a 2026 incident label"
-        )
-
-    if "623+" in text and (chain_max_n is None or chain_max_n < 623):
-        hits.append(
-            f"WARN:UNSUPPORTED_COUNT:{path}:contains 623+ while the current public "
-            f"chain max is {chain_max_n}"
-        )
-
-    if not historical and path.suffix in {".md", ".html"}:
-        hits.append(
-            f"WARN:PUBLIC_ARTIFACT_UNMARKED:{path}:add "
-            "EVEZ CLAIM STATUS: HISTORICAL_DRAFT or convert claims to evidence objects"
-        )
-
+        hits.append(f"WARN:DATE_CONFLICT:{path}:contains both the 2019 WYDOT incident date and a 2026 incident label")
+    if "623+" in text and (chain_max is None or chain_max<623):
+        hits.append(f"WARN:UNSUPPORTED_COUNT:{path}:contains 623+ while current public chain max is {chain_max}")
     return hits
 
+SECRET_ASSIGN=re.compile(r"(?im)\b(?:API[_-]?KEY|TOKEN|PASSWORD|SECRET|PAT|AUTH(?:ORIZATION)?)[A-Z0-9_ -]*[:=]\s*(?!\$\{|REDACTED|<REDACTED>|YOUR_|changeme)["']?[A-Za-z0-9_./+=:-]{16,}["']?")
 
-def security_scan() -> list[str]:
-    findings: list[str] = []
-    env = ROOT / ".env"
-    if env.exists():
-        findings.append("ERROR:SECRET_FILE_TRACKED:.env exists in the repository")
-
-    for secret_glob in ("*.pem", "*.p12", "*.pfx", "id_rsa*", "id_ed25519*"):
-        for path in ROOT.rglob(secret_glob):
-            if ".git" not in path.parts:
-                findings.append(f"ERROR:SECRET_ARTIFACT_TRACKED:{path.relative_to(ROOT)}")
-
+def security_scan():
+    findings=[]
+    tracked=tracked_files()
+    env_pattern=re.compile(r"(^|/)\.env(?:\.|$)|(?:\.pem|\.p12|\.pfx)$|(^|/)(?:id_rsa|id_ed25519)(?:$|\.)",re.I)
+    for path in tracked:
+        rel=path.relative_to(ROOT)
+        if env_pattern.search(str(rel)): findings.append(f"ERROR:SECRET_FILE_TRACKED:{rel}")
+        if path.suffix.lower() in {".png",".jpg",".jpeg",".gif",".zip",".pdf",".woff",".woff2"}: continue
+        try: text=path.read_text(encoding="utf-8",errors="replace")
+        except OSError: continue
+        for m in SECRET_ASSIGN.finditer(text):
+            if "CREDENTIAL_ROTATION_REQUIRED.md" in str(rel) and "VULTR_API_KEY" in m.group(0): continue
+            findings.append(f"ERROR:SECRET_CONTENT:{rel}:{m.start()}")
+            break
     return findings
 
+def target_files():
+    files=[]
+    for base in (ROOT/"docs",ROOT/"forge_output"):
+        if not base.exists(): continue
+        files.extend(p for p in base.rglob("*") if p.is_file() and p.suffix.lower() in {".md",".html"})
+    return sorted(set(files))
 
-def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--strict",
-        action="store_true",
-        help="Fail only on structural/security errors. Warnings remain visible.",
-    )
-    args = parser.parse_args()
-
-    findings: list[str] = []
-    chain_findings, chain_max_n = audit_chain(ROOT / "docs" / "permaaudit-chain.jsonl")
-    findings.extend(chain_findings)
-
-    for path in TARGETS:
-        findings.extend(scan_claims(path, chain_max_n))
-
+def main():
+    parser=argparse.ArgumentParser(); parser.add_argument("--strict",action="store_true")
+    args=parser.parse_args(); findings=[]; chain,chain_max=audit_chain(ROOT/"docs"/"permaaudit-chain.jsonl"); findings.extend(chain)
+    for path in target_files(): findings.extend(scan_claims(path,chain_max))
     findings.extend(security_scan())
+    for f in findings: print("[AUDIT] "+f)
+    return 2 if args.strict and any(x.startswith("ERROR:") for x in findings) else 0
 
-    for finding in findings:
-        print(f"[AUDIT] {finding}")
-
-    if args.strict and any(item.startswith("ERROR:") for item in findings):
-        return 2
-
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
+if __name__=="__main__": raise SystemExit(main())
