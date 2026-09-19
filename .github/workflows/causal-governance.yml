@@ -1,0 +1,30 @@
+name: causal-governance-kernel
+
+on:
+  pull_request:
+    paths:
+      - "tools/causal_governance.py"
+      - "tests/test_causal_governance.py"
+      - "schemas/evez-causal-governance.schema.json"
+      - "docs/CAUSAL_GOVERNANCE.md"
+      - ".github/workflows/causal-governance.yml"
+  push:
+    branches:
+      - main
+      - "evez-*"
+
+permissions:
+  contents: read
+
+jobs:
+  causal-governance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile kernel
+        run: python -m py_compile tools/causal_governance.py
+      - name: Run kernel tests
+        run: python -m pytest -q tests/test_causal_governance.py
