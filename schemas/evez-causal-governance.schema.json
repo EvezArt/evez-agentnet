@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evez.art/schemas/evez-causal-governance.schema.json",
+  "title": "EVEZ Causal Governance Receipt",
+  "type": "object",
+  "required": ["event_id", "kind", "observed_at", "parent_hash", "content_hash", "content"],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 1},
+    "kind": {
+      "type": "string",
+      "enum": [
+        "IDENTITY", "INTENT", "AUTHORIZATION", "CAPABILITY", "ACTION",
+        "EXECUTION", "OBSERVATION", "CAUSAL_HYPOTHESIS",
+        "INDEPENDENT_VERIFICATION", "EFFECT", "CONSEQUENCE",
+        "CAPABILITY_UPDATE", "REPUTATION_UPDATE", "NEGATIVE_SPACE",
+        "ONTOLOGY_BREAK", "SUCCESSOR_CANDIDATE", "SUCCESSOR_TEST",
+        "SUCCESSOR_DECISION"
+      ]
+    },
+    "observed_at": {"type": "string", "format": "date-time"},
+    "parent_hash": {
+      "anyOf": [
+        {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        {"type": "null"}
+      ]
+    },
+    "content_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "content": {"type": "object"}
+  },
+  "additionalProperties": false
+}
