@@ -1,6 +1,7 @@
-<!-- EVEZ CLAIM STATUS: HISTORICAL_DRAFT. These assertions are preserved as historical investigative material and are not current verified findings. See docs/FORENSIC_CLAIM_STATUS_2026-09.md. -->
-
 > **EVEZ CLAIM STATUS: HISTORICAL DRAFT.** The assertions in this document are preserved historical investigative material, not current verified findings. See `docs/FORENSIC_CLAIM_STATUS_2026-09.md` for current evidence status.
+<!-- EVEZ CLAIM STATUS: HISTORICAL_DRAFT -->
+
+
 
 
 # EVEZ FORENSIC DOSSIER — DMZHOST Attack Chain Investigation
