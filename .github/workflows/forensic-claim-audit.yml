@@ -1,0 +1,14 @@
+name: forensic-claim-audit
+
+on:
+  push:
+    branches: ["main", "evez-claim-audit-2026-09"]
+  pull_request:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run EVEZ forensic claim audit
+        run: python3 tools/forensic_claim_audit.py --strict
