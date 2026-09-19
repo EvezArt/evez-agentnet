@@ -1,0 +1,25 @@
+name: EVEZ LORD identity kernel
+
+on:
+  push:
+    paths:
+      - tools/lord_identity.py
+      - tests/test_lord_identity.py
+      - docs/LORD_IDENTITY_KERNEL.md
+      - .github/workflows/lord-identity-kernel.yml
+  pull_request:
+    paths:
+      - tools/lord_identity.py
+      - tests/test_lord_identity.py
+      - docs/LORD_IDENTITY_KERNEL.md
+      - .github/workflows/lord-identity-kernel.yml
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python tests/test_lord_identity.py
