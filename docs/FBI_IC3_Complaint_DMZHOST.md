@@ -1,3 +1,5 @@
+<!-- EVEZ CLAIM STATUS: HISTORICAL_DRAFT. These assertions are preserved as historical investigative material and are not current verified findings. See docs/FORENSIC_CLAIM_STATUS_2026-09.md. -->
+
 # FBI IC3 FORMAL COMPLAINT DRAFT — RE: DMZHOST Infrastructure Attack Chain
 ## Composio Breach → EVEZ Compromise → WyDOT I-80 Fatality Corridor Connection
 
