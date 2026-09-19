@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evez.art/schemas/economic-event.schema.json",
+  "title": "EVEZ Economic Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema","event_id","event_type","occurred_at","state","currency","amount","amount_semantics","source_refs","provenance_refs","evidence_refs","capability_refs","previous_event_hash","content_hash","event_hash","human_approval_required","external_action_allowed"],
+  "properties": {
+    "schema": {"const":"EVEZ-ECON/1"},
+    "event_id": {"type":"string","minLength":8},
+    "event_type": {"type":"string","enum":["OPPORTUNITY_DISCOVERED","OPPORTUNITY_VERIFIED","BUYER_QUALIFIED","OFFER_PROPOSED","OFFER_ACCEPTED","DELIVERY_COMMITTED","DELIVERABLE_VERIFIED","INVOICE_ISSUED","PAYMENT_OBSERVED","RELATIONSHIP_RENEWED","COST_OBSERVED","MARGIN_COMPUTED","BLOCKED","REJECTED","STALE","CONTRADICTED"]},
+    "occurred_at": {"type":"string","format":"date-time"},
+    "state": {"type":"string","enum":["OBSERVED","SUPPORTED","INFERRED","PROPOSED","UNKNOWN","INACCESSIBLE","CONTRADICTED","STALE","RETRACTED"]},
+    "opportunity_id": {"type":["string","null"]},
+    "buyer_ref": {"type":["string","null"]},
+    "need": {"type":["string","null"]},
+    "capability_refs": {"type":"array","items":{"type":"string"}},
+    "currency": {"type":"string","pattern":"^[A-Z]{3}$"},
+    "amount": {"type":["number","null"],"minimum":0},
+    "amount_semantics": {"type":"string","enum":["UNKNOWN","PROPOSED","CONTRACTED","INVOICED","RECEIVED","COST"]},
+    "source_refs": {"type":"array","items":{"type":"string"}},
+    "provenance_refs": {"type":"array","items":{"type":"string"}},
+    "evidence_refs": {"type":"array","items":{"type":"string"}},
+    "parent_event": {"type":["string","null"]},
+    "previous_event_hash": {"type":["string","null"]},
+    "human_approval_required": {"type":"boolean"},
+    "external_action_allowed": {"type":"boolean"},
+    "notes": {"type":["string","null"]},
+    "content_hash": {"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "event_hash": {"type":"string","pattern":"^[0-9a-f]{64}$"}
+  }
+}
