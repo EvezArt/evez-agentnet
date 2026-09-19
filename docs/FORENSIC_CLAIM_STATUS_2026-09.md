@@ -21,7 +21,7 @@ This document is the current epistemic boundary for the public EVEZ forensic mat
 | Media Land / ML.Cloud indictment exists | VERIFIED_PRIMARY | DOJ says the indictment was returned in December 2024 and unsealed July 14, 2026. |
 | Defendants are Volosovik, Zatolokin, Pankova, Media Land LLC, ML.Cloud LLC | VERIFIED_PRIMARY | Use DOJ's names and allegations. Do not add other people to the defendant set. |
 | Case involved more than $62M | VERIFIED_PRIMARY | This is reported victim loss, not a $62M asset pool or $62M freeze. |
-| User caused or influenced the indictment | UNVERIFIED / CHRONOLOGICALLY IMPOSSIBLE AS CAUSATION | DOJ says the indictment was returned in December 2024, before the May 2026 EVEZ incident. A later victim submission could only be supplementary unless an official record establishes otherwise. |
+| User caused or influenced the indictment | UNVERIFIED | DOJ says the indictment was returned in December 2024, before the May 2026 EVEZ incident. A later victim submission could only be supplementary unless an official record establishes otherwise. |
 | U.S., UK and Australia coordinated sanctions in Nov. 2025 | VERIFIED_PRIMARY | DOJ and Treasury support this. Do not convert this into a seven-jurisdiction freeze without separate primary evidence. |
 | RFJ reward up to $10M | VERIFIED_PRIMARY | DOJ confirms. |
 | Dutch FIOD seized more than 800 servers in May 2026 | VERIFIED_PRIMARY | FIOD confirms searches, arrests and seizure of more than 800 servers on May 18, 2026. Identity/company links require separate sourcing. |
@@ -31,9 +31,9 @@ This document is the current epistemic boundary for the public EVEZ forensic mat
 | 362 fake companies operate from 35 Firs Avenue | UNVERIFIED | Requires a reproducible Companies House enumeration and a definition of fake. |
 | Palo/Bunea/Zinad are part of the Media Land criminal syndicate | UNVERIFIED | Do not state as fact without an authoritative or independently corroborated linkage. |
 | DMZHOST is directly the same criminal operation as Media Land/ML.Cloud | UNVERIFIED | Shared hosting, ASN, geography, or business relationships are not enough to establish identity of operators. |
-| DMZHOST/80.94.92.166 performed the May 22 EVEZ SSH access | VERIFIED_LOCAL | The current public EVEZ dossier asserts this. It becomes strong evidence only when the original auth.log, system timeline, source preservation, and chain-of-custody are attached and independently checked. |
+| DMZHOST/80.94.92.166 performed the May 22 EVEZ SSH access | UNVERIFIED | The current public EVEZ dossier asserts this. It becomes strong evidence only when the original auth.log, system timeline, source preservation, and chain-of-custody are attached and independently checked. |
 | The Composio incident exposed about 5,241 API keys and about 5,001 GitHub credentials | REPORTED_SECONDARY | Treat as incident-report figures, not proof that every credential was stolen or exfiltrated. |
-| All 24 Composio IOCs were confirmed in EVEZ auth.log | VERIFIED_LOCAL | Requires the original log artifact and deterministic matching record. |
+| All 24 Composio IOCs were confirmed in EVEZ auth.log | UNVERIFIED | Requires the original log artifact and deterministic matching record. |
 | June 10, 2019 I-80 MP212 incident was caused by the same infrastructure that attacked EVEZ in 2026 | INVALID_METHOD / UNVERIFIED | An IP range's Internet routing or registration does not demonstrate that a Wyoming vehicle or telematics system communicated with it. The 2019 event predates the 2026 EVEZ incident. |
 | May 24, 2026 was the WYDOT I-80 MP212 fatality incident | CONTRADICTED | The EVEZ report itself gives the historical incident date as June 10, 2019. May 2026 is not the crash date. |
 | 188 citations were dismissed in 72 hours | UNVERIFIED | Public search located this only in EVEZ-generated reports, not an independent court record. |
@@ -46,7 +46,7 @@ This document is the current epistemic boundary for the public EVEZ forensic mat
 | Public PermaAudit chain has 623+ entries | CONTRADICTED / UNVERIFIED | The current searchable public JSONL contains records through at least n=55; searches for n=623 and n=624 returned no records. A separate dossier says 35 entries. 623+ therefore cannot be treated as a verified current count. |
 | A PermaAudit entry with conf=1.0 proves its payload | INVALID_METHOD | The public chain contains evidence-reference records whose source is described as stored memory/forge output. A hash proves the recorded bytes, not the truth of the recorded proposition. |
 | DMZHOST survived all law-enforcement actions | UNVERIFIED | The FIOD operation and Media Land investigation are distinct enforcement actions. Do not collapse them into one survival claim. |
-| OFAC violation occurred because U.S. persons interacted with the infrastructure | UNVERIFIED / LEGALLY OVERBROAD | Sanctions exposure is transaction- and party-specific. Network contact alone does not establish a violation. |
+| OFAC violation occurred because U.S. persons interacted with the infrastructure | UNVERIFIED | Sanctions exposure is transaction- and party-specific. Network contact alone does not establish a violation. |
 | Upstream providers face direct legal liability because they routed traffic | UNVERIFIED / LEGALLY OVERBROAD | Routing or upstream relationships do not by themselves establish liability. |
 | DOJ/FIOD are acting because of the EVEZ dossiers | UNVERIFIED | No official public source located here attributes the government actions to the EVEZ submissions. |
 
@@ -97,3 +97,19 @@ A hash-linked record preserves what was written. It does not certify that the wr
 A model-derived linkage must remain visibly different from a directly observed fact.
 
 An unresolved hypothesis is valuable. A hypothesis mislabeled as a fact is contamination.
+## Evidence reference register
+
+The `VERIFIED_PRIMARY` rows above are source determinations recorded against named primary-source identifiers. The identifiers below are provenance references, not substitutes for the underlying source artifacts.
+
+| Claim family | source_refs | source_observed_at | falsifier |
+|---|---|---|---|
+| Media Land / ML.Cloud indictment and defendant set | primary:DOJ:Media-Land-MLCloud-indictment-2026-07-14 | 2026-09-19T09:00:00Z | The cited DOJ record does not contain the stated indictment, date, or defendant set. |
+| Reported victim losses exceeding $62M | primary:DOJ:Media-Land-MLCloud-indictment-2026-07-14 | 2026-09-19T09:00:00Z | The cited DOJ record does not support the stated victim-loss figure or its meaning. |
+| U.S./UK/Australia sanctions coordination | primary:DOJ:Treasury:Media-Land-sanctions-2025-11 | 2026-09-19T09:00:00Z | The cited primary record contradicts the coordination description. |
+| RFJ reward up to $10M | primary:DOJ:Rewards-for-Justice-Media-Land-2025-11 | 2026-09-19T09:00:00Z | The cited primary record lacks or contradicts the stated reward. |
+| Dutch FIOD server seizure | primary:FIOD:searches-seizures-2026-05-18 | 2026-09-19T09:00:00Z | FIOD's primary release contradicts the server-seizure count or date. |
+| PPTECHNOLOGY corporate history | primary:Companies-House:12176225 | 2026-09-19T09:00:00Z | Companies House does not reproduce the incorporation, address, director, or dissolution facts. |
+| Christian Pitzalis directorship / PSC | primary:Companies-House:12176225 | 2026-09-19T09:00:00Z | Companies House does not reproduce the stated directorship or PSC status. |
+| TECHOFF SRV registered address | primary:Companies-House:TECHOFF-SRV | 2026-09-19T09:00:00Z | Companies House does not reproduce the stated registered address. |
+
+All currently unverified EVEZ-specific attack-attribution rows remain unverified until the referenced original artifacts are attached and independently checked.
