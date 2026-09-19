@@ -72,7 +72,7 @@ CLAIM -> HASH -> TRUE
 
 ### 3. The evidence count is internally inconsistent
 
-The public JSONL has numbered records through at least n=55. Another report says 35 entries. Another says 623+. These are different objects being counted as though they were one ledger.
+The public JSONL currently contains 35 records and the highest observed sequence value is n=55 because sequence values contain gaps. The dossier independently states 35 hash-linked entries for this same JSONL object. A separate historical artifact claims 623+ entries, which is inconsistent with the currently inspected 35-record file.
 
 Every future ledger must carry: ledger_id, branch_id, sequence, parent_hash, event_hash, source_type, source_ref, observed_at, recorded_at, and status.
 
