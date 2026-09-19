@@ -2,13 +2,35 @@ name: forensic-claim-audit
 
 on:
   push:
-    branches: ["main", "evez-claim-audit-2026-09"]
+    branches: ["**"]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
-  audit:
+  trusted-base-audit:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout protected base revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run trusted audit from base revision
+        working-directory: trusted
+        run: python tools/forensic_claim_audit.py --strict
+
+  candidate-audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run EVEZ forensic claim audit
-        run: python3 tools/forensic_claim_audit.py --strict
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run candidate audit
+        run: python tools/forensic_claim_audit.py --strict
