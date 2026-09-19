@@ -17,7 +17,7 @@ def audit(root: str | Path) -> list[dict[str, Any]]:
     root=Path(root)
     module=_read(root,ROOT_FILES["module"]); schema=_read(root,ROOT_FILES["schema"]); docs=_read(root,ROOT_FILES["docs"]); ci=_read(root,ROOT_FILES["ci"])
     out=[]
-    out.append(finding("CHAIN_CONTENT_ORDER","ENFORCED" if "body[\"parent_hash\"] = parent_hash" in module and "body[\"content_hash\"] = sha256(body)" in module else "GAP","content hash covers parent hash before event hash.","[make_event]"))
+    out.append(finding("CHAIN_CONTENT_ORDER","ENFORCED" if module.find('body["parent_hash"] = parent_hash') < module.find('body["content_hash"] = sha256(body)') else "GAP","content hash covers parent hash before event hash.","[make_event]"))
     out.append(finding("TIMESTAMP_ASSERTION","ENFORCED" if '"format-assertion": true' in schema and "RFC 3339" in module else "GAP","timestamp syntax is asserted by schema and runtime.","[schema,make_event]"))
     out.append(finding("CHAIN_SHAPE","ENFORCED" if "not isinstance(event, dict)" in module else "GAP","non-object ledger lines are rejected.","[verify_chain]"))
     out.append(finding("NULL_OBSERVATION","ENFORCED" if "MISSING = object()" in module and "observed is not MISSING" in module else "GAP","explicit null outcomes remain distinguishable from omission.","[prediction]"))
