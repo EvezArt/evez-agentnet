@@ -93,10 +93,18 @@ def load_existing(path):
 
 def classify_line(line):
     matches=[]
+    statement=line.split("[AUDIT] ",1)[-1].strip()
     for rx,kind,_ in RULES:
         if rx.search(line):
-            statement=line.split("[AUDIT] ",1)[-1].strip()
             matches.append((kind,statement))
+    if not matches:
+        # Every emitted audit finding must survive reduction. Generic fallbacks
+        # preserve the boundary when a new audit class appears before this rule
+        # table is updated.
+        if statement.startswith("ERROR:"):
+            matches.append(("REPRODUCTION_GAP",statement))
+        elif statement.startswith("WARN:"):
+            matches.append(("SOURCE_GAP",statement))
     return matches
 
 def main():
