@@ -1,0 +1,25 @@
+name: EVEZ Recursive Ontology Engine
+
+on:
+  push:
+    paths:
+      - tools/ontology_search.py
+      - tests/test_ontology_search.py
+      - docs/RECURSIVE_ONTOLOGY_ENGINE.md
+      - .github/workflows/recursive-ontology-engine.yml
+  pull_request:
+    paths:
+      - tools/ontology_search.py
+      - tests/test_ontology_search.py
+      - docs/RECURSIVE_ONTOLOGY_ENGINE.md
+      - .github/workflows/recursive-ontology-engine.yml
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python tests/test_ontology_search.py
