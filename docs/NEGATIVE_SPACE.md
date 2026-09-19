@@ -5,7 +5,6 @@ Negative space is the append-only record of what the system cannot currently jus
 It is not a list of tasks. It is the boundary of the present model.
 
 Each frontier object answers:
-
 - What is missing?
 - Why does the absence matter?
 - What evidence would change the status?
@@ -15,7 +14,7 @@ Each frontier object answers:
 
 Lifecycle: DISCOVERED -> TRIAGED -> INSTRUMENTED -> TESTED -> RESOLVED | CONTRADICTED | STALE
 
-UNKNOWN is a state. Repeated absence does not become proof merely because it has been recorded many times.
+UNKNOWN is an epistemic condition, not a lifecycle state. Repeated absence does not become proof merely because it has been recorded many times.
 
 A resolved frontier object retains the observations and failed approaches that preceded resolution.
 
