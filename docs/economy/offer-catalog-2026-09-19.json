@@ -1,0 +1,52 @@
+{
+  "schema": "EVEZ-OFFER-CATALOG/1",
+  "status": "PROPOSED_INTERNAL_PRICING",
+  "pricing_note": "These prices are internal proposed offer anchors, not observed market prices or guaranteed earnings.",
+  "offers": [
+    {
+      "id": "offer_workflow_audit",
+      "name": "Automation Workflow Audit",
+      "price": 350,
+      "currency": "USD",
+      "unit": "fixed",
+      "deliverable": "One workflow map, failure-point inventory, automation boundary, acceptance checklist, and implementation plan.",
+      "approval_required": true
+    },
+    {
+      "id": "offer_build_sprint",
+      "name": "Automation Build Sprint",
+      "price": 1500,
+      "currency": "USD",
+      "unit": "fixed",
+      "deliverable": "One bounded production workflow with integrations, validation, retry handling, logging, and handoff documentation.",
+      "approval_required": true
+    },
+    {
+      "id": "offer_openclaw_deploy",
+      "name": "OpenClaw Deployment & Hardening",
+      "price": 900,
+      "currency": "USD",
+      "unit": "fixed",
+      "deliverable": "Deployment/configuration, capability boundaries, channel integration, observability, security review, and handoff.",
+      "approval_required": true
+    },
+    {
+      "id": "offer_agent_reliability",
+      "name": "Agent Reliability & Evidence Layer",
+      "price": 2000,
+      "currency": "USD",
+      "unit": "fixed",
+      "deliverable": "State/event model, provenance records, approval gates, failure states, tests, and audit-oriented reporting for one agent system.",
+      "approval_required": true
+    },
+    {
+      "id": "offer_automation_retainer",
+      "name": "Automation Maintenance Retainer",
+      "price": 1000,
+      "currency": "USD",
+      "unit": "month",
+      "deliverable": "Reserved maintenance capacity for bounded workflow fixes, monitoring, integration changes, and reliability improvements.",
+      "approval_required": true
+    }
+  ]
+}
