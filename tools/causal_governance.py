@@ -270,6 +270,8 @@ def execution_receipt(
     result_ref: str | None = None,
 ) -> Receipt:
     action = chain.require(action_ref)
+    if action.kind != "ACTION":
+        raise GovernanceError("execution requires ACTION receipt")
     return chain.append(
         "EXECUTION",
         {
@@ -289,7 +291,9 @@ def observation_receipt(
     evidence_refs: Iterable[str],
     observed_effect: Mapping[str, Any],
 ) -> Receipt:
-    chain.require(execution_ref)
+    execution = chain.require(execution_ref)
+    if execution.kind != "EXECUTION":
+        raise GovernanceError("observation requires EXECUTION receipt")
     evidence = sorted(set(evidence_refs))
     if not evidence:
         raise GovernanceError("observation requires evidence_refs")
@@ -311,8 +315,12 @@ def causal_hypothesis(
     observation_ref: str,
     hypothesis: str,
 ) -> Receipt:
-    chain.require(execution_ref)
-    chain.require(observation_ref)
+    execution = chain.require(execution_ref)
+    observation = chain.require(observation_ref)
+    if execution.kind != "EXECUTION" or observation.kind != "OBSERVATION":
+        raise GovernanceError("causal hypothesis requires EXECUTION and OBSERVATION receipts")
+    if observation.content.get("execution_ref") != execution_ref:
+        raise GovernanceError("observation does not belong to execution")
     return chain.append(
         "CAUSAL_HYPOTHESIS",
         {
@@ -333,8 +341,12 @@ def independent_verification(
     execution_actor: str,
     evidence_refs: Iterable[str],
 ) -> Receipt:
-    chain.require(hypothesis_ref)
-    chain.require(observation_ref)
+    hypothesis = chain.require(hypothesis_ref)
+    observation = chain.require(observation_ref)
+    if hypothesis.kind != "CAUSAL_HYPOTHESIS" or observation.kind != "OBSERVATION":
+        raise GovernanceError("verification requires CAUSAL_HYPOTHESIS and OBSERVATION receipts")
+    if hypothesis.content.get("observation_ref") != observation_ref:
+        raise GovernanceError("hypothesis does not target observation")
     evidence = sorted(set(evidence_refs))
     if not evidence:
         raise GovernanceError("independent verification requires evidence_refs")
@@ -359,9 +371,19 @@ def effect_receipt(
     verification_ref: str,
     effect_ref: str,
 ) -> Receipt:
-    chain.require(hypothesis_ref)
+    hypothesis = chain.require(hypothesis_ref)
     verification = chain.require(verification_ref)
-    chain.require(effect_ref)
+    effect_observation = chain.require(effect_ref)
+    if hypothesis.kind != "CAUSAL_HYPOTHESIS":
+        raise GovernanceError("effect requires CAUSAL_HYPOTHESIS receipt")
+    if effect_observation.kind != "OBSERVATION":
+        raise GovernanceError("effect_ref must identify an OBSERVATION receipt")
+    if verification.kind != "INDEPENDENT_VERIFICATION":
+        raise GovernanceError("effect requires independent verification")
+    if verification.content.get("hypothesis_ref") != hypothesis_ref:
+        raise GovernanceError("verification does not target hypothesis")
+    if verification.content.get("observation_ref") != hypothesis.content.get("observation_ref"):
+        raise GovernanceError("verification does not target hypothesis observation")
     if verification.kind != "INDEPENDENT_VERIFICATION":
         raise GovernanceError("effect requires independent verification")
     return chain.append(
