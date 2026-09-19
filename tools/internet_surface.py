@@ -19,7 +19,10 @@ def now(): return datetime.now(timezone.utc).isoformat()
 def sha256(b): return hashlib.sha256(b).hexdigest()
 
 def allowed(url, domains):
-    host = (urlparse(url).hostname or "").lower().rstrip(".")
+    p = urlparse(url)
+    if p.scheme not in ("http", "https") or not p.hostname:
+        return False
+    host = p.hostname.lower().rstrip(".")
     return any(host == d or host.endswith("." + d) for d in domains)
 
 def robots_ok(url, client):
@@ -50,7 +53,9 @@ def observe(url, domains, max_bytes, timeout, max_redirects):
         return {"state":"observed","uri":str(r.url),"requested_uri":url,
                 "representation":rep,"status_code":r.status_code,
                 "content_type":ctype,"content_length":len(r.content),
-                "truncated":len(r.content)>max_bytes,"content_hash":sha256(body),
+                "truncated":len(r.content)>max_bytes,"content_hash":sha256(body) if len(r.content) <= max_bytes else None,
+                "prefix_hash":sha256(body) if len(r.content) > max_bytes else None,
+                "hash_scope":"full" if len(r.content) <= max_bytes else "prefix",
                 "observed_at":now(),"auth_boundary":"public",
                 "robots_url":robots_url,"robots_status":robots_status}
 
