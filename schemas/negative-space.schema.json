@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evezart.github.io/evez-agentnet/schemas/negative-space.schema.json",
+  "title": "EVEZ Negative Space Frontier Object",
+  "type": "object",
+  "required": ["frontier_id","kind","status","statement","why_it_matters","evidence_refs","falsifier","next_experiment","created_at"],
+  "properties": {
+    "frontier_id": {"type":"string","minLength":1},
+    "kind": {"type":"string","enum":["MISSING_EVIDENCE","CAPABILITY_GAP","ONTOLOGY_BREAK","PROTOCOL_UNKNOWN","CONTRADICTION","TEMPORAL_GAP","SOURCE_GAP","REPRODUCTION_GAP","AUTHORITY_GAP"]},
+    "status": {"type":"string","enum":["DISCOVERED","TRIAGED","INSTRUMENTED","TESTED","RESOLVED","CONTRADICTED","STALE"]},
+    "statement": {"type":"string","minLength":1},
+    "why_it_matters": {"type":"string","minLength":1},
+    "evidence_refs": {"type":"array","items":{"type":"string"}},
+    "dependent_claims": {"type":"array","items":{"type":"string"}},
+    "falsifier": {"type":"string","minLength":1},
+    "next_experiment": {"type":"string","minLength":1},
+    "possible_capability": {"type":"string"},
+    "created_at": {"type":"string"},
+    "parent_frontier_ids": {"type":"array","items":{"type":"string"}},
+    "source_hash": {"type":"string"}
+  }
+}
