@@ -2,7 +2,7 @@
 
 The repository previously tracked a .env file containing credential assignments despite .gitignore excluding environment files.
 
-The current file is being removed from the working tree. This is not equivalent to erasing the credentials from Git history.
+The tracked `.env` file is being removed from the working tree. This is not equivalent to erasing any credentials from Git history.
 
 Treat every credential that may have been present in that file as compromised until independently rotated or revoked at its provider.
 
