@@ -9,7 +9,7 @@ DEFAULT_OUT = Path(__file__).resolve().parents[1] / 'docs' / 'negative-space.jso
 
 RULES = [
     (re.compile(r'DATE_CONFLICT|chronolog', re.I), 'TEMPORAL_GAP', 'timeline_reconstructor'),
-    (re.compile(r'UNSUPPORTED_COUNT|chain max|623\\+', re.I), 'REPRODUCTION_GAP', 'ledger_reconstructor'),
+    (re.compile(r'UNSUPPORTED_COUNT|chain max|623\+', re.I), 'REPRODUCTION_GAP', 'ledger_reconstructor'),
     (re.compile(r'CONF_1_NON_PRIMARY|confidence', re.I), 'SOURCE_GAP', 'confidence_calibrator'),
     (re.compile(r'HIGH_RISK_CLAIM|same actor|same infrastructure|OFAC|RICO|admissible', re.I), 'MISSING_EVIDENCE', 'attribution_verifier'),
     (re.compile(r'SECRET_FILE_TRACKED|SECRET_ARTIFACT', re.I), 'AUTHORITY_GAP', 'credential_boundary_auditor'),
