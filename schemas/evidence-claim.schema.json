@@ -3,6 +3,7 @@
   "$id":"https://evezart.github.io/evez-agentnet/schemas/evidence-claim.schema.json",
   "title":"EVEZ Evidence Claim",
   "type":"object",
+  "additionalProperties":false,
   "required":["claim_id","subject","predicate","status","source_type","source_refs","observed_at","recorded_at","falsifier"],
   "properties":{
     "claim_id":{"type":"string","minLength":1},
