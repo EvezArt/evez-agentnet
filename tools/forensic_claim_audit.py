@@ -68,7 +68,7 @@ def scan_claims(path,chain_max):
     try: text=path.read_text(encoding="utf-8",errors="replace")
     except OSError: return [f"ERROR:MISSING_OR_UNREADABLE:{path}"]
     lines=text.splitlines()
-    header=lines[:8]
+    header=lines[:5]
     historical=any(line.lstrip().startswith(f"<!-- {HISTORICAL_MARKER}") or HISTORICAL_MARKER in line for line in header)
     hits=[]
     risk_lines=[]
@@ -93,7 +93,7 @@ def security_scan():
     for path in tracked:
         rel=path.relative_to(ROOT)
         rel_text=str(rel)
-        documented_example = ".example." in rel_text or rel_text.endswith(".example.env") or rel_text.startswith("docs/examples/")
+        documented_example = ".example." in rel_text or rel_text.endswith(".example.env") or rel_text.endswith(".env.example") or rel_text.startswith("docs/examples/")
         if env_pattern.search(rel_text) and not documented_example:
             findings.append(f"ERROR:SECRET_FILE_TRACKED:{rel}")
         if path.suffix.lower() in {".png",".jpg",".jpeg",".gif",".zip",".pdf",".woff",".woff2"}: continue
