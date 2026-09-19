@@ -5,6 +5,8 @@ on:
     paths:
       - "tools/causal_governance.py"
       - "tests/test_causal_governance.py"
+      - "tests/test_causal_governance_benchmark.py"
+      - "tools/causal_governance_benchmark.py"
       - "schemas/evez-causal-governance.schema.json"
       - "docs/CAUSAL_GOVERNANCE.md"
       - ".github/workflows/causal-governance.yml"
@@ -27,4 +29,6 @@ jobs:
       - name: Compile kernel
         run: python -m py_compile tools/causal_governance.py
       - name: Run kernel tests
-        run: python -m pytest -q tests/test_causal_governance.py
+        run: python -m pytest -q tests/test_causal_governance.py tests/test_causal_governance_benchmark.py
+      - name: Replay deterministic benchmark
+        run: python tools/causal_governance_benchmark.py
