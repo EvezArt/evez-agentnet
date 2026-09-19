@@ -2,6 +2,19 @@
 
 Coordinates 8 autonomous agents across the EVEZ stack: SPINE, TRUNK, DEPLOY, VAULT, HARVEST, SCOUT, WITNESS, CAIN.
 
+## Epistemic control plane
+
+AgentNet now treats uncertainty as durable state rather than discarded prose.
+
+- `schemas/capability.schema.json` defines capability lifecycle and provenance.
+- `schemas/evez1-message.schema.json` defines the EVEZ/1 wire envelope.
+- `schemas/reality-surface.schema.json` defines bounded observations of external surfaces.
+- `docs/ACKNOWLEDGEMENT_SYSTEM.md` defines the acknowledgement and negative-space model.
+- `docs/acknowledgements.jsonl` stores explicit boundaries, unresolved objects, and next experiments.
+- `tools/acknowledgement_audit.py` validates that unresolved records remain unresolved and that observations carry evidence references.
+
+The system distinguishes observation, support, inference, proposal, unknown, inaccessible, contradiction, staleness, and retraction. Configuration alone never upgrades a capability to effective or verified.
+
 ## Agents
 | Agent | Role |
 |-------|------|
@@ -24,5 +37,4 @@ python agentnet.py
 ```
 
 ---
-
-*Part of [EVEZ-OS](https://github.com/EvezArt/evez-os) • $6/mo • Zero API Cost*
+*Part of EVEZ-OS*
