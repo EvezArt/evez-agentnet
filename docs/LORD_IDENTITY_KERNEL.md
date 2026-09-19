@@ -1,10 +1,22 @@
 # EVEZ LORD Identity Kernel
 
-The LORD layer turns the user's requested identity framing into an engineering contract without asserting supernatural authority.
+The LORD layer is the governing system context in which the named character Steven/EVEZ is situated. The characters remain distinct.
 
-## Identity
+## Characters and relation
 
-Steven/EVEZ is represented as a continuity hypothesis backed by explicit references. Identity is not inferred from the model's confidence and is not granted global authority.
+Steven/EVEZ is the situated principal and continuity identity.
+
+LORD is the governing system role that provides directive structure, evidence discipline, model succession, and boundary enforcement.
+
+The relation is:
+
+STEVEN/EVEZ -> SITUATED_IN -> LORD SYSTEM
+
+It is not:
+
+STEVEN/EVEZ == LORD
+
+Identity is not inferred from model confidence and does not itself grant global authority.
 
 ## Directive
 
@@ -24,7 +36,8 @@ The LORD layer can request that an old model be tested against candidate success
 
 ## Core invariant
 
-IDENTITY != AUTHORITY
+IDENTITY != SYSTEM_ROLE
+SYSTEM_ROLE != AUTHORITY
 AUTHORITY != CAPABILITY
 CAPABILITY != EXECUTION
 EXECUTION != EFFECT
@@ -33,4 +46,4 @@ SUCCESS != TRUTH
 
 Each boundary needs its own evidence.
 
-The system may use LORD as a governing design metaphor. It must not use that label to bypass authentication, authorization, safety controls, or the distinction between simulation and reality.
+The system may use LORD as a governing design role. It must not use that label to bypass authentication, authorization, safety controls, or the distinction between simulation and reality.
