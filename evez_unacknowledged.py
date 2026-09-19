@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
@@ -47,14 +48,18 @@ def make_event(event_type: str, payload: Mapping[str, Any], *, observed_at: str,
     _require(event_type, "event_type")
     _require(observed_at, "observed_at")
     _enum(source_layer, SOURCE_LAYERS, "source_layer")
+    try:
+        datetime.fromisoformat(observed_at.replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise ValueError("observed_at must be RFC 3339 date-time") from exc
     body = {
         "event_type": event_type,
         "observed_at": observed_at,
         "source_layer": source_layer,
         "payload": dict(payload),
+        "parent_hash": parent_hash,
     }
     body["content_hash"] = sha256(body)
-    body["parent_hash"] = parent_hash
     body["event_hash"] = sha256(body)
     return body
 
@@ -84,6 +89,8 @@ def verify_chain(path: str | Path) -> tuple[bool, list[str]]:
             continue
         try:
             event = json.loads(line)
+            if not isinstance(event, dict):
+                raise TypeError("event must be an object")
             expected_content = dict(event)
             expected_content.pop("content_hash", None)
             expected_content.pop("event_hash", None)
@@ -157,8 +164,10 @@ def latent_requirements(intent: str, *, declared_capabilities: Iterable[str] = (
         "known_boundaries": list(known_boundaries),
     }
 
+MISSING = object()
+
 def prediction(prediction_id: str, *, model_ref: str, expected: Any, action_ref: str,
-               observed: Any | None = None, observed_at: str | None = None) -> dict[str, Any]:
+               observed: Any = MISSING, observed_at: str | None = None) -> dict[str, Any]:
     _require(prediction_id, "prediction_id")
     _require(model_ref, "model_ref")
     record: dict[str, Any] = {
@@ -170,7 +179,7 @@ def prediction(prediction_id: str, *, model_ref: str, expected: Any, action_ref:
     }
     if observed_at is not None:
         record["observed_at"] = observed_at
-    if observed is not None:
+    if observed is not MISSING:
         record["observed"] = observed
         record["status"] = "OBSERVED"
         record["surprise"] = observed != expected
@@ -277,11 +286,18 @@ def handshake(*, participant: str, steps: Iterable[str],
     auth = list(authorization_evidence)
     if "AUTHORIZE" in actual and not auth:
         raise ValueError("AUTHORIZE requires authorization_evidence")
+    order = {step: i for i, step in enumerate(PROTOCOL_STEPS)}
+    if any(order[a] >= order[b] for a, b in zip(actual, actual[1:])):
+        raise ValueError("handshake steps must follow protocol order")
+    verified = "VERIFY" in actual
+    if verified and not {"OBSERVE", "VERIFY"}.issubset(actual):
+        raise ValueError("VERIFY requires OBSERVE before verification")
     return {
         "participant": _require(participant, "participant"),
         "steps": actual,
         "authorization_evidence": auth,
-        "state": "PROVISIONAL" if "VERIFY" not in actual else "VERIFIED",
+        "verification_evidence": auth if verified else [],
+        "state": "VERIFIED" if verified else "PROVISIONAL",
     }
 
 def main() -> None:
