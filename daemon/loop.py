@@ -83,7 +83,7 @@ def process_task(issue: dict) -> None:
     issue_queue.mark_running(num)
 
     try:
-        if title.strip().startswith("[BUILD]"):
+        if intent.active_objective == "build":
             action = "builder.handle_build_task"
             result = builder.handle_build_task(num, title, body)
         else:
