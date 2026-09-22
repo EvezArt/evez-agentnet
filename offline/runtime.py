@@ -86,6 +86,8 @@ def status() -> dict:
         "model": MODEL_NAME,
         "history_file": str(CHAT_LOG),
         "history_messages": len(recent_messages(100000)),
+        "presentation_watermark": True,
+        "device_label": os.environ.get("EVEZ_DEVICE_LABEL", "EVEZ-POCKET"),
     }
 
 
