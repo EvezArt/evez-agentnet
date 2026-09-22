@@ -79,7 +79,7 @@ def process_task(issue: dict) -> None:
             "active_objective": intent.active_objective,
         },
     )
-    spine.append_intent_state(
+    pre_intent_event = spine.append_intent_state(
         intent,
         action="select_task_execution_path",
         result={"status": "selected"},
@@ -90,6 +90,7 @@ def process_task(issue: dict) -> None:
     action = "unselected"
     execution_path = "unselected"
     intent_state_before = intent.state_hash()
+    intent_event_before = pre_intent_event["event_hash"]
 
     try:
         if intent.active_objective == "build":
@@ -108,7 +109,7 @@ def process_task(issue: dict) -> None:
 
         intent.record_result(aligned=True)
         intent_state_after = intent.state_hash()
-        spine.append_intent_state(
+        post_intent_event = spine.append_intent_state(
             intent,
             action=action,
             result={
@@ -121,6 +122,7 @@ def process_task(issue: dict) -> None:
             task_id=str(num),
             objective=intent.active_objective or "UNKNOWN",
             intent_state_before=intent_state_before,
+            intent_event_before=intent_event_before,
             action=action,
             execution_path=execution_path,
             result_status="completed",
@@ -128,6 +130,7 @@ def process_task(issue: dict) -> None:
             result=result,
             correction=None,
             intent_state_after=intent_state_after,
+            intent_event_after=post_intent_event["event_hash"],
         )
         spine.append_action_outcome(outcome)
         spine.append(
@@ -147,7 +150,7 @@ def process_task(issue: dict) -> None:
 
         intent.record_result(aligned=False)
         intent_state_after = intent.state_hash()
-        spine.append_intent_state(
+        post_intent_event = spine.append_intent_state(
             intent,
             action=action,
             result={
@@ -161,6 +164,7 @@ def process_task(issue: dict) -> None:
             task_id=str(num),
             objective=intent.active_objective or "UNKNOWN",
             intent_state_before=intent_state_before,
+            intent_event_before=intent_event_before,
             action=action,
             execution_path=execution_path,
             result_status="failed",
@@ -168,6 +172,7 @@ def process_task(issue: dict) -> None:
             result=str(exc),
             correction="execution failure",
             intent_state_after=intent_state_after,
+            intent_event_after=post_intent_event["event_hash"],
         )
         spine.append_action_outcome(outcome)
         spine.append(
