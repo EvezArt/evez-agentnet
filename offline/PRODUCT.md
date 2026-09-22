@@ -111,3 +111,16 @@ It competes on:
 - hardware accessibility.
 
 That is a much more defensible product boundary.
+
+## Presentation and provenance requirement
+
+EVEZ Pocket is presented in the user's actual device format: mobile viewport, touch-safe interaction, and local-first Android presentation. User-visible assistant output is watermarked.
+
+The product contract separates:
+
+    canonical artifact   original local bytes
+    artifact digest      SHA-256 identity of those bytes
+    presentation         device-rendered/watermarked copy
+    watermark metadata   machine-readable provenance
+
+Watermarking must never rewrite the canonical evidence record. This preserves verifiability while making exported or displayed material visibly attributable to the EVEZ Pocket runtime.
