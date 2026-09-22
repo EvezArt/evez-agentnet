@@ -9,12 +9,14 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import time
 import uuid
 from dataclasses import dataclass
 
 
 DOMAIN = b"EVEZ/OFFLINE/PRESENTATION/v1\0"
+DEVICE = os.environ.get("EVEZ_DEVICE_LABEL", "EVEZ-POCKET")
 
 
 @dataclass(frozen=True)
@@ -23,7 +25,7 @@ class Watermark:
     artifact_hash: str
     created_unix: int
     source: str = "LOCAL"
-    device: str = "EVEZ-POCKET"
+    device: str = DEVICE
 
     def text(self) -> str:
         return (
