@@ -15,6 +15,7 @@ import time
 from datetime import datetime, timezone
 
 from daemon import builder, issue_queue, router, spine
+from daemon.action_outcome import build_action_outcome
 from daemon.intent_state import IntentSignal, UserIntentState
 from daemon.intent_trajectory import recent
 
@@ -86,12 +87,18 @@ def process_task(issue: dict) -> None:
 
     issue_queue.mark_running(num)
 
+    action = "unselected"
+    execution_path = "unselected"
+    intent_state_before = intent.state_hash()
+
     try:
         if intent.active_objective == "build":
             action = "builder.handle_build_task"
+            execution_path = "builder"
             result = builder.handle_build_task(num, title, body)
         else:
             action = "router.complete"
+            execution_path = "router"
             prompt = f"Task title: {title}\n\nTask details:\n{body}"
             result = router.complete(prompt, system=SYSTEM_PROMPT)
             if not result:
@@ -100,6 +107,7 @@ def process_task(issue: dict) -> None:
         issue_queue.complete(num, result)
 
         intent.record_result(aligned=True)
+        intent_state_after = intent.state_hash()
         spine.append_intent_state(
             intent,
             action=action,
@@ -109,6 +117,19 @@ def process_task(issue: dict) -> None:
                 "result_len": len(result),
             },
         )
+        outcome = build_action_outcome(
+            task_id=str(num),
+            objective=intent.active_objective or "UNKNOWN",
+            intent_state_before=intent_state_before,
+            action=action,
+            execution_path=execution_path,
+            result_status="completed",
+            aligned=True,
+            result=result,
+            correction=None,
+            intent_state_after=intent_state_after,
+        )
+        spine.append_action_outcome(outcome)
         spine.append(
             "task_done",
             {
@@ -125,9 +146,10 @@ def process_task(issue: dict) -> None:
         issue_queue.fail(num, reason)
 
         intent.record_result(aligned=False)
+        intent_state_after = intent.state_hash()
         spine.append_intent_state(
             intent,
-            action="task_execution",
+            action=action,
             result={
                 "status": "failed",
                 "aligned": False,
@@ -135,6 +157,19 @@ def process_task(issue: dict) -> None:
             },
             correction="execution failure",
         )
+        outcome = build_action_outcome(
+            task_id=str(num),
+            objective=intent.active_objective or "UNKNOWN",
+            intent_state_before=intent_state_before,
+            action=action,
+            execution_path=execution_path,
+            result_status="failed",
+            aligned=False,
+            result=str(exc),
+            correction="execution failure",
+            intent_state_after=intent_state_after,
+        )
+        spine.append_action_outcome(outcome)
         spine.append(
             "task_failed",
             {
