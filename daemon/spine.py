@@ -51,14 +51,17 @@ def _last_event_hash() -> str:
                     continue
                 try:
                     event = json.loads(line)
-                except json.JSONDecodeError:
-                    continue
+                except json.JSONDecodeError as exc:
+                    raise RuntimeError("spine contains invalid JSON; refusing to append") from exc
+
                 value = event.get("event_hash")
-                if isinstance(value, str) and len(value) == 64:
-                    last_hash = value
+                if not isinstance(value, str) or len(value) != 64:
+                    raise RuntimeError("spine contains an invalid event_hash; refusing to append")
+
+                last_hash = value
             return last_hash
     except OSError:
-        return _GENESIS
+        raise
 
 
 def verify_event(event: Mapping[str, Any]) -> bool:
@@ -88,16 +91,6 @@ def verify_event(event: Mapping[str, Any]) -> bool:
 
 
 def _append_unlocked(entry: dict[str, Any]) -> dict[str, Any]:
-    previous_hash = _last_event_hash()
-    entry["prev_hash"] = previous_hash
-
-    event_hash = hashlib.sha256(
-        _HASH_DOMAIN
-        + bytes.fromhex(previous_hash)
-        + _canonical_bytes(entry)
-    ).hexdigest()
-    entry["event_hash"] = event_hash
-
     with SPINE_PATH.open("a", encoding="utf-8") as handle:
         if fcntl is not None:
             fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
