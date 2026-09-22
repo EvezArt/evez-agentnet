@@ -42,3 +42,17 @@ browser
       -> local JSONL conversation record
 
 No OpenRouter. No cloud API. No database. No Python web framework.
+
+## Device-native presentation and watermarking
+
+The browser surface is mobile-first and uses the device viewport, touch-safe controls, and viewport-fit=cover; it does not pretend the phone is a desktop terminal.
+
+Every /chat response has two layers:
+
+    answer       canonical unwatermarked content
+    presentation visible output with watermark
+    watermark    machine-readable provenance metadata
+
+The watermark includes a local device label, a presentation ID, and the SHA-256 digest of the canonical artifact. The digest is computed before presentation text is appended, so the watermark cannot silently become part of the evidence it identifies.
+
+The canonical conversation JSONL remains unwatermarked. association=PRESENTATION_ONLY is intentional.
