@@ -19,6 +19,11 @@ from typing import Any, Mapping
 
 from .intent_state import UserIntentState
 
+try:
+    import fcntl
+except ImportError:  # pragma: no cover - Linux is the supported daemon target.
+    fcntl = None
+
 SPINE_PATH = Path(os.environ.get("DAEMON_SPINE", "daemon/spine.jsonl"))
 _HASH_DOMAIN = b"EVEZ/SPINE/EVENT/v1\x00"
 _GENESIS = "0" * 64
@@ -64,30 +69,26 @@ def verify_event(event: Mapping[str, Any]) -> bool:
     if not isinstance(stored, str) or not isinstance(previous, str):
         return False
 
+    try:
+        previous_bytes = bytes.fromhex(previous)
+    except ValueError:
+        return False
+
     body = dict(event)
     body.pop("event_hash", None)
 
     digest = hashlib.sha256(
         _HASH_DOMAIN
-        + bytes.fromhex(previous)
+        + previous_bytes
         + _canonical_bytes(body)
     ).hexdigest()
 
     return digest == stored
 
 
-def append(event_type: str, data: Mapping[str, Any]) -> dict[str, Any]:
-    """Append one hash-chained event and return the committed entry."""
-
-    SPINE_PATH.parent.mkdir(parents=True, exist_ok=True)
-
+def _append_unlocked(entry: dict[str, Any]) -> dict[str, Any]:
     previous_hash = _last_event_hash()
-    entry: dict[str, Any] = {
-        "ts": datetime.now(timezone.utc).isoformat(),
-        "event": event_type,
-        **dict(data),
-        "prev_hash": previous_hash,
-    }
+    entry["prev_hash"] = previous_hash
 
     event_hash = hashlib.sha256(
         _HASH_DOMAIN
@@ -97,17 +98,51 @@ def append(event_type: str, data: Mapping[str, Any]) -> dict[str, Any]:
     entry["event_hash"] = event_hash
 
     with SPINE_PATH.open("a", encoding="utf-8") as handle:
-        handle.write(
-            json.dumps(
-                entry,
-                sort_keys=True,
-                separators=(",", ":"),
-                ensure_ascii=False,
+        if fcntl is not None:
+            fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
+        try:
+            # Re-read while holding the lock so concurrent writers cannot fork
+            # the chain after computing the same predecessor.
+            previous_hash = _last_event_hash()
+            entry["prev_hash"] = previous_hash
+            entry.pop("event_hash", None)
+            entry["event_hash"] = hashlib.sha256(
+                _HASH_DOMAIN
+                + bytes.fromhex(previous_hash)
+                + _canonical_bytes(entry)
+            ).hexdigest()
+
+            handle.write(
+                json.dumps(
+                    entry,
+                    sort_keys=True,
+                    separators=(",", ":"),
+                    ensure_ascii=False,
+                )
+                + "\n"
             )
-            + "\n"
-        )
+            handle.flush()
+            os.fsync(handle.fileno())
+        finally:
+            if fcntl is not None:
+                fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
 
     return entry
+
+
+def append(event_type: str, data: Mapping[str, Any]) -> dict[str, Any]:
+    """Append one hash-chained event and return the committed entry."""
+
+    SPINE_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    entry: dict[str, Any] = {
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "event": event_type,
+        **dict(data),
+    }
+
+    # Initial hash fields are computed inside the lock by _append_unlocked.
+    return _append_unlocked(entry)
 
 
 def append_intent_state(
@@ -119,8 +154,6 @@ def append_intent_state(
 ) -> dict[str, Any]:
     """Commit the current intent controller state into the event spine."""
 
-    snapshot = state.snapshot()
-
     return append(
         "intent_state",
         {
@@ -130,7 +163,7 @@ def append_intent_state(
             "action": action,
             "result": dict(result) if result is not None else None,
             "correction": correction,
-            "state": snapshot,
+            "state": state.snapshot(),
             "state_hash": state.state_hash(),
         },
     )
@@ -150,7 +183,7 @@ def verify_chain() -> tuple[bool, int, str]:
     checked = 0
 
     with SPINE_PATH.open("r", encoding="utf-8") as handle:
-        for line_number, line in enumerate(handle, start=1):
+        for line in handle:
             if not line.strip():
                 continue
 
