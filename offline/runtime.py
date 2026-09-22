@@ -5,10 +5,12 @@ Architecture:
   browser -> stdlib HTTP server -> local llama.cpp server (optional)
                               -> deterministic fallback when no model exists
                               -> append-only local conversation record
+                              -> optional EVEZ Event Spine presentation witness
 
 Canonical conversation records remain unwatermarked. Presentation responses
 receive a visible device-local watermark plus a hash that points back to the
-canonical content.
+canonical content. When the daemon package is available, that presentation
+relationship is also committed to the same hash-chained Event Spine.
 """
 
 from __future__ import annotations
@@ -16,11 +18,24 @@ from __future__ import annotations
 import json
 import os
 import pathlib
+import sys
 import time
 import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 from watermark import present
+
+# Keep the offline runtime standalone, while allowing a repository checkout to
+# use the canonical daemon Event Spine for presentation witnesses.
+REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+try:
+    from daemon.spine import append_presentation, verify_chain
+except Exception:  # pragma: no cover - standalone Termux copies need no daemon.
+    append_presentation = None
+    verify_chain = None
 
 ROOT = pathlib.Path(os.environ.get("EVEZ_OFFLINE_HOME", "~/.evez-offline")).expanduser()
 ROOT.mkdir(parents=True, exist_ok=True)
@@ -29,6 +44,7 @@ HOST = os.environ.get("EVEZ_OFFLINE_HOST", "127.0.0.1")
 PORT = int(os.environ.get("EVEZ_OFFLINE_PORT", "8787"))
 LLAMA_URL = os.environ.get("EVEZ_LLAMA_URL", "http://127.0.0.1:8080")
 MODEL_NAME = os.environ.get("EVEZ_MODEL", "local-gguf")
+DEVICE_LABEL = os.environ.get("EVEZ_DEVICE_LABEL", "EVEZ-POCKET")
 
 
 def append(kind: str, data: dict) -> None:
@@ -83,6 +99,18 @@ def fallback(text: str) -> str:
 
 
 def status() -> dict:
+    spine_state = "UNAVAILABLE"
+    spine_head = None
+    spine_events = None
+    if verify_chain is not None:
+        try:
+            valid, checked, head = verify_chain()
+            spine_state = "VERIFIED" if valid else "CONTRADICTED"
+            spine_head = head
+            spine_events = checked
+        except Exception as exc:
+            spine_state = f"ERROR:{type(exc).__name__}"
+
     return {
         "offline": True,
         "model_server": LLAMA_URL,
@@ -90,7 +118,10 @@ def status() -> dict:
         "history_file": str(CHAT_LOG),
         "history_messages": len(recent_messages(100000)),
         "presentation_watermark": True,
-        "device_label": os.environ.get("EVEZ_DEVICE_LABEL", "EVEZ-POCKET"),
+        "device_label": DEVICE_LABEL,
+        "event_spine": spine_state,
+        "event_spine_events": spine_events,
+        "event_spine_head": spine_head,
     }
 
 
@@ -103,31 +134,48 @@ def export_history() -> str:
 def verify_history() -> dict:
     checked = 0
     if not CHAT_LOG.exists():
-        return {"valid": True, "records_checked": 0, "path": str(CHAT_LOG)}
+        history = {"valid": True, "records_checked": 0, "path": str(CHAT_LOG)}
+    else:
+        with CHAT_LOG.open("r", encoding="utf-8") as handle:
+            for line in handle:
+                if not line.strip():
+                    continue
+                try:
+                    event = json.loads(line)
+                except json.JSONDecodeError:
+                    return {
+                        "valid": False,
+                        "records_checked": checked,
+                        "path": str(CHAT_LOG),
+                        "reason": "invalid JSON",
+                    }
+                if not isinstance(event, dict) or "ts" not in event or "kind" not in event or "data" not in event:
+                    return {
+                        "valid": False,
+                        "records_checked": checked,
+                        "path": str(CHAT_LOG),
+                        "reason": "invalid record shape",
+                    }
+                checked += 1
+        history = {"valid": True, "records_checked": checked, "path": str(CHAT_LOG)}
 
-    with CHAT_LOG.open("r", encoding="utf-8") as handle:
-        for line in handle:
-            if not line.strip():
-                continue
-            try:
-                event = json.loads(line)
-            except json.JSONDecodeError:
-                return {
-                    "valid": False,
-                    "records_checked": checked,
-                    "path": str(CHAT_LOG),
-                    "reason": "invalid JSON",
-                }
-            if not isinstance(event, dict) or "ts" not in event or "kind" not in event or "data" not in event:
-                return {
-                    "valid": False,
-                    "records_checked": checked,
-                    "path": str(CHAT_LOG),
-                    "reason": "invalid record shape",
-                }
-            checked += 1
+    if verify_chain is not None:
+        try:
+            valid, events, head = verify_chain()
+            history["event_spine"] = {
+                "valid": valid,
+                "events_checked": events,
+                "head": head,
+            }
+        except Exception as exc:
+            history["event_spine"] = {
+                "valid": False,
+                "reason": f"{type(exc).__name__}: {exc}",
+            }
+    else:
+        history["event_spine"] = {"available": False}
 
-    return {"valid": True, "records_checked": checked, "path": str(CHAT_LOG)}
+    return history
 
 
 def answer(user_text: str) -> str:
@@ -219,6 +267,7 @@ class Handler(BaseHTTPRequestHandler):
                 "offline": True,
                 "model_server": LLAMA_URL,
                 "presentation_watermark": True,
+                "event_spine": append_presentation is not None,
             })
             return
         raw = HTML.encode()
@@ -240,6 +289,16 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError("message must contain 1..12000 characters")
             canonical = answer(text)
             presentation, watermark = present(canonical)
+
+            if append_presentation is not None:
+                append_presentation(
+                    artifact_hash=str(watermark["artifact_hash"]),
+                    watermark_id=str(watermark["watermark_id"]),
+                    device=str(watermark["device"]),
+                    source=str(watermark["source"]),
+                    association=str(watermark["association"]),
+                )
+
             self.send_json({
                 "answer": canonical,
                 "presentation": presentation,
@@ -255,4 +314,5 @@ class Handler(BaseHTTPRequestHandler):
 if __name__ == "__main__":
     print(f"EVEZ Offline: http://{HOST}:{PORT}")
     print(f"Conversation log: {CHAT_LOG}")
+    print(f"Event spine: {'available' if append_presentation is not None else 'standalone'}")
     ThreadingHTTPServer((HOST, PORT), Handler).serve_forever()
