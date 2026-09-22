@@ -82,3 +82,14 @@ def test_removing_an_event_breaks_prev_hash_link(tmp_path, monkeypatch):
     valid, checked, _ = spine.verify_chain()
     assert valid is False
     assert checked == 0
+
+
+def test_corrupt_tail_refuses_append(tmp_path, monkeypatch):
+    path = tmp_path / "spine.jsonl"
+    monkeypatch.setattr(spine, "SPINE_PATH", path)
+
+    spine.append("first", {"value": 1})
+    path.write_text(path.read_text(encoding="utf-8") + "{broken-json\n", encoding="utf-8")
+
+    with pytest.raises(RuntimeError, match="invalid JSON"):
+        spine.append("second", {"value": 2})
