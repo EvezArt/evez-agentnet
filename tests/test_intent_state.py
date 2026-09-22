@@ -69,3 +69,22 @@ def test_negated_candidate_is_not_positive_evidence():
     assert result is not None
     assert result.objective == "explain"
     assert result.score > 0
+
+
+def test_explicit_objective_contradicts_prior_hypothesis_and_supports_target():
+    state = UserIntentState()
+    state.observe("explain", [IntentSignal("trajectory", "explain architecture", 1.0)])
+    state.set_explicit_objective("execute")
+
+    assert state.active_objective == "execute"
+    assert state.hypotheses["explain"].status == IntentStatus.CONTRADICTED
+    assert state.hypotheses["execute"].status == IntentStatus.SUPPORTED
+
+
+def test_negated_candidate_is_not_positive_evidence():
+    signals = [IntentSignal("correction", "not compute, explain instead", 1.0)]
+    result = infer_intent(signals, ["compute", "explain"])
+
+    assert result is not None
+    assert result.objective == "explain"
+    assert result.score > 0
