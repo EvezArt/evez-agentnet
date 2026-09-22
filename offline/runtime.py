@@ -4,9 +4,11 @@
 Architecture:
   browser -> stdlib HTTP server -> local llama.cpp server (optional)
                               -> deterministic fallback when no model exists
-                              -> append-only local conversation spine
+                              -> append-only local conversation record
 
-No cloud API is required. No Python packages are required.
+Canonical conversation records remain unwatermarked. Presentation responses
+receive a visible device-local watermark plus a hash that points back to the
+canonical content.
 """
 
 from __future__ import annotations
@@ -15,9 +17,10 @@ import json
 import os
 import pathlib
 import time
-import urllib.error
 import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+
+from watermark import present
 
 ROOT = pathlib.Path(os.environ.get("EVEZ_OFFLINE_HOME", "~/.evez-offline")).expanduser()
 ROOT.mkdir(parents=True, exist_ok=True)
@@ -131,18 +134,22 @@ def answer(user_text: str) -> str:
 
 
 HTML = r"""<!doctype html>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#171b1b">
 <title>EVEZ Offline</title>
 <style>
+:root{color-scheme:dark}
 body{margin:0;background:#171b1b;color:#d7dfdc;font:16px system-ui,sans-serif}
-main{max-width:760px;margin:auto;min-height:100vh;display:flex;flex-direction:column}
-header{padding:14px 16px;border-bottom:1px solid #35403e;font-weight:700}
-#log{flex:1;padding:16px;overflow:auto}
-.msg{white-space:pre-wrap;margin:0 0 14px;padding:11px 13px;border-radius:9px}
+main{width:100%;max-width:760px;margin:auto;min-height:100vh;display:flex;flex-direction:column;box-sizing:border-box}
+header{padding:14px 16px;border-bottom:1px solid #35403e;font-weight:700;position:sticky;top:0;background:#171b1b;z-index:2}
+#log{flex:1;padding:16px 12px 92px;overflow:auto}
+.msg{white-space:pre-wrap;margin:0 0 14px;padding:11px 13px;border-radius:9px;overflow-wrap:anywhere}
 .u{background:#26302e}.a{background:#202625}
-form{display:flex;padding:10px;gap:8px;border-top:1px solid #35403e;position:sticky;bottom:0;background:#171b1b}
-textarea{flex:1;background:#202625;color:#d7dfdc;border:1px solid #46524f;border-radius:8px;padding:10px;resize:none}
+.wm{margin-top:8px;padding-top:7px;border-top:1px solid #35403e;font-size:11px;line-height:1.35;opacity:.68;letter-spacing:.02em}
+form{display:flex;padding:10px;gap:8px;border-top:1px solid #35403e;position:fixed;left:0;right:0;bottom:0;background:#171b1b}
+form textarea{flex:1;min-width:0;background:#202625;color:#d7dfdc;border:1px solid #46524f;border-radius:8px;padding:10px;resize:none}
 button{background:#31403d;color:#d7dfdc;border:1px solid #52615d;border-radius:8px;padding:0 16px}
+@media (min-width:761px){form{left:50%;right:auto;width:760px;transform:translateX(-50%);box-sizing:border-box}}
 </style>
 <main><header>EVEZ OFFLINE · local runtime · no cloud</header><section id="log"></section>
 <form><textarea id="q" rows="2" placeholder="Message or /status"></textarea><button>Send</button></form></main>
@@ -152,8 +159,13 @@ function add(c,t){let d=document.createElement('div');d.className='msg '+c;d.tex
 document.querySelector('form').onsubmit=async e=>{
  e.preventDefault();let t=q.value.trim();if(!t)return;q.value='';add('u',t);add('a','…');
  let box=log.lastChild;
- try{let r=await fetch('/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({message:t})});
- let j=await r.json();\n if(j.error){box.textContent='Runtime error: '+j.error;return}\n box.textContent=j.answer;\n let wm=document.createElement('div');wm.className='wm';wm.textContent=j.watermark.text;box.append(wm);\n }catch(x){box.textContent='Runtime error: '+x}
+ try{
+  let r=await fetch('/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({message:t})});
+  let j=await r.json();
+  if(j.error){box.textContent='Runtime error: '+j.error;return}
+  box.textContent=j.answer;
+  let wm=document.createElement('div');wm.className='wm';wm.textContent=j.watermark.text;box.append(wm);
+ }catch(x){box.textContent='Runtime error: '+x}
 };
 </script>
 """
@@ -170,7 +182,12 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == "/health":
-            self.send_json({"ok": True, "offline": True, "model_server": LLAMA_URL})
+            self.send_json({
+                "ok": True,
+                "offline": True,
+                "model_server": LLAMA_URL,
+                "presentation_watermark": True,
+            })
             return
         raw = HTML.encode()
         self.send_response(200)
@@ -189,7 +206,13 @@ class Handler(BaseHTTPRequestHandler):
             text = str(body.get("message", "")).strip()
             if not text or len(text) > 12000:
                 raise ValueError("message must contain 1..12000 characters")
-            canonical = answer(text)\n            presentation, watermark = present(canonical)\n            self.send_json({\n                "answer": canonical,\n                "presentation": presentation,\n                "watermark": watermark,\n            })
+            canonical = answer(text)
+            presentation, watermark = present(canonical)
+            self.send_json({
+                "answer": canonical,
+                "presentation": presentation,
+                "watermark": watermark,
+            })
         except Exception as exc:
             self.send_json({"error": str(exc)}, 400)
 
