@@ -56,6 +56,15 @@ def make_watermark(content: str) -> Watermark:
     )
 
 
+def verify(content: str, metadata: dict[str, object]) -> bool:
+    """Verify that presentation metadata still identifies the supplied artifact."""
+
+    return (
+        metadata.get("association") == "PRESENTATION_ONLY"
+        and metadata.get("artifact_hash") == artifact_hash(content)
+    )
+
+
 def present(content: str) -> tuple[str, dict[str, object]]:
     wm = make_watermark(content)
     metadata = {
