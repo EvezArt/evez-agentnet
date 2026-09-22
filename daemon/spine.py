@@ -1,42 +1,199 @@
+"""Append-only, hash-chained event spine for EVEZ AgentNet.
+
+Every appended event receives:
+    prev_hash: hash of the previous canonical event
+    event_hash: SHA-256(domain || prev_hash || canonical_event)
+
+Intent-state commits use the same spine so inferred user intent becomes an
+auditable controller input rather than an invisible prompt-side heuristic.
 """
-daemon/spine.py — evez-agentnet
-Append-only JSONL event log for all daemon actions.
-Resolves: evez-agentnet#15
-"""
+
+from __future__ import annotations
+
+import hashlib
 import json
 import os
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any, Mapping
+
+from .intent_state import UserIntentState
 
 SPINE_PATH = Path(os.environ.get("DAEMON_SPINE", "daemon/spine.jsonl"))
+_HASH_DOMAIN = b"EVEZ/SPINE/EVENT/v1\x00"
+_GENESIS = "0" * 64
 
 
-def append(event_type: str, data: dict) -> dict:
+def _canonical_bytes(value: Mapping[str, Any]) -> bytes:
+    return json.dumps(
+        value,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=False,
+    ).encode("utf-8")
+
+
+def _last_event_hash() -> str:
+    if not SPINE_PATH.exists():
+        return _GENESIS
+
+    try:
+        with SPINE_PATH.open("r", encoding="utf-8") as handle:
+            last_hash = _GENESIS
+            for line in handle:
+                if not line.strip():
+                    continue
+                try:
+                    event = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                value = event.get("event_hash")
+                if isinstance(value, str) and len(value) == 64:
+                    last_hash = value
+            return last_hash
+    except OSError:
+        return _GENESIS
+
+
+def verify_event(event: Mapping[str, Any]) -> bool:
+    """Verify one event against its stored previous hash and event hash."""
+
+    stored = event.get("event_hash")
+    previous = event.get("prev_hash")
+
+    if not isinstance(stored, str) or not isinstance(previous, str):
+        return False
+
+    body = dict(event)
+    body.pop("event_hash", None)
+
+    digest = hashlib.sha256(
+        _HASH_DOMAIN
+        + bytes.fromhex(previous)
+        + _canonical_bytes(body)
+    ).hexdigest()
+
+    return digest == stored
+
+
+def append(event_type: str, data: Mapping[str, Any]) -> dict[str, Any]:
+    """Append one hash-chained event and return the committed entry."""
+
     SPINE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    entry = {
+
+    previous_hash = _last_event_hash()
+    entry: dict[str, Any] = {
         "ts": datetime.now(timezone.utc).isoformat(),
         "event": event_type,
-        **data,
+        **dict(data),
+        "prev_hash": previous_hash,
     }
-    with open(SPINE_PATH, "a") as f:
-        f.write(json.dumps(entry) + "\n")
+
+    event_hash = hashlib.sha256(
+        _HASH_DOMAIN
+        + bytes.fromhex(previous_hash)
+        + _canonical_bytes(entry)
+    ).hexdigest()
+    entry["event_hash"] = event_hash
+
+    with SPINE_PATH.open("a", encoding="utf-8") as handle:
+        handle.write(
+            json.dumps(
+                entry,
+                sort_keys=True,
+                separators=(",", ":"),
+                ensure_ascii=False,
+            )
+            + "\n"
+        )
+
     return entry
 
 
-def tail(n: int = 20) -> list:
+def append_intent_state(
+    state: UserIntentState,
+    *,
+    action: str | None = None,
+    result: Mapping[str, Any] | None = None,
+    correction: str | None = None,
+) -> dict[str, Any]:
+    """Commit the current intent controller state into the event spine."""
+
+    snapshot = state.snapshot()
+
+    return append(
+        "intent_state",
+        {
+            "intent_state_version": 1,
+            "controller_revision": state.revision,
+            "active_objective": state.active_objective,
+            "action": action,
+            "result": dict(result) if result is not None else None,
+            "correction": correction,
+            "state": snapshot,
+            "state_hash": state.state_hash(),
+        },
+    )
+
+
+def verify_chain() -> tuple[bool, int, str]:
+    """Verify the entire local spine.
+
+    Returns:
+        (valid, events_checked, last_hash)
+    """
+
     if not SPINE_PATH.exists():
+        return True, 0, _GENESIS
+
+    previous = _GENESIS
+    checked = 0
+
+    with SPINE_PATH.open("r", encoding="utf-8") as handle:
+        for line_number, line in enumerate(handle, start=1):
+            if not line.strip():
+                continue
+
+            try:
+                event = json.loads(line)
+            except json.JSONDecodeError:
+                return False, checked, previous
+
+            if event.get("prev_hash") != previous:
+                return False, checked, previous
+
+            if not verify_event(event):
+                return False, checked, previous
+
+            previous = event["event_hash"]
+            checked += 1
+
+    return True, checked, previous
+
+
+def tail(n: int = 20) -> list[dict[str, Any]]:
+    if not SPINE_PATH.exists() or n <= 0:
         return []
-    lines = SPINE_PATH.read_text().strip().splitlines()
-    out = []
+
+    lines = SPINE_PATH.read_text(encoding="utf-8").splitlines()
+    out: list[dict[str, Any]] = []
+
     for line in lines[-n:]:
+        if not line.strip():
+            continue
         try:
-            out.append(json.loads(line))
-        except Exception:
-            pass
+            event = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(event, dict):
+            out.append(event)
+
     return out
 
 
 def count() -> int:
     if not SPINE_PATH.exists():
         return 0
-    return sum(1 for _ in SPINE_PATH.open())
+
+    with SPINE_PATH.open("r", encoding="utf-8") as handle:
+        return sum(1 for line in handle if line.strip())
