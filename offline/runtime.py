@@ -100,10 +100,42 @@ def export_history() -> str:
     return CHAT_LOG.read_text(encoding="utf-8")
 
 
+def verify_history() -> dict:
+    checked = 0
+    if not CHAT_LOG.exists():
+        return {"valid": True, "records_checked": 0, "path": str(CHAT_LOG)}
+
+    with CHAT_LOG.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            if not line.strip():
+                continue
+            try:
+                event = json.loads(line)
+            except json.JSONDecodeError:
+                return {
+                    "valid": False,
+                    "records_checked": checked,
+                    "path": str(CHAT_LOG),
+                    "reason": "invalid JSON",
+                }
+            if not isinstance(event, dict) or "ts" not in event or "kind" not in event or "data" not in event:
+                return {
+                    "valid": False,
+                    "records_checked": checked,
+                    "path": str(CHAT_LOG),
+                    "reason": "invalid record shape",
+                }
+            checked += 1
+
+    return {"valid": True, "records_checked": checked, "path": str(CHAT_LOG)}
+
+
 def answer(user_text: str) -> str:
     command = user_text.strip().lower()
     if command == "/status":
         return json.dumps(status(), indent=2)
+    if command == "/verify":
+        return json.dumps(verify_history(), indent=2)
     if command == "/history":
         return "\n".join(
             f"{m['role']}: {m['content']}"
@@ -111,7 +143,7 @@ def answer(user_text: str) -> str:
         )
     if command == "/help":
         return (
-            "Commands: /status, /history, /help. "
+            "Commands: /status, /history, /verify, /help. "
             "Normal messages go to the local model."
         )
 
