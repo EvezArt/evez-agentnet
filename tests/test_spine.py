@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import pytest
 
 from daemon import spine
 from daemon.intent_state import IntentSignal, UserIntentState
