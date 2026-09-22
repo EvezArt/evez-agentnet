@@ -30,6 +30,9 @@ class OfflineRuntimeTests(unittest.TestCase):
         self.assertIn(meta["artifact_hash"][:16], presented)
         self.assertEqual(meta["association"], "PRESENTATION_ONLY")
         self.assertEqual(meta["artifact_hash"], watermark.artifact_hash(content))
+        self.assertTrue(watermark.verify(content, meta))
+        tampered = content + "x"
+        self.assertFalse(watermark.verify(tampered, meta))
         self.assertNotEqual(presented, content)
 
     def test_presentation_api_keeps_canonical_and_watermark_separate(self):
