@@ -66,3 +66,19 @@ def test_intent_state_is_committed_to_spine(tmp_path, monkeypatch):
     valid, checked, _ = spine.verify_chain()
     assert valid is True
     assert checked == 1
+
+
+def test_removing_an_event_breaks_prev_hash_link(tmp_path, monkeypatch):
+    path = tmp_path / "spine.jsonl"
+    monkeypatch.setattr(spine, "SPINE_PATH", path)
+
+    spine.append("first", {"value": 1})
+    spine.append("second", {"value": 2})
+    spine.append("third", {"value": 3})
+
+    lines = path.read_text(encoding="utf-8").splitlines()
+    path.write_text("\n".join(lines[1:]) + "\n", encoding="utf-8")
+
+    valid, checked, _ = spine.verify_chain()
+    assert valid is False
+    assert checked == 0
