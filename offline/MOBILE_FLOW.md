@@ -34,3 +34,18 @@ network boundary are deliberately added.
 The local model is not equivalent to a frontier ChatGPT model. It is a compact
 offline substitute with the same basic interaction flow: system context, recent
 conversation, generation, and persistent local history.
+
+## Presentation contract
+
+Chrome receives a mobile-native layout sized to the phone viewport. Assistant responses display a visible provenance watermark.
+
+    canonical response
+          |
+          +--> SHA-256 artifact digest
+          |
+          +--> device-local watermark
+                         |
+                         v
+                rendered presentation
+
+The canonical response stored in chat.jsonl is not modified by the watermark. The displayed artifact and its canonical source are linked by the digest.
