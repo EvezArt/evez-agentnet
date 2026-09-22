@@ -143,6 +143,18 @@ def process_task(issue: dict) -> None:
         log.error("[loop] Failed #%s: %s", num, exc)
 
 
+def ensure_spine_valid() -> tuple[int, str]:
+    """Refuse execution when the append-only spine is already corrupted."""
+
+    valid, checked, last_hash = spine.verify_chain()
+    if not valid:
+        raise RuntimeError(
+            f"spine integrity check failed after {checked} events; "
+            f"last trusted hash={last_hash}"
+        )
+    return checked, last_hash
+
+
 def cycle() -> int:
     """Single poll cycle. Returns number of tasks processed."""
 
@@ -163,8 +175,17 @@ def run_forever() -> None:
         "[loop] DAEMON starting. Poll interval: %ss",
         POLL_INTERVAL,
     )
+    checked, last_hash = ensure_spine_valid()
+    log.info("[loop] Spine verified: %s events, head=%s", checked, last_hash)
     issue_queue.ensure_labels()
-    spine.append("daemon_start", {"pid": os.getpid()})
+    spine.append(
+        "daemon_start",
+        {
+            "pid": os.getpid(),
+            "spine_verified_events": checked,
+            "spine_head_hash": last_hash,
+        },
+    )
 
     cycle_num = 0
     while True:
