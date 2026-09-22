@@ -24,6 +24,7 @@ class ActionOutcome:
     task_id: str
     objective: str
     intent_state_before: str
+    intent_event_before: str
     action: str
     execution_path: str
     result_status: str
@@ -32,6 +33,7 @@ class ActionOutcome:
     result_length: int | None
     correction: str | None
     intent_state_after: str
+    intent_event_after: str
     association_status: str = "OBSERVED_SEQUENCE"
 
     def snapshot(self) -> dict[str, Any]:
@@ -78,6 +80,7 @@ def build_action_outcome(
     task_id: str,
     objective: str,
     intent_state_before: str,
+    intent_event_before: str,
     action: str,
     execution_path: str,
     result_status: str,
@@ -85,6 +88,7 @@ def build_action_outcome(
     result: Any,
     correction: str | None,
     intent_state_after: str,
+    intent_event_after: str,
 ) -> ActionOutcome:
     """Construct one immutable action/outcome record."""
 
@@ -106,6 +110,7 @@ def build_action_outcome(
         task_id=str(task_id),
         objective=objective,
         intent_state_before=intent_state_before,
+        intent_event_before=intent_event_before,
         action=action,
         execution_path=execution_path,
         result_status=result_status,
@@ -114,19 +119,26 @@ def build_action_outcome(
         result_length=result_length,
         correction=correction,
         intent_state_after=intent_state_after,
+        intent_event_after=intent_event_after,
     )
 
 
 def validate_linkage(record: Mapping[str, Any]) -> bool:
     """Validate the non-empty state links of a serialized record."""
 
-    before = record.get("intent_state_before")
-    after = record.get("intent_state_after")
+    state_before = record.get("intent_state_before")
+    event_before = record.get("intent_event_before")
+    state_after = record.get("intent_state_after")
+    event_after = record.get("intent_event_after")
+    hashes = (state_before, event_before, state_after, event_after)
+    valid_hashes = all(
+        isinstance(value, str)
+        and len(value) == 64
+        and all(char in "0123456789abcdef" for char in value)
+        for value in hashes
+    )
     return (
-        isinstance(before, str)
-        and len(before) == 64
-        and isinstance(after, str)
-        and len(after) == 64
+        valid_hashes
         and bool(record.get("task_id"))
         and bool(record.get("action"))
         and bool(record.get("execution_path"))
