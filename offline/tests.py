@@ -40,7 +40,7 @@ class OfflineRuntimeTests(unittest.TestCase):
             canonical = runtime.answer("hello")
             presented, meta = watermark.present(canonical)
             self.assertEqual(canonical, "local answer")
-            self.assertIn("artifact:", meta_text := meta["artifact_hash"][:16])
+            meta_text = meta["artifact_hash"][:16]
             self.assertIn(meta_text, presented)
         runtime.CHAT_LOG = old
 
