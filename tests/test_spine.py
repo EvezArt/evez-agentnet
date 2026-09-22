@@ -69,6 +69,27 @@ def test_intent_state_is_committed_to_spine(tmp_path, monkeypatch):
     assert checked == 1
 
 
+def test_presentation_is_committed_without_claiming_causality(tmp_path, monkeypatch):
+    path = tmp_path / "spine.jsonl"
+    monkeypatch.setattr(spine, "SPINE_PATH", path)
+
+    entry = spine.append_presentation(
+        artifact_hash="a" * 64,
+        watermark_id="wm-123",
+        device="EVEZ-POCKET",
+    )
+
+    assert entry["event"] == "presentation"
+    assert entry["artifact_hash"] == "a" * 64
+    assert entry["association"] == "PRESENTATION_ONLY"
+    assert entry["association_status"] == "OBSERVED_SEQUENCE"
+    assert "causal" not in entry
+
+    valid, checked, _ = spine.verify_chain()
+    assert valid is True
+    assert checked == 1
+
+
 def test_removing_an_event_breaks_prev_hash_link(tmp_path, monkeypatch):
     path = tmp_path / "spine.jsonl"
     monkeypatch.setattr(spine, "SPINE_PATH", path)
