@@ -69,7 +69,6 @@ class UserIntentState:
 
         incoming = tuple(signals)
         previous = self.hypotheses.get(objective)
-
         score = sum(max(-1.0, min(1.0, s.weight)) for s in incoming)
 
         if previous:
@@ -113,18 +112,38 @@ class UserIntentState:
         self.revision += 1
 
     def apply_correction(self, objective: str, explanation: str = "") -> None:
-        """Register a user correction against the active inference."""
+        """Register a correction and positively support the corrected objective."""
 
         self.correction_count += 1
 
-        correction = IntentSignal(
-            kind="user_correction",
-            value=explanation or "user corrected inferred objective",
-            weight=-2.0,
-            source="user",
-        )
+        if self.active_objective and self.active_objective != objective:
+            previous = self.hypotheses.get(self.active_objective)
+            if previous:
+                self.hypotheses[self.active_objective] = IntentHypothesis(
+                    objective=previous.objective,
+                    signals=previous.signals + (
+                        IntentSignal(
+                            kind="user_correction",
+                            value=explanation or "user rejected prior inference",
+                            weight=-1.0,
+                            source="user",
+                        ),
+                    ),
+                    status=IntentStatus.CONTRADICTED,
+                    score=min(-1.0, previous.score - 1.0),
+                )
 
-        self.observe(objective, (correction,))
+        self.observe(
+            objective,
+            (
+                IntentSignal(
+                    kind="user_correction",
+                    value=explanation or "user specified corrected objective",
+                    weight=2.0,
+                    source="user",
+                ),
+            ),
+        )
         self.active_objective = objective
         self.revision += 1
 
@@ -138,14 +157,14 @@ class UserIntentState:
             if h.status in (IntentStatus.SUPPORTED, IntentStatus.UNKNOWN)
         ]
 
-        if not candidates:
-            self.active_objective = None
-            return
-
-        self.active_objective = max(
-            candidates,
-            key=lambda h: (h.score, len(h.signals), h.objective),
-        ).objective
+        self.active_objective = (
+            max(
+                candidates,
+                key=lambda h: (h.score, len(h.signals), h.objective),
+            ).objective
+            if candidates
+            else None
+        )
 
     def snapshot(self) -> dict:
         """Return canonical, JSON-safe state for a spine event."""
@@ -169,7 +188,7 @@ class UserIntentState:
 
     def state_hash(self) -> str:
         return hashlib.sha256(
-            b"EVEZ/INTENT-STATE/v1\\0" + self.canonical_bytes()
+            b"EVEZ/INTENT-STATE/v1\x00" + self.canonical_bytes()
         ).hexdigest()
 
 
@@ -190,21 +209,21 @@ def infer_intent(
         )
         score = sum(max(-1.0, min(1.0, s.weight)) for s in relevant)
         if score != 0:
-            status = (
-                IntentStatus.SUPPORTED
-                if score > 0
-                else IntentStatus.CONTRADICTED
-            )
             scored.append(
                 IntentHypothesis(
                     objective=candidate,
                     signals=relevant,
-                    status=status,
+                    status=(
+                        IntentStatus.SUPPORTED
+                        if score > 0
+                        else IntentStatus.CONTRADICTED
+                    ),
                     score=score,
                 )
             )
 
-    if not scored:
-        return None
-
-    return max(scored, key=lambda h: (h.score, len(h.signals), h.objective))
+    return (
+        max(scored, key=lambda h: (h.score, len(h.signals), h.objective))
+        if scored
+        else None
+    )
