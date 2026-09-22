@@ -79,7 +79,37 @@ def fallback(text: str) -> str:
     )
 
 
+def status() -> dict:
+    return {
+        "offline": True,
+        "model_server": LLAMA_URL,
+        "model": MODEL_NAME,
+        "history_file": str(CHAT_LOG),
+        "history_messages": len(recent_messages(100000)),
+    }
+
+
+def export_history() -> str:
+    if not CHAT_LOG.exists():
+        return "No local conversation history."
+    return CHAT_LOG.read_text(encoding="utf-8")
+
+
 def answer(user_text: str) -> str:
+    command = user_text.strip().lower()
+    if command == "/status":
+        return json.dumps(status(), indent=2)
+    if command == "/history":
+        return "\n".join(
+            f"{m['role']}: {m['content']}"
+            for m in recent_messages(50)
+        )
+    if command == "/help":
+        return (
+            "Commands: /status, /history, /help. "
+            "Normal messages go to the local model."
+        )
+
     history = recent_messages()
     system = {
         "role": "system",
@@ -112,8 +142,8 @@ form{display:flex;padding:10px;gap:8px;border-top:1px solid #35403e;position:sti
 textarea{flex:1;background:#202625;color:#d7dfdc;border:1px solid #46524f;border-radius:8px;padding:10px;resize:none}
 button{background:#31403d;color:#d7dfdc;border:1px solid #52615d;border-radius:8px;padding:0 16px}
 </style>
-<main><header>EVEZ OFFLINE · local runtime</header><section id="log"></section>
-<form><textarea id="q" rows="2" placeholder="Message..."></textarea><button>Send</button></form></main>
+<main><header>EVEZ OFFLINE · local runtime · no cloud</header><section id="log"></section>
+<form><textarea id="q" rows="2" placeholder="Message or /status"></textarea><button>Send</button></form></main>
 <script>
 const log=document.querySelector('#log'),q=document.querySelector('#q');
 function add(c,t){let d=document.createElement('div');d.className='msg '+c;d.textContent=t;log.append(d);log.scrollTop=log.scrollHeight}
