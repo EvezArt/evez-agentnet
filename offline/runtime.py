@@ -151,7 +151,7 @@ document.querySelector('form').onsubmit=async e=>{
  e.preventDefault();let t=q.value.trim();if(!t)return;q.value='';add('u',t);add('a','…');
  let box=log.lastChild;
  try{let r=await fetch('/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({message:t})});
- let j=await r.json();box.textContent=j.answer}catch(x){box.textContent='Runtime error: '+x}
+ let j=await r.json();\n if(j.error){box.textContent='Runtime error: '+j.error;return}\n box.textContent=j.answer;\n let wm=document.createElement('div');wm.className='wm';wm.textContent=j.watermark.text;box.append(wm);\n }catch(x){box.textContent='Runtime error: '+x}
 };
 </script>
 """
@@ -187,7 +187,7 @@ class Handler(BaseHTTPRequestHandler):
             text = str(body.get("message", "")).strip()
             if not text or len(text) > 12000:
                 raise ValueError("message must contain 1..12000 characters")
-            self.send_json({"answer": answer(text)})
+            canonical = answer(text)\n            presentation, watermark = present(canonical)\n            self.send_json({\n                "answer": canonical,\n                "presentation": presentation,\n                "watermark": watermark,\n            })
         except Exception as exc:
             self.send_json({"error": str(exc)}, 400)
 
