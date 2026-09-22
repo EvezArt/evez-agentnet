@@ -98,7 +98,41 @@ class UserIntentState:
     def set_explicit_objective(self, objective: str) -> None:
         """Explicit instructions have authority over inferred hypotheses."""
 
+        previous_active = self.active_objective
         self.explicit_objective = objective
+
+        if previous_active and previous_active != objective:
+            previous = self.hypotheses.get(previous_active)
+            if previous:
+                self.hypotheses[previous_active] = IntentHypothesis(
+                    objective=previous.objective,
+                    signals=previous.signals + (
+                        IntentSignal(
+                            kind="explicit_authority",
+                            value=f"explicit objective replaced {previous_active}",
+                            weight=-1.0,
+                            source="user",
+                        ),
+                    ),
+                    status=IntentStatus.CONTRADICTED,
+                    score=min(-1.0, previous.score - 1.0),
+                )
+
+        target = self.hypotheses.get(objective)
+        target_signals = (target.signals if target else ()) + (
+            IntentSignal(
+                kind="explicit_authority",
+                value=f"user explicitly selected {objective}",
+                weight=2.0,
+                source="user",
+            ),
+        )
+        self.hypotheses[objective] = IntentHypothesis(
+            objective=objective,
+            signals=target_signals,
+            status=IntentStatus.SUPPORTED,
+            score=max(1.0, (target.score if target else 0.0) + 2.0),
+        )
         self.active_objective = objective
         self.revision += 1
 
@@ -192,6 +226,20 @@ class UserIntentState:
         ).hexdigest()
 
 
+def _candidate_is_negated(text: str, candidate: str) -> bool:
+    """Detect simple local negation immediately preceding a candidate mention."""
+
+    lowered = text.lower()
+    target = candidate.lower()
+    start = lowered.find(target)
+    if start < 0:
+        return False
+
+    prefix = lowered[max(0, start - 32):start]
+    negators = ("not ", "don't ", "dont ", "do not ", "never ", "no ")
+    return any(prefix.rstrip().endswith(negator.rstrip()) for negator in negators)
+
+
 def infer_intent(
     signals: Iterable[IntentSignal],
     candidates: Iterable[str],
@@ -202,11 +250,25 @@ def infer_intent(
     scored: list[IntentHypothesis] = []
 
     for candidate in candidates:
-        relevant = tuple(
-            s for s in signal_list
-            if candidate.lower() in s.value.lower()
-            or candidate.lower() in s.kind.lower()
-        )
+        relevant: list[IntentSignal] = []
+        for signal in signal_list:
+            value = signal.value.lower()
+            kind = signal.kind.lower()
+            if candidate.lower() not in value and candidate.lower() not in kind:
+                continue
+            if _candidate_is_negated(signal.value, candidate):
+                relevant.append(
+                    IntentSignal(
+                        kind=signal.kind,
+                        value=signal.value,
+                        weight=-abs(signal.weight),
+                        source=signal.source,
+                    )
+                )
+            else:
+                relevant.append(signal)
+
+        relevant = tuple(relevant)
         score = sum(max(-1.0, min(1.0, s.weight)) for s in relevant)
         if score != 0:
             scored.append(
