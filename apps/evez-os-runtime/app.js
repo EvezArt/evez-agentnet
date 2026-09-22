@@ -3,7 +3,7 @@ const state = {
   model: { status: "UNKNOWN", source: "not connected" },
   spine: { status: "UNKNOWN", source: "not connected" },
   history: { status: "UNKNOWN", source: "not connected" },
-  sessionEvents: []
+  sessionEvents: [],\n  probeResult: "No probe performed.",\n  captureResult: "Nothing captured."
 };
 
 const esc = (value) => String(value)
@@ -60,7 +60,7 @@ function render() {
             <code>127.0.0.1:8787</code>. A failed probe is recorded as
             UNKNOWN, not converted into a fake offline/online claim.
           </p>
-          <pre id="probe-result">No probe performed.</pre>
+          <pre id="probe-result">${esc(state.probeResult)}</pre>
         </article>
 
         <article class="panel">
@@ -88,7 +88,7 @@ function render() {
         <div class="spacer"></div>
         <textarea id="payload" placeholder='JSON payload, or plain text'></textarea>
         <div class="spacer"></div>
-        <div id="capture-result" class="result">Nothing captured.</div>
+        <div id="capture-result" class="result">${esc(state.captureResult)}</div>
       </section>
 
       <section class="panel">
@@ -122,7 +122,7 @@ async function digest(value) {
 
 async function probe() {
   const result = document.getElementById("probe-result");
-  result.textContent = "Probing 127.0.0.1:8787…";
+  state.probeResult = "Probing 127.0.0.1:8787…";\n  result.textContent = state.probeResult;
 
   try {
     const response = await fetch("http://127.0.0.1:8787/health", {
@@ -140,7 +140,7 @@ async function probe() {
       source: "localhost /health",
     };
 
-    result.textContent = JSON.stringify(data, null, 2);
+    state.probeResult = JSON.stringify(data, null, 2);\n    result.textContent = state.probeResult;
   } catch (error) {
     state.runtime = { status: "UNKNOWN", source: "probe failed; no inference made" };
     result.textContent = "UNKNOWN\n" + String(error);
@@ -155,7 +155,7 @@ async function capture() {
   const raw = document.getElementById("payload").value;
 
   if (!mutation) {
-    document.getElementById("capture-result").textContent = "Mutation/objective is required.";
+    state.captureResult = "Mutation/objective is required.";\n    document.getElementById("capture-result").textContent = state.captureResult;
     return;
   }
 
