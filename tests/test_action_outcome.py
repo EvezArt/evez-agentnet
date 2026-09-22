@@ -9,6 +9,7 @@ def test_action_outcome_links_intent_states_and_hashes_result():
         task_id="42",
         objective="execute_task",
         intent_state_before=before,
+        intent_event_before="3" * 64,
         action="router.complete",
         execution_path="router",
         result_status="completed",
@@ -16,6 +17,7 @@ def test_action_outcome_links_intent_states_and_hashes_result():
         result="result",
         correction=None,
         intent_state_after=after,
+        intent_event_after="4" * 64,
     )
 
     assert validate_linkage(record.snapshot()) is True
@@ -32,6 +34,7 @@ def test_action_outcome_is_committed_to_spine(tmp_path, monkeypatch):
         task_id="7",
         objective="build",
         intent_state_before="a" * 64,
+        intent_event_before="c" * 64,
         action="builder.handle_build_task",
         execution_path="builder",
         result_status="failed",
@@ -39,6 +42,7 @@ def test_action_outcome_is_committed_to_spine(tmp_path, monkeypatch):
         result="boom",
         correction="execution failure",
         intent_state_after="b" * 64,
+        intent_event_after="d" * 64,
     )
 
     entry = spine.append_action_outcome(record)
