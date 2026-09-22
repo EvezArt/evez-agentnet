@@ -39,29 +39,31 @@ def _canonical_bytes(value: Mapping[str, Any]) -> bytes:
     ).encode("utf-8")
 
 
-def _last_event_hash() -> str:
-    if not SPINE_PATH.exists():
-        return _GENESIS
+def _last_event_hash(handle) -> str:
+    """Read the chain head from the already-locked file descriptor."""
+    handle.seek(0)
+    last_hash = _GENESIS
 
-    try:
-        with SPINE_PATH.open("r", encoding="utf-8") as handle:
-            last_hash = _GENESIS
-            for line in handle:
-                if not line.strip():
-                    continue
-                try:
-                    event = json.loads(line)
-                except json.JSONDecodeError as exc:
-                    raise RuntimeError("spine contains invalid JSON; refusing to append") from exc
+    for line in handle:
+        if not line.strip():
+            continue
 
-                value = event.get("event_hash")
-                if not isinstance(value, str) or len(value) != 64:
-                    raise RuntimeError("spine contains an invalid event_hash; refusing to append")
+        try:
+            event = json.loads(line)
+        except json.JSONDecodeError as exc:
+            raise RuntimeError(
+                "spine contains invalid JSON; refusing to append"
+            ) from exc
 
-                last_hash = value
-            return last_hash
-    except OSError:
-        raise
+        value = event.get("event_hash")
+        if not isinstance(value, str) or len(value) != 64:
+            raise RuntimeError(
+                "spine contains an invalid event_hash; refusing to append"
+            )
+
+        last_hash = value
+
+    return last_hash
 
 
 def verify_event(event: Mapping[str, Any]) -> bool:
@@ -91,13 +93,18 @@ def verify_event(event: Mapping[str, Any]) -> bool:
 
 
 def _append_unlocked(entry: dict[str, Any]) -> dict[str, Any]:
-    with SPINE_PATH.open("a", encoding="utf-8") as handle:
+    SPINE_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    with SPINE_PATH.open("a+", encoding="utf-8") as handle:
         if fcntl is not None:
             fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
         try:
-            # Re-read while holding the lock so concurrent writers cannot fork
-            # the chain after computing the same predecessor.
-            previous_hash = _last_event_hash()
+            # The same locked descriptor is used for both head calculation and
+            # append. This prevents a second descriptor from observing a
+            # different chain head between read and write.
+            previous_hash = _last_event_hash(handle)
+            handle.seek(0, os.SEEK_END)
+
             entry["prev_hash"] = previous_hash
             entry.pop("event_hash", None)
             entry["event_hash"] = hashlib.sha256(
@@ -127,15 +134,12 @@ def _append_unlocked(entry: dict[str, Any]) -> dict[str, Any]:
 def append(event_type: str, data: Mapping[str, Any]) -> dict[str, Any]:
     """Append one hash-chained event and return the committed entry."""
 
-    SPINE_PATH.parent.mkdir(parents=True, exist_ok=True)
-
     entry: dict[str, Any] = {
         "ts": datetime.now(timezone.utc).isoformat(),
         "event": event_type,
         **dict(data),
     }
 
-    # Initial hash fields are computed inside the lock by _append_unlocked.
     return _append_unlocked(entry)
 
 
@@ -185,6 +189,34 @@ def append_intent_state(
             "correction": correction,
             "state": state.snapshot(),
             "state_hash": state.state_hash(),
+        },
+    )
+
+
+def append_presentation(
+    *,
+    artifact_hash: str,
+    watermark_id: str,
+    device: str,
+    source: str = "LOCAL",
+    association: str = "PRESENTATION_ONLY",
+) -> dict[str, Any]:
+    """Record presentation metadata without changing canonical artifact bytes.
+
+    The spine records the observed presentation relationship. It does not
+    assert that presentation caused, created, or altered the artifact.
+    """
+
+    return append(
+        "presentation",
+        {
+            "presentation_version": 1,
+            "artifact_hash": artifact_hash,
+            "watermark_id": watermark_id,
+            "device": device,
+            "source": source,
+            "association": association,
+            "association_status": "OBSERVED_SEQUENCE",
         },
     )
 
