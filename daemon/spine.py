@@ -17,6 +17,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Mapping
 
+from .action_outcome import ActionOutcome
 from .intent_state import UserIntentState
 
 try:
@@ -143,6 +144,30 @@ def append(event_type: str, data: Mapping[str, Any]) -> dict[str, Any]:
 
     # Initial hash fields are computed inside the lock by _append_unlocked.
     return _append_unlocked(entry)
+
+
+def append_action_outcome(record: ActionOutcome) -> dict[str, Any]:
+    """Commit one immutable action/outcome record into the spine."""
+
+    return append(
+        "action_outcome",
+        {
+            "action_outcome_version": record.schema_version,
+            "task_id": record.task_id,
+            "objective": record.objective,
+            "intent_state_before": record.intent_state_before,
+            "action": record.action,
+            "execution_path": record.execution_path,
+            "result_status": record.result_status,
+            "aligned": record.aligned,
+            "result_digest": record.result_digest,
+            "result_length": record.result_length,
+            "correction": record.correction,
+            "intent_state_after": record.intent_state_after,
+            "association_status": record.association_status,
+            "record_hash": record.record_hash(),
+        },
+    )
 
 
 def append_intent_state(
