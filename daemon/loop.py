@@ -16,6 +16,7 @@ from datetime import datetime, timezone
 
 from daemon import builder, issue_queue, router, spine
 from daemon.intent_state import IntentSignal, UserIntentState
+from daemon.intent_trajectory import recent
 
 logging.basicConfig(
     level=logging.INFO,
@@ -51,6 +52,9 @@ def _intent_for_task(title: str, body: str) -> UserIntentState:
     ]
 
     objective = "build" if title.strip().startswith("[BUILD]") else "execute_task"
+    trajectory = recent(objective)
+    signals.append(trajectory.signal())
+
     state.set_explicit_objective(objective)
     state.observe(objective, signals)
 
