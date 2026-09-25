@@ -1,0 +1,18 @@
+name: EVEZ Causal Economic Witness
+on:
+  push:
+    branches:
+      - evez-causal-economic-witness-2026-09
+  pull_request:
+    paths:
+      - tools/causal_economic_witness.py
+      - tests/test_causal_economic_witness.py
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python tests/test_causal_economic_witness.py
