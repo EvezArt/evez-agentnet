@@ -1,0 +1,25 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://evez.art/schemas/reality-surface.schema.json",
+  "title":"EVEZ Reality Surface",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["id","uri","representation","observed_at","state","evidence_refs"],
+  "properties":{
+    "id":{"type":"string","pattern":"^surface_[a-z0-9._:-]+$"},
+    "uri":{"type":"string","format":"uri"},
+    "domain":{"type":"string"},
+    "resource":{"type":"string"},
+    "representation":{"enum":["html","json","text","image","pdf","api","git","database","runtime","other"]},
+    "protocol":{"type":["string","null"]},
+    "auth_boundary":{"enum":["public","authenticated","unknown","forbidden"]},
+    "observed_at":{"type":"string","format":"date-time"},
+    "temporal_state":{"enum":["current","historical","scheduled","unknown"]},
+    "state":{"enum":["observed","changed","missing","blocked","unknown","contradicted"]},
+    "content_hash":{"type":["string","null"],"pattern":"^[a-f0-9]{64}$"},
+    "evidence_refs":{"type":"array","items":{"type":"string"}},
+    "artifact_refs":{"type":"array","items":{"type":"string"}},
+    "relations":{"type":"array","items":{"type":"string"}},
+    "notes":{"type":"string"}
+  }
+}

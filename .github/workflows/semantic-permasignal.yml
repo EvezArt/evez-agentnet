@@ -1,0 +1,28 @@
+name: semantic-permasignal
+
+on:
+  push:
+    paths:
+      - "tools/semantic_permasignal.py"
+      - "tools/semantic_permasignal_test.py"
+      - "tools/swarm_reducer.py"
+      - "schemas/semantic-permasignal.schema.json"
+      - ".github/workflows/semantic-permasignal.yml"
+  pull_request:
+    paths:
+      - "tools/semantic_permasignal.py"
+      - "tools/semantic_permasignal_test.py"
+      - "tools/swarm_reducer.py"
+      - "schemas/semantic-permasignal.schema.json"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test semantic permasignal
+        working-directory: tools
+        run: python semantic_permasignal_test.py

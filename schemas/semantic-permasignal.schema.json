@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://evez.art/schemas/semantic-permasignal.schema.json",
+  "type":"object","additionalProperties":false,
+  "required":["grammar","kind","state","severity","mode","source","text","observed_at","content_hash","event_hash"],
+  "properties":{
+    "grammar":{"const":"EVEZ-HSM/1"},"kind":{"const":"permasignal"},
+    "state":{"enum":["OBSERVED","SUPPORTED","INFERRED","PROPOSED","UNKNOWN","INACCESSIBLE","CONTRADICTED","STALE","RETRACTED"]},
+    "severity":{"enum":["info","attention","blocker"]},
+    "mode":{"enum":["RECEIVE","ORIENT","DISTINGUISH","TEST","COMMIT","REVISE","HANDOFF"]},
+    "source":{"type":"string"},"text":{"type":"string","minLength":1},
+    "observed_at":{"type":"string","format":"date-time"},
+    "parent_event":{"type":["string","null"]},
+    "previous_event_hash":{"type":["string","null"]},
+    "content_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "transition_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "event_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"}
+  }
+}

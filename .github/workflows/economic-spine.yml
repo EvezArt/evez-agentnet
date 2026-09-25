@@ -1,0 +1,43 @@
+name: economic-spine
+
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "tools/economic_spine.py"
+      - "tools/economic_spine_test.py"
+      - "tools/economic_permasignal.py"
+      - "tools/economic_permasignal_test.py"
+      - "tools/opportunity_engine.py"
+      - "tools/economic_reducer.py"
+      - "schemas/economic-event.schema.json"
+      - "schemas/opportunity.schema.json"
+      - "docs/ECONOMIC_ACQUISITION.md"
+      - "docs/economy/**"
+  pull_request:
+    paths:
+      - "tools/economic_spine.py"
+      - "tools/economic_spine_test.py"
+      - "tools/economic_permasignal.py"
+      - "tools/economic_permasignal_test.py"
+      - "tools/opportunity_engine.py"
+      - "tools/economic_reducer.py"
+      - "schemas/economic-event.schema.json"
+      - "schemas/opportunity.schema.json"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test economic spine
+        run: python tools/economic_spine_test.py
+      - name: Test economic permasignal bridge
+        run: python tools/economic_permasignal_test.py
+      - name: Test economic loop safety
+        run: python tools/economic_loop_test.py
+      - name: Compile economic tools
+        run: python -m py_compile tools/economic_spine.py tools/economic_spine_test.py tools/economic_permasignal.py tools/economic_permasignal_test.py tools/economic_loop.py tools/economic_loop_test.py tools/opportunity_engine.py tools/economic_reducer.py

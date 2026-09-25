@@ -1,0 +1,35 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://evez.art/schemas/acquisition-action.schema.json",
+  "title":"EVEZ Acquisition Action",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema","action_id","opportunity_id","action","state","human_approval_required","external_action_allowed"],
+  "properties":{
+    "schema":{"const":"EVEZ-ACQUISITION-ACTION/1"},
+    "action_id":{"type":"string","minLength":8},
+    "opportunity_id":{"type":"string","minLength":8},
+    "action":{"type":"string","enum":["DRAFT_PROPOSAL","REQUEST_APPROVAL","SUBMIT_PROPOSAL","SEND_MESSAGE","ACCEPT_CONTRACT","DELIVER","INVOICE","RECORD_PAYMENT"]},
+    "state":{"type":"string","enum":["DRAFT","AWAITING_HUMAN_APPROVAL","APPROVED","EXECUTED","BLOCKED","REJECTED"]},
+    "human_approval_required":{"const":true},
+    "external_action_allowed":{"type":"boolean"},
+    "approved_by":{"type":["string","null"]},
+    "approved_at":{"type":["string","null"],"format":"date-time"},
+    "executed_at":{"type":["string","null"],"format":"date-time"},
+    "evidence_refs":{"type":"array","items":{"type":"string"}},
+    "notes":{"type":"string"}
+  },
+  "allOf":[
+    {
+      "if":{"properties":{"state":{"enum":["DRAFT","AWAITING_HUMAN_APPROVAL","BLOCKED","REJECTED"]}}},
+      "then":{"properties":{"external_action_allowed":{"const":false}}}
+    },
+    {
+      "if":{"properties":{"state":"EXECUTED"}},
+      "then":{
+        "required":["approved_by","approved_at","executed_at"],
+        "properties":{"external_action_allowed":{"const":true}}
+      }
+    }
+  ]
+}

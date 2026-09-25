@@ -1,0 +1,30 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://evez.art/schemas/opportunity.schema.json",
+  "title":"EVEZ Opportunity",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema","opportunity_id","state","source","title","need","evidence_refs","capability_refs","next_test","next_action","contact_boundary","human_approval_required"],
+  "properties":{
+    "schema":{"const":"EVEZ-OPPORTUNITY/1"},
+    "opportunity_id":{"type":"string","minLength":8},
+    "state":{"type":"string","enum":["DISCOVERED","VERIFIED","QUALIFIED","OFFER_READY","AWAITING_HUMAN_APPROVAL","CONTACTED","CONTRACTED","DELIVERING","PAID","STALE","BLOCKED","REJECTED","CONTRADICTED"]},
+    "source":{"type":"object","additionalProperties":false,"required":["uri","observed_at"],"properties":{"uri":{"type":"string","format":"uri"},"observed_at":{"type":"string","format":"date-time"},"content_hash":{"type":["string","null"]},"observation_ref":{"type":["string","null"]}}},
+    "title":{"type":"string","minLength":1},
+    "buyer_ref":{"type":["string","null"]},
+    "need":{"type":"string","minLength":1},
+    "deadline":{"type":["string","null"],"format":"date-time"},
+    "budget":{"type":["number","null"],"minimum":0},
+    "currency":{"type":["string","null"],"pattern":"^[A-Z]{3}$"},
+    "evidence_refs":{"type":"array","items":{"type":"string"}},
+    "capability_refs":{"type":"array","items":{"type":"string"}},
+    "capability_fit":{"type":"array","items":{"type":"string"}},
+    "fit_score":{"type":["number","null"],"minimum":0,"maximum":100},
+    "fit_basis":{"type":"array","items":{"type":"string"}},
+    "next_test":{"type":"string","minLength":1},
+    "next_action":{"type":"string","minLength":1},
+    "contact_boundary":{"type":"string","enum":["NONE","DRAFT_ONLY","HUMAN_APPROVAL_REQUIRED"]},
+    "human_approval_required":{"type":"boolean"},
+    "content_hash":{"type":["string","null"],"pattern":"^[0-9a-f]{64}$"}
+  }
+}

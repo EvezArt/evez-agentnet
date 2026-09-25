@@ -1,3 +1,9 @@
+> **EVEZ CLAIM STATUS: HISTORICAL DRAFT.** The assertions in this document are preserved historical investigative material, not current verified findings. See `docs/FORENSIC_CLAIM_STATUS_2026-09.md` for current evidence status.
+<!-- EVEZ CLAIM STATUS: HISTORICAL_DRAFT -->
+
+
+
+
 # WYDOT I-80 MP212 Fatality Corridor — DMZHOST Infrastructure Connection
 ## Forensic Intelligence Report — EVEZ OS Forensic Division
 ### CONFIDENTIAL — For Law Enforcement Use Only
