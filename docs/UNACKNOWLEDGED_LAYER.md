@@ -13,8 +13,7 @@ require bounded evidence.
 The layer records NOT_FOUND, NOT_OBSERVED, NOT_AUTHORIZED, NOT_REACHABLE,
 NOT_SUPPORTED, NOT_YET_TESTED, CONTRADICTED, STALE, and UNKNOWN.
 
-A negative-space record requires a boundary, a resolution condition, and a next
-experiment. It is not proof of absence.
+This layer is the event-level representation of negative space. It complements, rather than replaces, the repository frontier model in docs/NEGATIVE_SPACE.md and docs/NEGATIVE_SPACE_RUNTIME.md. A negative-space record requires a boundary, a resolution condition, and a next experiment. It is not proof of absence.
 
 ## Latent requirements
 
@@ -32,8 +31,7 @@ prediction error instead of a vague intelligence score.
 ## Ontology breaks
 
 ONTOLOGICAL_BREAK is emitted when an observation cannot be represented without
-loss under the current model. The old model remains an ancestor. The successor
-model begins as a proposal.
+loss under the current model. The old model remains an ancestor. The successor model remains unset until a successor is explicitly proposed and tested. Candidate distinctions are retained in the open break record.
 
 ## Witness continuity
 
