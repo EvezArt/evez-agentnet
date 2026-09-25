@@ -1,0 +1,21 @@
+name: EVEZ Unacknowledged Layer
+
+on:
+  push:
+    branches:
+      - evez-unacknowledged-layer-2026-09
+  pull_request:
+    paths:
+      - evez_unacknowledged.py
+      - tests/test_unacknowledged_layer.py
+      - schemas/evez-unacknowledged-event.schema.json
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python tests/test_unacknowledged_layer.py
