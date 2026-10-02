@@ -1,0 +1,155 @@
+"""Standing health watch for the EVEZ stack.
+
+This runs whether or not an agent session is active. It exists because the
+three failures that mattered most this session were all silent:
+
+  - the RSI engine emitted "recover via streak" to a perfect agent for 244 rounds
+  - the income loop logged "Shipped" while total_earned_usd stayed 0.00
+  - two live credentials sat in public repos
+
+None of those raise an alert. So this one does.
+
+Writes a status document rather than only logging, because a status file
+survives the session that produced it.
+"""
+from __future__ import annotations
+
+import json
+import os
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+REPO = Path("/root/evez-agentnet")
+OUT = REPO / "status"
+OUT.mkdir(exist_ok=True)
+
+FAIL = []
+WARN = []
+
+
+def sh(cmd, timeout=20):
+    try:
+        p = subprocess.run(cmd, shell=True, capture_output=True, text=True,
+                           timeout=timeout)
+        return p.returncode, (p.stdout or p.stderr).strip()
+    except Exception as e:
+        return 1, str(e)[:120]
+
+
+def check(name, ok, detail="", warn_only=False):
+    if ok:
+        print(f"  ok    {name}")
+    else:
+        line = f"{name}: {detail}"
+        (WARN if warn_only else FAIL).append(line)
+        print(f"  {'WARN' if warn_only else 'FAIL'}  {name}  {detail}")
+    return ok
+
+
+def main():
+    now = datetime.now(timezone.utc).isoformat()
+    print(f"EVEZ stack health — {now}\n")
+
+    # ── services ──
+    for svc in ["openclaw-gateway", "evez-agentnet", "evez-event-spine",
+                "evez-commerce", "evez-evidence-api", "gueriella-agent"]:
+        rc, out = sh(f"systemctl is-active {svc}")
+        check(f"service {svc}", out == "active", f"state={out or 'unknown'}")
+
+    # ── agentnet actually producing, not just running ──
+    state_f = REPO / "worldsim/worldsim_state.json"
+    if state_f.exists():
+        try:
+            st = json.loads(state_f.read_text())
+            rnd = st.get("round", 0)
+            earned = st.get("total_earned_usd", 0.0)
+            check("agentnet round advancing", rnd > 0, f"round={rnd}")
+            # The income loop logs "Shipped" regardless of revenue. If it has
+            # shipped 200+ times and earned nothing, that is a finding, not a
+            # success — exactly the silent failure class this exists to catch.
+            spine = REPO / "spine/spine.jsonl"
+            ships = 0
+            if spine.exists():
+                ships = sum(1 for l in spine.read_text(errors="replace").splitlines()
+                            if '"ship_complete"' in l)
+            if ships > 50 and earned == 0.0:
+                check("income loop yield", False,
+                      f"{ships} ship events, $0.00 earned — shipping is cosmetic",
+                      warn_only=True)
+            else:
+                check("income loop yield", True,
+                      f"{ships} ships, ${earned:.2f}")
+        except Exception as e:
+            check("agentnet state parses", False, str(e)[:80])
+    else:
+        check("agentnet state file", False, "worldsim_state.json missing")
+
+    # ── spine integrity ──
+    rc, out = sh(f"cd {REPO} && python3 verify_spine.py")
+    check("spine hash chain", rc == 0 and "all entries verify" in out,
+          out.splitlines()[-1] if out else "verifier failed")
+
+    # ── static audit ──
+    rc, out = sh(f"cd {REPO} && python3 audit_repo.py")
+    check("repo audit clean", rc == 0, out.splitlines()[-1][:70] if out else "audit failed")
+
+    # ── exposure: the three known open items ──
+    creds = REPO / "evidence"
+    if (creds / "infrastructure-verification.json").exists():
+        check("infrastructure re-verified", True, "see evidence/")
+
+    # ── network exposure ──
+    rc, out = sh("systemctl is-active openclaw-public-forward")
+    if out == "active":
+        check("gateway NOT on public IP", False,
+              "openclaw-public-forward active — gateway bound to 0.0.0.0-adjacent public IP",
+              warn_only=True)
+    else:
+        check("gateway NOT on public IP", True, "public forwarder inactive")
+
+    # ── exposed credentials (local check; rotation status) ──
+    rc, out = sh(f"grep -rq 'clh_' /root/evez-agentnet 2>/dev/null && echo FOUND || echo CLEAN")
+    check("no ClawHub token in local repos", out.strip() == "CLEAN",
+          "token still present in working tree", warn_only=True)
+
+    # ── resource headroom ──
+    rc, out = sh("df -h / | awk 'NR==2{print $5}'")
+    check("disk headroom", rc == 0 and int(out.rstrip('%')) < 90,
+          f"root fs {out} used", warn_only=True)
+
+    rc, out = sh("free -m | awk '/^Mem:/{printf \"%d\", $3/$2*100}'")
+    check("memory headroom", rc == 0 and int(out or 0) < 92,
+          f"mem {out}% used", warn_only=True)
+
+    status = {
+        "checked_at": now,
+        "failures": FAIL,
+        "warnings": WARN,
+        "ok": not FAIL,
+    }
+    (OUT / "HEALTH.json").write_text(json.dumps(status, indent=1))
+
+    lines = [
+        f"# EVEZ stack status — {now}",
+        "",
+        f"**FAIL** {len(FAIL)}   **WARN** {len(WARN)}",
+        "",
+    ]
+    if FAIL:
+        lines += ["## Failures", ""] + [f"- {f}" for f in FAIL] + [""]
+    if WARN:
+        lines += ["## Warnings", ""] + [f"- {w}" for w in WARN] + [""]
+    if not FAIL and not WARN:
+        lines += ["All checks passed.", ""]
+    lines += ["_Generated by `stack_health.py`. Run: `python3 stack_health.py`_", ""]
+    (OUT / "HEALTH.md").write_text("\n".join(lines))
+
+    print(f"\n{'='*60}\nFAIL {len(FAIL)}  WARN {len(WARN)}")
+    print(f"wrote {OUT/'HEALTH.md'}")
+    return 1 if FAIL else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

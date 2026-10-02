@@ -42,6 +42,15 @@ jobs:
           # Proves the audit actually fires. An audit that cannot be shown to
           # detect a planted bug is worse than no audit at all.
           python test_audit_detects.py
+      - name: Stack health detectors
+        run: |
+          # Proves stack_health.py can actually FAIL. A health check that
+          # cannot fail is worse than none.
+          python test_stack_health.py
+      - name: Evidence falsification
+        run: |
+          # Proves verify_spine detects truncation/reordering/forgery.
+          python test_evidence_falsification.py
       - name: Boot-path smoke test
         run: |
           # Catches import-time and shadowing crashes (e.g. a module-level

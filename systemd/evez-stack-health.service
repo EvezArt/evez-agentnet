@@ -1,0 +1,18 @@
+[Unit]
+Description=EVEZ stack health watch (writes status/HEALTH.md, alerts on regressions)
+Documentation=file:///root/evez-agentnet/stack_health.py
+
+[Service]
+Type=oneshot
+WorkingDirectory=/root/evez-agentnet
+ExecStart=/usr/bin/python3 /root/evez-agentnet/stack_health.py
+# Regenerate the brief immediately after the health sweep so the two agree.
+ExecStartPost=/usr/bin/python3 /root/evez-agentnet/generate_brief.py
+# Exit 1 means a hard failure (service down, spine broken, audit dirty).
+# Do NOT mark the unit failed — the script's purpose is to report, and a
+# regression must still leave the status file written for inspection.
+SuccessExitStatus=0 1
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target
