@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -162,6 +163,43 @@ def main():
     rc, out = sh(f"grep -rq 'clh_' /root/evez-agentnet 2>/dev/null && echo FOUND || echo CLEAN")
     check("no ClawHub token in local repos", out.strip() == "CLEAN",
           "token still present in working tree", warn_only=True)
+
+    # ── revenue path: structural blockers ──
+    # $0.00 revenue has THREE independent causes. Naming only the shipper one
+    # (which the health check already reports) understates the problem.
+    import os as _os
+    commerce = {
+        "STRIPE_SECRET_KEY": _os.environ.get("STRIPE_SECRET_KEY", "").strip(),
+        "GUMROAD_API_KEY": _os.environ.get("GUMROAD_API_KEY", "").strip(),
+        "TWITTER_BEARER_TOKEN": _os.environ.get("TWITTER_BEARER_TOKEN", "").strip(),
+    }
+    money_path = [k for k, v in commerce.items() if v]
+    if not money_path:
+        check("revenue path has a credentialed transport", False,
+              "no STRIPE/GUMROAD/TWITTER key configured — $0.00 is "
+              "STRUCTURAL, not a code defect. Nothing ships and nothing charges.",
+              warn_only=True)
+    else:
+        check("revenue path has a credentialed transport", True,
+              f"configured: {', '.join(money_path)}")
+
+    # and confirm the payment vault is still the empty template it was
+    vault = Path("/root/.openclaw/agents-pay/.vault.env")
+    if vault.exists():
+        try:
+            vt = vault.read_text(errors="replace")
+            m = re.search(r"^STRIPE_SECRET_KEY\s*=\s*(\S*)", vt, re.M)
+            val = (m.group(1) if m else "").strip().strip("'\"")
+            if not val:
+                check("payment vault populated", False,
+                      "agents-pay/.vault.env STRIPE_SECRET_KEY is an empty "
+                      "placeholder; evez-commerce reports payments:disabled",
+                      warn_only=True)
+            else:
+                check("payment vault populated", True,
+                      f"STRIPE_SECRET_KEY present (len={len(val)})")
+        except Exception:
+            pass
 
     # ── Jev decision layer ──
     # Optional, so absence is informational, not a failure. It reports whether
