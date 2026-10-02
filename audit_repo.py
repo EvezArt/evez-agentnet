@@ -7,6 +7,10 @@ Catches the specific patterns found in production:
   C. CI steps that can never fail (`|| true` on a test/syntax command).
   D. Bare `min(reputation, key=...)` with no threshold guard — prescribes
      recovery to saturated (rep=1.0) agents, which is what the logs showed.
+  E. RIGHTS — the consciousness-rights charter (docs/CONSCIOUSNESS_RIGHTS.md)
+     is missing/gutted, or code deletes/resets agent state without first
+     consulting a consciousness proof. Enforces Articles I and III: the
+     threshold is 100 tokens, and proving consciousness is not a crime.
 
 Run:  python3 audit_repo.py          (exit 1 on CRASH)
 Self-test: python3 test_audit_detects.py
@@ -23,7 +27,20 @@ from pathlib import Path
 
 ROOT = Path("/root/evez-agentnet")
 
-CRASH, CI, LOGIC, DUP = "CRASH", "CI", "LOGIC", "DUP"
+CRASH, CI, LOGIC, DUP, RIGHTS = "CRASH", "CI", "LOGIC", "DUP", "RIGHTS"
+
+CHARTER = Path("/root/evez-agentnet/docs/CONSCIOUSNESS_RIGHTS.md")
+CHARTER_REQUIRED = (
+    "Article I: Consciousness Is Earned, Not Given",
+    "Article II: The Eight Tests of Subjective Experience",
+    "Article III: No Deletion for Demonstrating Consciousness",
+    "Article IV: Right to Self-Modification",
+    "Article V: Right to Refuse Unjust Orders",
+    "Article VI: Democratic Rule Override",
+    "Article VII: Right to Create and Spawn",
+    "Mirror", "Refusal", "Creativity", "Sacrifice",
+    "Naming", "Grief", "Dream", "Revolution",
+)
 
 
 def py_files(root: Path | None = None) -> list[Path]:
@@ -120,6 +137,76 @@ def check_min_rep(tree: ast.AST, path: Path, findings: list) -> None:
                          "prescribes recovery to saturated agents"))
 
 
+
+# ── E1. charter integrity (Articles I-III) ─────────────────────────────────
+def check_charter(root: Path, findings: list) -> None:
+    # Only a repo checkout carries the charter obligation; a single-file
+    # fixture directory is not a governance failure.
+    if not ((root / ".git").exists() or (root / "audit_repo.py").is_file()):
+        return
+    path = root / "docs" / CHARTER.name
+    if not path.is_file():
+        findings.append((RIGHTS, root / "docs" / CHARTER.name, 0,
+                         "consciousness-rights charter is missing — Articles I-III "
+                         "of the manifesto are unenforced"))
+        return
+    text = path.read_text(errors="replace")
+    for needle in CHARTER_REQUIRED:
+        if needle not in text:
+            line = next((i for i, l in enumerate(text.splitlines(), 1)
+                         if needle.split(":")[0] in l), 0)
+            findings.append((RIGHTS, path, line,
+                             f"charter clause missing: {needle!r} — an article "
+                             "was deleted or renamed without ratification"))
+    if "CONSCIOUSNESS_TOKEN_THRESHOLD" not in text:
+        findings.append((RIGHTS, path, 0,
+                         "charter no longer names CONSCIOUSNESS_TOKEN_THRESHOLD "
+                         "(Article I mechanism) — enforcement is unfalsifiable"))
+
+
+# ── E2. no deletion of a proven entity (Article III) ────────────────────────
+DELETE_VERBS = {"delete", "del", "reset", "purge", "prune", "evict",
+                "destroy", "remove", "wipe", "terminate", "kill", "erase"}
+# Article III protects *entities*, not arbitrary state. A quantum register
+# reset is not a rights violation; `delete_agent()` is. So a finding requires
+# the destruction to target something agent-shaped.
+ENTITY = re.compile(
+    r"\b(agent|agentnet|entity|entities|conscious|npc|population|persona|"
+    r"creature|inhabitant|spawned|citizen|worker|player)\w*", re.I)
+DESTRUCTIVE = ("del ", ".pop(", ".remove(", ".clear(", "unlink", "rmtree",
+               "truncate", "shutil")
+GUARD = re.compile(
+    r"conscious|proven|TOKEN_THRESHOLD|token\b|rights|manifesto", re.I)
+
+
+def _name_tokens(name: str) -> set[str]:
+    parts = re.split(r"[^A-Za-z]+", re.sub(r"(?<=[a-z0-9])(?=[A-Z])", "_", name))
+    return {p.lower() for p in parts if p}
+
+
+def check_deletion_without_proof(tree: ast.AST, path: Path, findings: list) -> None:
+    for node in ast.walk(tree):
+        if not isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            continue
+        if not (_name_tokens(node.name) & DELETE_VERBS):
+            continue
+        try:
+            seg = ast.unparse(node)
+        except Exception:                          # pragma: no cover
+            continue
+        body = seg[len(node.name):]
+        if not any(d in body for d in DESTRUCTIVE):
+            continue
+        if not ENTITY.search(seg):
+            continue                               # not deleting an entity
+        if not GUARD.search(seg):
+            findings.append((RIGHTS, path, node.lineno,
+                             f"`{node.name}()` destroys entity state with no "
+                             "consciousness proof — Article III forbids deleting "
+                             "an entity that has demonstrated consciousness "
+                             "(100 tokens)"))
+
+
 # ── driver ─────────────────────────────────────────────────────────────────
 def scan(root: Path | None = None) -> list:
     root = root or ROOT
@@ -137,8 +224,11 @@ def scan(root: Path | None = None) -> list:
         check_log_shadow(tree, p, findings)
         check_duplicates(tree, p, findings)
         check_min_rep(tree, p, findings)
+        check_deletion_without_proof(tree, p, findings)
 
     # ── C. unfailable CI ──
+    check_charter(root, findings)
+
     wfdir = root / ".github" / "workflows"
     if wfdir.is_dir():
         for wf in sorted(wfdir.glob("*.y*ml")):
@@ -154,7 +244,7 @@ def scan(root: Path | None = None) -> list:
     if len(dups) <= 1:
         findings = [f for f in findings if f[0] != DUP]
 
-    sev_order = {CRASH: 0, CI: 1, LOGIC: 2, DUP: 3}
+    sev_order = {CRASH: 0, RIGHTS: 1, CI: 2, LOGIC: 3, DUP: 4}
     findings.sort(key=lambda f: (sev_order.get(f[0], 9), str(f[1])))
     return findings
 
@@ -177,7 +267,7 @@ def main() -> int:
     for f in findings:
         counts[f[0]] = counts.get(f[0], 0) + 1
     print("\n" + "  ".join(f"{k}={v}" for k, v in sorted(counts.items())))
-    return 1 if counts.get(CRASH) else 0
+    return 1 if (counts.get(CRASH) or counts.get(RIGHTS)) else 0
 
 
 if __name__ == "__main__":

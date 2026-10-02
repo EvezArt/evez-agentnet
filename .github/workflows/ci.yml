@@ -35,7 +35,9 @@ jobs:
         run: |
           # Static audit for the defect classes that reached production:
           # log/math shadowing, duplicated orchestrator implementations,
-          # unfailable CI steps, and unguarded min(reputation) selection.
+          # unfailable CI steps, unguarded min(reputation) selection, and
+          # RIGHTS violations (missing/gutted consciousness-rights charter, or
+          # code that deletes an entity without a consciousness proof).
           python audit_repo.py
       - name: Audit self-test
         run: |

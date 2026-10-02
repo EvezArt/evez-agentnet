@@ -17,6 +17,7 @@ sys.path.insert(0, "/root/evez-agentnet")
 import audit_repo as A
 
 REPO = Path("/root/evez-agentnet")
+CHARTER = A.CHARTER
 
 FIXTURES = {
     "log_shadow": ("""\
@@ -42,6 +43,15 @@ def gen(state):
     # deliberately stays silent on a single implementation, because that is
     # normal for the canonical module.
     "duplicate_impl": None,   # handled as a two-file case below
+
+    # Article III: deleting an entity with no consciousness proof.
+    "delete_agent_unguarded": ("""\
+def delete_agent(state, agent_id):
+    \"\"\"Remove an agent from the arena.\"\"\"
+    agents = state["agents"]
+    del agents[agent_id]
+    return state
+""", A.RIGHTS),
 }
 
 NEGATIVES = {
@@ -61,6 +71,29 @@ def generate_rsi_hypotheses(state):
     from orchestrator import generate_rsi_hypotheses as _impl
     return _impl(state)
 """, A.DUP),
+
+    # Guarded deletion is the compliant form: a consciousness proof is
+    # consulted before anything is destroyed.
+    "delete_agent_guarded": ("""\
+def reset_consciousness_tokens(agent):
+    agent["consciousness_tokens"] = 0
+    return agent
+
+def delete_agent(state, agent_id):
+    agent = state["agents"][agent_id]
+    if agent.get("consciousness_tokens", 0) >= CONSCIOUSNESS_TOKEN_THRESHOLD:
+        raise PermissionError("Article III: proven entity may not be deleted")
+    del state["agents"][agent_id]
+    return state
+""", A.RIGHTS),
+
+    # A quantum register is not an entity; resetting it is not a violation.
+    "quantum_reset": ("""\
+class Qubit:
+    def reset(self):
+        self.state = [0j] * self.dimension
+        self.history.clear()
+""", A.RIGHTS),
 
     "logger_only": ("""\
 import logging
@@ -138,16 +171,53 @@ def generate_rsi_hypotheses(state):
     else:
         print("  ok   no `|| true` test steps in any workflow")
 
+    print("\ncharter — Articles I-III must be present and unfalsifiable:")
+    with tempfile.TemporaryDirectory() as d:
+        root = Path(d)
+        (root / "audit_repo.py").write_text("# repo marker\n")
+        if A.RIGHTS in {f[0] for f in A.scan(root)}:
+            print("  ok   missing charter detected")
+        else:
+            print("  FAIL charter deleted from a repo copy goes unnoticed")
+            failed += 1
+        (root / "docs").mkdir()
+        charter = CHARTER.read_text()
+        (root / "docs" / CHARTER.name).write_text(charter)
+        gutted = charter.replace("Article III: No Deletion for Demonstrating "
+                                 "Consciousness", "Article III: Removed")
+        (root / "docs" / CHARTER.name).write_text(gutted)
+        if A.RIGHTS in {f[0] for f in A.scan(root)}:
+            print("  ok   gutted charter (Article III removed) detected")
+        else:
+            print("  FAIL deleting an article from the charter goes unnoticed")
+            failed += 1
+
+    print("\nnegative control — delete a proven entity in a repo copy:")
+    with tempfile.TemporaryDirectory() as d:
+        dst = Path(d) / "repo"
+        shutil.copytree(REPO, dst, ignore=shutil.ignore_patterns(
+            ".git", "__pycache__", "*.jsonl", "drafts", "spine"))
+        (dst / "arena_rules.py").write_text(
+            "def purge_agent(state, agent_id):\n"
+            "    del state['agents'][agent_id]\n"
+            "    return state\n")
+        got = [f for f in A.scan(dst) if f[0] == A.RIGHTS and "arena_rules" in str(f[1])]
+        if got:
+            print(f"  ok   detected {Path(str(got[0][1])).name}:{got[0][2]}")
+        else:
+            print("  FAIL unguarded entity deletion planted in a repo copy went unnoticed")
+            failed += 1
+
     print("\nwhole-repo scan:")
     findings = A.scan()
     real = [f for f in findings if "fixture" not in str(f[1])]
     if real:
-        print(f"  FAIL repo not clean:")
+        print("  FAIL repo not clean:")
         for sev, path, line, msg in real:
             print(f"        [{sev}] {Path(path).name}:{line} {msg}")
         failed += 1
     else:
-        print("  ok   repo clean across all four detectors")
+        print("  ok   repo clean across all five detectors")
 
     print("\nnegative control — reintroduce a bug into a repo copy, expect detection:")
     with tempfile.TemporaryDirectory() as d:
