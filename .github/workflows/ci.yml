@@ -42,6 +42,16 @@ jobs:
           # Proves the audit actually fires. An audit that cannot be shown to
           # detect a planted bug is worse than no audit at all.
           python test_audit_detects.py
+      - name: Jev decision layer
+        run: |
+          # Asserts the must-not-fabricate contract: with no key, decisions
+          # return an explicit fallback rather than an invented probability.
+          python test_jev_decisions.py
+      - name: Jev CLI contract
+        run: |
+          python jev_cli.py status
+          python jev_cli.py health
+          python jev_cli.py attention   # must print source: fallback, no key
       - name: Shipper honesty
         run: |
           # The shipper logged "Shipped" for 747 drafts that never left the

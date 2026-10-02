@@ -155,6 +155,23 @@ def main():
     check("no ClawHub token in local repos", out.strip() == "CLEAN",
           "token still present in working tree", warn_only=True)
 
+    # ── Jev decision layer ──
+    # Optional, so absence is informational, not a failure. It reports whether
+    # the System One integration is live without an API key.
+    rc, out = sh("cd %s && python3 jev_cli.py status 2>/dev/null | head -20" % REPO)
+    if out and '"available"' in out:
+        live = '"available": true' in out
+        recorded = 0
+        for line in out.splitlines():
+            if '"decisions_recorded"' in line:
+                try:
+                    recorded = int(line.split(":")[1].strip().rstrip(","))
+                except (ValueError, IndexError):
+                    recorded = 0
+        check("Jev decision layer", True,
+              "live" if live else "installed, no TYPESAFE_API_KEY set "
+              f"(decisions logged: {recorded})", warn_only=not live)
+
     # ── resource headroom ──
     rc, out = sh("df -h / | awk 'NR==2{print $5}'")
     check("disk headroom", rc == 0 and int(out.rstrip('%')) < 90,
