@@ -34,16 +34,51 @@ MAES_ENABLED      = os.environ.get("MAES_ENABLED", "1") == "1"
 # ── Spine ────────────────────────────────────────────────────────────────────
 
 def append_spine(event_type: str, data: dict):
+    """Append one hash-chained entry.
+
+    Chain: each entry commits to the previous entry's hash, and carries a
+    monotonic sequence number. Per-entry hashing alone does NOT detect
+    truncation, reordering, or a fully re-hashed forgery — this does. See
+    test_evidence_falsification.py for the attack it defends against.
+    """
+    seq, prev = _spine_tail()
     entry = {
         "ts": datetime.now(timezone.utc).isoformat(),
+        "seq": seq + 1,
         "type": event_type,
         "data": data,
     }
+    if prev:
+        entry["prev_sha256"] = prev
     entry_str = json.dumps(entry, sort_keys=True)
     entry["sha256"] = hashlib.sha256(entry_str.encode()).hexdigest()[:16]
     with open(SPINE_PATH, "a") as f:
         f.write(json.dumps(entry) + "\n")
     return entry
+
+
+def _spine_tail():
+    """Return (last_seq, last_sha256) without loading the whole spine."""
+    last_seq, last_sha = 0, ""
+    try:
+        with open(SPINE_PATH, "rb") as f:
+            f.seek(0, 2)
+            size = f.tell()
+            # read the last ~64KB, enough for one line
+            f.seek(max(0, size - 65536))
+            chunk = f.read().decode("utf-8", "replace")
+    except FileNotFoundError:
+        return 0, ""
+    for line in reversed(chunk.splitlines()):
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            e = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        return e.get("seq", 0), e.get("sha256", "")
+    return 0, ""
 
 
 # ── State ─────────────────────────────────────────────────────────────────────

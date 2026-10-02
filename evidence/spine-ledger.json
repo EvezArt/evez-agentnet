@@ -1,0 +1,32 @@
+{
+ "generated_at": "2026-10-02T08:53:11.916014+00:00",
+ "artifact": "spine/spine.jsonl",
+ "entry_count": 2632,
+ "entries_with_hash": 2632,
+ "first_entry": "2026-07-26T14:00:55.457982+00:00",
+ "last_entry": "2026-10-02T08:50:37.807494+00:00",
+ "hash_chain_verifies": true,
+ "hash_algorithm": "sha256 over canonical JSON (sort_keys), first 16 hex chars",
+ "timestamp_monotonic": true,
+ "event_types": {
+  "rsi_directives_applied": 352,
+  "rsi_hypotheses": 297,
+  "round_start": 251,
+  "scan_complete": 249,
+  "maes_tick": 249,
+  "predict_complete": 248,
+  "generate_complete": 248,
+  "ship_complete": 246,
+  "round_end": 246,
+  "openclaw_run": 125,
+  "openclaw_failed": 105,
+  "openclaw_broken": 4,
+  "cognition_step": 3,
+  "chain_probe": 3,
+  "cognition_gate": 2,
+  "ship_governance": 2,
+  "rsi_branch_injection": 2
+ },
+ "PROVES": "That this log is internally consistent and unaltered since writing: every entry hashes to its recorded value and timestamps are monotonic. Establishes that EVEZ agentnet operations ran continuously over the stated period.",
+ "DOES_NOT_PROVE": "Nothing about external infrastructure. This spine contains ZERO IP addresses and ZERO ASN references (verified by full-text scan). It records the orchestrator's own telemetry, not network observations. It cannot support any claim about DMZHOST, AS47890, AS48090, or any attribution of the May 2026 intrusion."
+}

@@ -1,0 +1,119 @@
+{
+ "generated_at": "2026-10-02T08:47:43.587909+00:00",
+ "retrieved_via": "RIPE NCC RDAP (rdap.db.ripe.net) + RIPEstat prefix-overview",
+ "ip_attribution": [
+  {
+   "ip": "80.94.92.166",
+   "announced": true,
+   "enclosing_prefix": "80.94.92.0/24",
+   "current_bgp_origin": "AS47890",
+   "origin_holder_bgp": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD",
+   "rdap_holder": "DMZHOST",
+   "rdap_country": "NL",
+   "rdap_block": null,
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=80.94.92.166"
+  },
+  {
+   "ip": "80.94.92.60",
+   "announced": true,
+   "enclosing_prefix": "80.94.92.0/24",
+   "current_bgp_origin": "AS47890",
+   "origin_holder_bgp": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD",
+   "rdap_holder": "DMZHOST",
+   "rdap_country": "NL",
+   "rdap_block": null,
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=80.94.92.60"
+  },
+  {
+   "ip": "80.94.92.72",
+   "announced": true,
+   "enclosing_prefix": "80.94.92.0/24",
+   "current_bgp_origin": "AS47890",
+   "origin_holder_bgp": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD",
+   "rdap_holder": "DMZHOST",
+   "rdap_country": "NL",
+   "rdap_block": null,
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=80.94.92.72"
+  },
+  {
+   "ip": "80.94.92.239",
+   "announced": true,
+   "enclosing_prefix": "80.94.92.0/24",
+   "current_bgp_origin": "AS47890",
+   "origin_holder_bgp": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD",
+   "rdap_holder": "DMZHOST",
+   "rdap_country": "NL",
+   "rdap_block": null,
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=80.94.92.239"
+  },
+  {
+   "ip": "2.57.122.72",
+   "announced": true,
+   "enclosing_prefix": "2.57.122.0/24",
+   "current_bgp_origin": "AS47890",
+   "origin_holder_bgp": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD",
+   "rdap_holder": "DMZHOSTdotco",
+   "rdap_country": "NL",
+   "rdap_block": null,
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=2.57.122.72"
+  },
+  {
+   "ip": "45.148.10.1",
+   "announced": true,
+   "enclosing_prefix": "45.148.10.0/24",
+   "current_bgp_origin": "AS48090",
+   "origin_holder_bgp": "DMZHOST TECHOFF SRV LIMITED",
+   "rdap_holder": "DMZHOST",
+   "rdap_country": "AD",
+   "rdap_block": null,
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=45.148.10.1"
+  },
+  {
+   "ip": "193.32.162.1",
+   "announced": true,
+   "enclosing_prefix": "193.32.162.0/24",
+   "current_bgp_origin": "AS47890",
+   "origin_holder_bgp": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD",
+   "rdap_holder": "DMZHOST",
+   "rdap_country": "NL",
+   "rdap_block": null,
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=193.32.162.1"
+  }
+ ],
+ "asn_registry": {
+  "AS47890": {
+   "name": "UNMANAGED-DEDICATED-SERVERS",
+   "handle": "AS47890",
+   "status": [
+    "active"
+   ],
+   "source": "https://rdap.db.ripe.net/autnum/47890"
+  },
+  "AS48090": {
+   "name": "DMZHOST",
+   "handle": "AS48090",
+   "status": [
+    "active"
+   ],
+   "source": "https://rdap.db.ripe.net/autnum/48090"
+  },
+  "AS209847": {
+   "name": "THE",
+   "handle": "AS209847",
+   "status": [
+    "active"
+   ],
+   "source": "https://rdap.db.ripe.net/autnum/209847"
+  },
+  "AS42397": {
+   "name": "BUNEA-HIGH-VOLUME-NETWORK",
+   "handle": "AS42397",
+   "status": [
+    "active"
+   ],
+   "source": "https://rdap.db.ripe.net/autnum/42397"
+  }
+ },
+ "PROVES": "Current BGP origin and RIPE registration holder for each listed IP at the retrieval timestamp. Reproducible by re-running verify_infrastructure.py.",
+ "DOES_NOT_PROVE": "That these hosts performed the May 2026 intrusion; who controlled them at that time; or that any named individual operated them. BGP origin identifies the announcing network, not the operator. Attribution to a person requires subscriber records, payment data, or forensic host images."
+}

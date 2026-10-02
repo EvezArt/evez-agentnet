@@ -1,0 +1,39 @@
+{
+ "pack": "EVEZ Forensic Evidence Pack",
+ "generated_at": "2026-10-02T08:53:11.916014+00:00",
+ "subject_host": "vmi3544756 (100.126.180.47 / 80.241.209.34)",
+ "custodian": "Steven Crawford-Maggard (EVEZ)",
+ "primary_source_artifact": {
+  "path": "spine/spine.jsonl",
+  "sha256": "28c506c1c8011115191de4ae5f882c1984ccbb06d18c46803358c540450cc98e",
+  "bytes": 670620
+ },
+ "files": [
+  {
+   "file": "EVIDENCE_PACK.md",
+   "bytes": 9063,
+   "sha256": "c7b98aff0e45dde1a1b2b0f31396ff515e986606791bbaebc457b2ceff03d79b"
+  },
+  {
+   "file": "infrastructure-attribution.json",
+   "bytes": 3862,
+   "sha256": "7d551291d242ce07a6e5a738224a1e61c8ed453de6f30217175b945ef24c9735"
+  },
+  {
+   "file": "infrastructure-verification.json",
+   "bytes": 8097,
+   "sha256": "679ed5d192bd0625c7f8f8b7f638b28f14455e657c634d264fc5a0b9ea06fb61"
+  },
+  {
+   "file": "spine-ledger.json",
+   "bytes": 1386,
+   "sha256": "ac81c534e902742debc66136a33fce6b501f261e385d5fa714782d5a184d394f"
+  }
+ ],
+ "verify_with": [
+  "python3 verify_spine.py                  # hash chain + ordering",
+  "python3 verify_infrastructure.py         # re-fetch live attribution",
+  "python3 audit_repo.py                    # static defect audit"
+ ],
+ "scope_statement": "This pack documents (a) the integrity of EVEZ's own operational event log and (b) the current network-level registration of third-party IP ranges. It does NOT document the intrusion itself: no packet captures, disk images, or host logs from the affected systems are included, because those are not present on this host."
+}

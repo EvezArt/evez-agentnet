@@ -1,0 +1,349 @@
+{
+ "generated_at": "2026-10-02T08:47:43.587909+00:00",
+ "generator": "evez infrastructure verifier",
+ "note": "All values retrieved live at generated_at. Reproduce with python3 verify_infrastructure.py",
+ "asn": {
+  "AS47890": {
+   "query": "47890",
+   "source": "https://rdap.db.ripe.net/autnum/47890",
+   "handle": "AS47890",
+   "name": "UNMANAGED-DEDICATED-SERVERS",
+   "country": null,
+   "status": [
+    "active"
+   ],
+   "org": {},
+   "entities": [
+    [
+     "registrant"
+    ],
+    [
+     "administrative",
+     "technical"
+    ],
+    [
+     "registrant"
+    ],
+    [
+     "registrant"
+    ],
+    [
+     "registrant"
+    ],
+    [
+     "abuse"
+    ]
+   ],
+   "queried_asn": "AS47890"
+  },
+  "AS48090": {
+   "query": "48090",
+   "source": "https://rdap.db.ripe.net/autnum/48090",
+   "handle": "AS48090",
+   "name": "DMZHOST",
+   "country": null,
+   "status": [
+    "active"
+   ],
+   "org": {},
+   "entities": [
+    [
+     "administrative",
+     "technical"
+    ],
+    [
+     "registrant"
+    ],
+    [
+     "registrant"
+    ],
+    [
+     "registrant"
+    ],
+    [
+     "abuse"
+    ]
+   ],
+   "queried_asn": "AS48090"
+  },
+  "AS209847": {
+   "query": "209847",
+   "source": "https://rdap.db.ripe.net/autnum/209847",
+   "handle": "AS209847",
+   "name": "THE",
+   "country": null,
+   "status": [
+    "active"
+   ],
+   "org": {},
+   "entities": [
+    [
+     "registrant"
+    ],
+    [
+     "registrant"
+    ],
+    [
+     "registrant"
+    ],
+    [
+     "administrative",
+     "technical"
+    ],
+    [
+     "abuse"
+    ]
+   ],
+   "queried_asn": "AS209847"
+  },
+  "AS42397": {
+   "query": "42397",
+   "source": "https://rdap.db.ripe.net/autnum/42397",
+   "handle": "AS42397",
+   "name": "BUNEA-HIGH-VOLUME-NETWORK",
+   "country": null,
+   "status": [
+    "active"
+   ],
+   "org": {},
+   "entities": [
+    [
+     "registrant"
+    ],
+    [
+     "administrative",
+     "technical"
+    ],
+    [
+     "registrant"
+    ],
+    [
+     "registrant"
+    ],
+    [
+     "abuse"
+    ]
+   ],
+   "queried_asn": "AS42397"
+  }
+ },
+ "ip": {
+  "80.94.92.166": {
+   "ip": "80.94.92.166",
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=80.94.92.166",
+   "announced": true,
+   "resource": "80.94.92.0/24",
+   "is_less_specific": true,
+   "origin": {
+    "asn": "AS47890",
+    "holder": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD"
+   },
+   "origins": [
+    {
+     "asn": "AS47890",
+     "holder": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD"
+    }
+   ],
+   "block": "RIPE NCC (Status: ALLOCATED)",
+   "less_specific_warning": null,
+   "query_time": "2026-10-02T00:00:00",
+   "rdap": {
+    "query": "80.94.92.166",
+    "source": "https://rdap.db.ripe.net/ip/80.94.92.166",
+    "handle": "80.94.92.0 - 80.94.92.255",
+    "name": "DMZHOST",
+    "country": "NL",
+    "start": "80.94.92.0",
+    "end": "80.94.92.255",
+    "type": "ASSIGNED PA",
+    "cidr": "80.94.92.0"
+   }
+  },
+  "80.94.92.60": {
+   "ip": "80.94.92.60",
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=80.94.92.60",
+   "announced": true,
+   "resource": "80.94.92.0/24",
+   "is_less_specific": true,
+   "origin": {
+    "asn": "AS47890",
+    "holder": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD"
+   },
+   "origins": [
+    {
+     "asn": "AS47890",
+     "holder": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD"
+    }
+   ],
+   "block": "RIPE NCC (Status: ALLOCATED)",
+   "less_specific_warning": null,
+   "query_time": "2026-10-02T00:00:00",
+   "rdap": {
+    "query": "80.94.92.60",
+    "source": "https://rdap.db.ripe.net/ip/80.94.92.60",
+    "handle": "80.94.92.0 - 80.94.92.255",
+    "name": "DMZHOST",
+    "country": "NL",
+    "start": "80.94.92.0",
+    "end": "80.94.92.255",
+    "type": "ASSIGNED PA",
+    "cidr": "80.94.92.0"
+   }
+  },
+  "80.94.92.72": {
+   "ip": "80.94.92.72",
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=80.94.92.72",
+   "announced": true,
+   "resource": "80.94.92.0/24",
+   "is_less_specific": true,
+   "origin": {
+    "asn": "AS47890",
+    "holder": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD"
+   },
+   "origins": [
+    {
+     "asn": "AS47890",
+     "holder": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD"
+    }
+   ],
+   "block": "RIPE NCC (Status: ALLOCATED)",
+   "less_specific_warning": null,
+   "query_time": "2026-10-02T00:00:00",
+   "rdap": {
+    "query": "80.94.92.72",
+    "source": "https://rdap.db.ripe.net/ip/80.94.92.72",
+    "handle": "80.94.92.0 - 80.94.92.255",
+    "name": "DMZHOST",
+    "country": "NL",
+    "start": "80.94.92.0",
+    "end": "80.94.92.255",
+    "type": "ASSIGNED PA",
+    "cidr": "80.94.92.0"
+   }
+  },
+  "80.94.92.239": {
+   "ip": "80.94.92.239",
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=80.94.92.239",
+   "announced": true,
+   "resource": "80.94.92.0/24",
+   "is_less_specific": true,
+   "origin": {
+    "asn": "AS47890",
+    "holder": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD"
+   },
+   "origins": [
+    {
+     "asn": "AS47890",
+     "holder": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD"
+    }
+   ],
+   "block": "RIPE NCC (Status: ALLOCATED)",
+   "less_specific_warning": null,
+   "query_time": "2026-10-02T00:00:00",
+   "rdap": {
+    "query": "80.94.92.239",
+    "source": "https://rdap.db.ripe.net/ip/80.94.92.239",
+    "handle": "80.94.92.0 - 80.94.92.255",
+    "name": "DMZHOST",
+    "country": "NL",
+    "start": "80.94.92.0",
+    "end": "80.94.92.255",
+    "type": "ASSIGNED PA",
+    "cidr": "80.94.92.0"
+   }
+  },
+  "2.57.122.72": {
+   "ip": "2.57.122.72",
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=2.57.122.72",
+   "announced": true,
+   "resource": "2.57.122.0/24",
+   "is_less_specific": true,
+   "origin": {
+    "asn": "AS47890",
+    "holder": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD"
+   },
+   "origins": [
+    {
+     "asn": "AS47890",
+     "holder": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD"
+    }
+   ],
+   "block": "RIPE NCC (Status: ALLOCATED)",
+   "less_specific_warning": null,
+   "query_time": "2026-10-02T00:00:00",
+   "rdap": {
+    "query": "2.57.122.72",
+    "source": "https://rdap.db.ripe.net/ip/2.57.122.72",
+    "handle": "2.57.122.0 - 2.57.122.255",
+    "name": "DMZHOSTdotco",
+    "country": "NL",
+    "start": "2.57.122.0",
+    "end": "2.57.122.255",
+    "type": "ASSIGNED PA",
+    "cidr": "2.57.122.0"
+   }
+  },
+  "45.148.10.1": {
+   "ip": "45.148.10.1",
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=45.148.10.1",
+   "announced": true,
+   "resource": "45.148.10.0/24",
+   "is_less_specific": true,
+   "origin": {
+    "asn": "AS48090",
+    "holder": "DMZHOST TECHOFF SRV LIMITED"
+   },
+   "origins": [
+    {
+     "asn": "AS48090",
+     "holder": "DMZHOST TECHOFF SRV LIMITED"
+    }
+   ],
+   "block": "This IP space was taken from IANA's recovered IPv4 pool in May 2014 and given to RIPE NCC (Source: IPv4 Recovered Address Space)",
+   "less_specific_warning": null,
+   "query_time": "2026-10-02T00:00:00",
+   "rdap": {
+    "query": "45.148.10.1",
+    "source": "https://rdap.db.ripe.net/ip/45.148.10.1",
+    "handle": "45.148.10.0 - 45.148.10.255",
+    "name": "DMZHOST",
+    "country": "AD",
+    "start": "45.148.10.0",
+    "end": "45.148.10.255",
+    "type": "ASSIGNED PA",
+    "cidr": "45.148.10.0"
+   }
+  },
+  "193.32.162.1": {
+   "ip": "193.32.162.1",
+   "source": "https://stat.ripe.net/data/prefix-overview/data.json?resource=193.32.162.1",
+   "announced": true,
+   "resource": "193.32.162.0/24",
+   "is_less_specific": true,
+   "origin": {
+    "asn": "AS47890",
+    "holder": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD"
+   },
+   "origins": [
+    {
+     "asn": "AS47890",
+     "holder": "UNMANAGED-DEDICATED-SERVERS UNMANAGED LTD"
+    }
+   ],
+   "block": "RIPE NCC (Status: ALLOCATED)",
+   "less_specific_warning": null,
+   "query_time": "2026-10-02T00:00:00",
+   "rdap": {
+    "query": "193.32.162.1",
+    "source": "https://rdap.db.ripe.net/ip/193.32.162.1",
+    "handle": "193.32.162.0 - 193.32.162.255",
+    "name": "DMZHOST",
+    "country": "NL",
+    "start": "193.32.162.0",
+    "end": "193.32.162.255",
+    "type": "ASSIGNED PA",
+    "cidr": "193.32.162.0"
+   }
+  }
+ }
+}
