@@ -184,6 +184,31 @@ def main():
     elif out.strip():
         check("MoE router", False, "ollama not reachable", warn_only=True)
 
+    # ── cryptozoo population ──
+    # The breeding engine must produce a COHERENT population. If coherence
+    # collapses, the oscillator model is decohering and that is a real fault,
+    # not a cosmetic metric.
+    rc, out = sh("cd %s && python3 cryptozoo_sim.py 2>/dev/null | tail -14" % REPO)
+    coh = None
+    for line in out.splitlines():
+        if line.strip().startswith("coherence"):
+            try:
+                coh = float(line.split("->")[1].strip())
+            except (ValueError, IndexError):
+                pass
+    if coh is not None:
+        check("cryptozoo coherence", coh >= 0.5,
+              f"population order parameter r={coh}", warn_only=True)
+    else:
+        check("cryptozoo engine", False, "simulation did not report coherence",
+              warn_only=True)
+
+    rc2, out2 = sh("cd %s && python3 -c \"import agent_species as a;"
+                   "print(len(a.assign_all()))\" 2>/dev/null" % REPO)
+    if out2.strip().isdigit():
+        check("agent species bound", True,
+              f"{out2.strip()} agents hold species identities")
+
     # ── resource headroom ──
     rc, out = sh("df -h / | awk 'NR==2{print $5}'")
     check("disk headroom", rc == 0 and int(out.rstrip('%')) < 90,

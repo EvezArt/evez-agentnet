@@ -42,6 +42,15 @@ jobs:
           # Proves the audit actually fires. An audit that cannot be shown to
           # detect a planted bug is worse than no audit at all.
           python test_audit_detects.py
+      - name: CryptoZoo breeding engine
+        run: |
+          # The evezx-cryptozoo repo is spec-only; these implement it and assert
+          # the implementation matches BREEDING_ENGINE.md rule for rule.
+          python test_cryptozoo.py
+          python test_agent_species.py
+          # The simulation must produce a COHERENT population and must reach
+          # named hybrids — both failed before the phase-inheritance fix.
+          python cryptozoo_sim.py
       - name: MoE router + inference
         run: |
           # Router must never invent an expert: if Ollama is unreachable the
