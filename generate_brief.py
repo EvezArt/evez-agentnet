@@ -87,14 +87,35 @@ def open_items():
     except Exception:
         ships_n = 0
     if ships_n > 50 and st.get("total_earned_usd", 0) == 0.0:
+        # Diagnosed 2026-10-02: the shipper was logging "Shipped" for drafts
+        # that never left the machine (both delivery paths were TODO stubs).
+        # That is fixed — it now reports per-draft reasons. The remaining gap
+        # is configuration, not code.
+        sl = Path("/root/evez-agentnet/shipper/ship_log.jsonl")
+        delivered = 0
+        if sl.exists():
+            recent = [x for x in sl.read_text(errors="replace").splitlines()
+                      if x.strip()][-60:]
+            delivered = 0
+            for x in recent:
+                try:
+                    rec = json.loads(x)
+                except json.JSONDecodeError:
+                    continue
+                if rec.get("status") == "shipped":
+                    delivered += 1
         items.append({
             "id": "income-zero",
             "severity": "medium",
-            "what": f"{ships_n} ship events, $0.00 total revenue",
-            "action": "Make run_ship() report why it earns nothing and fail loudly, "
-                      "instead of logging 'Shipped'",
-            "why": "Same class as the RSI bug: a declarative surface reporting "
-                   "success while doing nothing.",
+            "what": (f"{ships_n} ship events, $0.00 revenue. Shipper is now "
+                     f"HONEST (reports why each draft failed) but "
+                     f"{delivered}/{len(recent) if sl.exists() else 0} recent "
+                     f"drafts actually delivered."),
+            "action": "Configure a delivery channel: export TWITTER_BEARER_TOKEN "
+                      "or GUMROAD_API_KEY, or set MASTODON_BASE_URL + "
+                      "MASTODON_ACCESS_TOKEN",
+            "why": "Draft generation works; publication has no credentialed "
+                   "transport. This is now a config gap, not a lie in the logs.",
         })
 
     return items

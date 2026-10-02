@@ -42,6 +42,12 @@ jobs:
           # Proves the audit actually fires. An audit that cannot be shown to
           # detect a planted bug is worse than no audit at all.
           python test_audit_detects.py
+      - name: Shipper honesty
+        run: |
+          # The shipper logged "Shipped" for 747 drafts that never left the
+          # machine, earning $0.00. These assert a draft is marked shipped
+          # ONLY on a real transmission.
+          python test_shipper_honesty.py
       - name: Notifier logic
         run: |
           # Catches syntax errors and escaping regressions in the Telegram

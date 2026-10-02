@@ -406,23 +406,55 @@ def run_generate(predictions: list, state: dict) -> list:
 
 
 def run_ship(drafts: list, state: dict) -> float:
+    """Publish drafts and return verified revenue.
+
+    The shipper now returns a summary dict with the REASON each draft did or
+    did not reach a channel, because "Shipped" was previously logged for drafts
+    that never left the machine. Reputation now evolves on what actually
+    shipped, so the agent cannot coast on fake successes forever.
+    """
     if not drafts:
         return 0.0
     from shipper.ship_agent import run as ship_run
     reputation = state["agents"]["shipper"]["reputation"]
     tp = truth_plane(reputation)
     if tp in ("HYPER", "THEATRICAL"):
-        log.warning(f"Shipper gated -- truth_plane={tp}, skipping")
+        log.warning("Shipper gated -- truth_plane=%s, skipping", tp)
         return 0.0
     try:
-        earned = ship_run(drafts)
+        summary = ship_run(drafts)
+        # Older shipper returned a bare float; keep both paths working.
+        if isinstance(summary, (int, float)):
+            summary = {"attempted": len(drafts), "shipped": len(drafts),
+                       "earned_usd": float(summary), "reasons": {}, "legacy": True}
+
+        shipped = summary.get("shipped", 0)
+        attempted = summary.get("attempted", 0)
+        earned = float(summary.get("earned_usd", 0.0))
+
         state["agents"]["shipper"]["tasks_completed"] += 1
-        state["last_ship"] = datetime.now(timezone.utc).isoformat()
-        evolve_reputation(state, "shipper", True)
-        append_spine("ship_complete", {"earned_usd": earned, "truth_plane": tp})
+        if shipped:
+            state["last_ship"] = datetime.now(timezone.utc).isoformat()
+        evolve_reputation(state, "shipper", shipped > 0)
+
+        reasons = dict(summary.get("reasons") or {})
+        append_spine("ship_complete", {
+            "earned_usd": earned,
+            "truth_plane": tp,
+            "attempted": attempted,
+            "shipped": shipped,
+            "not_shipped_reasons": reasons,
+            "channels_available": summary.get("channels_available", []),
+        })
+
+        if attempted and not shipped:
+            top = max(reasons.items(), key=lambda kv: kv[1])[0] if reasons else "unknown"
+            log.warning("Shipper: 0/%d delivered (most common: %s). "
+                        "Drafts are being produced but not published.",
+                        attempted, top)
         return earned
     except Exception as e:
-        log.error(f"Ship failed: {e}")
+        log.error("Ship failed: %s", e)
         evolve_reputation(state, "shipper", False)
         append_spine("ship_failed", {"error": str(e)})
         return 0.0

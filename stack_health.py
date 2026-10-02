@@ -76,11 +76,52 @@ def main():
                             if '"ship_complete"' in l)
             if ships > 50 and earned == 0.0:
                 check("income loop yield", False,
-                      f"{ships} ship events, $0.00 earned — shipping is cosmetic",
+                      f"{ships} ship events, $0.00 earned — no channel delivers",
                       warn_only=True)
             else:
                 check("income loop yield", True,
                       f"{ships} ships, ${earned:.2f}")
+
+            # Distinct from the above: drafts produced vs drafts actually
+            # delivered. A shipper that logs "not_shipped:*" for everything is
+            # now HONEST but still not earning — that is a configuration gap,
+            # not a code bug, and needs a human decision.
+            sl = REPO / "shipper/ship_log.jsonl"
+            if sl.exists():
+                # Window must be post-fix rows only. The legacy log contains
+                # hundreds of records whose status is exactly "shipped" from
+                # the era when the shipper logged success without delivering,
+                # so a naive trailing window reports historical rows as
+                # current success and masks the real state. Take the last 200
+                # and keep only rows written by the honest shipper.
+                recent = [l for l in sl.read_text(errors="replace").splitlines()
+                          if l.strip()][-200:]
+                honest = []
+                for l in recent:
+                    try:
+                        rec = json.loads(l)
+                    except json.JSONDecodeError:
+                        continue
+                    if str(rec.get("status", "")).startswith("not_shipped"):
+                        honest.append(l)
+                recent = honest
+                # Substring matching is wrong here: legacy rows contain the
+                # literal "shipped" INSIDE the key order and the substring
+                # "not_shipped" can appear in a detail field. Parse the JSON
+                # and compare the status field exactly.
+                delivered = 0
+                for l in recent:
+                    try:
+                        rec = json.loads(l)
+                    except json.JSONDecodeError:
+                        continue
+                    if rec.get("status") == "shipped":
+                        delivered += 1
+                if len(recent) >= 5 and delivered == 0:
+                    check("drafts actually delivered", False,
+                          f"{len(recent)} recent drafts, 0 delivered — "
+                          f"no API credentials configured for any channel",
+                          warn_only=True)
         except Exception as e:
             check("agentnet state parses", False, str(e)[:80])
     else:
