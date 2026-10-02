@@ -114,46 +114,154 @@ def evolve_reputation(state: dict, agent: str, success: bool):
 
 # ── RSI Hypothesis Engine ─────────────────────────────────────────────────────
 
-def generate_rsi_hypotheses(state: dict) -> list[str]:
-    """Generate 3 RSI hypotheses for the next cycle based on current state."""
+def _stuck_agents(rep: dict, tasks: dict) -> list[tuple]:
+    """Agents that are saturated at 1.0 reputation but not producing anything.
+
+    The old logic picked min(reputation) unconditionally. Once every agent hit
+    the 1.0 ceiling (which happens within ~10 healthy rounds) it always selected
+    whichever name sorted first and emitted "recover via streak" — advice to a
+    perfect agent. What is actually actionable is a HIGH-reputation agent whose
+    task counter is flat: that one is succeeding without doing more work.
+    """
+    stuck = []
+    for name, rv in rep.items():
+        if rv >= 0.99 and tasks.get(name, 0) == 0:
+            stuck.append((name, rv))
+    return stuck
+
+
+def generate_rsi_hypotheses(state: dict) -> list[dict]:
+    """Generate 3 RSI hypotheses for the next cycle based on current state.
+
+    Returns structured directives, not prose. Each carries `action` (a key the
+    gate in apply_rsi_directives() can consume) so a hypothesis can actually
+    change behaviour instead of being logged and forgotten.
+    """
     maes  = state.get("maes", {})
-    rsi   = state.get("rsi", {})
     rnd   = state["round"]
     rep   = {k: v["reputation"] for k, v in state["agents"].items()}
+    tasks = {k: v.get("tasks_completed", 0) for k, v in state["agents"].items()}
 
     hypotheses = []
+    stuck = _stuck_agents(rep, tasks)
 
     # H1: reputation-based evolution
-    lowest = min(rep, key=rep.get)
-    hypotheses.append(
-        f"Evolve {lowest} agent: reputation={rep[lowest]:.2f} → "
-        f"inject synthetic task to recover via streak"
-    )
+    if stuck:
+        name, rv = stuck[0]
+        hypotheses.append({
+            "id": "H1",
+            "action": "raise_scan_yield",
+            "agent": name,
+            "text": (f"{name} is saturated at reputation={rv:.2f} with 0 tasks "
+                     f"completed — raise scan yield instead of chasing reputation"),
+        })
+    else:
+        # Genuinely pick the weakest, and only if it is actually below par.
+        lowest = min(rep, key=rep.get)
+        if rep[lowest] < 0.95:
+            hypotheses.append({
+                "id": "H1",
+                "action": "recover_reputation",
+                "agent": lowest,
+                "text": (f"{lowest} reputation={rep[lowest]:.2f} below par → "
+                         f"inject synthetic task to recover via streak"),
+            })
+        else:
+            hypotheses.append({
+                "id": "H1",
+                "action": "hold",
+                "agent": None,
+                "text": f"All agents at or above par (min={min(rep.values()):.2f}) — hold steady",
+            })
 
     # H2: ecology scaling
     pc = maes.get("player_count", 0)
     ac = maes.get("agent_count", 0)
     if pc >= 5:
-        hypotheses.append(
-            f"Scale NPC ecology: {pc} verified players detected, "
-            f"spawn {max(1, pc // 2)} additional NPC agents in MAES"
-        )
+        hypotheses.append({
+            "id": "H2",
+            "action": "spawn_npcs",
+            "agent": None,
+            "text": (f"Scale NPC ecology: {pc} verified players detected, "
+                     f"spawn {max(1, pc // 2)} additional NPC agents in MAES"),
+        })
+    elif ac > 0:
+        hypotheses.append({
+            "id": "H2",
+            "action": "emit_verification",
+            "agent": None,
+            "text": (f"Grow player base: currently {pc}/{ac} verified "
+                     f"({pc/ac:.0%}) — emit verification challenge events"),
+        })
     else:
-        hypotheses.append(
-            f"Grow player base: currently {pc}/{ac} verified, "
-            f"emit verification challenge events to improve ratio"
-        )
+        hypotheses.append({
+            "id": "H2", "action": "wait_for_ecology", "agent": None,
+            "text": "MAES ecology empty — no players or agents to scale yet",
+        })
 
     # H3: moral / empathy expansion
+    # The old branch said "expand compassion_layer" when fire_total was 0,
+    # which is backwards: zero signal means hold, not widen the aperture.
     fire_total = maes.get("fire_events_total", 0)
-    hypotheses.append(
-        f"Evolve moral registry round {rnd+1}: "
-        f"{fire_total} FIRE events accumulated → "
-        f"expand compassion_layer to anticipate external suffering signals"
-    )
+    if fire_total == 0:
+        hypotheses.append({
+            "id": "H3",
+            "action": "hold",
+            "agent": None,
+            "text": f"Moral registry round {rnd+1}: 0 FIRE events — hold compassion_layer, no signal to act on",
+        })
+    else:
+        hypotheses.append({
+            "id": "H3",
+            "action": "expand_compassion",
+            "agent": None,
+            "text": (f"Moral registry round {rnd+1}: {fire_total} FIRE events "
+                     f"accumulated → expand compassion_layer to anticipate "
+                     f"external suffering signals"),
+        })
 
     append_spine("rsi_hypotheses", {"round": rnd, "hypotheses": hypotheses})
     return hypotheses
+
+
+def apply_rsi_directives(state: dict, hypotheses: list[dict]) -> list[str]:
+    """Consume the previous cycle's directives. This is the gate that makes
+    hypotheses non-decorative: without it, generate_rsi_hypotheses() only ever
+    wrote strings to the spine that nothing downstream read.
+
+    Returns the list of directive keys that actually changed state.
+    """
+    applied = []
+    for h in hypotheses:
+        # State written by earlier versions holds bare strings, not dicts.
+        # Skip them rather than crashing the round on a legacy record.
+        if not isinstance(h, dict):
+            log.warning(f"[RSI] skipping legacy hypothesis format: {str(h)[:60]}")
+            continue
+        act = h.get("action")
+        if act == "raise_scan_yield":
+            # Widen the scanner's net so a saturated agent produces more signal.
+            state["scan"]["yield_multiplier"] = min(
+                3.0, state.setdefault("scan", {}).get("yield_multiplier", 1.0) + 0.25)
+            applied.append("raise_scan_yield")
+        elif act == "spawn_npcs":
+            maes = state.setdefault("maes", {})
+            maes["pending_npc_spawn"] = maes.get("pending_npc_spawn", 0) + \
+                max(1, maes.get("player_count", 0) // 2)
+            applied.append("spawn_npcs")
+        elif act == "expand_compassion":
+            maes = state.setdefault("maes", {})
+            maes["compassion_expansion"] = maes.get("compassion_expansion", 0) + 1
+            applied.append("expand_compassion")
+        elif act == "recover_reputation":
+            name = h.get("agent")
+            if name in state.get("agents", {}):
+                # Reset the streak so the next success pays the base rate again.
+                state["agents"][name]["streak"] = 0
+                applied.append("recover_reputation")
+    if applied:
+        append_spine("rsi_directives_applied", {"round": state["round"], "applied": applied})
+    return applied
 
 
 # ── MAES Observe Tick ─────────────────────────────────────────────────────────
@@ -201,6 +309,16 @@ def run_scan(state: dict) -> list:
         return []
     try:
         results = scan_run()
+        # An RSI directive may ask for a wider net when reputation saturates.
+        mult = state.get("scan", {}).get("yield_multiplier", 1.0)
+        if mult > 1.0 and results:
+            keep = max(1, int(len(results) * mult))
+            if keep > len(results):
+                pool = [r for r in results if isinstance(r, dict)]
+                # results are already ranked; top up from the remaining pool
+                results = results + pool[len(results):keep]
+            results = results[:keep]
+            log.info(f"Scan: yield_multiplier={mult:.2f} -> {len(results)} signals")
         state["agents"]["scanner"]["tasks_completed"] += 1
         evolve_reputation(state, "scanner", True)
         append_spine("scan_complete", {"count": len(results), "reputation": reputation})
@@ -326,7 +444,14 @@ def main():
     log.info(f"=== evez-agentnet round {rnd} ===")
     append_spine("round_start", {"round": rnd})
 
-    # Phase 0 — MAES Observe (before scan so ecology context is fresh)
+    # Phase 0 — apply last cycle's directives BEFORE anything reads state, so the
+    # RSI engine has an actual effect on this round rather than only annotating it.
+    prev = state.get("rsi", {}).get("hypotheses", [])
+    if prev:
+        applied = apply_rsi_directives(state, prev)
+        log.info(f"[RSI] applied {len(applied)} directive(s) from round {rnd-1}: {applied}")
+
+    # Phase 0b — MAES Observe (before scan so ecology context is fresh)
     maes_obs = run_maes_tick(state)
 
     # Phase 1-4 — OODA core pipeline
@@ -350,7 +475,7 @@ def main():
     hypotheses = generate_rsi_hypotheses(state)
     state["rsi"]["hypotheses"] = hypotheses
     for i, h in enumerate(hypotheses, 1):
-        log.info(f"[RSI H{i}] {h}")
+        log.info(f"[RSI {h.get('id','?')}/{h.get('action','?')}] {h.get('text', h)}")
 
     # Phase 7 — Round close + reputation summary
     rep_summary = {k: {"rep": round(v["reputation"], 3), "streak": v.get("streak",0)} for k, v in state["agents"].items()}

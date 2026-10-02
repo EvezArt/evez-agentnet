@@ -126,35 +126,15 @@ def summarize_scan(scan_results: list, maes_obs: dict, round_no: int) -> str:
     return json.dumps(payload, ensure_ascii=False)
 
 
-def generate_rsi_hypotheses(state: dict) -> list[str]:
-    maes = state.get("maes", {})
-    rnd = state["round"]
-    rep = {k: v["reputation"] for k, v in state["agents"].items()}
+def generate_rsi_hypotheses(state: dict) -> list[dict]:
+    """Delegates to the single fixed implementation in orchestrator.py.
 
-    hypotheses = []
-    lowest = min(rep, key=rep.get)
-    hypotheses.append(
-        f"Evolve {lowest} agent: reputation={rep[lowest]:.2f} -> inject synthetic task to recover via streak"
-    )
-
-    pc = maes.get("player_count", 0)
-    ac = maes.get("agent_count", 0)
-    if pc >= 5:
-        hypotheses.append(
-            f"Scale NPC ecology: {pc} verified players detected, spawn {max(1, pc // 2)} additional NPC agents in MAES"
-        )
-    else:
-        hypotheses.append(
-            f"Grow player base: currently {pc}/{ac} verified, emit verification challenge events to improve ratio"
-        )
-
-    fire_total = maes.get("fire_events_total", 0)
-    hypotheses.append(
-        f"Evolve moral registry round {rnd + 1}: {fire_total} FIRE events accumulated -> expand compassion_layer to anticipate external suffering signals"
-    )
-
-    append_spine("rsi_hypotheses", {"round": rnd, "hypotheses": hypotheses})
-    return hypotheses
+    This module previously kept its own near-duplicate copy of the RSI engine,
+    which is how the saturated-reputation bug survived here even after being
+    fixed upstream. One implementation, imported — not copied.
+    """
+    from orchestrator import generate_rsi_hypotheses as _impl
+    return _impl(state)
 
 
 def run_maes_tick(state: dict) -> dict:

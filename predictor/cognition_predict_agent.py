@@ -8,13 +8,17 @@ from __future__ import annotations
 
 import json
 import logging
-from math import log
+from math import log as _math_log
 from pathlib import Path
 from typing import Any
 
 from .predict_agent import _generate_action_plan, _score_signal
 
-log = logging.getLogger("agentnet.cognition_predictor")
+# NOTE: must not be named `log` — that name collides with `from math import log`
+# below and makes every _entropy() call raise `TypeError: 'Logger' object is
+# not callable`. That crash killed the canonical supervised boot path on every
+# start. Logger is `_logger`; the math function keeps the plain name.
+_logger = logging.getLogger("agentnet.cognition_predictor")
 
 
 def _entropy(scores: list[float]) -> float:
@@ -22,7 +26,7 @@ def _entropy(scores: list[float]) -> float:
         return 0.0
     total = sum(max(s, 1e-6) for s in scores)
     probs = [max(s, 1e-6) / total for s in scores]
-    return -sum(p * log(p) for p in probs)
+    return -sum(p * _math_log(p) for p in probs)
 
 
 def run(scan_results: list) -> dict[str, Any]:

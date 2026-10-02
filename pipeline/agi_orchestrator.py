@@ -58,36 +58,49 @@ def append_spine(event_type: str, data: dict) -> dict:
 
 # ── Surface 1: OpenRouter multi-model fan-out ─────────────────────────────────
 
+# Used when the requested model is rate-limited or errors, so a single paid
+# model's failure does not take the whole surface offline.
+FALLBACK_MODELS = [
+    "meta-llama/llama-3.1-8b-instant",
+    "meta-llama/llama-3-8b-instruct:free",
+]
+
 def openrouter_complete(prompt: str, model: str, system: str = TRUNK_PROMPT) -> Optional[str]:
     if not OPENROUTER_API_KEY:
         log.warning("No OPENROUTER_API_KEY set")
         return None
     try:
-        # Try OpenRouter first, fallback to Groq
-            # Groq
-            r = requests.post(
-                "https://openrouter.ai/api/v1/chat/completions",
-                headers={"Authorization": f"Bearer {OPENROUTER_API_KEY}", "Content-Type": "application/json"},
-                json={"model": "llama-3.1-8b-instant", "messages": [
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": prompt}
-                ], "max_tokens": 500},
-                timeout=30
-            )
-        else:
-            r = requests.post(
-                "https://openrouter.ai/api/v1/chat/completions",
-                headers={"Authorization": f"Bearer {OPENROUTER_API_KEY}", "Content-Type": "application/json",
-                         "HTTP-Referer": "https://github.com/EvezArt/evez-agentnet"},
-                json={"model": model, "messages": [
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": prompt}
-                ], "max_tokens": 500},
-                timeout=30
-            )
+        # Try the requested model first, then the free-tier fallback.
+        r = requests.post(
+            "https://openrouter.ai/api/v1/chat/completions",
+            headers={"Authorization": f"Bearer {OPENROUTER_API_KEY}", "Content-Type": "application/json",
+                     "HTTP-Referer": "https://github.com/EvezArt/evez-agentnet"},
+            json={"model": model, "messages": [
+                {"role": "system", "content": system},
+                {"role": "user", "content": prompt}
+            ], "max_tokens": 500},
+            timeout=30
+        )
         if r.ok:
             return r.json()["choices"][0]["message"]["content"].strip()
         log.warning(f"LLM {model} returned {r.status_code}: {r.text[:100]}")
+
+        # Fallback: a known-free model, so a rate-limited paid model does not
+        # take the whole surface offline.
+        fb = FALLBACK_MODELS[0]
+        log.info(f"OpenRouter {model} unavailable — falling back to {fb}")
+        r = requests.post(
+            "https://openrouter.ai/api/v1/chat/completions",
+            headers={"Authorization": f"Bearer {OPENROUTER_API_KEY}", "Content-Type": "application/json"},
+            json={"model": fb, "messages": [
+                {"role": "system", "content": system},
+                {"role": "user", "content": prompt}
+            ], "max_tokens": 500},
+            timeout=30
+        )
+        if r.ok:
+            return r.json()["choices"][0]["message"]["content"].strip()
+        log.warning(f"Fallback {fb} returned {r.status_code}: {r.text[:100]}")
         return None
     except Exception as e:
         log.error(f"LLM error ({model}): {e}")

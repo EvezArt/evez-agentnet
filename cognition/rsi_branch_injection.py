@@ -15,11 +15,33 @@ def _bounded(value: float) -> float:
     return max(0.0, min(1.0, value))
 
 
-def hypothesis_to_branch(label: str, hypothesis: str, round_no: int) -> Branch:
-    lower = hypothesis.lower()
+def hypothesis_to_branch(label: str, hypothesis: Any, round_no: int) -> Branch:
+    """Build a rival-future Branch from an RSI hypothesis.
+
+    Accepts either the structured dict produced by orchestrator.generate_rsi_hypotheses()
+    or a legacy bare string. Text scoring uses the human-readable `text` in
+    both cases; the `action` key additionally contributes deterministic signal so
+    a directive that is genuinely about expansion reads as higher-consequence
+    than one that says hold.
+    """
+    action = None
+    if isinstance(hypothesis, dict):
+        action = str(hypothesis.get("action") or "")
+        text = str(hypothesis.get("text") or "")
+    else:
+        text = str(hypothesis)
+    lower = text.lower()
+
     hedge_count = sum(term in lower for term in HEDGE_TERMS)
     consequence_hits = sum(term in lower for term in HIGH_CONSEQUENCE_TERMS)
     dark_hits = sum(term in lower for term in DARK_PRESSURE_TERMS)
+
+    # A "hold" directive carries no expansion, so it should not read as a
+    # high-consequence rival future.
+    if action == "hold":
+        consequence_hits = 0
+    elif action:
+        consequence_hits += 1
 
     plausibility = _bounded(0.42 - 0.03 * hedge_count + 0.02 * ("reputation" in lower) + 0.02 * ("player" in lower))
     consequence = _bounded(0.45 + 0.07 * consequence_hits)
@@ -31,6 +53,8 @@ def hypothesis_to_branch(label: str, hypothesis: str, round_no: int) -> Branch:
         f"round:{round_no}",
         "preserve rival future",
     ]
+    if action:
+        notes.append(f"action:{action}")
     if collapse_risk >= 0.6:
         notes.append("increase ambiguity retention")
     if consequence >= 0.65:
@@ -64,9 +88,9 @@ def inject_rsi_hypotheses(daemon: Any, hypotheses: list[str], round_no: int) -> 
         injected.append(asdict(branch))
 
         if branch.collapse_risk >= 0.6:
-            daemon.state.unresolved_residue.append(f"RSI:{hypothesis}")
+            daemon.state.unresolved_residue.append(f"RSI:{hypothesis if isinstance(hypothesis, str) else hypothesis.get('text', '')}")
         if branch.resonance >= 0.58:
-            daemon.state.dark_state_pressure.append(f"RSI:{hypothesis}")
+            daemon.state.dark_state_pressure.append(f"RSI:{hypothesis if isinstance(hypothesis, str) else hypothesis.get('text', '')}")
 
     entropy = branch_entropy(daemon.state.branches)
     unresolved_count = len(daemon.state.unresolved_residue)

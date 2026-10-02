@@ -25,4 +25,37 @@ jobs:
           find . -name '*.py' -not -path './.git/*' -exec python -m py_compile {} \;
       - name: Test
         run: |
-          if [ -d tests ]; then python -m pytest tests/ -q || true; fi
+          if [ -d tests ]; then python -m pytest tests/ -q; fi
+      - name: RSI engine regression
+        run: |
+          # Was previously unreferenced and unreachable from CI. These cover
+          # three defects that shipped to production logs.
+          python test_rsi_engine.py
+      - name: Repo audit
+        run: |
+          # Static audit for the defect classes that reached production:
+          # log/math shadowing, duplicated orchestrator implementations,
+          # unfailable CI steps, and unguarded min(reputation) selection.
+          python audit_repo.py
+      - name: Audit self-test
+        run: |
+          # Proves the audit actually fires. An audit that cannot be shown to
+          # detect a planted bug is worse than no audit at all.
+          python test_audit_detects.py
+      - name: Boot-path smoke test
+        run: |
+          # Catches import-time and shadowing crashes (e.g. a module-level
+          # `log = logging.getLogger(...)` colliding with `from math import log`)
+          # that py_compile cannot see but that kill the service on start.
+          python -c "
+          import orchestrator, orchestrator_cognition_governed
+          import predictor.cognition_predict_agent as p
+          import cognition.rsi_branch_injection as r
+          assert p._entropy([1,2,3]) > 0
+          assert p._entropy([]) == 0.0
+          b = r.hypothesis_to_branch('t', {'id':'H1','action':'hold','text':'all agents at par'}, 1)
+          assert b.consequence < 0.65, 'hold directive must not read high-consequence'
+          b2 = r.hypothesis_to_branch('t2', {'id':'H2','action':'spawn_npcs','text':'spawn additional NPC agents'}, 1)
+          assert b2.consequence > 0.65, 'spawn directive must read high-consequence'
+          print('boot smoke ok')
+          "
