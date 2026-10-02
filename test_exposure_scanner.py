@@ -1,4 +1,8 @@
-"""Verify the hardened exposure scanner detects BOTH real credentials.
+"""Verify the hardened exposure scanner detects BOTH credential classes.
+
+The ClawHub token below is a SYNTHETIC stand-in with the same shape as the
+real one. The real token was committed here as a "fixture" on 2026-10-02,
+which leaked it into a second repo; fixtures must never be real secrets.
 
 The original scanner missed the ClawHub token entirely (it was buried as
 `generic_secret_assign`). This proves the new severity-tiering works.
@@ -12,7 +16,7 @@ import public_exposure_audit as A
 FIXTURES = {
     "clawhub_transmitted": ("""\
 import urllib.request
-token = "REVOKED_CLAWHUB_TOKEN"
+token = "clh_0000TESTONLYnotreal0000zzzzZZZZffffFFFF0000TESTONLY"
 ctx = None
 try:
     req = urllib.request.Request(
