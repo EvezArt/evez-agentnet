@@ -538,6 +538,20 @@ def main():
     # Phase 5 — OpenClaw secret level autoplay
     run_openclaw(state)
 
+    # Phase 5.5 — JEV System One advice (advisory; never overrides)
+    try:
+        import jev_integration as JEV
+        advice = JEV.advise(state, rnd)
+        log.info("[JEV] %s", JEV.summarise(advice))
+        state.setdefault("jev", {})["last_advice"] = {
+            "round": rnd,
+            "available": advice.get("available"),
+            "agreement": advice.get("agreement", {}),
+        }
+    except Exception as e:
+        # JEV must never break the pipeline, whatever it does.
+        log.warning("[JEV] integration skipped: %s", str(e)[:120])
+
     # Phase 6 — RSI Hypothesis Engine (project 3 next-cycle hypotheses)
     hypotheses = generate_rsi_hypotheses(state)
     state["rsi"]["hypotheses"] = hypotheses

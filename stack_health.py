@@ -172,6 +172,24 @@ def main():
               "live" if live else "installed, no TYPESAFE_API_KEY set "
               f"(decisions logged: {recorded})", warn_only=not live)
 
+    # Is Jev actually WIRED into the OODA loop, or just installed?
+    rc3, out3 = sh("cd %s && grep -c 'jev_integration' orchestrator.py 2>/dev/null"
+                   % REPO)
+    if out3.strip().isdigit() and int(out3.strip()) > 0:
+        check("Jev wired into OODA loop", True,
+              "phase 5.5, advisory only, spine-recorded")
+    else:
+        check("Jev wired into OODA loop", False,
+              "integration not present in orchestrator.py", warn_only=True)
+
+    # Count jev_advice events actually landing in the spine.
+    rc4, out4 = sh("cd %s && grep -c 'jev_advice' spine/spine.jsonl 2>/dev/null || echo 0"
+                   % REPO)
+    n = out4.strip()
+    if n.isdigit():
+        check("Jev advice reaching the spine", True,
+              f"{n} jev_advice event(s) recorded")
+
     # ── MoE router ──
     # Informational: the router is optional tooling. But a router that cannot
     # see its experts is broken in the same way a shipper with no channel is.

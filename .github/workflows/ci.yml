@@ -58,6 +58,11 @@ jobs:
           python test_moe_router.py
           python test_moe_infer.py
           python moe_cli.py roster
+      - name: Jev OODA integration
+        run: |
+          # Jev must ADVIS, never override, and must never break the loop.
+          # Both paths tested: no key (fallback) and stubbed key (judgements).
+          python test_jev_integration.py
       - name: Jev decision layer
         run: |
           # Asserts the must-not-fabricate contract: with no key, decisions

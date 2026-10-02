@@ -101,6 +101,19 @@ def cmd_shipper(_a):
     return 0
 
 
+def cmd_advice(a):
+    """Show this round's JEV advice as recorded by the OODA loop."""
+    import jev_integration as JI
+    try:
+        state = load_state()
+    except Exception:
+        state = {"round": 0, "agents": {}, "maes": {}}
+    adv = JI.advise(state, state.get("round", 0))
+    show(adv)
+    print("\n" + JI.summarise(adv))
+    return 0
+
+
 def cmd_escalate(a):
     brief = BRIEF_FILE.read_text(errors="replace") if BRIEF_FILE.exists() else ""
     health = {}
@@ -123,6 +136,7 @@ def main() -> int:
     sub.add_parser("health", help="print current stack state").set_defaults(fn=cmd_health)
     sub.add_parser("attention", help="which agent needs intervention").set_defaults(fn=cmd_attention)
     sub.add_parser("shipper", help="is the shipper broken or just idle?").set_defaults(fn=cmd_shipper)
+    sub.add_parser("advice", help="run JEV advice for the current round").set_defaults(fn=cmd_advice)
 
     pr = sub.add_parser("probe", help="one ad-hoc noul question")
     pr.add_argument("state", help="the state to evaluate")
