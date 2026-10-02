@@ -82,8 +82,13 @@ def _generate_action_plan(item: dict) -> dict:
         plan["deliverable_type"] = "twitter_thread"
         plan["action_plan"] = f"Write 5-tweet thread on: {title}. Include EVEZ-OS angle."
     elif opp == "tutorial_or_integration":
-        plan["deliverable_type"] = "github_post"
-        plan["action_plan"] = f"Write integration tutorial for: {title}. Post to Twitter + Gumroad."
+        # github_post has no delivery path (it would need repo push auth), so
+        # emitting it produced drafts that could never ship — 747 of them.
+        # Target the channels this host can actually publish to; the tutorial
+        # content is unchanged.
+        plan["deliverable_type"] = "telegram_message"
+        plan["action_plan"] = (f"Write an integration write-up for: {title}. "
+                               f"Publish as a Telegram post.")
     elif opp == "resume_cover_letter_gen":
         plan["deliverable_type"] = "gumroad_product"
         plan["action_plan"] = f"Generate AI-optimized resume/cover letter templates. Price $9-29."

@@ -101,6 +101,50 @@ expect("HTTP 429 yields zero shipped", s3["shipped"] == 0, str(s3))
 expect("HTTP error reason recorded", s3["reasons"].get("api_error", 0) == 1,
        str(s3["reasons"]))
 
+print("\ntelegram: real API, must distinguish success from failure")
+S.SHIP_LOG = Path(tempfile.mkdtemp()) / "ship.jsonl"
+S._discover_telegram_token = lambda: "12345678:FAKE_TOKEN_FOR_TESTING_ONLY_ABCDEFGHIJK"
+S._discover_telegram_chat = lambda: "7453631330"
+expect("telegram counts as an available channel",
+       "telegram" in S.available_channels(), str(S.available_channels()))
+
+_real_urlopen = urllib.request.urlopen
+
+
+def _ok(req, timeout=20):
+    # urllib.parse-encoded body -> respond as the Bot API would
+    return _FakeResp({"ok": True, "result": {"message_id": 4242}})
+
+
+urllib.request.urlopen = _ok
+try:
+    st = S.run([{"type": "telegram_message", "title": "t", "content": "body"}])
+finally:
+    urllib.request.urlopen = _real_urlopen
+expect("ok:true response counts as shipped", st["shipped"] == 1, str(st))
+
+
+def _notok(req, timeout=20):
+    return _FakeResp({"ok": False, "description": "chat not found"})
+
+
+urllib.request.urlopen = _notok
+try:
+    sn = S.run([{"type": "telegram_message", "title": "t", "content": "body"}])
+finally:
+    urllib.request.urlopen = _real_urlopen
+expect("ok:false response is NOT shipped", sn["shipped"] == 0, str(sn))
+expect("api_error recorded", sn["reasons"].get("api_error", 0) == 1,
+       str(sn["reasons"]))
+
+print("\ntelegram: no credential must not claim success")
+S._discover_telegram_token = lambda: ""
+S._discover_telegram_chat = lambda: ""
+sm = S.run([{"type": "telegram_message", "title": "t", "content": "body"}])
+expect("no creds -> not shipped", sm["shipped"] == 0, str(sm))
+expect("reason is channel_not_configured",
+       sm["reasons"].get("channel_not_configured", 0) == 1, str(sm["reasons"]))
+
 print("\nregression guard — the original signature")
 import inspect
 sig = inspect.signature(S.run)

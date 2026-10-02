@@ -28,6 +28,44 @@ def run(predictions: list, truth_plane: str = "CANONICAL") -> list:
     return drafts
 
 
+def _gen_telegram_message(title: str, plan: str, pred: dict) -> str:
+    """Build a Telegram post with a deterministic fallback.
+
+    The LLM-backed generators return "" when OPENROUTER_API_KEY is missing or
+    the call fails, which means zero drafts and therefore zero ship attempts.
+    This path always produces something shippable from data already on hand,
+    so the delivery loop stays exercisable without an API dependency.
+    """
+    if OPENROUTER_KEY:
+        try:
+            out = _openrouter_gen(
+                f"Write a 3-4 sentence Telegram post about this signal. "
+                f"Title: {title}. Plan: {plan[:400]}. "
+                f"State only what is observed; do not invent claims.",
+                max_tokens=220)
+            if out:
+                return out
+        except Exception as e:
+            log.warning("LLM generation failed, using deterministic fallback: %s", e)
+
+    score = pred.get("opportunity_score", 0)
+    try:
+        score = float(score)
+    except (TypeError, ValueError):
+        score = 0.0
+    src = pred.get("source") or "unknown source"
+
+    lines = [f"Signal: {title}", ""]
+    if plan:
+        lines.append(str(plan).strip()[:400])
+        lines.append("")
+    lines.append(f"Observed via {src} (score {score:.2f}).")
+    lines.append("")
+    lines.append("Drafted autonomously by EVEZ agentnet. "
+                 "No claims are made here that were not derived from logged state.")
+    return "\n".join(lines)
+
+
 def _generate_draft(pred: dict, truth_plane: str) -> dict | None:
     dtype = pred.get("deliverable_type", "twitter_thread")
     title = pred.get("title", "Untitled")
@@ -39,6 +77,8 @@ def _generate_draft(pred: dict, truth_plane: str) -> dict | None:
         content = _gen_gumroad_product(title, plan)
     elif dtype == "github_post":
         content = _gen_github_readme(title, plan)
+    elif dtype == "telegram_message":
+        content = _gen_telegram_message(title, plan, pred)
     else:
         content = _gen_tweet_thread(title, plan)
 

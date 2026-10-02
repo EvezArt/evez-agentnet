@@ -18,6 +18,7 @@ import json
 import logging
 import os
 import time
+import urllib.parse
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -27,6 +28,13 @@ SHIP_LOG = Path("shipper/ship_log.jsonl")
 SHIP_LOG.parent.mkdir(exist_ok=True)
 
 TWITTER_BEARER = os.environ.get("TWITTER_BEARER_TOKEN", "").strip()
+
+# Telegram is the one channel this host already holds a working credential for,
+# and it is verifiable end to end. Added as a real delivery target so the
+# shipper can prove a published draft rather than only logging intent.
+TELEGRAM_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+TELEGRAM_CHAT = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
+TELEGRAM_API = "https://api.telegram.org/bot{token}/{method}"
 MASTODON_BASE = os.environ.get("MASTODON_BASE_URL", "").strip()
 MASTODON_TOKEN = os.environ.get("MASTODON_ACCESS_TOKEN", "").strip()
 GUMROAD_TOKEN = os.environ.get("GUMROAD_API_KEY", "").strip()
@@ -67,7 +75,8 @@ def run(drafts: list) -> dict:
             summary["shipped"] += 1
             summary["earned_usd"] += float(result.get("earned_usd", 0.0) or 0.0)
             _log_ship(draft, "shipped", result.get("earned_usd", 0.0))
-            log.info("  SHIPPED %s -> %s", dtype, result.get("channel"))
+            log.info("  SHIPPED %s -> %s (%s)", dtype, result.get("channel"),
+                     result.get("detail", ""))
         else:
             reason = result["reason"]
             summary["reasons"][reason] += 1
@@ -86,7 +95,91 @@ def available_channels() -> list:
         out.append("mastodon")
     if GUMROAD_TOKEN:
         out.append("gumroad")
+    # Report DISCOVERED availability, not only explicit env vars. Telegram
+    # creds are reused from the existing OpenClaw config, so an empty env
+    # does not mean no channel — and reporting it as empty hid the fact that
+    # a delivery had just succeeded.
+    if _discover_telegram_token() and _discover_telegram_chat():
+        out.append("telegram")
     return out
+
+
+def _ship_telegram(draft: dict) -> dict:
+    """Publish a draft to Telegram. Returns shipped ONLY on a real API ok."""
+    import urllib.request
+    import urllib.error
+
+    body = (draft.get("content") or draft.get("title") or "").strip()
+    if not body:
+        return {"shipped": False, "reason": NOTHING_TO_POST}
+
+    token = TELEGRAM_TOKEN or _discover_telegram_token()
+    chat = TELEGRAM_CHAT or _discover_telegram_chat()
+    if not token:
+        return {"shipped": False, "reason": NOT_CONFIGURED,
+                "detail": "no Telegram bot token"}
+    if not chat:
+        return {"shipped": False, "reason": NOT_CONFIGURED,
+                "detail": "no Telegram chat id"}
+
+    title = (draft.get("title") or "").strip()
+    text = f"*{title}*\n\n{body[:3500]}" if title else body[:3800]
+
+    payload = urllib.parse.urlencode({
+        "chat_id": chat,
+        "text": text.replace("_", "\\_").replace("*", "\\*").replace("`", "\\`"),
+        "parse_mode": "Markdown",
+        "disable_web_page_preview": True,
+    }).encode()
+    req = urllib.request.Request(
+        TELEGRAM_API.format(token=token, method="sendMessage"),
+        data=payload,
+        headers={"Content-Type": "application/x-www-form-urlencoded"})
+    try:
+        with urllib.request.urlopen(req, timeout=25) as r:
+            resp = json.loads(r.read())
+        if resp.get("ok"):
+            mid = (resp.get("result") or {}).get("message_id")
+            return {"shipped": True, "earned_usd": 0.0, "channel": "telegram",
+                    "detail": f"message_id={mid}"}
+        return {"shipped": False, "reason": API_ERROR,
+                "detail": str(resp)[:150]}
+    except urllib.error.HTTPError as e:
+        detail = e.read().decode("utf-8", "replace")[:150]
+        # 409 means another getUpdates poller owns the bot token. Do NOT
+        # retry-loop on it; OpenClaw polls that bot.
+        if e.code == 409:
+            return {"shipped": False, "reason": API_ERROR,
+                    "detail": "409: another poller owns this bot token"}
+        return {"shipped": False, "reason": API_ERROR,
+                "detail": f"HTTP {e.code}: {detail}"}
+    except Exception as e:
+        return {"shipped": False, "reason": API_ERROR, "detail": str(e)[:150]}
+
+
+def _discover_telegram_token() -> str:
+    """Reuse the existing OpenClaw bot token rather than duplicating a secret."""
+    if TELEGRAM_TOKEN:
+        return TELEGRAM_TOKEN
+    import re as _re
+    for p in (Path("/root/.openclaw/openclaw.json"),):
+        if p.exists():
+            m = _re.search(r"\d{8,}:[A-Za-z0-9_-]{30,}", p.read_text(errors="replace"))
+            if m:
+                return m.group(0)
+    return ""
+
+
+def _discover_telegram_chat() -> str:
+    if TELEGRAM_CHAT:
+        return TELEGRAM_CHAT
+    import re as _re
+    sh = Path("/root/.openclaw/workspace/evez_delivery/ship.sh")
+    if sh.exists():
+        m = _re.search(r'CHAT="(\d+)"', sh.read_text(errors="replace"))
+        if m:
+            return m.group(1)
+    return ""
 
 
 def _dispatch(draft: dict) -> dict:
@@ -96,6 +189,8 @@ def _dispatch(draft: dict) -> dict:
         return _ship_twitter(draft)
     if dtype in ("gumroad_report", "gumroad_product"):
         return _ship_gumroad(draft)
+    if dtype == "telegram_message":
+        return _ship_telegram(draft)
     if dtype == "github_post":
         # Deliberately NOT shipped: posting to GitHub requires auth and a real
         # push path. Previously this was counted as shipped while doing nothing.
