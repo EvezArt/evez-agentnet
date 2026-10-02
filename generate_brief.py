@@ -46,14 +46,23 @@ def open_items():
     """Known-unresolved items, each with a concrete unblock action."""
     items = []
 
-    pub = sh("systemctl is-active openclaw-public-forward")
-    if pub == "active":
+    # Any socat forwarder on a public interface, not one hardcoded unit name.
+    # sh() returns a single string, not a tuple. Unpacking two values here
+    # raised ValueError and took the entire brief down with it.
+    binds = sh("ss -tlnp 2>/dev/null | grep socat | "
+               "grep -vE '127\\.0\\.0\\.1|100\\.126\\.' || true")
+    if binds.strip():
+        addrs = []
+        for line in binds.strip().splitlines():
+            parts = line.split()
+            if len(parts) > 3:
+                addrs.append(parts[3])
         items.append({
             "id": "public-gateway",
             "severity": "high",
-            "what": "OpenClaw gateway is bound to the public IP 80.241.209.34:18789",
-            "action": "systemctl disable --now openclaw-public-forward  "
-                      "(Tailscale path on 100.126.180.47:18789 remains)",
+            "what": f"socat forwarding the gateway on a public bind: {', '.join(addrs)}",
+            "action": "systemctl disable --now <the forwarding unit>; the "
+                      "Tailscale path on 100.126.180.47:18789 remains",
             "why": "Token-authenticated, but a single token leak exposes it. "
                    "Tailnet-only is strictly safer and you already have it.",
         })

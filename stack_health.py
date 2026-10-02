@@ -142,13 +142,21 @@ def main():
         check("infrastructure re-verified", True, "see evidence/")
 
     # ── network exposure ──
-    rc, out = sh("systemctl is-active openclaw-public-forward")
-    if out == "active":
-        check("gateway NOT on public IP", False,
-              "openclaw-public-forward active — gateway bound to 0.0.0.0-adjacent public IP",
+    # Check any socat forwarder bound to a PUBLIC interface, not just one
+    # unit name — the unit could be renamed and the exposure would persist.
+    rc, out = sh("ss -tlnp 2>/dev/null | grep -c 'socat' || echo 0")
+    public_binds = []
+    rc2, out2 = sh(
+        "ss -tlnp 2>/dev/null | grep socat | grep -vE '127\\.0\\.0\\.1|100\\.126\\.' || true")
+    if out2.strip():
+        public_binds = [l.split()[3] for l in out2.strip().splitlines() if len(l.split()) > 3]
+    if public_binds:
+        check("gateway NOT on public interface", False,
+              f"socat forwarding on public bind: {', '.join(public_binds)}",
               warn_only=True)
     else:
-        check("gateway NOT on public IP", True, "public forwarder inactive")
+        check("gateway NOT on public interface", True,
+              "no socat forwarder on a public bind (loopback/tailnet only)")
 
     # ── exposed credentials (local check; rotation status) ──
     rc, out = sh(f"grep -rq 'clh_' /root/evez-agentnet 2>/dev/null && echo FOUND || echo CLEAN")

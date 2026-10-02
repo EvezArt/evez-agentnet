@@ -61,19 +61,41 @@ expect("HEALTH.md exists", hp.exists())
 if hp.exists():
     txt = hp.read_text()
     expect("HEALTH.md names the zero-revenue finding", "$0.00" in txt)
-    expect("HEALTH.md names the public-gateway exposure", "public IP" in txt)
+    # The public-gateway warning was CLOSED on 2026-10-02
+    # (openclaw-public-forward disabled, verified unreachable from outside).
+    # Asserting its presence here would fail the moment the fix landed,
+    # which is the wrong contract. Assert the finding itself instead.
+    # HEALTH.md is a PROBLEMS-ONLY document: it records failures and warnings,
+    # and deliberately omits passing checks. So a clean gateway must NOT
+    # appear. Asserting "gateway" is present would be asserting the bug.
+    expect("clean gateway is omitted from the problems doc",
+           "socat forwarding" not in txt,
+           "a passing check should not be listed as a problem")
+    # subprocess.run(...).stdout is a single string; unpacking it into two
+    # values yields None and crashes the test. Same mistake as the one the
+    # gateway test just caught in generate_brief.py.
+    _out = __import__("subprocess").run(
+        "ss -tlnp 2>/dev/null | grep socat | grep -vE '127\\.0\\.0\\.1|100\\.126\\.' || true",
+        shell=True, capture_output=True, text=True).stdout or ""
+    public_open = [l for l in _out.splitlines() if l.strip()]
+    expect("HEALTH.md agrees with the live socket state",
+           ("socat forwarding" in txt) == bool(public_open),
+           f"warned={('socat forwarding' in txt)} live_public={bool(public_open)}")
 
 import json
 sj = Path("/root/evez-agentnet/status/HEALTH.json")
 expect("HEALTH.json is valid JSON",
        json.loads(sj.read_text()) if sj.exists() else False)
 
-print("\nthe three known open items must all still be surfaced")
+print("\nopen items must be surfaced, and closed ones must not linger")
 if hp.exists():
     t = hp.read_text().lower()
-    expect("flags public gateway", "public" in t)
     expect("flags clawhub token", "clawhub" in t)
     expect("flags zero revenue", "0.00" in t)
+    # public gateway was resolved; it should NOT be re-flagged while clean
+    expect("does not re-flag the resolved public gateway",
+           "socat forwarding" not in t,
+           "stale warning for an exposure that is now closed")
 
 failed = [r for r in results if not r[1]]
 print(f"\n{len(results)-len(failed)}/{len(results)} passed")
