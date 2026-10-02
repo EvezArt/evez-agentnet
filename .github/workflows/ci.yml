@@ -42,6 +42,13 @@ jobs:
           # Proves the audit actually fires. An audit that cannot be shown to
           # detect a planted bug is worse than no audit at all.
           python test_audit_detects.py
+      - name: MoE router + inference
+        run: |
+          # Router must never invent an expert: if Ollama is unreachable the
+          # route fails loudly rather than defaulting to the biggest model.
+          python test_moe_router.py
+          python test_moe_infer.py
+          python moe_cli.py roster
       - name: Jev decision layer
         run: |
           # Asserts the must-not-fabricate contract: with no key, decisions

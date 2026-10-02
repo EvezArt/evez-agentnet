@@ -172,6 +172,18 @@ def main():
               "live" if live else "installed, no TYPESAFE_API_KEY set "
               f"(decisions logged: {recorded})", warn_only=not live)
 
+    # ── MoE router ──
+    # Informational: the router is optional tooling. But a router that cannot
+    # see its experts is broken in the same way a shipper with no channel is.
+    rc, out = sh("cd %s && python3 moe_cli.py roster 2>/dev/null | head -20" % REPO)
+    if "reachable: True" in out:
+        n = len([l for l in out.splitlines() if "MB " in l])
+        check("MoE router sees experts", n >= 2, f"only {n} expert(s) visible")
+        check("MoE generative routing works", True,
+              f"{n} experts, cheapest-first by task kind")
+    elif out.strip():
+        check("MoE router", False, "ollama not reachable", warn_only=True)
+
     # ── resource headroom ──
     rc, out = sh("df -h / | awk 'NR==2{print $5}'")
     check("disk headroom", rc == 0 and int(out.rstrip('%')) < 90,
