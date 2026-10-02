@@ -45,9 +45,26 @@ which is designed to be publishable.
 4. Bump the JWT `exp` (current claim: **2036-03-19** — a 10-year lifetime is
    far longer than necessary).
 
-**Finding 2 is the real lesson:** `evez-ai` contains an
-`evez-ecosystem/evezart-repos/` directory that **mirrors 20+ of your own repos**,
-including `evez-cognition-api`. That nested copy means a fix applied to
+---
+
+## FINDING 1b — HIGH: ClawHub Bearer token in public repo
+
+**Location:** `evez-atlas` — `evez-os-sensors/self_interrogation.py:89`
+**Shape:** 47 chars, prefix `clh_`, full charset entropy — **not** a placeholder
+**Use:** sent as `Authorization: Bearer …` to `https://www.clawhub.ai/api/skills`
+
+This one is unambiguously live-shaped: it is a real-looking token that the code
+actually transmits to a third-party API. There is no test-fixture ambiguity and
+no env-var indirection.
+
+**Actions:** rotate, then load from the environment.
+
+---
+
+## FINDING 1c — note on the mirror
+
+`evez-ai` contains an `evez-ecosystem/evezart-repos/` directory that **mirrors
+20+ of your own repos**, including `evez-cognition-api`. A fix applied to
 `evez-cognition-api` does **not** propagate — the same duplicate-drift failure
 mode fixed in `evez-agentnet` this session.
 
@@ -69,6 +86,8 @@ Fine as-is. A `tests/` path with a literal `123-45-6789` is unmistakably a fixtu
 
 | Location | Why it is safe |
 |---|---|
+| `evez-atlas/evez-mergh/push_to_github.py:5` | literal is `COMP…_REDACTED`-style placeholder text; marker `redacted` present |
+| `evez-openclaw-deploy/workspace/tools/evez-send-telegram-media.sh:6` | `TOKEN="${TELEGRAM_BOT_TOKEN}"` — env-var indirection, and line 7 *requires* the var or exits 64. Correct idiom. |
 | `evez-os/scripts/gcp-streams-bootstrap.sh:141` | `--secret="evez-stream-key-N"` is a **secret *name***, correctly piped from `gcloud secrets versions access`. No material. |
 | `evez-os/scripts/evez-cognition-install.sh:16` | `API_KEY="${YOUTUBE_API_KEY:-}"` — env-var reference with empty default. Correct pattern. |
 | `CHEAT_CODES.md:512`, `skills/…/SKILL.md:512` | `"<name>": { apiKey: *** }` — masked in documentation. |
@@ -108,11 +127,16 @@ Related bloat in public repos: `evez-audio-packs` **411MB**, `evez-os` **133MB**
 ## Recommended order
 
 1. **Rotate the Supabase `service_role` key** (Finding 1) — do this first.
-2. Check Supabase auth logs for `service_role` use from unexpected IPs.
-3. De-duplicate the `evez-ecosystem/evezart-repos/` mirror.
-4. `.gitignore` the committed `.venv/`.
-5. Re-run `python3 public_exposure_audit.py` after remediation.
-6. Extend the scan to **git history** — deleted secrets persist in the object store.
+2. **Rotate the ClawHub token** (Finding 1b) — `clh_…`, used in a live API call.
+3. Check Supabase auth logs for `service_role` use from unknown IPs.
+4. De-duplicate the `evez-ecosystem/evezart-repos/` mirror.
+5. `.gitignore` the committed `.venv/`.
+6. Re-run `python3 public_exposure_audit.py` after remediation.
+7. Extend the scan to **git history** — deleted secrets persist in the object store.
+
+**Total live-shaped credentials found: 2** (Supabase `service_role`, ClawHub
+token). Both require rotation. Everything else triaged to fixtures, doc
+placeholders, or env-var indirection.
 
 ## Re-running
 

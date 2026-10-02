@@ -29,7 +29,23 @@ PATTERNS = {
     "tailscale_key": re.compile(r"\btskey-[a-z]+-[A-Za-z0-9]{20,}\b"),
     "generic_secret_assign": re.compile(
         r"(?i)\b(?:api[_-]?key|secret|passwd|password|token)\s*[=:]\s*[\"'][^\"'\s]{16,}[\"']"),
+    # vendor-prefixed tokens: clh_ (ClawHub), comp_ (Composio), sk_live_, etc.
+    "vendor_token": re.compile(
+        r"\b(?:clh|comp|nvapi|dop_v1|xapp|xoxb|gsk|sk_live|sk_test)[_-][A-Za-z0-9_-]{16,}\b"),
 }
+
+# A credential that is merely present is far less severe than one the code
+# actually transmits to a third party. Classify usage before reporting.
+USAGE_SINK = re.compile(
+    r"(?i)(?:headers\s*=\s*\{[^}]*(?:Authorization|api[_-]?key)|"
+    r"Authorization\s*:\s*f?\"|requests\.(?:post|get|put)\(|"
+    r"urllib\.request\.Request\(|curl\s+[^\n]*-H\s*[\"']|"
+    r"\bBearer\b\s*\{?\s*[A-Za-z_]|api_key\s*=\s*[A-Za-z_]|"
+    # a bare `export default supabaseKey` / `createClient(...)` IS the
+    # credential being handed to a consumer — treat a JWT in an assignment
+    # as transmitted even with no nearby request call
+    r"export\s+default\s+[A-Za-z_]+|createClient\s*\()"
+)
 
 # filenames that should never be committed
 SUSPECT_NAMES = re.compile(
@@ -86,12 +102,52 @@ def main():
                 continue
             for kind, rx in PATTERNS.items():
                 for m in rx.finditer(text):
-                    key = f"{kind}"
-                    findings.setdefault(name, {"secrets": set(), "suspect_filenames": set()})
-                    findings[name].setdefault("secrets", set()).add(
-                        fp(kind, m.group(0)[:64]))
-                    findings[name].setdefault("where", set()).add(
-                        f"{rel}:{text[:m.start()].count(chr(10))+1}")
+                    val = m.group(0)
+                    if kind == "generic_secret_assign":
+                        # NOTE: "${" must NOT be in this list. An env-var reference
+                        # like TOKEN="${TELEGRAM_BOT_TOKEN}" is the CORRECT idiom
+                        # and deserves to be reported as `env_backed`, not silently
+                        # dropped — dropping it hid two locations during triage.
+                        if any(ph in val.lower() for ph in
+                               ("your", "example", "placeholder", "xxx", "changeme",
+                                "redacted", "none", "null", "fake", "dummy", "<")):
+                            continue
+
+                    # SEVERITY TIER. A credential the code actually transmits to
+                    # a third party is categorically worse than one merely
+                    # present in a file. The first ClawHub token was initially
+                    # buried among a dozen false positives precisely because
+                    # the original scanner did not distinguish these.
+                    line_start = text.rfind("\n", 0, m.start()) + 1
+                    line_end = text.find("\n", m.end())
+                    line = text[line_start: line_end if line_end > 0 else len(text)]
+                    lo = max(0, m.start() - 700)
+                    context = text[lo: m.end() + 700]
+
+                    transmitted = bool(USAGE_SINK.search(context))
+                    # Inspect the assigned VALUE itself rather than the line.
+                    # `TOKEN="${TELEGRAM_BOT_TOKEN}"` and
+                    # `--secret="name-${STREAM_ID}"` are both safe; requiring the
+                    # env ref to sit immediately after `=` missed the second form.
+                    vm = re.search(r"""=\s*["']?([^"'\n]{6,})""", line)
+                    value_txt = vm.group(1) if vm else ""
+                    env_backed = bool(
+                        re.fullmatch(r"\$\{?[A-Z_][A-Z0-9_]*\}?.*", value_txt)
+                        or re.fullmatch(r"[A-Za-z0-9_.\-]*\$\{?[A-Z_][A-Z0-9_]*\}?",
+                                        value_txt))
+                    # env_backed MUST take priority: a credential sourced from
+                    # the environment is safe even when the surrounding code
+                    # sends it over the network. Checking `transmitted` first
+                    # mislabelled every correctly-written integration script
+                    # as CRITICAL.
+                    bucket = "env_backed" if env_backed else (
+                        "transmitted" if transmitted else "present")
+
+                    entry = findings.setdefault(
+                        name, {"transmitted": set(), "present": set(),
+                               "env_backed": set(), "suspect_filenames": set()})
+                    entry.setdefault(bucket, set()).add(
+                        f"{kind} @ {rel}:{text[:m.start()].count(chr(10))+1}")
 
     print(f"cloned & scanned: {scanned}/{len(own)}\n")
 
@@ -99,21 +155,33 @@ def main():
         print("NO credential-shaped strings found in current HEAD of any public repo.")
         return 0
 
+    ORDER = ["transmitted", "present", "env_backed"]
+    TIER = {"transmitted": "CRITICAL", "present": "REVIEW", "env_backed": "safe"}
+
+    live = 0
     for name, d in sorted(findings.items()):
-        secs = d.get("secrets", set())
         files = d.get("suspect_filenames", set())
+        rows = []
+        for bucket in ORDER:
+            for hit in sorted(d.get(bucket, set())):
+                rows.append((TIER[bucket], hit))
+        if not rows and not files:
+            continue
         print(f"[{name}]")
-        if secs:
-            print(f"  {len(secs)} credential-shaped string(s): {', '.join(sorted(secs))}")
-            for w in sorted(d.get("where", set()))[:4]:
-                print(f"      at {w}")
+        for tier, hit in sorted(rows):
+            print(f"  {tier:9} {hit}")
+            if tier == "CRITICAL":
+                live += 1
         if files:
-            print(f"  suspect filenames: {', '.join(sorted(files)[:6])}")
+            print(f"  {'INFO':9} suspect filenames: {', '.join(sorted(files)[:6])}")
         print()
 
+    print("=" * 66)
+    print(f"CRITICAL (transmitted to a third party): {live}")
+    print("=" * 66)
     print("NOTE: this scans HEAD only. History can retain deleted secrets —")
     print("      check full history separately if any of the above is real.")
-    return 1
+    return 1 if live else 0
 
 
 if __name__ == "__main__":
