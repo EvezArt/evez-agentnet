@@ -144,7 +144,8 @@ def main():
     if not items:
         L.append("Nothing outstanding.")
     else:
-        for it in sorted(items, key=lambda i: i["severity"]):
+        # severity order, then id, so the file is diff-stable across runs
+        for it in sorted(items, key=lambda i: (i["severity"], i["id"])):
             L.append(f"### [{it['severity'].upper()}] {it['id']}")
             L.append(f"{it['what']}")
             L.append("")

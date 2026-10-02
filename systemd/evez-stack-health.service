@@ -8,6 +8,9 @@ WorkingDirectory=/root/evez-agentnet
 ExecStart=/usr/bin/python3 /root/evez-agentnet/stack_health.py
 # Regenerate the brief immediately after the health sweep so the two agree.
 ExecStartPost=/usr/bin/python3 /root/evez-agentnet/generate_brief.py
+# Push only NEW or ESCALATED high-severity items to Telegram. Suppresses
+# when the alert set is unchanged, so this does not become noise.
+ExecStartPost=/usr/bin/python3 /root/evez-agentnet/notify.py
 # Exit 1 means a hard failure (service down, spine broken, audit dirty).
 # Do NOT mark the unit failed — the script's purpose is to report, and a
 # regression must still leave the status file written for inspection.

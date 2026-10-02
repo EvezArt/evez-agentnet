@@ -42,6 +42,12 @@ jobs:
           # Proves the audit actually fires. An audit that cannot be shown to
           # detect a planted bug is worse than no audit at all.
           python test_audit_detects.py
+      - name: Notifier logic
+        run: |
+          # Catches syntax errors and escaping regressions in the Telegram
+          # notifier. A notifier that raises every cycle fails SILENTLY, which
+          # is worse than having none.
+          python test_notify.py
       - name: Stack health detectors
         run: |
           # Proves stack_health.py can actually FAIL. A health check that
