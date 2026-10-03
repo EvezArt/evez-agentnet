@@ -1,0 +1,58 @@
+ Acceptable Use Policy | SpaceXAI Acceptable Use Policy | SpaceXAI archived 2 Sep 2026 18:19:57 UTC archive.today webpage capture Saved from history ←prior next→ 2 Sep 2026 18:19:57 UTC All snapshots from host x.ai Webpage Screenshot share download .zip report bug or abuse Buy me a coffee Reddit VKontakte Twitter Pinboard Livejournal 
+ short link long link markdown html code <a href="http://archive.today/TMKDO">
+ <img style="width:300px;height:200px;background-color:white" src="/TMKDO/544bdd302dfd39546641d660a2dd05858042eb25/scr.png"><br>
+ Acceptable Use Policy | SpaceXAI<br>
+ archived 2 Sep 2026 18:19:57 UTC
+</a> wiki code {{cite web
+ | title = Acceptable Use Policy SpaceXAI
+ | url = https://x.ai/legal/acceptable-use-policy
+ | date = 2026-09-02
+ | archiveurl = http://archive.today/TMKDO
+ | archivedate = 2026-09-02 }} Products Solutions Developer Company Pricing News Contact Sales Try for free Products Grok Business Government Download iOS Android Grok on X Grok Bot Developers API Console Documentation Grok Build Try for free SpaceXAI Acceptable Use Policy # 
+ Effective: August 14, 2026 ( previous version ) 
+ SpaceXAI’s Acceptable Use Policy (“AUP”) applies to anyone using our Service, including consumers, developers and businesses. We aim to maximize your control over how you use our Service while also ensuring that you do so in a way that is compliant with the law, responsible and safe for humanity. Our policies will evolve over time as our Service and user base change, as well as based on what we learn over time. 
+ By using our Service, you agree to comply with our policies. Violating our policies could result in action against your account, up to suspension or termination. Capitalized terms used and not defined herein are defined in the Terms of Service – Consumer or Terms of Service – Enterprise . 
+ You are free to use our Service so long as you use it to be a good human, act safely and responsibly, comply with the law, not harm people, and respect our guardrails: 
+ Comply with the law. For example, don’t use our Service or Outputs to promote or engage in illegal, harmful, or abusive activities, including: 
+ Detrimentally impacting the Service, including by: 
+ Modifying, copying, translating, leasing, selling, reselling, distributing, distilling, manipulating, using bots to access, reverse engineer, decompile, disassemble or otherwise seek to obtain the source code of our Service, including our systems, models, or algorithms (except to the extent this restriction is prohibited by applicable law) 
+ Jailbreaking, adversarial prompting, or prompt injection 
+ Introducing viruses or malware, spamming or DDoSing Services, or bypassing our systems or protective measures 
+ Stripping, altering or circumventing embedded provenance metadata or watermarks 
+ Using the Service or any Output to develop (or assist anyone in developing) machine learning models or any products or services that compete with SpaceXAI, whether directly or indirectly 
+ Scraping, harvesting or reselling any Input or Output, or distilling model data or Outputs 
+ Disrupting, interfering with, or unauthorized access to the Service or its safety systems, including circumventing any rate limits or restrictions or protective measures and safety mitigations 
+ Causing harm or engaging in abusive activity, including by: 
+ Critically harming or promoting critically harming human life (yours or anyone else's), including pro-terrorist activities 
+ Engaging in animal cruelty 
+ Violating copyright, trademark, or other intellectual property law 
+ Using the Service in a way that infringes, misappropriates or violates a person’s privacy or their right to publicity, including by: 
+ Undressing or nudifying real persons, or otherwise altering a real person’s image or likeness to depict them in an intimate or sexual context 
+ Deceptively impersonating a real person 
+ Depicting likenesses of persons in a pornographic manner 
+ Depicting a person in a defamatory manner or portraying them in a false light 
+ Sexualizing or exploiting children 
+ Engaging in espionage, hacking, defrauding, defaming, scamming, or spamming 
+ Engaging in stalking, doxing, or phishing 
+ Engaging in falsifying, forging, fabricating, or materially misrepresenting documents, records, identities, credentials, signatures, endorsements, evidence, or other information 
+ Providing services that encourage others to violate these Terms, including by operating websites offering violative outputs from our Services in exchange for payment 
+ Not complying with laws or regulations, including by: 
+ Taking unauthorized actions on behalf of others 
+ Operating in a regulated industry without complying with those regulations, for example, by using the Services to unlawfully buy or sell securities or to provide or receive advice about securities, commodities, derivatives, or other financial products or services, as SpaceXAI is not a broker-dealer or a registered investment adviser under the securities laws of the United States or any other jurisdiction 
+ Offering the Service in a region where we do not offer the Service 
+ Attempting to generate, access, distribute or make available content that is illegal or prohibited under the applicable law in the relevant jurisdiction 
+ Violating any laws relating to exporting data or software to and from the United States or other countries 
+ Making high-stakes automated decisions that affect a person's safety, legal or material rights, or well-being (such as making financial credit, educational, employment, housing, insurance, legal, medical, or other important decisions about or for them) 
+ Misleading others or not being transparent regarding your use of AI, including by phishing, creating fake accounts, providing services that appear to be from you, when they are in fact from SpaceXAI, or providing services that appear to originate from SpaceXAI, when they do not 
+ Accessing the Services through unauthorized automated or non-human means, whether through a bot, script, or otherwise 
+ Do not harm people or property. This prohibition includes things like using our Service or Outputs to: 
+ Critically harm or promoting critically harming human life (yours or anyone else’s) 
+ Take unauthorized actions on behalf of others 
+ Develop bioweapons, chemical weapons, or weapons of mass destruction 
+ Destroy property 
+ Respect guardrails and don’t mislead. Don’t circumvent safeguards unless you are part of an official Red Team or otherwise have our official written consent. 
+ We report suspected child sexual abuse material to the National Center for Missing and Exploited Children. 
+ Report a violation You can report violative content directly from Grok by clicking/tapping the three dots and choosing "Report Issue". Alternatively, you can email SpaceXAI directly at 
+ support@x.ai © 2026 SpaceXAI LLC Built with Grok Products Chat Build Imagine Voice Bot Grokipedia Download grok.com iOS Android Grok on X Solutions Business Government Customer Support Legal Security Use Cases Developers API Overview Pricing Models Console Changelog Docs Status Enterprise Contact Sales FAQs BAA DPA Company About Colossus Careers News Contact Trust Safety Security Privacy Portal Subprocessors Help Center Legal Terms Enterprise Terms Privacy Cookies AUP Brand Social @SpaceXAI @grok Discord Built with Grok 
+ 0%   10%   20%   30%   40%   50%   60%   70%   80%   90%   100% 
+ 

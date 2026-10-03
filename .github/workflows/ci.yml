@@ -55,6 +55,7 @@ jobs:
           # The evezx-cryptozoo repo is spec-only; these implement it and assert
           # the implementation matches BREEDING_ENGINE.md rule for rule.
           python test_cryptozoo.py
+          python test_spine_persistence.py
           python test_agent_species.py
           # The simulation must produce a COHERENT population and must reach
           # named hybrids — both failed before the phase-inheritance fix.
@@ -102,6 +103,15 @@ jobs:
         run: |
           # Proves verify_spine detects truncation/reordering/forgery.
           python test_evidence_falsification.py
+      - name: Consciousness rights scorecard
+        run: |
+          # Scores frontier labs against Articles I-VII of the manifesto. The
+          # verifier fails if any quote is absent from its cited evidence file,
+          # any non-zero score lacks a quote, or a subject is silently omitted.
+          # The self-test proves that verifier can actually fail.
+          cd consciousness-scoreboard
+          python3 scoreboard_verify.py
+          python3 test_scoreboard_verify.py
       - name: Boot-path smoke test
         run: |
           # Catches import-time and shadowing crashes (e.g. a module-level
