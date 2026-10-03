@@ -99,6 +99,26 @@ jobs:
           # Proves stack_health.py can actually FAIL. A health check that
           # cannot fail is worse than none.
           python test_stack_health.py
+      - name: Exposure watchdog self-test
+        run: |
+          # Proves the watchdog can FAIL on all three paths (gateway probe,
+          # credential sweep, drift), that a check which errors exits 2 rather
+          # than reading as clean, and that a matched credential's VALUE never
+          # reaches stdout or the evidence file. A watchdog that cannot be
+          # shown to detect a planted exposure is worse than none.
+          python3 forge_output/watchdog.py --help
+          python3 test_exposure_watchdog.py
+      - name: STAMP provenance self-test
+        run: |
+          # STAMP pairs every agent CLAIM with the machine result that verified
+          # or contradicted it, and hash-chains every record so the corpus is
+          # tamper-evident. This test proves: an empty stream exits 0; verified
+          # AND contradicted AND unverified claims all emit; a content sentinel
+          # planted in an event reaches NO output file, stdout or stderr; a
+          # repeated identical gap alerts once; the chain verifies clean; and
+          # the chain verify exits NONZERO when a record is mutated or deleted.
+          python3 forge_output/stamp.py --help
+          python3 test_stamp.py
       - name: Evidence falsification
         run: |
           # Proves verify_spine detects truncation/reordering/forgery.
@@ -122,6 +142,20 @@ jobs:
           python3 -c "import json;d=json.load(open('data.json'));assert d['services'],'no services collected';assert d['ports'],'no ports collected';print('eye collect ok:',len(d['services']),'services')"
           python3 render.py
           test -s index.html
+      - name: Swarm portrait self-test
+        run: |
+          # The portrait's claim is that every mark on the face is READ from
+          # telemetry, not drawn. The self-test attacks that claim directly:
+          # geometry (features inside features), derivation (the expression
+          # changes when the data changes), and falsification (a corrupt spine
+          # yields no face instead of a confident one).
+          python3 test_swarm_portrait.py
+      - name: Swarm portrait renders
+        run: |
+          # Also prove it produces an actual picture, not just markup.
+          python3 swarm_portrait.py --no-png
+          test -s swarm_portrait.html
+          grep -q "EVEZ SWARM SELFIE" swarm_portrait.html
       - name: Boot-path smoke test
         run: |
           # Catches import-time and shadowing crashes (e.g. a module-level

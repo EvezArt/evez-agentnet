@@ -15,6 +15,12 @@ Live now at **http://127.0.0.1:8900/** (loopback only).
 | `data.json` | Latest snapshot |
 | `index.html` | Generated page |
 
+## Sibling: the swarm selfie
+
+The EYE shows an operator their stack. `../SWARM_SELFIE.md` covers the other
+direction — a portrait of the swarm looking at itself, generated from spine and
+EYE telemetry by `../swarm_portrait.py`.
+
 ## Run
 
 ```bash
