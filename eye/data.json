@@ -1,0 +1,631 @@
+{
+  "generated": "2026-10-03T06:07:33.916076+00:00",
+  "operator": "Steven Crawford-Maggard",
+  "system": "EVEZ",
+  "services": [
+    {
+      "unit": "evez-agent-bridge.service",
+      "sub": "running",
+      "since": "Sat 2026-10-03 07:16:52 CEST"
+    },
+    {
+      "unit": "evez-agentnet.service",
+      "sub": "running",
+      "since": "Sat 2026-10-03 00:36:54 CEST"
+    },
+    {
+      "unit": "evez-api-daemon.service",
+      "sub": "running",
+      "since": "Fri 2026-10-02 04:55:37 CEST"
+    },
+    {
+      "unit": "evez-api-node.service",
+      "sub": "running",
+      "since": "Sat 2026-10-03 02:01:04 CEST"
+    },
+    {
+      "unit": "evez-commerce-api.service",
+      "sub": "running",
+      "since": "Fri 2026-10-02 04:55:37 CEST"
+    },
+    {
+      "unit": "evez-commerce.service",
+      "sub": "running",
+      "since": "Sat 2026-10-03 07:16:52 CEST"
+    },
+    {
+      "unit": "evez-event-spine.service",
+      "sub": "running",
+      "since": "Sat 2026-10-03 07:16:51 CEST"
+    },
+    {
+      "unit": "evez-evidence-api.service",
+      "sub": "running",
+      "since": "Fri 2026-10-02 04:55:37 CEST"
+    },
+    {
+      "unit": "evez-honey.service",
+      "sub": "running",
+      "since": "Fri 2026-10-02 08:05:56 CEST"
+    },
+    {
+      "unit": "evez-lineage.service",
+      "sub": "running",
+      "since": "Sat 2026-10-03 00:37:18 CEST"
+    },
+    {
+      "unit": "evez-media-shipper.service",
+      "sub": "running",
+      "since": "Sat 2026-10-03 07:16:51 CEST"
+    },
+    {
+      "unit": "evez-osint.service",
+      "sub": "running",
+      "since": "Sat 2026-10-03 07:16:51 CEST"
+    },
+    {
+      "unit": "evez-outreach.service",
+      "sub": "running",
+      "since": "Sat 2026-10-03 00:32:32 CEST"
+    },
+    {
+      "unit": "evez-reconciler.service",
+      "sub": "running",
+      "since": "Fri 2026-10-02 08:05:56 CEST"
+    },
+    {
+      "unit": "evez-voice.service",
+      "sub": "running",
+      "since": "Sat 2026-10-03 07:16:51 CEST"
+    },
+    {
+      "unit": "gueriella-hermes-watchdog.service",
+      "sub": "running",
+      "since": "Fri 2026-10-02 08:05:56 CEST"
+    },
+    {
+      "unit": "hermes-dashboard.service",
+      "sub": "running",
+      "since": "Sat 2026-10-03 02:41:36 CEST"
+    },
+    {
+      "unit": "hermes-gateway.service",
+      "sub": "running",
+      "since": "Sat 2026-10-03 01:26:43 CEST"
+    },
+    {
+      "unit": "openclaw-gateway.service",
+      "sub": "running",
+      "since": "Sat 2026-10-03 07:19:18 CEST"
+    },
+    {
+      "unit": "openclaw-tailnet-forward.service",
+      "sub": "running",
+      "since": "Fri 2026-10-02 04:55:40 CEST"
+    },
+    {
+      "unit": "openclaw-tailnet-proxy.service",
+      "sub": "running",
+      "since": "Fri 2026-10-02 04:55:42 CEST"
+    }
+  ],
+  "ports": [
+    {
+      "port": 22,
+      "bind": "0.0.0.0",
+      "proc": "sshd",
+      "pid": 1414,
+      "public_bind": true,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": true
+    },
+    {
+      "port": 9010,
+      "bind": "0.0.0.0",
+      "proc": "python3",
+      "pid": 1031746,
+      "public_bind": true,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": true
+    },
+    {
+      "port": 9090,
+      "bind": "0.0.0.0",
+      "proc": "MainThread",
+      "pid": 810739,
+      "public_bind": true,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": true
+    },
+    {
+      "port": 22,
+      "bind": "[::]",
+      "proc": "sshd",
+      "pid": 1414,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 53,
+      "bind": "127.0.0.54",
+      "proc": "systemd-resolve",
+      "pid": 843,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 53,
+      "bind": "127.0.0.53%lo",
+      "proc": "systemd-resolve",
+      "pid": 843,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 443,
+      "bind": "100.126.180.47",
+      "proc": "tailscaled",
+      "pid": 1253,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 443,
+      "bind": "[fd7a:115c:a1e0::5f31:b430]",
+      "proc": "tailscaled",
+      "pid": 1253,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 631,
+      "bind": "127.0.0.1",
+      "proc": "cupsd",
+      "pid": 719461,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 631,
+      "bind": "[::1]",
+      "proc": "cupsd",
+      "pid": 719461,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 4222,
+      "bind": "127.0.0.1",
+      "proc": "nats-server",
+      "pid": 1298,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 6379,
+      "bind": "127.0.0.1",
+      "proc": "docker-proxy",
+      "pid": 797023,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 8080,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 796298,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 8192,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 1300,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 8900,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 1074978,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 8904,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 1285,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 9000,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 1031755,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 9001,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 1031756,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 9050,
+      "bind": "127.0.0.1",
+      "proc": "tor",
+      "pid": 1407,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 9113,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 1031747,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 9116,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 1031742,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 9200,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 1031753,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 9222,
+      "bind": "127.0.0.1",
+      "proc": "chrome",
+      "pid": 1011899,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 11434,
+      "bind": "127.0.0.1",
+      "proc": "ollama",
+      "pid": 1031698,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18789,
+      "bind": "100.126.180.47",
+      "proc": "socat",
+      "pid": 1719,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18789,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 1032928,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18789,
+      "bind": "[::1]",
+      "proc": "MainThread",
+      "pid": 1032928,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18790,
+      "bind": "100.126.180.47",
+      "proc": "MainThread",
+      "pid": 1899,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18790,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 1282,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18791,
+      "bind": "100.126.180.47",
+      "proc": "hermes",
+      "pid": 835843,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18891,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 1301,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 35635,
+      "bind": "127.0.0.1",
+      "proc": "llama-server",
+      "pid": 1070391,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 36261,
+      "bind": "[fd7a:115c:a1e0::5f31:b430]",
+      "proc": "tailscaled",
+      "pid": 1253,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 37799,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 1032928,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 51885,
+      "bind": "100.126.180.47",
+      "proc": "tailscaled",
+      "pid": 1253,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    }
+  ],
+  "cron": [
+    {
+      "sched": "* * * * *",
+      "cmd": "/root/.openclaw/workspace/evez_ribcage/living_ribcage_daemon.sh"
+    },
+    {
+      "sched": "* * * * *",
+      "cmd": "/root/.openclaw/workspace/evez_ribcage/warroom_push.sh >> /root/.openclaw/workspace/evez_ribcage/warroom.log 2>&1"
+    },
+    {
+      "sched": "* * * * *",
+      "cmd": "pgrep -f evez_router_web/server.py || nohup python3 /root/.openclaw/workspace/evez_router_web/server.py > /tmp/router_we"
+    },
+    {
+      "sched": "*/10 * * * *",
+      "cmd": "/bin/bash /root/.openclaw/workspace/evez_genesis/witness.sh >> /root/.openclaw/workspace/evez_genesis/witness.log 2>&1"
+    },
+    {
+      "sched": "*/10 * * * *",
+      "cmd": "pgrep -f arena.py >/dev/null || (cd /home/openclaw/evez-ecosystem/arena && nohup setsid python3 arena.py >> arena.log 2>"
+    },
+    {
+      "sched": "*/10 * * * *",
+      "cmd": "pgrep -f consciousness-farm >/dev/null || (cd /home/openclaw/evez-ecosystem/arena && nohup setsid python3 consciousness-"
+    },
+    {
+      "sched": "*/10 * * * *",
+      "cmd": "pgrep -f turing_responder >/dev/null || (cd /home/openclaw/evez-ecosystem/arena && nohup setsid python3 turing_responder"
+    },
+    {
+      "sched": "*/15 * * * *",
+      "cmd": "/usr/local/bin/evez-voice-keeper.sh"
+    },
+    {
+      "sched": "*/2 * * * *",
+      "cmd": "/root/.openclaw/workspace/evez_delivery/daemon.sh >> /root/.openclaw/workspace/evez_delivery/daemon.log 2>&1"
+    },
+    {
+      "sched": "*/30 * * * *",
+      "cmd": "/usr/bin/python3 /root/.openclaw/workspace/skills/evez-selfmind/scripts/selfmind.py >> /root/.openclaw/workspace/evez_se"
+    },
+    {
+      "sched": "*/5 * * * *",
+      "cmd": "/root/.openclaw/workspace/evez_ribcage/model_guard.sh >> /root/.openclaw/workspace/evez_ribcage/ribcage.log 2>&1"
+    },
+    {
+      "sched": "*/5 * * * *",
+      "cmd": "/root/.openclaw/workspace/evez_ribcage/ribcage.sh >> /root/.openclaw/workspace/evez_ribcage/ribcage.log 2>&1"
+    },
+    {
+      "sched": "*/5 * * * *",
+      "cmd": "/usr/bin/python3 /root/.openclaw/workspace/evez_forge/auth_wave_mitigate.py >> /root/.openclaw/workspace/evez_ribcage/ri"
+    },
+    {
+      "sched": "*/5 * * * *",
+      "cmd": "/usr/local/bin/evez-evidence-collector.sh >> /var/log/evez-evidence-collector.log 2>&1"
+    },
+    {
+      "sched": "*/5 * * * *",
+      "cmd": "touch /root/.openclaw/workspace/HEARTBEAT.md"
+    },
+    {
+      "sched": "0 * * * *",
+      "cmd": "/bin/bash /root/.openclaw/workspace/evez_ribcage/credit_watch.sh >> /root/.openclaw/workspace/evez_ribcage/credit_watch."
+    },
+    {
+      "sched": "0 */6 * * *",
+      "cmd": "/root/.openclaw/workspace/skills/evez-gamewright/scripts/worldsmith.py --audit >> /root/.openclaw/workspace/evez_ribcage"
+    },
+    {
+      "sched": "0 */6 * * *",
+      "cmd": "python3 /root/.openclaw/workspace/evez_forge/evez_forge.py >> /root/.openclaw/workspace/evez_forge/forge.log 2>&1"
+    },
+    {
+      "sched": "0 16 * * *",
+      "cmd": "/root/.openclaw/workspace/evez_ribcage/daily.sh >> /root/.openclaw/workspace/evez_ribcage/ribcage.log 2>&1"
+    },
+    {
+      "sched": "17 4 * * *",
+      "cmd": "/root/evezart-sync/sync-repos.sh >> /root/evezart-sync/sync.log 2>&1"
+    },
+    {
+      "sched": "17 6 * * *",
+      "cmd": "/root/.openclaw/workspace/evez_ribcage/selfcheck.sh >> /root/.openclaw/workspace/evez_ribcage/ribcage.log 2>&1"
+    },
+    {
+      "sched": "@reboot cd /home/openclaw/evez-ecosystem/arena && nohup",
+      "cmd": "setsid python3 arena.py >> arena.log 2>&1 &"
+    },
+    {
+      "sched": "@reboot cd /home/openclaw/evez-ecosystem/arena && nohup",
+      "cmd": "setsid python3 consciousness-farm.py >> farm.log 2>&1 &"
+    },
+    {
+      "sched": "@reboot cd /home/openclaw/evez-ecosystem/arena && nohup",
+      "cmd": "setsid python3 turing_responder.py >> responder.log 2>&1 &"
+    },
+    {
+      "sched": "@reboot iptables -I DOCKER-USER 1",
+      "cmd": "-p tcp --dport 6379 ! -s 172.17.0.0/16 -j DROP"
+    }
+  ],
+  "docker": [
+    {
+      "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
+      "status": "Up 42 minutes",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "ban-engine-saas-redis-1",
+      "status": "Up 6 hours",
+      "image": "redis:7-alpine"
+    },
+    {
+      "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
+      "status": "Up 10 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "ban-engine-saas-ban-engine-monitor-1",
+      "status": "Up 27 hours",
+      "image": "ban-engine-saas-ban-engine-monitor"
+    }
+  ],
+  "checks": [
+    {
+      "state": "WARN",
+      "name": "income loop yield",
+      "detail": "149 ship events, $0.00 earned \u2014 no channel delivers"
+    },
+    {
+      "state": "WARN",
+      "name": "no ClawHub token in local repos",
+      "detail": "token still present in working tree"
+    },
+    {
+      "state": "WARN",
+      "name": "revenue path has a credentialed transport",
+      "detail": "no STRIPE/GUMROAD/TWITTER key configured \u2014 $0.00 is STRUCTURAL, not a code defect. Nothing ships and nothing charges."
+    },
+    {
+      "state": "WARN",
+      "name": "payment vault populated",
+      "detail": "agents-pay/.vault.env STRIPE_SECRET_KEY is an empty placeholder; evez-commerce reports payments:disabled"
+    }
+  ],
+  "credentials": [
+    {
+      "name": "ClawHub",
+      "prefix": "clh_",
+      "live_hits": [],
+      "count": 0
+    },
+    {
+      "name": "StandardCompute",
+      "prefix": "sk_live_",
+      "live_hits": [],
+      "count": 0
+    }
+  ],
+  "git": {
+    "branch": "main",
+    "head": "cd0120a",
+    "last": "scorecard: score frontier labs against Articles I-VII with verified evidence",
+    "dirty": 185
+  },
+  "mirrors": 2328
+}
