@@ -112,6 +112,16 @@ jobs:
           cd consciousness-scoreboard
           python3 scoreboard_verify.py
           python3 test_scoreboard_verify.py
+      - name: EVEZ EYE collectors
+        run: |
+          # The ops console must be able to probe the stack and render. A
+          # collector that silently returns nothing is worse than none: it
+          # renders an empty dashboard that looks healthy.
+          cd eye
+          python3 collect.py
+          python3 -c "import json;d=json.load(open('data.json'));assert d['services'],'no services collected';assert d['ports'],'no ports collected';print('eye collect ok:',len(d['services']),'services')"
+          python3 render.py
+          test -s index.html
       - name: Boot-path smoke test
         run: |
           # Catches import-time and shadowing crashes (e.g. a module-level
