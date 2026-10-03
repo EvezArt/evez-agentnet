@@ -1,0 +1,22 @@
+[Unit]
+Description=EVEZ EYE operations console (loopback only)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/evez-agentnet/eye
+ExecStart=/usr/bin/python3 /root/evez-agentnet/eye/serve.py --port 8900 --interval 60
+Restart=always
+RestartSec=10
+# The console reads local state only. Deny it outbound network entirely so a
+# future edit cannot turn stack telemetry into an exfiltration path.
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=read-only
+ReadWritePaths=/root/evez-agentnet/eye
+IPAddressDeny=any
+IPAddressAllow=localhost
+
+[Install]
+WantedBy=multi-user.target
