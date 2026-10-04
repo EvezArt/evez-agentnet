@@ -1,0 +1,42 @@
+From: Steven Crawford-Maggard <rubikspubes69@gmail.com>
+To: abuse_reports@cloudflare.com
+Subject: ABUSE =?utf-8?b?4oCU?= dmzhost.co / dmzhost.com behind Cloudflare
+ (188.114.96/114.x): bulletproof hosting tied to FIOD seizure + DOJ action,
+ active attacks on victim
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cloudflare Trust & Safety,
+
+dmzhost.co and dmzhost.com ("Offshore infrastructure =C2=B7 DMZHOST") are ser=
+ved through
+your network (188.114.96.3 / 188.114.97.3; NS jule/mario.ns.cloudflare.com). =
+The
+operator ecosystem is documented:
+
+- Dutch FIOD seizure of ~800 associated servers, May 2026; US DOJ/SDNY Media =
+Land /
+  ML.Cloud bulletproof-hosting enforcement covers the same ecosystem.
+- TECHOFF SRV LIMITED (AS48090, RIPE org; sole director Luca Palo, Milano =E2=
+=80=94 Companies
+  House verified, company now in registrar-initiated strike-off) executed una=
+uthorized
+  access against my US systems 22 May 2026 (IC3 complaint filed 1 Oct 2026).
+- AS47890 UNMANAGED LTD (director Bunea Petru-Octavian, England) ran 130+ att=
+acks
+  against my systems in Oct 2026. Both ranges are firewall-blocked by me with
+  kernel-level evidence preserved under SHA-256 manifest.
+
+While Cloudflare is not the host of record, I ask that you: (1) forward this =
+to your
+abuse/phishing/legal escalation path, (2) preserve all account and payment da=
+ta for
+these zones against legal process (FBI matter open; FOIPA 1758537-000), and (=
+3) review
+under your AUP for services whose primary marketed purpose is evading law enf=
+orcement.
+
+Evidence bundle (hash-chained) available on request.
+Steven Crawford-Maggard =E2=80=94 rubikspubes69@gmail.com
+

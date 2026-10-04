@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T22:07:21.183083+00:00",
+  "generated": "2026-10-04T22:25:07.557093+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -131,7 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sun 2026-10-04 18:08:59 CEST"
+      "since": "Mon 2026-10-05 00:09:34 CEST"
     },
     {
       "unit": "openclaw-public-forward.service",
@@ -444,7 +444,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 2610765,
+      "pid": 2944343,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -464,7 +464,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 2610765,
+      "pid": 2944343,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -581,20 +581,20 @@
       "fw_blocked": false
     },
     {
-      "port": 37613,
+      "port": 36639,
       "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 2939662,
+      "proc": "MainThread",
+      "pid": 2944343,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
     {
-      "port": 39031,
+      "port": 37613,
       "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 2610765,
+      "proc": "llama-server",
+      "pid": 2939662,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -737,12 +737,12 @@
     },
     {
       "name": "openclaw-sbx-workspace-8f5a95c5c38f567ec57ad451a2dd20b9",
-      "status": "Up 5 hours",
+      "status": "Up 6 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-542cb258e7f7d23312193e4c61f15274",
-      "status": "Up 5 hours",
+      "status": "Up 6 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -762,7 +762,7 @@
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 46 hours",
+      "status": "Up 47 hours",
       "image": "redis:7-alpine"
     },
     {
@@ -814,9 +814,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "93a0dc1",
-    "last": "rfj: addendum v2 bundle built \u2014 identification of Palo+Bunea, continuing-attack evidence, raw server logs, Oct 3 intrusion. zip SHA-256 fbfe4a1c...",
-    "dirty": 22
+    "head": "29af4fc",
+    "last": "lawsuit: creditor strike-off objection filed to Companies House re TECHOFF 16090235 (sent 2026-10-05 from principal's address)",
+    "dirty": 21
   },
   "mirrors": 2329
 }
