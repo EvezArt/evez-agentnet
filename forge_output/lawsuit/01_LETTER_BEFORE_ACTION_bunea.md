@@ -9,6 +9,10 @@ Date: [FILE DATE]
 
 Dear Sirs,
 
+[NOTE — v2: add BESTDC LIMITED (15259087, 72 Halliwick Road, London N10 1AB), whose sole
+director is Luca Palo (verified 2026-10-04), as a co-defendant; it is the ACTIVE successor
+entity in the 35 Firs Avenue shell rotation. Attorney to add as Defendant 3.]
+
 ## UNLAWFUL MEANS CONSPIRACY / TRESPASS — NOTICE OF INTENDED CLAIM
 
 1. I am the owner and operator of the computer systems at the infrastructure identified

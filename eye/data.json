@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T21:33:54.304553+00:00",
+  "generated": "2026-10-04T22:07:21.183083+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -134,6 +134,11 @@
       "since": "Sun 2026-10-04 18:08:59 CEST"
     },
     {
+      "unit": "openclaw-public-forward.service",
+      "sub": "running",
+      "since": "Sun 2026-10-04 23:41:36 CEST"
+    },
+    {
       "unit": "openclaw-tailnet-forward.service",
       "sub": "running",
       "since": "Fri 2026-10-02 04:55:40 CEST"
@@ -229,7 +234,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 1785854,
+      "pid": 2936445,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -239,7 +244,7 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 1785854,
+      "pid": 2936445,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -447,6 +452,16 @@
     },
     {
       "port": 18789,
+      "bind": "80.241.209.34",
+      "proc": "socat",
+      "pid": 2920813,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
       "pid": 2610765,
@@ -566,10 +581,10 @@
       "fw_blocked": false
     },
     {
-      "port": 36641,
+      "port": 37613,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 2911755,
+      "pid": 2939662,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -708,12 +723,16 @@
     {
       "sched": "*/15 * * * *",
       "cmd": "/usr/bin/python3 /root/ruview/tailnet_watch.py --once >> /root/ruview/tailnet_watch_cron.log 2>&1; rc=$?; if [ \"$rc\" -ne"
+    },
+    {
+      "sched": "*/15 * * * *",
+      "cmd": "/usr/bin/python3 /root/evez-agentnet/attacker_watch.py >> /root/evez-agentnet/logs/attacker_watch.log 2>&1"
     }
   ],
   "docker": [
     {
       "name": "ruview-demo",
-      "status": "Up 2 hours",
+      "status": "Up 3 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -733,12 +752,12 @@
     },
     {
       "name": "openclaw-sbx-workspace-a051ad69e5d3de4aa30228465b31df73",
-      "status": "Up 8 hours",
+      "status": "Up 9 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 40 hours",
+      "status": "Up 41 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -757,6 +776,11 @@
       "state": "WARN",
       "name": "income loop yield",
       "detail": "149 ship events, $0.00 earned \u2014 no channel delivers"
+    },
+    {
+      "state": "ok",
+      "name": "gateway NOT on public interface",
+      "detail": "socat forwarding on public bind: 80.241.209.34:18789"
     },
     {
       "state": "WARN",
@@ -790,9 +814,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "e3a5113",
-    "last": "forge: machine-readable canon.json (5 documents, sha256-sealed); watchdog now covers the swarm portrait (10 surfaces)",
-    "dirty": 26
+    "head": "93a0dc1",
+    "last": "rfj: addendum v2 bundle built \u2014 identification of Palo+Bunea, continuing-attack evidence, raw server logs, Oct 3 intrusion. zip SHA-256 fbfe4a1c...",
+    "dirty": 22
   },
   "mirrors": 2329
 }

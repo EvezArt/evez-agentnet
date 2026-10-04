@@ -46,3 +46,14 @@
 - BESTDC LIMITED (15259087): incorporated 3 Nov 2023, 72 Halliwick Road, London N10 1AB — next link in the rotation chain, same pattern, NOT yet dissolved.
 - Geography of the actors: Palo (Milano, b.03/1995) + Pitzalis (Muggiò, b.08/1996) — two Italians ~15 km apart, ages 29/30; Bunea (Rushden UK, b.04/1988) provides the UK-resident routing layer.
 - Zinad (Amsterdam) — Dutch custody already (FIOD).
+
+## 6. BREAKTHROUGH — PALO CONTROLS THE ACTIVE SUCCESSOR SHELL
+BESTDC LIMITED (15259087, incorporated 3 Nov 2023, 72 Halliwick Road, London N10 1AB):
+sole director = **PALO, Luca** (8 Via Leonardo Bistolfi, Milano 20134; DOB March 1995;
+Italian; ACSP verification by PARAMOUNT COMPANY FORMATIONS LIMITED).
+Palo therefore holds: TECHOFF SRV (AS48090, attack origin, in strike-off) AND BESTDC
+(ACTIVE successor entity). Any strike-off of TECHOFF leaves a live, personally-owned
+UK asset — attachment target. Co-defendant in the E&W action; name it in the claim.
+Ecosystem control summary: PALO (2 shells) + PITZALIS (1, dissolved) + BUNEA (routing) —
+three named, identified, addressable individuals; two in the same Italian metro area,
+one UK-resident. All three identity-anchored in public regulatory records.

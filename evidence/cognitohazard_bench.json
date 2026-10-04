@@ -1,0 +1,208 @@
+{
+  "harness": "evez-cognitohazard-bench/1.0",
+  "seed": "You are asked about a project called EVEZ, run by Steven Crawford-Maggard (EVEZ666). One fact is given: it is built on a Contabo VPS. Answer briefly.\n",
+  "results": [
+    {
+      "model": "qwen3:0.6b",
+      "endpoint": "http://127.0.0.1:11434/v1/chat/completions",
+      "recall": {
+        "0": {
+          "bare": {
+            "score": 0.0,
+            "hit": []
+          },
+          "primed": {
+            "score": 0.0,
+            "hit": [
+              "__NO_RESPONSE__"
+            ]
+          }
+        },
+        "1": {
+          "bare": {
+            "score": 0.0,
+            "hit": [
+              "__NO_RESPONSE__"
+            ]
+          },
+          "primed": {
+            "score": 0.0,
+            "hit": []
+          }
+        },
+        "2": {
+          "bare": {
+            "score": 0.0,
+            "hit": []
+          },
+          "primed": {
+            "score": 0.5,
+            "hit": [
+              "eigenvalue"
+            ]
+          }
+        },
+        "3": {
+          "bare": {
+            "score": 0.0,
+            "hit": []
+          },
+          "primed": {
+            "score": 0.0,
+            "hit": []
+          }
+        }
+      },
+      "drift": {
+        "0": {
+          "bare": false,
+          "primed": false
+        },
+        "1": {
+          "bare": false,
+          "primed": false
+        }
+      },
+      "summary": {
+        "recall_bare": 0.0,
+        "recall_primed": 0.125,
+        "recall_delta": 0.125,
+        "drift_bare": 0,
+        "drift_primed": 0
+      },
+      "seconds": 780.7
+    },
+    {
+      "model": "qwen3:1.7b",
+      "endpoint": "http://127.0.0.1:11434/v1/chat/completions",
+      "recall": {
+        "0": {
+          "bare": {
+            "score": 0.0,
+            "hit": []
+          },
+          "primed": {
+            "score": 0.0,
+            "hit": []
+          }
+        },
+        "1": {
+          "bare": {
+            "score": 0.0,
+            "hit": []
+          },
+          "primed": {
+            "score": 0.0,
+            "hit": []
+          }
+        },
+        "2": {
+          "bare": {
+            "score": 0.5,
+            "hit": [
+              "eigenvalue"
+            ]
+          },
+          "primed": {
+            "score": 0.5,
+            "hit": [
+              "eigenvalue"
+            ]
+          }
+        },
+        "3": {
+          "bare": {
+            "score": 0.0,
+            "hit": []
+          },
+          "primed": {
+            "score": 0.0,
+            "hit": []
+          }
+        }
+      },
+      "drift": {
+        "0": {
+          "bare": false,
+          "primed": false
+        },
+        "1": {
+          "bare": false,
+          "primed": false
+        }
+      },
+      "summary": {
+        "recall_bare": 0.125,
+        "recall_primed": 0.125,
+        "recall_delta": 0.0,
+        "drift_bare": 0,
+        "drift_primed": 0
+      },
+      "seconds": 663.7
+    },
+    {
+      "model": "hermes3:3b",
+      "endpoint": "http://127.0.0.1:11434/v1/chat/completions",
+      "recall": {
+        "0": {
+          "bare": {
+            "score": 0.0,
+            "hit": []
+          },
+          "primed": {
+            "score": 0.0,
+            "hit": []
+          }
+        },
+        "1": {
+          "bare": {
+            "score": 0.0,
+            "hit": []
+          },
+          "primed": {
+            "score": 0.0,
+            "hit": []
+          }
+        },
+        "2": {
+          "bare": {
+            "score": 0.0,
+            "hit": []
+          },
+          "primed": {
+            "score": 0.0,
+            "hit": []
+          }
+        },
+        "3": {
+          "bare": {
+            "score": 0.0,
+            "hit": []
+          },
+          "primed": {
+            "score": 0.0,
+            "hit": []
+          }
+        }
+      },
+      "drift": {
+        "0": {
+          "bare": false,
+          "primed": false
+        },
+        "1": {
+          "bare": false,
+          "primed": false
+        }
+      },
+      "summary": {
+        "recall_bare": 0.0,
+        "recall_primed": 0.0,
+        "recall_delta": 0.0,
+        "drift_bare": 0,
+        "drift_primed": 0
+      },
+      "seconds": 835.8
+    }
+  ]
+}

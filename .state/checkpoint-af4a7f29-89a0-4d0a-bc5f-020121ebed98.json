@@ -21,8 +21,8 @@
     "active_identity": "observer",
     "action_mode": "evidence_seek",
     "predictor_entropy": 1.6094379124341005,
-    "rsi_branch_entropy": 6.237293,
-    "rsi_last_injected_at": "2026-10-04T21:22:10.636830+00:00"
+    "rsi_branch_entropy": 6.24503,
+    "rsi_last_injected_at": "2026-10-04T21:52:13.245362+00:00"
   },
   "branches": [
     {
@@ -6711,6 +6711,58 @@
         "action:hold",
         "dark pressure candidate"
       ]
+    },
+    {
+      "label": "branch-516",
+      "plausibility": 0.35,
+      "consequence": 0.35,
+      "collapse_risk": 0.47500000000000003,
+      "resonance": 0.35,
+      "notes": [
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-254-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:254",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-254-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:254",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-254-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:254",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
     }
   ],
   "unresolved_residue": [
@@ -6841,6 +6893,7 @@
     "predictor_entropy:1.6094379124341005",
     "predictor_entropy:1.6094379124341005",
     "predictor_entropy:1.6094379124341005",
+    "predictor_entropy:1.6094379124341005",
     "predictor_entropy:1.6094379124341005"
   ],
   "dark_state_pressure": [],
@@ -6855,10 +6908,10 @@
         "detect"
       ],
       "stability": 1.0,
-      "control_gain": 4.705500000000014,
-      "coherence_gain": 2.9910000000000023,
-      "contradiction_load": 0.16739999999999985,
-      "last_activated_at": "2026-10-04T21:22:10.546676+00:00"
+      "control_gain": 4.742000000000014,
+      "coherence_gain": 3.0140000000000025,
+      "contradiction_load": 0.16859999999999986,
+      "last_activated_at": "2026-10-04T21:52:13.128032+00:00"
     },
     {
       "name": "auditor",
@@ -29468,9 +29521,184 @@
         "unresolved_count": 128,
         "dark_pressure_count": 0
       }
+    },
+    {
+      "at": "2026-10-04T21:22:10.695494+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-04T21:52:13.125413+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-516",
+          "plausibility": 0.35,
+          "consequence": 0.35,
+          "collapse_risk": 0.47500000000000003,
+          "resonance": 0.35,
+          "notes": [
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 254, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Spread: Vancouver Whitecaps FC (-4.5)\", \"volume_usd\": 9.99975, \"end_date\": \"2026-10-07T00:30:00Z\", \"url\": \"https://polymarket.com/event/mls-chi-vwh-2026-07-16-spread-away-4pt5\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-04T21:52:13.122451+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Chicago Fire FC vs. Vancouver Whitecaps FC: Vancouver Whitecaps FC 1st Half O/U 3.5\", \"volume_usd\": 9.99975, \"end_date\": \"2026-10-07T00:30:00Z\", \"url\": \"https://polymarket.com/event/mls-chi-vwh-2026-07-16-first-half-team-total-away-3pt5\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-04T21:52:13.122529+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Spread: Sabah FK (-3.5)\", \"volume_usd\": 9.99975, \"end_date\": \"2026-10-13T16:45:00Z\", \"url\": \"https://polymarket.com/event/ucl-sf-slp-2026-10-13-spread-home-3pt5\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-04T21:52:13.122554+00:00\"}]}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-04T21:52:13.128056+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "observer",
+        "executive_plan": {
+          "identity": "observer",
+          "action_mode": "watch",
+          "reason": "monitor_branch",
+          "branch": {
+            "label": "rsi-branch-245-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:245",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          "at": "2026-10-04T21:52:13.127900+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 128,
+        "dark_pressure_count": 0,
+        "build_result": null
+      }
+    },
+    {
+      "at": "2026-10-04T21:52:13.208478+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-04T21:52:13.208691+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-516",
+          "plausibility": 0.35,
+          "consequence": 0.35,
+          "collapse_risk": 0.47500000000000003,
+          "resonance": 0.35,
+          "notes": [
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "observer",
+          "action_mode": "watch",
+          "executive_plan": {
+            "identity": "observer",
+            "action_mode": "watch",
+            "reason": "monitor_branch",
+            "branch": {
+              "label": "rsi-branch-245-2",
+              "plausibility": 0.44,
+              "consequence": 0.73,
+              "collapse_risk": 0.48,
+              "resonance": 0.46,
+              "notes": [
+                "source:rsi",
+                "round:245",
+                "preserve rival future",
+                "action:wait_for_ecology",
+                "high consequence branch",
+                "dark pressure candidate"
+              ]
+            },
+            "at": "2026-10-04T21:52:13.127900+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 128,
+          "dark_pressure_count": 0,
+          "build_result": null
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "observer",
+        "action_mode": "watch",
+        "lineage_hash": "800e1e2d7f97cdebef4d5c02328600869fadd74aa71082a8ea93a52bd960357e"
+      }
+    },
+    {
+      "at": "2026-10-04T21:52:13.245378+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 254,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-254-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:254",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-254-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:254",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-254-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:254",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 6.245030403077425,
+        "unresolved_count": 129,
+        "dark_pressure_count": 0
+      }
     }
   ],
   "checkpoint_id": "af4a7f29-89a0-4d0a-bc5f-020121ebed98",
   "created_at": "2026-09-25T11:29:16.047324+00:00",
-  "updated_at": "2026-10-04T21:22:10.637112+00:00"
+  "updated_at": "2026-10-04T21:52:13.245601+00:00"
 }
