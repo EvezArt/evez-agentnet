@@ -129,3 +129,31 @@ authentication (ADR-296 step two — per-device keys and replay rejection — ha
 not landed), so exposing it to the internet would let anyone inject valid-shaped
 frames and drive presence/vital outputs. The node reaches the tailnet, not the
 reverse.
+
+## Eliminating the phone: not possible on ESP32-C6
+
+Researched 2026-10-04. There is **no `esp-tailscale`** — `tailscale/esp-tailscale`
+is a 404, has never existed per the Wayback Machine, and is absent from the
+Tailscale org. No official Tailscale Embedded SDK or MCU port exists;
+Tailscale's IoT positioning is Linux agents on SBCs.
+
+Third-party option: **MicroLink** (https://github.com/CamM2325/microlink, ESP-IDF
+component, not affiliated with Tailscale). Do not adopt it for this node:
+
+- Not confirmed for ESP32-C6 specifically.
+- Reproducible crashes under sustained tunnel traffic, hardware-confirmed:
+  issue #17 (`pbuf_free: p->ref > 0` assert + reboot), issue #20 (a ~600 KB TCP
+  proxy rebooted an S3 N16R8 mid-transfer on IDF v5.3, clean only after a fix),
+  issue #28 (six lwIP thread-safety violations found via
+  `CONFIG_LWIP_CHECK_THREAD_SAFETY`, including `netif_set_up()`/`udp_new()`
+  called off-thread).
+- It needs a custom lwIP netif (WireGuard MTU 1420), so plain `sendto()` to a
+  100.x address is not guaranteed transparent — the CSI sender would have to be
+  reworked and re-validated against the ADR-018 frame path.
+- CSI capture already saturates the radio's TX airtime and consumes the WiFi
+  buffer pools (see the sdkconfig comments about `sendto ENOMEM` at 10/s). Adding
+  a WireGuard tunnel on top competes for the same constrained resources.
+
+**Decision: keep the phone relay.** It is a byte-forwarder, has no crypto
+budget, and is already proven end to end. Revisit only if a C6-supported,
+stability-demonstrated tunnel exists.
