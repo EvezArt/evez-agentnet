@@ -1,0 +1,55 @@
+{
+  "generated_at": 1790998005.3361833,
+  "public_ip": "80.241.209.34",
+  "checks_run": 25,
+  "checks_skipped": [],
+  "findings": [
+    {
+      "id": "EXPOSED:22",
+      "severity": "high",
+      "title": "port 22 reachable from the public internet",
+      "proves": "TCP connect to 80.241.209.34:22 succeeded from this host.",
+      "does_not_prove": "Not proof of compromise. Only proof of reachability; authentication strength is assessed separately.",
+      "evidence": {
+        "bind": "[::]",
+        "local_open": true,
+        "public_open": true
+      },
+      "remediation": "Bind to 127.0.0.1 or restrict with a firewall rule."
+    },
+    {
+      "id": "EXPOSED:9090",
+      "severity": "high",
+      "title": "port 9090 reachable from the public internet",
+      "proves": "TCP connect to 80.241.209.34:9090 succeeded from this host.",
+      "does_not_prove": "Not proof of compromise. Only proof of reachability; authentication strength is assessed separately.",
+      "evidence": {
+        "bind": "0.0.0.0",
+        "local_open": true,
+        "public_open": true
+      },
+      "remediation": "Bind to 127.0.0.1 or restrict with a firewall rule."
+    },
+    {
+      "id": "SSH_ROOT_PASSWORD",
+      "severity": "critical",
+      "title": "sshd accepts root password authentication (effective config)",
+      "proves": "`sshd -T` reports permitrootlogin=yes and passwordauthentication=yes. This is the EFFECTIVE config after drop-ins, which override the main file.",
+      "does_not_prove": "Does not prove an account was compromised. Check auth logs for successful logins from unexpected source addresses.",
+      "evidence": {
+        "effective": {
+          "maxauthtries": "3",
+          "permitrootlogin": "yes",
+          "passwordauthentication": "yes"
+        }
+      },
+      "remediation": "Delete the drop-in that re-enables it; verify with `sshd -T`; then `sshd -t && systemctl reload ssh`."
+    }
+  ],
+  "severity_counts": {
+    "high": 2,
+    "critical": 1
+  },
+  "verdict": "EXPOSED",
+  "harness_limitation": "This harness probes from the host itself. A local connect to the public address may traverse hairpin NAT and does not prove an off-site host's view. UNVERIFIED entries mean genuinely unknown, not closed."
+}

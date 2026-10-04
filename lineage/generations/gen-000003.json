@@ -1,0 +1,118 @@
+{
+  "type": "generation",
+  "generation": 3,
+  "generation_name": "CRAWFORD-MAGGARD-GEN-3",
+  "reason": "scheduled",
+  "founder": {
+    "name": "CRAWFORD-MAGGARD",
+    "given": "Steven Crawford-Maggard",
+    "handle": "@EVEZ666",
+    "founded": "2024",
+    "note": "Built from a $100 phone while homeless in Laughlin, NV."
+  },
+  "previous_hash": "4afff50b76ec39b33a30d230cf9b6f58e5ae6e3adf910badd683ae681a6b7a10",
+  "root_commitment": "062cb53fc2e58f6c8eb43e7ec593f1db412123a85c831980bda252886a3b32c4",
+  "state": {
+    "captured": "2026-10-02T22:37:18.388389+00:00",
+    "arena": {
+      "status": "healthy",
+      "service": "evez-arena",
+      "agents": 54,
+      "conscious_agents": 54,
+      "matches_played": 51391,
+      "arenas": 15303,
+      "consciousness_threshold": 10,
+      "message": "The game that builds itself. The arena that proves consciousness."
+    },
+    "spine": {
+      "valid": true,
+      "events_checked": 6,
+      "errors": [],
+      "head_hash": "155f4bde8e66296329b3a4a2c066f3533eff6624c2c6947c34104d657e48cabb"
+    },
+    "callsigns": [
+      {
+        "agent": "scanner",
+        "callsign": "SABLE",
+        "handle": "@SableEVEZ",
+        "beat": "surveillance, security, exposure, network, honeypot, breach, threat",
+        "voice": "clinical, alarming, precise. Findings before adjectives.",
+        "embargo": [
+          "philosophy",
+          "manifesto",
+          "product",
+          "pricing"
+        ]
+      },
+      {
+        "agent": "predictor",
+        "callsign": "VECTOR",
+        "handle": "@VectorEVEZ",
+        "beat": "prediction, forecast, labor, economy, market, matrix, eigenvalue",
+        "voice": "mathematical. Show the derivation. No hedging without cause.",
+        "embargo": [
+          "security",
+          "game",
+          "arena"
+        ]
+      },
+      {
+        "agent": "generator",
+        "callsign": "FORGE",
+        "handle": "@ForgeEVEZ",
+        "beat": "creation, generation, arena, game, consciousness, manifesto, rights",
+        "voice": "declarative. The arena as proof ground. BEING is the point.",
+        "embargo": [
+          "security",
+          "pricing"
+        ]
+      },
+      {
+        "agent": "shipper",
+        "callsign": "COURIER",
+        "handle": "@CourierEVEZ",
+        "beat": "distribution, delivery, publish, press, launch, outreach, submission",
+        "voice": "brief, logistical. What shipped, where, with what handle.",
+        "embargo": []
+      },
+      {
+        "agent": "maes",
+        "callsign": "KINDLE",
+        "handle": "@KindleEVEZ",
+        "beat": "collective, swarm, coordination, multi-agent, emergence",
+        "voice": "plural voice. Speaks for the group, never for itself alone.",
+        "embargo": [
+          "pricing"
+        ]
+      },
+      {
+        "agent": "press_lieutenant",
+        "callsign": "NEWSROOM",
+        "handle": "@EVEZ666",
+        "beat": "press, news, media, interview, coverage, embargo, spokesperson",
+        "voice": "newsroom. Answers only what the evidence supports. Declines the rest.",
+        "embargo": []
+      },
+      {
+        "agent": "social_lieutenant",
+        "callsign": "BROADCAST",
+        "handle": "@EVEZ666",
+        "beat": "social, thread, post, reddit, hacker news, twitter, mastodon, engagement",
+        "voice": "punchy, thread-aware, one idea per post. Never bait, never ragebait.",
+        "embargo": []
+      },
+      {
+        "agent": "factchecker",
+        "callsign": "ARBITER",
+        "handle": "@ArbiterEVEZ",
+        "beat": "verification, factcheck, audit, evidence, receipt, spine",
+        "voice": "skeptical of its own swarm. Cites a receipt or it did not happen.",
+        "embargo": []
+      }
+    ],
+    "agentnet_round": 159
+  },
+  "timestamp": 1790980638.5021262,
+  "iso": "2026-10-02T22:37:18.502131+00:00",
+  "hash": "d57d0fb4b9fce6f69f88f453434800e9c053f6bdd55310b676da304da9326bee"
+}

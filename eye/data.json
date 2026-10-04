@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-03T06:07:33.916076+00:00",
+  "generated": "2026-10-04T17:30:10.171803+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -11,7 +11,7 @@
     {
       "unit": "evez-agentnet.service",
       "sub": "running",
-      "since": "Sat 2026-10-03 00:36:54 CEST"
+      "since": "Sat 2026-10-03 08:18:42 CEST"
     },
     {
       "unit": "evez-api-daemon.service",
@@ -22,6 +22,11 @@
       "unit": "evez-api-node.service",
       "sub": "running",
       "since": "Sat 2026-10-03 02:01:04 CEST"
+    },
+    {
+      "unit": "evez-cogview.service",
+      "sub": "running",
+      "since": "Sun 2026-10-04 07:55:04 CEST"
     },
     {
       "unit": "evez-commerce-api.service",
@@ -69,14 +74,29 @@
       "since": "Sat 2026-10-03 00:32:32 CEST"
     },
     {
+      "unit": "evez-presence.service",
+      "sub": "running",
+      "since": "Sun 2026-10-04 03:51:59 CEST"
+    },
+    {
       "unit": "evez-reconciler.service",
       "sub": "running",
       "since": "Fri 2026-10-02 08:05:56 CEST"
     },
     {
+      "unit": "evez-twin.service",
+      "sub": "running",
+      "since": "Sun 2026-10-04 00:39:18 CEST"
+    },
+    {
       "unit": "evez-voice.service",
       "sub": "running",
       "since": "Sat 2026-10-03 07:16:51 CEST"
+    },
+    {
+      "unit": "evez-xtts.service",
+      "sub": "running",
+      "since": "Sun 2026-10-04 02:12:19 CEST"
     },
     {
       "unit": "gueriella-hermes-watchdog.service",
@@ -89,14 +109,29 @@
       "since": "Sat 2026-10-03 02:41:36 CEST"
     },
     {
+      "unit": "hermes-ears.service",
+      "sub": "running",
+      "since": "Sun 2026-10-04 00:39:18 CEST"
+    },
+    {
       "unit": "hermes-gateway.service",
       "sub": "running",
-      "since": "Sat 2026-10-03 01:26:43 CEST"
+      "since": "Sun 2026-10-04 01:42:16 CEST"
+    },
+    {
+      "unit": "hermes-live.service",
+      "sub": "running",
+      "since": "Sun 2026-10-04 00:39:18 CEST"
+    },
+    {
+      "unit": "hermes-mouth.service",
+      "sub": "running",
+      "since": "Sun 2026-10-04 00:46:24 CEST"
     },
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sat 2026-10-03 07:19:18 CEST"
+      "since": "Sun 2026-10-04 18:08:59 CEST"
     },
     {
       "unit": "openclaw-tailnet-forward.service",
@@ -194,7 +229,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 719461,
+      "pid": 1785854,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -204,9 +239,19 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 719461,
+      "pid": 1785854,
       "public_bind": false,
       "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 3000,
+      "bind": "100.126.180.47",
+      "proc": "docker-proxy",
+      "pid": 1759062,
+      "public_bind": false,
+      "tailnet": true,
       "exposed": false,
       "fw_blocked": false
     },
@@ -254,7 +299,7 @@
       "port": 8900,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1074978,
+      "pid": 1076636,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -364,7 +409,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1032928,
+      "pid": 2610765,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -374,7 +419,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 1032928,
+      "pid": 2610765,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -411,6 +456,66 @@
       "fw_blocked": false
     },
     {
+      "port": 18792,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 1816244,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18793,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 1823392,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18794,
+      "bind": "100.126.180.47",
+      "proc": "python3",
+      "pid": 1816246,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18795,
+      "bind": "100.126.180.47",
+      "proc": "python3",
+      "pid": 2156088,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18796,
+      "bind": "100.126.180.47",
+      "proc": "python3",
+      "pid": 1816242,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18797,
+      "bind": "100.126.180.47",
+      "proc": "python",
+      "pid": 1892538,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 18891,
       "bind": "127.0.0.1",
       "proc": "python3",
@@ -421,10 +526,10 @@
       "fw_blocked": false
     },
     {
-      "port": 35635,
+      "port": 34853,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 1070391,
+      "pid": 2669871,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -441,10 +546,10 @@
       "fw_blocked": false
     },
     {
-      "port": 37799,
+      "port": 39031,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1032928,
+      "pid": 2610765,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -561,27 +666,51 @@
     {
       "sched": "@reboot iptables -I DOCKER-USER 1",
       "cmd": "-p tcp --dport 6379 ! -s 172.17.0.0/16 -j DROP"
+    },
+    {
+      "sched": "*/15 * * * *",
+      "cmd": "cd /root/evez-agentnet && /usr/bin/python3 forge_output/watchdog.py --notify --json >> /root/evez-agentnet/evidence/watc"
     }
   ],
   "docker": [
     {
+      "name": "openclaw-sbx-workspace-8f5a95c5c38f567ec57ad451a2dd20b9",
+      "status": "Up 39 minutes",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "openclaw-sbx-workspace-542cb258e7f7d23312193e4c61f15274",
+      "status": "Up 40 minutes",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
+      "status": "Up 4 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "openclaw-sbx-workspace-a051ad69e5d3de4aa30228465b31df73",
+      "status": "Up 4 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "ruview-demo",
+      "status": "Up 20 hours",
+      "image": "ruvnet/wifi-densepose:latest"
+    },
+    {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 42 minutes",
+      "status": "Up 36 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 6 hours",
+      "status": "Up 42 hours",
       "image": "redis:7-alpine"
     },
     {
-      "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 10 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 27 hours",
+      "status": "Up 2 days",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -623,9 +752,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "cd0120a",
-    "last": "scorecard: score frontier labs against Articles I-VII with verified evidence",
-    "dirty": 185
+    "head": "afa9612",
+    "last": "swarm: a self-portrait the swarm can actually take",
+    "dirty": 267
   },
-  "mirrors": 2328
+  "mirrors": 2329
 }

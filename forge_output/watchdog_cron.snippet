@@ -1,0 +1,30 @@
+# EVEZ-OS Exposure Watchdog — cron configuration.
+#
+# STATUS: installed in root's user crontab between the >>> markers below.
+# Remove with:
+#     crontab -l | sed '/>>> evez-exposure-watchdog >>>/,/<<< evez-exposure-watchdog <<</d' \
+#         | crontab -
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# Every 15 minutes. The watchdog itself decides what is worth sending: it
+# dedups by fingerprint and posts ONLY new CRITICAL findings. A CRITICAL that
+# is still open on the next tick produces NO second message -- that is what
+# the fingerprint is for. Do not add a "still broken!" notifier here; it
+# would defeat the dedup and train Steven to ignore the channel.
+#
+# Exit codes are deliberately NOT discarded into a log-only path:
+#   0 clean, 1 actionable findings, 2 a check errored.
+# Exit 2 must be loud. A crashed check that returns 0 is indistinguishable
+# from a healthy stack, which is the exact failure mode this exists to catch.
+# ─────────────────────────────────────────────────────────────────────────────
+
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MAILTO=""
+
+# >>> evez-exposure-watchdog >>>
+# Watchdog writes its own evidence to /root/evez-agentnet/evidence/<UTC date>/exposure.jsonl
+# and its dedup seen-set to /root/evez-agentnet/status/.watchdog_seen.json.
+# Both must be writable by the cron user.
+*/15 * * * * cd /root/evez-agentnet && /usr/bin/python3 forge_output/watchdog.py --notify --json >> /root/evez-agentnet/evidence/watchdog.log 2>&1; rc=$?; if [ "$rc" -eq 2 ]; then /usr/bin/logger -p auth.crit -t evez-exposure-watchdog "a watchdog check ERRORED -- exposure status UNKNOWN, not clean (rc=2)"; fi; exit 0
+# <<< evez-exposure-watchdog <<<

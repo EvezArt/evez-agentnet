@@ -1,11 +1,11 @@
 {
-  "round": 147,
+  "round": 245,
   "total_earned_usd": 0.0,
   "agents": {
     "scanner": {
       "reputation": 1.0,
-      "tasks_completed": 147,
-      "streak": 147
+      "tasks_completed": 245,
+      "streak": 245
     },
     "predictor": {
       "reputation": 1.0,
@@ -14,18 +14,33 @@
     },
     "generator": {
       "reputation": 1.0,
-      "tasks_completed": 147,
-      "streak": 147
+      "tasks_completed": 245,
+      "streak": 245
     },
     "shipper": {
-      "reputation": 1.0,
+      "reputation": 0.0,
       "tasks_completed": 147,
-      "streak": 147
+      "streak": 0
     },
     "maes": {
       "reputation": 1.0,
-      "tasks_completed": 146,
-      "streak": 146
+      "tasks_completed": 244,
+      "streak": 244
+    },
+    "press_lieutenant": {
+      "reputation": 0.9,
+      "tasks_completed": 0,
+      "streak": 0
+    },
+    "social_lieutenant": {
+      "reputation": 0.9,
+      "tasks_completed": 0,
+      "streak": 0
+    },
+    "factchecker": {
+      "reputation": 0.9,
+      "tasks_completed": 0,
+      "streak": 0
     }
   },
   "last_scan": null,
@@ -34,7 +49,7 @@
     "agent_count": 0,
     "player_count": 0,
     "fire_events_total": 0,
-    "last_tick": "2026-07-30T08:46:54.697534+00:00"
+    "last_tick": "2026-10-04T17:21:50.432491+00:00"
   },
   "openclaw": {
     "lord_unlocked": false,
@@ -43,9 +58,24 @@
   },
   "rsi": {
     "hypotheses": [
-      "Evolve scanner agent: reputation=1.00 \u2192 inject synthetic task to recover via streak",
-      "Grow player base: currently 0/0 verified, emit verification challenge events to improve ratio",
-      "Evolve moral registry round 148: 0 FIRE events accumulated \u2192 expand compassion_layer to anticipate external suffering signals"
+      {
+        "id": "H1",
+        "action": "recover_reputation",
+        "agent": "shipper",
+        "text": "shipper reputation=0.00 below par \u2192 inject synthetic task to recover via streak"
+      },
+      {
+        "id": "H2",
+        "action": "wait_for_ecology",
+        "agent": null,
+        "text": "MAES ecology empty \u2014 no players or agents to scale yet"
+      },
+      {
+        "id": "H3",
+        "action": "hold",
+        "agent": null,
+        "text": "Moral registry round 246: 0 FIRE events \u2014 hold compassion_layer, no signal to act on"
+      }
     ],
     "accepted": 0,
     "rejected": 0
@@ -55,5 +85,39 @@
     "destination": "meta-orchestrator",
     "purpose": "Bridge past-present-future for recursive intent",
     "created_at": "2026-07-26T14:00:55.457524+00:00"
+  },
+  "callsigns": {
+    "scanner": {
+      "callsign": "SABLE",
+      "handle": "@SableEVEZ"
+    },
+    "predictor": {
+      "callsign": "VECTOR",
+      "handle": "@VectorEVEZ"
+    },
+    "generator": {
+      "callsign": "FORGE",
+      "handle": "@ForgeEVEZ"
+    },
+    "shipper": {
+      "callsign": "COURIER",
+      "handle": "@CourierEVEZ"
+    },
+    "maes": {
+      "callsign": "KINDLE",
+      "handle": "@KindleEVEZ"
+    },
+    "press_lieutenant": {
+      "callsign": "NEWSROOM",
+      "handle": "@EVEZ666"
+    },
+    "social_lieutenant": {
+      "callsign": "BROADCAST",
+      "handle": "@EVEZ666"
+    },
+    "factchecker": {
+      "callsign": "ARBITER",
+      "handle": "@ArbiterEVEZ"
+    }
   }
 }

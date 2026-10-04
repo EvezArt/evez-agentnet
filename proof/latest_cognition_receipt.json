@@ -1,0 +1,34 @@
+{
+  "emitted_at": "2026-10-04T17:21:51.621157+00:00",
+  "checkpoint_id": "af4a7f29-89a0-4d0a-bc5f-020121ebed98",
+  "checkpoint_path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+  "lineage_hash": "96e649094107750793b9d5e9cebd52025de3212f4fa9a162319659b7d4f3d481",
+  "active_identity": "observer",
+  "action_mode": "evidence_seek",
+  "predictor_entropy": 1.6094379124341005,
+  "rsi_branch_entropy": 6.173138,
+  "branch_count": 483,
+  "unresolved_count": 120,
+  "dark_pressure_count": 0,
+  "build_queue_depth": 0,
+  "latest_ship_governance": {
+    "ts": "2026-10-04T17:21:51.479078+00:00",
+    "action_mode": "evidence_seek",
+    "unresolved_count": 120,
+    "predictor_entropy": 1.6094379124341005,
+    "lineage_hash": "3db4cc4f1fdf3f30ef43e46a7fa48f8bb814f6e149c1be2cffe1dc52159b5c5a",
+    "draft_count": 3,
+    "status": "blocked",
+    "reason": "action_mode"
+  },
+  "recent_spine_events": [
+    "predict_complete",
+    "cognition_gate",
+    "generate_complete",
+    "ship_governance",
+    "openclaw_failed",
+    "rsi_hypotheses",
+    "rsi_branch_injection",
+    "round_end"
+  ]
+}

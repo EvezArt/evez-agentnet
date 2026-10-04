@@ -1,0 +1,60 @@
+{
+  "chain_head": "35881f5f8fd6fea9273b6f083e0f2768316eeb878cd68af743d1be6fa7926e3a",
+  "chain_seq": 6,
+  "event_count": 76,
+  "last_run": "2026-10-03T09:05:07+02:00",
+  "seen": {
+    "01ef24313fcb31ae": {
+      "first_seen": "2026-10-03T09:05:01+02:00",
+      "where": "/root/evez-agentnet/forge_output/stamp_cron.snippet"
+    },
+    "3241e34675b57f69": {
+      "first_seen": "2026-10-03T09:05:01+02:00",
+      "where": "/root/repos/evez-atlas/evez-os-sensors/self_interrogation.py"
+    },
+    "3485b6fc1ee58c62": {
+      "first_seen": "2026-10-03T09:05:01+02:00",
+      "where": "/root/.hermes/cache/scratch/dbg3.py"
+    },
+    "5a8128f590883717": {
+      "first_seen": "2026-10-03T09:05:01+02:00",
+      "where": "/root/.hermes/cache/delegation/live/deleg_e1057811/task-0.log"
+    },
+    "77595e6e95ee0813": {
+      "first_seen": "2026-10-03T09:05:01+02:00",
+      "where": "/root/evez-agentnet/"
+    },
+    "8040ff1f3ccd463d": {
+      "first_seen": "2026-10-03T09:05:01+02:00",
+      "where": "tool#14"
+    },
+    "843bcf882b441e08": {
+      "first_seen": "2026-10-03T09:05:01+02:00",
+      "where": "tool#10"
+    },
+    "98ee09992245481d": {
+      "first_seen": "2026-10-03T09:05:01+02:00",
+      "where": "/root/evez-agentnet/test_stamp.py"
+    },
+    "998c2d50fd89eb05": {
+      "first_seen": "2026-10-03T09:05:01+02:00",
+      "where": "/root/evez-agentnet"
+    },
+    "c36f069d65a421d0": {
+      "first_seen": "2026-10-03T09:05:01+02:00",
+      "where": "/root/evez-agentnet"
+    },
+    "c68fa095d845ff02": {
+      "first_seen": "2026-10-03T09:05:01+02:00",
+      "where": "sessions"
+    },
+    "c78d8ffe905fb3f6": {
+      "first_seen": "2026-10-03T09:05:01+02:00",
+      "where": "/root/evez-agentnet/forge_output/watchdog.py"
+    },
+    "f451107d9900e6ea": {
+      "first_seen": "2026-10-03T09:05:01+02:00",
+      "where": "/root"
+    }
+  }
+}

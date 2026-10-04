@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>evez-agentnet governed dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; background: #0f1115; color: #e7eaf0; }
+    h1, h2 { margin-bottom: 8px; }
+    .muted { color: #a4acb9; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 20px 0; }
+    .card { background: #171b22; border: 1px solid #2b3240; border-radius: 10px; padding: 14px; }
+    .label { color: #96a0af; font-size: 12px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .04em; }
+    .value { font-size: 20px; word-break: break-word; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { border: 1px solid #2b3240; padding: 8px; text-align: left; vertical-align: top; }
+    th { background: #171b22; }
+    code { color: #c6d0dd; }
+  </style>
+</head>
+<body>
+  <h1>evez-agentnet governed cognition dashboard</h1>
+  <div class='muted'>Generated at 2026-10-04T17:21:51.628421+00:00</div>
+  <div class='grid'><div class='card'><div class='label'>Active Identity</div><div class='value'>observer</div></div><div class='card'><div class='label'>Action Mode</div><div class='value'>evidence_seek</div></div><div class='card'><div class='label'>Branch Count</div><div class='value'>483</div></div><div class='card'><div class='label'>Unresolved Count</div><div class='value'>120</div></div><div class='card'><div class='label'>Build Queue Depth</div><div class='value'>0</div></div><div class='card'><div class='label'>Predictor Entropy</div><div class='value'>1.6094379124341005</div></div><div class='card'><div class='label'>RSI Branch Entropy</div><div class='value'>6.173138</div></div><div class='card'><div class='label'>Ship Governance</div><div class='value'>blocked</div></div><div class='card'><div class='label'>Ship Gate Reason</div><div class='value'>action_mode</div></div><div class='card'><div class='label'>Lineage Hash</div><div class='value'>96e649094107750793b9d5e9cebd52025de3212f4fa9a162319659b7d4f3d481</div></div></div>
+  <h2>Recent Spine Events</h2>
+  <table>
+    <tr><th>Timestamp</th><th>Type</th><th>Data</th></tr>
+    <tr><td>2026-10-04T17:21:51.382223+00:00</td><td>scan_complete</td><td><code>{"count": 35, "reputation": 1.0}</code></td></tr><tr><td>2026-10-04T17:21:51.460786+00:00</td><td>cognition_step</td><td><code>{"round": 245, "active_identity": "observer", "action_mode": "watch", "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json", "lineage_hash": "c9fbe178f68f25ea981b99a8e2928ff89bc7fa20915f8d8079ae8f9c</code></td></tr><tr><td>2026-10-04T17:21:51.463336+00:00</td><td>predict_complete</td><td><code>{"round": 245, "count": 5, "entropy": 1.6094379124341005, "rival_count": 4, "top_rivals": [{"title": "sindresorhus/awesome", "source": "github_trending", "opportunity": "tutorial_or_integration", "opportunity_score": 0.7</code></td></tr><tr><td>2026-10-04T17:21:51.463964+00:00</td><td>cognition_gate</td><td><code>{"round": 245, "gate": "predictor_entropy", "entropy": 1.6094379124341005}</code></td></tr><tr><td>2026-10-04T17:21:51.476640+00:00</td><td>generate_complete</td><td><code>{"round": 245, "count": 3, "action_mode": "evidence_seek"}</code></td></tr><tr><td>2026-10-04T17:21:51.481359+00:00</td><td>ship_governance</td><td><code>{"round": 245, "ts": "2026-10-04T17:21:51.479078+00:00", "action_mode": "evidence_seek", "unresolved_count": 120, "predictor_entropy": 1.6094379124341005, "lineage_hash": "3db4cc4f1fdf3f30ef43e46a7fa48f8bb814f6e149c1be2c</code></td></tr><tr><td>2026-10-04T17:21:51.482117+00:00</td><td>openclaw_failed</td><td><code>{"error": "OpenClawEngine.__init__() got an unexpected keyword argument 'level_pack'"}</code></td></tr><tr><td>2026-10-04T17:21:51.504907+00:00</td><td>rsi_hypotheses</td><td><code>{"round": 245, "hypotheses": [{"id": "H1", "action": "recover_reputation", "agent": "shipper", "text": "shipper reputation=0.00 below par \u2192 inject synthetic task to recover via streak"}, {"id": "H2", "action": "wait</code></td></tr><tr><td>2026-10-04T17:21:51.561526+00:00</td><td>rsi_branch_injection</td><td><code>{"round": 245, "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json", "lineage_hash": "96e649094107750793b9d5e9cebd52025de3212f4fa9a162319659b7d4f3d481", "hypothesis_count": 3, "entropy": 6.17313785</code></td></tr><tr><td>2026-10-04T17:21:51.561715+00:00</td><td>round_end</td><td><code>{"round": 245, "mode": "cognition_governed", "earned_usd": 0.0, "total_earned_usd": 0.0, "agent_reputations": {"scanner": {"rep": 1.0, "streak": 245}, "predictor": {"rep": 1.0, "streak": 147}, "generator": {"rep": 1.0, "</code></td></tr>
+  </table>
+</body>
+</html>

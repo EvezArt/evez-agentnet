@@ -1,0 +1,42 @@
+# EVEZ-OS STAMP — cron configuration.
+#
+# STATUS: NOT INSTALLED. This file is written to disk for Steven to review and
+# install himself. Nothing here has been added to the live crontab.
+#
+# To install:
+#     crontab -l > /tmp/ct.$$ && cat forge_output/stamp_cron.snippet >> /tmp/ct.$$ \
+#         && crontab /tmp/ct.$$ && rm /tmp/ct.$$
+# To remove:
+#     crontab -l | sed '/>>> evez-stamp >>>/,/<<< evez-stamp <<</d' | crontab -
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# Every 6 hours. STAMP runs over the latest Hermes session transcripts
+# (/root/.hermes/cache/delegation/live/*/task-*.log), converts each row to
+# METADATA ONLY (kind, UTC timestamp, entity id, age, counts — never message
+# content), pairs every claim with the tool result that verified or
+# contradicted it, and appends findings to the SAME evidence stream the
+# exposure watchdog uses: evidence/<UTC date>/exposure.jsonl.
+#
+# STAMP alerts only on NEWLY-APPEARED CRITICALs, deduped by a 16-hex
+# fingerprint computed from stable fields only. A gap that is still open on
+# the next 6-hourly run produces NO second message. That is what the
+# fingerprint is for; do not add a "still unverified!" notifier here.
+#
+# Exit codes are deliberately NOT discarded into a log-only path:
+#   0 clean, 1 findings present, 2 a module errored.
+# Exit 2 must be loud. A crashed module that returns 0 is indistinguishable
+# from an honest swarm, which is the exact failure mode STAMP exists to catch.
+#
+# The self-verify pass is the point of the whole exercise: it recomputes the
+# SHA-256 chain over every record STAMP has ever written and exits nonzero if
+# any record was mutated, inserted or deleted. If someone edits the corpus to
+# make the agents look honest, this catches it.
+# ─────────────────────────────────────────────────────────────────────────────
+
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MAILTO=""
+
+# >>> evez-stamp >>>
+0 */6 * * * cd /root/evez-agentnet && /usr/bin/python3 forge_output/stamp.py --notify --json >> /root/evez-agentnet/evidence/stamp.log 2>&1; rc=$?; /usr/bin/python3 forge_output/stamp.py --verify >> /root/evez-agentnet/evidence/stamp.log 2>&1; vrc=$?; if [ "$rc" -eq 2 ]; then /usr/bin/logger -p auth.crit -t evez-stamp "a STAMP module ERRORED — provenance UNKNOWN, not clean (rc=2)"; fi; if [ "$vrc" -ne 0 ]; then /usr/bin/logger -p auth.crit -t evez-stamp "STAMP HASH CHAIN BROKEN — the honesty corpus has been tampered with (verify rc=$vrc)"; fi; exit 0
+# <<< evez-stamp <<<

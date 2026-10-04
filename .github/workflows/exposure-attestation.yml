@@ -1,0 +1,49 @@
+name: exposure-attestation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '23 6 * * *'
+
+jobs:
+  attest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Detector self-test (positive must fire, negatives must stay silent)
+        run: |
+          python - <<'PY'
+          import sys, tempfile, os
+          sys.path.insert(0, "attest")
+          import harness
+          h = harness.Harness()
+          d = tempfile.mkdtemp()
+          open(os.path.join(d,"bad.py"),"w").write(
+              "def verify_api_key(x):\n    return True\n\ndef r():\n    return 1\n")
+          open(os.path.join(d,"good.py"),"w").write(
+              "def verify_api_key(x):\n    return True\n\ndef r():\n    return verify_api_key(1)\n")
+          h.check_orphan_auth([d])
+          ids = [f.id for f in h.findings]
+          assert any("bad.py" in i for i in ids), "detector is blind"
+          assert not any("good.py" in i for i in ids), "false positive"
+          print("detector verified: fires on bad, silent on good")
+          PY
+      - name: Exposure attestation
+        run: python attest/harness.py > attestation.json || true
+      - name: Fail on CRITICAL findings
+        run: |
+          python - <<'PY'
+          import json
+          d = json.load(open("attestation.json"))
+          crit = [f["id"] for f in d["findings"] if f["severity"] == "critical"]
+          print("verdict:", d["verdict"])
+          for f in d["findings"]:
+              print(f"  {f['severity'].upper():9} {f['id']}")
+          raise SystemExit(1 if crit else 0)
+          PY
