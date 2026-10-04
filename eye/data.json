@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T22:34:31.656183+00:00",
+  "generated": "2026-10-04T22:37:40.811984+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -86,7 +86,7 @@
     {
       "unit": "evez-twin.service",
       "sub": "running",
-      "since": "Sun 2026-10-04 00:39:18 CEST"
+      "since": "Mon 2026-10-05 00:36:59 CEST"
     },
     {
       "unit": "evez-voice.service",
@@ -544,7 +544,7 @@
       "port": 18796,
       "bind": "100.126.180.47",
       "proc": "python3",
-      "pid": 1816242,
+      "pid": 2967532,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -818,9 +818,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "16b4110",
-    "last": "evidence: watchdog sweep 2026-10-04T22:32:41Z",
-    "dirty": 4
+    "head": "ecfd780",
+    "last": "comms: Tele Asia (HK upstream) abuse notice + CH ACSP integrity review request re Paramount/35 Firs Ave chain \u2014 all archived+hashed",
+    "dirty": 5
   },
   "mirrors": 2329
 }
