@@ -27,7 +27,8 @@
 - RFJ tip 2026-09-21 + SecureDrop addendum 2026-10-01 (bundle SHA-256 a1789b26…8904), receipt confirmed; no analyst reply yet
 - Queued addendum: auth.log + hash-chained ledger + OpenRouter billing (awaiting storage host)
 
-## OPEN ATTRIBUTION QUESTION (needs Steven's confirmation)
+## ATTRIBUTION RESOLVED — INTRUSION CONFIRMED
+Victim confirmed 2026-10-04: NOT him. Root password burned → rotated same day. See evidence/2026-10-04/INTRUSION_INCIDENT_2026-10-03.md.
 2026-10-03 07:16–07:29 CEST: successful root password logins, 5–24s scripted sessions, from
 **192.76.153.253 (RIPE/NL, 7 sessions)** and **185.220.101.172 (TOR EXIT, 1 session)**.
 Also 174.205.97.33 (Verizon wireless, Sep 27). If these were you on VPN/Tor, this entry closes.
