@@ -95,8 +95,11 @@ step "5/5 flash"
 if [ "$SKIP_FLASH" = "1" ]; then
   echo "    skipped (--skip-flash)"
 else
-  # Offsets come from the build's own flash_args, never hand-copied: the app
-  # offset differs between the 4MB and 16MB partition tables (0x20000 vs 0x10000).
+  # Offsets come from the build's own flash_args, never hand-copied. Both the
+  # 4MB and 16MB tables currently place the app at 0x20000, but they are not
+  # guaranteed to, and --flash_size in those args is what esptool needs per
+  # board. Reading the file means a partition-table change upstream cannot
+  # silently flash the wrong layout.
   ARGS="$(sed 's|^|'"$BUILD_DIR"'/|' "$BUILD_DIR/flash_args")"
   echo "    esptool $ARGS"
   # shellcheck disable=SC2086

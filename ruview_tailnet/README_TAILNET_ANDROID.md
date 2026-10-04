@@ -119,8 +119,10 @@ image — while the same RUNBOOK's verification table demands
 image and may not notice. The provisioner concatenates in dependency order:
 `sdkconfig.defaults sdkconfig.defaults.esp32c6 [sdkconfig.defaults.16mb]`.
 
-Flash offsets are read from the build's own `flash_args`, never hand-copied:
-the app offset differs between the two partition tables (0x20000 vs 0x10000).
+Flash offsets come from the build's own `flash_args`, never hand-copied. Both
+the 4MB and 16MB tables currently place the app at `0x20000`, but the
+`--flash_size` in those args is board-specific and a partition-table change
+upstream must not be able to silently flash the wrong layout.
 
 ## What is deliberately NOT done
 
