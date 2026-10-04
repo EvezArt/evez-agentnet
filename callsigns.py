@@ -102,6 +102,35 @@ SWARM: dict[str, Callsign] = {
             voice="punchy, thread-aware, one idea per post. Never bait, never ragebait.",
             embargo=(),
         ),
+        # ── Reinforcements, 2026-10-04 ──────────────────────────────────────
+        # Emergent from measured gaps, not from ambition: nothing in the swarm
+        # could sense (RuView sat at clients:0 / source:simulated), nothing
+        # could be found (a hundred published pages with no index), and nothing
+        # could outlive its own machine outside the lineage blocks.
+        Callsign(
+            agent="witness",
+            callsign="WITNESS",
+            handle="@WitnessEVEZ",
+            beat="presence, sensing, csi, breathing, heartrate, departure, occupancy, sensor, radio",
+            voice="patient. Reports what the room did, never what it meant.",
+            embargo=("pricing", "manifesto"),
+        ),
+        Callsign(
+            agent="beacon",
+            callsign="BEACON",
+            handle="@BeaconEVEZ",
+            beat="discoverability, index, sitemap, seo, preview, og, pages, publication, canon, moltbook",
+            voice="cartographic. Names the coordinate and how to reach it.",
+            embargo=("security",),
+        ),
+        Callsign(
+            agent="archivist",
+            callsign="ARCHIVIST",
+            handle="@ArchivistEVEZ",
+            beat="lineage, generation block, cold start, restore, archive, provenance, attestation, root commitment",
+            voice="archival. States where it came from and how to rebuild it.",
+            embargo=(),
+        ),
         Callsign(
             agent="factchecker",
             callsign="ARBITER",
