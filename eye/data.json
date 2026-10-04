@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T22:31:23.039045+00:00",
+  "generated": "2026-10-04T22:32:25.890542+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -808,9 +808,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "dafd887",
-    "last": "ops: GoDaddy+Cloudflare abuse reports sent (dmzhost domains), Leigh Day CFA pitch sent, daily_ops cron (CH strike-off watch + attack counts) live",
-    "dirty": 6
+    "head": "710ef68",
+    "last": "SMOKING GUN: AS48090 upstreams = AS62380/42397 BUNEA TELECOM SRL (Palo transits Bunea family company); FiberXpress+PrimeTelecom abuse notices sent; bundle rebuilt (db0ef5742bbb9922...)",
+    "dirty": 0
   },
   "mirrors": 2329
 }
