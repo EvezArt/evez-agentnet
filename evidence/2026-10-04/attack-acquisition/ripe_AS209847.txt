@@ -1,0 +1,140 @@
+% This is the RIPE Database query service.
+% The objects are in RPSL format.
+%
+% The RIPE Database is subject to Terms and Conditions.
+% See https://docs.db.ripe.net/terms-conditions.html
+
+% Note: this output has been filtered.
+%       To receive output for a database update, use the "-B" flag.
+
+% Information related to 'AS208885 - AS214345'
+
+as-block:       AS208885 - AS214345
+descr:          RIPE NCC ASN block
+remarks:        These AS Numbers are assigned to network operators in the RIPE NCC service region.
+mnt-by:         RIPE-NCC-HM-MNT
+created:        2026-07-13T14:17:33Z
+last-modified:  2026-07-13T14:17:33Z
+source:         RIPE
+
+% Information related to 'AS209847'
+
+% Abuse contact for 'AS209847' is 'abuse@abusetracker.net'
+
+aut-num:        AS209847
+as-name:        THE
+org:            ORG-WB96-RIPE
+import:         from AS52000 accept ANY
+export:         to AS52000 announce AS209847:AS-THE
+import:         from AS49434 accept ANY
+export:         to AS49434 announce AS209847:AS-THE
+import:         from AS8285 accept ANY
+export:         to AS8285 announce AS209847:AS-THE
+import:         from AS9002 accept ANY
+export:         to AS9002 announce AS209847:AS-THE
+import:         from AS174 accept ANY
+export:         to AS174 announce AS209847:AS-THE
+import:         from AS1299 accept ANY
+export:         to AS1299 announce AS209847:AS-THE
+import:         from AS6939 accept ANY
+export:         to AS6939 announce AS209847:AS-THE
+import:         from AS44222 accept ANY
+export:         to AS44222 announce AS209847:AS-THE
+import:         from AS15694 accept ANY
+export:         to AS15694 announce AS209847:AS-THE
+import:         from AS199081 accept ANY
+export:         to AS199081 announce AS209847:AS-THE
+import:         from AS44306 accept ANY
+export:         to AS44306 announce AS209847:AS-THE
+import:         from AS31252 accept ANY
+export:         to AS31252 announce AS209847:AS-THE
+import:         from AS41427 accept ANY
+export:         to AS41427 announce AS209847:AS-THE
+import:         from AS205119 accept ANY
+export:         to AS205119 announce AS209847:AS-THE
+import:         from AS44735 accept ANY
+export:         to AS44735 announce AS209847:AS-THE
+import:         from AS6718 accept ANY
+export:         to AS6718 announce AS209847:AS-THE
+import:         from AS9009 accept ANY
+export:         to AS9009 announce AS209847:AS-THE
+import:         from AS51765 accept ANY
+export:         to AS51765 announce AS209847:AS-THE
+import:         from AS15566 accept ANY
+export:         to AS15566 announce AS209847:AS-THE
+import:         from AS31027 accept ANY
+export:         to AS31027 announce AS209847:AS-THE
+import:         from AS13004 accept ANY
+export:         to AS13004 announce AS209847:AS-THE
+import:         from AS213683 accept ANY
+export:         to AS213683 announce AS209847:AS-THE
+import:         from AS200899 accept ANY
+export:         to AS200899 announce AS209847:AS-THE
+import:         from AS5578 accept ANY
+export:         to AS5578 announce AS209847:AS-THE
+import:         from AS29208 accept ANY
+export:         to AS29208 announce AS209847:AS-THE
+import:         from AS57142 accept ANY
+export:         to AS57142 announce AS209847:AS-THE
+import:         from AS6461 accept ANY
+export:         to AS6461 announce AS209847:AS-THE
+import:         from AS6661 accept ANY
+export:         to AS6661 announce AS209847:AS-THE
+import:         from AS47176 accept ANY
+export:         to AS47176 announce AS209847:AS-THE
+import:         from AS206446 accept ANY
+export:         to AS206446 announce AS209847:AS-THE
+import:         from AS135330 accept ANY
+export:         to AS135330 announce AS209847:AS-THE
+import:         from AS49800 accept ANY
+export:         to AS49800 announce AS209847:AS-THE
+import:         from AS208972 accept ANY
+export:         to AS208972 announce AS209847:AS-THE
+import:         from AS9044 accept ANY
+export:         to AS9044 announce AS209847:AS-THE
+import:         from AS35680 accept ANY
+export:         to AS35680 announce AS209847:AS-THE
+import:         from AS42831 accept ANY
+export:         to AS42831 announce AS209847:AS-THE
+import:         from AS200590 accept ANY
+export:         to AS200590 announce AS209847:AS-THE
+admin-c:        THE3
+tech-c:         THE3
+status:         ASSIGNED
+mnt-by:         RIPE-NCC-END-MNT
+mnt-by:         THE-HOSTING-MNT
+created:        2025-06-24T11:09:23Z
+last-modified:  2025-10-14T14:34:40Z
+source:         RIPE
+
+organisation:   ORG-WB96-RIPE
+org-name:       WorkTitans B.V.
+country:        NL
+reg-nr:         78246180
+org-type:       LIR
+address:        Hoge Bothofstraat 39
+address:        7511 ZA
+address:        Enschede
+address:        NETHERLANDS
+phone:          +31532060000
+admin-c:        THMC1-RIPE
+tech-c:         THMC1-RIPE
+abuse-c:        AR78445-RIPE
+mnt-ref:        THE-HOSTING-MNT
+mnt-by:         RIPE-NCC-HM-MNT
+mnt-by:         THE-HOSTING-MNT
+created:        2025-06-23T11:10:15Z
+last-modified:  2026-05-13T07:08:43Z
+source:         RIPE # Filtered
+
+role:           THE-HOSTING
+address:        Hoge Bothofstraat 39, 7511 ZA Enschede, Netherlands
+nic-hdl:        THE3
+mnt-by:         THE-HOSTING-MNT
+created:        2025-05-28T17:31:22Z
+last-modified:  2025-05-28T17:31:22Z
+source:         RIPE # Filtered
+
+% This query was served by the RIPE Database Query Service version 1.124.1 (SHETLAND)
+
+

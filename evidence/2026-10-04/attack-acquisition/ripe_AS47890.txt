@@ -1,0 +1,76 @@
+% This is the RIPE Database query service.
+% The objects are in RPSL format.
+%
+% The RIPE Database is subject to Terms and Conditions.
+% See https://docs.db.ripe.net/terms-conditions.html
+
+% Note: this output has been filtered.
+%       To receive output for a database update, use the "-B" flag.
+
+% Information related to 'AS47870 - AS49384'
+
+as-block:       AS47870 - AS49384
+descr:          RIPE NCC ASN block
+remarks:        These AS Numbers are assigned to network operators in the RIPE NCC service region.
+mnt-by:         RIPE-NCC-HM-MNT
+created:        2025-07-09T08:51:07Z
+last-modified:  2025-07-09T08:51:07Z
+source:         RIPE
+
+% Information related to 'AS47890'
+
+% Abuse contact for 'AS47890' is 'abuse@unmanaged.uk'
+
+aut-num:        AS47890
+as-name:        UNMANAGED-DEDICATED-SERVERS
+org:            ORG-UMNG1-RIPE
+import:         from AS174 accept ANY
+export:         to AS174 announce AS-UNMANAGED
+import:         from AS1299 accept ANY
+export:         to AS1299 announce AS-UNMANAGED
+import:         from AS6830 accept ANY
+export:         to AS6830 announce AS-UNMANAGED
+import:         from AS9002 accept ANY
+export:         to AS9002 announce AS-UNMANAGED
+import:         from AS9050 accept ANY
+export:         to AS9050 announce AS-UNMANAGED
+import:         from AS12302 accept ANY
+export:         to AS12302 announce AS-UNMANAGED
+admin-c:        PB23091-RIPE
+tech-c:         PB23091-RIPE
+status:         ASSIGNED
+mnt-by:         RIPE-NCC-END-MNT
+mnt-by:         ro-btel2-1-mnt
+mnt-by:         UNMANAGED
+created:        2020-07-27T14:01:23Z
+last-modified:  2022-12-29T23:18:27Z
+source:         RIPE
+sponsoring-org: ORG-BTS48-RIPE
+
+organisation:   ORG-UMNG1-RIPE
+org-name:       UNMANAGED LTD
+country:        GB
+reg-nr:         12461131
+org-type:       OTHER
+address:        Business First Northampton, Brindley Close, Rushden, England, NN10 6EN
+phone:          +44 (0) 333 305 0020
+abuse-c:        ACRO34528-RIPE
+mnt-ref:        UNMANAGED
+mnt-by:         UNMANAGED
+mnt-by:         ro-btel2-1-mnt
+created:        2020-07-26T21:14:26Z
+last-modified:  2026-05-13T06:06:37Z
+source:         RIPE # Filtered
+
+person:         UNMANAGED LTD NOC - NETWORK OPERATIONS CENTER
+address:        Business First Northampton, Brindley Close, Rushden, England, NN10 6EN
+phone:          +44 (0) 333 305 0020
+nic-hdl:        PB23091-RIPE
+mnt-by:         UNMANAGED
+created:        2020-07-26T21:11:55Z
+last-modified:  2024-09-12T20:00:36Z
+source:         RIPE # Filtered
+
+% This query was served by the RIPE Database Query Service version 1.124.1 (SHETLAND)
+
+

@@ -1,0 +1,70 @@
+% This is the RIPE Database query service.
+% The objects are in RPSL format.
+%
+% The RIPE Database is subject to Terms and Conditions.
+% See https://docs.db.ripe.net/terms-conditions.html
+
+% Note: this output has been filtered.
+%       To receive output for a database update, use the "-B" flag.
+
+% Information related to '2.57.122.0 - 2.57.122.255'
+
+% Abuse contact for '2.57.122.0 - 2.57.122.255' is 'dmzhostabuse@gmail.com'
+
+inetnum:        2.57.122.0 - 2.57.122.255
+netname:        DMZHOSTdotco
+descr:          https://dmzhost.co
+country:        NL
+admin-c:        AD18161-RIPE
+tech-c:         AD18161-RIPE
+org:            ORG-TSL73-RIPE
+status:         ASSIGNED PA
+mnt-by:         TECHOFF-MNT
+created:        2019-03-21T15:15:17Z
+last-modified:  2024-11-21T09:40:02Z
+source:         RIPE
+
+organisation:   ORG-TSL73-RIPE
+org-name:       TECHOFF SRV LIMITED
+country:        GB
+reg-nr:         16090235
+org-type:       OTHER
+address:        35 Firs Avenue, London N11 3NE
+abuse-c:        AD18161-RIPE
+mnt-ref:        TECHOFF-MNT
+mnt-ref:        MNT-NETERRA
+mnt-by:         TECHOFF-MNT
+created:        2024-11-20T13:01:40Z
+last-modified:  2026-05-13T05:55:49Z
+source:         RIPE # Filtered
+
+role:           ABUSE DEP
+address:        35 Firs Avenue, London N11 3NE
+abuse-mailbox:  dmzhostabuse@gmail.com
+nic-hdl:        AD18161-RIPE
+mnt-by:         TECHOFF-MNT
+created:        2024-11-20T13:00:28Z
+last-modified:  2024-11-21T09:45:52Z
+source:         RIPE # Filtered
+
+% Information related to '2.57.122.0/24AS47890'
+
+route:          2.57.122.0/24
+origin:         AS47890
+mnt-by:         TECHOFF-MNT
+created:        2022-08-06T20:32:00Z
+last-modified:  2024-11-21T09:41:43Z
+source:         RIPE
+
+% Information related to '2.57.122.0/24AS48090'
+
+route:          2.57.122.0/24
+origin:         AS48090
+mnt-by:         TECHOFF-MNT
+created:        2020-06-30T20:02:53Z
+last-modified:  2024-11-21T09:41:56Z
+source:         RIPE
+
+% This query was served by the RIPE Database Query Service version 1.124.1 (SHETLAND)
+
+
