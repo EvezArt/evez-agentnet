@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T22:37:40.811984+00:00",
+  "generated": "2026-10-04T22:39:45.663779+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -731,6 +731,10 @@
     {
       "sched": "15 6 * * *",
       "cmd": "/usr/bin/python3 /root/evez-agentnet/daily_ops.py >> /root/evez-agentnet/logs/daily_ops.log 2>&1"
+    },
+    {
+      "sched": "30 4 * * *",
+      "cmd": "curl -sSL -m 30 https://www.dan.me.uk/torlist/ | grep -E \"^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+$\" > /tmp/tor_ips.txt && ipset "
     }
   ],
   "docker": [
@@ -818,9 +822,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "ecfd780",
-    "last": "comms: Tele Asia (HK upstream) abuse notice + CH ACSP integrity review request re Paramount/35 Firs Ave chain \u2014 all archived+hashed",
-    "dirty": 5
+    "head": "84b920f",
+    "last": "defense: Tor-exit blocklist (6758 exits) dropped at INPUT-1, ipset+systemd persisted, daily refresh cron; Paramount ACSP preservation notice sent",
+    "dirty": 2
   },
   "mirrors": 2329
 }
