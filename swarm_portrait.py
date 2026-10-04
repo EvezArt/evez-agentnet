@@ -73,9 +73,22 @@ def collect() -> dict:
     last = rows[-1] if rows else {}
     d = last.get("data", {}) or {}
 
+    # Agent reputations are written by round events. The tail of the spine is
+    # often some other domain entirely (attestations, codex watchdogs, heartbeats),
+    # so scanning only the last row blinds the portrait to a live swarm. Walk back
+    # to the most recent row that actually carries reputations.
+    def _reps_of(row):
+        return ((row.get("data") or {}).get("agent_reputations") or {})
+
     reps = d.get("agent_reputations", {}) or {}
-    agents = [{"name": k, "rep": float(v.get("rep", 0.0)),
-               "streak": int(v.get("streak", 0))}
+    if not reps:
+        for row in reversed(rows):
+            cand = _reps_of(row)
+            if cand:
+                reps = cand
+                break
+    agents = [{"name": k, "rep": float((v or {}).get("rep", 0.0)),
+               "streak": int((v or {}).get("streak", 0))}
               for k, v in reps.items()]
     agents.sort(key=lambda a: (-a["rep"], -a["streak"], a["name"]))
 
