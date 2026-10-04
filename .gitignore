@@ -68,3 +68,4 @@ cryptozoo/
 # EVEZ exposure watchdog runtime output (regenerated every 15m by cron)
 evidence/watchdog.log
 status/.watchdog_seen.json
+evidence/codex_watch.log
