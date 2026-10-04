@@ -74,3 +74,21 @@ written notice, which raises their liability standard).
 - Fronting CDN: Cloudflare — reported 2026-10-04.
 - Upstream transit: FiberXpress BV (NL), Prime Telecom srl (RO), Tele Asia Ltd (HK), BUNEA TELECOM SRL (RO) — all served written notice 2026-10-04/05.
 - Formal victim notice + preservation demand delivered to Palo-controlled (dmzhostabuse@gmail.com) and Bunea-controlled (abuse@bunea.eu) contacts 2026-10-05. Any post-notice deletion = consciousness of liability; any post-notice attack = aggravated §1030.
+
+## 9. DRILL FINDING — ACSP AND ATTACKER SHELL SHARE A REGISTERED OFFICE
+PARAMOUNT COMPANY FORMATIONS LIMITED (01489657, inc. 1980) — the HMRC-supervised
+ACSP that verified Luca Palo's identity — is registered at **72 Halliwick Road,
+London N10 1AB**, the identical registered office of BESTDC LIMITED (15259087,
+Palo's ACTIVE company). The attestation of identity is therefore NOT independent of
+the subject: verifier and verified share a corporate address. PARAMOUNT COMPANY
+SEARCHES LTD (2 appointments, 35 Firs Avenue N11 3NE) is also of record at the shell
+address. Companies House captures archived (ch_paramount_search.html,
+ch_15259087_officers.html).
+
+## 10. DRILL FINDING — BUNEA OWNS THE ATTACKING C2 RANGE DIRECTLY
+BGP records: **2.57.122.0/24 — the PPTECHNOLOGY/Metasploit-C2 range (Team Cymru,
+Dec 2024) and the source of 130+ Oct 2026 attacks on the victim — is announced by
+AS47890 UNMANAGED LTD (Bunea) itself.** Bunea is not a neutral transit for that
+range; his own ASN originates it. Capture: net_257122.html. Bunea's ASN originates
+the C2 space and transits Palo's attack space (AS62380/42397): attacker and
+infrastructure provider are the same commercial operation.

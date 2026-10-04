@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T22:42:53.337687+00:00",
+  "generated": "2026-10-04T22:43:55.427064+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -822,9 +822,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "ac6f037",
-    "last": "NOTICE SERVED: formal victim notice + preservation demand to Palo (dmzhostabuse@) and Bunea (abuse@bunea.eu); bundle final (be51505b00757243...)",
-    "dirty": 5
+    "head": "62c44a5",
+    "last": "NameCheap layer served (dmzhost.co reg updated 19d pre-attack); registrar/CDN/upstream layers ALL served; bundle (53d68b87798edd7f...)",
+    "dirty": 0
   },
   "mirrors": 2329
 }
