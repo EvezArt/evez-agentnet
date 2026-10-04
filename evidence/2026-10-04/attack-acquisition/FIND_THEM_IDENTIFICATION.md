@@ -97,3 +97,12 @@ infrastructure provider are the same commercial operation.
 - **45.148.10.0/24: netname DMZHOST, org TECHOFF SRV LIMITED (AD/GB) — fourth attacking range identified and firewall-blocked.**
 - **Tier-1 carriers served**: Cogent (AS174), Arelion (AS1299), RETN (AS9002) — documented upstreams of AS47890 — abuse notices with preservation demands sent 2026-10-05 (tier1_cogent_arelion_retn_abuse.eml). Other carriers of record: AS9050 RT-Romania, AS6830 Liberty Global, AS12302 Vodafone RO, AS24745.
 - AS48090 also announces 45.148.10.0/24 (DMZHOST netname) per bgp.he.net capture.
+
+## 12. BREAKTHROUGH — ALL RANGES ALREADY SPAMHAUS-SBL CONDEMNED
+Active Spamhaus SBL listings (captured spamhaus_sbl_hits.txt, 2026-10-05):
+2.57.122.0/24=SBL636050 · 45.148.10.0/24=SBL678435 · 45.156.87.0/24=SBL688017 ·
+80.94.92.0/24=SBL636056 · **80.94.92.0/22=SBL682858 (full /22)**.
+Firewall upgraded from /24 to the SBL-listed /22. SBL addendum served to
+Cogent/Arelion/RETN (their own AUPs + industry blacklist = action threshold met).
+Name.com served re bunea.eu (Bunea family domain). Registrar tally: NameCheap,
+GoDaddy, Name.com.

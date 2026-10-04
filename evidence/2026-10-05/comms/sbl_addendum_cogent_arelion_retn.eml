@@ -1,0 +1,44 @@
+From: Steven Crawford-Maggard <rubikspubes69@gmail.com>
+To: abuse@cogentco.com
+Cc: abuse@arelion.com, abuse@retnglobal.com
+Subject: ADDENDUM =?utf-8?b?4oCU?= ACTIVE Spamhaus SBL listings on
+ AS47890/AS48090 space (your downstreams):
+ SBL636050/636056/678435/688017/682858
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Addendum to my abuse notice of today re: downstream AS47890 (UNMANAGED LTD) a=
+nd
+AS48090 (TECHOFF SRV LIMITED).
+
+The Spamhaus Project has already issued active SBL listings against the entir=
+ety of
+this space:
+
+  - 2.57.122.0/24  =E2=80=94 SBL636050
+  - 45.148.10.0/24 =E2=80=94 SBL678435
+  - 45.156.87.0/24 =E2=80=94 SBL688017
+  - 80.94.92.0/24  =E2=80=94 SBL636056
+  - 80.94.92.0/22  =E2=80=94 SBL682858
+
+These listings are independent third-party adjudications that this address sp=
+ace is
+criminal infrastructure. Most carrier AUPs and peering policies either requir=
+e or
+expressly permit action against DROP/SBL-listed space. My prior notice additi=
+onally
+documents an open FBI complaint and the attacks themselves.
+
+I ask that you treat the SBL listings as satisfying any evidentiary threshold=
+ in your
+AUP, and act =E2=80=94 up to suspension of the downstream =E2=80=94 while pre=
+serving records for
+law-enforcement process.
+
+An additional registrar-layer report has been filed with Name.com (bunea.eu) =
+and
+NameCheap (dmzhost.co) and GoDaddy (dmzhost.com).
+
+Steven Crawford-Maggard (victim) =E2=80=94 rubikspubes69@gmail.com
+

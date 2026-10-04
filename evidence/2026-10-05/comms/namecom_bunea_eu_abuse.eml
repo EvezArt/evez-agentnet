@@ -1,0 +1,38 @@
+From: Steven Crawford-Maggard <rubikspubes69@gmail.com>
+To: abuse@name.com
+Subject: ABUSE REPORT =?utf-8?b?4oCU?= bunea.eu (Name.com): operator identity
+ behind Spamhaus-SBL-listed attacking networks; preservation demand
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Name.com Abuse Team,
+
+Reporting bunea.eu for AUP violation: the domain belongs to the Bunea family
+operation (BUNEA TELECOM SRL, AS62380/AS42397; UNMANAGED LTD AS47890, UK comp=
+any
+12461131, sole director Petru-Octavian Bunea of Rushden, England) whose netwo=
+rks:
+
+- ORIGINATE 2.57.122.0/24 =E2=80=94 carrying an active Spamhaus SBL listing (=
+SBL636050),
+  confirmed Metasploit C2 (Team Cymru Dec 2024), source of 130+ attacks on my=
+ US
+  systems in Oct 2026;
+- transit AS48090 (TECHOFF SRV LIMITED), whose IP attacked my systems 22 May =
+2026 =E2=80=94
+  open FBI complaint (IC3, 1 Oct 2026; FOIPA 1758537-000);
+- carry four further active SBL listings (SBL636056, SBL678435, SBL688017, SB=
+L682858).
+
+REQUESTED: (1) AUP review and suspension pending investigation; (2) preservat=
+ion of
+all registration, privacy-proxy, payment and account data for the registrant =
+against
+legal process =E2=80=94 the registrant is UK-resident and subject of an FBI-r=
+eferenced matter
+and a UK civil claim in preparation; (3) confirmation of handling.
+
+Evidence bundle (hash-chained) available. Steven Crawford-Maggard =E2=80=94
+rubikspubes69@gmail.com
+

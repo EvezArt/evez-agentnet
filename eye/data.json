@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T22:44:57.944279+00:00",
+  "generated": "2026-10-04T22:47:05.824072+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -822,9 +822,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "899d712",
-    "last": "DRILL: ACSP Paramount co-located at BESTDC address (attestation not independent); 2.57.122.0/24 C2 range ORIGINATED by Bunea AS47890; bundle (8ff29e9c8ce6d4a6...)",
-    "dirty": 0
+    "head": "203092e",
+    "last": "WIDER: 45.148.10.0/24 (DMZHOST/TECHOFF) 4th range blocked; Tier-1 Cogent/Arelion/RETN served; bundle (f5c4f4bbe35163d2...)",
+    "dirty": 2
   },
   "mirrors": 2329
 }
