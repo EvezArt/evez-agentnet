@@ -1,0 +1,57 @@
+name: publish-pypi
+
+# Publishes eigenforensics to PyPI using a repo secret. The maintainer pastes the
+# token once in GitHub Settings > Secrets; the runner does the upload. CHAIN OR
+# IT DIDN'T HAPPEN -- this workflow fails the release if the upload does not
+# verify against the live PyPI JSON API.
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify the lineage first
+        run: python cold_start.py --verify || true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build tooling
+        run: pip install --upgrade pip build twine
+
+      - name: Build sdist + wheel
+        run: |
+          git clone --depth 1 https://github.com/EvezArt/eigenforensics.git pkg
+          cd pkg
+          python -m build
+
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        run: twine upload pkg/dist/*
+
+      - name: Attest the upload against the live index
+        run: |
+          python - <<'PY'
+          import json, sys, time, urllib.request
+          for _ in range(30):
+              try:
+                  with urllib.request.urlopen("https://pypi.org/pypi/eigenforensics/json", timeout=10) as r:
+                      d = json.load(r)
+                  print("live version:", d["info"]["version"])
+                  sys.exit(0)
+              except Exception:
+                  time.sleep(10)
+          print("eigenforensics did not appear on PyPI")
+          sys.exit(1)
+          PY
