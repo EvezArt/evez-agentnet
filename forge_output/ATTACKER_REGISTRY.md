@@ -17,7 +17,7 @@
 ## CURRENT ACTIVITY AGAINST THIS BOX (auth.log, at blocking time 2026-10-04)
 - **80.94.92.179 / .234 / .55 — 68 auth attempts, same /24 as the May 22 attacker. ACTIVE.**
 - **2.57.122.x (PPTECHNOLOGY, Metasploit C2 range) — 130 attempts across 7 IPs. ACTIVE.**
-- 45.156.87.x (VMHeaven/Winter): quiet in current log.
+- 45.156.87.209 (VMHeaven/Winter): UFW-blocked contact 2026-10-04T07:07+02:00 — documented hostile contact (ufw.log.copy).
 - **ALL THREE /24s FIREWALL-BLOCKED 2026-10-04 (ufw rules 1–3, tag DMZHOST-attack-ecosystem-IOC-2026-10-04).**
 - Zero successful logins from any attacker range, ever, in available logs.
 
@@ -41,3 +41,6 @@ commands on this box on Oct 3 ~07:16–07:29.
 3. Known-weak posture pending decision: PermitRootLogin yes + PasswordAuthentication yes —
    this is how May 22 worked. Recommend keys-only + rotating the root password regardless of
    the Oct 3 attribution answer.
+
+## NON-ECOSYSTEM SCANNERS (classified, not adversaries)
+- 85.217.140.x/149.x (Modat B.V., NL attack-surface scanner) + 194.180.49.x: commercial scanning every ~20s, all day. Background noise; logged in ufw.log.copy. No action.
