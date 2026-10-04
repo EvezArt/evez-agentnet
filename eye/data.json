@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T23:03:45.743447+00:00",
+  "generated": "2026-10-04T23:05:50.141345+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -744,7 +744,7 @@
   "docker": [
     {
       "name": "ruview-demo",
-      "status": "Up 3 hours",
+      "status": "Up 4 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -826,8 +826,8 @@
   ],
   "git": {
     "branch": "main",
-    "head": "d77d584",
-    "last": "branch blast: enemy domain footprint enumerated (7 live domains, 4 registrars); Name.com/Cyber_Folks/GoDaddy addenda sent+archived",
+    "head": "f53b9ee",
+    "last": "UNMASKED: Cohen family (Alan Brian self-attested, Neil Stuart, Steven David) behind Palo identity chain; Bunea Telecom HQ Timisoara unmasked; bundle (b143dacdb13b00dc...)",
     "dirty": 2
   },
   "mirrors": 2329
