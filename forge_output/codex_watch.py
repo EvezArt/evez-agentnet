@@ -16,6 +16,7 @@ SURFACES = [
     ("liber-quartus","https://evezart.github.io/liber-quartus.html", ["LIBER QUARTUS"]),
     ("liber-quintus","https://evezart.github.io/liber-quintus.html", ["Liber Quintus"]),
     ("og-preview","https://evezart.github.io/evez666-mural.png", []),
+    ("swarm-portrait","https://evezart.github.io/swarm-portrait.html", ["SWARM SELFIE", "scanner"]),
     ("ruview-sensing","http://100.126.180.47:3000/health", []),
     ("release",  "https://api.github.com/repos/EvezArt/eigenforensics/releases/latest", ["tag_name"]),
 ]

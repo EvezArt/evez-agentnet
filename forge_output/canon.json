@@ -1,0 +1,43 @@
+{
+  "canon": "EVEZ666 Codex Vol I-IV + The Primer",
+  "author": "Steven Crawford-Maggard (EVEZ666)",
+  "root_commitment": "062cb53fc2e58f6c8eb43e7ec593f1db412123a85c831980bda252886a3b32c4",
+  "spine_head": "9e81748fcfa1d660",
+  "public": [
+    "https://evezart.github.io/codex.html",
+    "https://evezart.github.io/moltbooks.html",
+    "https://evezart.github.io/swarm-portrait.html"
+  ],
+  "documents": [
+    {
+      "source": "EVEZ_LORE.md",
+      "sha256": "c31beaa7e63f5090580288c8050e007a2ece13eecb7a360b1adacbe88efb4247",
+      "bytes": 5840,
+      "chars": 5810
+    },
+    {
+      "source": "EVEZ_CODEX_VOL_II.md",
+      "sha256": "dbaa588fcbb79b915b9450bac749c38fc581e0ceb769a5ef98f443e4bb9e65dd",
+      "bytes": 15617,
+      "chars": 15544
+    },
+    {
+      "source": "EVEZ_CODEX_VOL_III.md",
+      "sha256": "976b6fb56ff3efce13032f9df7878f7e74bd12e99b64f6212330d241d16bf9b6",
+      "bytes": 15447,
+      "chars": 15353
+    },
+    {
+      "source": "EVEZ_CODEX_VOL_IV.md",
+      "sha256": "63859eb0d72177d8dcd6bb0ce5f23bed061e207b8d06c0a257515e12e086e6a2",
+      "bytes": 5370,
+      "chars": 5335
+    },
+    {
+      "source": "THE_PRIMER.md",
+      "sha256": "5f4f12b384a7999ce997b706197d06ac4d53d9866b32b799b435ef785d8e5f27",
+      "bytes": 2879,
+      "chars": 2861
+    }
+  ]
+}
