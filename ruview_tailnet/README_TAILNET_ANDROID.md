@@ -159,3 +159,67 @@ component, not affiliated with Tailscale). Do not adopt it for this node:
 **Decision: keep the phone relay.** It is a byte-forwarder, has no crypto
 budget, and is already proven end to end. Revisit only if a C6-supported,
 stability-demonstrated tunnel exists.
+
+## MicroLink / Tailscale-direct on the ESP32 — researched and rejected
+
+A dedicated research pass (2026-10-04) reached a different conclusion than a
+naive reading would: Tailscale-direct is not viable on this node, and its
+recommended alternative (open public UDP 5005) is rejected here on security
+grounds. Both halves recorded so the question does not get re-litigated.
+
+### No official option exists
+
+`github.com/tailscale/esp-tailscale` is a 404, has no Wayback snapshot, and is
+absent from the Tailscale org. No MCU/embedded SDK exists — Tailscale's IoT
+story is Linux agents on SBCs.
+
+### MicroLink is not safe to put on a CSI node
+
+https://github.com/CamM2325/microlink (third-party, unaffiliated). Precise
+findings worth keeping:
+
+- **C6 is explicitly untested upstream** ("Should Work (Untested)"). A
+  community fork proves C6 builds/runs, not the CSI + 128-TX-buffer
+  combination.
+- **Plain `sendto()` is not supported.** MicroLink builds a real lwIP netif
+  with a /10 netmask *prepended* to `netif_list`, so lwIP's linear netmask scan
+  would route a `100.x` destination out the tunnel — but the library itself
+  calls `udp_bind_netif()` and binds to the VPN IP, i.e. the authors did not
+  trust routing. Treat it as unverified.
+- **Receive path is a documented crash.** `wireguardif.c` calls `ip_input()`
+  directly from the WireGuard task instead of `netif->input`. Issues #17
+  (`pbuf_free: p->ref > 0` assert + reboot), #20 (~600 KB TCP proxy rebooted an
+  S3 N16R8 mid-transfer on IDF v5.3), #28 (six lwIP thread-safety violations,
+  incl. `netif_set_up()`/`udp_new()` off-thread).
+- **MTU mismatch:** netif MTU 1420 but Tailscale's tunnel MTU is 1280 — inbound
+  breaks (issue #34, open).
+- **Port conflict:** grabs UDP 51820 (issue #5).
+- **`microlink_send()` is a stub** — `/* TODO: Route through WireGuard tunnel */`,
+  falls back to DERP queueing.
+- RAM: 116 KB static SRAM / 950 KB flash, but 1 MB of buffers wants PSRAM. C6
+  has **512 KB SRAM and no PSRAM** on most modules, so buffers must drop to
+  64 KB — and issue #35 documents that sub-64 KB configs were *silently broken*
+  by an unsigned underflow that made the control plane return GOAWAY.
+
+Also rejected: `esphome-tailscale` (PSRAM is a hard requirement — rules out C6),
+`0xdilo/tailscale-esp32` (S3 only), WARP (no client at that resource level).
+
+### Why public UDP 5005 is also rejected
+
+The research recommends pointing the ESP32 at `80.241.209.34:5005` — no hole
+punching needed, plain `sendto()` unmodified, no lwIP risk. Mechanically
+correct, and it is the simplest option available.
+
+It is not acceptable here. That data plane has **no message authentication**:
+ADR-296 step two (per-device keys, MAC/AEAD, monotonic sequence numbers,
+freshness window, replay rejection) has not landed. The ADR-296 allowlist only
+restricts *which addresses* may send — an IP allowlist is not authentication.
+An open port therefore lets anyone on the internet inject valid-shaped ADR-018
+frames and drive presence, breathing, fall-detection and automation outputs.
+Source-spoofing a residential IP is trivial, and NAT hairpin/amplification
+makes it worse.
+
+The phone relay stays: it is a byte-forwarder with no crypto budget, needs no
+infrastructure, and is already proven end to end. Revisit only when ADR-296
+step two lands — at that point public UDP becomes defensible and the phone
+leaves the data path entirely.
