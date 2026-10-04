@@ -16,6 +16,7 @@ SURFACES = [
     ("liber-quartus","https://evezart.github.io/liber-quartus.html", ["LIBER QUARTUS"]),
     ("liber-quintus","https://evezart.github.io/liber-quintus.html", ["Liber Quintus"]),
     ("og-preview","https://evezart.github.io/evez666-mural.png", []),
+    ("ruview-sensing","http://100.126.180.47:3000/health", []),
     ("release",  "https://api.github.com/repos/EvezArt/eigenforensics/releases/latest", ["tag_name"]),
 ]
 
@@ -30,6 +31,8 @@ def probe(name, url, must_contain):
             row["sha256"] = hashlib.sha256(body.encode()).hexdigest()[:16]
             missing = [m for m in must_contain if m not in body]
             row["ok"] = r.status == 200 and not missing
+            if name == "ruview-sensing":
+                row["_body"] = body
             if missing:
                 row["missing"] = missing
     except Exception as e:
@@ -42,9 +45,14 @@ def main():
     day = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d")
     outdir = os.path.join("evidence", day)
     os.makedirs(outdir, exist_ok=True)
+    for r in rows:
+        r.pop("_body", None)
     with open(os.path.join(outdir, "codex_watch.jsonl"), "a") as f:
         for r in rows:
             f.write(json.dumps(r) + "\n")
+    rv = next((r for r in rows if r["surface"] == "ruview-sensing"), None)
+    if rv and rv.get("ok"):
+        rv["sensing_source"] = "SIMULATED (no CSI node attached)" if '"simulated"' in rv.get("_body","") else "LIVE"
     failed = [r["surface"] for r in rows if not r["ok"]]
     for r in rows:
         print(f"{r['surface']:10} {'OK ' if r['ok'] else 'FAIL'} {r.get('status','-')} "
