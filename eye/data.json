@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T23:05:50.141345+00:00",
+  "generated": "2026-10-04T23:06:53.264818+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -826,9 +826,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "f53b9ee",
-    "last": "UNMASKED: Cohen family (Alan Brian self-attested, Neil Stuart, Steven David) behind Palo identity chain; Bunea Telecom HQ Timisoara unmasked; bundle (b143dacdb13b00dc...)",
-    "dirty": 2
+    "head": "fe9c7e3",
+    "last": "comms: THE PATH OF RESTORATION offer delivered to all three operators + Cohen-chain contacts \u2014 mercy window opened, 14 days, parallel to demand clocks",
+    "dirty": 0
   },
   "mirrors": 2329
 }
