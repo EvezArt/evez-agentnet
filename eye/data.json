@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T22:53:21.725244+00:00",
+  "generated": "2026-10-04T23:01:41.322213+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -735,6 +735,10 @@
     {
       "sched": "30 4 * * *",
       "cmd": "curl -sSL -m 30 https://www.dan.me.uk/torlist/ | grep -E \"^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+$\" > /tmp/tor_ips.txt && ipset "
+    },
+    {
+      "sched": "50 6 * * *",
+      "cmd": "/usr/bin/python3 /root/evez-agentnet/enemy_obligations.py >> /root/evez-agentnet/logs/enemy_clocks.log 2>&1"
     }
   ],
   "docker": [
@@ -765,7 +769,7 @@
     },
     {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 41 hours",
+      "status": "Up 42 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -822,9 +826,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "cda6769",
-    "last": "prophecy art: THE LEDGER REMEMBERS",
-    "dirty": 13
+    "head": "55932a7",
+    "last": "history: Chapter 11 \u2014 The BulletproofHosting Period and Its Discontents (primary sources cited; review questions included)",
+    "dirty": 6
   },
   "mirrors": 2329
 }

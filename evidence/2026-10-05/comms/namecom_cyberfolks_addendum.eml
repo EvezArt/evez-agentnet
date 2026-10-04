@@ -1,0 +1,39 @@
+From: Steven Crawford-Maggard <rubikspubes69@gmail.com>
+To: abuse@name.com
+Cc: sluzby-alert@cyberfolks.pl
+Subject: ADDENDUM =?utf-8?b?4oCU?= additional operator domains on your
+ registrars: unmanaged.uk (Name.com), bunea.ro (Cyber_Folks) =?utf-8?b?4oCU?=
+ preservation demand
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Addendum to my earlier abuse report (bunea.eu).
+
+Additional domains of the same operator family have been identified:
+- unmanaged.uk =E2=80=94 registered via Name.com LLC (tag NAME-COM). The RIPE=
+-registered
+  abuse contact of AS47890 (UNMANAGED LTD) is abuse@unmanaged.uk, i.e. this d=
+omain
+  serves as the network's abuse handling point.
+- bunea.ro =E2=80=94 registered via CYBER_FOLKS S.R.L. (cc: sluzby-alert@cybe=
+rfolks.pl).
+
+Family summary (all documented, hash-chained evidence available): UNMANAGED L=
+TD
+(12461131, director Petru-Octavian Bunea, Rushden UK) originates 2.57.122.0/24
+(Spamhaus SBL636050, confirmed Metasploit C2 =E2=80=94 Team Cymru Dec 2024) a=
+nd 80.94.92.0/22
+(SBL682858), and transits AS48090 (TECHOFF SRV LIMITED), which attacked my US=
+ systems
+on 22 May 2026 (FBI IC3 complaint filed 1 Oct 2026). Formal victim notice was=
+ served
+on abuse@bunea.eu and dmzhostabuse@gmail.com on 5 October 2026.
+
+REQUESTED for both domains: (1) AUP review/suspension pending investigation;
+(2) preservation of registration, privacy-proxy, and payment data against UK/=
+US legal
+process; (3) confirmation of handling.
+
+Steven Crawford-Maggard (victim) =E2=80=94 rubikspubes69@gmail.com
+

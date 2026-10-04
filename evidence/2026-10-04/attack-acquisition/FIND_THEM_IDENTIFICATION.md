@@ -106,3 +106,12 @@ Firewall upgraded from /24 to the SBL-listed /22. SBL addendum served to
 Cogent/Arelion/RETN (their own AUPs + industry blacklist = action threshold met).
 Name.com served re bunea.eu (Bunea family domain). Registrar tally: NameCheap,
 GoDaddy, Name.com.
+
+## 13. BRANCH BLAST — enemy domain footprint enumerated (2026-10-05)
+Registered: dmzhost.co (NameCheap 2015), dmzhost.com (GoDaddy), techoff.com (GoDaddy,
+2003), unmanaged.net (Annulet LLC, 2004), unmanaged.uk (Name.com — also the network's
+abuse-contact domain), bunea.eu (Name.com), bunea.ro (Cyber_Folks S.R.L.).
+Unregistered/free: dmzhost.net, dmzhost.io, dmzhost.org, techoffsrv.co.uk.
+Notices: Name.com addendum (unmanaged.uk + bunea.eu), Cyber_Folks cc'd (bunea.ro),
+GoDaddy addendum (techoff.com). Registrar branches served: 4 (NameCheap, GoDaddy,
+Name.com, Cyber_Folks) + CDN + 5 transit providers + 2 regulators + ACSP + operators.
