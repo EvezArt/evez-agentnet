@@ -89,137 +89,33 @@ confirmed server-side in `/api/v1/nodes`. It appends one JSON line per probe to
 `evez-agentnet/evidence/<UTC-date>/ruview_tailnet.jsonl` and logs to
 `/root/ruview/tailnet_watch.log`. A liveness attestation, not an accuracy claim.
 
-## Provisioning the ESP32 (server side)
+## One-paste phone setup
 
-`provision_node.sh` does everything that does not need the board in hand, so
-the only manual step left is plugging it in:
+There is no adb, no ssh, and no Termux-ssh on the phone, so nothing can be
+installed onto it from here. The phone therefore pulls its own installer over
+the tailnet and reports its LAN address back.
 
-    ./provision_node.sh --ssid "HomeWifi" --pass "hunter2" --agg 192.168.1.50
-    ./provision_node.sh --ssid "HomeWifi" --pass "hunter2" --agg 192.168.1.50 --16mb --build
+`ruview-bootstrap.service` (port 8099 on 100.126.180.47, bearer-gated) serves
+three files and accepts one POST. In Termux on the phone, one command:
 
-- `--agg` is the phone's LAN IP on the sensing WiFi.
-- `--4mb` / `--16mb` select the flash layout; `--build` rebuilds in
-  `espressif/idf:v5.4` (required when the build does not yet match).
-- It refuses to flash if the built image does not match the requested size,
-  and asserts `IDF_TARGET`, `BOOTLOADER_APP_ROLLBACK_ENABLE` and
-  `ESP_WIFI_CSI_ENABLED` before writing.
-- Site credentials go to `firmware/esp32-csi-node/sdkconfig.defaults.site`,
-  mode 600 and gitignored. Never commit that file.
+    bash -c "$(curl -fsSL http://100.126.180.47:8099/bootstrap.sh)"
 
-Both flash sizes are verified building: 4MB -> `partitions_4mb.csv`, 16MB ->
-`partitions_16mb.csv`, each with `ROLLBACK_ENABLE=y`.
+It checks the tailnet path, installs the relay to `~/ruview/`, parses it before
+trusting it, reports the phone's `wlan0` LAN IP to `/register`, starts the
+relay detached with a wake lock, and verifies.
 
-**Upstream overlay-order defect (found here, fixed in the provisioner):**
-`sdkconfig.defaults.16mb` states it layers on top of
-`sdkconfig.defaults.esp32c6`, but the firmware RUNBOOK's documented `cat` order
-puts `16mb` first. Last file wins in an sdkconfig overlay, so esp32c6's 4MB
-layout overwrites the 16MB request and the build silently produces a 4MB
-image — while the same RUNBOOK's verification table demands
-`FLASHSIZE="16MB"`. Anyone following the RUNBOOK verbatim gets a wrong-sized
-image and may not notice. The provisioner concatenates in dependency order:
-`sdkconfig.defaults sdkconfig.defaults.esp32c6 [sdkconfig.defaults.16mb]`.
+**Why the phone registers its own LAN address.** That IP is what the ESP32 must
+target, and it is a private RFC1918 address on a network the VPS cannot see.
+Having the phone self-report means the ESP32 target is never a value someone
+reads off a screen and retypes. `provision_node.sh` reads the registry
+automatically:
 
-Flash offsets come from the build's own `flash_args`, never hand-copied. Both
-the 4MB and 16MB tables currently place the app at `0x20000`, but the
-`--flash_size` in those args is board-specific and a partition-table change
-upstream must not be able to silently flash the wrong layout.
+    ./provision_node.sh --ssid "HomeWifi" --pass "..." --agg-registered
 
-## What is deliberately NOT done
+`--agg-registered` refuses to fall back to the VPS address when no phone has
+registered, because flashing a node pointed at the wrong aggregator is a
+failure that only shows up as silent `esp32:offline` later.
 
-Public UDP 5005 is not opened. The CSI data plane has no message
-authentication (ADR-296 step two — per-device keys and replay rejection — has
-not landed), so exposing it to the internet would let anyone inject valid-shaped
-frames and drive presence/vital outputs. The node reaches the tailnet, not the
-reverse.
-
-## Eliminating the phone: not possible on ESP32-C6
-
-Researched 2026-10-04. There is **no `esp-tailscale`** — `tailscale/esp-tailscale`
-is a 404, has never existed per the Wayback Machine, and is absent from the
-Tailscale org. No official Tailscale Embedded SDK or MCU port exists;
-Tailscale's IoT positioning is Linux agents on SBCs.
-
-Third-party option: **MicroLink** (https://github.com/CamM2325/microlink, ESP-IDF
-component, not affiliated with Tailscale). Do not adopt it for this node:
-
-- Not confirmed for ESP32-C6 specifically.
-- Reproducible crashes under sustained tunnel traffic, hardware-confirmed:
-  issue #17 (`pbuf_free: p->ref > 0` assert + reboot), issue #20 (a ~600 KB TCP
-  proxy rebooted an S3 N16R8 mid-transfer on IDF v5.3, clean only after a fix),
-  issue #28 (six lwIP thread-safety violations found via
-  `CONFIG_LWIP_CHECK_THREAD_SAFETY`, including `netif_set_up()`/`udp_new()`
-  called off-thread).
-- It needs a custom lwIP netif (WireGuard MTU 1420), so plain `sendto()` to a
-  100.x address is not guaranteed transparent — the CSI sender would have to be
-  reworked and re-validated against the ADR-018 frame path.
-- CSI capture already saturates the radio's TX airtime and consumes the WiFi
-  buffer pools (see the sdkconfig comments about `sendto ENOMEM` at 10/s). Adding
-  a WireGuard tunnel on top competes for the same constrained resources.
-
-**Decision: keep the phone relay.** It is a byte-forwarder, has no crypto
-budget, and is already proven end to end. Revisit only if a C6-supported,
-stability-demonstrated tunnel exists.
-
-## MicroLink / Tailscale-direct on the ESP32 — researched and rejected
-
-A dedicated research pass (2026-10-04) reached a different conclusion than a
-naive reading would: Tailscale-direct is not viable on this node, and its
-recommended alternative (open public UDP 5005) is rejected here on security
-grounds. Both halves recorded so the question does not get re-litigated.
-
-### No official option exists
-
-`github.com/tailscale/esp-tailscale` is a 404, has no Wayback snapshot, and is
-absent from the Tailscale org. No MCU/embedded SDK exists — Tailscale's IoT
-story is Linux agents on SBCs.
-
-### MicroLink is not safe to put on a CSI node
-
-https://github.com/CamM2325/microlink (third-party, unaffiliated). Precise
-findings worth keeping:
-
-- **C6 is explicitly untested upstream** ("Should Work (Untested)"). A
-  community fork proves C6 builds/runs, not the CSI + 128-TX-buffer
-  combination.
-- **Plain `sendto()` is not supported.** MicroLink builds a real lwIP netif
-  with a /10 netmask *prepended* to `netif_list`, so lwIP's linear netmask scan
-  would route a `100.x` destination out the tunnel — but the library itself
-  calls `udp_bind_netif()` and binds to the VPN IP, i.e. the authors did not
-  trust routing. Treat it as unverified.
-- **Receive path is a documented crash.** `wireguardif.c` calls `ip_input()`
-  directly from the WireGuard task instead of `netif->input`. Issues #17
-  (`pbuf_free: p->ref > 0` assert + reboot), #20 (~600 KB TCP proxy rebooted an
-  S3 N16R8 mid-transfer on IDF v5.3), #28 (six lwIP thread-safety violations,
-  incl. `netif_set_up()`/`udp_new()` off-thread).
-- **MTU mismatch:** netif MTU 1420 but Tailscale's tunnel MTU is 1280 — inbound
-  breaks (issue #34, open).
-- **Port conflict:** grabs UDP 51820 (issue #5).
-- **`microlink_send()` is a stub** — `/* TODO: Route through WireGuard tunnel */`,
-  falls back to DERP queueing.
-- RAM: 116 KB static SRAM / 950 KB flash, but 1 MB of buffers wants PSRAM. C6
-  has **512 KB SRAM and no PSRAM** on most modules, so buffers must drop to
-  64 KB — and issue #35 documents that sub-64 KB configs were *silently broken*
-  by an unsigned underflow that made the control plane return GOAWAY.
-
-Also rejected: `esphome-tailscale` (PSRAM is a hard requirement — rules out C6),
-`0xdilo/tailscale-esp32` (S3 only), WARP (no client at that resource level).
-
-### Why public UDP 5005 is also rejected
-
-The research recommends pointing the ESP32 at `80.241.209.34:5005` — no hole
-punching needed, plain `sendto()` unmodified, no lwIP risk. Mechanically
-correct, and it is the simplest option available.
-
-It is not acceptable here. That data plane has **no message authentication**:
-ADR-296 step two (per-device keys, MAC/AEAD, monotonic sequence numbers,
-freshness window, replay rejection) has not landed. The ADR-296 allowlist only
-restricts *which addresses* may send — an IP allowlist is not authentication.
-An open port therefore lets anyone on the internet inject valid-shaped ADR-018
-frames and drive presence, breathing, fall-detection and automation outputs.
-Source-spoofing a residential IP is trivial, and NAT hairpin/amplification
-makes it worse.
-
-The phone relay stays: it is a byte-forwarder with no crypto budget, needs no
-infrastructure, and is already proven end to end. Revisit only when ADR-296
-step two lands — at that point public UDP becomes defensible and the phone
-leaves the data path entirely.
+Registration is advisory. It records an operator hint; it never changes a
+firewall rule or redirects anything by itself. The endpoint accepts only
+private IPv4 and rejects anything else.

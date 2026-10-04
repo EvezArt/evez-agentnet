@@ -10,12 +10,16 @@
 #   ./provision_node.sh --ssid "HomeWifi" --pass "hunter2" --16mb --build
 #
 # --agg is the PHONE's LAN IP on the sensing WiFi (where the relay listens),
-# NOT a Tailscale IP and NOT the VPS. Omit it to default to the VPS tailnet
-# address, which is only correct if the node can route to the tailnet itself.
+# NOT a Tailscale IP and NOT the VPS. Omit it and it is read from the registry
+# the phone populated via bootstrap.sh -- so once the phone has run the
+# bootstrap you never have to know or type the address.
+#
+# --agg-registered  require the registry value, failing if the phone has not
+#                   registered yet (never silently fall back to the VPS).
 set -euo pipefail
 
 SSID=""; PASS=""; AGG=""; PORT=""
-SIZE="4mb"; BUILD=0; SKIP_FLASH=0
+SIZE="4mb"; BUILD=0; SKIP_FLASH=0; AGG_REGISTERED=0
 REPO="${REPO:-/root/repos/RuView}"
 FW="$REPO/firmware/esp32-csi-node"
 BUILD_DIR="$FW/build"
@@ -33,6 +37,7 @@ while [ $# -gt 0 ]; do
     --4mb)  SIZE="4mb";  shift;;
     --build) BUILD=1; shift;;
     --skip-flash) SKIP_FLASH=1; shift;;
+    --agg-registered) AGG_REGISTERED=1; shift;;
     -h|--help) sed -n '2,14p' "$0"; exit 0;;
     *) die "unknown argument: $1";;
   esac
@@ -40,6 +45,17 @@ done
 
 [ -n "$SSID" ] || die "--ssid is required"
 [ -n "$PASS" ] || die "--pass is required"
+
+# Resolve the aggregator address: explicit --agg wins, else the registry the
+# phone wrote, else (unless --agg-registered) the VPS tailnet address.
+REGISTRY="${RUVIEW_PHONE_REGISTRY:-/root/ruview/phone_registry.json}"
+if [ -z "$AGG" ] && [ -f "$REGISTRY" ]; then
+  AGG="$(sed -n 's/.*"lan_ip": "\([0-9.]*\)".*/\1/p' "$REGISTRY" | head -1)"
+  [ -n "$AGG" ] && echo "ESP32 target from the phone registry: $AGG"
+fi
+if [ "$AGG_REGISTERED" = "1" ] && [ -z "$AGG" ]; then
+  die "no phone has registered a LAN address yet -- run bootstrap.sh on the phone first."
+fi
 
 step "1/5 build target: ESP32-C6, $SIZE flash"
 if [ "$BUILD" = "1" ] || [ ! -f "$BUILD_DIR/flash_args" ]; then
