@@ -1,0 +1,54 @@
+name: publish-pypi-oidc
+
+# Zero-secret PyPI publish via Trusted Publishing (OIDC).
+# No API token, no password, no captcha, nothing pasted anywhere.
+# One-time setup in the PyPI web UI (trusted publisher: repo EvezArt/evez-agentnet,
+# workflow publish-pypi-oidc, subdirectory empty). After that this runs on every
+# eigenforensics release and needs no credential in this repo at all.
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write          # <- the whole trick: OIDC identity instead of a secret
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: pypi
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build eigenforensics
+        run: |
+          git clone --depth 1 https://github.com/EvezArt/eigenforensics.git pkg
+          cd pkg
+          pip install --upgrade build
+          python -m build
+
+      - name: Publish (no token anywhere)
+        run: |
+          pip install --upgrade twine
+          twine upload pkg/dist/*
+
+      - name: Attest against the live index
+        run: |
+          python - <<'PY'
+          import json, sys, time, urllib.request
+          for _ in range(30):
+              try:
+                  with urllib.request.urlopen("https://pypi.org/pypi/eigenforensics/json", timeout=10) as r:
+                      print("live version:", json.load(r)["info"]["version"])
+                      sys.exit(0)
+              except Exception:
+                  time.sleep(10)
+          print("eigenforensics did not appear on PyPI")
+          sys.exit(1)
+          PY
