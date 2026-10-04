@@ -1,0 +1,39 @@
+From: Steven Crawford-Maggard <rubikspubes69@gmail.com>
+To: fiberxpress@fiberxpress.nl
+Subject: ABUSE NOTICE =?utf-8?b?4oCU?= your downstream AS48090 (TECHOFF
+ SRV/DMZHOST) attacking US systems; preservation request
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+FiberXpress BV Abuse Desk,
+
+Your network is an upstream/transit provider for AS48090 (TECHOFF SRV LIMITED=
+ =E2=80=94
+"DMZHOST", RIPE org at 35 Firs Avenue, London N11 3NE). That AS and its downs=
+tream
+ranges conducted:
+
+- unauthorized SSH access against my US systems on 2026-05-22 from 80.94.92.1=
+66
+  (documented in an open FBI IC3 complaint, filed 2026-10-01; FOIPA 1758537-0=
+00);
+- continuing authentication attacks against my systems through October 2026
+  (kernel-logged, hash-chained evidence, SHA-256 manifest on file).
+
+TECHOFF SRV LIMITED is in registrar-initiated strike-off in the UK; its sole =
+director
+(Luca Palo, Milano) also directs BESTDC LIMITED (15259087). The associated
+bulletproof-hosting operation is within the enforcement perimeter of the Dutc=
+h FIOD
+May 2026 seizures and the DOJ/SDNY Media Land/ML.Cloud action.
+
+REQUESTED: (1) action under your AUP against this downstream, up to disconnec=
+tion;
+(2) preservation of all transit, customer and payment records for AS48090 and=
+ related
+customers against legal process; (3) confirmation of handling.
+
+Evidence bundle available on request.
+Steven Crawford-Maggard (victim) =E2=80=94 rubikspubes69@gmail.com
+

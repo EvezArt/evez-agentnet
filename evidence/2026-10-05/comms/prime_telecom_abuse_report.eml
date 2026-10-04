@@ -1,0 +1,39 @@
+From: Steven Crawford-Maggard <rubikspubes69@gmail.com>
+To: abuse@primetelecom.ro
+Cc: abuse@unmanaged.uk
+Subject: ABUSE NOTICE =?utf-8?b?4oCU?= AS48090/AS47890 (TECHOFF/UNMANAGED)
+ attacks on US victim; preservation request
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Prime Telecom Abuse Desk (cc: UNMANAGED abuse contact),
+
+AS48090 (TECHOFF SRV LIMITED, "DMZHOST") and its ecosystem partner AS47890
+(UNMANAGED LTD / Bunea) are documented attacking a US victim:
+
+- unauthorized SSH access 2026-05-22 from 80.94.92.166 (AS48090) =E2=80=94 op=
+en FBI IC3
+  complaint (filed 2026-10-01), FOIPA 1758537-000 pending;
+- 130+ authentication attacks October 2026 from AS47890 ranges =E2=80=94 kern=
+el-logged,
+  hash-chained, SHA-256 manifest;
+- separate root compromise 2026-10-03 (NL IP + Tor exit) =E2=80=94 victim-swo=
+rn
+  non-attribution, incident filed.
+
+Routing records show AS48090 announces via upstreams including AS62380/AS42397
+(Bunea Telecom SRL) and AS39737 (Prime Telecom).
+
+REQUESTED: (1) AUP action against these downstreams, up to disconnection of t=
+he
+attacking ranges (80.94.92.0/24, 2.57.122.0/24); (2) preservation of customer,
+transit and payment records against legal process (FBI matter open); (3) conf=
+irmation
+of handling. Note TECHOFF SRV LIMITED is in UK strike-off and its sole direct=
+or also
+controls the successor entity BESTDC LIMITED (15259087).
+
+Evidence bundle on request. Steven Crawford-Maggard (victim) =E2=80=94 rubiks=
+pubes69@gmail.com
+

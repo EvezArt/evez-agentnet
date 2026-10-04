@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T22:32:25.890542+00:00",
+  "generated": "2026-10-04T22:34:31.656183+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -591,6 +591,16 @@
       "fw_blocked": false
     },
     {
+      "port": 38267,
+      "bind": "127.0.0.1",
+      "proc": "llama-server",
+      "pid": 2963890,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 51885,
       "bind": "100.126.180.47",
       "proc": "tailscaled",
@@ -808,9 +818,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "710ef68",
-    "last": "SMOKING GUN: AS48090 upstreams = AS62380/42397 BUNEA TELECOM SRL (Palo transits Bunea family company); FiberXpress+PrimeTelecom abuse notices sent; bundle rebuilt (db0ef5742bbb9922...)",
-    "dirty": 0
+    "head": "16b4110",
+    "last": "evidence: watchdog sweep 2026-10-04T22:32:41Z",
+    "dirty": 4
   },
   "mirrors": 2329
 }
