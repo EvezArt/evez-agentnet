@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T23:01:41.322213+00:00",
+  "generated": "2026-10-04T23:03:45.743447+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -826,9 +826,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "55932a7",
-    "last": "history: Chapter 11 \u2014 The BulletproofHosting Period and Its Discontents (primary sources cited; review questions included)",
-    "dirty": 6
+    "head": "d77d584",
+    "last": "branch blast: enemy domain footprint enumerated (7 live domains, 4 registrars); Name.com/Cyber_Folks/GoDaddy addenda sent+archived",
+    "dirty": 2
   },
   "mirrors": 2329
 }

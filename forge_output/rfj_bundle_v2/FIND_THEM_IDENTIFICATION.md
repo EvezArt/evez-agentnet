@@ -106,3 +106,35 @@ Firewall upgraded from /24 to the SBL-listed /22. SBL addendum served to
 Cogent/Arelion/RETN (their own AUPs + industry blacklist = action threshold met).
 Name.com served re bunea.eu (Bunea family domain). Registrar tally: NameCheap,
 GoDaddy, Name.com.
+
+## 13. BRANCH BLAST — enemy domain footprint enumerated (2026-10-05)
+Registered: dmzhost.co (NameCheap 2015), dmzhost.com (GoDaddy), techoff.com (GoDaddy,
+2003), unmanaged.net (Annulet LLC, 2004), unmanaged.uk (Name.com — also the network's
+abuse-contact domain), bunea.eu (Name.com), bunea.ro (Cyber_Folks S.R.L.).
+Unregistered/free: dmzhost.net, dmzhost.io, dmzhost.org, techoffsrv.co.uk.
+Notices: Name.com addendum (unmanaged.uk + bunea.eu), Cyber_Folks cc'd (bunea.ro),
+GoDaddy addendum (techoff.com). Registrar branches served: 4 (NameCheap, GoDaddy,
+Name.com, Cyber_Folks) + CDN + 5 transit providers + 2 regulators + ACSP + operators.
+
+## 14. THE COHEN FAMILY — UNMASKED (2026-10-05, Companies House primary records)
+PARAMOUNT COMPANY FORMATIONS LIMITED (01489657, inc. 1980) — the ACSP that attested
+the attacker Palo's identity — is a family concern:
+- **COHEN, Alan Brian** (b. Oct 1958, British) — ACTIVE director since 30 Apr 2013,
+  72 Halliwick Road N10 1AB. **His own identity was verified on 18 Nov 2025 BY HIS
+  OWN COMPANY** (self-attestation).
+- **COHEN, Neil Stuart** (b. Aug 1961, British) — ACTIVE director since before 1991,
+  same address.
+- **COHEN, Steven David** (b. Oct 1956, British) — director/secretary at 35 Firs
+  Avenue until resignation 1 Aug 2023.
+- COHEN, Israel (b. Sep 1925) — historic nominee director, 89 Poplar Grove N11 3NJ.
+Consequence: the entire identity-verification chain resting on this ACSP — including
+the attacker Palo's attestation — is a family operation whose principals verified
+themselves, operating from addresses shared with the subjects' shells (72 Halliwick
+Road = BESTDC; 35 Firs Avenue = TECHOFF/PPTECH). HMRC supervision + Companies House
+IDV regime both have direct jurisdiction.
+
+## 15. BUNEA TELECOM SRL — PHYSICAL HQ UNMASKED (RIPE records)
+**Calea Stan Vidrighin 14-16, 300571 Timișoara, ROMANIA** (ORG-BTS48-RIPE; also
+Calea Stan Vidrighin 14A). RIPE person record: "Petru Bunea". The Romanian transit
+company carrying Palo's attack traffic has a street address and its principal's name
+in the public routing database.
