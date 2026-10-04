@@ -88,3 +88,44 @@ up, health answering, and a real frame round-tripped through UDP 5005 and
 confirmed server-side in `/api/v1/nodes`. It appends one JSON line per probe to
 `evez-agentnet/evidence/<UTC-date>/ruview_tailnet.jsonl` and logs to
 `/root/ruview/tailnet_watch.log`. A liveness attestation, not an accuracy claim.
+
+## Provisioning the ESP32 (server side)
+
+`provision_node.sh` does everything that does not need the board in hand, so
+the only manual step left is plugging it in:
+
+    ./provision_node.sh --ssid "HomeWifi" --pass "hunter2" --agg 192.168.1.50
+    ./provision_node.sh --ssid "HomeWifi" --pass "hunter2" --agg 192.168.1.50 --16mb --build
+
+- `--agg` is the phone's LAN IP on the sensing WiFi.
+- `--4mb` / `--16mb` select the flash layout; `--build` rebuilds in
+  `espressif/idf:v5.4` (required when the build does not yet match).
+- It refuses to flash if the built image does not match the requested size,
+  and asserts `IDF_TARGET`, `BOOTLOADER_APP_ROLLBACK_ENABLE` and
+  `ESP_WIFI_CSI_ENABLED` before writing.
+- Site credentials go to `firmware/esp32-csi-node/sdkconfig.defaults.site`,
+  mode 600 and gitignored. Never commit that file.
+
+Both flash sizes are verified building: 4MB -> `partitions_4mb.csv`, 16MB ->
+`partitions_16mb.csv`, each with `ROLLBACK_ENABLE=y`.
+
+**Upstream overlay-order defect (found here, fixed in the provisioner):**
+`sdkconfig.defaults.16mb` states it layers on top of
+`sdkconfig.defaults.esp32c6`, but the firmware RUNBOOK's documented `cat` order
+puts `16mb` first. Last file wins in an sdkconfig overlay, so esp32c6's 4MB
+layout overwrites the 16MB request and the build silently produces a 4MB
+image — while the same RUNBOOK's verification table demands
+`FLASHSIZE="16MB"`. Anyone following the RUNBOOK verbatim gets a wrong-sized
+image and may not notice. The provisioner concatenates in dependency order:
+`sdkconfig.defaults sdkconfig.defaults.esp32c6 [sdkconfig.defaults.16mb]`.
+
+Flash offsets are read from the build's own `flash_args`, never hand-copied:
+the app offset differs between the two partition tables (0x20000 vs 0x10000).
+
+## What is deliberately NOT done
+
+Public UDP 5005 is not opened. The CSI data plane has no message
+authentication (ADR-296 step two — per-device keys and replay rejection — has
+not landed), so exposing it to the internet would let anyone inject valid-shaped
+frames and drive presence/vital outputs. The node reaches the tailnet, not the
+reverse.
