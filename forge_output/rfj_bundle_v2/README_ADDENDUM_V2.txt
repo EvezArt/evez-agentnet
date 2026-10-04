@@ -25,3 +25,4 @@ REQUESTED ACTION: this bundle materially advances target identification to
 street-address + DOB + regulated-identity-attestation level for both subjects.
 Zinad identification available via FIOD case file (Dutch, May 2026 seizure).
 FINAL UPDATE 2026-10-05: BESTDC LIMITED (15259087) sole director = Luca Palo (same Milan address, same DOB, same ACSP) — Palo owns BOTH the attacking ASN shell (TECHOFF) and the ACTIVE successor (BESTDC). PPTECHNOLOGY (Pitzalis) dissolved 14 days after Palo ACSP re-verification. Three operators fully identified.
+UPDATE 2026-10-05 (2): routing proof — AS48090 upstreams include AS62380/AS42397 BUNEA TELECOM SRL: Palo attacks transit Bunea family company. Upstream providers FiberXpress BV and Prime Telecom srl placed on written notice (abuse notices sent). Bunea abuse@unmanaged.uk cc-ed = written notice received.

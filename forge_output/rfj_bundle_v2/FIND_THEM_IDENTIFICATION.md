@@ -57,3 +57,13 @@ UK asset — attachment target. Co-defendant in the E&W action; name it in the c
 Ecosystem control summary: PALO (2 shells) + PITZALIS (1, dissolved) + BUNEA (routing) —
 three named, identified, addressable individuals; two in the same Italian metro area,
 one UK-resident. All three identity-anchored in public regulatory records.
+
+## 7. THE WIRE — Bunea's own Romanian ASNs are Palo's upstream transit
+bgp.he.net routing records (captured, hashed): AS48090 (TECHOFF/Palo) announces via
+upstreams AS62380 and AS42397 = **BUNEA TELECOM SRL** — a Romanian company of the
+Bunea family (officer: Bunea Petru-Octavian). Palo's attack traffic transits Bunea's
+own transit company. Aid-and-abet is now a documented commercial relationship, not an
+inference. Additional upstreams put on notice: FiberXpress BV (NL), Prime Telecom srl
+(RO, abuse@primetelecom.ro), Tele Asia Limited (HK). Abuse notices sent 2026-10-05 to
+FiberXpress and Prime Telecom (cc Bunea's own abuse@unmanaged.uk — they now have
+written notice, which raises their liability standard).

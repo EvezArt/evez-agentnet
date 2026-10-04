@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T22:25:07.557093+00:00",
+  "generated": "2026-10-04T22:31:23.039045+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -591,16 +591,6 @@
       "fw_blocked": false
     },
     {
-      "port": 37613,
-      "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 2939662,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 51885,
       "bind": "100.126.180.47",
       "proc": "tailscaled",
@@ -727,6 +717,10 @@
     {
       "sched": "*/15 * * * *",
       "cmd": "/usr/bin/python3 /root/evez-agentnet/attacker_watch.py >> /root/evez-agentnet/logs/attacker_watch.log 2>&1"
+    },
+    {
+      "sched": "15 6 * * *",
+      "cmd": "/usr/bin/python3 /root/evez-agentnet/daily_ops.py >> /root/evez-agentnet/logs/daily_ops.log 2>&1"
     }
   ],
   "docker": [
@@ -747,7 +741,7 @@
     },
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 8 hours",
+      "status": "Up 9 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -814,9 +808,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "29af4fc",
-    "last": "lawsuit: creditor strike-off objection filed to Companies House re TECHOFF 16090235 (sent 2026-10-05 from principal's address)",
-    "dirty": 21
+    "head": "dafd887",
+    "last": "ops: GoDaddy+Cloudflare abuse reports sent (dmzhost domains), Leigh Day CFA pitch sent, daily_ops cron (CH strike-off watch + attack counts) live",
+    "dirty": 6
   },
   "mirrors": 2329
 }

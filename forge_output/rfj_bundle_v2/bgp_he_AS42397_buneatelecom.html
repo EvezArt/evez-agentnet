@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<!-- rmosher 2010 - 2016 -->
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="canonical" href="https://bgp.he.net/AS42397" />
+
+<script src="/javascripts/jquery/jquery-1.5.min.js?1696886982" type="text/javascript"></script>
+
+<script src="/javascripts/jquery/jrails.js?1269850578" type="text/javascript"></script>
+<script src="/javascripts/bgp.js?1260526324" type="text/javascript"></script>
+<link href="/stylesheets/main.css?1715817860" media="all" rel="stylesheet" type="text/css" />
+
+
+<script src="/javascripts/tabs.js?1696886972" type="text/javascript"></script>
+<script src="/javascripts/sorttable.js?1283318963" type="text/javascript"></script>
+<script src="/javascripts/moment.min.js?1526549068" type="text/javascript"></script>
+<script src="/javascripts/chart.min.js?1553155923" type="text/javascript"></script>
+<script src="/javascripts/d3.v3.min.js?1553275964" type="text/javascript"></script>
+<script src="/javascripts/d3.pie.js?1553913738" type="text/javascript"></script>
+<script src="/javascripts/bgpcharts.js?1715815686" type="text/javascript"></script>
+<script src="/javascripts/traceroute.js?1715115442" type="text/javascript"></script>
+<script src="/javascripts/reports.js?1758753658" type="text/javascript"></script>
+<script src="/javascripts/rdap.js?1772834332" type="text/javascript"></script>
+<link href="/stylesheets/rdap.css?1729289720" media="all" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/traceroute.css?1718236217" media="all" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/as.css?1728952320" media="all" rel="stylesheet" type="text/css" />
+
+<title>AS42397 Bunea TELECOM SRL - bgp.he.net</title>
+<meta name="description" content="AS42397 Bunea TELECOM SRL Network Information" />
+<style>
+	.table-pager {
+		user-select: none;
+	}
+</style>
+<script>
+function tabmenuCallback() {
+	var asn = 42397;
+	if (!window.loadedOrg) {
+		window.loadedOrg = true;
+		fetchAsnOrg(asn);
+	}
+	let selectedelem = $(".tabmenuselected");
+	if (selectedelem) {
+		if (selectedelem.attr("id") == "tab_traceroute") {
+			if (!window.loadedProbes) {
+				window.loadedProbes = true;
+				loadProbesForAsn(asn);
+			}
+		} else if (["tab_rtprefixes","tab_rtbogons","tab_prefixes","tab_prefixes6"].includes(selectedelem.attr("id"))) {
+			if (!window.loadedPrefixes) {
+				window.loadedPrefixes = true;
+				loadOriginatedPrefixes(asn);
+			}
+		} else if (selectedelem.attr("id") == "tab_rdap") {
+			if (!window.loadedRdap) {
+				window.loadedRdap = true;
+				loadRdap(`/rdap/as${asn}`);
+			}
+		} else if (selectedelem.attr("id") == "tab_whois") {
+			if (!window.loadedWhois) {
+				window.loadedWhois = true;
+				fetchWhois(asn);
+			}
+		} else if (selectedelem.attr("id") == "tab_graph4") {
+			if (!window.loadedGraph4) {
+				window.loadedGraph4 = true;
+				fetchGraph(asn,4);
+			}
+		} else if (selectedelem.attr("id") == "tab_graph6") {
+			if (!window.loadedGraph6) {
+				window.loadedGraph6 = true;
+				fetchGraph(asn,6);
+			}
+		}
+	}
+}
+async function fetchGraph(asn,proto) {
+	if (proto != 4 && proto != 6) {
+		return;
+	}
+    var results = await fetch(`/graph/aspaths/as${asn}?v4=${proto == 4 ? 'true' : 'false'}`,{method:"GET"});
+    if (results.status == 200) {
+        let data = await results.text();
+        //console.log(data);
+		if (proto == 4) {
+			$("#graph4").html(data);
+		} else {
+			$("#graph6").html(data);
+		}
+        return data;
+    } else {
+        console.log("could not fetch graph");
+		if (proto == 4) {
+			$("#graph4").text("Could not fetch connectivity graph. Please try again later");
+		} else {
+			$("#graph6").text("Could not fetch connectivity graph. Please try again later");
+		}
+        return null;
+    }
+}
+async function fetchWhois(asn) {
+  const $out = $("#whois>pre").first();
+
+  // Normalize + validate input (ASN should be digits)
+  const raw = String(asn ?? "").trim();
+  const m = raw.match(/^(?:AS)?(\d+)$/i); // accepts "123", "AS123", "as123"
+  if (!m) {
+    $out.text("Invalid ASN.");
+    return null;
+  }
+
+  const asnNum = m[1];
+  const url = `/whois/as${encodeURIComponent(asnNum)}`;
+
+  let res;
+  try {
+    res = await fetch(url, {
+      method: "GET",
+      headers: { Accept: "application/json" },
+      credentials: "same-origin",
+      cache: "no-store",
+    });
+  } catch (e) {
+    $out.text("Whois data is unavailable, please try again later.");
+    return null;
+  }
+
+  // Parse JSON if present; don’t blow up on non-JSON errors
+  let payload = null;
+  try {
+    payload = await res.json();
+  } catch {}
+
+  if (res.ok && payload && typeof payload.data === "string") {
+    $out.text(payload.data); // SAFE: text(), not html()
+    return payload;
+  }
+
+  // Prefer server-provided error if available, but keep it as text
+  if (payload && typeof payload.error === "string" && payload.error.trim()) {
+    $out.text(payload.error);
+  } else if (res.status === 404) {
+    $out.text("No record found.");
+  } else {
+    $out.text("Whois data is unavailable, please try again later.");
+  }
+
+  return null;
+}
+async function fetchAsnOrg(asn) {
+    var results = await fetch(`/orgname/as${asn}`,{method:"GET"});
+    if (results.status == 200) {
+        let data = await results.json();
+        // console.log(data);
+        return data;
+    } else {
+        // console.log("could not fetch rdap");
+        return null;
+    }
+}
+</script>
+
+
+<!-- Global site tag (gtag.js) - Google Ads: 1068215855 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068215855"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068215855');
+</script>
+</head>
+
+<body>
+	<div style='display: flex; flex-direction: column; height:100%; '>
+		<div id='header' style='display: flex;'>
+			<div style='display: flex; align-items:center;justify-content:center;flex-direction:column; position: relative;'>
+				<a href="//www.he.net/"><img alt='Hurricane Electric' src='/helogo.gif' /></a>
+				<div style='padding:10px;  display:flex; gap: 5px;'>
+					
+	<h1><a href="/AS42397" rel="bookmark" title="AS42397 Bunea TELECOM SRL">AS42397 Bunea TELECOM SRL</a></h1>
+
+					<button id='clipboard' onclick='navigator.clipboard.writeText($(this).parent().find("a")[0].attributes["href"].baseURI);'>🔗</button>
+				</div>
+			</div>
+			<div id='header_search' style='flex-grow: 1; display: flex; align-items:center;justify-content:center;flex-direction:column;'>
+			
+			<form id='searchform' action="/search" method="get" style='width:80%; padding:10px; display: flex; justify-content:center;gap:5px;'>
+				<input name="search[search]" size="30" type="text">
+				<input name="commit" type="submit" value="Search" style='padding: 5px 10px;font-size: 22px;' class='searchbutton'>
+			</form>
+			</div>
+			<div style='flex-grow:1;' id='header_filler'> </div>
+
+			
+		</div>
+		<div id='centerbody'>
+			<div id='leftsidemenu' style='width:max-content;'>
+				<div class='leftsidemenu'>
+					<div class='menuheader'>Quick Links</div>
+					<ul class='leftsidemenuitems' style='width:max-content;'>
+						<li><a href='/'>BGP Toolkit Home</a></li>
+<li><a href="/report/prefixes">BGP Prefix Report</a></li>
+<li><a href="/report/peers">BGP Peer Report</a></li>
+<li><a href='//bgp.he.net/traceroute/'>Super Traceroute</a></li>
+<li><a href='/super-lg'>Super Looking Glass</a></li>
+<li><a href="/certs">Cert Search</a></li>
+<li><a href="/report/exchanges">Exchange Report</a></li>
+<li><a href="/report/bogons">Bogon Routes</a></li>
+<li><a href="/report/world">World Report</a></li>
+<li><a href="/report/multi-origin-routes">Multi Origin Routes</a></li>
+<li><a href="/report/dns">DNS Report</a></li>
+<li><a href="/report/tophosts">Top Host Report</a></li>
+<li><a href="/report/rpki_and_aspa">RPKI & ASPA Report</a></li>
+<li><a href="/report/netstats">Internet Statistics</a></li>
+<li><a href='//lg.he.net/'>Looking Glass</a></li>
+<li><a href='//networktools.he.net/'>Network Tools App</a></li>
+<li><a href='//ipv6.he.net/certification/'>IPv6 Certification</a></li>
+<li><a href='//bgp.he.net/ipv6-progress-report.cgi'>IPv6 Progress</a></li>
+<li><a href="/super-lg/contribute/">Contribute Data</a></li>
+<li><a href='/credits/'>Credits</a></li>
+<li><a href='//bgp.he.net/contact/'>Contact Us</a></li>
+
+					</ul>
+
+				</div>
+			</div>
+			<div id='content'>
+				
+
+				
+
+
+
+<ul class='tabmenu'>
+    <li id='tab_asinfo'    class='tabmenuli'>AS Info</li>
+	<li id='tab_graph4'      class='tabmenuli'>Graph v4</li>	
+	
+	<li id='tab_prefixes'  class='tabmenuli'>Prefixes v4</li>
+	
+	<li id='tab_rtbogons'    class='hidden tabmenuli'>Bogon</li>
+    <li id='tab_peers'     class='tabmenuli'>Peers v4</li>
+    
+    
+    <li id='tab_whois'     class='tabmenuli'>Whois</li>
+	<li id='tab_rdap'     class='tabmenuli'>RDAP</li>
+	
+    <li id='tab_irr'       class='tabmenuli'>IRR</li>
+	
+    
+	<li id='tab_traceroute' class='tabmenuli'>Traceroute</li>
+</ul>
+
+<div class='clear'></div>
+
+<div id='asinfo' class='tabdata'>
+	
+	
+	
+	
+	<div class='asinfotext'>
+		
+                <!-- Start super-lg generated looking glass-->
+                        <div class='asleft'>
+                                 Looking Glass:
+                        </div>
+                        <div class='asright'>
+                    
+                                <a href="https://bgp.he.net/lg/42397">https://bgp.he.net/lg/42397</a>
+                    
+                        </div>
+                        <div class='clear'></div>
+                        <br/>
+                <!-- End super-lg generated looking glass -->
+
+		
+			<div class='asleft'>
+				Country of Origin:
+			</div>
+			<div class='asright'>
+				<a href="/country/RO">Romania</a>
+				<div class='flag floatright alignright'><img alt="Romania" src="/images/flags/ro.gif?1282328083" title="Romania" /></div>
+			</div>
+			<div class='clear'></div>
+			<br/>
+		
+
+
+		
+
+			<div class='asleft'>
+		        
+				Prefixes Originated (all): 4<br/>
+				Prefixes Originated (v4): 4<br/>
+				Prefixes Originated (v6): 0<br/>
+			</div>
+			<div class='asright'>
+				Prefixes Announced (all): 4<br/>
+				Prefixes Announced (v4): 4<br/>
+				Prefixes Announced (v6): 0<br/>
+			</div>
+            <div class='clear'></div>
+            <br/>
+            <div class='asleft'>
+                RPKI Originated Valid (all): 4</br>
+                RPKI Originated Valid (v4): 4</br>
+                RPKI Originated Valid (v6): 0</br>
+            </div>
+            <div class='asright'>
+                RPKI Originated Invalid (all): 0</br>
+                RPKI Originated Invalid (v4): 0</br>
+                RPKI Originated Invalid (v6): 0</br>
+            </div>
+			<div class='clear'></div>
+			<br/>
+			<div class='asleft'>
+				BGP Peers Observed (all): 1<br/>
+				BGP Peers Observed (v4): 1<br/>
+				BGP Peers Observed (v6): 0<br/>			
+			</div>
+			<div class='asright'>
+				IPs Originated (v4): 1,024<br/>
+				AS Paths Observed (v4): 1,045<br/>
+				AS Paths Observed (v6): 0<br/>
+			</div>
+			
+			<div class='clear'></div>
+			<br/>
+
+		<div class='asleft'>
+			Average AS Path Length (all): 5.034<br/>
+			Average AS Path Length (v4): 5.034<br/>
+			Average AS Path Length (v6): 0.000<br/>
+		</div>
+		
+
+		
+		<div class='clear'></div>
+	</div>
+
+	<div class='clear'></div>
+	<br/>
+	<div id='historical-charts'>
+
+	
+		<div class='floatleft'>
+            <div class='asgraphtitle'>AS42397 IPv4 Peers</div>
+            <div class='piechart' id='peerchart'></div>
+		</div>
+		<div class='floatright'>
+			<table class='toppeertable'><thead><tr><th>ASN</th><th>Name</th></tr></thead>
+				<tbody>
+				
+					<tr>
+						<td><a href="/AS47890">AS47890</a></td>
+						<td><a href="/AS47890">UNMANAGED LTD</a></td>
+					</tr>
+				
+				</tbody>
+			</table>
+			<div class='clear'></div>
+		</div>
+	
+	<div class='clear'></div>
+	<br/>
+
+	
+		
+			<div class="asgraphbox">
+			<div class='asgraphtitle'>AS42397 IPv4 Peer Count</div>
+			<div class='asgraph'><canvas id='adjacencychart4'></canvas></div>
+			</div>
+		
+		
+		
+			<div class="asgraphbox">
+			<div class='asgraphtitle'>AS42397 IPv4 Prefixes Announced</div>
+			<div class='asgraph'><canvas id='announcementchart4'></canvas></div>
+			</div>
+		
+		
+		
+			<div class="asgraphbox">
+			<div class='asgraphtitle'>AS42397 IPv4 Prefixes Originated</div>
+			<div class='asgraph'><canvas id='routechart4'></canvas></div>
+			</div>
+		
+		
+	</div>
+</div>
+
+
+	<div id='graph4' class='tabdata hidden'>
+		<h2>AS42397 IPv4 Route Propagation</h2>
+		Loading...
+	</div>
+
+
+
+
+
+
+
+	<div id='prefixes' class='tabdata hidden'>
+		<div class='bogon hidden rtbogonstatus'><a href='#_rtbogons'>AS42397 announces bogons.</a></div>
+		<div style='width: 100%;' class='rtprefixes'>
+			<table class='rtprefixes-table' id='rtprefixes-table' style='width: 100%;'>
+				<thead><tr><th>Prefix</th><th style='width:50%;'>Description</th><th style='width:110px;'>Visibility</th></tr></thead>
+				<tbody>
+					<tr><td colspan=3>Loading Prefixes...</td></tr>
+				</tbody>
+			</table>
+			<div class='table-pager'></div>
+		</div>
+		<table id='table_prefixes4' class='sortable w100p hidden'>
+			<thead><tr><th>Prefix</th><th>Description</th></tr></thead>
+			<tbody>
+				
+				  <tr>
+    				<td class='nowrap'>
+					<div class='irrimg'><img alt="IRR Valid" src="/images/irr_valid.png?1538618264" title="IRR Valid" /></div>
+					<div class='roakey'><img alt="ROA Signed and Valid" src="/images/rpki_valid.png?1330041494" title="ROA Signed and Valid" /></div>
+					<a href="/net/185.232.65.0/24">185.232.65.0/24</a>
+				</td>
+    				<td>Bunea TELECOM SRL
+					<div class="flag alignright floatright"><img alt="Romania" src="/images/flags/ro.gif?1282328083" title="Romania" /></div>
+					</td>
+				  </tr>
+				
+				  <tr>
+    				<td class='nowrap'>
+					<div class='irrimg'><img alt="IRR Valid" src="/images/irr_valid.png?1538618264" title="IRR Valid" /></div>
+					<div class='roakey'><img alt="ROA Signed and Valid" src="/images/rpki_valid.png?1330041494" title="ROA Signed and Valid" /></div>
+					<a href="/net/193.29.13.0/24">193.29.13.0/24</a>
+				</td>
+    				<td>Bunea TELECOM SRL
+					<div class="flag alignright floatright"><img alt="Romania" src="/images/flags/ro.gif?1282328083" title="Romania" /></div>
+					</td>
+				  </tr>
+				
+				  <tr>
+    				<td class='nowrap'>
+					<div class='irrimg'><img alt="IRR Valid" src="/images/irr_valid.png?1538618264" title="IRR Valid" /></div>
+					<div class='roakey'><img alt="ROA Signed and Valid" src="/images/rpki_valid.png?1330041494" title="ROA Signed and Valid" /></div>
+					<a href="/net/193.29.14.0/24">193.29.14.0/24</a>
+				</td>
+    				<td>Bunea TELECOM SRL
+					<div class="flag alignright floatright"><img alt="Romania" src="/images/flags/ro.gif?1282328083" title="Romania" /></div>
+					</td>
+				  </tr>
+				
+				  <tr>
+    				<td class='nowrap'>
+					<div class='irrimg'><img alt="IRR Valid" src="/images/irr_valid.png?1538618264" title="IRR Valid" /></div>
+					<div class='roakey'><img alt="ROA Signed and Valid" src="/images/rpki_valid.png?1330041494" title="ROA Signed and Valid" /></div>
+					<a href="/net/193.29.15.0/24">193.29.15.0/24</a>
+				</td>
+    				<td>Bunea TELECOM SRL
+					<div class="flag alignright floatright"><img alt="Romania" src="/images/flags/ro.gif?1282328083" title="Romania" /></div>
+					</td>
+				  </tr>
+				
+			</tbody>
+		</table>
+		
+	</div>
+
+
+
+
+<div id='rtbogons' class='tabdata hidden'>
+	<table>
+		<thead><tr><th colspan="3">Bogon Prefixes</th></tr><tr><th>Prefix</th><th>Type</th><th>Status</th></tr></thead>
+		<tbody>
+		
+		</tbody>
+	</table>
+</div>
+
+
+	<div id='peers' class='tabdata hidden'>
+	<table id='table_peers4' class='sortable w100p'>
+	<thead><tr><th>Rank</th><th>Description</th><th>IPv6</th><th>Peer</th></tr></thead>
+	<tbody>
+
+	
+
+	  <tr>
+	   <td>1</td>
+ 	   <td>UNMANAGED LTD<div class="flag alignright floatright"><img alt="United Kingdom" src="/images/flags/gb.gif?1282328062" title="United Kingdom" /></div></td>
+ 	   <td></td>
+ 	   <td><a href="/AS47890" title="AS47890 UNMANAGED LTD">AS47890</a></td>
+ 	 </tr>
+	
+	</tbody>
+	</table>
+	</div>
+
+
+
+
+
+<div id='whois' class='tabdata hidden'>
+	<pre>Loading whois...</pre>
+</div>
+<div id='rdap' class='tabdata hidden'>
+	<div id='rdap-data'>Loading...</div>
+</div>
+
+
+<div id='irr' class='tabdata hidden'>
+	
+	<div class='irrbox'>
+		<div class='irrsource'>
+			RIPE
+		</div>
+		<span class='irrdata'>aut-num:        <a href="/AS42397" title="AS42397">AS42397</a>
+descr:          ***************************************
+descr:          *                                     *
+descr:          *        WHOLESALE PROVIDER OF        *
+descr:          *   DEDICATED SERVERS FOR RESELLERS   *
+descr:          *       AND WEBHOSTING COMPANIES      *
+descr:          *            WWW.BUNEA.EU             *
+descr:          *                                     *
+descr:          ***************************************
+as-name:        BUNEA-HIGH-VOLUME-NETWORK
+org:            ORG-BTS48-RIPE
+import:         from <a href="/AS62380" title="AS62380">AS62380</a> accept ANY
+export:         to <a href="/AS62380" title="AS62380">AS62380</a> announce <a href="/AS42397" title="AS42397">AS42397</a>
+import:         from <a href="/AS39737" title="AS39737">AS39737</a> accept ANY
+export:         to <a href="/AS39737" title="AS39737">AS39737</a> announce <a href="/AS42397" title="AS42397">AS42397</a>
+admin-c:        DUMY-RIPE
+tech-c:         DUMY-RIPE
+status:         ASSIGNED
+mnt-by:         RIPE-NCC-END-MNT
+mnt-by:         ro-btel2-1-mnt
+created:        2018-05-23T07:47:07Z
+last-modified:  2020-01-03T12:57:16Z
+source:         RIPE
+remarks:        ****************************
+remarks:        * THIS OBJECT IS MODIFIED
+remarks:        * Please note that all data that is generally regarded as personal
+remarks:        * data has been removed from this object.
+remarks:        * To view the original object, please query the RIPE Database at:
+remarks:        * http://www.ripe.net/whois
+remarks:        ****************************
+</span>
+		<div class='clear'></div>
+	</div>
+	
+</div>
+
+
+<div id='traceroute' class='tabdata hidden'>
+	<div id='probestatus'>Loading probes...</div>
+	<div style='display:none;' id='probebody'>
+		<div style='flex-basis:0; flex-grow: 1;border: 1px solid #000066; padding: 10px;'>
+			<div style='display:flex;flex-direction:column; align-items:center; gap: 10px;'>
+				
+				<div id='measurement-type-selector' class='switch-field'>
+					<input type='radio' id='trace' name='measurement' value='trace' checked>
+					<label for='trace' id='traceroutelabel'>Traceroute</label>
+					<input type='radio' id='ping' name='measurement' value='ping'>
+					<label for='ping'>Ping</label>
+					<input type='radio' id='dns' name='measurement' value='dns'>
+					<label for='dns'>DNS Lookup</label>
+				</div>
+				<!--<div id='ip-type-selector' class='switch-field'>
+					<input type='radio' id='ipv4' name='ip-type' value='ipv4' checked>
+					<label for='ipv4' id='ipv4label'>IPv4</label>
+					<input type='radio' id='ipv6' name='ip-type' value='ipv6'>
+					<label for='ipv6'>IPv6</label>
+				</div>
+				<div id='target-type-selector' class='switch-field'>
+					<input type='radio' id='custom' name='target-type' value='custom' checked>
+					<label for='custom' id='customlabel'>Custom Target</label>
+					<input type='radio' id='probetarget' name='target-type' value='probe'>
+					<label for='probetarget'>Target a Probe</label>
+					<input type='radio' id='self' name='target-type' value='self'>
+					<label for='self'>Target Own IP</label>
+				</div>-->
+				<div class='input' id='targetwrapper'>
+					<label for='target'><span style='font-weight:bold;'>Select Target</span></label>
+					<div style='position:relative; display:inline-block;'>
+						<input oninput="updateTableAfiFromTarget()" id='target' name='target' type='text'></input>
+						<div id='afi-selector'>
+							<button class='afi-selector selected ' data-afi='v4' onclick='afiSelect(this)'>v4</button>
+							<button class='afi-selector' data-afi='v6' onclick='afiSelect(this)'>v6</button>
+							<!-- <div style='position:absolute;top:0px;right:0px;width:25%;height:25%;background-color:blue;'></div> -->
+						</div>
+					</div>
+				</div>
+				<table id='probe_table'>
+					<thead>
+						<tr><th colspan=5>Select Probe <span id='table-afi'></span></th></tr>
+						<tr><th>Type</th><th>Name</th><th>ASN</th><th>IP</th><th>City</th</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+		<div class='results' style='flex-basis:0; flex-grow: 1; border: 1px solid #000066; padding: 10px;'>
+			<div style='display:flex; flex-direction:row;align-items:center;'>
+                <button id='querybutton' onclick='startProbe();'>Perform Query!</button>
+                <div class='loading hidden' id='loadingBox'><span>⏳</span></div>
+                <div style='display:block;margin-left:10px;'><span id='querybuttonmsg'></span></div>
+			
+			</div>
+			<div id='tracerouteplaceholder'>
+				<pre id='traceresultshint'>Results will appear here.
+				</pre>
+				<pre id='traceresults'>
+				</pre>
+            
+			<!--<div id='geotraceresults'>
+				<canvas id='globe'></canvas>
+			</div>-->
+
+			</div>
+			<!--<button id='showgeo' disabled>Show Geo</button>
+			<button id='hidegeo'>Hide Geo</button>-->
+		</div>
+	</div>
+</div>
+<script type='text/javascript'>
+    $(function() {
+         drawCharts();
+    });
+
+    function drawCharts() {
+        
+            drawPieChart("#peerchart", JSON.parse('[["AS47890",100,"#39618c"]]'));
+        
+        
+        
+			drawLineChartWithPair('adjacencychart4', JSON.parse('[["20251004", 1], ["20251005", 1], ["20251006", 1], ["20251007", 1], ["20251008", 1], ["20251009", 1], ["20251010", 1], ["20251011", 1], ["20251012", 1], ["20251013", 1], ["20251014", 1], ["20251015", 1], ["20251016", 1], ["20251017", 1], ["20251018", 1], ["20251019", 1], ["20251020", 1], ["20251021", 1], ["20251022", 1], ["20251023", 1], ["20251024", 1], ["20251025", 1], ["20251026", 1], ["20251027", 1], ["20251028", 1], ["20251029", 1], ["20251030", 1], ["20251031", 1], ["20251101", 1], ["20251102", 1], ["20251103", 1], ["20251104", 1], ["20251105", 1], ["20251106", 1], ["20251107", 1], ["20251108", 1], ["20251109", 1], ["20251110", 1], ["20251111", 1], ["20251112", 1], ["20251113", 1], ["20251114", 1], ["20251116", 1], ["20251117", 1], ["20251118", 1], ["20251119", 1], ["20251120", 1], ["20251121", 1], ["20251122", 1], ["20251123", 1], ["20251124", 1], ["20251125", 1], ["20251126", 1], ["20251127", 1], ["20251128", 1], ["20251129", 1], ["20251130", 1], ["20251201", 1], ["20251202", 1], ["20251203", 1], ["20251204", 1], ["20251205", 1], ["20251206", 1], ["20251207", 1], ["20251208", 1], ["20251209", 1], ["20251210", 1], ["20251211", 1], ["20251212", 1], ["20251213", 1], ["20251214", 1], ["20251215", 1], ["20251216", 1], ["20251217", 1], ["20251218", 1], ["20251219", 1], ["20251220", 1], ["20251221", 1], ["20251222", 1], ["20251223", 1], ["20251224", 1], ["20251225", 1], ["20251226", 1], ["20251227", 1], ["20251228", 1], ["20251229", 1], ["20251230", 1], ["20251231", 1], ["20260101", 1], ["20260102", 1], ["20260103", 1], ["20260104", 1], ["20260105", 1], ["20260106", 1], ["20260107", 1], ["20260108", 1], ["20260109", 1], ["20260110", 1], ["20260111", 1], ["20260112", 1], ["20260113", 1], ["20260114", 1], ["20260115", 1], ["20260116", 1], ["20260117", 1], ["20260118", 1], ["20260119", 1], ["20260120", 1], ["20260121", 1], ["20260122", 1], ["20260123", 1], ["20260124", 1], ["20260125", 1], ["20260126", 1], ["20260127", 1], ["20260128", 1], ["20260129", 1], ["20260130", 1], ["20260131", 1], ["20260201", 1], ["20260202", 1], ["20260203", 1], ["20260204", 1], ["20260205", 1], ["20260206", 1], ["20260207", 1], ["20260208", 1], ["20260209", 1], ["20260210", 1], ["20260211", 1], ["20260212", 1], ["20260213", 1], ["20260214", 1], ["20260215", 1], ["20260216", 1], ["20260217", 1], ["20260218", 1], ["20260219", 1], ["20260220", 1], ["20260221", 1], ["20260222", 1], ["20260223", 1], ["20260224", 1], ["20260225", 1], ["20260226", 1], ["20260227", 1], ["20260228", 1], ["20260301", 1], ["20260302", 1], ["20260303", 1], ["20260304", 1], ["20260305", 1], ["20260306", 1], ["20260307", 1], ["20260308", 1], ["20260309", 1], ["20260310", 1], ["20260311", 1], ["20260312", 1], ["20260313", 1], ["20260314", 1], ["20260315", 1], ["20260316", 1], ["20260317", 1], ["20260318", 1], ["20260319", 1], ["20260320", 1], ["20260321", 1], ["20260322", 1], ["20260323", 1], ["20260324", 1], ["20260325", 1], ["20260326", 1], ["20260327", 1], ["20260328", 1], ["20260329", 1], ["20260330", 1], ["20260331", 1], ["20260401", 1], ["20260402", 1], ["20260403", 1], ["20260404", 1], ["20260405", 1], ["20260406", 1], ["20260407", 1], ["20260408", 1], ["20260409", 1], ["20260410", 1], ["20260411", 1], ["20260412", 1], ["20260413", 1], ["20260414", 1], ["20260415", 1], ["20260416", 1], ["20260417", 1], ["20260418", 1], ["20260419", 1], ["20260420", 1], ["20260421", 1], ["20260422", 1], ["20260423", 1], ["20260424", 1], ["20260425", 1], ["20260426", 1], ["20260427", 1], ["20260428", 1], ["20260429", 1], ["20260430", 1], ["20260501", 1], ["20260502", 1], ["20260503", 1], ["20260504", 1], ["20260505", 1], ["20260506", 1], ["20260507", 1], ["20260508", 1], ["20260509", 1], ["20260510", 1], ["20260511", 1], ["20260512", 1], ["20260513", 1], ["20260514", 1], ["20260515", 1], ["20260516", 1], ["20260517", 1], ["20260518", 1], ["20260519", 1], ["20260520", 1], ["20260521", 1], ["20260522", 1], ["20260523", 1], ["20260524", 1], ["20260525", 1], ["20260526", 1], ["20260527", 1], ["20260528", 1], ["20260529", 1], ["20260530", 1], ["20260531", 1], ["20260601", 1], ["20260602", 1], ["20260603", 1], ["20260604", 1], ["20260605", 1], ["20260607", 1], ["20260608", 1], ["20260609", 1], ["20260610", 1], ["20260611", 1], ["20260612", 1], ["20260613", 1], ["20260614", 1], ["20260615", 1], ["20260616", 1], ["20260617", 1], ["20260618", 1], ["20260619", 1], ["20260620", 1], ["20260621", 1], ["20260622", 1], ["20260624", 1], ["20260625", 1], ["20260626", 1], ["20260627", 1], ["20260628", 1], ["20260629", 1], ["20260630", 1], ["20260701", 1], ["20260702", 1], ["20260703", 1], ["20260704", 1], ["20260705", 1], ["20260706", 1], ["20260707", 1], ["20260708", 1], ["20260710", 1], ["20260711", 1], ["20260713", 1], ["20260714", 1], ["20260715", 1], ["20260716", 1], ["20260717", 1], ["20260718", 1], ["20260719", 1], ["20260720", 1], ["20260722", 1], ["20260723", 1], ["20260724", 1], ["20260725", 1], ["20260726", 1], ["20260727", 1], ["20260728", 1], ["20260729", 1], ["20260730", 1], ["20260731", 1], ["20260802", 1], ["20260803", 1], ["20260804", 1], ["20260805", 1], ["20260806", 1], ["20260807", 1], ["20260808", 1], ["20260809", 1], ["20260810", 1], ["20260811", 1], ["20260812", 1], ["20260813", 1], ["20260814", 1], ["20260815", 1], ["20260816", 1], ["20260817", 1], ["20260818", 1], ["20260819", 1], ["20260820", 1], ["20260821", 1], ["20260822", 1], ["20260823", 1], ["20260824", 1], ["20260825", 1], ["20260826", 1], ["20260827", 1], ["20260828", 1], ["20260829", 1], ["20260830", 1], ["20260831", 1], ["20260901", 1], ["20260902", 1], ["20260903", 1], ["20260904", 1], ["20260905", 1], ["20260906", 1], ["20260907", 1], ["20260908", 1], ["20260909", 1], ["20260910", 1], ["20260911", 1], ["20260912", 1], ["20260913", 1], ["20260914", 1], ["20260915", 1], ["20260916", 1], ["20260917", 1], ["20260918", 1], ["20260919", 1], ["20260920", 1], ["20260921", 1], ["20260922", 1], ["20260923", 1], ["20260924", 1], ["20260925", 1], ["20260926", 1], ["20260927", 1], ["20260928", 1], ["20260929", 1], ["20260930", 1], ["20261001", 1], ["20261002", 1], ["20261003", 1], ["20261004", 1]]'));
+        
+        
+        
+			drawLineChartWithPair('announcementchart4', JSON.parse('[["20251004", 3], ["20251005", 3], ["20251006", 3], ["20251007", 3], ["20251008", 3], ["20251009", 3], ["20251010", 3], ["20251011", 3], ["20251012", 3], ["20251013", 3], ["20251014", 3], ["20251015", 3], ["20251016", 3], ["20251017", 3], ["20251018", 3], ["20251019", 3], ["20251020", 3], ["20251021", 3], ["20251022", 3], ["20251023", 3], ["20251024", 3], ["20251025", 3], ["20251026", 3], ["20251027", 3], ["20251028", 3], ["20251029", 3], ["20251030", 3], ["20251031", 3], ["20251101", 3], ["20251102", 3], ["20251103", 3], ["20251104", 3], ["20251105", 3], ["20251106", 3], ["20251107", 3], ["20251108", 3], ["20251109", 3], ["20251110", 3], ["20251111", 3], ["20251112", 3], ["20251113", 3], ["20251114", 3], ["20251116", 3], ["20251117", 3], ["20251118", 3], ["20251119", 3], ["20251120", 3], ["20251121", 3], ["20251122", 3], ["20251123", 3], ["20251124", 3], ["20251125", 3], ["20251126", 3], ["20251127", 3], ["20251128", 3], ["20251129", 3], ["20251130", 3], ["20251201", 3], ["20251202", 3], ["20251203", 3], ["20251204", 3], ["20251205", 3], ["20251206", 3], ["20251207", 3], ["20251208", 3], ["20251209", 3], ["20251210", 3], ["20251211", 3], ["20251212", 3], ["20251213", 3], ["20251214", 3], ["20251215", 3], ["20251216", 3], ["20251217", 3], ["20251218", 3], ["20251219", 3], ["20251220", 3], ["20251221", 3], ["20251222", 3], ["20251223", 3], ["20251224", 3], ["20251225", 3], ["20251226", 3], ["20251227", 3], ["20251228", 3], ["20251229", 3], ["20251230", 3], ["20251231", 3], ["20260101", 3], ["20260102", 3], ["20260103", 3], ["20260104", 3], ["20260105", 3], ["20260106", 3], ["20260107", 3], ["20260108", 3], ["20260109", 3], ["20260110", 3], ["20260111", 3], ["20260112", 3], ["20260113", 3], ["20260114", 3], ["20260115", 3], ["20260116", 3], ["20260117", 3], ["20260118", 3], ["20260119", 3], ["20260120", 3], ["20260121", 3], ["20260122", 3], ["20260123", 3], ["20260124", 3], ["20260125", 3], ["20260126", 3], ["20260127", 3], ["20260128", 3], ["20260129", 3], ["20260130", 3], ["20260131", 3], ["20260201", 3], ["20260202", 3], ["20260203", 3], ["20260204", 3], ["20260205", 3], ["20260206", 3], ["20260207", 3], ["20260208", 3], ["20260209", 3], ["20260210", 3], ["20260211", 3], ["20260212", 3], ["20260213", 3], ["20260214", 3], ["20260215", 3], ["20260216", 3], ["20260217", 3], ["20260218", 3], ["20260219", 3], ["20260220", 3], ["20260221", 3], ["20260222", 3], ["20260223", 3], ["20260224", 3], ["20260225", 3], ["20260226", 3], ["20260227", 3], ["20260228", 3], ["20260301", 3], ["20260302", 3], ["20260303", 3], ["20260304", 3], ["20260305", 3], ["20260306", 3], ["20260307", 3], ["20260308", 3], ["20260309", 3], ["20260310", 3], ["20260311", 3], ["20260312", 3], ["20260313", 3], ["20260314", 3], ["20260315", 3], ["20260316", 3], ["20260317", 3], ["20260318", 3], ["20260319", 3], ["20260320", 3], ["20260321", 3], ["20260322", 3], ["20260323", 3], ["20260324", 3], ["20260325", 3], ["20260326", 3], ["20260327", 3], ["20260328", 3], ["20260329", 3], ["20260330", 3], ["20260331", 3], ["20260401", 3], ["20260402", 3], ["20260403", 3], ["20260404", 3], ["20260405", 3], ["20260406", 3], ["20260407", 3], ["20260408", 3], ["20260409", 3], ["20260410", 3], ["20260411", 3], ["20260412", 3], ["20260413", 3], ["20260414", 3], ["20260415", 3], ["20260416", 3], ["20260417", 3], ["20260418", 3], ["20260419", 3], ["20260420", 3], ["20260421", 3], ["20260422", 3], ["20260423", 3], ["20260424", 3], ["20260425", 3], ["20260426", 3], ["20260427", 3], ["20260428", 3], ["20260429", 3], ["20260430", 3], ["20260501", 3], ["20260502", 3], ["20260503", 3], ["20260504", 3], ["20260505", 3], ["20260506", 3], ["20260507", 3], ["20260508", 3], ["20260509", 3], ["20260510", 3], ["20260511", 3], ["20260512", 3], ["20260513", 3], ["20260514", 3], ["20260515", 3], ["20260516", 3], ["20260517", 3], ["20260518", 3], ["20260519", 3], ["20260520", 3], ["20260521", 3], ["20260522", 3], ["20260523", 3], ["20260524", 3], ["20260525", 3], ["20260526", 3], ["20260527", 3], ["20260528", 3], ["20260529", 3], ["20260530", 3], ["20260531", 3], ["20260601", 3], ["20260602", 3], ["20260603", 3], ["20260604", 3], ["20260605", 3], ["20260607", 3], ["20260608", 3], ["20260609", 3], ["20260610", 3], ["20260611", 3], ["20260612", 3], ["20260613", 3], ["20260614", 3], ["20260615", 3], ["20260616", 3], ["20260617", 3], ["20260618", 3], ["20260619", 3], ["20260620", 3], ["20260621", 3], ["20260622", 3], ["20260624", 3], ["20260625", 4], ["20260626", 4], ["20260627", 4], ["20260628", 4], ["20260629", 4], ["20260630", 4], ["20260701", 4], ["20260702", 4], ["20260703", 4], ["20260704", 4], ["20260705", 4], ["20260706", 4], ["20260707", 4], ["20260708", 4], ["20260710", 4], ["20260711", 4], ["20260713", 4], ["20260714", 4], ["20260715", 4], ["20260716", 4], ["20260717", 4], ["20260718", 4], ["20260719", 4], ["20260720", 4], ["20260722", 4], ["20260723", 4], ["20260724", 4], ["20260725", 4], ["20260726", 4], ["20260727", 4], ["20260728", 4], ["20260729", 4], ["20260730", 4], ["20260731", 4], ["20260802", 4], ["20260803", 4], ["20260804", 4], ["20260805", 4], ["20260806", 4], ["20260807", 4], ["20260808", 4], ["20260809", 4], ["20260810", 4], ["20260811", 4], ["20260812", 4], ["20260813", 4], ["20260814", 4], ["20260815", 4], ["20260816", 4], ["20260817", 4], ["20260818", 4], ["20260819", 4], ["20260820", 4], ["20260821", 4], ["20260822", 4], ["20260823", 4], ["20260824", 4], ["20260825", 4], ["20260826", 4], ["20260827", 4], ["20260828", 4], ["20260829", 4], ["20260830", 4], ["20260831", 4], ["20260901", 4], ["20260902", 4], ["20260903", 4], ["20260904", 4], ["20260905", 4], ["20260906", 4], ["20260907", 4], ["20260908", 4], ["20260909", 4], ["20260910", 4], ["20260911", 4], ["20260912", 4], ["20260913", 4], ["20260914", 4], ["20260915", 4], ["20260916", 4], ["20260917", 4], ["20260918", 4], ["20260919", 4], ["20260920", 4], ["20260921", 4], ["20260922", 4], ["20260923", 4], ["20260924", 4], ["20260925", 4], ["20260926", 4], ["20260927", 4], ["20260928", 4], ["20260929", 4], ["20260930", 4], ["20261001", 4], ["20261002", 4], ["20261003", 4], ["20261004", 4]]'));
+        
+        
+        
+			drawLineChartWithPair('routechart4', JSON.parse('[["20251004", 3], ["20251005", 3], ["20251006", 3], ["20251007", 3], ["20251008", 3], ["20251009", 3], ["20251010", 3], ["20251011", 3], ["20251012", 3], ["20251013", 3], ["20251014", 3], ["20251015", 3], ["20251016", 3], ["20251017", 3], ["20251018", 3], ["20251019", 3], ["20251020", 3], ["20251021", 3], ["20251022", 3], ["20251023", 3], ["20251024", 3], ["20251025", 3], ["20251026", 3], ["20251027", 3], ["20251028", 3], ["20251029", 3], ["20251030", 3], ["20251031", 3], ["20251101", 3], ["20251102", 3], ["20251103", 3], ["20251104", 3], ["20251105", 3], ["20251106", 3], ["20251107", 3], ["20251108", 3], ["20251109", 3], ["20251110", 3], ["20251111", 3], ["20251112", 3], ["20251113", 3], ["20251114", 3], ["20251116", 3], ["20251117", 3], ["20251118", 3], ["20251119", 3], ["20251120", 3], ["20251121", 3], ["20251122", 3], ["20251123", 3], ["20251124", 3], ["20251125", 3], ["20251126", 3], ["20251127", 3], ["20251128", 3], ["20251129", 3], ["20251130", 3], ["20251201", 3], ["20251202", 3], ["20251203", 3], ["20251204", 3], ["20251205", 3], ["20251206", 3], ["20251207", 3], ["20251208", 3], ["20251209", 3], ["20251210", 3], ["20251211", 3], ["20251212", 3], ["20251213", 3], ["20251214", 3], ["20251215", 3], ["20251216", 3], ["20251217", 3], ["20251218", 3], ["20251219", 3], ["20251220", 3], ["20251221", 3], ["20251222", 3], ["20251223", 3], ["20251224", 3], ["20251225", 3], ["20251226", 3], ["20251227", 3], ["20251228", 3], ["20251229", 3], ["20251230", 3], ["20251231", 3], ["20260101", 3], ["20260102", 3], ["20260103", 3], ["20260104", 3], ["20260105", 3], ["20260106", 3], ["20260107", 3], ["20260108", 3], ["20260109", 3], ["20260110", 3], ["20260111", 3], ["20260112", 3], ["20260113", 3], ["20260114", 3], ["20260115", 3], ["20260116", 3], ["20260117", 3], ["20260118", 3], ["20260119", 3], ["20260120", 3], ["20260121", 3], ["20260122", 3], ["20260123", 3], ["20260124", 3], ["20260125", 3], ["20260126", 3], ["20260127", 3], ["20260128", 3], ["20260129", 3], ["20260130", 3], ["20260131", 3], ["20260201", 3], ["20260202", 3], ["20260203", 3], ["20260204", 3], ["20260205", 3], ["20260206", 3], ["20260207", 3], ["20260208", 3], ["20260209", 3], ["20260210", 3], ["20260211", 3], ["20260212", 3], ["20260213", 3], ["20260214", 3], ["20260215", 3], ["20260216", 3], ["20260217", 3], ["20260218", 3], ["20260219", 3], ["20260220", 3], ["20260221", 3], ["20260222", 3], ["20260223", 3], ["20260224", 3], ["20260225", 3], ["20260226", 3], ["20260227", 3], ["20260228", 3], ["20260301", 3], ["20260302", 3], ["20260303", 3], ["20260304", 3], ["20260305", 3], ["20260306", 3], ["20260307", 3], ["20260308", 3], ["20260309", 3], ["20260310", 3], ["20260311", 3], ["20260312", 3], ["20260313", 3], ["20260314", 3], ["20260315", 3], ["20260316", 3], ["20260317", 3], ["20260318", 3], ["20260319", 3], ["20260320", 3], ["20260321", 3], ["20260322", 3], ["20260323", 3], ["20260324", 3], ["20260325", 3], ["20260326", 3], ["20260327", 3], ["20260328", 3], ["20260329", 3], ["20260330", 3], ["20260331", 3], ["20260401", 3], ["20260402", 3], ["20260403", 3], ["20260404", 3], ["20260405", 3], ["20260406", 3], ["20260407", 3], ["20260408", 3], ["20260409", 3], ["20260410", 3], ["20260411", 3], ["20260412", 3], ["20260413", 3], ["20260414", 3], ["20260415", 3], ["20260416", 3], ["20260417", 3], ["20260418", 3], ["20260419", 3], ["20260420", 3], ["20260421", 3], ["20260422", 3], ["20260423", 3], ["20260424", 3], ["20260425", 3], ["20260426", 3], ["20260427", 3], ["20260428", 3], ["20260429", 3], ["20260430", 3], ["20260501", 3], ["20260502", 3], ["20260503", 3], ["20260504", 3], ["20260505", 3], ["20260506", 3], ["20260507", 3], ["20260508", 3], ["20260509", 3], ["20260510", 3], ["20260511", 3], ["20260512", 3], ["20260513", 3], ["20260514", 3], ["20260515", 3], ["20260516", 3], ["20260517", 3], ["20260518", 3], ["20260519", 3], ["20260520", 3], ["20260521", 3], ["20260522", 3], ["20260523", 3], ["20260524", 3], ["20260525", 3], ["20260526", 3], ["20260527", 3], ["20260528", 3], ["20260529", 3], ["20260530", 3], ["20260531", 3], ["20260601", 3], ["20260602", 3], ["20260603", 3], ["20260604", 3], ["20260605", 3], ["20260607", 3], ["20260608", 3], ["20260609", 3], ["20260610", 3], ["20260611", 3], ["20260612", 3], ["20260613", 3], ["20260614", 3], ["20260615", 3], ["20260616", 3], ["20260617", 3], ["20260618", 3], ["20260619", 3], ["20260620", 3], ["20260621", 3], ["20260622", 3], ["20260624", 3], ["20260625", 4], ["20260626", 4], ["20260627", 4], ["20260628", 4], ["20260629", 4], ["20260630", 4], ["20260701", 4], ["20260702", 4], ["20260703", 4], ["20260704", 4], ["20260705", 4], ["20260706", 4], ["20260707", 4], ["20260708", 4], ["20260710", 4], ["20260711", 4], ["20260713", 4], ["20260714", 4], ["20260715", 4], ["20260716", 4], ["20260717", 4], ["20260718", 4], ["20260719", 4], ["20260720", 4], ["20260722", 4], ["20260723", 4], ["20260724", 4], ["20260725", 4], ["20260726", 4], ["20260727", 4], ["20260728", 4], ["20260729", 4], ["20260730", 4], ["20260731", 4], ["20260802", 4], ["20260803", 4], ["20260804", 4], ["20260805", 4], ["20260806", 4], ["20260807", 4], ["20260808", 4], ["20260809", 4], ["20260810", 4], ["20260811", 4], ["20260812", 4], ["20260813", 4], ["20260814", 4], ["20260815", 4], ["20260816", 4], ["20260817", 4], ["20260818", 4], ["20260819", 4], ["20260820", 4], ["20260821", 4], ["20260822", 4], ["20260823", 4], ["20260824", 4], ["20260825", 4], ["20260826", 4], ["20260827", 4], ["20260828", 4], ["20260829", 4], ["20260830", 4], ["20260831", 4], ["20260901", 4], ["20260902", 4], ["20260903", 4], ["20260904", 4], ["20260905", 4], ["20260906", 4], ["20260907", 4], ["20260908", 4], ["20260909", 4], ["20260910", 4], ["20260911", 4], ["20260912", 4], ["20260913", 4], ["20260914", 4], ["20260915", 4], ["20260916", 4], ["20260917", 4], ["20260918", 4], ["20260919", 4], ["20260920", 4], ["20260921", 4], ["20260922", 4], ["20260923", 4], ["20260924", 4], ["20260925", 4], ["20260926", 4], ["20260927", 4], ["20260928", 4], ["20260929", 4], ["20260930", 4], ["20261001", 4], ["20261002", 4], ["20261003", 4], ["20261004", 4]]'));
+        
+        
+
+    }
+
+    
+</script>
+
+			</div>
+		</div>
+	
+		<div id='footer'>
+                
+                
+                  Updated 04 Oct 2026 13:11 PDT &copy; 2026 Hurricane Electric
+                
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("UA-12276073-1");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

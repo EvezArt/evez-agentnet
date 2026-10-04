@@ -1,0 +1,718 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<!-- rmosher 2010 - 2016 -->
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="canonical" href="https://bgp.he.net/AS62380" />
+
+<script src="/javascripts/jquery/jquery-1.5.min.js?1696886982" type="text/javascript"></script>
+
+<script src="/javascripts/jquery/jrails.js?1269850578" type="text/javascript"></script>
+<script src="/javascripts/bgp.js?1260526324" type="text/javascript"></script>
+<link href="/stylesheets/main.css?1715817860" media="all" rel="stylesheet" type="text/css" />
+
+
+<script src="/javascripts/tabs.js?1696886972" type="text/javascript"></script>
+<script src="/javascripts/sorttable.js?1283318963" type="text/javascript"></script>
+<script src="/javascripts/moment.min.js?1526549068" type="text/javascript"></script>
+<script src="/javascripts/chart.min.js?1553155923" type="text/javascript"></script>
+<script src="/javascripts/d3.v3.min.js?1553275964" type="text/javascript"></script>
+<script src="/javascripts/d3.pie.js?1553913738" type="text/javascript"></script>
+<script src="/javascripts/bgpcharts.js?1715815686" type="text/javascript"></script>
+<script src="/javascripts/traceroute.js?1715115442" type="text/javascript"></script>
+<script src="/javascripts/reports.js?1758753658" type="text/javascript"></script>
+<script src="/javascripts/rdap.js?1772834332" type="text/javascript"></script>
+<link href="/stylesheets/rdap.css?1729289720" media="all" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/traceroute.css?1718236217" media="all" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/as.css?1728952320" media="all" rel="stylesheet" type="text/css" />
+
+<title>AS62380 Bunea TELECOM SRL - bgp.he.net</title>
+<meta name="description" content="AS62380 Bunea TELECOM SRL Network Information" />
+<style>
+	.table-pager {
+		user-select: none;
+	}
+</style>
+<script>
+function tabmenuCallback() {
+	var asn = 62380;
+	if (!window.loadedOrg) {
+		window.loadedOrg = true;
+		fetchAsnOrg(asn);
+	}
+	let selectedelem = $(".tabmenuselected");
+	if (selectedelem) {
+		if (selectedelem.attr("id") == "tab_traceroute") {
+			if (!window.loadedProbes) {
+				window.loadedProbes = true;
+				loadProbesForAsn(asn);
+			}
+		} else if (["tab_rtprefixes","tab_rtbogons","tab_prefixes","tab_prefixes6"].includes(selectedelem.attr("id"))) {
+			if (!window.loadedPrefixes) {
+				window.loadedPrefixes = true;
+				loadOriginatedPrefixes(asn);
+			}
+		} else if (selectedelem.attr("id") == "tab_rdap") {
+			if (!window.loadedRdap) {
+				window.loadedRdap = true;
+				loadRdap(`/rdap/as${asn}`);
+			}
+		} else if (selectedelem.attr("id") == "tab_whois") {
+			if (!window.loadedWhois) {
+				window.loadedWhois = true;
+				fetchWhois(asn);
+			}
+		} else if (selectedelem.attr("id") == "tab_graph4") {
+			if (!window.loadedGraph4) {
+				window.loadedGraph4 = true;
+				fetchGraph(asn,4);
+			}
+		} else if (selectedelem.attr("id") == "tab_graph6") {
+			if (!window.loadedGraph6) {
+				window.loadedGraph6 = true;
+				fetchGraph(asn,6);
+			}
+		}
+	}
+}
+async function fetchGraph(asn,proto) {
+	if (proto != 4 && proto != 6) {
+		return;
+	}
+    var results = await fetch(`/graph/aspaths/as${asn}?v4=${proto == 4 ? 'true' : 'false'}`,{method:"GET"});
+    if (results.status == 200) {
+        let data = await results.text();
+        //console.log(data);
+		if (proto == 4) {
+			$("#graph4").html(data);
+		} else {
+			$("#graph6").html(data);
+		}
+        return data;
+    } else {
+        console.log("could not fetch graph");
+		if (proto == 4) {
+			$("#graph4").text("Could not fetch connectivity graph. Please try again later");
+		} else {
+			$("#graph6").text("Could not fetch connectivity graph. Please try again later");
+		}
+        return null;
+    }
+}
+async function fetchWhois(asn) {
+  const $out = $("#whois>pre").first();
+
+  // Normalize + validate input (ASN should be digits)
+  const raw = String(asn ?? "").trim();
+  const m = raw.match(/^(?:AS)?(\d+)$/i); // accepts "123", "AS123", "as123"
+  if (!m) {
+    $out.text("Invalid ASN.");
+    return null;
+  }
+
+  const asnNum = m[1];
+  const url = `/whois/as${encodeURIComponent(asnNum)}`;
+
+  let res;
+  try {
+    res = await fetch(url, {
+      method: "GET",
+      headers: { Accept: "application/json" },
+      credentials: "same-origin",
+      cache: "no-store",
+    });
+  } catch (e) {
+    $out.text("Whois data is unavailable, please try again later.");
+    return null;
+  }
+
+  // Parse JSON if present; don’t blow up on non-JSON errors
+  let payload = null;
+  try {
+    payload = await res.json();
+  } catch {}
+
+  if (res.ok && payload && typeof payload.data === "string") {
+    $out.text(payload.data); // SAFE: text(), not html()
+    return payload;
+  }
+
+  // Prefer server-provided error if available, but keep it as text
+  if (payload && typeof payload.error === "string" && payload.error.trim()) {
+    $out.text(payload.error);
+  } else if (res.status === 404) {
+    $out.text("No record found.");
+  } else {
+    $out.text("Whois data is unavailable, please try again later.");
+  }
+
+  return null;
+}
+async function fetchAsnOrg(asn) {
+    var results = await fetch(`/orgname/as${asn}`,{method:"GET"});
+    if (results.status == 200) {
+        let data = await results.json();
+        // console.log(data);
+        return data;
+    } else {
+        // console.log("could not fetch rdap");
+        return null;
+    }
+}
+</script>
+
+
+<!-- Global site tag (gtag.js) - Google Ads: 1068215855 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1068215855"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1068215855');
+</script>
+</head>
+
+<body>
+	<div style='display: flex; flex-direction: column; height:100%; '>
+		<div id='header' style='display: flex;'>
+			<div style='display: flex; align-items:center;justify-content:center;flex-direction:column; position: relative;'>
+				<a href="//www.he.net/"><img alt='Hurricane Electric' src='/helogo.gif' /></a>
+				<div style='padding:10px;  display:flex; gap: 5px;'>
+					
+	<h1><a href="/AS62380" rel="bookmark" title="AS62380 Bunea TELECOM SRL">AS62380 Bunea TELECOM SRL</a></h1>
+
+					<button id='clipboard' onclick='navigator.clipboard.writeText($(this).parent().find("a")[0].attributes["href"].baseURI);'>🔗</button>
+				</div>
+			</div>
+			<div id='header_search' style='flex-grow: 1; display: flex; align-items:center;justify-content:center;flex-direction:column;'>
+			
+			<form id='searchform' action="/search" method="get" style='width:80%; padding:10px; display: flex; justify-content:center;gap:5px;'>
+				<input name="search[search]" size="30" type="text">
+				<input name="commit" type="submit" value="Search" style='padding: 5px 10px;font-size: 22px;' class='searchbutton'>
+			</form>
+			</div>
+			<div style='flex-grow:1;' id='header_filler'> </div>
+
+			
+		</div>
+		<div id='centerbody'>
+			<div id='leftsidemenu' style='width:max-content;'>
+				<div class='leftsidemenu'>
+					<div class='menuheader'>Quick Links</div>
+					<ul class='leftsidemenuitems' style='width:max-content;'>
+						<li><a href='/'>BGP Toolkit Home</a></li>
+<li><a href="/report/prefixes">BGP Prefix Report</a></li>
+<li><a href="/report/peers">BGP Peer Report</a></li>
+<li><a href='//bgp.he.net/traceroute/'>Super Traceroute</a></li>
+<li><a href='/super-lg'>Super Looking Glass</a></li>
+<li><a href="/certs">Cert Search</a></li>
+<li><a href="/report/exchanges">Exchange Report</a></li>
+<li><a href="/report/bogons">Bogon Routes</a></li>
+<li><a href="/report/world">World Report</a></li>
+<li><a href="/report/multi-origin-routes">Multi Origin Routes</a></li>
+<li><a href="/report/dns">DNS Report</a></li>
+<li><a href="/report/tophosts">Top Host Report</a></li>
+<li><a href="/report/rpki_and_aspa">RPKI & ASPA Report</a></li>
+<li><a href="/report/netstats">Internet Statistics</a></li>
+<li><a href='//lg.he.net/'>Looking Glass</a></li>
+<li><a href='//networktools.he.net/'>Network Tools App</a></li>
+<li><a href='//ipv6.he.net/certification/'>IPv6 Certification</a></li>
+<li><a href='//bgp.he.net/ipv6-progress-report.cgi'>IPv6 Progress</a></li>
+<li><a href="/super-lg/contribute/">Contribute Data</a></li>
+<li><a href='/credits/'>Credits</a></li>
+<li><a href='//bgp.he.net/contact/'>Contact Us</a></li>
+
+					</ul>
+
+				</div>
+			</div>
+			<div id='content'>
+				
+
+				
+
+
+
+<ul class='tabmenu'>
+    <li id='tab_asinfo'    class='tabmenuli'>AS Info</li>
+	<li id='tab_graph4'      class='tabmenuli'>Graph v4</li>	
+	
+	<li id='tab_prefixes'  class='tabmenuli'>Prefixes v4</li>
+	
+	<li id='tab_rtbogons'    class='hidden tabmenuli'>Bogon</li>
+    <li id='tab_peers'     class='tabmenuli'>Peers v4</li>
+    
+    
+    <li id='tab_whois'     class='tabmenuli'>Whois</li>
+	<li id='tab_rdap'     class='tabmenuli'>RDAP</li>
+	
+    <li id='tab_irr'       class='tabmenuli'>IRR</li>
+	
+    
+	<li id='tab_traceroute' class='tabmenuli'>Traceroute</li>
+</ul>
+
+<div class='clear'></div>
+
+<div id='asinfo' class='tabdata'>
+	
+	
+	
+	
+		<div class='stale'><a href='#_asinfo'>AS62380</a> has not been visible in the global routing table since July 01, 2021<br/>Some of the information displayed is from that time. </div>
+	
+	<div class='asinfotext'>
+		
+                <!-- Start super-lg generated looking glass-->
+                        <div class='asleft'>
+                                 Looking Glass:
+                        </div>
+                        <div class='asright'>
+                    
+                                <a href="https://bgp.he.net/lg/62380">https://bgp.he.net/lg/62380</a>
+                    
+                        </div>
+                        <div class='clear'></div>
+                        <br/>
+                <!-- End super-lg generated looking glass -->
+
+		
+			<div class='asleft'>
+				Country of Origin:
+			</div>
+			<div class='asright'>
+				<a href="/country/RO">Romania</a>
+				<div class='flag floatright alignright'><img alt="Romania" src="/images/flags/ro.gif?1282328083" title="Romania" /></div>
+			</div>
+			<div class='clear'></div>
+			<br/>
+		
+
+
+		
+
+			<div class='asleft'>
+		        
+				Prefixes Originated (all): 4<br/>
+				Prefixes Originated (v4): 4<br/>
+				Prefixes Originated (v6): 0<br/>
+			</div>
+			<div class='asright'>
+				Prefixes Announced (all): 0<br/>
+				Prefixes Announced (v4): 0<br/>
+				Prefixes Announced (v6): 0<br/>
+			</div>
+            <div class='clear'></div>
+            <br/>
+            <div class='asleft'>
+                RPKI Originated Valid (all): 0</br>
+                RPKI Originated Valid (v4): 0</br>
+                RPKI Originated Valid (v6): 0</br>
+            </div>
+            <div class='asright'>
+                RPKI Originated Invalid (all): 0</br>
+                RPKI Originated Invalid (v4): 0</br>
+                RPKI Originated Invalid (v6): 0</br>
+            </div>
+			<div class='clear'></div>
+			<br/>
+			<div class='asleft'>
+				BGP Peers Observed (all): 4<br/>
+				BGP Peers Observed (v4): 4<br/>
+				BGP Peers Observed (v6): 0<br/>			
+			</div>
+			<div class='asright'>
+				IPs Originated (v4): 0<br/>
+				AS Paths Observed (v4): 0<br/>
+				AS Paths Observed (v6): 0<br/>
+			</div>
+			
+			<div class='clear'></div>
+			<br/>
+
+		<div class='asleft'>
+			Average AS Path Length (all): 0.000<br/>
+			Average AS Path Length (v4): 0.000<br/>
+			Average AS Path Length (v6): 0.000<br/>
+		</div>
+		
+
+		
+		<div class='clear'></div>
+	</div>
+
+	<div class='clear'></div>
+	<br/>
+	<div id='historical-charts'>
+
+	
+		<div class='floatleft'>
+            <div class='asgraphtitle'>AS62380 IPv4 Peers</div>
+            <div class='piechart' id='peerchart'></div>
+		</div>
+		<div class='floatright'>
+			<table class='toppeertable'><thead><tr><th>ASN</th><th>Name</th></tr></thead>
+				<tbody>
+				
+					<tr>
+						<td><a href="/AS6663">AS6663</a></td>
+						<td><a href="/AS6663">Euroweb Romania S.R.L.</a></td>
+					</tr>
+				
+					<tr>
+						<td><a href="/AS47890">AS47890</a></td>
+						<td><a href="/AS47890">UNMANAGED LTD</a></td>
+					</tr>
+				
+					<tr>
+						<td><a href="/AS12302">AS12302</a></td>
+						<td><a href="/AS12302">Vodafone Romania S.A.</a></td>
+					</tr>
+				
+					<tr>
+						<td><a href="/AS6830">AS6830</a></td>
+						<td><a href="/AS6830">Liberty Global Europe Holding B.V.</a></td>
+					</tr>
+				
+				</tbody>
+			</table>
+			<div class='clear'></div>
+		</div>
+	
+	<div class='clear'></div>
+	<br/>
+
+	
+		
+			<div class="asgraphbox">
+			<div class='asgraphtitle'>AS62380 IPv4 Peer Count</div>
+			<div class='asgraph'><canvas id='adjacencychart4'></canvas></div>
+			</div>
+		
+		
+		
+			<div class="asgraphbox">
+			<div class='asgraphtitle'>AS62380 IPv4 Prefixes Announced</div>
+			<div class='asgraph'><canvas id='announcementchart4'></canvas></div>
+			</div>
+		
+		
+		
+			<div class="asgraphbox">
+			<div class='asgraphtitle'>AS62380 IPv4 Prefixes Originated</div>
+			<div class='asgraph'><canvas id='routechart4'></canvas></div>
+			</div>
+		
+		
+	</div>
+</div>
+
+
+	<div id='graph4' class='tabdata hidden'>
+		<h2>AS62380 IPv4 Route Propagation</h2>
+		Loading...
+	</div>
+
+
+
+
+
+
+
+	<div id='prefixes' class='tabdata hidden'>
+		<div class='bogon hidden rtbogonstatus'><a href='#_rtbogons'>AS62380 announces bogons.</a></div>
+		<div style='width: 100%;' class='rtprefixes'>
+			<table class='rtprefixes-table' id='rtprefixes-table' style='width: 100%;'>
+				<thead><tr><th>Prefix</th><th style='width:50%;'>Description</th><th style='width:110px;'>Visibility</th></tr></thead>
+				<tbody>
+					<tr><td colspan=3>Loading Prefixes...</td></tr>
+				</tbody>
+			</table>
+			<div class='table-pager'></div>
+		</div>
+		<table id='table_prefixes4' class='sortable w100p hidden'>
+			<thead><tr><th>Prefix</th><th>Description</th></tr></thead>
+			<tbody>
+				
+				  <tr>
+    				<td class='nowrap'>
+					
+					
+					<a href="/net/2.57.120.0/24">2.57.120.0/24</a>
+				</td>
+    				<td>Bunea TELECOM SRL
+					<div class="flag alignright floatright"></div>
+					</td>
+				  </tr>
+				
+				  <tr>
+    				<td class='nowrap'>
+					
+					
+					<a href="/net/185.232.64.0/24">185.232.64.0/24</a>
+				</td>
+    				<td>Bunea TELECOM SRL
+					<div class="flag alignright floatright"></div>
+					</td>
+				  </tr>
+				
+				  <tr>
+    				<td class='nowrap'>
+					
+					
+					<a href="/net/185.232.66.0/24">185.232.66.0/24</a>
+				</td>
+    				<td>Bunea TELECOM SRL
+					<div class="flag alignright floatright"></div>
+					</td>
+				  </tr>
+				
+				  <tr>
+    				<td class='nowrap'>
+					
+					
+					<a href="/net/188.247.239.0/24">188.247.239.0/24</a>
+				</td>
+    				<td>
+					<div class="flag alignright floatright"></div>
+					</td>
+				  </tr>
+				
+			</tbody>
+		</table>
+		
+	</div>
+
+
+
+
+<div id='rtbogons' class='tabdata hidden'>
+	<table>
+		<thead><tr><th colspan="3">Bogon Prefixes</th></tr><tr><th>Prefix</th><th>Type</th><th>Status</th></tr></thead>
+		<tbody>
+		
+		</tbody>
+	</table>
+</div>
+
+
+	<div id='peers' class='tabdata hidden'>
+	<table id='table_peers4' class='sortable w100p'>
+	<thead><tr><th>Rank</th><th>Description</th><th>IPv6</th><th>Peer</th></tr></thead>
+	<tbody>
+
+	
+
+	  <tr>
+	   <td>1</td>
+ 	   <td>Euroweb Romania S.R.L.<div class="flag alignright floatright"><img alt="Romania" src="/images/flags/ro.gif?1282328083" title="Romania" /></div></td>
+ 	   <td></td>
+ 	   <td><a href="/AS6663" title="AS6663 Euroweb Romania S.R.L.">AS6663</a></td>
+ 	 </tr>
+	
+
+	  <tr>
+	   <td>2</td>
+ 	   <td>UNMANAGED LTD<div class="flag alignright floatright"><img alt="United Kingdom" src="/images/flags/gb.gif?1282328062" title="United Kingdom" /></div></td>
+ 	   <td></td>
+ 	   <td><a href="/AS47890" title="AS47890 UNMANAGED LTD">AS47890</a></td>
+ 	 </tr>
+	
+
+	  <tr>
+	   <td>3</td>
+ 	   <td>Vodafone Romania S.A.<div class="flag alignright floatright"><img alt="Romania" src="/images/flags/ro.gif?1282328083" title="Romania" /></div></td>
+ 	   <td></td>
+ 	   <td><a href="/AS12302" title="AS12302 Vodafone Romania S.A.">AS12302</a></td>
+ 	 </tr>
+	
+
+	  <tr>
+	   <td>4</td>
+ 	   <td>Liberty Global Europe Holding B.V.<div class="flag alignright floatright"><img alt="European Union" src="/images/flags/eu.gif?1282328061" title="European Union" /></div></td>
+ 	   <td></td>
+ 	   <td><a href="/AS6830" title="AS6830 Liberty Global Europe Holding B.V.">AS6830</a></td>
+ 	 </tr>
+	
+	</tbody>
+	</table>
+	</div>
+
+
+
+
+
+<div id='whois' class='tabdata hidden'>
+	<pre>Loading whois...</pre>
+</div>
+<div id='rdap' class='tabdata hidden'>
+	<div id='rdap-data'>Loading...</div>
+</div>
+
+
+<div id='irr' class='tabdata hidden'>
+	
+	<div class='irrbox'>
+		<div class='irrsource'>
+			RIPE
+		</div>
+		<span class='irrdata'>aut-num:        <a href="/AS62380" title="AS62380">AS62380</a>
+descr:          ***************************************
+descr:          * *
+descr:          * WHOLESALE PROVIDER OF *
+descr:          * DEDICATED SERVERS FOR RESELLERS *
+descr:          * AND WEBHOSTING COMPANIES *
+descr:          * WWW.BUNEA.EU *
+descr:          * *
+descr:          ***************************************
+as-name:        BUNEA-HIGH-PEER-NETWORK
+org:            ORG-BTS48-RIPE
+admin-c:        DUMY-RIPE
+tech-c:         DUMY-RIPE
+status:         ASSIGNED
+mnt-by:         RIPE-NCC-END-MNT
+mnt-by:         ro-btel2-1-mnt
+created:        2013-10-15T11:39:46Z
+last-modified:  2020-12-22T09:05:52Z
+source:         RIPE
+remarks:        ****************************
+remarks:        * THIS OBJECT IS MODIFIED
+remarks:        * Please note that all data that is generally regarded as personal
+remarks:        * data has been removed from this object.
+remarks:        * To view the original object, please query the RIPE Database at:
+remarks:        * http://www.ripe.net/whois
+remarks:        ****************************
+</span>
+		<div class='clear'></div>
+	</div>
+	
+</div>
+
+
+<div id='traceroute' class='tabdata hidden'>
+	<div id='probestatus'>Loading probes...</div>
+	<div style='display:none;' id='probebody'>
+		<div style='flex-basis:0; flex-grow: 1;border: 1px solid #000066; padding: 10px;'>
+			<div style='display:flex;flex-direction:column; align-items:center; gap: 10px;'>
+				
+				<div id='measurement-type-selector' class='switch-field'>
+					<input type='radio' id='trace' name='measurement' value='trace' checked>
+					<label for='trace' id='traceroutelabel'>Traceroute</label>
+					<input type='radio' id='ping' name='measurement' value='ping'>
+					<label for='ping'>Ping</label>
+					<input type='radio' id='dns' name='measurement' value='dns'>
+					<label for='dns'>DNS Lookup</label>
+				</div>
+				<!--<div id='ip-type-selector' class='switch-field'>
+					<input type='radio' id='ipv4' name='ip-type' value='ipv4' checked>
+					<label for='ipv4' id='ipv4label'>IPv4</label>
+					<input type='radio' id='ipv6' name='ip-type' value='ipv6'>
+					<label for='ipv6'>IPv6</label>
+				</div>
+				<div id='target-type-selector' class='switch-field'>
+					<input type='radio' id='custom' name='target-type' value='custom' checked>
+					<label for='custom' id='customlabel'>Custom Target</label>
+					<input type='radio' id='probetarget' name='target-type' value='probe'>
+					<label for='probetarget'>Target a Probe</label>
+					<input type='radio' id='self' name='target-type' value='self'>
+					<label for='self'>Target Own IP</label>
+				</div>-->
+				<div class='input' id='targetwrapper'>
+					<label for='target'><span style='font-weight:bold;'>Select Target</span></label>
+					<div style='position:relative; display:inline-block;'>
+						<input oninput="updateTableAfiFromTarget()" id='target' name='target' type='text'></input>
+						<div id='afi-selector'>
+							<button class='afi-selector selected ' data-afi='v4' onclick='afiSelect(this)'>v4</button>
+							<button class='afi-selector' data-afi='v6' onclick='afiSelect(this)'>v6</button>
+							<!-- <div style='position:absolute;top:0px;right:0px;width:25%;height:25%;background-color:blue;'></div> -->
+						</div>
+					</div>
+				</div>
+				<table id='probe_table'>
+					<thead>
+						<tr><th colspan=5>Select Probe <span id='table-afi'></span></th></tr>
+						<tr><th>Type</th><th>Name</th><th>ASN</th><th>IP</th><th>City</th</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+		<div class='results' style='flex-basis:0; flex-grow: 1; border: 1px solid #000066; padding: 10px;'>
+			<div style='display:flex; flex-direction:row;align-items:center;'>
+                <button id='querybutton' onclick='startProbe();'>Perform Query!</button>
+                <div class='loading hidden' id='loadingBox'><span>⏳</span></div>
+                <div style='display:block;margin-left:10px;'><span id='querybuttonmsg'></span></div>
+			
+			</div>
+			<div id='tracerouteplaceholder'>
+				<pre id='traceresultshint'>Results will appear here.
+				</pre>
+				<pre id='traceresults'>
+				</pre>
+            
+			<!--<div id='geotraceresults'>
+				<canvas id='globe'></canvas>
+			</div>-->
+
+			</div>
+			<!--<button id='showgeo' disabled>Show Geo</button>
+			<button id='hidegeo'>Hide Geo</button>-->
+		</div>
+	</div>
+</div>
+<script type='text/javascript'>
+    $(function() {
+         drawCharts();
+    });
+
+    function drawCharts() {
+        
+            drawPieChart("#peerchart", JSON.parse('[["AS6663",71,"#39618c"],["AS47890",20,"#6785a8"],["AS12302",7,"#a6b8cb"],["AS6830",2,"#d6dfe8"]]'));
+        
+        
+        
+			drawLineChartWithPair('adjacencychart4', JSON.parse('[["20200701", 5], ["20200711", 5], ["20200721", 5], ["20200801", 5], ["20200811", 5], ["20200901", 5], ["20200911", 5], ["20200921", 5], ["20201001", 5], ["20201011", 5], ["20201021", 4], ["20201101", 5], ["20201111", 5], ["20201121", 5], ["20201201", 2], ["20201211", 2], ["20201221", 2], ["20210101", 2], ["20210111", 2], ["20210121", 2], ["20210201", 2], ["20210211", 3], ["20210221", 3], ["20210301", 3], ["20210311", 3], ["20210321", 2], ["20210401", 3], ["20210411", 3], ["20210421", 3], ["20210501", 3], ["20210511", 3], ["20210521", 3], ["20210601", 3], ["20210611", 4], ["20210621", 4], ["20210701", 4]]'));
+        
+        
+        
+			drawLineChartWithPair('announcementchart4', JSON.parse('[["20200701", 13], ["20200711", 13], ["20200721", 13], ["20200801", 10], ["20200811", 10], ["20200901", 20], ["20200911", 13], ["20200921", 13], ["20201001", 13], ["20201011", 10], ["20201021", 6], ["20201101", 15], ["20201111", 17], ["20201121", 16], ["20201201", 4], ["20201211", 4], ["20201221", 4], ["20210101", 4], ["20210111", 4], ["20210121", 4], ["20210201", 4], ["20210211", 4], ["20210221", 4], ["20210301", 4], ["20210311", 4], ["20210321", 4], ["20210401", 4], ["20210411", 4], ["20210421", 4], ["20210501", 4], ["20210511", 4], ["20210521", 4], ["20210601", 4], ["20210611", 4], ["20210621", 4], ["20210701", 4]]'));
+        
+        
+        
+			drawLineChartWithPair('routechart4', JSON.parse('[["20200701", 4], ["20200711", 4], ["20200721", 4], ["20200801", 4], ["20200811", 4], ["20200901", 4], ["20200911", 4], ["20200921", 4], ["20201001", 4], ["20201011", 4], ["20201021", 4], ["20201101", 4], ["20201111", 4], ["20201121", 4], ["20201201", 4], ["20201211", 4], ["20201221", 4], ["20210101", 4], ["20210111", 4], ["20210121", 4], ["20210201", 4], ["20210211", 4], ["20210221", 4], ["20210301", 4], ["20210311", 4], ["20210321", 4], ["20210401", 4], ["20210411", 4], ["20210421", 4], ["20210501", 4], ["20210511", 4], ["20210521", 4], ["20210601", 4], ["20210611", 4], ["20210621", 4], ["20210701", 4]]'));
+        
+        
+
+    }
+
+    
+</script>
+
+			</div>
+		</div>
+	
+		<div id='footer'>
+                
+                
+                  Updated 04 Oct 2026 13:11 PDT &copy; 2026 Hurricane Electric
+                
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("UA-12276073-1");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>
