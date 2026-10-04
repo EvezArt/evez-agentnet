@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T22:39:45.663779+00:00",
+  "generated": "2026-10-04T22:42:53.337687+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -760,7 +760,7 @@
     },
     {
       "name": "openclaw-sbx-workspace-a051ad69e5d3de4aa30228465b31df73",
-      "status": "Up 9 hours",
+      "status": "Up 10 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -822,9 +822,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "84b920f",
-    "last": "defense: Tor-exit blocklist (6758 exits) dropped at INPUT-1, ipset+systemd persisted, daily refresh cron; Paramount ACSP preservation notice sent",
-    "dirty": 2
+    "head": "ac6f037",
+    "last": "NOTICE SERVED: formal victim notice + preservation demand to Palo (dmzhostabuse@) and Bunea (abuse@bunea.eu); bundle final (be51505b00757243...)",
+    "dirty": 5
   },
   "mirrors": 2329
 }

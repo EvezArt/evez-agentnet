@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <link rel="preload" href="https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2" as="font" type="font/woff2" crossorigin>
+  
+
+  
+    <meta name="description" content="Whois Lookup for dmzhost.co">
+  <title>Whois dmzhost.co</title>
+  <meta property="og:title" content="Whois dmzhost.co">
+  <meta property="og:description" content="Whois Lookup for dmzhost.co">
+    <link rel="canonical" href="https://www.whois.com/whois/dmzhost.co">
+   
+  <meta property="og:url" content="https://www.whois.com/whois/dmzhost.co">
+
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.whois.com/images/og.png">
+  <meta property="twitter:image" content="https://www.whois.com/images/twimg.png">
+  <meta name="theme-color" content="#f5a93a">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#f5a93a">
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/favicon.ico">
+
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GHSYT27DJ1"></script>
+  <link rel="stylesheet" href="/css/home.css?v=0b04d418c60ec4c93667e7609058c218">
+  <script defer src="/js/home.js?v=087916e77d8b2cc8f0809823cd0b78ff"></script>
+  
+  <script defer src="/js/simpleslider.js?v=780d2a68277bd204114f5a7f7b62e126"></script>
+
+
+  
+  <script>
+  function purchaseDomain(domain, source, chk) {
+    var form = chk ? document.purchaseFormChk : document.purchaseForm;
+    var submitted = false;
+    var submitForm = function(){if(!submitted){submitted=true;form.submit();}}
+    form.purchaseDomains.value = domain.toLowerCase();
+
+    if(window.gtag) {
+      gtag('event', source, {'event_category':'whois','event_label':'buy','transport_type':'beacon','event_timeout':2000,'event_callback':submitForm});
+    } 
+    submitForm();
+  }
+  
+  function toggleFold(item) {
+    item.parentElement.parentElement.classList.toggle('df-folded');
+  }
+
+  async function refreshDomain(domain) {
+    const refreshEl = document.getElementById('refresh');
+    if(refreshEl.classList.contains('spin')) return;
+  
+    refreshEl.classList.add('spin');
+    const statusEl = document.querySelector('#refresh .status');
+    statusEl.innerHTML = '';
+    
+    const response = await fetch(`/whois/refresh.php?domain=${domain}`, {headers:{"X-Requested-With":"XMLHttpRequest"}})
+    if(response.ok) {
+      const data = await response.json();
+      let status = 'Error occurred. Please try again later.';
+      if(data.errno == 0) {
+        if(data.status == 1) {
+          let el;
+          document.querySelector('.whois-data').style.display = 'none';
+          if((el = document.querySelector('.section-related'))) {
+            el.style.display = 'none';
+          }
+          if((el = document.querySelector('.section-avail'))) {
+            el.innerHTML = `<table><tr><td><img src="/images/ok.png" alt="ok"></td><td>${domain} is available!</td></tr></table>`;
+          }
+        } else {
+          document.querySelectorAll('.df-block').forEach((el) => el.remove());
+          document.querySelectorAll('.df-block-raw').forEach((el) => el.remove());
+          document.querySelector('.whois-data .head').insertAdjacentHTML('afterend', data['blocks']);
+          document.querySelector('#refresh .age').innerHTML = 'Updated '+data['dataAge']+' ago';
+          history.replaceState(null, '');
+        }
+        status = '';
+      } else if(data.captcha) {
+        status = '';
+        document.getElementById('security').style.display = '';
+        document.querySelector('#security form').insertAdjacentHTML('afterbegin', '<altcha-widget id="altcha" challengeurl="/whois/altcha.php" hidefooter="true"></altcha-widget>');
+        document.head.appendChild(Object.assign(document.createElement('script'), {src:'https://fastly.jsdelivr.net/npm/altcha@2.2.4/dist/altcha.js', type:'module', async:true}));
+      } else if(data.errstr) {
+        status = data.errstr;
+      }
+      refreshEl.classList.remove('spin')
+      statusEl.innerHTML = status;
+    } else {
+      refreshEl.classList.remove('spin')
+      statusEl.innerHTML = 'Error encountered. Please try again later.';
+    }
+  }
+  
+  function refreshWhois() {
+    refreshDomain('dmzhost.co');  }
+  
+  async function suggestDomain(domain) {
+    const response = await fetch(`/whois/suggest.php?domain=${domain}`, {headers:{"X-Requested-With":"XMLHttpRequest"}})
+    if(response.ok) {
+      const data = await response.json();
+      let html = '';
+      for(const value of Object.values(data)) {
+        html += `<div class="item"><span>${value.name}</span><a href="javascript:purchaseDomain('${value.name}','suggest');" class="btn btn-sm btn-vendor">Buy Now</a></div>`;
+      }
+      if(html) {
+        document.querySelector('aside').insertAdjacentHTML('afterbegin', '<div class="chiclet-suggest"><div class="title">Interested in similar domains?</div>'+html+'</div>');
+      }
+    }
+  }
+
+  
+  window.addEventListener('DOMContentLoaded', function() {
+        
+    createSimpleSlider(document.getElementById('promo-slides'), {nav:false,speed:500});
+    document.querySelector('header input[name="query"]').value = 'dmzhost.co';
+
+    document.querySelector('.head .btn-offer')?.addEventListener('click', function() {
+      const modal = document.getElementById('makeOfferModal');
+      if(modal) {
+        modal.style.display = 'block';
+        modal.insertAdjacentHTML('afterend', '<div class="modal-bg"></div>');
+      }
+    });
+    document.querySelectorAll('#makeOfferModal .btn, #makeOfferModal .close').forEach(function(el) {
+      el.addEventListener('click', function() {
+        document.getElementById('makeOfferModal').style.display = '';
+        document.querySelector('.modal-bg')?.remove();
+      });
+    });
+  });
+  
+  function recaptchaCallback() {
+    document.querySelector('#makeOfferModal .btn').click();
+  }
+  </script>
+
+</head>
+<body>
+  <header class="sticky-top">
+    
+    <nav class="navbar navbar-expand">
+      <div class="container-xl">
+        <a class="navbar-brand" href="/"><img height="32" width="120" src="/images/logo.svg" alt="whois.com"></a>
+
+        <ul class="navbar-nav" id="menubar">
+          <li class="nav-item header d-lg-none">
+            <a href="/" class="home" title="home"><svg height="20" width="20" viewBox="0 0 24 24"><path d="M21 13v10h-6v-6h-6v6h-6v-10h-3l12-12 12 12h-3zm-1-5.907v-5.093h-3v2.093l3 3z"></path></svg></a>
+            <a class="acc-signin unsigned" href="https://shop.whois.com/login.php">Login</a>
+            <a class="acc-signup unsigned" href="https://shop.whois.com/login.php?action=signup">Sign up</a>
+            <a class="acc-signincp signed" href="https://shop.whois.com/content.php?action=cp_login">My Account</a>
+            <a class="acc-signout signed" href="https://shop.whois.com/login.php?action=signout">Logout</a>
+            <span class="close-mobile-menu"><svg width="24" height="24"><symbol id="svg-close" viewBox="0 0 50 50"><path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"></path></symbol><use xlink:href="#svg-close"></use></svg></span>
+          </li>
+          <li class="nav-item dropdown dropdown-wide">
+            <a class="nav-link toggle" href="#">Domains</a>
+            <div class="dropdown-menu with-headers">
+              <div class="container-xl">
+                <div class="row">
+                  <div class="col col-8">
+                    <span class="dropdown-header">Registration</span>
+                    <div class="row">
+                      <div class="col">
+                        <a class="dropdown-item" href="https://shop.whois.com/domain-registration/index.php"><span class="title">Register a Domain</span><span class="meta">Get your domain name now</span></a>
+                        <a class="dropdown-item" href="https://shop.whois.com/domain-registration/domain-name-suggestion-tool.php"><span class="title">Domain Suggestions</span><span class="meta">Get help picking a domain name</span></a>
+                      </div>
+                      <div class="col">
+                        <a class="dropdown-item" href="https://shop.whois.com/domain-registration/domain-registration-price.php"><span class="title">Domain Pricing</span><span class="meta">Compare prices across TLDs</span></a>
+                        <a class="dropdown-item" href="https://shop.whois.com/domain-registration/offers"><span class="title">Special Offers</span><span class="meta">Take advantage of our unbeatable promotions</span></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col col-4">
+                    <span class="dropdown-header">Domain Services</span>
+                    <a class="dropdown-item" href="https://shop.whois.com/domain-registration/transfer/index.php"><span class="title">Transfer your Domain</span><span class="meta">Consolidate your domains quickly &amp; easily</span></a>
+                    <a class="dropdown-item" href="https://shop.whois.com/domain-registration/free-with-domain-registration.php"><span class="title">Free With Every Domain</span><span class="meta">Free services included with every domain</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown dropdown-wide">
+            <a class="nav-link toggle" href="#">Hosting</a>
+            <div class="dropdown-menu with-headers">
+              <div class="container-xl">
+                <div class="row">
+                  <div class="col">
+                    <span class="dropdown-header">Shared Hosting</span>
+                    <a class="dropdown-item" href="https://shop.whois.com/web-hosting/index.php"><span class="title">Linux Shared Hosting</span><span class="meta">Fully featured Linux plans with cPanel, Perl, PHP and more</span><span class="price">Starts at just | <em>$1.68/mo</em></span></a>
+                    <a class="dropdown-item" href="https://shop.whois.com/web-hosting/windows-hosting.php"><span class="title">Windows Shared Hosting</span><span class="meta">Complete Windows Hosting with Plesk, IIS and more</span><span class="price">Starts at just | <em>$1.68/mo</em></span></a>
+                  </div>
+                  <div class="col">
+                    <span class="dropdown-header">Specialized Hosting</span>
+                    <a class="dropdown-item" href="https://shop.whois.com/optimized-wordpress-hosting.php"><span class="title">WordPress Hosting</span><span class="meta">Feature rich hosting specially optimized for WordPress powered websites</span><span class="price">Starts at just | <em>$3.78/mo</em></span></a>
+                  </div>
+                  <div class="col">
+                    <span class="dropdown-header">Servers</span>
+                    <a class="dropdown-item" href="https://shop.whois.com/virtualserverlinux-hosting.php"><span class="title">Virtual Private Servers</span><span class="meta">The Dedicated server experience made affordable<br>Build high-performance websites and applications</span><span class="price">Starts at just | <em>$9.68/mo</em></span></a>
+                    <a class="dropdown-item" href="https://shop.whois.com/dedicated-servers.php"><span class="title">Dedicated Servers</span><span class="meta">Rock-solid performance on dedicated hardware<br>Perfect for larger websites and apps</span><span class="price">Starts at just | <em>$69.58/mo</em></span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown dropdown-wide">
+            <a class="nav-link toggle websites" href="#">Websites</a>
+            <div class="dropdown-menu">
+              <div class="container-xl">
+                <div class="row">
+                  <div class="col">
+                    <a class="dropdown-item webzai" href="https://shop.whois.com/website-builder"><span class="title">Website Builder</span><span class="meta">Build a professional website in minutes, no coding needed</span><span class="price">Starts at just | <em>$2.48/mo</em></span></a>
+                  </div>
+                  <div class="col">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown dropdown-wide">
+            <a class="nav-link toggle" href="#">Email</a>
+            <div class="dropdown-menu">
+              <div class="container-xl">
+                <div class="row">
+                  <div class="col">
+                    <a class="dropdown-item" href="https://shop.whois.com/titan-business-email-hosting"><span class="title">Business Email</span><span class="meta">Secure and Professional Email for your Business</span><span class="price">Starts at just | <em>$1.08/mo</em></span></a>
+                  </div>
+                  <div class="col">
+                    <a class="dropdown-item" href="https://shop.whois.com/google_apps.php"><span class="title">Google Workspace</span><span class="meta">Intelligent Email for seamless collaboration Includes Google Docs, Sheets &amp; Drive</span><span class="price">30 GB Storage + Collaboration Suite <em></em></span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown dropdown-wide">
+            <a class="nav-link toggle" href="#">Security</a>
+            <div class="dropdown-menu">
+              <div class="container-xl">
+                <div class="row">
+                  <div class="col">
+                    <a class="dropdown-item" href="https://shop.whois.com/digital-certificate"><span class="title">SSL Certificates</span><span class="meta">Secure your website and customer data</span><span class="price">Starts at just | <em>$9.96/yr</em></span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/whois/">Whois</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://shop.whois.com/domain-registration/offers">Deals</a>
+          </li>
+          <li class="nav-item dropdown dropdown-wide d-lg-none">
+            <a class="nav-link toggle" href="#">Help</a>
+            <div class="dropdown-menu">
+              <div class="container-xl">
+                <a class="dropdown-item" href="https://shop.whois.com/helpdesk"><span class="title">Support</span></a>
+                <a class="dropdown-item" href="https://manage.whois.com/kb"><span class="title">Knowledge Base</span></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <form action="/search.php">
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" placeholder="Enter Domain or IP" title="Enter Domain or IP" name="query">
+            <div class="input-group-append">
+              <button class="btn btn-vendor" type="submit" aria-label="Whois Search"><svg width="16" height="16"><symbol id="svg-whois-search" viewBox="0 0 24 24"><path d="M21.172 24l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"></path></symbol><use xlink:href="#svg-whois-search"></use></svg><span>WHOIS</span></button>
+            </div>
+          </div>
+          <span class="close-mobile-search"><svg width="22" height="22"><use xlink:href="#svg-close"/></svg></span>
+        </form>
+
+        <ul class="navbar-nav">
+          <li class="nav-item d-md-none">
+            <a class="nav-link open-mobile-search" href="#" aria-label="Whois Search"><svg width="20" height="20"><use xlink:href="#svg-whois-search"/></svg></a>
+          </li>
+          <li class="nav-item dropdown nav-item-acc">
+            <a class="nav-link" href="#" aria-label="account">
+              <svg width="20" height="20" viewBox="0 0 24 24"><path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z"></path></svg>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item acc-signin unsigned" href="https://shop.whois.com/login.php">Login</a>
+              <a class="dropdown-item acc-signup unsigned" href="https://shop.whois.com/login.php?action=signup">Create an Account</a>
+              <a class="dropdown-item acc-reset unsigned" href="https://shop.whois.com/login.php?action=showforgotpass">Forgot Password</a>
+              <a class="dropdown-item acc-signincp signed" href="https://shop.whois.com/content.php?action=cp_login">My Account</a>
+              <a class="dropdown-item acc-signout signed" href="https://shop.whois.com/login.php?action=signout">Logout</a>
+            </div>
+          </li>
+          <li class="nav-item nav-item-cart">
+            <a class="nav-link" href="https://shop.whois.com/checkout.php">
+              <svg width="23" height="20"><symbol id="svg-shop-cart" viewBox="0 0 122.9 107.5"><path d="M3.9,7.9C1.8,7.9,0,6.1,0,3.9C0,1.8,1.8,0,3.9,0h10.2c0.1,0,0.3,0,0.4,0c3.6,0.1,6.8,0.8,9.5,2.5c3,1.9,5.2,4.8,6.4,9.1 c0,0.1,0,0.2,0.1,0.3l1,4H119c2.2,0,3.9,1.8,3.9,3.9c0,0.4-0.1,0.8-0.2,1.2l-10.2,41.1c-0.4,1.8-2,3-3.8,3v0H44.7 c1.4,5.2,2.8,8,4.7,9.3c2.3,1.5,6.3,1.6,13,1.5h0.1v0h45.2c2.2,0,3.9,1.8,3.9,3.9c0,2.2-1.8,3.9-3.9,3.9H62.5v0 c-8.3,0.1-13.4-0.1-17.5-2.8c-4.2-2.8-6.4-7.6-8.6-16.3l0,0L23,13.9c0-0.1,0-0.1-0.1-0.2c-0.6-2.2-1.6-3.7-3-4.5 c-1.4-0.9-3.3-1.3-5.5-1.3c-0.1,0-0.2,0-0.3,0H3.9L3.9,7.9z M96,88.3c5.3,0,9.6,4.3,9.6,9.6c0,5.3-4.3,9.6-9.6,9.6 c-5.3,0-9.6-4.3-9.6-9.6C86.4,92.6,90.7,88.3,96,88.3L96,88.3z M53.9,88.3c5.3,0,9.6,4.3,9.6,9.6c0,5.3-4.3,9.6-9.6,9.6 c-5.3,0-9.6-4.3-9.6-9.6C44.3,92.6,48.6,88.3,53.9,88.3L53.9,88.3z M33.7,23.7l8.9,33.5h63.1l8.3-33.5H33.7L33.7,23.7z"></path></symbol><use xlink:href="#svg-shop-cart"></use></svg>
+              <span id="cart-count">0</span>
+            </a>
+          </li>
+          <li class="nav-item d-lg-none">
+            <a class="nav-link" id="menu-toggler" href="#" aria-label="Main menu"><svg width="24" height="24" viewBox="0 0 24 24"><path d="m1 5v2h22v-2zm0 6v2h22v-2zm0 6v2h22v-2z"></path></svg></a>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-backdrop fade" id="menubar-backdrop"></div>
+    </nav>
+  </header>
+
+  
+  <div class="lookup-page container-xl">
+    <div class="d-flex">
+      <main>
+              <div id="security" class="alert alert-warning" style="display: none">
+          <h4>Security Check</h4>
+          Please respond to the question below to continue.
+          <form method="post">
+            <div class="g-recaptcha" data-sitekey="6Ldp5QMTAAAAADpcINfZtcfiCW_ivhongjwjSx9J" data-callback="recaptchaCallback"></div>
+                        <input type="submit" class="btn btn-primary"/>
+          </form>
+        </div>
+        
+                  <div class="section-avail">
+                      </div>
+          
+          <form method="post" name="purchaseFormChk" id="purchaseFormChk" action="https://shop.whois.com/domain-registration/index.php">
+          <input type="hidden" name="action" value="check_availability">
+          <input type="hidden" name="phrase_search" value="true">
+          <input type="hidden" id="purchaseDomains" name="txtDomainName">
+          </form>
+          <form method="get" name="purchaseForm" id="purchaseForm" action="https://shop.whois.com/cart-name">
+          <input type="hidden" id="purchaseDomains" name="domain_name">
+          </form>
+          
+          <div class="whois-data"><div class="head"><div><h1>dmzhost.co</h1><a class="btn btn-offer" title="Make an offer to buy this domain">Make offer</a></div><div class="refresh" id="refresh"><span class="age">Updated 7 days ago</span><svg width="20" height="20" viewBox="0 0 24 24" onclick="javascript:refreshWhois();"><path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"></path></svg><span class="status"></span></div></div><div class="df-block"><div class="df-heading"><span class="df-ico-domain"></span>Domain Information</div><div class="df-row"><div class="df-label">Domain:</div><div class="df-value">dmzhost.co</div></div><div class="df-row"><div class="df-label">Registered On:</div><div class="df-value">2015-08-26</div></div><div class="df-row"><div class="df-label">Expires On:</div><div class="df-value">2027-08-25</div></div><div class="df-row"><div class="df-label">Updated On:</div><div class="df-value">2026-05-05</div></div><div class="df-row"><div class="df-label">Status:</div><div class="df-value">clientTransferProhibited</div></div><div class="df-row"><div class="df-label">Name Servers:</div><div class="df-value">mario.ns.cloudflare.com<br>jule.ns.cloudflare.com</div></div></div><div class="df-block"><div class="df-heading"><span class="df-ico-rar"></span>Registrar Information</div><div class="df-row"><div class="df-label">Registrar:</div><div class="df-value">NameCheap, Inc.</div></div><div class="df-row"><div class="df-label">IANA ID:</div><div class="df-value">1068</div></div><div class="df-row"><div class="df-label">URL:</div><div class="df-value">http://www.namecheap.com</div></div><div class="df-row"><div class="df-label">Abuse Email:</div><div class="df-value">abuse@namecheap.com</div></div><div class="df-row"><div class="df-label">Abuse Phone:</div><div class="df-value">+1.9854014545</div></div></div><div class="df-block-raw"><div class="df-heading"><div>Raw Whois Data</div></div><pre class="df-raw" id="registryData">Domain Name: DMZHOST.CO
+Registry Domain ID: D3576233-CNIC
+Registrar WHOIS Server: whois.namecheap.com
+Registrar URL: http://www.namecheap.com
+Updated Date: 2026-05-05T12:05:22.0Z
+Creation Date: 2015-08-26T15:16:38.0Z
+Registry Expiry Date: 2027-08-25T23:59:59.0Z
+Registrar: NameCheap, Inc.
+Registrar IANA ID: 1068
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registrant Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.
+Admin Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.
+Tech Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.
+Name Server: MARIO.NS.CLOUDFLARE.COM
+Name Server: JULE.NS.CLOUDFLARE.COM
+DNSSEC: unsigned
+Billing Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.
+Registrar Abuse Contact Email: <img src="/eimg/c/37/c376269fd9f7286690d7fff980a7d02cd6e95453.png" class="email" alt="email" loading="lazy">@namecheap.com
+Registrar Abuse Contact Phone: +1.9854014545
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+&gt;&gt;&gt; Last update of WHOIS database: 2026-09-27T09:23:01.0Z &lt;&lt;&lt;
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+The registration data available in this service is limited. Additional
+data may be available at https://lookup.icann.org
+
+The Whois and RDAP services are provided by CentralNic, and contain
+information pertaining to Internet domain names registered by our
+our customers. By using this service you are agreeing (1) not to use any
+information presented here for any purpose other than determining
+ownership of domain names, (2) not to store or reproduce this data in
+any way, (3) not to use any high-volume, automated, electronic processes
+to obtain data from this service. Abuse of this service is monitored and
+actions in contravention of these terms will result in being permanently
+blacklisted. All data is (c) CentralNic Ltd (https://www.centralnicregistry.com)
+
+Access to the Whois and RDAP services is rate limited.
+</pre></div></div>                  
+      
+      </main>
+      <aside>
+        <div class="chiclet chiclet-promo">
+          <div class="slide"><div class="tld">.space</div><p><span class="tld-original-price"><sup>$</sup>29.88</span> <span class="tld-discount-price"><sup>$</sup>1.18</span><a class="green-btn" href="https://shop.whois.com/domain-registration/index.php?tld=space">Buy Now</a></p><p class="offer">*while stocks last</p></div>
+        </div>
+        <div class="chiclet chiclet-slides">
+          <div class="title"><a href="https://shop.whois.com/domain-registration/offers" rel="nofollow">On Sale!</a></div>
+          <div class="slides" id="promo-slides">
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=club" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/club.png" alt=".club" width="150" height="120"><div><span>.CLUB @ $5.48</span> <s>$27.88</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=icu" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/icu.png" alt=".icu" width="150" height="120"><div><span>.ICU @ $1.48</span> <s>$21.48</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=info" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/info.png" alt=".info" width="150" height="120"><div><span>.INFO @ $5.28</span> <s>$32.88</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=fun" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/fun.png" alt=".fun" width="150" height="120"><div><span>.FUN @ $1.48</span> <s>$42.88</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=life" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/life.png" alt=".life" width="150" height="120"><div><span>.LIFE @ $2.48</span> <s>$38.88</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=live" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/live.png" alt=".live" width="150" height="120"><div><span>.LIVE @ $3.48</span> <s>$34.88</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=lol" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/lol.png" alt=".lol" width="150" height="120"><div><span>.LOL @ $2.48</span> <s>$35.88</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=online" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/online.png" alt=".online" width="150" height="120"><div><span>.ONLINE @ $5.28</span> <s>$43.88</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=pro" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/pro.png" alt=".pro" width="150" height="120"><div><span>.PRO @ $4.48</span> <s>$38.48</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=pw" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/pw.png" alt=".pw" width="150" height="120"><div><span>.PW @ $5.98</span> <s>$29.48</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=shop" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/shop.png" alt=".shop" width="150" height="120"><div><span>.SHOP @ $1.88</span> <s>$47.48</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=site" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/site.png" alt=".site" width="150" height="120"><div><span>.SITE @ $3.28</span> <s>$45.48</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=top" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/top.png" alt=".top" width="150" height="120"><div><span>.TOP @ $1.98</span> <s>$10.88</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=uno" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/uno.png" alt=".uno" width="150" height="120"><div><span>.UNO @ $1.98</span> <s>$38.48</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=website" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/website.png" alt=".website" width="150" height="120"><div><span>.WEBSITE @ $4.28</span> <s>$35.88</s></div></a></div>
+            <div class="slide"><a href="https://shop.whois.com/domain-registration/index.php?tld=xyz" rel="nofollow"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="/images/tld/xyz.png" alt=".xyz" width="150" height="120"><div><span>.XYZ @ $3.48</span> <s>$20.48</s></div></a></div>
+          </div>
+        </div>
+        <div class="chiclet">
+          <a href="https://shop.whois.com/website-builder" rel="nofollow"><picture><source srcset="/images/chiclet_sp.webp" type="image/webp"><img src="/images/chiclet_sp.png" alt="AI Website Builder" width="300" height="225" loading="lazy"></picture></a>
+        </div>
+      </aside>
+    </div>
+        <div class="section-related">
+      <h2>related domain names</h2>
+      <ul>
+                <li><a href="/whois/namecheap.com">namecheap.com</a></li>
+                <li><a href="/whois/icann.org">icann.org</a></li>
+                <li><a href="/whois/cloudflare.com">cloudflare.com</a></li>
+                <li><a href="/whois/centralnicregistry.com">centralnicregistry.com</a></li>
+              </ul>
+    </div>
+        <div class="modal" id="makeOfferModal" role="dialog">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Want to buy <span class="domain">dmzhost.co</span>?</h5>
+            <button type="button" class="close"><span>×</span></button>
+          </div>
+          <div class="modal-body text-center">
+            <p>This domain is already registered by someone else, but you can still make an offer to buy it from the current owner.</p>
+            <p>You will be redirected to our trusted partner Sedo where you can securely submit your offer.</p>
+            <div class="actions"><button class="btn btn-outline-secondary cancel" data-dismiss="modal">Cancel</button><a class="btn btn-vendor ok"  href="https://sedo.com/checkdomainoffer.php?language=us&domain=dmzhost.co&&campaignId=13815" rel="nofollow" target="_blank">Continue to Sedo</a></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="footer-cols">
+      <div class="container-xl">
+        <div class="row">
+          <div class="col-4">
+            <img loading="lazy" src="/images/ssmg/logo_footer.png" alt="logo">
+            <p>Leading provider of web presence solutions that empower you to establish and grow your online presence.</p>
+            <p>Learn more <a href="/about/">About Us</a></p>
+            <p class="footer-login">
+              <a class="btn acc-signin unsigned" href="https://shop.whois.com/login.php">Login</a><a class="btn acc-signincp signed" href="https://shop.whois.com/content.php?action=cp_login">My Account</a> <span>or</span> <a class="btn acc-signup unsigned" href="https://shop.whois.com/login.php?action=signup">Create an Account</a><a class="btn acc-signout signed" href="https://shop.whois.com/login.php?action=signout">Logout</a>
+            </p>
+          </div>
+          <div class="col">
+            <h5>Domains</h5>
+            <ul>
+              <li><a href="https://shop.whois.com/domain-registration/index.php">Register Domain Name</a></li>
+              <li><a href="https://shop.whois.com/domain-registration/transfer/index.php">Transfer Domain Name</a></li>
+              <li><a href="https://shop.whois.com/domain-registration/domain-registration-price.php">Domain Pricing</a></li>
+              <li><a href="/whois/">Whois Lookup</a></li>
+              <li><a href="https://shop.whois.com/domain-registration/domain-name-suggestion-tool.php">Name Suggestion Tool</a></li>
+              <li><a href="https://shop.whois.com/domain-registration/free-with-domain-registration.php">Free with Every Domain</a></li>
+              <li><a href="https://shop.whois.com/domain-registration/offers">Domain Offers</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h5>Hosting &amp; Product</h5>
+            <ul>
+              <li><a href="https://shop.whois.com/web-hosting/index.php">Linux Hosting</a></li>
+              <li><a href="https://shop.whois.com/web-hosting/windows-hosting.php">Windows Hosting</a></li>
+              <li><a href="https://shop.whois.com/optimized-wordpress-hosting.php">WordPress Hosting</a></li>
+              <li><a href="https://shop.whois.com/website-builder">Website Builder</a></li>
+              <li><a href="https://shop.whois.com/titan-business-email-hosting">Business Email</a></li>
+              <li><a href="https://shop.whois.com/google_apps.php">Google Workspace</a></li>
+              <li><a href="https://shop.whois.com/virtualserverlinux-hosting.php">Virtual Private Servers</a></li>
+              <li><a href="https://shop.whois.com/dedicated-servers.php">Dedicated Servers</a></li>
+              <li><a href="https://shop.whois.com/digital-certificate">SSL Certificates</a></li>
+              <li><a href="https://shop.whois.com/reseller-hosting.php">Linux Reseller Hosting</a></li>
+              <li><a href="https://shop.whois.com/windows-reseller-hosting.php">Windows Reseller Hosting</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h5>Infrastructure</h5>
+            <ul>
+              <li><a href="https://shop.whois.com/web-hosting/datacenter-network.php">Datacenter Details</a></li>
+              <li><a href="https://shop.whois.com/web-hosting/hosting-security.php">Hosting Security</a></li>
+              <li><a href="https://shop.whois.com/web-hosting/server-monitoring.php">24 x 7 Servers Monitoring</a></li>
+              <li><a href="https://shop.whois.com/web-hosting/data-protection-recovery.php">Backup and Recovery</a></li>
+            </ul>
+            <h5>Help</h5>
+            <ul>
+              <li><a target="_blank" rel="noopener" href="https://manage.whois.com/kb">Knowledge Base</a></li>
+              <li><a href="https://shop.whois.com/helpdesk">Support</a></li>
+              <li><a href="https://shop.whois.com/support/contact-us.php">Contact Us</a></li>
+              <li><a href="https://shop.whois.com/support/contact-us.php#abuse">Report Abuse</a></li>
+              <li><a href="/about/">About Whois</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <div class="container-xl d-md-flex justify-content-between">
+        <div>Copyright &copy; Whois.com. All rights reserved</div>
+        <div><a href="https://shop.whois.com/privacy/privacy" target="_blank" rel="noopener">Privacy</a> | <a href="https://shop.whois.com/support/legal.php" target="_blank" rel="noopener">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

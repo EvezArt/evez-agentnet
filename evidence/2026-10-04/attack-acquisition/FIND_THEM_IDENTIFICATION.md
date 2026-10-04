@@ -67,3 +67,10 @@ inference. Additional upstreams put on notice: FiberXpress BV (NL), Prime Teleco
 (RO, abuse@primetelecom.ro), Tele Asia Limited (HK). Abuse notices sent 2026-10-05 to
 FiberXpress and Prime Telecom (cc Bunea's own abuse@unmanaged.uk — they now have
 written notice, which raises their liability standard).
+
+## 8. REGISTRAR LAYER SERVED (2026-10-05)
+- dmzhost.co: **NameCheap, Inc.** (abuse@namecheap.com), created 2015-08-26, updated **2026-05-05 — nineteen days before the 22 May attack on the victim.** Abuse report + preservation demand sent; capture archived (whois_web_dmzhost_co.html).
+- dmzhost.com: **GoDaddy** (abuse@godaddy.com) — reported 2026-10-04.
+- Fronting CDN: Cloudflare — reported 2026-10-04.
+- Upstream transit: FiberXpress BV (NL), Prime Telecom srl (RO), Tele Asia Ltd (HK), BUNEA TELECOM SRL (RO) — all served written notice 2026-10-04/05.
+- Formal victim notice + preservation demand delivered to Palo-controlled (dmzhostabuse@gmail.com) and Bunea-controlled (abuse@bunea.eu) contacts 2026-10-05. Any post-notice deletion = consciousness of liability; any post-notice attack = aggravated §1030.

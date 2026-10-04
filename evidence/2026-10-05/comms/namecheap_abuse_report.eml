@@ -1,0 +1,47 @@
+From: Steven Crawford-Maggard <rubikspubes69@gmail.com>
+To: abuse@namecheap.com
+Subject: ABUSE REPORT =?utf-8?b?4oCU?= dmzhost.co (NameCheap reg. 2015):
+ bulletproof hosting tied to FIOD seizure + DOJ action; attacks on US victim;
+ preservation demand
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+NameCheap Abuse Team,
+
+Reporting the domain dmzhost.co (registered via NameCheap 2015-08-26; record =
+last
+updated 2026-05-05 =E2=80=94 three weeks before the attack described below) f=
+or violation of
+your AUP: the domain fronts "Offshore infrastructure =C2=B7 DMZHOST", a bulle=
+tproof-hosting
+service ("total privacy", offshore servers marketed to platforms) whose opera=
+tor
+ecosystem is:
+
+- subject of the May 2026 Dutch FIOD seizure (~800 servers) and adjacent to t=
+he US
+  DOJ/SDNY Media Land / ML.Cloud enforcement action;
+- operator of AS48090 (TECHOFF SRV LIMITED, UK 16090235, now in registrar-ini=
+tiated
+  strike-off; sole director Luca Palo, Milano), whose IP 80.94.92.166 executed
+  unauthorized SSH access against my US systems on 22 May 2026 =E2=80=94 open=
+ FBI complaint
+  (IC3 filed 1 Oct 2026; FOIPA 1758537-000);
+- partner AS47890 (UNMANAGED LTD / BUNEA TELECOM SRL =E2=80=94 the same Bunea=
+ family runs
+  both the hosting concern and Palo's upstream transit) conducted 130+ attacks
+  against my systems in October 2026, kernel-logged under a SHA-256 manifest.
+
+REQUESTED: (1) AUP review and suspension of the registration pending investig=
+ation;
+(2) preservation of all registration, WHOIS-privacy, payment and account data=
+ for
+legal process =E2=80=94 this matter is known to the FBI and Dutch FIOD; (3) c=
+onfirmation of
+handling. Full hash-chained evidence bundle available to your investigators.
+
+Steven Crawford-Maggard (victim/complainant)
+66226 N Agua Dulce Dr, Desert Hot Springs, CA 92240, USA
+rubikspubes69@gmail.com
+
