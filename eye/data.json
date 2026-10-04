@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T22:43:55.427064+00:00",
+  "generated": "2026-10-04T22:44:57.944279+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -822,8 +822,8 @@
   ],
   "git": {
     "branch": "main",
-    "head": "62c44a5",
-    "last": "NameCheap layer served (dmzhost.co reg updated 19d pre-attack); registrar/CDN/upstream layers ALL served; bundle (53d68b87798edd7f...)",
+    "head": "899d712",
+    "last": "DRILL: ACSP Paramount co-located at BESTDC address (attestation not independent); 2.57.122.0/24 C2 range ORIGINATED by Bunea AS47890; bundle (8ff29e9c8ce6d4a6...)",
     "dirty": 0
   },
   "mirrors": 2329

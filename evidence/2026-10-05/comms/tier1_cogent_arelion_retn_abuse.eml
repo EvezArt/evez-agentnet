@@ -1,0 +1,44 @@
+From: Steven Crawford-Maggard <rubikspubes69@gmail.com>
+To: abuse@cogentco.com
+Cc: abuse@arelion.com, abuse@retnglobal.com
+Subject: ABUSE =?utf-8?b?4oCU?= downstream AS47890/AS48090 (UNMANAGED LTD /
+ TECHOFF SRV, bulletproof hosting) attacking US systems; law-enforcement
+ matter; preservation demand
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cogent / Arelion / RETN Abuse Desks,
+
+Your networks are documented upstream carriers for AS47890 (UNMANAGED LTD =E2=
+=80=94
+"DMZHOST"/Bunea ecosystem) and its partner AS48090 (TECHOFF SRV LIMITED). Fac=
+ts:
+
+- 2.57.122.0/24 (originated by AS47890) hosted confirmed Metasploit C2 (Team =
+Cymru,
+  Dec 2024) and conducted 130+ authentication attacks against my US systems in
+  October 2026 =E2=80=94 kernel-logged with hash-chained evidence.
+- 80.94.92.166 (AS48090) executed unauthorized SSH access on 22 May 2026 =E2=
+=80=94 open FBI
+  complaint (IC3, 1 Oct 2026; FOIPA 1758537-000). The victim's firewall denie=
+s these
+  ranges continuously; each denial is timestamped.
+- TECHOFF SRV LIMITED is in UK strike-off; UK Companies House creditor object=
+ion
+  filed; formal victim notice served on the operators' RIPE abuse contacts 20=
+26-10-05.
+- The ecosystem is adjacent to the Dutch FIOD May 2026 seizures and DOJ/SDNY
+  Media Land/ML.Cloud bulletproof-hosting enforcement.
+
+REQUESTED: (1) AUP review and action against AS47890/AS48090 and the ranges
+2.57.122.0/24, 80.94.92.0/24, 45.148.10.0/24; (2) preservation of customer, t=
+ransit
+and payment records for these ASNs against legal process; (3) confirmation of
+handling. This notice supports both criminal referral and civil action; conti=
+nuation
+of documented attack traffic after notice will be recorded.
+
+Evidence bundle (hash-chained, custody-documented) available on request.
+Steven Crawford-Maggard (victim) =E2=80=94 rubikspubes69@gmail.com
+
