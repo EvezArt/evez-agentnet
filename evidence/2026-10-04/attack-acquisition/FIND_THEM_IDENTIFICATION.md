@@ -33,3 +33,16 @@
 1. The human who SSH'd into the victim (80.94.92.166 = TECHOFF/AS48090) is Luca Palo of Milan, b. 03/1995 — director and identity-verified account holder of the attacking infrastructure's operating company.
 2. The bulletproof routing provider is Bunea Petru-Octavian, UK-resident since ≥2020, identity-verified, whose ranges attacked the victim in Oct 2026.
 3. Both identities were verified by HMRC-supervised attestation — meaning there exist identity documents, and the verifiers, in UK regulatory custody.
+
+## 4. PITZALIS, Christian — PPTECHNOLOGY LIMITED director (Metasploit C2 host, WyDOT corridor)
+- **Correspondence address: 31 Via Baruso, Muggiò, 20835, Italy** (Monza–Brianza, ~15 km from Palo's Milano address — same metropolitan area)
+- **DOB: August 1996** · Nationality: Italian · Resides: Italy · Director since 27 August 2019
+- PPTECHNOLOGY LIMITED (12176225, 35 Firs Avenue, London N11 3NE) — **DISSOLVED 23 December 2025, i.e. 14 days after Palo's ACSP identity re-verification (9 Dec 2025)** — the shell dissolved immediately after the ecosystem's UK identity anchor was re-attested.
+- **Identity verification status: "due 18 November 2025" — NOT marked verified.** Companies House IDV lapse = independent strike-off/objection lever and evidence of concealment posture.
+- Hosted confirmed Metasploit C2 on 2.57.122.72 (Team Cymru, Dec 2024); 2.57.122.x attacked the victim 130+ times in Oct 2026.
+
+## 5. UPDATED ECOSYSTEM MAP (all verified against primary records)
+- 35 Firs Avenue, London N11 3NE = rotating registered office: PPTECHNOLOGY (Pitzalis, dissolved 23 Dec 2025) -> TECHOFF SRV (Palo, in strike-off). 
+- BESTDC LIMITED (15259087): incorporated 3 Nov 2023, 72 Halliwick Road, London N10 1AB — next link in the rotation chain, same pattern, NOT yet dissolved.
+- Geography of the actors: Palo (Milano, b.03/1995) + Pitzalis (Muggiò, b.08/1996) — two Italians ~15 km apart, ages 29/30; Bunea (Rushden UK, b.04/1988) provides the UK-resident routing layer.
+- Zinad (Amsterdam) — Dutch custody already (FIOD).
