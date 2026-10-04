@@ -12,6 +12,10 @@ SURFACES = [
     ("codex",    "https://evezart.github.io/codex.html",     ["THE CODEX", "062cb53f"]),
     ("moltbooks","https://evezart.github.io/moltbooks.html", ["THE MOLTBOOKS", "Liber Primus"]),
     ("index",    "https://evezart.github.io/",               ["THE CODEX"]),
+    ("liber-secundus","https://evezart.github.io/liber-secundus.html", ["Liber Secundus", "CHAIN OR IT DIDN'T HAPPEN"]),
+    ("liber-quartus","https://evezart.github.io/liber-quartus.html", ["LIBER QUARTUS"]),
+    ("liber-quintus","https://evezart.github.io/liber-quintus.html", ["Liber Quintus"]),
+    ("og-preview","https://evezart.github.io/evez666-mural.png", []),
     ("release",  "https://api.github.com/repos/EvezArt/eigenforensics/releases/latest", ["tag_name"]),
 ]
 
