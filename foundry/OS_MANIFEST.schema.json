@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EVEZ Agentic Operating System Manifest",
+  "type": "object",
+  "required": ["os_id", "generation", "objective", "kernel", "capabilities", "agents", "authority", "evidence"],
+  "properties": {
+    "os_id": {"type": "string", "pattern": "^evez-[a-z0-9-]+$"},
+    "generation": {"type": "integer", "minimum": 0},
+    "objective": {"type": "string", "minLength": 1},
+    "kernel": {"type": "string", "minLength": 1},
+    "capabilities": {"type": "array", "items": {"type": "string"}},
+    "agents": {"type": "array", "items": {"type": "string"}},
+    "tools": {"type": "array", "items": {"type": "string"}},
+    "memory": {"type": "array", "items": {"type": "string"}},
+    "tests": {"type": "array", "items": {"type": "string"}},
+    "authority": {
+      "type": "object",
+      "required": ["maximum_autonomy"],
+      "properties": {
+        "maximum_autonomy": {"type": "integer", "minimum": 0, "maximum": 9}
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["spine", "promotion_ladder"],
+      "properties": {
+        "spine": {"type": "string"},
+        "promotion_ladder": {
+          "type": "array",
+          "items": {
+            "enum": ["UNKNOWN", "OBSERVED", "EXECUTABLE", "TESTED", "REPRODUCED", "VALIDATED", "PROMOTED"]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "recovery": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
