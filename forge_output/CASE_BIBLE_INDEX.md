@@ -16,5 +16,6 @@
 | 13 | Epistemic state machine | evidence/2026-10-05/epistemic_state/README.md |
 | 14 | Machine-readable state | evidence/2026-10-05/epistemic_state/state.json |
 | 15 | Promotion targets | evidence/2026-10-05/epistemic_state/promotion_targets.md |
+| 16 | Official source snapshot | evidence/2026-10-05/epistemic_state/official_sources.md |
 STATEMENT: mercy offered 2026-10-05, withdrawn same day upon the people's call.
 Nothing remains but the clocks and the courts.
