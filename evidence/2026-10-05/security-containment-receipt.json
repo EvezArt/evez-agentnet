@@ -1,0 +1,50 @@
+{
+  "audit_id": "SEC-2026-10-05-001",
+  "timestamp": "2026-10-05T10:52:00Z",
+  "scope": [
+    "EvezArt/evez-atlas",
+    "EvezArt/evez-agentnet",
+    "EvezArt/evez-openclaw-deploy",
+    "Supabase:EVEZ:vziaqxquzohqskesuxgz"
+  ],
+  "observations": [
+    {
+      "finding": "evez-atlas current tree is env-backed",
+      "status": "OBSERVED",
+      "source_repo": "EvezArt/evez-atlas",
+      "source_commit": "b4706b27e166bcfac54b50ccd11e4999df52c0b6",
+      "paths": [
+        "functions/evezCorpusStore.ts",
+        "functions/evezPersist.ts",
+        "evez-os-sensors/self_interrogation.py"
+      ],
+      "detail": "Current tree uses SUPABASE_SERVICE_ROLE_KEY and CLAWHUB_TOKEN environment variables; no clh_ token is present in current-tree code search."
+    },
+    {
+      "finding": "credential history rewrite was recorded",
+      "status": "OBSERVED",
+      "source_commit": "b4706b27e166bcfac54b50ccd11e4999df52c0b6",
+      "detail": "Commit message states hardcoded ClawHub and Supabase service_role literals were replaced with REVOKED_* via git-filter-repo. Provider rotation is still required."
+    },
+    {
+      "finding": "provider-side credential revocation",
+      "status": "UNKNOWN",
+      "detail": "Connected Supabase control surface exposes project metadata but not the dashboard action required to revoke the legacy service_role key. ClawHub rotation control is also unavailable through the connected tool surface."
+    },
+    {
+      "finding": "OpenClaw gateway public exposure",
+      "status": "OBSERVED",
+      "source_repo": "EvezArt/evez-agentnet",
+      "source_commit": "6f60a7972b47d2c3ab904a181b669609490976fc",
+      "detail": "Evidence file records successful TCP connection to 80.241.209.34:18789 and classifies it CRITICAL. Do not infer current live state beyond the timestamped observation."
+    }
+  ],
+  "required_next": [
+    "Rotate legacy Supabase service_role at provider and replace runtime configuration.",
+    "Rotate ClawHub credential at provider and replace runtime configuration.",
+    "Audit Supabase/provider access logs from first exposure through rotation.",
+    "Re-run current-tree and full-history secret scan.",
+    "Verify OpenClaw gateway is no longer publicly reachable; prefer Tailscale-only/private transport."
+  ],
+  "integrity_rule": "SECRET VALUES OMITTED; this receipt contains fingerprints/status only."
+}
