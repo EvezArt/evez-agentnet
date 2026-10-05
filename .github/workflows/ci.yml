@@ -38,6 +38,17 @@ jobs:
           # the tamper-evident SHA-256 chain that carries it.
           python test_cognition_deltas.py
           python cognition_deltas.py demo
+      - name: Delta ingest + forest verification
+        run: |
+          # Multi-node interop: NATS ingest authority rejects laundering
+          # (subject-state continuity) and the forest verifier replays every
+          # ledger in evidence/ across nodes and days. Spins up a real
+          # nats-server via docker so the transport is exercised, not mocked.
+          docker run -d --rm --name nats-ci -p 4222:4222 nats:2.10-alpine
+          sleep 2
+          python test_delta_ingest.py
+          docker stop nats-ci
+          python forest_verify.py
       - name: Repo audit
         run: |
           # Static audit for the defect classes that reached production:
