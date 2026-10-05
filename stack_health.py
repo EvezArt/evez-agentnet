@@ -160,7 +160,12 @@ def main():
               "no socat forwarder on a public bind (loopback/tailnet only)")
 
     # ── exposed credentials (local check; rotation status) ──
-    rc, out = sh(f"grep -rq 'clh_' /root/evez-agentnet 2>/dev/null && echo FOUND || echo CLEAN")
+    # Match the exposure scanner's real-token pattern (clh_ + >=20 token
+    # chars) instead of the bare prefix, which fires on the synthetic
+    # TESTONLY fixtures in test_exposure_*.py and yields a false warning.
+    rc, out = sh("grep -rEq 'clh_[A-Za-z0-9_-]{20,}' /root/evez-agentnet "
+                 "--include='*.py' 2>/dev/null | grep -vE 'TESTONLY|SYNTHETICtestonly' "
+                 ">/dev/null && echo FOUND || echo CLEAN")
     check("no ClawHub token in local repos", out.strip() == "CLEAN",
           "token still present in working tree", warn_only=True)
 
