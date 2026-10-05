@@ -7,7 +7,7 @@ It receives an assembly plan, resolves permitted tools, creates isolated workspa
 ## Execution phases
 
 PLAN
--> AUTHORIZE
+-> AUTHORIZE (check each action's authority level against operating policy; this is a gate check, never a self-grant)
 -> ISOLATE
 -> EXECUTE
 -> CAPTURE
@@ -21,8 +21,10 @@ PLAN
 - generation
 - action_id
 - authority level
-- tool invoked
-- sanitized arguments
+- authorization gate outcome
+- authorization evidence reference when an action is escalated
+- exact arguments or a content-addressed protected argument artifact; secrets remain out of logs
+- sanitized argument projection for human-readable logs
 - start/end timestamps
 - exit status
 - artifact identifiers
@@ -54,8 +56,8 @@ On failure:
 3. determine whether rollback is safe;
 4. rollback only when policy permits;
 5. create a repair proposal;
-6. rerun the failed test;
-7. retain both failure and repair evidence.
+6. apply the repair only inside the isolated candidate;
+7. rerun the failed test;
+8. retain both failure and repair evidence.
 
 OpenClaw is an executor, not the epistemic authority.
-
