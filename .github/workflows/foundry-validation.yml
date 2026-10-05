@@ -19,6 +19,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install schema validator
+        run: python -m pip install --disable-pip-version-check "jsonschema>=4.23,<5"
+
       - name: Syntax check
         run: python -m py_compile foundry/*.py foundry/runtime/*.py foundry/bridge/*.py
 
@@ -59,10 +67,19 @@ jobs:
         run: |
           python - <<'PY'
           import json
-          for p in ["/tmp/github_inventory.json", "/tmp/candidate.json", "foundry/OS_MANIFEST.schema.json"]:
-              with open(p, encoding='utf-8') as f:
-                  json.load(f)
-              print('valid json:', p)
+          from jsonschema import Draft202012Validator
+          with open("/tmp/github_inventory.json", encoding="utf-8") as f:
+              json.load(f)
+          with open("/tmp/candidate.json", encoding="utf-8") as f:
+              candidate = json.load(f)
+          with open("foundry/OS_MANIFEST.schema.json", encoding="utf-8") as f:
+              schema = json.load(f)
+          errors = sorted(Draft202012Validator(schema).iter_errors(candidate), key=lambda e: list(e.path))
+          if errors:
+              for error in errors:
+                  print(error.message)
+              raise SystemExit(1)
+          print("candidate matches OS manifest schema")
           PY
 
       - name: Upload candidate artifacts
