@@ -23,7 +23,7 @@ RULES=[
 ]
 
 def get(path, token=None):
-    headers={"Accept":"application/vnd.github+json","User-Agent":"EVEZ-Foundry/1.1","X-GitHub-Api-Version":"2022-11-28"}
+    headers={"Accept":"application/vnd.github+json","User-Agent":"EVEZ-Foundry/1.2","X-GitHub-Api-Version":"2022-11-28"}
     if token:
         headers["Authorization"]="Bearer "+token
     req=Request(API+path,headers=headers)
@@ -40,18 +40,27 @@ def main():
     ap.add_argument("--owner",default="EvezArt")
     ap.add_argument("--out",default="foundry/data/github_inventory.json")
     ap.add_argument("--max-pages",type=int,default=10)
+    ap.add_argument("--include-private",action="store_true")
     args=ap.parse_args()
+    if args.max_pages <= 0:
+        ap.error("--max-pages must be a positive integer")
 
     token=os.getenv("GITHUB_TOKEN")
     repos=[]
+    capped=False
     for page in range(1,args.max_pages+1):
         data=get(f"/users/{args.owner}/repos?type=owner&per_page=100&page={page}",token)
         if not isinstance(data,list):
             raise RuntimeError("GitHub response was not a repository list")
-        repos.extend(data)
+        visible=[r for r in data if args.include_private or not r.get("private",False)]
+        repos.extend(visible)
         if len(data)<100:
             break
+        if page == args.max_pages:
+            capped=True
         time.sleep(.2)
+    if capped:
+        raise RuntimeError("repository inventory reached --max-pages cap; increase the cap or use a narrower source before publishing results")
 
     nodes=[]
     capability_index={}
@@ -62,11 +71,12 @@ def main():
           "type":"repository",
           "name":r["name"],
           "full_name":r["full_name"],
+          "private":bool(r.get("private",False)),
           "description":r.get("description") or "",
           "archived":bool(r.get("archived")),
           "fork":bool(r.get("fork")),
           "size_kb":r.get("size") or 0,
-          "default_branch":r.get("default_branch") or "main",
+          "default_branch":r.get("default_branch"),
           "capabilities":caps,
           "inference":"NAME_DESCRIPTION_HEURISTIC",
           "confidence":"PROPOSED",
@@ -93,6 +103,7 @@ def main():
       "methodology":{
           "capability_inference":"repository name and description only",
           "not_claimed":"implementation quality, runtime health, security state, or reproducibility",
+          "private_policy":"private repositories excluded unless --include-private is explicitly supplied",
           "next_probe":"inspect source trees, manifests, entrypoints, tests, workflows, and evidence artifacts"
       }
     }
