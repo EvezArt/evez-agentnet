@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "EVEZ Agentic Operating System Manifest",
   "type": "object",
-  "required": ["os_id", "generation", "objective", "kernel", "capabilities", "agents", "authority", "evidence"],
+  "required": ["os_id", "generation", "objective", "kernel", "capabilities", "agents", "authority", "evidence", "tests", "recovery"],
   "properties": {
     "os_id": {"type": "string", "pattern": "^evez-[a-z0-9-]+$"},
     "generation": {"type": "integer", "minimum": 0},
@@ -12,12 +12,22 @@
     "agents": {"type": "array", "items": {"type": "string"}},
     "tools": {"type": "array", "items": {"type": "string"}},
     "memory": {"type": "array", "items": {"type": "string"}},
-    "tests": {"type": "array", "items": {"type": "string"}},
+    "tests": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "recovery": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
     "authority": {
       "type": "object",
-      "required": ["maximum_autonomy"],
+      "required": ["maximum_autonomy", "gate_policy"],
       "properties": {
-        "maximum_autonomy": {"type": "integer", "minimum": 0, "maximum": 9}
+        "maximum_autonomy": {"type": "integer", "minimum": 0, "maximum": 9},
+        "gate_policy": {
+          "type": "object",
+          "required": ["a6_plus_requires_explicit_policy_gate", "a8_a9_requires_human_authorization"],
+          "properties": {
+            "a6_plus_requires_explicit_policy_gate": {"const": true},
+            "a8_a9_requires_human_authorization": {"const": true}
+          },
+          "additionalProperties": false
+        }
       },
       "additionalProperties": false
     },
@@ -28,14 +38,15 @@
         "spine": {"type": "string"},
         "promotion_ladder": {
           "type": "array",
-          "items": {
-            "enum": ["UNKNOWN", "OBSERVED", "EXECUTABLE", "TESTED", "REPRODUCED", "VALIDATED", "PROMOTED"]
-          }
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["UNKNOWN", "OBSERVED", "EXECUTABLE", "TESTED", "REPRODUCED", "VALIDATED", "PROMOTED"]}
         }
       },
       "additionalProperties": false
     },
-    "recovery": {"type": "array", "items": {"type": "string"}}
+    "privacy": {"type": "object"},
+    "design_rules": {"type": "array", "items": {"type": "string"}}
   },
   "additionalProperties": false
 }
