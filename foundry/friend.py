@@ -14,7 +14,7 @@ import sys
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
-from bridge.hermes import invoke as invoke_hermes
+from bridge.hermes import find_command, invoke as invoke_hermes
 from runtime.memory import MemoryStore
 
 def main():
@@ -47,7 +47,7 @@ def main():
                 "generation": manifest.get("generation"),
                 "objective": manifest.get("objective"),
                 "memory_file": str(memory.path),
-                "hermes": "available" if __import__("bridge.hermes", fromlist=["find_command"]).find_command() else "unavailable",
+                "hermes": "available" if find_command() else "unavailable",
             }, indent=2))
             continue
         if line.startswith("/memory "):
@@ -57,7 +57,6 @@ def main():
 
         user_item = memory.add("USER_STATEMENT", line, source="USER")
         recent = memory.search(line, limit=10)
-
         packet = {
             "os_id": manifest.get("os_id"),
             "objective": manifest.get("objective"),
