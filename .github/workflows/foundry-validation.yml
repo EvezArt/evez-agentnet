@@ -1,0 +1,55 @@
+name: EVEZ Foundry Validation
+
+on:
+  push:
+    paths:
+      - "foundry/**"
+      - ".github/workflows/foundry-validation.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Syntax check
+        run: python -m py_compile foundry/inventory.py foundry/assemble.py
+
+      - name: Refresh capability inventory
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python foundry/inventory.py --owner ${{ github.repository_owner }} --out /tmp/github_inventory.json
+
+      - name: Compile candidate
+        run: |
+          python foundry/assemble.py \
+            "autonomous agentic operating system that discovers, builds, tests, repairs, reproduces, and preserves evidence" \
+            --graph /tmp/github_inventory.json \
+            --id evez-foundry-validation \
+            --generation 0 \
+            --out /tmp/candidate.json
+
+      - name: Validate JSON artifacts
+        run: |
+          python - <<'PY'
+          import json
+          for p in ["/tmp/github_inventory.json","/tmp/candidate.json","foundry/OS_MANIFEST.schema.json"]:
+              with open(p, encoding="utf-8") as f:
+                  json.load(f)
+              print("valid json:", p)
+          PY
+
+      - name: Upload candidate artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: evez-foundry-candidate
+          path: |
+            /tmp/github_inventory.json
+            /tmp/candidate.json
