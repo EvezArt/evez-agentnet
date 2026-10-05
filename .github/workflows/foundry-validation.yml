@@ -13,14 +13,17 @@ permissions:
   contents: read
 
 jobs:
-  compile:
+  compile-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Syntax check
-        run: python -m py_compile foundry/inventory.py foundry/assemble.py
+        run: python -m py_compile foundry/*.py foundry/runtime/*.py foundry/bridge/*.py
+
+      - name: Unit tests
+        run: python -m unittest discover -s foundry/tests -p "test_*.py" -v
 
       - name: Refresh capability inventory
         env:
@@ -30,20 +33,36 @@ jobs:
       - name: Compile candidate
         run: |
           python foundry/assemble.py \
-            "autonomous agentic operating system that discovers, builds, tests, repairs, reproduces, and preserves evidence" \
+            "autonomous agentic operating system that discovers builds tests repairs reproduces and preserves evidence" \
             --graph /tmp/github_inventory.json \
             --id evez-foundry-validation \
             --generation 0 \
             --out /tmp/candidate.json
 
+      - name: Generate candidate OS
+        run: |
+          python foundry/generate_os.py \
+            --manifest /tmp/candidate.json \
+            --out /tmp/generated-os
+
+      - name: Boot generated OS
+        run: python boot.py
+        working-directory: /tmp/generated-os
+
+      - name: Adversarial checks
+        run: python foundry/adversary.py --generated-os /tmp/generated-os
+
+      - name: Replication checks
+        run: python foundry/replicate.py --manifest /tmp/candidate.json
+
       - name: Validate JSON artifacts
         run: |
           python - <<'PY'
           import json
-          for p in ["/tmp/github_inventory.json","/tmp/candidate.json","foundry/OS_MANIFEST.schema.json"]:
-              with open(p, encoding="utf-8") as f:
+          for p in ["/tmp/github_inventory.json", "/tmp/candidate.json", "foundry/OS_MANIFEST.schema.json"]:
+              with open(p, encoding='utf-8') as f:
                   json.load(f)
-              print("valid json:", p)
+              print('valid json:', p)
           PY
 
       - name: Upload candidate artifacts
@@ -53,3 +72,4 @@ jobs:
           path: |
             /tmp/github_inventory.json
             /tmp/candidate.json
+            /tmp/generated-os
