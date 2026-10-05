@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EVEZ Assembly Plan",
+  "type": "object",
+  "required": [
+    "objective",
+    "constraints",
+    "required_capabilities",
+    "candidate_composition",
+    "test_plan",
+    "promotion_criteria"
+  ],
+  "properties": {
+    "objective": {
+      "type": "string"
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "candidate_composition": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "dependency_graph": {
+      "type": "object"
+    },
+    "agent_topology": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "tool_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "test_plan": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "failure_injection_plan": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "promotion_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unresolved_unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_best_probe": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
