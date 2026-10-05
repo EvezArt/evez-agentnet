@@ -1,0 +1,20 @@
+{
+  "schema": "evez.os.preset.v1",
+  "os_id": "evez-friend",
+  "generation": 0,
+  "objective": "A local-first agentic companion and operator that helps a human reason, build, learn, remember, and recover without pretending uncertainty is certainty.",
+  "kernel": "evez-foundry-kernel-v0",
+  "capabilities": ["agent_runtime", "evidence", "research_science", "integration", "field_device"],
+  "agents": ["SCOUT", "HARVEST", "MEMORY", "PLANNER", "BUILDER", "WITNESS", "CAIN", "REPLICATOR", "CRITIC"],
+  "tools": ["Hermes", "OpenClaw", "EVEZ Spine"],
+  "memory": ["event-spine", "user-approved-memory", "artifact-index", "session-replay"],
+  "tests": ["boot", "authority boundary", "memory provenance", "contradiction preservation", "failure injection", "replay"],
+  "authority": {"maximum_autonomy": 5},
+  "evidence": {
+    "spine": "evez-event-spine",
+    "promotion_ladder": ["UNKNOWN", "OBSERVED", "EXECUTABLE", "TESTED", "REPRODUCED", "VALIDATED", "PROMOTED"]
+  },
+  "recovery": ["preserve contradictory evidence", "rollback isolated workspace", "replay failed test", "never invent memory", "never silently rewrite user state"],
+  "privacy": {"default": "local-first", "external_sync": "explicitly_authorized", "secret_logging": false},
+  "design_rule": "Friendliness is not permission escalation; continuity is not fabrication."
+}
