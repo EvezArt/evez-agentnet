@@ -1,0 +1,331 @@
+Delivered-To: rubikspubes69@gmail.com
+Received: by 2002:a05:6a11:52a5:b0:756:38d:e4e5 with SMTP id qe37csp900558pxb;
+        Mon, 21 Sep 2026 03:48:30 -0700 (PDT)
+X-Received: by 2002:a17:902:e552:b0:2dd:c132:dc01 with SMTP id d9443c01a7336-2ddc132dc97mr85770325ad.46.1789987710583;
+        Mon, 21 Sep 2026 03:48:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789987710; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mEDDSUbh50CYijRR1C9xybkIyghYVSDv+PPtQoq1kaH8Xq6jMhP8bUJfitIfsO0Gyn
+         qsRiXA+BFzTUvJoJlh4W9kPL3gfdJ4EWvmSmHUzFT9oFvoKecBa9C0LdMO8enraw9b96
+         Lc2OlcXl6haVKwlGuyRwFj0KQSnupUe0hGWZPDex+n+DW91grqws4Cfc3uhXe6zPB6QS
+         WxSdRr5H2rZ2KRnKP7XztZLs+XGteMO5QnDveR9L1f/+4j6gjmY+sdw5X0TuchdbUTIi
+         Lmmy9NzyxkQktjMhMQqw277Q6+i5b65ROiLJISEp5Iq/CTuZoIt+a+zXUHE7DF42l7pS
+         aaIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:dkim-signature;
+        bh=IEzthST79W/qTeSrw0qcvkpJxxumrstOjAnE2s6fkmI=;
+        fh=srHCzr68QUPlwCCdGke/96vYccR6EAtBhOWJFdKTz88=;
+        b=M84KgqTyRlw1/bIZRg/Q84gDDXNMlE6z1rRu3rQMisXvU0xWAqIVpgKGRo6N+CNlKA
+         UVo7EA8TWeJ1qacMXQ1zEFW+EsLnxlNMtj15yYi51mZSA0R3hzwYMIZUSZ0IG9ASMjSI
+         18rqYe6gnqCAAgFyFl+F7edQhJJESdLrM7Ax3wS7bRklKnxDs+mmCtOWtGP82Slxyzsv
+         uo1fFoWnX/5UxQEkyzf1H3vCv1PKM3n0DJxDsl7GGYRA0mThOpLacyrb3W4tkdAuKXf1
+         IibWbq0xlCrOOoyabE+6K0QycfyMxAiynkLPWPO/hwqR3S76lIFT/7Ic3VHp2MTiEGA7
+         dRZw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20251104 header.b=eU4cQBIW;
+       spf=none (google.com: postmaster@mail-sor-f69.google.com does not designate permitted sender hosts) smtp.helo=mail-sor-f69.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id d9443c01a7336-2ddc179268dsor36363895ad.8.2026.09.21.03.48.30
+        for <rubikspubes69@gmail.com>
+        (Google Transport Security);
+        Mon, 21 Sep 2026 03:48:30 -0700 (PDT)
+Received-SPF: none (google.com: postmaster@mail-sor-f69.google.com does not designate permitted sender hosts) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20251104 header.b=eU4cQBIW;
+       spf=none (google.com: postmaster@mail-sor-f69.google.com does not designate permitted sender hosts) smtp.helo=mail-sor-f69.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20251104; t=1789987710; x=1790592510; dara=google.com;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:content-type:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=IEzthST79W/qTeSrw0qcvkpJxxumrstOjAnE2s6fkmI=;
+        b=eU4cQBIWnbKOg/aj3VwovXNktbb4RxDd6IFBP6Ys1+cQowXcyAAhZodvOTG2UoiH53
+         xY/TS69rPivUPoFA4DBhfvBJSgcNClGTlO669awuj3wmF/+I4hWOlX34mCPcWROSIODU
+         r32gCnBLjIB+EkPyDNzcV0PY5nmqMH+SAIzL6G/8GglzkllF/W/mpaHwiYXrqi3ccS4J
+         /e8cgyTL+ycna16Nwas6EtUHWmNJm/RwSL+1OrqAJlHHd1aMkHTB3O3HGemIXw4fIYXG
+         v+JiFshWrJ6D8Id6aeZfMlIErTuJceeabBFXHoVepHnI9LN1qTQ/j56Gtu3PWOD5RATx
+         UA9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789987710; x=1790592510;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:content-type:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=IEzthST79W/qTeSrw0qcvkpJxxumrstOjAnE2s6fkmI=;
+        b=ML7/YSgzr7S5JU2C361r4d1294qeyU71by+kzOwdjVbNBrpT4TffXhfTfDrd2G09dX
+         K1aIbKymdpF4vHn4MN9UIhpfaUO9k8rIkvmyIc1tZTCodG6qXRL5T1daLdpDzdHQaqCF
+         o0daAwqfpCaJAp+0YowTQbBOifXm8a8Is36UeTmc+bjgRIXSzdQrOhhGu+H3lVyTbuXj
+         Oehfgm1+DmQQZ8TCIOwAa5ZOAs97Tl1HWDyDR0F8CRpNDcyPl0eWC9v+Ksj97HoLRdvx
+         I60yoYF1NUZBLexTHRm1d9bqiColauTuQwihxQqkHTUVXAGx8k9z37s5OG19dFrpPCdn
+         Wh6A==
+X-Gm-Message-State: AFuF++ndgNaaRKXI1wTrX3LQoFxdh46JrMKeG1OMrfngAWeOgQ7LyWIJ
+	Se+GHXMDPQhr6gkd01tn2bF1mMC2LqvtyY70bM0zWWl132wjdjSNPn6ZjW1p9ie7N/Cc4DS8OOw
+	SDfgvNMXSoXBtJAg2iP601fwOy5OLMzS5ucaqpP5UGxw0UhSa6IXtwue/odhP
+X-Received: by 2002:a17:902:e745:b0:2dd:ad73:c98d with SMTP id d9443c01a7336-2ddb1bdefcdmr139365455ad.37.1789987710228;
+        Mon, 21 Sep 2026 03:48:30 -0700 (PDT)
+Content-Type: multipart/report; boundary="0000000000009ec182065bfbfd4d"; report-type=delivery-status
+To: rubikspubes69@gmail.com
+Received: by 2002:a17:902:e745:b0:2dd:ad73:c98d with SMTP id
+ d9443c01a7336-2ddb1bdefcdmr136387505ad.37; Mon, 21 Sep 2026 03:48:30 -0700 (PDT)
+Return-Path: <>
+Auto-Submitted: auto-replied
+Message-ID: <6ab10b7e.8dc973ad.3bc2c7.03ff.GMR@mx.google.com>
+Date: Mon, 21 Sep 2026 03:48:30 -0700 (PDT)
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+Subject: Delivery Status Notification (Failure)
+References: <CALr_9k3L0-9oeHVb714FdgUj6_FzNEPD8D187ODVu-r6BcV7Gw@mail.gmail.com>
+In-Reply-To: <CALr_9k3L0-9oeHVb714FdgUj6_FzNEPD8D187ODVu-r6BcV7Gw@mail.gmail.com>
+X-Failed-Recipients: ustechtforce@opm.gov
+
+--0000000000009ec182065bfbfd4d
+Content-Type: multipart/related; boundary="0000000000009ed5dd065bfbfd79"
+
+--0000000000009ed5dd065bfbfd79
+Content-Type: multipart/alternative; boundary="0000000000009ed5e2065bfbfd7a"
+
+--0000000000009ed5e2065bfbfd7a
+Content-Type: text/plain; charset="UTF-8"
+
+
+** Message blocked **
+
+Your message to ustechtforce@opm.gov has been blocked. See technical details below for more information.
+
+Learn more here: https://aka.ms/EXOSmtpErrors
+(Warning: This link will take you to a third-party site)
+
+The response from the remote server was:
+550 5.4.1 Recipient address rejected: Access denied. For more information see https://aka.ms/EXOSmtpErrors [BN7PEPF00000099.namprd09.prod.outlook.com 2026-09-21T10:48:30.186Z 08DF14550C125ACB]
+
+--0000000000009ed5e2065bfbfd7a
+Content-Type: text/html; charset="UTF-8"
+
+
+<html>
+<head>
+<style>
+* {
+font-family:Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" class="email-wrapper" style="padding-top:32px;background-color:#ffffff;"><tbody>
+<tr><td>
+<table cellpadding=0 cellspacing=0><tbody>
+<tr><td style="max-width:560px;padding:24px 24px 32px;background-color:#fafafa;border:1px solid #e0e0e0;border-radius:2px">
+<img style="padding:0 24px 16px 0;float:left" width=72 height=72 alt="Error Icon" src="cid:icon.png">
+<table style="min-width:272px;padding-top:8px"><tbody>
+<tr><td><h2 style="font-size:20px;color:#212121;font-weight:bold;margin:0">
+Message blocked
+</h2></td></tr>
+<tr><td style="padding-top:20px;color:#757575;font-size:16px;font-weight:normal;text-align:left">
+Your message to <a style='color:#212121;text-decoration:none'><b>ustechtforce@opm.gov</b></a> has been blocked. See technical details below for more information.
+</td></tr>
+<tr><td style="padding-top:24px;color:#4285F4;font-size:14px;font-weight:bold;text-align:left">
+<a style="text-decoration:none" href="https://aka.ms/EXOSmtpErrors">LEARN MORE</a>
+</td></tr>
+<tr><td style="margin-top:8px;font-style:italic;font-size:12px;color:#757575">
+<img style="padding:0 4 0 0;float:left" width=12 height=12 alt="Warning" src="cid:warning_triangle.png">
+This link will take you to a third-party site
+</td></tr>
+</tbody></table>
+</td></tr>
+</tbody></table>
+</td></tr>
+<tr style="border:none;background-color:#fff;font-size:12.8px;width:90%">
+<td align="left" style="padding:48px 10px">
+The response from the remote server was:<br/>
+<p style="font-family:monospace">
+550 5.4.1 Recipient address rejected: Access denied. For more information see https://aka.ms/EXOSmtpErrors [BN7PEPF00000099.namprd09.prod.outlook.com 2026-09-21T10:48:30.186Z 08DF14550C125ACB]
+</p>
+</td>
+</tr>
+</tbody></table>
+</body>
+</html>
+
+--0000000000009ed5e2065bfbfd7a--
+--0000000000009ed5dd065bfbfd79
+Content-Type: image/png; name="icon.png"
+Content-Disposition: attachment; filename="icon.png"
+Content-Transfer-Encoding: base64
+Content-ID: <icon.png>
+
+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
+--0000000000009ed5dd065bfbfd79
+Content-Type: image/png; name="warning_triangle.png"
+Content-Disposition: attachment; filename="warning_triangle.png"
+Content-Transfer-Encoding: base64
+Content-ID: <warning_triangle.png>
+
+iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAYxJREFUSA3t
+VLFOhEAUBKLFXXMd3VlqZXGJrX6AP+AHWFsZ4CpDoQmBhMTyfkdbEwsrLaiJnQ1XmIAzCuTt3nKs
+xk432fB2dmYeb9+C4/ypEQTBKed3ivZsyavVatd13ZyTsa3OOkFRFBdN0xxwMrZN4NoQ4zj2q6p6
+gfmMfFTxNp1O94G/jumtKoD5TWdOQ8bExsy5P1rBcrlc1HX9AFPlZVBF7XneUZIkj9sSKSITEea3
+ujl5xLhn0khsawJcyTMYHUuBjLlHjsT0eDBBnucTkDMpyLLM5ZQYOS1Xg7+WgwnKsoxAmRtVKjhv
+uSrarowJoijaQ/mhUWEAyaXGsOUYE0CQgswjsh2TVrPB18/TQdPY1LsNph1wgh7dS6pSAb5MD/d7
+9OpJAxlTSw+JKYv1en2OUheSIOOBW9RTqKVHDyDoE6BJM3w413LzJzE96NVpd7oA2a8Q+93a9ER/
+GhOuYX7rdUn8s8lhGPI3/IS19X9eM9WX7+jHYZqmz90R5b9ozmR8UXr+j/ET+ADSfKckAihanAAA
+AABJRU5ErkJggg==
+--0000000000009ed5dd065bfbfd79--
+--0000000000009ec182065bfbfd4d
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; googlemail.com
+Arrival-Date: Mon, 21 Sep 2026 03:48:28 -0700 (PDT)
+X-Original-Message-ID: <CALr_9k3L0-9oeHVb714FdgUj6_FzNEPD8D187ODVu-r6BcV7Gw@mail.gmail.com>
+
+Final-Recipient: rfc822; ustechtforce@opm.gov
+Action: failed
+Status: 5.4.1
+Remote-MTA: dns; opm-gov.mail.protection.outlook.com. (2a01:111:f403:f90b::5,
+ the server for the domain opm.gov.)
+Diagnostic-Code: smtp; 550 5.4.1 Recipient address rejected: Access denied. For more information see https://aka.ms/EXOSmtpErrors [BN7PEPF00000099.namprd09.prod.outlook.com 2026-09-21T10:48:30.186Z 08DF14550C125ACB]
+Last-Attempt-Date: Mon, 21 Sep 2026 03:48:30 -0700 (PDT)
+
+--0000000000009ec182065bfbfd4d
+Content-Type: text/rfc822-headers
+
+ARC-Seal: i=1; a=rsa-sha256; t=1789987709; cv=none;
+        d=google.com; s=arc-20260327;
+        b=c84yXBL5DYKOCWxMBPPlzIQQgSYLEkg86IS+Qn05Moro3+ZgIxSgeN4fFW9UysBJbM
+         VZF/amQF/WcuFXUzfIRnJF0seRnA+OhgUReh58VKSRDUZOxSi1UuEIuk4dEG2BmE73pQ
+         bUhQI3b1LTCjvxSov7a6yy5YgOFxsnmI8VtQUexThJe6mFDnF3MdoG900eJiN9SuKdj8
+         8/KWvA5X5RcM6543Wi+NX+KC5BHk4ZgzJZHr0Tel+MIfQBDl6VzNNOUdIe3OZirVFJZC
+         LmMoDKJgQSGbHpKsjm4t/slWjMINcGcLYopvEPL24firZ7+uD291ARBHV+v2LiEXEBj2
+         5KMg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:to:subject:message-id:date:mime-version
+         :from:dkim-signature;
+        bh=AwcgpIMQILn4yR9k0/QeX/drOkYKhZrpN6y+KdZJrRI=;
+        fh=KteqeroarnkmSfgsgDP5hTCkc8pTM7FDBp3KyEt4jIE=;
+        b=rypaKzr2uxZsAId86opw7bKbg8dZjlXiGFcr8+hblzC9THyQsduuuxya4GNyRwSoEL
+         H9aFEaZBARYz0UFWknyGH3+kr56NyiMtcOWP3sO7AWCmbjtelnlzgTjvts3hha9yy/z1
+         vGtMJOUpjHKCAHQlLPSOu0++K1asWQlbNUi9FfafFfysCenhf2AtUxl2UzV+TkAllZpI
+         dSoRiNHRs56Fg/28rDRi2Kwo0ZNDzBY1bWHpmTtXLsDmVGh7dkeWnUeAsMY2VSek9vMH
+         aozDLFWfAPkB4WOF563953SLDKofv1Smb+bMevuJewahLJHXLY3zaXt31hJfrLXJtBgt
+         /r1w==;
+        darn=opm.gov
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789987709; x=1790592509; darn=opm.gov;
+        h=content-transfer-encoding:content-type:to:subject:message-id:date
+         :mime-version:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AwcgpIMQILn4yR9k0/QeX/drOkYKhZrpN6y+KdZJrRI=;
+        b=Ga4HCQCCXIfPpHlpH7MgVpBUQPMRe9SvOCF2zK9gsoK6cJTeUpZqdUtj3sWejgnIUo
+         v26cUUMtnsA2U2bvZlQpLg4L3ll2k3ysasvqjZvOWoERy/7ZQn8KMc+Tw5+49LbAXTHU
+         3q8zWlo3L6sLeJOHGFGxR7tUC+0zqSvLEy1mSa2es+rOgGiT+a+xZUIVVv8kArSjweQg
+         zBgoqvka3YjmcQr4xLT104Onk+3ZD9efHujLOeBnpbDZtswj5HTVC00CkLyTOQNZXZyw
+         ND+70JuEKTnAVqcfc0AcoGLlY6WSrNrzp4bGssMz/8KjXNsfz1uAFjfzTAk+HNjiPL7j
+         RZtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789987709; x=1790592509;
+        h=content-transfer-encoding:content-type:to:subject:message-id:date
+         :mime-version:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=AwcgpIMQILn4yR9k0/QeX/drOkYKhZrpN6y+KdZJrRI=;
+        b=hy9KoVUNzkZ8N5Fhp3i/wfhvkyg/WQhnpW5daVsYUEJxTtz1VvDWb8BHom6T+hS0+E
+         JZqa9t0hAHzl1HtPC34f9+oyFy8xWaD0X1kfgy5shLrmrd6qNDy4YSUsDS/8/nwXPx2t
+         gC4seAxmaracPhGApUXJx0hZS5jhUkQt7aZtlJUzxPsVB7wUF4NrGn5jyiWJFwwuYyw3
+         JaEFdwVOgo78OB5vBOTE02ZGe38RVD+sSH4NO9iwI4tR6IDjCCPdgrT9Zd5drSkea85m
+         acpLqWm4m1j+T/TndFPj6Fpt8Y6Jdox/9WDYjtSQ48U07f0sURQkIIxc9eH4+hA/QTSR
+         x5Nw==
+X-Gm-Message-State: AFuF++kLVTDW1qgOUrfzfFVqFMY0ubVREVvI94W4ZUASfKD1wzNrnfh1
+	VmgHjneyTrfOKqXcvkWUukpVOiqAVPfMrZlerHrvVFB9MhZMhtHWTECbeJCbk0/aPZ6cPqGStLH
+	W7aUkiKgU95p6IXADAJw1xbNr4KyxL+nBh0o5
+X-Gm-Gg: AYBFou0eYXoV/eO1AO4aW8UDZxYh4AXZ9Pd+OLeNttO6MVQsoWZ+sye3jyYaYvYSrAU
+	UkSj7cEq4RZyDyWWWcjUPSgDXeM3Ipn6SIrQnPJLo8uGL8XIafUV1M2vBRsEDNB1vD06e5YgKsG
+	AKFpIldJ4z170TdQ2w+knYZAll2b2FmhtW5Mv0DjJaV9Kuj0BQA6c9Yx0UW+5bXSqnZtXFvSXJl
+	L4DG/w8dOu+9/6rmvpo9vWMgd7O2NE7yNMIuccxrFGcADtELcUe8xyeQ3LLRZGu76j4UzBs9U5b
+	yYBFcDGDG4Xv6JCVZhOyLLP3dbeU9xVuV60xlcWjbp+n8Ujie3QQ8tY=
+X-Received: by 2002:a17:902:e745:b0:2dd:ad73:c98d with SMTP id
+ d9443c01a7336-2ddb1bdefcdmr139364715ad.37.1789987708787; Mon, 21 Sep 2026
+ 03:48:28 -0700 (PDT)
+Received: from 673009273811 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 21 Sep 2026 12:48:28 +0200
+Received: from 673009273811 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 21 Sep 2026 12:48:28 +0200
+From: rubikspubes69@gmail.com
+MIME-Version: 1.0
+Date: Mon, 21 Sep 2026 12:48:28 +0200
+X-Gm-Features: AcwNN1VgtGtRGg9KUUtR3CBwdMJmzWLgr6dHkKvQEBlYVb-fIOMpOXY1alWif6w
+Message-ID: <CALr_9k3L0-9oeHVb714FdgUj6_FzNEPD8D187ODVu-r6BcV7Gw@mail.gmail.com>
+Subject: US Tech Force candidacy inquiry - plain text resend (prior messages
+ with attachments were blocked)
+To: ustechtforce@opm.gov
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+--0000000000009ec182065bfbfd4d--

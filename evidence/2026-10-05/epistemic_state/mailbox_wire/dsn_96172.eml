@@ -1,0 +1,350 @@
+Delivered-To: rubikspubes69@gmail.com
+Received: by 2002:a05:6a11:52a5:b0:756:38d:e4e5 with SMTP id qe37csp3054027pxb;
+        Tue, 22 Sep 2026 22:29:55 -0700 (PDT)
+X-Received: by 2002:a05:620a:17a8:b0:93b:e6f4:60c0 with SMTP id af79cd13be357-93c251cfeecmr257917585a.44.1790141395540;
+        Tue, 22 Sep 2026 22:29:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790141395; cv=none;
+        d=google.com; s=arc-20260327;
+        b=R6i0Aa+yE7Bo7Ht+F6dQGaphAOIJHbWuGCTwSOdF7fVZqRE9kyZDIwshnymf4Q6473
+         ZM5G9T/aSZJgPMzaeC9ODfZTUG8qr3Ec3K+qnDuiQ0lEOo7r9Lb/m/mcDoqel7ooagj4
+         MViJQYWdKWc/fxiWSNhEQabW2RIwxTgaxE+KgNrj/amh10FOpnahiGKUKci7gr0KK6Vx
+         xhg7QdqxoCTwJH3bYUAyQ1mfyOoMmgqU7vtIQ/ZKlom5j5OzFqP2bL56h8fV3F1v8A7y
+         dVncOndVSTT2n7BLIEno1LT/NXEvkYtzhOX500HNRIT7xNz/+Rl9lXREKZeq0awFiWNB
+         gQdA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:dkim-signature;
+        bh=UjWJnXFMz1Ic3ysjY3ljHwqghc69/xtsUmT5BlK19b8=;
+        fh=srHCzr68QUPlwCCdGke/96vYccR6EAtBhOWJFdKTz88=;
+        b=FOP4nwOB9Fpbpxb3CM4rMQUsVQd13WwE0Sh4gkncRTn2dfoSdUSIcVle5W/Ayi2VV9
+         QaGGMn9pW6dquafVlmUqKQv7C2EColANUXm6ZwlBwBFkz9P/Cs+D4y6jdQWtAVKyJd8t
+         LKNLhG414jA8C6AClrHkSP4wJx1KtcYOO6LxcwsK9ecu9LSXxx+q/mtDCvqdpFnGzHZ3
+         1P/BX3n567U8S/0nhF2OtCsXkfHbmU5S6X4B7A+tsKwJIIabKqz0hb4DM945+yQaEqwH
+         emyDzpJPOI2JDoJzjg73DY2mniKbevVtXRvu77YkPILwNjWPQC5CMo/XH5rDh4Wv6iDF
+         8YfA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20251104 header.b=rrsgtaiu;
+       spf=none (google.com: postmaster@mail-sor-f69.google.com does not designate permitted sender hosts) smtp.helo=mail-sor-f69.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id af79cd13be357-93c24823ebdsor176204585a.5.2026.09.22.22.29.55
+        for <rubikspubes69@gmail.com>
+        (Google Transport Security);
+        Tue, 22 Sep 2026 22:29:55 -0700 (PDT)
+Received-SPF: none (google.com: postmaster@mail-sor-f69.google.com does not designate permitted sender hosts) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20251104 header.b=rrsgtaiu;
+       spf=none (google.com: postmaster@mail-sor-f69.google.com does not designate permitted sender hosts) smtp.helo=mail-sor-f69.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20251104; t=1790141395; x=1790746195; dara=google.com;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:content-type:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UjWJnXFMz1Ic3ysjY3ljHwqghc69/xtsUmT5BlK19b8=;
+        b=rrsgtaiu5cYnc1pmkAL9EBkQUp9goTAjngVEGcA5sb6gZt/EZdAgV9vrtfknqkONYi
+         A7H7AfByJjzGMAUioisD3jM2q/zntiugNdK2HU6AClgq9AZRhyhYqHppgv9Jnnm1hTIY
+         mQN+guJz1fOWlij0HHi7IsnuTquDxXmVJpOuAo5NX11S5S7EOniv35V/kW1/kiBMnLFr
+         X4OGqOuU3FiKml+OqLqNOU+sDUtj1ogZ01+ORiS4kiCJs0jQ8pbPsACj0ujwZ9OMFh4q
+         vwLwp8EH8y8QainFQ/5+c4RwdmB95snwvu3jS2sQpXnwN8WbXVaWgar4s1FJtLA3j2Yf
+         Cmnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790141395; x=1790746195;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:content-type:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=UjWJnXFMz1Ic3ysjY3ljHwqghc69/xtsUmT5BlK19b8=;
+        b=pCpyKzl4F/pgFyV8tnxa3nQ6/SlefE1lhke3Wjko0GcHzedYN7ZuvCHz20wroDOhqW
+         IebzxoVpmStPoQR8xGnOPYy3ddUhqeqQpdkRm84JzlBSOWbfUUdIqQ6cT109EpCZzJOq
+         ABBf1sO6nky4ggwa6i1vPGg43VvGXEkPpuOiHvZ77qzm1xFcNPCT9QqPOmWEnbYUMIFq
+         /X6FYYQP6XV/nCwhbVSOAYBcYvtmJEjhCJX2GJmLJCXgtynk7LW8EzPs5jKCpfcpc5RB
+         4ikYhHxCYr2r+/TMnkiyu021lwy7GknwkZFOEdi3DYSD2jc7HM5/PEAfLoz63hnVbUsw
+         hzEQ==
+X-Gm-Message-State: AFuF++l7C1nbgZcJxzWRfp+fs9SyQ2sGNRhWhiHo9rPzwFoi8ijoXVGf
+	p285j+bfANMMrQ2didwj6vLMGgccUzAEG8xLjXLcq3bdcqcAQt+Hq1hTObpM7eFxDW4PU4gHh1+
+	PflCkdHzjoUBhXdvRW6bggjorj0uPxlkftTQDdHN0IZVGR7OQgTnu9ba8PA==
+X-Received: by 2002:a05:620a:46a5:b0:939:fe23:4cfd with SMTP id af79cd13be357-93c250f8b42mr251393285a.24.1790141395213;
+        Tue, 22 Sep 2026 22:29:55 -0700 (PDT)
+Content-Type: multipart/report; boundary="000000000000f5821c065c1fc5e7"; report-type=delivery-status
+To: rubikspubes69@gmail.com
+Received: by 2002:a05:620a:46a5:b0:939:fe23:4cfd with SMTP id
+ af79cd13be357-93c250f8b42mr276853285a.24; Tue, 22 Sep 2026 22:29:55 -0700 (PDT)
+Return-Path: <>
+Auto-Submitted: auto-replied
+Message-ID: <6ab363d3.fd4c23fe.364c7.77fc.GMR@mx.google.com>
+Date: Tue, 22 Sep 2026 22:29:55 -0700 (PDT)
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+Subject: Delivery Status Notification (Failure)
+References: <CALr_9k2PHm=KKxu--z-c1K2=-MGMuWevkkEx57SYZWzDpEDy1g@mail.gmail.com>
+In-Reply-To: <CALr_9k2PHm=KKxu--z-c1K2=-MGMuWevkkEx57SYZWzDpEDy1g@mail.gmail.com>
+X-Failed-Recipients: comments@whitehouse.gov
+
+--000000000000f5821c065c1fc5e7
+Content-Type: multipart/related; boundary="000000000000f59b60065c1fc5f2"
+
+--000000000000f59b60065c1fc5f2
+Content-Type: multipart/alternative; boundary="000000000000f59b68065c1fc5f3"
+
+--000000000000f59b68065c1fc5f3
+Content-Type: text/plain; charset="UTF-8"
+
+
+** Message not delivered **
+
+There was a problem delivering your message to comments@whitehouse.gov. See the technical details below.
+
+Learn more here: https://support.google.com/mail/answer/7720
+
+The response was:
+
+The recipient server did not accept our requests to connect. For more information, go to https://support.google.com/mail/answer/7720 
+[whitehouse.gov 2a04:fa87:fffd::c000:4233: timed out]
+[whitehouse.gov 192.0.66.51: timed out]
+
+--000000000000f59b68065c1fc5f3
+Content-Type: text/html; charset="UTF-8"
+
+
+<html>
+<head>
+<style>
+* {
+font-family:Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" class="email-wrapper" style="padding-top:32px;background-color:#ffffff;"><tbody>
+<tr><td>
+<table cellpadding=0 cellspacing=0><tbody>
+<tr><td style="max-width:560px;padding:24px 24px 32px;background-color:#fafafa;border:1px solid #e0e0e0;border-radius:2px">
+<img style="padding:0 24px 16px 0;float:left" width=72 height=72 alt="Error Icon" src="cid:icon.png">
+<table style="min-width:272px;padding-top:8px"><tbody>
+<tr><td><h2 style="font-size:20px;color:#212121;font-weight:bold;margin:0">
+Message not delivered
+</h2></td></tr>
+<tr><td style="padding-top:20px;color:#757575;font-size:16px;font-weight:normal;text-align:left">
+There was a problem delivering your message to <a style='color:#212121;text-decoration:none'><b>comments@whitehouse.gov</b></a>. See the technical details below.
+</td></tr>
+<tr><td style="padding-top:24px;color:#4285F4;font-size:14px;font-weight:bold;text-align:left">
+<a style="text-decoration:none" href="https://support.google.com/mail/answer/7720">LEARN MORE</a>
+</td></tr>
+</tbody></table>
+</td></tr>
+</tbody></table>
+</td></tr>
+<tr style="border:none;background-color:#fff;font-size:12.8px;width:90%">
+<td align="left" style="padding:48px 10px">
+The response was:<br/>
+<p style="font-family:monospace">
+The recipient server did not accept our requests to connect. For more information, go to https://support.google.com/mail/answer/7720
+[whitehouse.gov 2a04:fa87:fffd::c000:4233: timed out]
+[whitehouse.gov 192.0.66.51: timed out]
+</p>
+</td>
+</tr>
+</tbody></table>
+</body>
+</html>
+
+--000000000000f59b68065c1fc5f3--
+--000000000000f59b60065c1fc5f2
+Content-Type: image/png; name="icon.png"
+Content-Disposition: attachment; filename="icon.png"
+Content-Transfer-Encoding: base64
+Content-ID: <icon.png>
+
+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
+--000000000000f59b60065c1fc5f2--
+--000000000000f5821c065c1fc5e7
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; googlemail.com
+Arrival-Date: Sat, 19 Sep 2026 18:18:46 -0700 (PDT)
+X-Original-Message-ID: <CALr_9k2PHm=KKxu--z-c1K2=-MGMuWevkkEx57SYZWzDpEDy1g@mail.gmail.com>
+
+Final-Recipient: rfc822; comments@whitehouse.gov
+Action: failed
+Status: 4.4.1
+Diagnostic-Code: smtp; The recipient server did not accept our requests to connect. For more information, go to https://support.google.com/mail/answer/7720 
+ [whitehouse.gov 2a04:fa87:fffd::c000:4233: timed out]
+ [whitehouse.gov 192.0.66.51: timed out]
+Last-Attempt-Date: Tue, 22 Sep 2026 22:29:55 -0700 (PDT)
+
+--000000000000f5821c065c1fc5e7
+Content-Type: text/rfc822-headers
+
+ARC-Seal: i=1; a=rsa-sha256; t=1790141355; cv=none;
+        d=google.com; s=arc-20260327;
+        b=D4hHDWtIvIBne4YycJDKIhG6XNFnsk8QW79HlD02vp1V6wK2Ulgq/6P6CvHf4DFOnx
+         pekSRUTrg5q8G9dYA45itFLwnR2lTfEBkuJYMem1AXARXrb3HiqSUFgniKq82ahTEAOW
+         xyz+QkmXN8/bjAqAoEVqmqksMpEUQOAyl9ieimWZj7NTTJkxqP0d53W2gLl1O+hQHMho
+         LPyvXikiHrTsgj9jnSufrSa9pSgsFKK3OAm8gu0JkTSzGZuULwhuuJe4hV9kc/o0b5uC
+         tPckG8eE4TmtuGJjQlfzX7CXGYRjC2/cuzY/CTwfqXYu5kYkJiDhKYMEFhheDen5smW3
+         BO6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=Fg6wrq7c+ogpFY7/0wMxPf2uI/3CoXeObysGNWDFtao=;
+        fh=xPyjPglHO8Onp9heu8CUs2+OQGO1bR0PRlz+PzPgs/k=;
+        b=AEqc6LZMPlbDpsv5II2Hrjlwk7U2UVoaI1PfjkFgXriwg3xjkhjcHlqBzeW7U4oZpi
+         eSaD1oYtam+UtBBvypF2reVBPVZ0VlpEHr/gdegVtF3iAmX/uU6FT7SOCY2TGw8RSXRG
+         d6cdxwD51nVRSQwqSXybTSjtdtdrGAXRb4siZI7gsgFoXZ9Tpo1d4x4g4nkfrNpGUPR2
+         dhEWfRsKW1WA7yrdV/KupIWKFgPj/B39Hn+aP+m6yr5M7+Ddyv/lkuMaHoZNNkW6Zlsg
+         GsVlhAF3C6SnYITXEBoBqpOPXnIrHqB6w4Jqlu82cwY/c/Riweso6HyIoshQNOLxgVIa
+         1Bhg==;
+        darn=whitehouse.gov
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790141355; x=1790746155; darn=whitehouse.gov;
+        h=content-type:to:subject:message-id:date:from:mime-version:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=Fg6wrq7c+ogpFY7/0wMxPf2uI/3CoXeObysGNWDFtao=;
+        b=W4tMBwZfv2Ko64/fFrGGR+EQVFVx1AviVGsBDjCGDynxRRor8SXVK+RwRzpuv8JTcn
+         IjvdDOGpelVAqANWSLf+nldiVL8uJMvFNoIL2se+EzMeCvP+s4Z+lOoh6sNbflP4JT/H
+         nz+QMO1AaqA+DDioAN06LddXF5I7YGFLwBJ1cM2MG5IZqaU2GPDCT3Sxv/tozNL558Tg
+         jZqDnpknpUnRvm+lg4EVZxLR/2E495XSiHefCmQJ/hwPLf3T2VgoAw/4kj4IhJu0xquA
+         s8HshrJge0H8iQ5l4666nBOPlqwPIJ5+ktbwwW/i8T70MqKqQbBTfjvFyHw7619Ye5GN
+         bZJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790141355; x=1790746155;
+        h=content-type:to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Fg6wrq7c+ogpFY7/0wMxPf2uI/3CoXeObysGNWDFtao=;
+        b=uBgckZFbvKAFRltu0HQc/mQwa+JWHJXM0nda07SYLJSpevysiXrXqNsDNjVX5hY9vf
+         sA+OTXwoO0Yl8dUKDgfx0YV6OdDVl4UYG0joOUQS36ur9nqeuaYzfyA4Xr3RLImPwe9X
+         4/DgyGcgMDVJNFTzNdbDmec37lonovrxLof52qoGUWIjnILaRLJojvGF20I/luWFEvtc
+         O6O72glYo+dOxti9d/vr+2sTGkd1yh6XvO2pBAjVITzlluT2Eu6Vrn3d5RwxYVe6EZOC
+         KC+ajRxKM9R9vPdCwGQrB3XFTzE/SM1MkefLQnn5Qtu9pVBVrwcxHbsoKrWvVT3Xe0Q5
+         mcbQ==
+X-Gm-Message-State: AFuF++lqCW7/i/Vp9VDoC+WDkGjCqmu6DsohwcW8VdTf4l+I5wJDhK++
+	lnsefNShk4JLaPjXHYhveCAdK3qs1dnSS0nNiPok5OY6Ez7xKvd2Szy+WagkHxX33Ih8kXOTabe
+	W+/i4QNHSZYtreOB6LnFRM++4KFvSgse1/D9N
+X-Gm-Gg: AYBFou18fBvgmcRvep+r9YkX/JaUm3SX/rnowz/Xgsi5g/8PfxI5o6ZwjBwogV7qU8x
+	rtMDPxZ+4LHwVIuNqPlVIHOEbNtEZkHgoQdBnKtZ+49mvw074s9qlEC+C8Pz9I5cPsA9e9WzL1p
+	MbYKnsG5s3AjrK75nQGkMAUup4k/BM5VSbyZYE4Gl0f6REyuuLk7dVmbYHIWT+NpjyZI8po4+WV
+	SXBxMeVUtMhOcOuax886WxsFVxpekZyCjdRJAOgAr9oS/Lz3MOrYVeyxVkqJMTmk8BeSfmds8+S
+	8BxLlZYQSbAS7lxsNirUX88slOQCUGkV83Lbnd8y954hFMtyRxDSd34=
+X-Received: by 2002:a05:6300:6698:b0:3d3:b00a:7082 with SMTP id
+ adf61e73a8af0-3dd8c568fb6mr12021242637.28.1789867126950; Sat, 19 Sep 2026
+ 18:18:46 -0700 (PDT)
+Received: from 673009273811 named unknown by gmailapi.google.com with
+ HTTPREST; Sun, 20 Sep 2026 01:18:46 +0000
+Received: from 673009273811 named unknown by gmailapi.google.com with
+ HTTPREST; Sun, 20 Sep 2026 01:18:46 +0000
+MIME-Version: 1.0
+From: Steven Crawford-Maggard <rubikspubes69@gmail.com>
+Date: Sun, 20 Sep 2026 01:18:46 +0000
+X-Gm-Features: AcwNN1UNxJK0qmk4HbNG3DxkOZHruqADznC4MCa_UAopZ7jPN4tDtLHzbmTMV5U
+Message-ID: <CALr_9k2PHm=KKxu--z-c1K2=-MGMuWevkkEx57SYZWzDpEDy1g@mail.gmail.com>
+Subject: AI Czar / AI Force application - working agent-audit architecture,
+ built in public
+To: comments@whitehouse.gov
+Content-Type: text/plain; charset="UTF-8"
+
+
+--000000000000f5821c065c1fc5e7--

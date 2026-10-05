@@ -1,0 +1,43 @@
+Received: from 673009273811
+	named unknown
+	by gmailapi.google.com
+	with HTTPREST;
+	Sat, 19 Sep 2026 21:31:51 -0400
+Received: from 673009273811
+	named unknown
+	by gmailapi.google.com
+	with HTTPREST;
+	Sat, 19 Sep 2026 21:31:51 -0400
+To: Cheryl.Gendron@nist.gov
+Subject: Self-nomination - NAIAC and NAIAC-LE (per 91 FR 45251, FR Doc. 2026-14585)
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Date: Sat, 19 Sep 2026 21:31:51 -0400
+Message-Id: <CALr_9k3s4CdUFo2aPJ6Nn6BCNMs9VtJpQBgG+PDpBuK5A5=R5Q@mail.gmail.com>
+From: Steven Crawford-Maggard <rubikspubes69@gmail.com>
+
+Designated Federal Officer Gendron:
+
+Per the Federal Register notice at 91 FR 45251 (FR Doc. 2026-14585, published July 20, 2026), I submit my self-nomination for membership on the National Artificial Intelligence Advisory Committee (NAIAC) and its Subcommittee on Artificial Intelligence and Law Enforcement (NAIAC-LE), established under 15 U.S.C. 9414.
+
+FIELD OF EXPERTISE: Machine-verifiable governance and auditability of autonomous AI agents - distinguishing authorization, execution, capability, and effect as separate computational objects, each carrying its own evidence requirements.
+
+SUMMARY OF QUALIFICATIONS:
+1. Working architecture, built in public and inspectable today: EVEZ, a governance and audit architecture for autonomous agents. Public code: github.com/EvezArt/evez-agentnet (pull request #76: forensic claim-status system, SHA-256 hash-chained evidence ledger, fail-closed audit gates); github.com/EvezArt/evezart-openclaw (pull request #2: agent-gateway trust-boundary hardening).
+2. Reproducible benchmark specification for a Causal Governance Kernel - falsifiable, deterministic, 5/5 test suite passing - aligned to NIST SP 800-63-4 (Digital Identity Guidelines, FINAL, July 31, 2025).
+3. Federal forensic contribution as a victim in a live matter: the Russian bulletproof-hosting network publicly indicted July 2026 in the Northern District of Ohio (Media Land LLC / ML Cloud LLC). Following the May 2026 compromise of my own infrastructure, I performed the victim-side attack-chain mapping, infrastructure attribution, and evidence dossiers, and submitted them through IC3 and to federal cyber authorities. My submissions' role in the case is for the government to characterize; the work itself is documented and inspectable.
+4. Active public-records audit practice: standing records requests to NTSB, PHMSA, and Wyoming agencies applying the same evidence discipline to public-sector documentation.
+
+EVIDENCE AUDIT: Verified - the public indictment, my public code, the live benchmark. Not asserted as fact - the precise causal influence of my submissions on any investigation. A candidate for AI oversight who blurs evidence classes in his own nomination has already failed the work.
+
+WHY NAIAC-LE: The administration's September 19, 2026 announcement of an AI Force states the mandate as addressing AI bad actors through the existing criminal and civil justice system. That mandate is an evidence problem before it is a policy problem: enforcement against autonomous systems requires machine-verifiable proof of what a system was authorized to do, what it did, and what resulted. My architecture addresses exactly that chain, and I would bring it to the Subcommittee's work.
+
+I acknowledge the obligations of Special Government Employee service: confidential financial disclosure (OGE Form 450), ethics training, Standards of Ethical Conduct (5 CFR 2635), uncompensated service with travel/per diem per 5 U.S.C. 5703, and a three-year term. I have not previously served on a federal advisory board. I am willing to complete any additional vetting required.
+
+Respectfully,
+
+Steven Crawford-Maggard
+Independent AI Systems Architect - EVEZ
+(307) 677-5504
+rubikspubes69@gmail.com
+github.com/EvezArt/evez-agentnet

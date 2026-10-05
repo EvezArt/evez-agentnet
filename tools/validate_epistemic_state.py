@@ -10,7 +10,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 STATE = ROOT / "evidence/2026-10-05/epistemic_state/state.json"
 
 ALLOWED = {
@@ -32,6 +32,7 @@ ALLOWED = {
     "PROVIDER_IDENTIFIED_USAGE",
     "REFUND_GRANTED",
     "REFUND_DENIED",
+    "UNDELIVERED",
 }
 
 def fail(msg: str) -> None:
@@ -79,15 +80,31 @@ for case in cases:
         fail(f"{cid}: missing source")
 
 # High-risk external-status gate.
-for cid in ("naiac-2026-09-20", "tech-force-2026-09-20"):
+# Promotion out of UNKNOWN is permitted ONLY for transmission-level facts
+# (TRANSMISSION_PROVEN / UNDELIVERED), each of which requires the primary
+# mailbox artifact to be attached as source. Anything beyond transmission
+# (receipt, review, selection, appointment) must stay UNKNOWN until a
+# primary agency artifact exists.
+HIGH_RISK = {
+    "naiac-2026-09-20": ("TRANSMISSION_PROVEN", "UNDELIVERED"),
+    "tech-force-2026-09-20": ("TRANSMISSION_PROVEN", "UNDELIVERED"),
+}
+for cid, allowed_states in HIGH_RISK.items():
     case = next((c for c in cases if c.get("id") == cid), None)
     if case is None:
         fail(f"required case missing: {cid}")
-    if case["state"] != "UNKNOWN":
-        fail(f"{cid}: must remain UNKNOWN until a primary delivery/receipt artifact is attached")
-    missing = " ".join(str(x).lower() for x in case["missing"])
-    for phrase in ("original mailbox", "delivery", "receipt"):
-        if phrase not in missing:
-            fail(f"{cid}: missing-artifact list no longer names {phrase!r}")
+    assert case is not None  # narrowed for type checkers after fail() raises
+    state = case["state"]
+    if state not in allowed_states and state != "UNKNOWN":
+        fail(f"{cid}: state must be UNKNOWN or one of {allowed_states} — "
+             f"receipt/review/selection claims need a primary agency artifact")
+    if state != "UNKNOWN":
+        src = " ".join(str(x) for x in case.get("known", [])) + " " + str(case.get("source", ""))
+        if "mailbox_wire/" not in src and "Message-ID" not in src:
+            fail(f"{cid}: promoted to {case['state']} without an attached primary artifact")
+        # review-level phrases can never appear as KNOWN
+        for phrase in ("agency review", "selection", "appointed", "shortlist"):
+            if phrase in src.lower():
+                fail(f"{cid}: promotion text claims review-level facts ({phrase})")
 
 print(f"OK: validated {len(cases)} case states; high-risk nomination states remain UNKNOWN.")

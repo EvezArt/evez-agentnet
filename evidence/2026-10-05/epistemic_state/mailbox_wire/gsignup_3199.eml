@@ -1,0 +1,226 @@
+Delivered-To: fiersteity@gmail.com
+Received: by 2002:a05:7412:f:b0:215:adb6:5a30 with SMTP id 15csp3816832rdb;
+        Mon, 5 Oct 2026 07:00:32 -0700 (PDT)
+X-Received: by 2002:a05:690e:bc3:b0:677:d719:7bb5 with SMTP id 956f58d0204a3-677d7197ff2mr1364682d50.61.1791208832146;
+        Mon, 05 Oct 2026 07:00:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791208832; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nZi73Yzwl28+BHPY88xqknpJtjeM50EwmOs4A2gQkthOe1naiiVCOZgFvDMXDONvIn
+         +Y9yV13Zu+49u1bfEgPyHgLghmuEMOPDrJKxVZfjU1+I/vEpDsu/ESGe1HD3Y+Bmb/Zq
+         QnbDznwFGOnXKk1KeMlEcZmESj9RXOclnGXOW3B6Hoejeb5EvqoZxiK1MWozMrEF3WHR
+         U9tmTDd7TZOPC7mHGwdiC9t+mBhmF18sl/NGT68wTFVSTIpEFqKsRwQooAZB5RKuk+2N
+         qrPFbRatQVJbI6Hw0icQLK3M9UUviLt9Hu+ISbzIGbX0BHBMH+eVpE+VVPiaPuDS/S2S
+         qHYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:from:subject:message-id:gmsai:feedback-id:reply-to:date
+         :mime-version:dkim-signature;
+        bh=GTZt7aJJtt31srG/MHEjO4HYL0ABGqGJmVZX93SSKbc=;
+        fh=/JhzwJccBl/VWKC7JoKAdL5LEtd+cwW5QfOwmLfkCAk=;
+        b=hgDzgw+P0FLiH0UP4MgOLiN6fLx7uOBnaUlWn+RQ3LT8+sJ4WPIHNLv82nA04RvnrA
+         9c70AptlpMZvB9iA3/Fova6cuVrKh/iFrKV7yywapLdEFau7A3taAj3HquOdFvMEU7fc
+         Z/MYL/Vs2G6hp4qik618PiuxjfiBSGGxevmZnYjZfWnTMDJyELTiBIssv+TkpTcqe9iB
+         4gN2fgKL63xdAHPODFdavJsxjfHBSa3lYszHcNuFQC3XA9pj0fJlxMOa91rrZgRIrIcp
+         tvygMqaF2230Tlvy4wn0+qXgGoEKvgb0e4lSjAO7HvYt7LWUGc2V7swToZG+4DMKzuaj
+         MnUA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20251104 header.b="kr/XEuM2";
+       spf=pass (google.com: domain of 3f63dahakckyvwzmxt6-xi6umv10owwotm.kwunqmz01mq16ouiqt.kwu@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3f63DahAKCkYvwzmxt6-xi6umv10owwotm.kwunqmz01mq16ouiqt.kwu@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <3f63DahAKCkYvwzmxt6-xi6umv10owwotm.kwunqmz01mq16ouiqt.kwu@scoutcamp.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 00721157ae682-8ae30715ae9sor75433987b3.2.2026.10.05.07.00.32
+        for <fiersteity@gmail.com>
+        (Google Transport Security);
+        Mon, 05 Oct 2026 07:00:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3f63dahakckyvwzmxt6-xi6umv10owwotm.kwunqmz01mq16ouiqt.kwu@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20251104 header.b="kr/XEuM2";
+       spf=pass (google.com: domain of 3f63dahakckyvwzmxt6-xi6umv10owwotm.kwunqmz01mq16ouiqt.kwu@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3f63DahAKCkYvwzmxt6-xi6umv10owwotm.kwunqmz01mq16ouiqt.kwu@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1791208832; x=1791813632; dara=google.com;
+        h=content-type:to:from:subject:message-id:gmsai:feedback-id:reply-to
+         :date:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GTZt7aJJtt31srG/MHEjO4HYL0ABGqGJmVZX93SSKbc=;
+        b=kr/XEuM22G63cfuzKMzXwY9lRubJuUIHMtpRBat5qUL/OTkeJxTG9ZnCgc6LWVzZTv
+         ycX/wSuzYpV1+XYvxuegnW3M5kmUzJdBJW6aFsxec0N2G1qUroidxxQG+ytBJgNqlHlw
+         n+4ugdiB9md6p7Zktl083o/L11MEdEfYvO/lQJIbQ1V1OgHWJhyM4Qh+3BfKZ94lPIBN
+         X51QrD/R0Es236HRCWUOImQw87m/Q+gZTPdDUYjUm5LTtx9xDnLMpanuAlPXACuOi8nN
+         1BtlNZ46Hix2yQ+2Hth0yYVfo5fqXf84R/acdtwYqKClcF6xHQmRLggXC24ez/+D9wHx
+         aXIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791208832; x=1791813632;
+        h=content-type:to:from:subject:message-id:gmsai:feedback-id:reply-to
+         :date:mime-version:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GTZt7aJJtt31srG/MHEjO4HYL0ABGqGJmVZX93SSKbc=;
+        b=e3vjizNjtMYNCO9JAk336Gy+rZ4sr6u2Ma4arhPSNazKkZvp5Z7oRvZXDFJ75nUu07
+         UJD68vHQsGTI33/i5z49W3V+lDOtf54AT1437bftfpklkjCHW8aekI7IuCkQqmDSwcRL
+         4jE77/gleRZqcRvSQbHZ1FetX688kcUX56JK73SpQ6mQe4O67KwB5yDju8Avl/FEfld5
+         s2AUE5aGNd/je/qrfLJaWeyYH3zgGuMhZr1iL9PV6OE2BVmWec7fRCSa6Qa4GqDSmB0u
+         66AUakO3MqWNnLcHPr2vu1OFnn1VTuhbtbHwFh9dtjGM6sockPoXIZ3077GR6zU+Kc9I
+         At/A==
+X-Gm-Message-State: AFuF++l9EgC162N6TVLmRehWSlN5nRwFghpENnTclR4lHUnPJR067j9M
+	cpX8N+RR609bojm7t3AKONVW8PdrH4LmuJS7uS/i0uyrCZeazYU=
+MIME-Version: 1.0
+X-Received: by 2002:a05:690c:d1c:b0:8ae:4420:20f1 with SMTP id
+ 00721157ae682-8ae442026c4mr31437707b3.19.1791208831820; Mon, 05 Oct 2026
+ 07:00:31 -0700 (PDT)
+Date: Mon, 05 Oct 2026 07:00:31 -0700
+Reply-To: Google Payments <noreply-payments@google.com>
+X-Google-Id: 4078796
+Feedback-ID: P-58-0:C20158883:M110434054-en-AU:gamma
+gmsai: true
+X-Google-Notification-Metadata: CgISAA
+X-Notifications: 7b0047f57e3e0000
+X-Notifications-Bounce-Info: AYJaBO32DnbcCPH0k694S4ll_6OA9gerHKSHfVGqC-SKauc9B16675tGlohwrp5eZ_U6RGYHKVVooljJk1daEj552yUOj_WR-MS3sduZNDJOJDdyA2YoOiwOftGAOk_QIwGcPx53o6V8aMkXo3olUjIEj9n-e9vcrkzTHdUbLhabL1Y6-aff4D4-UuuRWmmuU01NoM7og4cXrUeRvepzkiuSyK20RAoixxKnE2OA4_WTwFh8jYCekrXReCzfXOzTVIiIsRLnU1dHZNWog1LxpJV6WiYvX6mQpg7VuRLzf7b80wCoiC3Vcw65G_NGyK9IT0zkR7PcdujRkO7eOtMs4XM8Lsqtp0qsMd0YoI-Mr7wzFznJtnr-QJl3zWj3QO4UvjSL0T7y3bFBLW0_QGSbTybm2ovXOc3o8V4WP3rY2lT6T3Ey5wpFgbGP8kWlqTTsIY2NzJEcLgHo9sORM5ictYdD6Q40csoaM2BZP-1HTL9p0LoEsfMyd8CPdjtsTo2-5xRiviS9M4cRE9uG3HBAp5dmhnA23W-GAjqCkYGFht2KGjhhfzqBuV5LFgOUVZJdUJ2lG3N_9Lno2FChJStz7S59IA1VeUUKG8SrzGNESQK8uzywYDos_mDpzNTSIiULmvlobsL5tKa2SC35wA9sfvizlt1b89ZzAU1ldIeIeMgsuV_u7sKOoflVtG2X-aex_OA5B8T5HZIKugqZPhmdz8fOnwInuflBdRAuNkh3BOPsaDixu4IqN9ezPBeD1GLF69nO8-TN9Q8aChxgZLToY5uLf9hXH-uIBewNjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <0ac304b747ebe6916ad36efca226cf1d47dba217-20158883-110950804@google.com>
+Subject: For your protection, a Google Cloud signup was denied
+From: Google Payments <noreply-payments@google.com>
+To: fiersteity@gmail.com
+Content-Type: multipart/alternative; boundary="00000000000023a597065d184e43"
+
+--00000000000023a597065d184e43
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+Google Safe & Secure
+
+
+Someone used your account to try to sign up for Google Google Cloud. Google  
+denied the signup attempt, and you won't see any unauthorized charges.  
+We're reviewing your information to further protect your account.
+
+To help keep this from happening again, please follow these steps. You may  
+also be prompted automatically to secure your account.
+
+1. Check your computer for malware and viruses. To run a security checkup  
+on your computer, follow the instructions at  
+https://support.google.com/accounts/answer/46526.
+
+2. Change the password for your account. Please make sure that you check  
+your computer for malware before changing your password, since malware  
+could capture your password if your computer still has malware.
+
+3. Once you've completed a malware scan and changed your password, you  
+should receive a followup email once we have completed our review. To learn  
+more about account security, please visit here.
+
+
+Sincerely,
+
+The Google Support Team
+
+
+
+Google Wallet You have received this mandatory email service announcement  
+to update you about important changes to your Google Payments account.
+Learn More | Payments Center | Help Center | Privacy Notice | How to  
+recognize suspicious emails
+Google Payment Corp., PO Box 1568, Mountain View, CA 94042
+
+
+
+--00000000000023a597065d184e43
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div style=3D"background-color: #F6F6F6; width: 99%; font-family: arial, sa=
+ns-serif; font-size: 11px; color: #777777; margin: 0px 0px 0px 0px; padding=
+: 3px; border-radius: 5px;">
+  <table style=3D"padding:0; border-collapse:collapse; border:none; vertica=
+l-align:middle; width:100%;">
+    <tbody>
+      <tr>
+        <td class=3Dalign-left; style=3D"border-collapse:collapse; border:n=
+one; vertical-align:middle;"><img alt=3DGoogle src=3Dhttp://commondatastora=
+ge.googleapis.com/support-kms-prod/ED363384D24EEB5C361A8A6604B2BB769D9D></t=
+d>
+        <td class=3Dalign-right; style=3D"border-collapse:collapse; border:=
+none; vertical-align:middle; text-align:right; font-family: arial, sans-ser=
+if; font-size: 11px;"><a href=3Dhttps://c.gle/AAuDWvmYhRM5Di3Js2iY0l4ym0cVt=
+uIv6uoBeHgVGbDQ3f6EXS8vnhoFiaCfyFTL_dsnjKv6g1utQzczqkD1FYnXSGKqKvWSuIv9rTze=
+4Eu-m9baD6IO7WFGiHJENmMiJD7YcXPGZts style=3D"text-decoration: none; color: =
+rgb(105, 105, 105);"><img src=3Dhttp://www.google.com/help/hc/images/wallet=
+/wallet_cr_lock.png> Safe &amp; Secure</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>Someone used your account to try to sign up for Google Google Cloud. Goo=
+gle denied the signup attempt, and you won&#39;t see any unauthorized charg=
+es. We&#39;re reviewing your information to further protect your account.</=
+p>
+
+<p>To help keep this from happening again, please follow these steps. You m=
+ay also be prompted automatically to secure your account.</p>
+
+<p>1. Check your computer for malware and viruses. To run a security checku=
+p=C2=A0on your computer, follow the instructions at <a href=3Dhttps://c.gle=
+/AAuDWvl35EZ5KQMRohVSHSWFUtWxEkmv93mGuzpHzTNJN3-NV6WUX5Tuw4EB6erLhJd7MbgINx=
+Gh6rZUwWUArdafoBJtCIH1oH_BvONIdIXdcX0K71kMGTATyqskH-RWx3Y66s9dWZqngVxb-yf49=
+hM rel=3Dnoopener><u>https://support.google.com/accounts/answer/46526</u></=
+a>.=C2=A0</p>
+
+<p>2. Change the password for your account. Please make sure that you check=
+ your computer for malware before changing your password, since malware cou=
+ld capture your password if your computer still has malware.</p>
+
+<p>3. Once you&#39;ve completed a malware scan and changed your password, y=
+ou should receive a followup email once we have completed our review. To le=
+arn more about account security, please visit <a href=3Dhttps://c.gle/AAuDW=
+vlWvPMft8ik2EU9wKg6oKxGs2nTUhCEFSCdTSps-RYxqW-nwR4nBiqVj4lPmzXNpjObRZtUN1Y8=
+Ee277E5tlyx4fXTT9p9E_VCAZRHSQzkDa5AvL9asiCa4fRIFXFpac0iUPZ1ruttnQaLE4QUCrpZ=
+ComCULA rel=3Dnoopener><u>here</u></a>.=C2=A0</p>
+
+<p>=C2=A0</p>
+
+<p>Sincerely,</p>
+
+<p>The Google Support Team</p>
+<div style=3D"background-color: #F6F6F6; width: 99%; font-family: arial, sa=
+ns-serif; font-size: 11px; color: #777777; margin: 0px 0px 0px 0px; padding=
+: 3px; border-radius: 5px;">
+  <table style=3D"padding:0; border-collapse:collapse; border:none; vertica=
+l-align:middle; width:100%;">
+    <tbody>
+      <tr>
+        <td class=3Dalign-left; style=3D"border-collapse:collapse; border:n=
+one; vertical-align:middle; text-align:middle" width=3D32px;><img alt=3D"Go=
+ogle Wallet" src=3Dhttp://commondatastorage.googleapis.com/support-kms-prod=
+/686CF8C010F6B2172664B80A443CB1877D89 width=3D32px;></td>
+        <td class=3Dalign-left; style=3D"border-collapse:collapse; border:n=
+one; vertical-align:middle; text-align:left font-family: arial, sans-serif;=
+ font-size: 11px;">You have received this mandatory email service announcem=
+ent to update you about important changes to your Google Payments account.<=
+br>
+        <a href=3Dhttps://c.gle/AAuDWvkTdfk2rcEuaanm7jWZcmKivc6hkQeGkQ13pUX=
+-gYiqgVpbYfvpQb2w_O1BLomj4AEhscTYqQG3fR4yowfRL-djAh9rQAGqUDIAcQuAEY9yb2yrug=
+nil9sxy2czWKfZ9OMzGnUiPaLzpCFBYmfZtA style=3D"text-decoration: none; color:=
+ rgb(77, 144, 254);">Learn More</a> |=C2=A0<a href=3Dhttps://c.gle/AAuDWvmp=
+HxFh63OdZrx2AuOxJzK1v1PG-Kr9tUkSZPQlCpkT20AoZ6u0R7VoOz9yyOm5K77o2LeRjtqb6uu=
+zbeHImg08Eu26N94ldTYYfjGY8dySi74H8DVNSGU style=3D"text-decoration: none; co=
+lor: rgb(77, 144, 254);">Payments Center</a>=C2=A0| <a href=3Dhttps://c.gle=
+/AAuDWvnrCnKxN7O2FomyUrWuOSNi1GLcWYuLeHJYcIvHZt_V5TYOHqP8KESqJZ9I-jbEHe-bMM=
+q183hWJz0DmzDf23B2v7sfyEL_Kr4vgnmB_O1gib0dGBajNJIF9WbmM-RBXg4 style=3D"text=
+-decoration: none; color: rgb(77, 144, 254);">Help Center</a>=C2=A0| <a hre=
+f=3Dhttps://c.gle/AAuDWvmekkB9kuwzEj1zJ1f6aNHw9HkmybZ5OXCRCgwy90ayOrnslKXxq=
+5nRfsJ_OYDcQY-XP0fhZgxmENYMLdOqMxI-5qI0nu5XuDLIXN08drrW3NTji2X1Y1X0WuQoYq-w=
+XGC6tFM5rGXMKMCCBYhqy0dif5CJ00IU4KKhHfNm style=3D"text-decoration: none; co=
+lor: rgb(77, 144, 254);">Privacy Notice</a> =C2=A0|=C2=A0<a href=3Dhttps://=
+c.gle/AAuDWvnHkZQg1NYesPwvQY3gqw4oV3L3fBcbWSrzdzd1t11uK0VcDtJ3UotZn6hioYedL=
+rSkw9p6Sas3SePtk57SZQ60PxBU1uCxn8lAigIcTSWb8W2d7ADUC2BcAFbm7g6gjToXmFtOVI00=
+eD9mkUnbgA style=3D"text-decoration: none; color: rgb(77, 144, 254);">How t=
+o recognize suspicious emails</a><br>
+        Google Payment Corp., P.O. Box 1568, Mountain View, CA 94042</td>
+        <td class=3Dalign-right; style=3D"border-collapse:collapse; border:=
+none; vertical-align:middle; text-align:right;">=C2=A0 =C2=A0=C2=A0</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+--00000000000023a597065d184e43--

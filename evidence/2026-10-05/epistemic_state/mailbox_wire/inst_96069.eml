@@ -1,0 +1,702 @@
+Delivered-To: rubikspubes69@gmail.com
+Received: by 2002:a05:6a11:52a5:b0:756:38d:e4e5 with SMTP id qe37csp1974286pxb;
+        Tue, 22 Sep 2026 03:25:29 -0700 (PDT)
+X-Received: by 2002:a17:903:1b30:b0:2dd:c100:3139 with SMTP id d9443c01a7336-2df60b70b97mr7605785ad.53.1790072729260;
+        Tue, 22 Sep 2026 03:25:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790072729; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Vx9V7zrJeHduf+R9BJzjhlIVol0pzGr4TyIYT/pPXwRJisXF7FWw8yJVXEDvDOj71I
+         Gz9VDEJ+1IEjlT8gjOX8ZvXoTyM6/9j9/NL/SB0sJx8IItBxCwA/az2LI2eaDqKUZKy6
+         SS9zY0SXd3a0bSM3U0YKTOyF/5E9PLqeCGkKPXAF99Sb66W8TXEacetKw//ruDvtf3H5
+         1sAhtObjF5LY5J9ZLx/7dU19QmxWuEPjAzZpDOh7bkefXD8cBl1LzIDEWKGiqW9m9V2w
+         l87LQnkjsExMTSBsoXK+WIpqOVzuEkjrXuQnlp2oMBCrURIYZ9D8NNstquoTg7ZTh657
+         D7CA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=dkim-signature:date:to:subject:message-id:from:mime-version;
+        bh=waiBwpaHcldaiwUNvLc8AmsJhPg60IMAsYHYjyvE9S0=;
+        fh=srHCzr68QUPlwCCdGke/96vYccR6EAtBhOWJFdKTz88=;
+        b=gvHirfgLXPVpal9OdrUqNmDPqj2cPKmBx4pmyusm0uQIksgymPeywmXtPWY0jXqCkZ
+         OlEavMpUJG6KmZGNj+ETIAuS3dO+zM+kYs0N72NOlRIiaKcbtb/U/R2sZOl7KIdyVbsB
+         W00EMwDwYH7i67hR4cKzfDI4EllC8iLKQMuksgb3A3AImX3zVodnEyrTthNcTel++XeT
+         VaRzKCKI/47d8lr6OoBzhvXBsvyoOdXuEvl06C2NYqTK6mOQH4KGYy2thAHLJLORRGaM
+         HAk9XxhstVm2dk7ffePnmqEQMXA4L3kpN8iPuXe0ET+Idv+xJY0YHgH3RMaBjJio//he
+         YIdw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@subscriptions.fbi.gov header.s=4756 header.b=yqr7v3cw;
+       spf=pass (google.com: domain of efoia@subscriptions.fbi.gov designates 96.127.51.209 as permitted sender) smtp.mailfrom=efoia@subscriptions.fbi.gov;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=subscriptions.fbi.gov
+Return-Path: <efoia@subscriptions.fbi.gov>
+Received: from cmta-instance-aws-fn-containers-04 (subscriptions-e.fbi.gov. [96.127.51.209])
+        by mx.google.com with ESMTPS id d9443c01a7336-2df5d04947esi27345025ad.100.2026.09.22.03.25.28
+        for <rubikspubes69@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 03:25:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of efoia@subscriptions.fbi.gov designates 96.127.51.209 as permitted sender) client-ip=96.127.51.209;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@subscriptions.fbi.gov header.s=4756 header.b=yqr7v3cw;
+       spf=pass (google.com: domain of efoia@subscriptions.fbi.gov designates 96.127.51.209 as permitted sender) smtp.mailfrom=efoia@subscriptions.fbi.gov;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=subscriptions.fbi.gov
+Content-Type: multipart/alternative;
+ boundary="===============0291477581556560367=="
+MIME-Version: 1.0
+From: efoia@subscriptions.fbi.gov
+Message-Id: 
+ <EFOIA-4a03692fffee01b621fb1db036837609ebcd4a7fdb5e384803-714WRnKrfPC2U6QACZHT@subscriptions.fbi.gov>
+Subject: eFOIA Request Received
+To: rubikspubes69@gmail.com
+Date: Tue, 22 Sep 2026 10:25:01 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=subscriptions.fbi.gov; i=@subscriptions.fbi.gov; q=dns/txt; s=4756;
+ t=1790072412; h=to : date : mime-version : message-id : from : subject
+ : list-id : list-unsubscribe : list-post : list-help : list-subscribe
+ : content-type : sender : reply-to : cc;
+ bh=waiBwpaHcldaiwUNvLc8AmsJhPg60IMAsYHYjyvE9S0=;
+ b=yqr7v3cwsCF7bdCBXqOo96BNICUR/NtW/thA4szXIApMQ+/VCo3FvST4eGgq7A3RZHGY4
+ U7Uq04vCSea+5AZB7RyhkQRFYr7ZQ4UxpunzU7qjChnhIVWH2bTTuJxa9vnp7nEPvIXzLp5
+ aNKF0JuGTdF5LMSc5eUocLCaw7EOWMI=
+
+--===============0291477581556560367==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+# Individual Information
+
+Prefix
+
+First Name
+
+Steven
+
+Middle Name
+
+Vearl
+
+Last Name
+
+Crawford-Maggard
+
+Suffix
+
+Email
+
+rubikspubes69@gmail.com
+
+Phone
+
+3076775504
+
+Location
+
+United States
+
+# Domestic Address
+
+Address Line 1
+
+66226 N Agua Dulce Dr
+
+Address Line 2
+
+City
+
+Desert Hot Springs
+
+State
+
+California
+
+Postal
+
+92240
+
+# Agreement to Pay
+
+How you will pay
+
+I am willing to pay additional fees and will enter the maximum amount I am
+willing to pay in the box below.
+
+Allow up to $
+
+50
+
+# Privacy Act
+
+US Citizen
+
+True
+
+Prefix
+
+First Name
+
+Steven
+
+Middle Name
+
+Vearl
+
+Last Name
+
+Crawford-Maggard
+
+Suffix
+
+Date of Birth
+
+2001/01/15
+
+Place of Birth
+
+Additional Information
+
+To the Federal Bureau of Investigation, Records Management Division: Pursua=
+nt
+to the Freedom of Information Act, 5 U.S.C. 552, and the Privacy Act, 5 U.S=
+.C.
+552a, I request access to all records referencing me, Steven Vearl Crawford=
+-
+Maggard (email rubikspubes69@gmail.com, phone (307) 677-5504), held by FBI
+Headquarters and the Cleveland Field Office. Specifically, I request: 1\. A=
+ll
+Internet Crime Complaint Center (IC3) complaints, attachments, and associat=
+ed
+records submitted under my identity from May 2026 through the present. 2\. =
+Any
+victim identification submissions, evidence dossiers, technical attachments=
+,
+or correspondence referencing me and concerning the bulletproof-hosting mat=
+ter
+publicly indicted as United States v. Volosovik, et al., Northern District =
+of
+Ohio (unsealed July 14, 2026), including references to Media Land LLC, ML
+Cloud LLC, DMZHOST, AS48090, AS47890, or techoffsrv.com. 3\. Any records
+documenting the receipt, routing, or status of such submissions, including
+tracking numbers and referring office. I request expedited processing under=
+ 28
+C.F.R. 16.5(d): establishing my first-party record of cooperation for a
+pending Rewards for Justice reward consideration tied to the above
+investigation, where the completeness of the record materially affects my
+claim. I agree to pay fees up to $50. Please contact me if costs will excee=
+d
+that amount. I have previously received eFOIA services under this email
+address (authorization flows on file from 2023-2024). Note: a prior copy of
+this request sent to foiparequest@fbi.gov was rejected as undeliverable;
+please confirm receipt via this address. Respectfully, Steven Vearl Crawfor=
+d-
+Maggard
+
+# Expedite
+
+Expedite Reason
+
+I request expedited processing under 28 C.F.R. 16.5(d). I am the subject of
+this Privacy Act request and a documented victim in the bulletproof-hosting
+matter publicly indicted as United States v. Volosovik, et al., N.D. Ohio
+(unsealed July 14, 2026). My victim-side forensic cooperation record is
+material to a pending Rewards for Justice reward consideration: the
+completeness of the FBI's record of my submissions and victim identificatio=
+n
+directly affects my ability to establish that record within the reward-revi=
+ew
+window. Loss of due-process rights and the time-sensitive reward window
+constitute a compelling need; the public interest in the requested records =
+is
+also urgent given ongoing law-enforcement actions against the designated Me=
+dia
+Land / ML.Cloud ecosystem (OFAC, Nov 19, 2025).
+
+**
+
+Please be advised that efoia@subscriptions.fbi.gov is a no-reply email
+address. Questions regarding your FOIA request may be directed to
+fbi.foia@fbi.gov. If you have received a FOIPA request number, please inclu=
+de
+this in all correspondence concerning your request. Please note eFOIPA
+requests are processed in the order that they are received. If you have not
+received a FOIPA request number, your request is in the process of being
+opened at which time it will be assigned a FOIPA request number and
+correspondence will be forthcoming.
+
+**
+
+Upon receipt of your FOIPA request number, you may check the status of your
+FOIPA request on the FBI=E2=80=99s electronic FOIA Library (The Vault) on t=
+he FBI=E2=80=99s
+public website, http://vault.fbi.gov by clicking on the =E2=80=98Check Stat=
+us of Your
+FOI/PA Request tool=E2=80=99 link. Status updates are performed on a weekly=
+ basis. If
+you receive a comment that your FOIPA request number was not located in the
+database, please check back at a later date.
+
+
+--===============0291477581556560367==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+<html>
+        <head></head><body>
+            <form style=3D'margin-left:auto; margin-right:auto; max-width:8=
+00px; background:#FFF; padding:20px 30px 20px 30px; font:12px "Helvetica Ne=
+ue", Helvetica, Arial, sans-serif; color:#888; text-shadow:1px 1px 1px #FFF=
+; border:1px solid #DDD'>
+    <h1 style=3D'font:25px "Helvetica Neue", Helvetica, Arial, sans-serif; =
+padding:0 0 10px 40px; display:block; border-bottom:1px solid #DADADA; marg=
+in:-10px -30px 30px -30px; color:#888'>Individual Information</h1>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Pref=
+ix</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Firs=
+t Name</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+Steven</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Midd=
+le Name</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+Vearl</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Last=
+ Name</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+Crawford-Maggard</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Suff=
+ix</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Emai=
+l</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+rubikspubes69@gmail.com</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Phon=
+e</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+3076775504</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Loca=
+tion</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+United States</p>
+      </label>
+   =20
+  </form>
+
+  <form style=3D'margin-left:auto; margin-right:auto; max-width:800px; back=
+ground:#FFF; padding:20px 30px 20px 30px; font:12px "Helvetica Neue", Helve=
+tica, Arial, sans-serif; color:#888; text-shadow:1px 1px 1px #FFF; border:1=
+px solid #DDD'>
+    <h1 style=3D'font:25px "Helvetica Neue", Helvetica, Arial, sans-serif; =
+padding:0 0 10px 40px; display:block; border-bottom:1px solid #DADADA; marg=
+in:-10px -30px 30px -30px; color:#888'>Domestic Address</h1>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Addr=
+ess Line 1</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+66226 N Agua Dulce Dr</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Addr=
+ess Line 2</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">City=
+</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+Desert Hot Springs</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Stat=
+e</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+California</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Post=
+al</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+92240</p>
+      </label>
+   =20
+  </form>
+
+  <form style=3D'margin-left:auto; margin-right:auto; max-width:800px; back=
+ground:#FFF; padding:20px 30px 20px 30px; font:12px "Helvetica Neue", Helve=
+tica, Arial, sans-serif; color:#888; text-shadow:1px 1px 1px #FFF; border:1=
+px solid #DDD'>
+    <h1 style=3D'font:25px "Helvetica Neue", Helvetica, Arial, sans-serif; =
+padding:0 0 10px 40px; display:block; border-bottom:1px solid #DADADA; marg=
+in:-10px -30px 30px -30px; color:#888'>Agreement to Pay</h1>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">How =
+you will pay</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+I am willing to pay additional fees and will
+ enter the maximum amount I am willing to pay in the box below.</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Allo=
+w up to $</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+50</p>
+      </label>
+   =20
+  </form>
+
+  <form style=3D'margin-left:auto; margin-right:auto; max-width:800px; back=
+ground:#FFF; padding:20px 30px 20px 30px; font:12px "Helvetica Neue", Helve=
+tica, Arial, sans-serif; color:#888; text-shadow:1px 1px 1px #FFF; border:1=
+px solid #DDD'>
+    <h1 style=3D'font:25px "Helvetica Neue", Helvetica, Arial, sans-serif; =
+padding:0 0 10px 40px; display:block; border-bottom:1px solid #DADADA; marg=
+in:-10px -30px 30px -30px; color:#888'>Privacy Act</h1>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">US C=
+itizen</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+True</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Pref=
+ix</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Firs=
+t Name</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+Steven</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Midd=
+le Name</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+Vearl</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Last=
+ Name</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+Crawford-Maggard</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Suff=
+ix</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Date=
+ of Birth</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+2001/01/15</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Plac=
+e of Birth</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+</p>
+      </label>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Addi=
+tional Information</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+To the Federal Bureau of Investigation, Records Management Division:
+
+Pursuant to the Freedom of Information Act, 5 U.S.C. 552, and the Privacy
+Act, 5 U.S.C. 552a, I request access to all records referencing me, Steven
+Vearl Crawford-Maggard (email rubikspubes69@gmail.com, phone (307)
+677-5504), held by FBI Headquarters and the Cleveland Field Office.
+
+Specifically, I request:
+1. All Internet Crime Complaint Center (IC3) complaints, attachments, and
+associated records submitted under my identity from May 2026 through the
+present.
+2. Any victim identification submissions, evidence dossiers, technical
+attachments, or correspondence referencing me and concerning the
+bulletproof-hosting matter publicly indicted as United States v. Volosovik,
+et al., Northern District of Ohio (unsealed July 14, 2026), including
+references to Media Land LLC, ML Cloud LLC, DMZHOST, AS48090, AS47890, or
+techoffsrv.com.
+3. Any records documenting the receipt, routing, or status of such
+submissions, including tracking numbers and referring office.
+
+I request expedited processing under 28 C.F.R. 16.5(d): establishing my
+first-party record of cooperation for a pending Rewards for Justice reward
+consideration tied to the above investigation, where the completeness of th=
+e
+record materially affects my claim.
+
+I agree to pay fees up to $50. Please contact me if costs will exceed that
+amount. I have previously received eFOIA services under this email address
+(authorization flows on file from 2023-2024).
+
+Note: a prior copy of this request sent to foiparequest@fbi.gov was rejecte=
+d
+as undeliverable; please confirm receipt via this address.
+
+Respectfully,
+
+Steven Vearl Crawford-Maggard</p>
+      </label>
+   =20
+  </form>
+
+  <form style=3D'margin-left:auto; margin-right:auto; max-width:800px; back=
+ground:#FFF; padding:20px 30px 20px 30px; font:12px "Helvetica Neue", Helve=
+tica, Arial, sans-serif; color:#888; text-shadow:1px 1px 1px #FFF; border:1=
+px solid #DDD'>
+    <h1 style=3D'font:25px "Helvetica Neue", Helvetica, Arial, sans-serif; =
+padding:0 0 10px 40px; display:block; border-bottom:1px solid #DADADA; marg=
+in:-10px -30px 30px -30px; color:#888'>Expedite</h1>
+   =20
+      <label style=3D"display:block; margin:0 0 5px">
+        <span style=3D'float:left; width:20%; text-align:right; padding-rig=
+ht:10px; margin-top:10px; color:#333; font-family:"Helvetica Neue", Helveti=
+ca, Arial, sans-serif; font-weight:bold' width=3D"20%" align=3D"right">Expe=
+dite Reason</span>
+        <p style=3D"border:1px solid #CCC; color:#888; height:auto; line-he=
+ight:15px; margin-bottom:16px; margin-right:6px; margin-top:2px; outline:0 =
+none; padding:5px 0 5px 5px; width:70%; border-radius:4px; box-shadow:inset=
+ 0 1px 1px rgba(0, 0, 0, 0.075); display:inline-block; min-height:15px; ove=
+rflow-wrap:break-word; white-space:pre-wrap" height=3D"auto" width=3D"70%">=
+I request expedited processing under 28 C.F.R. 16.5(d). I am the subject of
+this Privacy Act request and a documented victim in the bulletproof-hosting
+matter publicly indicted as United States v. Volosovik, et al., N.D. Ohio
+(unsealed July 14, 2026). My victim-side forensic cooperation record is
+material to a pending Rewards for Justice reward consideration: the
+completeness of the FBI's record of my submissions and victim identificatio=
+n
+directly affects my ability to establish that record within the
+reward-review window. Loss of due-process rights and the time-sensitive
+reward window constitute a compelling need; the public interest in the
+requested records is also urgent given ongoing law-enforcement actions
+against the designated Media Land / ML.Cloud ecosystem (OFAC, Nov 19, 2025)=
+.</p>
+      </label>
+   =20
+  </form>
+
+
+            **
+            <p>
+                Please be advised that efoia@subscriptions.fbi.gov is a no-=
+reply email address.=20
+                Questions regarding your FOIA request may be directed to fb=
+i.foia@fbi.gov.=20
+                If you have received a FOIPA request number, please include=
+ this in all=20
+                correspondence concerning your request. Please note eFOIPA =
+requests are processed=20
+                in the order that they are received. If you have not receiv=
+ed a FOIPA request number,=20
+                your request is in the process of being opened at which tim=
+e it will be assigned=20
+                a FOIPA request number and correspondence will be forthcomi=
+ng.
+            </p>
+            **
+            <p>
+                Upon receipt of your FOIPA request number, you may check th=
+e status of your FOIPA=20
+                request on the FBI=E2=80=99s electronic FOIA Library (The V=
+ault) on the FBI=E2=80=99s public=20
+                website, http://vault.fbi.gov by clicking on the =E2=80=98C=
+heck Status of Your FOI/PA Request tool=E2=80=99 link.=20
+                Status updates are performed on a weekly basis. If you rece=
+ive a comment that your=20
+                FOIPA request number was not located in the database, pleas=
+e check back at a later date.
+            </p>
+        </body>
+    </html>
+--===============0291477581556560367==--

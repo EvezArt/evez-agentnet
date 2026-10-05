@@ -1,0 +1,318 @@
+Delivered-To: rubikspubes69@gmail.com
+Received: by 2002:a05:6a10:bcb0:b0:756:38d:e4e5 with SMTP id uk48csp4012158pxb;
+        Mon, 28 Sep 2026 16:29:42 -0700 (PDT)
+X-Received: by 2002:a05:6870:d38c:b0:48f:e0f6:bd4a with SMTP id 586e51a60fabf-499710d8fc2mr627119fac.31.1790638182000;
+        Mon, 28 Sep 2026 16:29:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790638181; cv=none;
+        d=google.com; s=arc-20260327;
+        b=HzvXhi93PlbWzizA2twDcBMcWUEMl3EtCNYfJT2rHWGfoo44HVzsuY9nm1W8vgEcQC
+         oYec+R/v1C7i6ju5lFni5LAX3ygrZKPUJR+P3cc0/1SJMYWAzNpzjzlm7W9uXjLF14Ag
+         ZAy6TmgsJQajjKpvWCficcyX4OFGTFovO81mG90454tgqEbjYCQjt8iKZ6AwNSXZGZ3S
+         864MpdUmeBE1GvvlSK5kfbLBcVZGVaRCg3gaqyDXdX18Oo3RvG2Z/CpfjmBwdXqNHHfR
+         orn+yZpWja2bhUOI48mB3TvZA6VDTI5qMgePfEwYjRjlYnFpG48wBP9iSLqFBo4WeqJL
+         jwqA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=mime-version:feedback-id:to:reply-to:message-id:subject:date:from
+         :dkim-signature:dkim-signature;
+        bh=5qebqcTqi35kizvP+DGuEYWIwhqahLdZOHNLP8yfTus=;
+        fh=srHCzr68QUPlwCCdGke/96vYccR6EAtBhOWJFdKTz88=;
+        b=d8WYapyPo12x0sn1GrRUlckQke74mdh8bDhjq+L3i5Xk+i2dIKjavtrcaL3KXuA0R0
+         Vm6VfuNhAan+1GK3SQVMHg4warm8bReHVdjjGbnFWzlbri8w+SHutVJr4wg0uudwF417
+         qc6j+fsbnUAzxuW3B3OwDxC8xOI0Wq/ee7w1EsgEGrEqYyFVTcsv5kyLJIdEB15aJYUM
+         d+y/eEw6WXWstjX4cVQVGLN8bcClfsL5KtS2+J0ZMVjF2imI+OTXP3mL79ecVuFhK9c8
+         lysSAZyNSABQSdYfPyvb9h1ntgAKgcyh14C9acMRbOMgBrtofnLCb2HXrmyw7u4pd0u3
+         ni/w==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@pm.mtasv.net header.s=pm20250806 header.b="m80ZT/r7";
+       dkim=pass header.i=@nextrequest.com header.s=20161018195854pm header.b=jTCRFcdt;
+       spf=pass (google.com: domain of pm_bounces@pmbounces.nextrequest.com designates 50.31.156.113 as permitted sender) smtp.mailfrom=pm_bounces@pmbounces.nextrequest.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nextrequest.com
+Return-Path: <pm_bounces@pmbounces.nextrequest.com>
+Received: from sc-ord-mta113.mtasv.net (sc-ord-mta113.mtasv.net. [50.31.156.113])
+        by mx.google.com with ESMTPS id 586e51a60fabf-4933586b238si19748219fac.160.2026.09.28.16.29.41
+        for <rubikspubes69@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 16:29:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pm_bounces@pmbounces.nextrequest.com designates 50.31.156.113 as permitted sender) client-ip=50.31.156.113;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@pm.mtasv.net header.s=pm20250806 header.b="m80ZT/r7";
+       dkim=pass header.i=@nextrequest.com header.s=20161018195854pm header.b=jTCRFcdt;
+       spf=pass (google.com: domain of pm_bounces@pmbounces.nextrequest.com designates 50.31.156.113 as permitted sender) smtp.mailfrom=pm_bounces@pmbounces.nextrequest.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nextrequest.com
+X-KumoRef: eyJfQF8iOiJcXF8vIiwicmVjaXBpZW50IjoicnViaWtzcHViZXM2OUBnbWFpbC5jb20ifQ==
+DKIM-Signature: v=1; a=rsa-sha256; d=pm.mtasv.net; s=pm20250806; c=relaxed/relaxed;
+	bh=5qebqcTqi35kizvP+DGuEYWIwhqahLdZOHNLP8yfTus=;
+	h=from:to:subject:date:mime-version:content-type:sender:cc:date:message-id;
+	t=1790638181; x=1791242981;
+	b=m80ZT/r7C4ZXaCZueeekLdKxb6/YY2en7z242ST/Lkt9lShUGg7nIOJYXLxsK1PIbWLn4Yub2
+	MmQtMsQKrLv3m0jnn3zqzwGupTz4XHtVuSxYYQwzfka7mpBZSsdmv/wCr/bGaIxVT2G24zMx7EO
+	TCSmbUe5bn414u4qRNcpEvM47g1mjycxVbhqhWcxy0OFjsiFl+hQMC431Wtp5/jBmtTlcACDXp9
+	p+MDBDo3qHcTL3jzI76h6TrGksT+2SxmLTjVScWmhvwhmm+2Uvb22fBxpAMhczU5u34WIsnHWzt
+	huWK0RUFwgfpSPGirO7nhj63Ta6COdsLvU1UL0O5maEg==;
+Received: from ip-172-26-33-95.us-east-2.compute.internal (172.26.33.95)
+  by production-pmta-useast2.internal.postmarkapp.com (KumoMTA 10.97.240.154) 
+  with ESMTP id 7b0465ddbb9411f1976b02fff151df81 for <rubikspubes69@gmail.com>;
+  Mon, 28 Sep 2026 23:29:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; d=nextrequest.com; s=20161018195854pm;
+	c=relaxed/relaxed; i=messages@nextrequest.com; t=1790638181; x=1790810981;
+	h=date:date:from:from:message-id:reply-to:reply-to:sender:subject:subject:to:
+	to:cc:feedback-id:mime-version:content-type;
+	bh=5qebqcTqi35kizvP+DGuEYWIwhqahLdZOHNLP8yfTus=;
+	b=jTCRFcdtMMc45Q2qU2REw8vC8ev3W3OoAIsilQSQL+SUYvpcmxLX7k94i4d05IMyoNPlwEwWPx+
+	fdN3ivR6YYG/x9/LbPxjHH7wWuJDvMjcqkIVXXVeMVGXvEPOc+6Du7HrLsQm8Ca8xKEkItmAK9Iu+
+	HpDpNM9PmcbwqbKSIww=
+From: Wyoming Highway Patrol Public Records <messages@nextrequest.com>
+Date: Mon, 28 Sep 2026 23:29:41 +0000
+Subject: Your Wyoming Highway Patrol public records request #26-4120 has been
+ closed.
+Message-Id: <4af5b5ac-08ae-4190-aa7b-34b75bddf876@mtasv.net>
+Reply-To: wyhighwaypatrol_26-4120-requester-notes@inbound.nextrequest.com
+To: rubikspubes69@gmail.com
+Feedback-ID: s2404621-cmVxdWVzdGVyX3JlcXVlc3RfY2xvc2Vk:s2404621:a123637:postmark
+X-Complaints-To: abuse@postmarkapp.com
+X-Job: 123637_2404621
+X-PM-Message-Id: 4af5b5ac-08ae-4190-aa7b-34b75bddf876
+X-PM-Tag: requester_request_closed
+X-PM-RCPT: |bTB8MTIzNjM3fDI0MDQ2MjF8cnViaWtzcHViZXM2OUBnbWFpbC5jb20=|
+X-PM-Message-Options: v1;1.XDze_GN5a_HdyTK2lqf5oQ.PuyMhzeD_PHYJ_rzpnDH8jROjoanhvFD4APb5IivrSV8wkQokR6bDo8ohwgaVBdO_h240DnLAH8_XoBN8_pmosofD4JP1M9o7CwYO4Hfsw2XcUpmWo1MX-FqdlMQEX6aA41Lpes973-1yJjOx4Sn7RWK2rqfBkHXvKF86FAlfDHnRp9O-mRDtzVqpw_ylVoK
+MIME-Version: 1.0
+X-virtual-MTA: ord-50-31-156-113
+X-PM-MTA-Pool: transactional-1
+Content-Type: multipart/alternative;
+	boundary=mk3-a8d52025ef72457a887fa8055fbc4193; charset=UTF-8
+
+--mk3-a8d52025ef72457a887fa8055fbc4193
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Wyoming Highway Patrol
+
+************************************************************************
+
+
+Record request #26-4120 has been closed. The closure reason supplied was:
+
+All records have been released, and your request has been fulfilled.
+
+
+
+
+
+
+
+
+************************************************************************   =
+                      =20
+<em>Questions about your request?</em> Reply to this email or sign in to co=
+ntact staff at Wyoming Highway Patrol.<br><br><em>Technical support:</em> S=
+ee our <a href=3D"https://www.civicplus.help/nextrequest/docs/requesters">h=
+elp page</a>
+
+--mk3-a8d52025ef72457a887fa8055fbc4193
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml"><head>
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <title>Your Wyoming Highway Patrol public records request #26-4120 has =
+been closed.</title>
+    <style type=3D"text/css" rel=3D"stylesheet" media=3D"all">@media only s=
+creen and (max-width: 600px) { .email-body_inner, .email-footer { width: 10=
+0% !important } }
+@media only screen and (max-width: 500px) { .button { width: 100% !importan=
+t } }</style>
+  </head>
+ =20
+  <body style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica=
+ Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; height: 100%; m=
+argin: 0; line-height: 1.4; background-color: #FBFBFB; -webkit-text-size-ad=
+just: none; width: 100% !important;">
+    <span style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helveti=
+ca Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;">
+      <table class=3D"nextrequest-white" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" width=3D"100%" style=3D"font-family: &quot;Open Sans&quot;, =
+Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: borde=
+r-box; background-color: #FBFBFB;">
+        <tbody style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;He=
+lvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;"><tr>
+          <td align=3D"center" valign=3D"top" class=3D"mcnTextContent" styl=
+e=3D"padding: 9px 18px; font-family: &quot;Open Sans&quot;, Arial, &quot;He=
+lvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;">
+            <p class=3D"sub preheader-reply-delimiter" align=3D"center" sty=
+le=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;=
+, Helvetica, sans-serif; box-sizing: border-box; line-height: 1.5em; text-a=
+lign: center; margin-top: 0; font-size: 10px; color: #1C1C41;">
+              -- Attach a non-image file and/or reply ABOVE THIS LINE with =
+a message, and it will be sent to staff on this request. --
+            </p>
+          </td>
+        </tr>
+      </tbody></table>
+    </span>
+    <table class=3D"email-wrapper" width=3D"100%" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvet=
+ica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; width: 100%;=
+ margin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpadding: 0; =
+-premailer-cellspacing: 0; background-color: #FFFFFF;">
+      <tbody style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helv=
+etica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;"><tr>
+        <td align=3D"center" style=3D"font-family: &quot;Open Sans&quot;, A=
+rial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border=
+-box;">
+          <table class=3D"email-content" width=3D"100%" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;=
+Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; width:=
+ 100%; margin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpaddin=
+g: 0; -premailer-cellspacing: 0;">
+            <tbody style=3D"font-family: &quot;Open Sans&quot;, Arial, &quo=
+t;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;"><tr=
+>
+              <td class=3D"email-body" width=3D"100%" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"font-family: &quot;Open Sans&quot;, Arial, sans-ser=
+if; box-sizing: border-box; font-size: 16px; color: #1C1C41; width: 100%; m=
+argin: 0; padding: 0; -premailer-width: 100%; -premailer-cellpadding: 0; -p=
+remailer-cellspacing: 0; background-color: #FBFBFB;">
+                <table class=3D"email-body_inner" align=3D"center" width=3D=
+"50" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-family: &quot;Open S=
+ans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-si=
+zing: border-box; width: 550px; margin: 92px auto 0; padding: 0; -premailer=
+-width: 570px; -premailer-cellpadding: 0; -premailer-cellspacing: 0;">
+                  <tbody style=3D"font-family: &quot;Open Sans&quot;, Arial=
+, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box=
+;"><tr>
+                    <td align=3D"center" class=3D"t--title" style=3D"font-f=
+amily: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica,=
+ sans-serif; box-sizing: border-box; font-size: 20px; line-height: 1.6;">
+                      <div class=3D"shim-bottom-16px" style=3D"font-family:=
+ &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-=
+serif; box-sizing: border-box; margin-bottom: 16px;">
+                        Wyoming Highway Patrol Public Records
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class=3D"white-background" style=3D"background-color:=
+ #FFFFFF;">
+                    <td class=3D"message-padding" style=3D"font-family: &qu=
+ot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-seri=
+f; box-sizing: border-box; padding: 40px; border: 2px solid #0F1C70;">
+                      <div class=3D"t--subheader t--bold" style=3D"font-fam=
+ily: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, s=
+ans-serif; box-sizing: border-box; font-size: 24px; line-height: 36px; font=
+-weight: 600;">Record request #26-4120 has been closed. The closure reason =
+supplied was:</div>
+                      <div class=3D"shim1-top t--small t--primary message-c=
+ontent" style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica=
+ Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; font-size: 16px=
+; line-height: 24px; color: #09090B; margin-top: 24px;">
+                        <p style=3D"font-family: &quot;Open Sans&quot;, Ari=
+al, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-b=
+ox; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px; m=
+argin-bottom: 0;">All records have been released, and your request has been=
+ fulfilled.</p>
+                       =20
+                      </div>
+                      <div class=3D"shim2andhalf-top" style=3D"font-family:=
+ &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-=
+serif; box-sizing: border-box; margin-top: 60px;">
+                        <p style=3D"font-family: &quot;Open Sans&quot;, Ari=
+al, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-b=
+ox; line-height: 1.5em; text-align: left; margin-top: 0; font-size: 16px;">
+                          <a class=3D"button--default button--primary" href=
+=3D"https://wyhighwaypatrol.nextrequest.com/requests/26-4120" style=3D"font=
+-family: &quot;Open Sans&quot;, Arial, sans-serif; box-sizing: border-box; =
+color: #FBFBFB; background-color: #1B34FF; border-radius: 3px; display: inl=
+ine-block; font-size: 16px; font-weight: 600; height: 40px; line-height: 24=
+px; padding: 8px 24px; text-decoration: none; text-transform: none; white-s=
+pace: nowrap;"> View Request 26-4120</a>
+                        </p>
+                      </div>
+                      <div class=3D"request-link" style=3D"font-family: &qu=
+ot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-seri=
+f; box-sizing: border-box; margin-top: -10px; margin-bottom: -10px; margin-=
+left: 1px; opacity: 0.65; font-size: 10px; color: #1B34FF;">https://wyhighw=
+aypatrol.nextrequest.com/requests/26-4120</div>
+                      <br>
+                      <p class=3D"help-text" style=3D"font-family: &quot;Op=
+en Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; bo=
+x-sizing: border-box; line-height: 1.33; text-align: left; margin-top: 30px=
+; font-size: 12px; opacity: 0.65; color: #1C1C41;">
+                       =20
+                      </p>
+                    </td>
+                  </tr><tr>
+                </tr></tbody></table>
+              </td>=20
+            </tr>
+            <tr class=3D"nextrequest-white" style=3D"background-color: #FBF=
+BFB;">
+              <td style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot=
+;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box;">
+                <table class=3D"email-footer" align=3D"center" width=3D"570=
+" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-family: &quot;Open Sans=
+&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizin=
+g: border-box; width: 570px; margin: 0 auto; padding: 0; -premailer-width: =
+570px; -premailer-cellpadding: 0; -premailer-cellspacing: 0; text-align: ce=
+nter; background-color: #FBFBFB;">
+                  <tbody style=3D"font-family: &quot;Open Sans&quot;, Arial=
+, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box=
+;"><tr>
+                    <td class=3D"content-cell" align=3D"center" style=3D"fo=
+nt-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvet=
+ica, sans-serif; box-sizing: border-box; padding: 40px;">
+	<a href=3D"https://www.nextrequest.com/" aria-label=3D"NextRequest an Opti=
+mere brand" style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helve=
+tica Neue&quot;, Helvetica, sans-serif; box-sizing: border-box; color: #4D7=
+5AE;">
+                      <img class=3D"footer-image" src=3D"https://nextreques=
+t-production-assets.s3.us-west-2.amazonaws.com/images/NextRequest-Logo.png"=
+ style=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&q=
+uot;, Helvetica, sans-serif; box-sizing: border-box; border: none; width: 1=
+52px; margin-bottom: 10px;">
+					  </a>
+                      <p class=3D"sub align-center" style=3D"font-family: &=
+quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-se=
+rif; box-sizing: border-box; line-height: 1.5em; text-align: center; margin=
+-top: 0; font-size: 10px; color: #AEAEAE;"><em style=3D"font-family: &quot;=
+Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; =
+box-sizing: border-box;">Questions about your request?</em> Reply to this e=
+mail or sign in to contact staff at Wyoming Highway Patrol.<br><br><em styl=
+e=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;,=
+ Helvetica, sans-serif; box-sizing: border-box;">Technical support:</em> Se=
+e our <a href=3D"https://www.civicplus.help/nextrequest/docs/requesters" st=
+yle=3D"font-family: &quot;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot=
+;, Helvetica, sans-serif; box-sizing: border-box; color: #1B34FF;">help pag=
+e</a></p>
+                      <p class=3D"footer-bottom" style=3D"font-family: &quo=
+t;Open Sans&quot;, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif=
+; box-sizing: border-box; line-height: 1.5em; text-align: left; margin-top:=
+ 0; font-size: 16px; color: #AEAEAE; min-height: 16px;"></p>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+    </tbody></table>
+ =20
+
+<img src=3D"https://ea.pstmrk.it/open?m=3Dv3_1.X5aDlw1DTE0nCISWBWk0Gw.uB4o9=
+7rkotYjoJKJCxwjoHLr8pCkGgfxZWjUtSY-c4QociinWSkuceePQU87h2RKW7AY-e4-OpmfDTge=
+A8nAhi1BYh9cigTota2K6KZMTqX6FGG6iWfbaieHkF5vncfx6yVl1exR5J9YLp77FeEvIZhEt8P=
+lgjyZw8-arVnwIDoD0ZZPI-Ck2DmIWwi1rY583Olmi2fMC1BYUHQqA4LVIhDI9GhMBYgg-EAC5x=
+LZVwwFp-zpqplb2CyRjEYW7ncDo3-dYZZIh-bmurZly2yIMg6KtN6U3ouCBbdirfBMRc1S9YYf1=
+dcJSuubKrFTR2YbAsMBmSm9LtKZ5CEuID4YzBwgQMKzIO6uXBgB5zKJO1g1Emiv3qkkiRTnuU8r=
+yxrNLpeWMO4hC-Pz5Q3Dk6Q5w3vxXRZuluZqxMgvMYLJdS1FQ6oWTeAhHYPRIXQeoO3XAeb4VdE=
+to4Rg_ht-H2SUyNdxW6rW1edn8f-VlWLQjSnCzZLRC66SYDySJ6kGJqBo3wyMvCAgmNULj4Cu-t=
+yayru7O2gwKjcw7ijjfraCvCo3cz-PHqVK99auC2AH9ZTO-l4ddb0LrEMzelPshRQN16rFP8G03=
+AAs2D4fTk00BpN0K2O-oXjVMpTmHnTI--ng" width=3D"1" height=3D"1" border=3D"0" =
+alt=3D"" /></body></html>
+
+--mk3-a8d52025ef72457a887fa8055fbc4193--

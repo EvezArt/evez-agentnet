@@ -1,0 +1,86 @@
+Delivered-To: rubikspubes69@gmail.com
+Received: by 2002:a05:6a11:52a5:b0:756:38d:e4e5 with SMTP id qe37csp1964517pxb;
+        Tue, 22 Sep 2026 03:13:08 -0700 (PDT)
+X-Received: by 2002:a17:903:2f8c:b0:2d6:fd55:3a9d with SMTP id d9443c01a7336-2df609b72ecmr7388475ad.3.1790071988203;
+        Tue, 22 Sep 2026 03:13:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790071988; cv=none;
+        d=google.com; s=arc-20260327;
+        b=U/4/mHr/GRkjCLTIpujVVoa7FWaCFSVITIgFt1Dwgmy1Pt7wSDPSpB/1OOyg8CT9SZ
+         SPutoP9iEDQmpAIePtIEOcCN++hHgHCp44aVj5QPkvkhnPRHhpyfR/n7g3dwUJ/jwp7q
+         KCfI2M0f8Od+JiQ5Z06y+59tRKzsheVajEiwKClHbBYxnGOMaJguiff2PkPedZX1P2i2
+         /p8Fb94uPFmt2d9aoSHBGKvvFTQWOhfJLrnAOH269fjebbQzN8UI/skN9kdYBhJ9vU1R
+         rXSzPSATPMh7VIdwvsmveeX39HVUpiiLzA7GwZrWMYQVOQd0j0dk5tqv/rCHZegXnm2X
+         e8bg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=dkim-signature:date:to:subject:message-id:from:mime-version;
+        bh=SzsiY6rHAsr4MzJ4kzzI8UAp2cVBf1uIi2vgG+eROGM=;
+        fh=srHCzr68QUPlwCCdGke/96vYccR6EAtBhOWJFdKTz88=;
+        b=Rsu1ch43ZVAOV3u75FdsgLTJmf8gPq+QBYD9ERz+knpZkh8uiWXxAQf/6e8qIYAmxk
+         Knp5NkTYhHY3a/7tqxaf8Zv4CCWpvNoUy8cPYQ5D+r4gkmEx9wKpkxjOMrqC8EoZ+9+/
+         TfhwVYOEkqQ8FQ7lbsZ52Dl52HZHiBM0QevdTDSOZTtUqzpQGRvgMMmOlCs3ioTLuisL
+         uMXpzfxYnzp3ZM+cMKU+AyNzR/RDzUgZTyFAfVAdIfuGdqd5HBPbuv5qczoVNMrfbtsl
+         KLpPIJBXfq1YaAwUQUL5ITxsPnQqTXXzaJ0dw3ImFLtRdjJKi2ZDwv1nyRQOcDIhN8LQ
+         wVeg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@subscriptions.fbi.gov header.s=4756 header.b=qI4f16l+;
+       spf=pass (google.com: domain of efoia@subscriptions.fbi.gov designates 96.127.51.209 as permitted sender) smtp.mailfrom=efoia@subscriptions.fbi.gov;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=subscriptions.fbi.gov
+Return-Path: <efoia@subscriptions.fbi.gov>
+Received: from cmta-instance-aws-fn-containers-04 (subscriptions-e.fbi.gov. [96.127.51.209])
+        by mx.google.com with ESMTPS id d9443c01a7336-2df5d04947esi27345025ad.100.2026.09.22.03.13.07
+        for <rubikspubes69@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 03:13:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of efoia@subscriptions.fbi.gov designates 96.127.51.209 as permitted sender) client-ip=96.127.51.209;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@subscriptions.fbi.gov header.s=4756 header.b=qI4f16l+;
+       spf=pass (google.com: domain of efoia@subscriptions.fbi.gov designates 96.127.51.209 as permitted sender) smtp.mailfrom=efoia@subscriptions.fbi.gov;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=subscriptions.fbi.gov
+Content-Type: multipart/alternative;
+ boundary="===============4045542259771446691=="
+MIME-Version: 1.0
+From: efoia@subscriptions.fbi.gov
+Message-Id: <1790071962.0338683-14EtWURHSCTIpWRKjkYc@subscriptions.fbi.gov>
+Subject: eFOIPA Authorization Request
+To: rubikspubes69@gmail.com
+Date: Tue, 22 Sep 2026 10:12:42 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=subscriptions.fbi.gov; i=@subscriptions.fbi.gov; q=dns/txt; s=4756;
+ t=1790071670; h=to : date : mime-version : message-id : from : subject
+ : list-id : list-unsubscribe : list-post : list-help : list-subscribe
+ : content-type : sender : reply-to : cc;
+ bh=SzsiY6rHAsr4MzJ4kzzI8UAp2cVBf1uIi2vgG+eROGM=;
+ b=qI4f16l+dFpQHv8M9AlmkDcq+anceYdfU1a+nKRnDcu3cVzlNwXrSDM2dkgdJPn6aOIyD
+ VsUoQ9e+7jLlZ0kolzahwoD+KvEV3X2Byn2ovFqARdwvnh0iFAIsN90YlJ0RlkluLu10qLy
+ YTybyLMEdA/mFbF/x5fsrNkTH01nIw8=
+
+--===============4045542259771446691==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+You have successfully requested access to FBI's eFOIPA website.
+
+Please access the efoia.fbi.gov by following this temporary authorization u=
+rl:
+<https://efoia.fbi.gov/authorize/3bb09391c28d077f568eb37ae0e6b27e941d5d6803=
+5039ca2e>.
+
+
+--===============4045542259771446691==
+Content-Type: text/html; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+
+<p>You have successfully requested access to FBI's eFOIPA website.</p>
+<p>Please access the efoia.fbi.gov by following this temporary authorizatio=
+n
+url: <a href=3D"https://efoia.fbi.gov/authorize/3bb09391c28d077f568eb37ae0e=
+6b27e941d5d68035039ca2e">https://efoia.fbi.gov/authorize/3bb09391c28d077f56=
+8eb37ae0e6b27e941d5d68035039ca2e</a>.
+</p>
+--===============4045542259771446691==--

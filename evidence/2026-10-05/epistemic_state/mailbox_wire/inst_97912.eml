@@ -1,0 +1,123 @@
+Delivered-To: rubikspubes69@gmail.com
+Received: by 2002:a05:6a10:8361:b0:756:38d:e4e5 with SMTP id o1csp2346648pxf;
+        Thu, 1 Oct 2026 07:14:09 -0700 (PDT)
+X-Received: by 2002:a17:90b:55cf:b0:3a0:deda:3d07 with SMTP id 98e67ed59e1d1-3a512b27409mr1218733a91.14.1790864048809;
+        Thu, 01 Oct 2026 07:14:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790864048; cv=none;
+        d=google.com; s=arc-20260327;
+        b=K8cId4TJp7MwSi+Q8c3aAfn73AckuKO0fwL8TiV/FleFHA+qWUX8TBBMjBTBmL6lWv
+         LSomuZPtaRF98BVMX8CkAZBNlCp9wLvATDqsIso2lVIWjKMquSdEThsYt9mpkQdrW/03
+         bGUTYUAoAFnYixoZyYcK/8W5U1HPsHexuGin+BGXzR0xDWYSE9f29ckI7eqhYLqfAXhY
+         M2w5hVtR8S49Md35ReNDIK6l2BPhlXa5MvmWBPQ2tSnXQmFa1LJfnPM3vWA/GjxqyRF+
+         B54cmXhTMuByeDYo3yLbZ9ry8Q3v4sq+Tt5D7A4EzpE9sSTGH7XaUYJFEJComuCC088P
+         0Bng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=dkim-signature:date:to:subject:message-id:from:mime-version;
+        bh=q/ijT33cJCOHCCvF89BAAxE4fY6gFCtTElvAiuAOmNE=;
+        fh=srHCzr68QUPlwCCdGke/96vYccR6EAtBhOWJFdKTz88=;
+        b=HC4P0Z9PnsbYb+tOKBj/04r0kGSItDsDd6LXTtb6FjyCd9B1+mK6Fr01gm5wYGNjUb
+         vYD2hdljxPzo/wzlaoUGwY8Ou0SB/+frbbpsUFn8N7xbgk7qFdO9YsxMfQUaSKt27WHU
+         5NO4Ioe7h/Fwa9/OOHc34kMevKqIR+5lYGvRkPSW63S1aSEqQ1cFQApQvk3T/GLVHkx6
+         84tQw1+V3TxheAIEhcqx1BVzirxsPDB2ZFaxpowfCMupnA9FCvlMDZhRjJkq7urNEBlk
+         W6KGzZgFIHB6BU/CFYgsb/4JgUI21n2PrtkpHNO8at4B0j850jYl1zGFUmBh7qz+et9Y
+         rArw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@subscriptions.fbi.gov header.s=4756 header.b=kcvfFW1l;
+       spf=pass (google.com: domain of efoia@subscriptions.fbi.gov designates 96.127.51.209 as permitted sender) smtp.mailfrom=efoia@subscriptions.fbi.gov;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=subscriptions.fbi.gov
+Return-Path: <efoia@subscriptions.fbi.gov>
+Received: from cmta-instance-aws-fn-containers-04 (subscriptions-e.fbi.gov. [96.127.51.209])
+        by mx.google.com with ESMTPS id 98e67ed59e1d1-3a4f417985dsi6910429a91.6.2026.10.01.07.14.08
+        for <rubikspubes69@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 01 Oct 2026 07:14:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of efoia@subscriptions.fbi.gov designates 96.127.51.209 as permitted sender) client-ip=96.127.51.209;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@subscriptions.fbi.gov header.s=4756 header.b=kcvfFW1l;
+       spf=pass (google.com: domain of efoia@subscriptions.fbi.gov designates 96.127.51.209 as permitted sender) smtp.mailfrom=efoia@subscriptions.fbi.gov;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=subscriptions.fbi.gov
+Content-Type: multipart/alternative;
+ boundary="===============7024332237530225733=="
+MIME-Version: 1.0
+From: efoia@subscriptions.fbi.gov
+Message-Id: 
+ <EFOIA-4a03692fffee01b621fb1db036837609ebcd4a7fdb5e384803-wV4Kg66xocuYG5PbVIHb@subscriptions.fbi.gov>
+Subject: eFOIA files available
+To: rubikspubes69@gmail.com
+Date: Thu, 01 Oct 2026 14:14:54 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=subscriptions.fbi.gov; i=@subscriptions.fbi.gov; q=dns/txt; s=4756;
+ t=1790863723; h=to : date : mime-version : message-id : from : subject
+ : list-id : list-unsubscribe : list-post : list-help : list-subscribe
+ : content-type : sender : reply-to : cc;
+ bh=q/ijT33cJCOHCCvF89BAAxE4fY6gFCtTElvAiuAOmNE=;
+ b=kcvfFW1lzWlBoBvE/bEmMC2WCWEpbeR4WlbhxBeRHXbJK2WhuYUKNsPoS2jRJ8x4f+ZLO
+ 7KyEI+46yjIy59cRFNdtQnY2DMaAdKHXOYxDGRbCGoeK8NiVrfJCwoQhDXc6iZ1qqHQMGaL
+ 5U2mMed++k6G1MYjN5+PVUKkLtmqKJw=
+
+--===============7024332237530225733==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+There are eFOIA files available for you to download.
+
+You can download the files at:
+
+  * [E4a03692fffee01b621fb1db036837609ebcd4a7fdb5e384803_Q346049_D165975314=
+.pdf](https://efoia.fbi.gov/download-file/submission-4a03692fffee01b621fb1d=
+b036837609ebcd4a7fdb5e384803/idyPM8o2i49lSzB/E4a03692fffee01b621fb1db036837=
+609ebcd4a7fdb5e384803_Q346049_D165975314.pdf)
+    * Use this token to access: J3oX7jz62vQNwTR
+  * [E4a03692fffee01b621fb1db036837609ebcd4a7fdb5e384803_Q346049_D165975315=
+.pdf](https://efoia.fbi.gov/download-file/submission-4a03692fffee01b621fb1d=
+b036837609ebcd4a7fdb5e384803/J6R7wd3VdbeT5eg/E4a03692fffee01b621fb1db036837=
+609ebcd4a7fdb5e384803_Q346049_D165975315.pdf)
+    * Use this token to access: E7lNRTQawysQtik
+
+**Please Note:**
+
+The above link(s) are only active for 48hrs. After the link expires you wil=
+l
+have the option to reactivate the link(s) for an additional 48hrs. The max
+renewal limit is two (2) times. Thereafter, the links can no longer be
+accessed.
+
+You can renew the download files by logging into the efoia system and click=
+ing
+the "Renew" button in the file list.
+
+
+--===============7024332237530225733==
+Content-Type: text/html; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+<p>There are eFOIA files available for you to download.</p>
+
+<p>You can download the files at:</p>
+<ul><li><a href=3D"https://efoia.fbi.gov/download-file/submission-4a03692ff=
+fee01b621fb1db036837609ebcd4a7fdb5e384803/idyPM8o2i49lSzB/E4a03692fffee01b6=
+21fb1db036837609ebcd4a7fdb5e384803_Q346049_D165975314.pdf">E4a03692fffee01b=
+621fb1db036837609ebcd4a7fdb5e384803_Q346049_D165975314.pdf</a><ul><li>Use t=
+his token to access: J3oX7jz62vQNwTR</li></ul></li>
+<li><a href=3D"https://efoia.fbi.gov/download-file/submission-4a03692fffee0=
+1b621fb1db036837609ebcd4a7fdb5e384803/J6R7wd3VdbeT5eg/E4a03692fffee01b621fb=
+1db036837609ebcd4a7fdb5e384803_Q346049_D165975315.pdf">E4a03692fffee01b621f=
+b1db036837609ebcd4a7fdb5e384803_Q346049_D165975315.pdf</a><ul><li>Use this =
+token to access: E7lNRTQawysQtik</li></ul></li></ul>
+<p><b>Please Note:</b></p>
+<p>The above link(s) are only active for 48hrs.  After the link expires you
+will have the option to reactivate the link(s) for an additional 48hrs.
+The max renewal limit is two (2) times.  Thereafter, the links can no longe=
+r be accessed.
+</p>
+<p>
+You can renew the download files by logging into the efoia system
+and clicking the "Renew" button in the file list.
+</p>
+
+--===============7024332237530225733==--

@@ -1,0 +1,329 @@
+Delivered-To: rubikspubes69@gmail.com
+Received: by 2002:ad5:4784:0:b0:404:d1b8:cac1 with SMTP id o4csp2048851imu;
+        Sun, 20 Sep 2026 05:18:44 -0700 (PDT)
+X-Received: by 2002:a05:6820:178a:b0:6b7:46fc:1d7 with SMTP id 006d021491bc7-6ca9cd4bc74mr7002461eaf.54.1789906724406;
+        Sun, 20 Sep 2026 05:18:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789906724; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Yw3zyiwk2eKxkL+6lFeIoQnUhNW91MSr1HjHamCVR5z4964RC9j3cQwRbRpEOM10Xq
+         ohPmUz11SSuJWM88KCgVqyti9FIChKV/2mNm7AUWH5H8L5gaHItXWhrER8Cveol9YmUw
+         nVlbfrB3M01ELrygAdevCcrD83EiGSQKokE/8DaiUeB2gpfXRppKVFMbb0AMV6VQ+sk6
+         E/xEmE2cGdlfVH9Qpeoo4JVZAGrCfe1e4EXUwjKgN1xg69Z4/ZVL68K8ElxHFLdfmcBE
+         3cIyH+2G68m6RgX1v+LeUkkXHwSgR0Qs59cdD/ZeFRbLvWxIkWGtgjyBp516MxWk2Ea/
+         zarg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:dkim-signature;
+        bh=km4jDFD78jvwRqElUln2rxBqMcIxjY9fb6P+eROyNBU=;
+        fh=srHCzr68QUPlwCCdGke/96vYccR6EAtBhOWJFdKTz88=;
+        b=oEbmXpKXygHuMlDW5ff7wOKTI0ElxfeEWgjsbxU6baFrdHApLYQqzc6RlGfy7I54W+
+         TBKgl6FTaAXl/uzkv2j6ucJpQnV+uP2HArvF/cncUlY3DvpPLZJALx8SWZmYUFTy/Esw
+         nfMrgzx9lqNghdu49G7V9EZxtnhsM8wRRpjEkidMqAx+EhB6y8FgAUKvzsykEpJ+ytzR
+         IvS1p4PcXQHJPUWS6snT8ZPoDXFVNBm3L0/2xAWj+eg73IHnsPd5k/nMRUq2xt5+ToaT
+         mGaSvdLfRWVf2ZfXb6nLziYIBz2/mlWny3hMLigJHDckrb1vRTzLugyhZ2Ba0VYXfSZP
+         75Rw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20251104 header.b=ggtfh2Rq;
+       spf=none (google.com: postmaster@mail-sor-f69.google.com does not designate permitted sender hosts) smtp.helo=mail-sor-f69.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 586e51a60fabf-48821ebf37esor1135706fac.9.2026.09.20.05.18.44
+        for <rubikspubes69@gmail.com>
+        (Google Transport Security);
+        Sun, 20 Sep 2026 05:18:44 -0700 (PDT)
+Received-SPF: none (google.com: postmaster@mail-sor-f69.google.com does not designate permitted sender hosts) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20251104 header.b=ggtfh2Rq;
+       spf=none (google.com: postmaster@mail-sor-f69.google.com does not designate permitted sender hosts) smtp.helo=mail-sor-f69.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20251104; t=1789906724; x=1790511524; dara=google.com;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:content-type:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=km4jDFD78jvwRqElUln2rxBqMcIxjY9fb6P+eROyNBU=;
+        b=ggtfh2RqWRxFuG1rDkKw57scRPMUZT2/OcGPkQZSSnTEzfFrbSUwMOEXqs/1gJjYuQ
+         BYwTerr4gPDcbyT8vaXF5xxAmOe1BWg2a/a79GAsDtXb62f0B/654GuWYRVcjb9iQszC
+         LO3haQOKQ8yrM1xk7bQC7nfaMDdrfsArCnXbpIlwGJkAxZoMvip+oi4ewyoMZwGL3BVD
+         oozUegulK37mwGinwQPxV2J7qwWxMVr8tvsiq6mKXFnjzzHZ6gjVyr1eK1VMAxurWwGT
+         do/FnsSNmJETWDoQWkEU38J/QtloIg8bb0Jmpoy0CTaGtmWEL181w42PZMYFjBJDiYjm
+         SxjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789906724; x=1790511524;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:content-type:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=km4jDFD78jvwRqElUln2rxBqMcIxjY9fb6P+eROyNBU=;
+        b=WIhXhOl/qbiN22Kz/fOmHDpdJXqVAcqJJgh1LzycicRjp/y80PEh1y4FSKbwluuATr
+         5Z9Ov/BnEV4n+4a1HiV5o83lP/MxKTWnTkjRBkXAql8PCl1E6dx3gYeqqQRoGaq2rUAx
+         UygigapBKqRg70zv10pfmaKFe3oN6MuD07QaaHV7/yhMVmxMcYbTgeNocXHUQe3I28vM
+         TlVASI41sV9NjFLcZw+iDX41rLd0WcVtNXdp46vNjJuhe7PJ9qSNPi0u+i2O84Nj1VNN
+         bEjAag6JX+jPbqPvRpTdY7VDlGxSpQmLYBAM5VUyaa+dP8RWN69Z/JO8mARIPQFgGPVf
+         1SGw==
+X-Gm-Message-State: AFuF++l4ufAADAZAoYDDJZNBr7wQLF0Cdtp3ydxNVdO/h2YQt0rHzAx8
+	spy1iaYCJjf3h5NmsL9AvMMiLYqag18/iteNym5cxWSVysEMSgQi21I+cCfuRzrRHMcjNlI8y3p
+	KZMkL7+0j1PQY2OEorw8qCLEagw5FSeT7QzZbN5AOXhaekZznMvYNFOQK2g==
+X-Received: by 2002:a05:6820:4b85:b0:6bb:4fd:e33e with SMTP id 006d021491bc7-6ca9d243b42mr7313394eaf.68.1789906724093;
+        Sun, 20 Sep 2026 05:18:44 -0700 (PDT)
+Content-Type: multipart/report; boundary="000000000000786eaa065be92288"; report-type=delivery-status
+To: rubikspubes69@gmail.com
+Received: by 2002:a05:6820:4b85:b0:6bb:4fd:e33e with SMTP id
+ 006d021491bc7-6ca9d243b42mr7195135eaf.68; Sun, 20 Sep 2026 05:18:44 -0700 (PDT)
+Return-Path: <>
+Auto-Submitted: auto-replied
+Message-ID: <6aafcf24.3ee3fd04.46c3d.d388.GMR@mx.google.com>
+Date: Sun, 20 Sep 2026 05:18:44 -0700 (PDT)
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+Subject: Delivery Status Notification (Failure)
+References: <CALr_9k22+=tHSD+s0LmE0ozJwb0tfLJNSUzgymrNwoAn9-3OPg@mail.gmail.com>
+In-Reply-To: <CALr_9k22+=tHSD+s0LmE0ozJwb0tfLJNSUzgymrNwoAn9-3OPg@mail.gmail.com>
+X-Failed-Recipients: melissa.banner@nist.gov
+
+--000000000000786eaa065be92288
+Content-Type: multipart/related; boundary="000000000000787bab065be92289"
+
+--000000000000787bab065be92289
+Content-Type: multipart/alternative; boundary="000000000000787bb3065be9228a"
+
+--000000000000787bb3065be9228a
+Content-Type: text/plain; charset="UTF-8"
+
+
+** Message blocked **
+
+Your message to melissa.banner@nist.gov has been blocked. See technical details below for more information.
+
+Learn more here: https://aka.ms/EXOSmtpErrors
+(Warning: This link will take you to a third-party site)
+
+The response from the remote server was:
+550 5.4.1 Recipient address rejected: Access denied. For more information see https://aka.ms/EXOSmtpErrors [LV8PEPF00000062.namprd09.prod.outlook.com 2026-09-20T12:18:44.067Z 08DF144C8587079B]
+
+--000000000000787bb3065be9228a
+Content-Type: text/html; charset="UTF-8"
+
+
+<html>
+<head>
+<style>
+* {
+font-family:Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" class="email-wrapper" style="padding-top:32px;background-color:#ffffff;"><tbody>
+<tr><td>
+<table cellpadding=0 cellspacing=0><tbody>
+<tr><td style="max-width:560px;padding:24px 24px 32px;background-color:#fafafa;border:1px solid #e0e0e0;border-radius:2px">
+<img style="padding:0 24px 16px 0;float:left" width=72 height=72 alt="Error Icon" src="cid:icon.png">
+<table style="min-width:272px;padding-top:8px"><tbody>
+<tr><td><h2 style="font-size:20px;color:#212121;font-weight:bold;margin:0">
+Message blocked
+</h2></td></tr>
+<tr><td style="padding-top:20px;color:#757575;font-size:16px;font-weight:normal;text-align:left">
+Your message to <a style='color:#212121;text-decoration:none'><b>melissa.banner@nist.gov</b></a> has been blocked. See technical details below for more information.
+</td></tr>
+<tr><td style="padding-top:24px;color:#4285F4;font-size:14px;font-weight:bold;text-align:left">
+<a style="text-decoration:none" href="https://aka.ms/EXOSmtpErrors">LEARN MORE</a>
+</td></tr>
+<tr><td style="margin-top:8px;font-style:italic;font-size:12px;color:#757575">
+<img style="padding:0 4 0 0;float:left" width=12 height=12 alt="Warning" src="cid:warning_triangle.png">
+This link will take you to a third-party site
+</td></tr>
+</tbody></table>
+</td></tr>
+</tbody></table>
+</td></tr>
+<tr style="border:none;background-color:#fff;font-size:12.8px;width:90%">
+<td align="left" style="padding:48px 10px">
+The response from the remote server was:<br/>
+<p style="font-family:monospace">
+550 5.4.1 Recipient address rejected: Access denied. For more information see https://aka.ms/EXOSmtpErrors [LV8PEPF00000062.namprd09.prod.outlook.com 2026-09-20T12:18:44.067Z 08DF144C8587079B]
+</p>
+</td>
+</tr>
+</tbody></table>
+</body>
+</html>
+
+--000000000000787bb3065be9228a--
+--000000000000787bab065be92289
+Content-Type: image/png; name="icon.png"
+Content-Disposition: attachment; filename="icon.png"
+Content-Transfer-Encoding: base64
+Content-ID: <icon.png>
+
+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
+--000000000000787bab065be92289
+Content-Type: image/png; name="warning_triangle.png"
+Content-Disposition: attachment; filename="warning_triangle.png"
+Content-Transfer-Encoding: base64
+Content-ID: <warning_triangle.png>
+
+iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAYxJREFUSA3t
+VLFOhEAUBKLFXXMd3VlqZXGJrX6AP+AHWFsZ4CpDoQmBhMTyfkdbEwsrLaiJnQ1XmIAzCuTt3nKs
+xk432fB2dmYeb9+C4/ypEQTBKed3ivZsyavVatd13ZyTsa3OOkFRFBdN0xxwMrZN4NoQ4zj2q6p6
+gfmMfFTxNp1O94G/jumtKoD5TWdOQ8bExsy5P1rBcrlc1HX9AFPlZVBF7XneUZIkj9sSKSITEea3
+ujl5xLhn0khsawJcyTMYHUuBjLlHjsT0eDBBnucTkDMpyLLM5ZQYOS1Xg7+WgwnKsoxAmRtVKjhv
+uSrarowJoijaQ/mhUWEAyaXGsOUYE0CQgswjsh2TVrPB18/TQdPY1LsNph1wgh7dS6pSAb5MD/d7
+9OpJAxlTSw+JKYv1en2OUheSIOOBW9RTqKVHDyDoE6BJM3w413LzJzE96NVpd7oA2a8Q+93a9ER/
+GhOuYX7rdUn8s8lhGPI3/IS19X9eM9WX7+jHYZqmz90R5b9ozmR8UXr+j/ET+ADSfKckAihanAAA
+AABJRU5ErkJggg==
+--000000000000787bab065be92289--
+--000000000000786eaa065be92288
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; googlemail.com
+Arrival-Date: Sun, 20 Sep 2026 05:18:42 -0700 (PDT)
+X-Original-Message-ID: <CALr_9k22+=tHSD+s0LmE0ozJwb0tfLJNSUzgymrNwoAn9-3OPg@mail.gmail.com>
+
+Final-Recipient: rfc822; melissa.banner@nist.gov
+Action: failed
+Status: 5.4.1
+Remote-MTA: dns; nist-gov.mail.protection.outlook.com. (2a01:111:f403:c803::a,
+ the server for the domain nist.gov.)
+Diagnostic-Code: smtp; 550 5.4.1 Recipient address rejected: Access denied. For more information see https://aka.ms/EXOSmtpErrors [LV8PEPF00000062.namprd09.prod.outlook.com 2026-09-20T12:18:44.067Z 08DF144C8587079B]
+Last-Attempt-Date: Sun, 20 Sep 2026 05:18:44 -0700 (PDT)
+
+--000000000000786eaa065be92288
+Content-Type: text/rfc822-headers
+
+ARC-Seal: i=1; a=rsa-sha256; t=1789906723; cv=none;
+        d=google.com; s=arc-20260327;
+        b=RPNXRILcQJ3SVKSB1faQ6w+g9FyfgupfocIivZ86LNRKzGlM1AyN3aD+9wptgD+iyj
+         L/JN+LTXScxvmU7nbXXWNarDTGG2B5AJgF6rMCm2Fdmo+0RFVS1ssUn09398TtAV2sqp
+         DN/uZMomJ6GTk4N5PdZLwj72bnvzbOOxBYwaxBatHiYd3D52sUeGsIZwBnkJduD0jQ3W
+         foVv2i2XKYXi9iKnwn2pVCcTdoXhkf5kLgKkR9FwV8cOMITQTtHPZ7FMDR9vYIZemhOA
+         ez690xPPCfVFbauiD78yIiAq72NTUphen/6RbtOJBOKTZNpBf0XFuG639+jE6TGammAz
+         KIdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:mime-version:from:dkim-signature;
+        bh=WdbsrTp52WtUGjyUTM6IqF9EarrHBTPeQiUmaAnt2pM=;
+        fh=dSbi94QfjoCPjaNHvr+z/keCWvedNcDEDarVfW3rg18=;
+        b=nUVYay2cFPt4EKM7LLdHYqlshcWx6zqDs+Kj4x3xy2f/0TKcDs7nEgd03QoE5XlJoG
+         jK9kAn2idKe0ZsKs79ECwAvmUeLY0GSF3vkK3kNx6jm37IrRw4l6k8L+t/Jt4byKNLwR
+         Y62rLqyHoub8jWmKvuSYV9d6/3vjlwqR5+5M5xZdxjmClh56XZV39zHPKXpKo5GW6wuK
+         NqlTEa1dSu97vJrHJ/HWnLL9ICUtN3+AM7gDfB55neQ6rlng/2o0PcEvwJHYMKt+IPez
+         Am1fW6A8tnhFryhj8p7y2SmU4UBPMqaIEBaDHqdvDaKPA5gm7PXBhwSFlMchBR9rzOh2
+         8qpg==;
+        darn=nist.gov
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789906723; x=1790511523; darn=nist.gov;
+        h=content-type:to:subject:message-id:date:mime-version:from:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=WdbsrTp52WtUGjyUTM6IqF9EarrHBTPeQiUmaAnt2pM=;
+        b=m9eYfM0ZSMF44mnhXJETAgaULqBkjnX1HiStNAXAGfLGdgumzF5P6QfH1I6x4BFRk/
+         tFBGmGwg/krWRJ2/SM60eM9v/zPAjp74XZWYpjBMMv2Y7PmPWRBPff+QK6uwqdVzF7Q5
+         Tg2Py41Y2SIgQy2akQQou3taaEp8Zcruvze0MrLhfF2OI2HdUGlbZYm2LuYjgYvoRy1T
+         mSsD1XBQo/e8PdW7HVjWE/jbomHvaunvb8BykaNTPfIlmVbmGdJ4eRLZDlH1VGFmMleC
+         Y9wT2DTboYb13Z3PkU07L+DPScilxXaKdALd+x4NK9t1hddnLFx3rHpVjPABFAiWJAbd
+         hSUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789906723; x=1790511523;
+        h=content-type:to:subject:message-id:date:mime-version:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WdbsrTp52WtUGjyUTM6IqF9EarrHBTPeQiUmaAnt2pM=;
+        b=gX/V+8WOi6k9UK/Ke04rorhpftxthvzMZCJ9efpk6HE153+D9NVAymDIQqYOdpRB7T
+         OIYtNuErFceD8bbpN2yNj/6zUsyz7Qfam6SgXzu8xlBCK3YpRGeNUN6aZxmexOHzbvDX
+         xDNvdzidQlTYOLtnZBeQWBZWOMYAt9pdd7+l8xbc04VZhAUNqB9rostqOxdThCfmeip+
+         MKw7UlOU8M4MhAQmSbNy2vsu0smylfkxM3aeTYcvDQIL3spOedZlFCFM+TeerpS/NJbO
+         ltlZRaitsWBiWhEXj+5/ev7Yb0Sz6focFsdhk0Y4/uvOwboLfyw8DN6q4wjkbhcfNAi/
+         t1sQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw3ZhTfnmJuuQslkJ4bR75L7Cfu6Dx+4KMNXPuaKcJSwJaTQjkWuF78vNkyGHOraNOMIcC0jxcR/m0IASZeYg==@nist.gov
+X-Gm-Message-State: AFuF++kARCiM2GE2dSCBjP3rrP/n/bxXA0AfNPq+I+5Qn/FR1BwuG/o0
+	bFCOliqFkX9g+40WeYNFoZljrh4dyA2PangN64M7NJW2nMPbTu/gqSLU079elIaR7Pp87dh37NY
+	QLUyNzJiDVQrmcDOxEOy0/BYAXFO7CrY=
+X-Gm-Gg: AYBFou0qle7H+dzJxIU1EpNtbIZfVJtbgddfGhzdELraakKDSQfHSFS+JF3v03EBJFA
+	zCzkUtO6BZEzkwW5Fl9QqKIi6fNaLLhS2VYOP7KoS+Y+Kq4ttvCGkMCMlz5zYiCMsi/8amoXj81
+	Bm7DdXVdLpXqcq7beGRshRNFmbZzHmf6Gqea4MBKmZOqXiW5uClQKZ+/iC0+D3OcJAS1Qnt0C5Z
+	GSyVp6Fwp3dn2nTT0LQE2ydm4Sufmgg7nLpzTPjZHhbkmV8wmFXvLoDVWgL93o1m3SU9XPQ6XwQ
+	VZVPcxwyT/TDcuo4vFNQO/Ac4yLxLk0h5byCu8o10HX/jlRQ0h8WyA==
+X-Received: by 2002:a05:6820:4b85:b0:6bb:4fd:e33e with SMTP id
+ 006d021491bc7-6ca9d243b42mr7313371eaf.68.1789906722979; Sun, 20 Sep 2026
+ 05:18:42 -0700 (PDT)
+Received: from 673009273811 named unknown by gmailapi.google.com with
+ HTTPREST; Sun, 20 Sep 2026 05:18:40 -0700
+Received: from 673009273811 named unknown by gmailapi.google.com with
+ HTTPREST; Sun, 20 Sep 2026 05:18:40 -0700
+From: rubikspubes69@gmail.com
+MIME-Version: 1.0
+Date: Sun, 20 Sep 2026 05:18:40 -0700
+X-Gm-Features: AcwNN1V-hiXfKQONZyi3RnK4cowXw9no7ibYXufM282TjspQCjnFIT6ky0-5FFA
+Message-ID: <CALr_9k22+=tHSD+s0LmE0ozJwb0tfLJNSUzgymrNwoAn9-3OPg@mail.gmail.com>
+Subject: Correction: government-safe NAIAC/NAIAC-LE nomination package
+ replaces prior attachment
+To: alicia.chambers@nist.gov, melissa.banner@nist.gov
+Content-Type: multipart/mixed; boundary="00000000000067b81d065be9227f"
+
+
+--000000000000786eaa065be92288--
