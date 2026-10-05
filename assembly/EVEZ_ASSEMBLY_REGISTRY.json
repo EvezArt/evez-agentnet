@@ -1,0 +1,283 @@
+{
+  "schema": "evez.assembly.registry.v1",
+  "doctrine": [
+    "CLAIMED != MEASURED != REPLICATED != EXPLAINED",
+    "PROVENANCE != TRUTH"
+  ],
+  "runtime_roles": {
+    "hermes": {
+      "role": "reasoning_and_synthesis",
+      "default_authority": "A5",
+      "forbidden_without_gate": [
+        "credential_rotation",
+        "remote_delete",
+        "production_deploy",
+        "public_post"
+      ]
+    },
+    "openclaw": {
+      "role": "execution_and_tool_orchestration",
+      "default_authority": "A5",
+      "forbidden_without_gate": [
+        "credential_rotation",
+        "remote_delete",
+        "production_deploy",
+        "public_post"
+      ]
+    },
+    "evez_spine": {
+      "role": "immutable_provenance"
+    },
+    "cain": {
+      "role": "contradiction"
+    },
+    "witness": {
+      "role": "evidence_attestation"
+    },
+    "invariance": {
+      "role": "adversarial_test_generation"
+    },
+    "scout": {
+      "role": "discovery"
+    },
+    "harvest": {
+      "role": "artifact_collection"
+    }
+  },
+  "assembly_systems": [
+    {
+      "id": "reality-kernel",
+      "repo": "EvezArt/evez-event-spine",
+      "focus": "canonical events, chain verification, evidence provenance",
+      "use_for": [
+        "every project",
+        "every experiment",
+        "every generated artifact"
+      ],
+      "promote_when": "chain verifies deterministically"
+    },
+    {
+      "id": "evidence-runtime",
+      "repo": "EvezArt/evez-evidence-runtime",
+      "focus": "bounded mutation, approval gates, rollback, invariant checks",
+      "use_for": [
+        "code changes",
+        "safe experiments",
+        "autonomous remediation"
+      ],
+      "promote_when": "receipt + invariants + rollback all pass"
+    },
+    {
+      "id": "agentnet",
+      "repo": "EvezArt/evez-agentnet",
+      "focus": "SCOUT/HARVEST/WITNESS/CAIN coordination and operational audit",
+      "use_for": [
+        "repository investigations",
+        "cross-system discovery",
+        "security review"
+      ],
+      "promote_when": "evidence packet complete"
+    },
+    {
+      "id": "autonomous-ledger",
+      "repo": "EvezArt/evez-autonomous-ledger",
+      "focus": "orchestration state, research agents, GitHub actions, decisions",
+      "use_for": [
+        "multi-step project assembly",
+        "scheduled work",
+        "stateful campaigns"
+      ],
+      "promote_when": "decision and execution state are witnessed"
+    },
+    {
+      "id": "autonomy-platform",
+      "repo": "EvezArt/evez-autonomy-platform",
+      "focus": "public claim policy and autonomous platform assembly",
+      "use_for": [
+        "productization",
+        "autonomous service design",
+        "policy-bound agents"
+      ],
+      "promote_when": "public claims have evidence class"
+    },
+    {
+      "id": "invariance-battery",
+      "repo": "EvezArt/evez-invariance-battery",
+      "focus": "property/invariance testing under transformations",
+      "use_for": [
+        "scientific code",
+        "agent behavior",
+        "simulations",
+        "regression testing"
+      ],
+      "promote_when": "invariants reproduce across controlled perturbations"
+    },
+    {
+      "id": "phenomenologic",
+      "repo": "EvezArt/evez-phenomenologic",
+      "focus": "phenomenology-oriented research substrate",
+      "use_for": [
+        "physics research",
+        "model comparison",
+        "observation/explanation separation"
+      ],
+      "promote_when": "observables and transformations are explicit"
+    },
+    {
+      "id": "sim",
+      "repo": "EvezArt/evez-sim",
+      "focus": "deterministic simulation and replay",
+      "use_for": [
+        "counterfactuals",
+        "failure injection",
+        "reproduction"
+      ],
+      "promote_when": "seeded replay matches"
+    },
+    {
+      "id": "vcl",
+      "repo": "EvezArt/evez-vcl",
+      "focus": "web/visual control and evidence surfaces",
+      "use_for": [
+        "operator consoles",
+        "visualization",
+        "interactive evidence review"
+      ],
+      "promote_when": "UI state is derived from evidence, not fake metrics"
+    },
+    {
+      "id": "atlas",
+      "repo": "EvezArt/evez-atlas",
+      "focus": "large experimental integration surface and sensors",
+      "use_for": [
+        "broad system reconnaissance",
+        "adapter discovery",
+        "legacy capability mining"
+      ],
+      "promote_when": "capability has bounded owner and test path"
+    },
+    {
+      "id": "openclaw-runtime",
+      "repo": "EvezArt/openclaw-runtime",
+      "focus": "OpenClaw runtime/agent assembly",
+      "use_for": [
+        "local autonomous execution",
+        "tool routing",
+        "agent runtime integration"
+      ],
+      "promote_when": "execution trace is captured"
+    },
+    {
+      "id": "openclaw-deploy",
+      "repo": "EvezArt/evez-openclaw-deploy",
+      "focus": "OpenClaw installation, repair, recovery, mesh control",
+      "use_for": [
+        "runtime recovery",
+        "deployment diagnostics",
+        "edge setup"
+      ],
+      "promote_when": "post-change health checks pass"
+    },
+    {
+      "id": "hermes-layer",
+      "repo": "EvezArt/hermes-setup",
+      "focus": "Hermes local reasoning backend boundary",
+      "use_for": [
+        "deep synthesis",
+        "research planning",
+        "cross-project comparison"
+      ],
+      "promote_when": "reasoning output is tied to evidence IDs"
+    },
+    {
+      "id": "hermes-remote-layer",
+      "repo": "EvezArt/hermes-remote-setup",
+      "focus": "Hermes remote execution boundary",
+      "use_for": [
+        "remote reasoning",
+        "distributed research when explicitly enabled"
+      ],
+      "promote_when": "transport and endpoint identity are witnessed"
+    },
+    {
+      "id": "commerce",
+      "repo": "EvezArt/evez-commerce",
+      "focus": "product/order substrate",
+      "use_for": [
+        "turning verified capabilities into purchasable services"
+      ],
+      "promote_when": "product claim is evidence-backed"
+    },
+    {
+      "id": "outreach",
+      "repo": "EvezArt/evez-outreach",
+      "focus": "commercial communication and offers",
+      "use_for": [
+        "lead qualification",
+        "offer assembly",
+        "evidence-backed proposals"
+      ],
+      "promote_when": "external communication is human-approved"
+    },
+    {
+      "id": "osint-engine",
+      "repo": "EvezArt/evez-osint-engine",
+      "focus": "public-source investigation",
+      "use_for": [
+        "open-source intelligence",
+        "entity/repository research",
+        "source triangulation"
+      ],
+      "promote_when": "sources are preserved and independently cross-checked"
+    },
+    {
+      "id": "guard",
+      "repo": "EvezArt/evez-guard",
+      "focus": "security/guarding layer",
+      "use_for": [
+        "secret exposure",
+        "runtime hardening",
+        "risk gates"
+      ],
+      "promote_when": "scan output is reproducible"
+    },
+    {
+      "id": "codex",
+      "repo": "EvezArt/evez-codex",
+      "focus": "research/canon packaging and cross-reference",
+      "use_for": [
+        "knowledge packaging",
+        "publication assembly",
+        "evidence-linked dossiers"
+      ],
+      "promote_when": "claims map to primary evidence"
+    },
+    {
+      "id": "game-agent-infra",
+      "repo": "EvezArt/game-agent-infra",
+      "focus": "deterministic agent simulation and failure surfaces",
+      "use_for": [
+        "agent experiments",
+        "failure injection",
+        "rollback/replay"
+      ],
+      "promote_when": "failure case is reproducible"
+    }
+  ],
+  "assembly_pipeline": [
+    "DISCOVER",
+    "NORMALIZE",
+    "HASH",
+    "CLASSIFY",
+    "SELECT_NEXT_PROBE",
+    "SANDBOX",
+    "EXECUTE",
+    "WITNESS",
+    "CONTRADICT",
+    "REPLICATE",
+    "PACKAGE",
+    "REVIEW",
+    "PROMOTE"
+  ],
+  "assembly_rule": "Hermes proposes and synthesizes. OpenClaw executes within authority gates. EVEZ Spine witnesses. CAIN attacks conclusions. Invariance Battery tries to break them. Nothing is promoted solely because an LLM said so."
+}
