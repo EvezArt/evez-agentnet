@@ -1,0 +1,25 @@
+name: Validate EVEZ epistemic state
+
+on:
+  push:
+    paths:
+      - "evidence/2026-10-05/epistemic_state/**"
+      - "tools/validate_epistemic_state.py"
+      - ".github/workflows/validate-epistemic-state.yml"
+  pull_request:
+    paths:
+      - "evidence/2026-10-05/epistemic_state/**"
+      - "tools/validate_epistemic_state.py"
+      - ".github/workflows/validate-epistemic-state.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate epistemic state packet
+        run: python3 tools/validate_epistemic_state.py
