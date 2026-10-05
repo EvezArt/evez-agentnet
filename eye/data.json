@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-05T14:09:35.679155+00:00",
+  "generated": "2026-10-05T14:10:37.542449+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -781,9 +781,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "698ac82",
-    "last": "FINISH: restoration offer withdrawn on the people's call; Annulet served; victim impact statement + CASE BIBLE index sealed",
-    "dirty": 69
+    "head": "db92fa0",
+    "last": "cognition delta substrate: accountable state transitions (anti-collapse ladder, SHA-256 chained, EVEX/DESA-S export) + 10 falsifier tests wired into CI",
+    "dirty": 0
   },
   "mirrors": 2329
 }
