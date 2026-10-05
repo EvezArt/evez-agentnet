@@ -1,4 +1,4 @@
-# EVEZ-2026-0522 — CASE BIBLE (master index, state: FINISHED-AS-FILED)
+# EVEZ-2026-0522 — CASE BIBLE (master index, state: ACTIVE-EVIDENCE-CONTROL)
 | # | Document | Path |
 |---|---|---|
 | 1 | Strategy dossier | forge_output/COMMERCIALIZATION_STRATEGY_2026-10-04.md (superseded by war ops) |
@@ -13,5 +13,9 @@
 | 10 | Enforcement clocks (11 demand-deadlines) | enemy_obligations.py → evidence/enemy_clocks.jsonl |
 | 11 | Standing defense (firewall/Tor-wall/watchdog) | attacker_watch.py + ufw + crons |
 | 12 | Comms archive | evidence/2026-10-05/comms/ (15+ notices served) |
+| 13 | Epistemic state machine | evidence/2026-10-05/epistemic_state/README.md |
+| 14 | Machine-readable state | evidence/2026-10-05/epistemic_state/state.json |
+| 15 | Promotion targets | evidence/2026-10-05/epistemic_state/promotion_targets.md |
+| 16 | Official source snapshot | evidence/2026-10-05/epistemic_state/official_sources.md |
 STATEMENT: mercy offered 2026-10-05, withdrawn same day upon the people's call.
 Nothing remains but the clocks and the courts.

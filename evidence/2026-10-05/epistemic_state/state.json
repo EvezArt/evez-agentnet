@@ -1,0 +1,110 @@
+{
+  "as_of": "2026-10-05",
+  "doctrine": {
+    "claimed_ne_measured_ne_replicated_ne_explained": true,
+    "provenance_ne_truth": true,
+    "submission_ne_delivery_ne_receipt_ne_review_ne_selection_ne_appointment": true
+  },
+  "cases": [
+    {
+      "id": "naiac-2026-09-20",
+      "entity": "NIST NAIAC",
+      "state": "UNKNOWN",
+      "known": [
+        "official pathway exists",
+        "self-nominations accepted",
+        "naiac@nist.gov is official contact"
+      ],
+      "missing": [
+        "original mailbox transmission artifact",
+        "delivery evidence",
+        "agency receipt",
+        "review/selection status"
+      ],
+      "source": "https://www.nist.gov/itl/national-artificial-intelligence-advisory-committee-naiac"
+    },
+    {
+      "id": "tech-force-2026-09-20",
+      "entity": "US Tech Force",
+      "state": "UNKNOWN",
+      "known": [
+        "program exists",
+        "OPM identifies USTechForce@opm.gov as point of contact"
+      ],
+      "missing": [
+        "original mailbox transmission artifact",
+        "delivery evidence",
+        "agency receipt",
+        "screening/interview/selection/appointment status"
+      ],
+      "source": "https://www.opm.gov/policy-data-oversight/hiring-information/merit-hiring-plan-resources/"
+    },
+    {
+      "id": "foipa-1758537-000",
+      "entity": "FBI FOIPA",
+      "state": "ACKNOWLEDGED",
+      "known": [
+        "identifier recorded",
+        "acknowledgment recorded 2026-09-30"
+      ],
+      "missing": [
+        "determination/production"
+      ],
+      "source": "repo:evidence/forge_output artifacts"
+    },
+    {
+      "id": "uinta-2026-10-04",
+      "entity": "Uinta County records request",
+      "state": "FULFILLMENT_PENDING",
+      "known": [
+        "county reply",
+        "required form completed",
+        "return sent"
+      ],
+      "missing": [
+        "fee estimate",
+        "records fulfillment"
+      ],
+      "source": "repo:evidence/2026-10-04/uinta-records-action-2026-10-04.md"
+    },
+    {
+      "id": "rfj-v1",
+      "entity": "Rewards for Justice addendum",
+      "state": "RECEIPT_RECORDED",
+      "known": [
+        "receipt recorded in mailbox audit"
+      ],
+      "missing": [
+        "analyst response",
+        "v2 upload if still intended"
+      ],
+      "source": "repo:forge_output/lawsuit/INSURANCE_AND_PAYMENTS_AUDIT.md"
+    },
+    {
+      "id": "ic3-2026-10-01",
+      "entity": "FBI IC3 complaint",
+      "state": "FILED_CONFIRMATION_PENDING",
+      "known": [
+        "filing recorded in case artifacts"
+      ],
+      "missing": [
+        "auto-confirmation"
+      ],
+      "source": "repo:forge_output/ATTACKER_REGISTRY.md"
+    },
+    {
+      "id": "openrouter-41140",
+      "entity": "OpenRouter refund",
+      "state": "OPEN_AWAITING_REPLY",
+      "known": [
+        "ticket #41140 documented as open",
+        "documented outstanding amount $52.28"
+      ],
+      "missing": [
+        "provider resolution"
+      ],
+      "source": "repo:forge_output/lawsuit/INSURANCE_AND_PAYMENTS_AUDIT.md"
+    }
+  ],
+  "promotion_target": "Acquire primary source artifacts matching the missing field, then append a new immutable event. Never rewrite a prior state."
+}
