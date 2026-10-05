@@ -99,6 +99,36 @@ PLACEHOLDER = re.compile(
     r"|<[a-z_]{3,}>|\.\.\.|x{8,}")
 COMMENT = re.compile(r"^\s*(#|//|/\*|\*|--|;|>)\s?")
 
+# Files whose entire purpose is to contain credential SHAPES. Sweeping them is
+# self-fulfilling: every run redacts the scanner's own test vectors and reports
+# a breach that does not exist.
+#
+# Recognised STRUCTURALLY by naming convention rather than an enumerated list --
+# an enumerated list rots the moment someone adds a test file, and a rotted
+# allowlist either cries wolf or, worse, hides a real leak in a file nobody
+# remembered to add.
+#
+# This is the ONLY suppression that applies to assigned values. An assigned
+# token is treated as real even when its name screams "test" -- deliberate,
+# because a leaked credential pasted under a "test" filename is still leaked.
+# The convention is the exception, not the rule. Prose-only placeholder
+# suppression lives in sweep_file().
+# The scanner MUST NOT sweep its own test vectors -- but it must NOT suppress
+# credential-shaped assignments inside test files either: the suite plants a
+# real-shaped value in test_fixture.py precisely to prove it still fires. An
+# assigned secret in a test file is still a leak.
+#
+# So there is deliberately no content suppression here. The self-exclusion is a
+# PATH exclusion in iter_text_files (see SELF_EXCLUDE), because "do not read my
+# own test vectors" is a statement about which files are evidence, not about
+# what counts as a secret.
+SELF_EXCLUDE = (
+    "test_exposure_scanner.py",
+    "test_exposure_watchdog.py",
+    # The scanner's own regression test -- also a credential-shape vector.
+    "_test_fp_regression.py",
+)
+
 
 def is_prose(line: str) -> bool:
     """True for comment/doc lines, where a credential SHAPE is being discussed
@@ -199,6 +229,8 @@ def iter_text_files(root: Path):
     for dirpath, dirnames, filenames in os.walk(root):
         dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS]
         for name in filenames:
+            if name in SELF_EXCLUDE:
+                continue
             p = Path(dirpath) / name
             try:
                 if p.is_symlink() or not p.is_file() or p.stat().st_size > MAX_FILE_BYTES:

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T23:06:53.264818+00:00",
+  "generated": "2026-10-05T14:09:35.679155+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -106,7 +106,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Sat 2026-10-03 02:41:36 CEST"
+      "since": "Mon 2026-10-05 14:07:48 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -116,7 +116,7 @@
     {
       "unit": "hermes-gateway.service",
       "sub": "running",
-      "since": "Sun 2026-10-04 23:20:52 CEST"
+      "since": "Mon 2026-10-05 13:56:50 CEST"
     },
     {
       "unit": "hermes-live.service",
@@ -131,12 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Mon 2026-10-05 00:09:34 CEST"
-    },
-    {
-      "unit": "openclaw-public-forward.service",
-      "sub": "running",
-      "since": "Sun 2026-10-04 23:41:36 CEST"
+      "since": "Mon 2026-10-05 14:11:02 CEST"
     },
     {
       "unit": "openclaw-tailnet-forward.service",
@@ -175,6 +170,16 @@
       "bind": "0.0.0.0",
       "proc": "MainThread",
       "pid": 810739,
+      "public_bind": true,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": true
+    },
+    {
+      "port": 9377,
+      "bind": "*",
+      "proc": "MainThread",
+      "pid": 3644009,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -275,16 +280,6 @@
       "bind": "127.0.0.1",
       "proc": "nats-server",
       "pid": 1298,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 5037,
-      "bind": "127.0.0.1",
-      "proc": "adb",
-      "pid": 2785249,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -411,16 +406,6 @@
       "fw_blocked": false
     },
     {
-      "port": 9222,
-      "bind": "127.0.0.1",
-      "proc": "chrome",
-      "pid": 1011899,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 11434,
       "bind": "127.0.0.1",
       "proc": "ollama",
@@ -444,17 +429,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 2944343,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 18789,
-      "bind": "80.241.209.34",
-      "proc": "socat",
-      "pid": 2920813,
+      "pid": 3642398,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -464,7 +439,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 2944343,
+      "pid": 3642398,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -494,7 +469,7 @@
       "port": 18791,
       "bind": "100.126.180.47",
       "proc": "hermes",
-      "pid": 835843,
+      "pid": 3639055,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -581,20 +556,10 @@
       "fw_blocked": false
     },
     {
-      "port": 36639,
+      "port": 42403,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 2944343,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 38267,
-      "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 2963890,
+      "pid": 3642398,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -744,42 +709,37 @@
   "docker": [
     {
       "name": "ruview-demo",
-      "status": "Up 4 hours",
+      "status": "Up 19 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "openclaw-sbx-workspace-8f5a95c5c38f567ec57ad451a2dd20b9",
-      "status": "Up 6 hours",
+      "status": "Up 21 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-542cb258e7f7d23312193e4c61f15274",
-      "status": "Up 6 hours",
+      "status": "Up 21 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 9 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-a051ad69e5d3de4aa30228465b31df73",
-      "status": "Up 10 hours",
+      "status": "Up 24 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 42 hours",
+      "status": "Up 2 days",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 47 hours",
+      "status": "Up 2 days",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 2 days",
+      "status": "Up 3 days",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -788,11 +748,6 @@
       "state": "WARN",
       "name": "income loop yield",
       "detail": "149 ship events, $0.00 earned \u2014 no channel delivers"
-    },
-    {
-      "state": "ok",
-      "name": "gateway NOT on public interface",
-      "detail": "socat forwarding on public bind: 80.241.209.34:18789"
     },
     {
       "state": "WARN",
@@ -826,9 +781,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "fe9c7e3",
-    "last": "comms: THE PATH OF RESTORATION offer delivered to all three operators + Cohen-chain contacts \u2014 mercy window opened, 14 days, parallel to demand clocks",
-    "dirty": 0
+    "head": "698ac82",
+    "last": "FINISH: restoration offer withdrawn on the people's call; Annulet served; victim impact statement + CASE BIBLE index sealed",
+    "dirty": 69
   },
   "mirrors": 2329
 }

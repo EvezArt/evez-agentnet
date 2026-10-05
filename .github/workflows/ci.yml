@@ -31,6 +31,13 @@ jobs:
           # Was previously unreferenced and unreachable from CI. These cover
           # three defects that shipped to production logs.
           python test_rsi_engine.py
+      - name: Cognition delta substrate
+        run: |
+          # Accountable state transitions: the anti-collapse promotion
+          # ladder (no UNKNOWN->VERIFIED, VERIFIED demands replication) and
+          # the tamper-evident SHA-256 chain that carries it.
+          python test_cognition_deltas.py
+          python cognition_deltas.py demo
       - name: Repo audit
         run: |
           # Static audit for the defect classes that reached production:

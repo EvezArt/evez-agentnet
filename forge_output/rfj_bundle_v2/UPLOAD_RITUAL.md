@@ -12,7 +12,18 @@
   RFJ_ADDENDUM_BUNDLE_v2.zip — SHA-256 be51505b007572439205f6056fddaae8a3949ca9db77171ba3b1a0f1e70f6f25
   ...superseded same day by 53d68b87798edd7fc6c97d68945826ab6bca3124f0b538d4b975a7b38bf7d138
   ...superseded by 8ff29e9c8ce6d4a6e932f224b53ce7e27874b4a3d19d8a83e4d58c00ffe516b1
-  ...FINAL: 14959f1e3d2fbc1fdad17094724ea02484a273ede54596417b67c89f1fb75744
+  ...superseded by 14959f1e3d2fbc1fdad17094724ea02484a273ede54596417b67c89f1fb75744
+  ...FINAL v2 (rebuilt 2026-10-05 01:04 with FIND_THEM_IDENTIFICATION): b143dacdb13b00dc4d0157ab5b2959497113e6afa95ef588d2632de29085a84c
+  ...SUPERSEDED 2026-10-05 05:17 (stale SHA256SUMS regenerated; 23 files were
+     never added to the manifest, so the custody chain did not verify):
+     b609da0b1fd2cdce3952d9060d2c773b2837d7e69a411116624cac219cf02c0d
+  >>> READ THE ZIP DIGEST FROM /root/evez-agentnet/forge_output/RFJ_BUNDLE_DIGEST.txt
+  >>> It lives OUTSIDE this zip on purpose. A file inside an archive cannot
+  >>> contain that archive's own hash -- self-reference is unsatisfiable, and
+  >>> writing the digest here guarantees the next edit breaks SHA256SUMS.txt.
+  >>> The ritual is deliberately excluded from SHA256SUMS.txt for the same reason.
+  SHA256SUMS.txt covers the 29 EVIDENCE artifacts only. Civil particulars +
+  exhibit index travel separately in forge_output/lawsuit/civil/.
   Contents: full identification of Palo/Bunea/Pitzalis (addresses, DOBs, attestation
   chain), Spamhaus SBL listings on all 4 ranges, ACSP co-location finding, Bunea-owns-C2
   finding, transit-wire finding, intrusion incident, tier-1 + registrar notices.

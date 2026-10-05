@@ -1,0 +1,19 @@
+Between 22 May 2026 and 5 October 2026 the complainant computer systems were subject to sustained unauthorized access attempts and two successful root compromises, followed by ongoing authentication attacks.
+
+COUNT 1 - 22 May 2026: unauthorized SSH root access from IP 80.94.92.166, announced by AS48090 (TECHOFF SRV LIMITED, Companies House 16090235), following a supply-chain compromise of a third-party provider. Root credentials rotated same day.
+
+COUNT 2 - 3 October 2026: second root compromise from 192.76.153.253 (Netherlands) routed through Tor exit 185.220.101.172. Post-dates the original complaint filed 1 October 2026; continuing violation.
+
+COUNT 3 - October 2026 to date: 130+ authentication attacks from seven distinct IPs within AS47890, announced by UNMANAGED LTD (Companies House 12461131), sole director since 13 February 2020 Mr. Petru-Octavian Bunea, resident Rushden NN10 6EN, England.
+
+COUNT 4 - Automated port scanning and SYN floods against 80.241.209.34, including 4,946 blocked attempts in a single 24-hour period, from ranges including 85.217.140.0/24, 85.217.149.0/24, 185.2.80.0/24, 31.14.32.0/24. All blocked; no access obtained.
+
+SUBJECTS:
+Mr. Luca Palo - sole director TECHOFF SRV LIMITED (16090235, in strike-off) and BESTDC LIMITED (15259087, ACTIVE successor entity). 8 Via Leonardo Bistolfi, Milano 20134, Italy. Identity verified by PARAMOUNT COMPANY FORMATIONS LIMITED, an HMRC-supervised ACSP, on 9 December 2025, which holds his identity documents under UK regulatory custody. IP 80.94.92.166, AS48090.
+Mr. Petru-Octavian Bunea - sole director UNMANAGED LTD (12461131) and operator BUNEA TELECOM SRL (AS62380, AS42397). Rushden NN10 6EN, England. AS47890, 2,550 announcing addresses.
+
+MODUS: subject networks are documented bulletproof-hosting capacity, continuing to operate after the May 2026 Dutch FIOD seizure of associated infrastructure and after public reporting of the ecosystem in cybercrime. Unauthorized access executed against identity-verified, KYC-verified account holders. Attacks continued after a formal victim notice and preservation demand delivered to RIPE-registered abuse contacts on 5 October 2026.
+
+EVIDENCE: hash-chained authentication and kernel logs under SHA-256 manifest; packet captures; RIPE and Companies House primary records; Spamhaus SBL listings covering all four associated ranges; ACSP verification records. Bundle available on request.
+
+A civil letter before action was served on the same parties in England and Wales dated 5 October 2026. An NCA referral has been prepared. Complainant requests investigation, preservation of all logs and KYC and payment records, and coordination with the National Crime Agency.
