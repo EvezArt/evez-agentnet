@@ -23,7 +23,6 @@ jobs:
           mkdir -p spine
           echo '{"ts":"'$(date -u +%FT%TZ)'","event":"fire_cascade","source":"'${{ github.event.client_payload.source || 'manual' }}'"}' >> spine/fire_events.jsonl
       - name: Run OODA Orchestrator
-        continue-on-error: true
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
