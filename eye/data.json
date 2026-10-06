@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-05T14:10:37.542449+00:00",
+  "generated": "2026-10-06T23:07:30.953208+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -106,7 +106,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Mon 2026-10-05 14:07:48 CEST"
+      "since": "Wed 2026-10-07 00:49:41 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -131,12 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Mon 2026-10-05 14:11:02 CEST"
-    },
-    {
-      "unit": "openclaw-tailnet-forward.service",
-      "sub": "running",
-      "since": "Fri 2026-10-02 04:55:40 CEST"
+      "since": "Wed 2026-10-07 00:58:41 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -179,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 3644009,
+      "pid": 1019584,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -239,7 +234,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 2936445,
+      "pid": 970443,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -249,7 +244,7 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 2936445,
+      "pid": 970443,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -417,19 +412,9 @@
     },
     {
       "port": 18789,
-      "bind": "100.126.180.47",
-      "proc": "socat",
-      "pid": 1719,
-      "public_bind": false,
-      "tailnet": true,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3642398,
+      "pid": 1015758,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -439,7 +424,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 3642398,
+      "pid": 1015758,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -469,7 +454,7 @@
       "port": 18791,
       "bind": "100.126.180.47",
       "proc": "hermes",
-      "pid": 3639055,
+      "pid": 1008282,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -546,6 +531,16 @@
       "fw_blocked": false
     },
     {
+      "port": 35483,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 1015758,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 36261,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
@@ -556,10 +551,10 @@
       "fw_blocked": false
     },
     {
-      "port": 42403,
+      "port": 38307,
       "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 3642398,
+      "proc": "llama-server",
+      "pid": 1023068,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -709,37 +704,27 @@
   "docker": [
     {
       "name": "ruview-demo",
-      "status": "Up 19 hours",
+      "status": "Up 2 days",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
-      "name": "openclaw-sbx-workspace-8f5a95c5c38f567ec57ad451a2dd20b9",
-      "status": "Up 21 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-542cb258e7f7d23312193e4c61f15274",
-      "status": "Up 21 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 24 hours",
+      "status": "Up 2 days",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 2 days",
+      "status": "Up 3 days",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 2 days",
+      "status": "Up 3 days",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 3 days",
+      "status": "Up 4 days",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -748,11 +733,6 @@
       "state": "WARN",
       "name": "income loop yield",
       "detail": "149 ship events, $0.00 earned \u2014 no channel delivers"
-    },
-    {
-      "state": "WARN",
-      "name": "no ClawHub token in local repos",
-      "detail": "token still present in working tree"
     },
     {
       "state": "WARN",
@@ -781,9 +761,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "db92fa0",
-    "last": "cognition delta substrate: accountable state transitions (anti-collapse ladder, SHA-256 chained, EVEX/DESA-S export) + 10 falsifier tests wired into CI",
-    "dirty": 0
+    "head": "147c066",
+    "last": "redact: replace exposed Standard Compute sk_live key with REDACTED_KEY in disclosure",
+    "dirty": 104
   },
   "mirrors": 2329
 }

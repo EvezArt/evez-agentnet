@@ -1,0 +1,20 @@
+{
+  "last_anchored_head": null,
+  "last_anchor_utc": "2026-10-05T17:20:20Z",
+  "consecutive_failures": 0,
+  "methods": {
+    "digicert": {
+      "ok": false,
+      "attempted": true
+    },
+    "git_note": {
+      "ok": false,
+      "attempted": true
+    },
+    "witness_receipt": {
+      "ok": true,
+      "attempted": true
+    }
+  },
+  "first_run_bug": true
+}

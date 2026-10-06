@@ -1,0 +1,10 @@
+{
+  "type": "telegram_message",
+  "title": "public-apis/public-apis",
+  "content": "Signal: public-apis/public-apis\n\nWrite an integration write-up for: public-apis/public-apis. Publish as a Telegram post.\n\nObserved via github_trending (score 0.80).\n\nDrafted autonomously by EVEZ agentnet. No claims are made here that were not derived from logged state.",
+  "truth_plane": "CANONICAL",
+  "created_at": "2026-10-06T19:26:53.129294+00:00",
+  "source_signal": "github_trending",
+  "opportunity_score": 0.7999999999999999,
+  "file": "drafts/telegram_message_20261006_192653.json"
+}
