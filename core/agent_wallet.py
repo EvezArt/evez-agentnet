@@ -265,7 +265,8 @@ class SpendLogger:
 
     def log_spend(self, amount_usd: float, category: str,
                   merchant: str, card_id: str = None,
-                  transaction_id: str = None, note: str = "") -> None:
+                  transaction_id: str = None, note: str = "",
+                  jev_decision_hash: str = None) -> None:
         entry = {
             "timestamp": datetime.utcnow().isoformat(),
             "amount_usd": amount_usd,
@@ -275,6 +276,8 @@ class SpendLogger:
             "transaction_id": transaction_id,
             "note": note,
         }
+        if jev_decision_hash:
+            entry["jev_decision_hash"] = jev_decision_hash
         with open(SPEND_LOG_PATH, "a") as f:
             f.write(json.dumps(entry) + "\n")
         log.info(f"Spend logged: ${amount_usd} to {merchant} ({category})")
