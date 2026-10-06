@@ -18,11 +18,11 @@ The key follows the pattern `sk_live_*` and is used as a bearer token for author
 - Repository: `https://github.com/EvezArt/evez-ai` (mirrored as EvezArt-evez-ai.git)
 - File: `evez-ecosystem/evezart-repos/game-agent-infra/vm-bootstrap.sh`
   ```bash
-  "apiKey": "sk_live_ds3XDRK3hW1uc5pgxFtVpzsrcwb_RwvP9m8i5-2pCyc",
+  "apiKey": "REDACTED_KEY",
   ```
 - File: `evez-ecosystem/evezart-repos/game-agent-infra/MEMORY.md`
   ```
-  - **2026-05-18 23:15** [credentials] standardcompute_api_key: sk_live_ds3XDRK3hW1uc5pgxFtVpzsrcwb_RwvP9m8i5-2pCyc
+  - **2026-05-18 23:15** [credentials] standardcompute_api_key: REDACTED_KEY
   ```
 - The key has not been observed in the current working tree of the main EVEZ agentnet (likely removed or never present there), but remains in the public history of the evez-ai repository.
 
@@ -50,9 +50,9 @@ For coordination, please reach out to the EVEZ security contact at security@evez
 ## Appendix: Evidence Snippets
 ```bash
 # vmbootstrap.sh line 36
-  "apiKey": "sk_live_ds3XDRK3hW1uc5pgxFtVpzsrcwb_RwvP9m8i5-2pCyc",
+  "apiKey": "REDACTED_KEY",
 ```
 ```markdown
 # MEMORY.md line 22
-- **2026-05-18 23:15** [credentials] standardcompute_api_key: sk_live_ds3XDRK3hW1uc5pgxFtVpzsrcwb_RwvP9m8i5-2pCyc
+- **2026-05-18 23:15** [credentials] standardcompute_api_key: REDACTED_KEY
 ```
