@@ -12,7 +12,25 @@ jobs:
             test -f apps/evez-os-runtime/index.html
             test -f apps/evez-os-runtime/app.js
             test -f apps/evez-os-runtime/styles.css
-            echo "EVEZ OS runtime scaffold present."
+      - run:
+          name: Validate Python syntax
+          command: |
+            python3 -m compileall -q daemon offline
+      - run:
+          name: Run offline runtime tests
+          command: |
+            python3 offline/tests.py
+      - run:
+          name: Run daemon tests
+          command: |
+            python3 -m pip install --quiet pytest
+            python3 -m pytest -q tests
+      - run:
+          name: Confirm evidence console has no fabricated scoring layer
+          command: |
+            ! grep -Eq "Route Scoring|Structural value [0-9]|Weakest term: .*\\([0-9]+\\)" apps/evez-os-runtime/app.js
+            ! grep -Eq 'class="tag">causal' apps/evez-os-runtime/app.js
+            grep -q "UNKNOWN" apps/evez-os-runtime/app.js
 
 workflows:
   runtime-check:
