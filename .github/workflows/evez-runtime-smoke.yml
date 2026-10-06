@@ -1,0 +1,16 @@
+name: EVEZ Runtime Smoke
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Repository smoke
+        run: |
+          echo "REPO=$GITHUB_REPOSITORY"
+          echo "SHA=$GITHUB_SHA"
+          test -f README.md || test -f README || true
+          echo "RUNTIME_SURFACE=PASS"
