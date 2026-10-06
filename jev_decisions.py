@@ -38,8 +38,14 @@ DECISION_LOG = Path("jev/decisions.jsonl")
 # no call at all, because code will branch on it either way.
 MIN_CONFIDENCE = float(os.environ.get("JEV_MIN_CONFIDENCE", "0.55"))
 
-# Probabilities at or above this count as "yes".
+# Probabilities at or above this count as "yes" for NouL questions (rug pull risk).
 YES_THRESHOLD = 0.70
+
+# Probabilities at or above this count as "yes" for Choice questions (buy/sell).
+YES_THRESHOLD_CHOICE = 0.65
+
+# Probabilities at or above this count as "yes" for Score questions (severity).
+YES_THRESHOLD_SCORE = 0.60
 
 
 def _record(entry: dict) -> None:
@@ -47,6 +53,88 @@ def _record(entry: dict) -> None:
     DECISION_LOG.parent.mkdir(exist_ok=True)
     with open(DECISION_LOG, "a") as f:
         f.write(json.dumps(entry) + "\n")
+
+
+# ── coin evaluation ──────────────────────────────────────────────────────────
+def judge_coin_rug(state: dict) -> dict:
+    """Ask Jev whether a new coin is likely a rug pull.
+
+    Returns {noul: probability, verdict: True/False, confidence, threshold}.
+    The crawler pre-filters 80/81 fakes; Jev provides the calibrated probability
+    so the pipeline can abstain when unsure rather than guessing.
+    """
+    # Extract coin state from the agent's environment
+    # Look for recent scanner signals or market data in the state
+    rsi_hyps = state.get("rsi", {}).get("hypotheses", []) or []
+    total_earned = state.get("total_earned_usd", 0.0)
+
+    questions = {
+        "rug_pull": {
+            "type": "noul",
+            "instructions": "Considering this new coin's launch pattern, liquidity lock, "
+                           "community size, and developer transparency — what is the "
+                           "probability this is a rug pull (creator can dump on buyers)? "
+                           "Return a number in [0,1] where 1 = certain rug, 0 = certain not.",
+            "criteria": {
+                "true": "High rug probability: no liquidity lock, anonymous dev, zero supply "
+                       "or extreme concentration, or known dump patterns",
+                "false": "Low rug probability: audited contract, locked liquidity, known team, "
+                        "reasonable tokenomics",
+            },
+        }
+    }
+
+    return _decide("coin_rug", state, questions,
+                   fallback={"noul": 0.5, "verdict": "unknown"},
+                   note="crawler pre-filtered 80/81 fakes; Jev provides calibrated probability")
+
+
+def judge_coin_momentum(state: dict) -> dict:
+    """Ask Jev whether a surviving coin has upward momentum.
+
+    Returns {choice: "buy"/"sell"/"hold", probabilities, confidence, abstained}.
+    This is the second gate after rug pull — Jev says yes on direction, not
+    absolute price.
+    """
+    questions = {
+        "direction": {
+            "type": "choice",
+            "instructions": "Given the price action observed over the last window, "
+                           "which direction does this coin most likely move next? ",
+            "criteria": {
+                "buy": "Price likely to rise: buyers returning, higher lows, volume increase",
+                "sell": "Price likely to fall: lower highs, declining volume, distribution",
+                "hold": "Price direction unclear: range-bound, low volume, mixed signals",
+            },
+        }
+    }
+
+    return _decide("coin_momentum", state, questions,
+                   fallback={"choice": "hold", "probabilities": {"buy": 0.33, "sell": 0.33, "hold": 0.34}},
+                   note="second gate after rug filter; Jev calibrated direction not price")
+
+
+def judge_coin_severity(state: dict) -> dict:
+    """Ask Jev how severe a coin's condition is.
+
+    Returns {score: 0-3, legend, probabilities, confidence}.
+    0 = Healthy, 1 = Degraded, 2 = Broken, 3 = Rekt.
+    """
+    questions = {
+        "severity": {
+            "type": "score",
+            "instructions": "Rate this coin's current condition on a scale of 0-3: "
+                           "0 = Healthy (price stable, healthy holders), "
+                           "1 = Degraded (some holders down, low volume), "
+                           "2 = Broken (majority down 50%+), "
+                           "3 = Rekt (majority down 80%+, essentially dead).",
+            "criteria": [0, 1, 2, 3],
+        }
+    }
+
+    return _decide("coin_severity", state, questions,
+                   fallback={"score": 0, "legend": {"0": "Healthy", "1": "Degraded", "2": "Broken", "3": "Rkt"}, "probabilities": {"0": 1.0}},
+                   note="condition assessment for position sizing")
 
 
 def available() -> bool:
@@ -153,20 +241,22 @@ def judge_escalation(brief_text: str, health_json: dict) -> dict:
 
 
 # ── core ───────────────────────────────────────────────────────────────────
-def _decide(name: str, state: dict, questions: dict, *, fallback: str,
+def _decide(name: str, state: dict, questions: dict, *, fallback: str | dict = "unknown",
             note: str = "") -> dict:
     if not available():
+        fb = json.dumps(fallback) if isinstance(fallback, dict) else fallback
         _record({"decision": name, "result": "skipped",
-                 "reason": "jev_disabled_or_no_key", "fallback": fallback})
-        return {"ok": False, "decision": name, "value": fallback,
+                 "reason": "jev_disabled_or_no_key", "fallback": fb})
+        return {"ok": False, "decision": name, "value": fb,
                 "source": "fallback", "reason": "Jev unavailable (no key)"}
 
     try:
         answers = evaluate(state, questions)
     except JevUnavailable as e:
+        fb = json.dumps(fallback) if isinstance(fallback, dict) else fallback
         _record({"decision": name, "result": "skipped",
-                 "reason": str(e)[:200], "fallback": fallback})
-        return {"ok": False, "decision": name, "value": fallback,
+                 "reason": str(e)[:200], "fallback": fb})
+        return {"ok": False, "decision": name, "value": fb,
                 "source": "fallback", "reason": str(e)[:200]}
 
     result = {"ok": True, "decision": name, "source": "jev", "note": note,
@@ -205,6 +295,28 @@ def _decide(name: str, state: dict, questions: dict, *, fallback: str,
                             for k in result if isinstance(result.get(k), dict)},
              "abstained": any(result[k].get("abstained")
                               for k in result if isinstance(result.get(k), dict))})
+
+    # ── Append Jev decision hash to spine for attribution chain ──
+    # Build a deterministic hash from the decision essentials so the spine
+    # can cryptographically link the judgement to every subsequent spend.
+    _decision_hash = hashlib.sha256(
+        json.dumps({
+            "name": name,
+            "noul_probs": {k: v.get("probability") for k, v in result.items()
+             if isinstance(v, dict) and "probability" in v},
+            "choice": {k: v.get("choice") for k, v in result.items()
+             if isinstance(v, dict) and "choice" in v},
+            "score": {k: v.get("score") for k, v in result.items()
+             if isinstance(v, dict) and "score" in v},
+            "confidence": {k: v.get("confidence") for k, v in result.items()
+             if isinstance(v, dict) and "confidence" in v},
+        }, sort_keys=True).encode()
+    ).hexdigest()[:16]
+    _append_spine("jev_decision", {
+        "decision": name,
+        "hash": _decision_hash,
+        "detail": result.get("raw"),
+    }, jev_decision_hash=_decision_hash)
     return result
 
 

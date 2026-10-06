@@ -32,10 +32,14 @@ log = logging.getLogger("agentnet.jev_integration")
 SPINE_PATH = "spine/spine.jsonl"
 
 
-def _append_spine(event: str, data: dict) -> None:
+def _append_spine(event: str, data: dict, *, jev_decision_hash: str = None) -> None:
     """Append via the orchestrator's own chainer so Jev entries are
     hash-linked like everything else. Falls back to a plain write if the
-    orchestrator is not importable (standalone use)."""
+    orchestrator is not importable (standalone use).
+    
+    If jev_decision_hash is provided, it is embedded in the spine entry,
+    creating an attribution chain from the Jev decision to the spine.
+    """
     try:
         from orchestrator import append_spine
         append_spine(event, data)
@@ -43,6 +47,7 @@ def _append_spine(event: str, data: dict) -> None:
         try:
             import hashlib
             from pathlib import Path
+            from datetime import datetime, timezone
             p = Path(SPINE_PATH)
             p.parent.mkdir(exist_ok=True)
             entry = {
@@ -50,6 +55,8 @@ def _append_spine(event: str, data: dict) -> None:
                 "type": event,
                 "data": data,
             }
+            if jev_decision_hash:
+                entry["jev_decision_hash"] = jev_decision_hash
             entry["sha256"] = hashlib.sha256(
                 json.dumps(entry, sort_keys=True).encode()).hexdigest()[:16]
             with open(p, "a") as f:
