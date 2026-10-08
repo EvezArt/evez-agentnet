@@ -93,7 +93,7 @@ expect("brief no longer raises public-gateway", "public-gateway" not in ids,
 # the real gateway must still be reachable the intended ways
 rc, out = SH.sh("curl -s -m 5 -o /dev/null -w '%{http_code}' http://127.0.0.1:18789/")
 expect("local gateway still serving", out.strip() == "200", out.strip())
-rc, out = SH.sh("curl -s -m 5 -o /dev/null -w '%{http_code}' http://100.126.180.47:18789/health")
+rc, out = SH.sh("curl -s -m 5 -o /dev/null -w '%{http_code}' http://100.126.180.47:18790/health")
 expect("tailnet gateway still serving", out.strip() == "200", out.strip())
 
 failed = [r for r in results if not r[1]]

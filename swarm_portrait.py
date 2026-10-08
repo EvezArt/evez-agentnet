@@ -362,12 +362,14 @@ def render(s: dict) -> str:
    letter-spacing="1">rendered from spine + eye telemetry</text>
 </svg>"""
 
+    BAD_SPAN = '<span class="badge dead">DARK</span>'
+
     rows = "".join(
         f'<tr class="{"warnrow" if a["name"] in dead else ""}">'
         f'<td>{e(a["name"])}</td>'
         f'<td class="n">{a["rep"]:.2f}</td>'
         f'<td class="n">{a["streak"]}</td>'
-        f'<td>{"<span class='badge dead'>DARK</span>" if a["name"] in dead else ""}</td></tr>'
+        f'<td>{BAD_SPAN if a["name"] in dead else ""}</td></tr>'
         for a in agents)
 
     hyp = "".join(

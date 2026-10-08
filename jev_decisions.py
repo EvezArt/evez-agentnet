@@ -21,6 +21,7 @@ Enable with:  export TYPESAFE_API_KEY=...  (early access key from typesafe.ai)
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import os
@@ -312,6 +313,7 @@ def _decide(name: str, state: dict, questions: dict, *, fallback: str | dict = "
              if isinstance(v, dict) and "confidence" in v},
         }, sort_keys=True).encode()
     ).hexdigest()[:16]
+    from jev_integration import _append_spine  # sibling late-import: the seam
     _append_spine("jev_decision", {
         "decision": name,
         "hash": _decision_hash,
