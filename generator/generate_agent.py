@@ -71,6 +71,19 @@ def _generate_draft(pred: dict, truth_plane: str) -> dict | None:
     title = pred.get("title", "Untitled")
     plan = pred.get("action_plan", "")
 
+    # On-device face analysis for image-heavy signals (inscriptions, art).
+    # Deterministic fallback when the reader is absent (CPU path) or no face.
+    facies = None
+    photo_path = pred.get("photo_path")
+    if photo_path:
+        try:
+            from .face_reader import FacialAnalyzer
+            fac = FacialAnalyzer()
+            facies = fac.analyze_file(photo_path)
+        except Exception as exc:
+            log.warning("facial analysis failed for %s: %r", photo_path, exc)
+            facies = {"faces": [], "corr": {}, "weights": {}}
+
     if dtype == "twitter_thread":
         content = _gen_tweet_thread(title, plan)
     elif dtype in ("gumroad_report", "gumroad_product"):
@@ -93,6 +106,8 @@ def _generate_draft(pred: dict, truth_plane: str) -> dict | None:
         "source_signal": pred.get("source", ""), "opportunity_score": pred.get("opportunity_score", 0),
         "file": str(DRAFTS_DIR / fname),
     }
+    if facies is not None:
+        draft["facies"] = facies
     (DRAFTS_DIR / fname).write_text(json.dumps(draft, indent=2))
     log.info(f"  Draft: {dtype} -- {title[:50]}")
     return draft
