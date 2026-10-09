@@ -1,0 +1,86 @@
+{
+  "delivery_id": "evez_1791527929",
+  "files": [
+    {
+      "file": "godseye.png",
+      "sha256": "449987a75831eae5",
+      "bytes": 2421275,
+      "method": "sendPhoto",
+      "status": 200,
+      "ok": true,
+      "message_id": 1852,
+      "error": null,
+      "attempted_at": "2026-10-09T06:38:42Z"
+    },
+    {
+      "file": "osint_compass.png",
+      "sha256": "29d3fc1358a9c2d8",
+      "bytes": 140859,
+      "method": "sendPhoto",
+      "status": 200,
+      "ok": true,
+      "message_id": 1853,
+      "error": null,
+      "attempted_at": "2026-10-09T06:38:42Z"
+    },
+    {
+      "file": "1_accurate_frames_jpg.zip",
+      "sha256": "dd8e157579fdc046",
+      "bytes": 3373777,
+      "method": "sendDocument",
+      "status": 200,
+      "ok": true,
+      "message_id": 1854,
+      "error": null,
+      "attempted_at": "2026-10-09T06:38:44Z"
+    },
+    {
+      "file": "2_ham_frames_jpg.zip",
+      "sha256": "82c5de17578f16db",
+      "bytes": 1946504,
+      "method": "sendDocument",
+      "status": 200,
+      "ok": true,
+      "message_id": 1855,
+      "error": null,
+      "attempted_at": "2026-10-09T06:38:44Z"
+    },
+    {
+      "file": "3a_rock_transforms_A.zip",
+      "sha256": "5703955ef34dff27",
+      "bytes": 24475240,
+      "method": "sendDocument",
+      "status": 200,
+      "ok": true,
+      "message_id": 1856,
+      "error": null,
+      "attempted_at": "2026-10-09T06:38:46Z"
+    },
+    {
+      "file": "3b_rock_transforms_B.zip",
+      "sha256": "c21f2bad831846c5",
+      "bytes": 25243124,
+      "method": "sendDocument",
+      "status": 200,
+      "ok": true,
+      "message_id": 1857,
+      "error": null,
+      "attempted_at": "2026-10-09T06:38:49Z"
+    },
+    {
+      "file": "4_all_data_and_generators.zip",
+      "sha256": "11056cbb8bacd743",
+      "bytes": 10678879,
+      "method": "sendDocument",
+      "status": 200,
+      "ok": true,
+      "message_id": 1858,
+      "error": null,
+      "attempted_at": "2026-10-09T06:38:49Z"
+    }
+  ],
+  "total": 7,
+  "all_ok": true,
+  "chat": "7453631330",
+  "note": "no bot tokens in this receipt"
+}

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-09T03:37:57.078351+00:00",
+  "generated": "2026-10-09T21:13:39.459204+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -99,11 +99,6 @@
       "since": "Fri 2026-10-02 08:05:56 CEST"
     },
     {
-      "unit": "hermes-dashboard.service",
-      "sub": "running",
-      "since": "Thu 2026-10-08 08:07:40 CEST"
-    },
-    {
       "unit": "hermes-ears.service",
       "sub": "running",
       "since": "Sun 2026-10-04 00:39:18 CEST"
@@ -111,7 +106,7 @@
     {
       "unit": "hermes-gateway.service",
       "sub": "running",
-      "since": "Fri 2026-10-09 05:10:59 CEST"
+      "since": "Fri 2026-10-09 13:19:46 CEST"
     },
     {
       "unit": "hermes-live.service",
@@ -126,7 +121,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Fri 2026-10-09 01:35:28 CEST"
+      "since": "Fri 2026-10-09 19:44:31 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -149,7 +144,7 @@
       "port": 8644,
       "bind": "0.0.0.0",
       "proc": "hermes",
-      "pid": 3436949,
+      "pid": 3842937,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -179,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 3265705,
+      "pid": 146106,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -279,7 +274,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3264625,
+      "pid": 141361,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -429,7 +424,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3264625,
+      "pid": 141361,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -439,7 +434,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 3264625,
+      "pid": 141361,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -462,16 +457,6 @@
       "pid": 1282,
       "public_bind": false,
       "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 18791,
-      "bind": "100.126.180.47",
-      "proc": "hermes",
-      "pid": 2483592,
-      "public_bind": false,
-      "tailnet": true,
       "exposed": false,
       "fw_blocked": false
     },
@@ -536,16 +521,6 @@
       "fw_blocked": false
     },
     {
-      "port": 18999,
-      "bind": "80.241.209.34",
-      "proc": "socat",
-      "pid": 3462995,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 36261,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
@@ -556,20 +531,10 @@
       "fw_blocked": false
     },
     {
-      "port": 44317,
-      "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 3458178,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 44333,
+      "port": 40357,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3264625,
+      "pid": 141361,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -718,23 +683,43 @@
   ],
   "docker": [
     {
+      "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
+      "status": "Up 10 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "openclaw-sbx-workspace-01ee49c96d750e7eb32d267b5308a2ce",
+      "status": "Up 16 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "openclaw-sbx-workspace-a901e495924524fb5cb6750689f69b2f",
+      "status": "Up 16 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "openclaw-sbx-workspace-25a00c9408854b4c70f0e57e0a436c12",
+      "status": "Up 16 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
       "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
-      "status": "Up 2 hours",
+      "status": "Up 19 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-431bfe5acba1112c7093fd107321ab3d",
-      "status": "Up 21 hours",
+      "status": "Up 39 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ruview-demo",
-      "status": "Up 4 days",
+      "status": "Up 5 days",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 4 days",
+      "status": "Up 5 days",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -781,9 +766,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "af35e5c",
-    "last": "fix: record jev decision hashes to spine; refactor dead-badge constant; fix tailnet health check port 18789->18790",
-    "dirty": 174
+    "head": "f28a623",
+    "last": "claude benchmark harness: measure real provider limits, not marketing claims",
+    "dirty": 69
   },
   "mirrors": 2329
 }

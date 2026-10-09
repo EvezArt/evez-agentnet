@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-02T08:47:43.587909+00:00",
+ "generated_at": "2026-10-09T17:42:34.473389+00:00",
  "generator": "evez infrastructure verifier",
  "note": "All values retrieved live at generated_at. Reproduce with python3 verify_infrastructure.py",
  "asn": {
@@ -146,7 +146,7 @@
    ],
    "block": "RIPE NCC (Status: ALLOCATED)",
    "less_specific_warning": null,
-   "query_time": "2026-10-02T00:00:00",
+   "query_time": "2026-10-09T08:00:00",
    "rdap": {
     "query": "80.94.92.166",
     "source": "https://rdap.db.ripe.net/ip/80.94.92.166",
@@ -177,7 +177,7 @@
    ],
    "block": "RIPE NCC (Status: ALLOCATED)",
    "less_specific_warning": null,
-   "query_time": "2026-10-02T00:00:00",
+   "query_time": "2026-10-09T08:00:00",
    "rdap": {
     "query": "80.94.92.60",
     "source": "https://rdap.db.ripe.net/ip/80.94.92.60",
@@ -208,7 +208,7 @@
    ],
    "block": "RIPE NCC (Status: ALLOCATED)",
    "less_specific_warning": null,
-   "query_time": "2026-10-02T00:00:00",
+   "query_time": "2026-10-09T08:00:00",
    "rdap": {
     "query": "80.94.92.72",
     "source": "https://rdap.db.ripe.net/ip/80.94.92.72",
@@ -239,7 +239,7 @@
    ],
    "block": "RIPE NCC (Status: ALLOCATED)",
    "less_specific_warning": null,
-   "query_time": "2026-10-02T00:00:00",
+   "query_time": "2026-10-09T08:00:00",
    "rdap": {
     "query": "80.94.92.239",
     "source": "https://rdap.db.ripe.net/ip/80.94.92.239",
@@ -270,7 +270,7 @@
    ],
    "block": "RIPE NCC (Status: ALLOCATED)",
    "less_specific_warning": null,
-   "query_time": "2026-10-02T00:00:00",
+   "query_time": "2026-10-09T08:00:00",
    "rdap": {
     "query": "2.57.122.72",
     "source": "https://rdap.db.ripe.net/ip/2.57.122.72",
@@ -301,7 +301,7 @@
    ],
    "block": "This IP space was taken from IANA's recovered IPv4 pool in May 2014 and given to RIPE NCC (Source: IPv4 Recovered Address Space)",
    "less_specific_warning": null,
-   "query_time": "2026-10-02T00:00:00",
+   "query_time": "2026-10-09T08:00:00",
    "rdap": {
     "query": "45.148.10.1",
     "source": "https://rdap.db.ripe.net/ip/45.148.10.1",
@@ -332,7 +332,7 @@
    ],
    "block": "RIPE NCC (Status: ALLOCATED)",
    "less_specific_warning": null,
-   "query_time": "2026-10-02T00:00:00",
+   "query_time": "2026-10-09T08:00:00",
    "rdap": {
     "query": "193.32.162.1",
     "source": "https://rdap.db.ripe.net/ip/193.32.162.1",

@@ -42,3 +42,14 @@
 [running]  20d  foipa-1758537-000: FBI FOIA response (statutory 20 working days from 2026-09-30 ack)
 [running]  23d  ic3-confirmation: IC3 complaint auto-confirmation
 [ongoing]   ∞d  rfj-weekly-check: custodian: weekly SecureDrop login (codename account)
+[running]  11d  bunea-14day-payment: USD 25,000 compensation + written cease/desist undertaking (letter bef
+[running]  11d  palo-14day-payment: USD 25,000 + cessation + preservation (formal victim notice, dmzhostab
+[ongoing]   ∞d  buneatelecom-preservation: preservation of transit/customer records (abuse@bunea.eu)
+[ongoing]   ∞d  godaddy-preservation: domain + WHOIS/payment data preservation
+[ongoing]   ∞d  namecheap-preservation: registration/privacy/payment preservation
+[ongoing]   ∞d  cloudflare-preservation: zone/account data preservation
+[running]  10d  ch-strikeoff-objection: Companies House: record creditor objection, suspend strike-off TECHOFF
+[running]  26d  ch-acsp-review: CH integrity review of Paramount ACSP co-location
+[running]  19d  foipa-1758537-000: FBI FOIA response (statutory 20 working days from 2026-09-30 ack)
+[running]  22d  ic3-confirmation: IC3 complaint auto-confirmation
+[ongoing]   ∞d  rfj-weekly-check: custodian: weekly SecureDrop login (codename account)

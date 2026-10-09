@@ -1,0 +1,25 @@
+TO: abuse@serv.host (abuse-c AN32913-RIPE, SERV.HOST GROUP LTD, 71-75 Shelton Street, Covent Garden, London WC2H 9JQ)
+FROM: Steven Crawford-Maggard — custodian, vmi3544756 (80.241.209.34)
+DATE: 2026-10-09
+RE: Formal abuse notice — SSH intrusion attempts from your network, 150.241.74.0/24
+
+NOTICE: Your network resource 150.241.74.83 generated verified SSH intrusion
+attempts against our host 80.241.209.34 on 2026-10-08 06:30-06:33 UTC:
+invalid user "mine" + root password authentication attempts — 7 auth.log
+rows, every attempt FAILED (hash-sealed evidence retained).
+
+ROUTING NOTE: Your AS (AS207957) began announcing 150.241.74.0/24 on
+2026-10-09 (RIPEstat routing-status). The same /24 was previously announced
+by AS210644 (AEZA GROUP LLC — OFAC-designated July 2025 for
+ransomware-facilitation hosting). We note the lineage and reserve all
+rights regarding sanctions-relevant jurisdiction questions.
+
+DEMANDS:
+1. Investigate the customer/lease holding 150.241.74.83 within 7 days.
+2. Cease the intrusion attempts.
+3. The range is now firewalled on our side (ufw deny 150.241.74.0/24).
+
+All evidence is hash-sealed and available on request. This notice is
+sent without prejudice.
+
+Steven Crawford-Maggard

@@ -1,0 +1,25 @@
+TO: abuse@krixe.com (abuse-c AR72683-RIPE, Krixe Pte. Ltd., 18 Sin Ming Lane, Singapore 573960)
+FROM: Steven Crawford-Maggard — custodian, vmi3544756 (80.241.209.34)
+DATE: 2026-10-09
+RE: Formal abuse notice — sustained hostile traffic from your network, 217.146.81.0/24
+
+NOTICE: Your network resource 217.146.81.113 (announced under AS931/Hyonix)
+generated 1,880 blocked hostile connection attempts against our host
+80.241.209.34 on 2026-10-09 alone (verified from kernel-level UFW logs,
+retained with hash-sealed integrity).
+
+TRAFFIC PATTERN: TCP SYN packets to sequential high ports at ~20s intervals —
+an automated port scan / reconnaissance pattern, not interactive use.
+
+DEMANDS:
+1. Investigate the customer/lease holding 217.146.81.113 within 7 days.
+2. Cease the hostile traffic.
+3. Provide the customer contact and acceptable-use status on request of
+   law enforcement (we reserve all rights, including CFAA §1030 referral
+   for any successful intrusion, and IC3/SecureDrop reporting).
+
+All evidence is hash-sealed and available on request: sweep logs,
+per-packet records, timestamped. This notice is sent without prejudice
+and does not waive any right or remedy.
+
+Steven Crawford-Maggard
