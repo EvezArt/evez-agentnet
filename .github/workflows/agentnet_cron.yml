@@ -42,7 +42,7 @@ jobs:
         run: python orchestrator.py
 
       - name: Commit spine + logs
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 'agentnet: round ${{ github.run_number }} spine + logs'
           file_pattern: 'spine/*.jsonl shipper/ship_log.jsonl scanner/scan_results.jsonl predictor/predictions.jsonl worldsim/worldsim_state.json'
