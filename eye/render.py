@@ -77,9 +77,12 @@ def render(d: dict) -> str:
                    for x in d["docker"])
 
     # ── credentials ──
+    LIVE_SPAN = '<span class="tag bad">LIVE</span>'
+    CLEAN_SPAN = '<span class="tag ok">CLEAN</span>'
+
     cred = "".join(
         f'<tr><td>{e(c["name"])} <span class="mono dim">{e(c["prefix"])}…</span></td>'
-        f'<td>{"<span class=\'tag bad\'>LIVE</span>" if c["count"] else "<span class=\'tag ok\'>CLEAN</span>"}'
+        f'<td>{LIVE_SPAN if c["count"] else CLEAN_SPAN}</td></tr>'
         f' <span class="dim">{c["count"]} literal(s) in working tree</span></td></tr>'
         for c in creds)
 

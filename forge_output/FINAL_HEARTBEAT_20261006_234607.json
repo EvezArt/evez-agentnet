@@ -1,0 +1,26 @@
+{
+  "GRID": "GREEN",
+  "timestamp": "2026-10-06T23:46:07.735994Z",
+  "spine_verified": true,
+  "test_pass_count": 7,
+  "test_total": 7,
+  "manifest_valid": true,
+  "active_threat_count": 0,
+  "fingerprints": {
+    "SABLE": "408bfd8d257f",
+    "VECTOR": "344377483450",
+    "FORGE": "4b43193d6880",
+    "COURIER": "2b0ff9e34b2b",
+    "KINDLE": "7b2378fe8d11",
+    "NEWSROOM": "074b592ce577",
+    "BROADCAST": "562d91e966e2",
+    "WITNESS": "60136d0fcc15",
+    "BEACON": "1d657034cf27",
+    "ARCHIVIST": "f45b4d56f729",
+    "ARBITER": "e548b3a30cb7",
+    "user": "8ebd044dd2bf"
+  },
+  "fingerprint_count": 12,
+  "package_artifact_count": 16,
+  "report_time": "2026-10-06T23:46:07.736076Z"
+}

@@ -1,0 +1,26 @@
+{
+  "GRID": "YELLOW/RED",
+  "timestamp": "2026-10-06T23:39:07.408220Z",
+  "overall": "COMPLETE",
+  "patrol": {
+    "health": true,
+    "warnings": [
+      "income loop yield: 149 ship events, $0.00 earned \u2014 no channel delivers",
+      "revenue path has a credentialed transport: no STRIPE/GUMROAD/TWITTER key configured \u2014 $0.00 is STRUCTURAL, not a code defect. Nothing ships and nothing charges."
+    ]
+  },
+  "perimeter": {
+    "loopback_18789": true,
+    "external_closed": true
+  },
+  "secrets": "sweep_clean",
+  "test_summary": "5/7 suites pass",
+  "enemy_clocks": "0 deadlines within 3 days (expected 0)",
+  "docker": "0 unhealthy containers",
+  "attribution_package": true,
+  "codex_volume": true,
+  "spine_verified": true,
+  "handstroke_fingerprints": false,
+  "telegram_configured": true,
+  "handoff": "All artifacts generated, verified, and queued for Telegram delivery"
+}

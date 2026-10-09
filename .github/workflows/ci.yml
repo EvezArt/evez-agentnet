@@ -137,6 +137,16 @@ jobs:
           # the chain verify exits NONZERO when a record is mutated or deleted.
           python3 forge_output/stamp.py --help
           python3 test_stamp.py
+      - name: Claude benchmark harness self-test
+        run: |
+          # Exercises the full measurement pipeline against the local mock
+          # provider: dry-run ladder exits 0, the mock rate cap produces real
+          # recorded 429s, the SHA-256 receipt chain verifies, and tampering
+          # any row breaks the chain. The harness exists so that when Claude
+          # Startups credits land, the SAME code measures the real provider
+          # limits — the benchmark becomes the proof, not a marketing claim.
+          python3 claude_benchmark.py --help
+          python3 test_claude_benchmark.py
       - name: Evidence falsification
         run: |
           # Proves verify_spine detects truncation/reordering/forgery.

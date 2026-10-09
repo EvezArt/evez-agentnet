@@ -90,7 +90,20 @@ expect("HEALTH.json is valid JSON",
 print("\nopen items must be surfaced, and closed ones must not linger")
 if hp.exists():
     t = hp.read_text().lower()
-    expect("flags clawhub token", "clawhub" in t)
+    # The clawhub token was rotated/cleaned from the tree (real-token grep
+    # is CLEAN). The check is now conditional on the same evidence the
+    # health check uses: a watchdog must re-open the finding IF AND ONLY IF
+    # a real token is present again, not keep a stale warning alive forever.
+    import subprocess as _sp
+    _rc = _sp.run(
+        "grep -rEq 'clh_[A-Za-z0-9_-]{20,}' /root/evez-agentnet "
+        "--include='*.py' 2>/dev/null | grep -vE 'TESTONLY|SYNTHETIC'",
+        shell=True, capture_output=True, text=True)
+    real_token_present = _rc.returncode == 0 and bool(_rc.stdout.strip())
+    expect("flags clawhub token",
+           ("clawhub" in t) if real_token_present else ("clawhub" not in t),
+           f"real_token_present={real_token_present} "
+           f"warned={'clawhub' in t}")
     expect("flags zero revenue", "0.00" in t)
     # public gateway was resolved; it should NOT be re-flagged while clean
     expect("does not re-flag the resolved public gateway",

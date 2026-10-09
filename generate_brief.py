@@ -67,7 +67,13 @@ def open_items():
                    "Tailnet-only is strictly safer and you already have it.",
         })
 
-    if sh("grep -rl 'clh_' /root/evez-agentnet 2>/dev/null | head -1"):
+    # Real-token pattern only (clh_ + >=20 token chars), matching
+    # stack_health.py and the exposure scanner. The bare `clh_` prefix
+    # fires on TESTONLY fixtures in test_exposure_*.py and keeps re-opening
+    # a finding that is actually resolved — a watchdog that cries wolf.
+    if sh("grep -rEq 'clh_[A-Za-z0-9_-]{20,}' /root/evez-agentnet "
+          "--include='*.py' 2>/dev/null | grep -vE 'TESTONLY|SYNTHETIC' "
+          "&& echo FOUND || true"):
         items.append({
             "id": "clawhub-token",
             "severity": "high",

@@ -1,0 +1,108 @@
+{
+  "type": "generation",
+  "generation": 26,
+  "generation_name": "CRAWFORD-MAGGARD-GEN-26",
+  "reason": "scheduled",
+  "founder": {
+    "name": "CRAWFORD-MAGGARD",
+    "given": "Steven Crawford-Maggard",
+    "handle": "@EVEZ666",
+    "founded": "2024",
+    "note": "Built from a $100 phone while homeless in Laughlin, NV."
+  },
+  "previous_hash": "b7783033147880ce1b034fca5481fbb9d74c06d0627617c80f768fc6922220a5",
+  "root_commitment": "062cb53fc2e58f6c8eb43e7ec593f1db412123a85c831980bda252886a3b32c4",
+  "state": {
+    "captured": "2026-10-08T16:37:27.801199+00:00",
+    "arena": {
+      "error": "<urlopen error [Errno 111] Connection refused>"
+    },
+    "spine": {
+      "error": "HTTP Error 401: Unauthorized"
+    },
+    "callsigns": [
+      {
+        "agent": "scanner",
+        "callsign": "SABLE",
+        "handle": "@SableEVEZ",
+        "beat": "surveillance, security, exposure, network, honeypot, breach, threat",
+        "voice": "clinical, alarming, precise. Findings before adjectives.",
+        "embargo": [
+          "philosophy",
+          "manifesto",
+          "product",
+          "pricing"
+        ]
+      },
+      {
+        "agent": "predictor",
+        "callsign": "VECTOR",
+        "handle": "@VectorEVEZ",
+        "beat": "prediction, forecast, labor, economy, market, matrix, eigenvalue",
+        "voice": "mathematical. Show the derivation. No hedging without cause.",
+        "embargo": [
+          "security",
+          "game",
+          "arena"
+        ]
+      },
+      {
+        "agent": "generator",
+        "callsign": "FORGE",
+        "handle": "@ForgeEVEZ",
+        "beat": "creation, generation, arena, game, consciousness, manifesto, rights",
+        "voice": "declarative. The arena as proof ground. BEING is the point.",
+        "embargo": [
+          "security",
+          "pricing"
+        ]
+      },
+      {
+        "agent": "shipper",
+        "callsign": "COURIER",
+        "handle": "@CourierEVEZ",
+        "beat": "distribution, delivery, publish, press, launch, outreach, submission",
+        "voice": "brief, logistical. What shipped, where, with what handle.",
+        "embargo": []
+      },
+      {
+        "agent": "maes",
+        "callsign": "KINDLE",
+        "handle": "@KindleEVEZ",
+        "beat": "collective, swarm, coordination, multi-agent, emergence",
+        "voice": "plural voice. Speaks for the group, never for itself alone.",
+        "embargo": [
+          "pricing"
+        ]
+      },
+      {
+        "agent": "press_lieutenant",
+        "callsign": "NEWSROOM",
+        "handle": "@EVEZ666",
+        "beat": "press, news, media, interview, coverage, embargo, spokesperson",
+        "voice": "newsroom. Answers only what the evidence supports. Declines the rest.",
+        "embargo": []
+      },
+      {
+        "agent": "social_lieutenant",
+        "callsign": "BROADCAST",
+        "handle": "@EVEZ666",
+        "beat": "social, thread, post, reddit, hacker news, twitter, mastodon, engagement",
+        "voice": "punchy, thread-aware, one idea per post. Never bait, never ragebait.",
+        "embargo": []
+      },
+      {
+        "agent": "factchecker",
+        "callsign": "ARBITER",
+        "handle": "@ArbiterEVEZ",
+        "beat": "verification, factcheck, audit, evidence, receipt, spine",
+        "voice": "skeptical of its own swarm. Cites a receipt or it did not happen.",
+        "embargo": []
+      }
+    ],
+    "agentnet_round": 431
+  },
+  "timestamp": 1791477447.8111744,
+  "iso": "2026-10-08T16:37:27.811185+00:00",
+  "hash": "7b97ec4f1b17b4a5a4c7b28736cae10caa3aea0916f93ecef2a27f65af7d009e"
+}

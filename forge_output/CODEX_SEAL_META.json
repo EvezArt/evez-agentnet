@@ -1,0 +1,10 @@
+{
+  "volume": "EVEZ_CODEX_VOL_I_20261006_2309.md",
+  "seal_timestamp": "2026-10-06T23:09:00.990979Z",
+  "spine_head_hash": "882d6b089ec11347",
+  "spine_entry_count": 3888,
+  "git_head": "dbbc5bf",
+  "spine_verified": true,
+  "compiled_by": "EVEZ-OS war-mode agent",
+  "compile_utc": "2026-10-06T23:09:01.180438Z"
+}
