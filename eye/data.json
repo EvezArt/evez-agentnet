@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-10T05:39:40.696869+00:00",
+  "generated": "2026-10-10T06:15:43.099991+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -26,7 +26,7 @@
     {
       "unit": "evez-cogview.service",
       "sub": "running",
-      "since": "Sun 2026-10-04 07:55:04 CEST"
+      "since": "Sat 2026-10-10 07:47:15 CEST"
     },
     {
       "unit": "evez-commerce-api.service",
@@ -99,6 +99,11 @@
       "since": "Fri 2026-10-02 08:05:56 CEST"
     },
     {
+      "unit": "hermes-dashboard.service",
+      "sub": "running",
+      "since": "Sat 2026-10-10 08:15:42 CEST"
+    },
+    {
       "unit": "hermes-ears.service",
       "sub": "running",
       "since": "Sun 2026-10-04 00:39:18 CEST"
@@ -121,7 +126,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sat 2026-10-10 04:45:51 CEST"
+      "since": "Sat 2026-10-10 08:10:35 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -174,7 +179,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 812584,
+      "pid": 1066027,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -274,7 +279,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 810498,
+      "pid": 1064414,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -424,7 +429,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 810498,
+      "pid": 1064414,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -434,7 +439,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 810498,
+      "pid": 1064414,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -494,7 +499,7 @@
       "port": 18795,
       "bind": "100.126.180.47",
       "proc": "python3",
-      "pid": 2156088,
+      "pid": 1031431,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -531,20 +536,10 @@
       "fw_blocked": false
     },
     {
-      "port": 38453,
-      "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 1001473,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 41373,
+      "port": 40959,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 810498,
+      "pid": 1064414,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -725,6 +720,11 @@
       "detail": "149 ship events, $0.00 earned \u2014 no channel delivers"
     },
     {
+      "state": "ok",
+      "name": "drafts actually delivered",
+      "detail": "8 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+    },
+    {
       "state": "WARN",
       "name": "revenue path has a credentialed transport",
       "detail": "no STRIPE/GUMROAD/TWITTER key configured \u2014 $0.00 is STRUCTURAL, not a code defect. Nothing ships and nothing charges."
@@ -751,9 +751,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "cc565f8",
-    "last": "portal: THE ONE UNIT \u2014 every surface in one frame (eye, map, cinematic, wire, pattern, clocks), verified live",
-    "dirty": 70
+    "head": "717cb81",
+    "last": "cognition ship-gate kill-chain: 11 locks cut, construct fires, first governed ship landed",
+    "dirty": 23
   },
   "mirrors": 2329
 }

@@ -1,0 +1,2 @@
+{"ts": "2026-10-10T06:05:09.027080+00:00", "check": "tailnet_portal", "ok": false, "http": 502, "reason": "http_error", "body": "", "cert_valid": true}
+{"ts": "2026-10-10T06:14:10.203550+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
