@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>⛨ EVEZ PORTAL — the one unit</title>
+<style>
+  :root{--bg:#08090b;--panel:#0e0f14;--panel2:#12141c;--ink:#e9e6df;--dim:#767b7f;
+    --green:#00ff9c;--amber:#ffaa22;--red:#ff3333;--blue:#4488ff;--gold:#ffd24a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:ui-monospace,Menlo,Consolas,monospace;
+    overflow:hidden;display:flex;flex-direction:column}
+  #top{padding:10px 16px;border-bottom:1px solid #1a1a2e;display:flex;justify-content:space-between;
+    align-items:center;background:rgba(8,9,11,.98);z-index:10}
+  #top h1{font-size:14px;letter-spacing:3px;color:var(--green);text-shadow:0 0 12px rgba(0,255,156,.4)}
+  #top .sub{font-size:10px;color:var(--dim)}
+  #live{font-size:10px;color:var(--green);display:flex;gap:10px;align-items:center}
+  #live .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+  #unit{flex:1;display:grid;gap:6px;padding:6px;
+    grid-template-columns:1fr 1fr 1fr;grid-template-rows:1.2fr 1fr 1fr;min-height:0}
+  .pane{background:var(--panel);border:1px solid #1e1e2a;border-radius:10px;overflow:hidden;
+    display:flex;flex-direction:column;min-height:0}
+  .pane header{padding:6px 10px;font-size:10px;letter-spacing:1px;color:var(--amber);
+    border-bottom:1px solid #1a1a24;background:var(--panel2);display:flex;justify-content:space-between}
+  .pane header a{color:var(--green);text-decoration:none;font-size:9px}
+  .pane .body{flex:1;min-height:0;position:relative;background:#050608}
+  .pane iframe{width:100%;height:100%;border:0;display:block}
+  .pane video{width:100%;height:100%;object-fit:cover}
+  #ticker{padding:7px 16px;border-top:1px solid #1a1a2e;font-size:11px;color:var(--dim);
+    white-space:nowrap;overflow:hidden;background:rgba(8,9,11,.98)}
+  #ticker b{color:var(--green)}
+  .row{display:flex;justify-content:space-between;border-bottom:1px dashed #1c1c26;padding:3px 0;font-size:10px}
+  .clockrow{padding:4px 0;border-bottom:1px dashed #1c1c26;font-size:10px}
+</style>
+</head>
+<body>
+<div id="top">
+  <div>
+    <h1>⛨ EVEZ PORTAL — THE ONE UNIT</h1>
+    <div class="sub">eye · map · cinematic · wire · pattern · clocks — in one frame</div>
+  </div>
+  <div id="live"><span class="dot"></span><span id="liveTxt">checking…</span></div>
+</div>
+<div id="unit">
+  <div class="pane"><header>⊙ THE EYE — OPERATIONS <a href="http://100.126.180.47:18791" target="_blank">open ↗</a></header>
+    <div class="body"><iframe src="http://127.0.0.1:8900"></iframe></div></div>
+  <div class="pane"><header>🎮 THE OVERWORLD — BULLHEAD <a href="http://100.126.180.47:8790" target="_blank">open ↗</a></header>
+    <div class="body"><iframe src="http://100.126.180.47:8790"></iframe></div></div>
+  <div class="pane"><header>🎬 THE CINEMATIC — ORBIT</header>
+    <div class="body"><video src="http://100.126.180.47:8790/orbit_cinematic.mp4" autoplay loop muted playsinline></video></div></div>
+  <div class="pane"><header>📡 THE WIRE — SENSING LIVE</header>
+    <div class="body" style="padding:10px;overflow:auto;background:var(--panel)">
+      <canvas id="wireCv" width="240" height="240" style="width:100%;image-rendering:pixelated;border:1px solid #1e1e2a;border-radius:6px"></canvas>
+      <div id="wireRows" style="margin-top:8px"></div></div></div>
+  <div class="pane"><header>🧠 THE PATTERN — RHYTHM</header>
+    <div class="body" style="padding:10px;overflow:auto;background:var(--panel)">
+      <canvas id="patCv" width="240" height="120" style="width:100%;border:1px solid #1e1e2a;border-radius:6px"></canvas>
+      <div id="patRows" style="margin-top:8px"></div></div></div>
+  <div class="pane"><header>⏱ THE CLOCKS — DEADLINES</header>
+    <div class="body" style="padding:10px;overflow:auto;background:var(--panel)">
+      <div id="clocksList"></div></div></div>
+</div>
+<div id="ticker"><span id="tick">booting…</span></div>
+<script>
+const SENS="http://100.126.180.47:8791/api/v1/sensing/latest";
+const HEAL="http://100.126.180.47:8791/health";
+const CLKS="http://100.126.180.47:8792/evez_clocks";
+async function pollLive(){try{const r=await fetch(HEAL).then(r=>r.json());
+  document.getElementById("liveTxt").textContent="wire live · tick "+r.tick;}
+  catch(e){document.getElementById("liveTxt").textContent="wire down";
+  document.getElementById("liveTxt").style.color="var(--red)";}}
+const wcv=document.getElementById("wireCv").getContext("2d");
+async function pollWire(){try{const d=await fetch(SENS).then(r=>r.json());
+  const f=d.features||{};const cls=d.classification||{};
+  let vals=null,gx=20,gz=20;
+  try{const sf=d.signal_field||{};vals=sf.values;gx=sf.grid_size[0];gz=sf.grid_size[2]||20;}catch(e){}
+  const n=wcv.canvas.width/gx;
+  wcv.fillStyle="#050608";wcv.fillRect(0,0,240,240);
+  if(vals&&vals.length===gx*gz){const vmax=Math.max(...vals)||1;
+    for(let r=0;r<gz;r++)for(let c=0;c<gx;c++){const v=vals[r*gx+c]/vmax;
+      wcv.fillStyle=v<0.25?"#0a0e18":v<0.6?"rgba(255,170,34,"+(0.15+v*0.7)+")":"rgba(255,80,10,"+(0.4+v*0.6)+")";
+      wcv.fillRect(c*n,r*n,n-1,n-1);}}
+  else{wcv.fillStyle="#334";wcv.font="10px monospace";wcv.fillText("no field data",80,120);}
+  const n0=(d.nodes||[{}])[0];
+  document.getElementById("wireRows").innerHTML=
+    '<div class="row"><span>PRESENCE</span><b style="color:'+(cls.presence?'var(--green)':'var(--dim)')+'">'+(cls.presence?'TRUE':'false')+'</b></div>'+
+    '<div class="row"><span>MOTION</span><b>'+(cls.motion_level||'—')+'</b></div>'+
+    '<div class="row"><span>TRACKS</span><b>'+(d.persons||[]).length+'</b></div>'+
+    '<div class="row"><span>BREATH BAND</span><b>'+(f.breathing_band_power||0).toFixed(1)+'</b></div>'+
+    '<div class="row" style="border:0"><span>NODE RSSI</span><b>'+(n0.rssi_dbm!==undefined?n0.rssi_dbm:'—')+' dBm</b></div>';
+  document.getElementById("tick").innerHTML='<b>['+new Date().toISOString().substr(11,8)+']</b> presence '+cls.presence+' · motion '+cls.motion_level+' · tracks '+(d.persons||[]).length;
+}catch(e){document.getElementById("tick").innerHTML='<b style="color:var(--red)">WIRE DOWN</b> '+e.message;}}
+let series=[];const pcv=document.getElementById("patCv").getContext("2d");
+async function pollPattern(){try{const d=await fetch(SENS).then(r=>r.json());
+  const f=d.features||{};
+  series.push({b:f.breathing_band_power||0,m:f.motion_band_power||0});
+  if(series.length>30)series=series.slice(-30);
+  const W=240,H=120;pcv.fillStyle="#050608";pcv.fillRect(0,0,W,H);
+  const vmax=Math.max(...series.map(s=>Math.max(s.b,s.m)),1)*1.1;
+  const step=W/Math.max(1,series.length-1);
+  [["b","#ffaa22"],["m","#4488ff"]].forEach(p=>{pcv.strokeStyle=p[1];pcv.lineWidth=1.5;pcv.beginPath();
+    series.forEach((s,i)=>{const y=H-6-(s[p[0]]/vmax)*(H-12);i?pcv.lineTo(i*step,y):pcv.moveTo(0,y);});pcv.stroke();});
+  const n=series.length;
+  if(n>=8){const b=series.map(s=>s.b),m=series.map(s=>s.m);
+    const mb=b.reduce((a,x)=>a+x,0)/n,mm=m.reduce((a,x)=>a+x,0)/n;
+    const sb=b.map(x=>x-mb),sm=m.map(x=>x-mm);
+    const den=Math.sqrt(sb.reduce((a,x)=>a+x*x,0)*sm.reduce((a,x)=>a+x*x,0));
+    const corr=den?(sb.reduce((a,x,i)=>a+x*sm[i],0)/den):0;
+    document.getElementById("patRows").innerHTML=
+      '<div class="row"><span>ANTI-PHASE corr</span><b style="color:'+(corr<-0.5?'var(--gold)':'var(--dim)')+'">'+corr.toFixed(2)+'</b></div>'+
+      '<div style="font-size:10px;padding:3px 0">window '+n+' steps · still-locked '+(corr<-0.5?'✓':'…')+'</div>';}}
+  catch(e){}}
+async function pollClocks(){try{const r=await fetch(CLKS).then(r=>r.json());
+  const latest=(r.lines||[]).slice(-1)[0];const clocks=(latest&&latest.clocks)||[];
+  document.getElementById("clocksList").innerHTML=clocks.map(c=>{
+    const urgent=c.days_left!==null&&c.days_left<=3;const stale=c.days_left===null;
+    const col=urgent?"var(--red)":stale?"var(--dim)":"var(--amber)";
+    const dl=c.days_left!==null?c.days_left+"d left":"ongoing";
+    return '<div class="clockrow"><div style="display:flex;justify-content:space-between">'+
+      '<span style="color:'+col+'">'+c.id.replace(/-/g,' ').slice(0,26)+'</span><b style="color:'+col+'">'+dl+'</b></div>'+
+      '<div style="font-size:9px;color:var(--dim);margin-top:2px">'+(c.demand||'').slice(0,60)+'</div></div>';}).join("")
+    ||"<div style='color:var(--dim)'>no clocks</div>";}
+  catch(e){document.getElementById("clocksList").innerHTML="<div style='color:var(--dim)'>clocks proxy down</div>";}}
+pollLive();pollWire();pollPattern();pollClocks();
+setInterval(pollLive,10000);setInterval(pollWire,5000);setInterval(pollPattern,5000);setInterval(pollClocks,15000);
+</script>
+</body>
+</html>

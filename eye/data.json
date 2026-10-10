@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-09T21:13:39.459204+00:00",
+  "generated": "2026-10-10T00:32:35.673311+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -99,6 +99,11 @@
       "since": "Fri 2026-10-02 08:05:56 CEST"
     },
     {
+      "unit": "hermes-dashboard.service",
+      "sub": "running",
+      "since": "Sat 2026-10-10 02:32:32 CEST"
+    },
+    {
       "unit": "hermes-ears.service",
       "sub": "running",
       "since": "Sun 2026-10-04 00:39:18 CEST"
@@ -121,7 +126,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Fri 2026-10-09 19:44:31 CEST"
+      "since": "Sat 2026-10-10 01:46:30 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -174,7 +179,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 146106,
+      "pid": 589999,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -234,7 +239,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 3193767,
+      "pid": 463524,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -244,7 +249,7 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 3193767,
+      "pid": 463524,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -274,7 +279,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 141361,
+      "pid": 587575,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -327,6 +332,36 @@
       "pid": 1300,
       "public_bind": false,
       "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 8790,
+      "bind": "100.126.180.47",
+      "proc": "python3",
+      "pid": 557658,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 8791,
+      "bind": "100.126.180.47",
+      "proc": "python3",
+      "pid": 558280,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 8792,
+      "bind": "100.126.180.47",
+      "proc": "python3",
+      "pid": 558979,
+      "public_bind": false,
+      "tailnet": true,
       "exposed": false,
       "fw_blocked": false
     },
@@ -424,7 +459,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 141361,
+      "pid": 587575,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -434,7 +469,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 141361,
+      "pid": 587575,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -457,6 +492,16 @@
       "pid": 1282,
       "public_bind": false,
       "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18791,
+      "bind": "100.126.180.47",
+      "proc": "hermes",
+      "pid": 552921,
+      "public_bind": false,
+      "tailnet": true,
       "exposed": false,
       "fw_blocked": false
     },
@@ -531,10 +576,10 @@
       "fw_blocked": false
     },
     {
-      "port": 40357,
+      "port": 38237,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 141361,
+      "pid": 587575,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -684,32 +729,32 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 10 hours",
+      "status": "Up 13 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-01ee49c96d750e7eb32d267b5308a2ce",
-      "status": "Up 16 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-a901e495924524fb5cb6750689f69b2f",
-      "status": "Up 16 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-25a00c9408854b4c70f0e57e0a436c12",
-      "status": "Up 16 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
       "status": "Up 19 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
+      "name": "openclaw-sbx-workspace-a901e495924524fb5cb6750689f69b2f",
+      "status": "Up 19 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "openclaw-sbx-workspace-25a00c9408854b4c70f0e57e0a436c12",
+      "status": "Up 19 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
+      "status": "Up 23 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
       "name": "openclaw-sbx-workspace-431bfe5acba1112c7093fd107321ab3d",
-      "status": "Up 39 hours",
+      "status": "Up 42 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -724,7 +769,7 @@
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 6 days",
+      "status": "Up 7 days",
       "image": "redis:7-alpine"
     },
     {
@@ -766,9 +811,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "f28a623",
-    "last": "claude benchmark harness: measure real provider limits, not marketing claims",
-    "dirty": 69
+    "head": "16e769e",
+    "last": "evidence: full dossier + DOJ bundle + abuse dispatch + blacklist verification + spine corrections (2026-10-09) \u2014 the session's evidence sealed to the chain",
+    "dirty": 31
   },
   "mirrors": 2329
 }

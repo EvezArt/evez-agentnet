@@ -1,0 +1,20 @@
+{
+  "trained_on": {
+    "physiological": 84,
+    "linguistic": 43
+  },
+  "phys_model": {
+    "loss": 1.0862,
+    "holdout_acc": 0.529,
+    "holdout_n": 17
+  },
+  "lang_model": {
+    "loss": 0.0821,
+    "holdout_acc": 1.0,
+    "holdout_n": 9
+  },
+  "architecture": "numpy MLP (5-12-1 phys, 6-10-1 lang), 400 epochs, lr 0.03, honest 80/20 split",
+  "fusion": {
+    "current_state": 0.035
+  }
+}
