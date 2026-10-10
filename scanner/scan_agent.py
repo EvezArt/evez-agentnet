@@ -186,7 +186,9 @@ def _scan_github_trending() -> list:
     """Scan GitHub for trending repos pushed in last 30 days."""
     import urllib.request
     GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
-    url = "https://api.github.com/search/repositories?q=stars:>100+pushed:>2026-01-25&sort=stars&order=desc&per_page=15"
+    from datetime import datetime, timedelta
+    since = (datetime.now(timezone.utc) - timedelta(days=30)).strftime("%Y-%m-%d")
+    url = f"https://api.github.com/search/repositories?q=stars:>100+pushed:>{since}&sort=stars&order=desc&per_page=15"
     headers = {"User-Agent": "evez-agentnet/1.0", "Accept": "application/vnd.github.v3+json"}
     if GITHUB_TOKEN:
         headers["Authorization"] = f"token {GITHUB_TOKEN}"

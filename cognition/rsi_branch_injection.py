@@ -79,6 +79,19 @@ def branch_entropy(branches: list[Branch]) -> float:
     return -sum(p * log(p) for p in probs)
 
 
+def _residue_upsert(daemon: Any, entry: str) -> None:
+    """Re-observation of a known residue replaces it instead of duplicating.
+
+    The old append-only form re-added the same hypothesis text every round,
+    flooding the residue list past the ship gate's threshold within hours
+    (the ledger's law: re-measurement replaces, it does not pile up).
+    """
+    residue = daemon.state.unresolved_residue
+    if entry in residue:
+        return
+    residue.append(entry)
+
+
 def inject_rsi_hypotheses(daemon: Any, hypotheses: list[str], round_no: int) -> dict[str, Any]:
     injected: list[dict[str, Any]] = []
     for index, hypothesis in enumerate(hypotheses, start=1):
@@ -88,7 +101,7 @@ def inject_rsi_hypotheses(daemon: Any, hypotheses: list[str], round_no: int) -> 
         injected.append(asdict(branch))
 
         if branch.collapse_risk >= 0.6:
-            daemon.state.unresolved_residue.append(f"RSI:{hypothesis if isinstance(hypothesis, str) else hypothesis.get('text', '')}")
+            _residue_upsert(daemon, f"RSI:{hypothesis if isinstance(hypothesis, str) else hypothesis.get('text', '')}")
         if branch.resonance >= 0.58:
             daemon.state.dark_state_pressure.append(f"RSI:{hypothesis if isinstance(hypothesis, str) else hypothesis.get('text', '')}")
 

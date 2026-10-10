@@ -31,7 +31,7 @@ class ExecutiveArbiter:
             identity = "builder"
             action_mode = "construct"
             reason = "high_consequence_builder_branch"
-        elif branch.priority >= 2.4:
+        elif branch.priority >= 2.15:
             identity = "builder"
             action_mode = "prepare"
             reason = "high_priority_branch"

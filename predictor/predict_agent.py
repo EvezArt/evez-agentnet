@@ -53,13 +53,22 @@ def _score_signal(item: dict) -> float:
     src = item.get("source", "")
     opp = item.get("opportunity", "")
 
-    # High-value sources
+    # High-value sources. Both branches previously saturated INSIDE their
+    # realistic ranges (github at 10k stars, polymarket at $1M), collapsing
+    # every live signal into a tie the ship gate correctly refused. Log
+    # scaling across the full realistic range keeps scores monotone and
+    # never saturates early: github 100..1M stars, polymarket $10..$100M.
+    import math
     if src == "polymarket":
         vol = item.get("volume_usd", 0)
-        score += min(0.3, vol / 1_000_000)
+        if vol > 0:
+            # log10($10)=1 -> 0.0375 ... log10($100M)=8 -> 0.30
+            score += 0.30 * math.log10(max(vol, 10)) / 8.0
     elif src == "github_trending":
         stars = item.get("stars", 0)
-        score += min(0.2, stars / 100_000)
+        if stars > 0:
+            # log10(100)=2 -> 0.067 ... log10(1M)=6 -> 0.20
+            score += 0.20 * math.log10(max(stars, 10)) / 6.0
 
     # High-value opportunity types
     if opp in ("prediction_report", "twitter_thread", "tutorial_or_integration"):

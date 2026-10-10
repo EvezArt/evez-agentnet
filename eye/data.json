@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-10T00:32:35.673311+00:00",
+  "generated": "2026-10-10T05:39:40.696869+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -11,7 +11,7 @@
     {
       "unit": "evez-agentnet.service",
       "sub": "running",
-      "since": "Sat 2026-10-03 08:18:42 CEST"
+      "since": "Sat 2026-10-10 07:37:51 CEST"
     },
     {
       "unit": "evez-api-daemon.service",
@@ -99,11 +99,6 @@
       "since": "Fri 2026-10-02 08:05:56 CEST"
     },
     {
-      "unit": "hermes-dashboard.service",
-      "sub": "running",
-      "since": "Sat 2026-10-10 02:32:32 CEST"
-    },
-    {
       "unit": "hermes-ears.service",
       "sub": "running",
       "since": "Sun 2026-10-04 00:39:18 CEST"
@@ -111,7 +106,7 @@
     {
       "unit": "hermes-gateway.service",
       "sub": "running",
-      "since": "Fri 2026-10-09 13:19:46 CEST"
+      "since": "Sat 2026-10-10 05:02:14 CEST"
     },
     {
       "unit": "hermes-live.service",
@@ -126,7 +121,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sat 2026-10-10 01:46:30 CEST"
+      "since": "Sat 2026-10-10 04:45:51 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -149,7 +144,7 @@
       "port": 8644,
       "bind": "0.0.0.0",
       "proc": "hermes",
-      "pid": 3842937,
+      "pid": 830849,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -179,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 589999,
+      "pid": 812584,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -279,7 +274,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 587575,
+      "pid": 810498,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -332,36 +327,6 @@
       "pid": 1300,
       "public_bind": false,
       "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 8790,
-      "bind": "100.126.180.47",
-      "proc": "python3",
-      "pid": 557658,
-      "public_bind": false,
-      "tailnet": true,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 8791,
-      "bind": "100.126.180.47",
-      "proc": "python3",
-      "pid": 558280,
-      "public_bind": false,
-      "tailnet": true,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 8792,
-      "bind": "100.126.180.47",
-      "proc": "python3",
-      "pid": 558979,
-      "public_bind": false,
-      "tailnet": true,
       "exposed": false,
       "fw_blocked": false
     },
@@ -459,7 +424,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 587575,
+      "pid": 810498,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -469,7 +434,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 587575,
+      "pid": 810498,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -492,16 +457,6 @@
       "pid": 1282,
       "public_bind": false,
       "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 18791,
-      "bind": "100.126.180.47",
-      "proc": "hermes",
-      "pid": 552921,
-      "public_bind": false,
-      "tailnet": true,
       "exposed": false,
       "fw_blocked": false
     },
@@ -576,10 +531,20 @@
       "fw_blocked": false
     },
     {
-      "port": 38237,
+      "port": 38453,
+      "bind": "127.0.0.1",
+      "proc": "llama-server",
+      "pid": 1001473,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 41373,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 587575,
+      "pid": 810498,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -729,32 +694,7 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 13 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-01ee49c96d750e7eb32d267b5308a2ce",
       "status": "Up 19 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-a901e495924524fb5cb6750689f69b2f",
-      "status": "Up 19 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-25a00c9408854b4c70f0e57e0a436c12",
-      "status": "Up 19 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
-      "status": "Up 23 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-431bfe5acba1112c7093fd107321ab3d",
-      "status": "Up 42 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -774,7 +714,7 @@
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 7 days",
+      "status": "Up 8 days",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -811,9 +751,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "16e769e",
-    "last": "evidence: full dossier + DOJ bundle + abuse dispatch + blacklist verification + spine corrections (2026-10-09) \u2014 the session's evidence sealed to the chain",
-    "dirty": 31
+    "head": "cc565f8",
+    "last": "portal: THE ONE UNIT \u2014 every surface in one frame (eye, map, cinematic, wire, pattern, clocks), verified live",
+    "dirty": 70
   },
   "mirrors": 2329
 }

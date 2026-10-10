@@ -1,0 +1,10 @@
+{
+  "type": "telegram_message",
+  "title": "freeCodeCamp/freeCodeCamp",
+  "content": "Signal: freeCodeCamp/freeCodeCamp\n\nWrite an integration write-up for: freeCodeCamp/freeCodeCamp. Publish as a Telegram post.\n\nObserved via github_trending (score 0.79).\n\nDrafted autonomously by EVEZ agentnet. No claims are made here that were not derived from logged state.",
+  "truth_plane": "CANONICAL",
+  "created_at": "2026-10-10T05:36:29.595664+00:00",
+  "source_signal": "github_trending",
+  "opportunity_score": 0.7886569977496385,
+  "file": "drafts/telegram_message_20261010_053629.json"
+}

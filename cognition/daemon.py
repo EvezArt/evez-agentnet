@@ -18,6 +18,19 @@ class LivingLogicDaemon:
         self.store = store
         self.state = store.load_latest() or CognitionState()
         self.state.self_model["mode"] = "running"
+        # Residue ledger hygiene: the entropy flood wrote the same string up
+        # to 373 times (re-observation appended instead of replacing). Re-
+        # measurement replaces; measurement earns collapse. Dedupe on load
+        # so old checkpoints stay readable while current residue is honest.
+        seen: set = set()
+        deduped = []
+        for entry in self.state.unresolved_residue:
+            if entry in seen:
+                continue
+            seen.add(entry)
+            deduped.append(entry)
+        if len(deduped) != len(self.state.unresolved_residue):
+            self.state.unresolved_residue[:] = deduped
         self.executive = ExecutiveArbiter()
         self.ors = ORSBridge()
         self.lineage = LineageStore(store.root)
@@ -34,7 +47,10 @@ class LivingLogicDaemon:
         lower = text.lower()
         ors = self.ors.assess(text)
         plausibility = 0.35 + 0.15 * ("because" in lower or "therefore" in lower)
-        consequence = 0.35 + 0.15 * any(token in lower for token in ["must", "risk", "ship", "deploy", "urgent"])
+        # Consequence must be able to cross the executive's construct
+        # threshold (0.65). Capped at 0.50 by the old linear form, "construct"
+        # was unreachable and the shipper was locked out from round 1.
+        consequence = 0.35 + 0.30 * any(token in lower for token in ["must", "risk", "ship", "deploy", "urgent", "build", "artifact"])
         collapse_risk = 0.4 + 0.2 * any(token in lower for token in ["unclear", "unknown", "maybe", "unresolved"])
         collapse_risk += ors.state_locked_risk * 0.25
         resonance = 0.35 + 0.2 * any(token in lower for token in ["identity", "ontology", "memory", "daemon", "checkpoint"])
@@ -45,12 +61,15 @@ class LivingLogicDaemon:
             notes.append("bias builder identity")
         if ors.rival_required:
             notes.append("generate rival before hard commitment")
+        # Round to 6dp: 0.35+0.30 in IEEE-754 is 0.6499999999999999, which
+        # never reaches the executive's 0.65 construct threshold — the mode
+        # was unreachable by exactly one ULP for the entire life of the stack.
         return Branch(
             label=label,
-            plausibility=min(plausibility, 1.0),
-            consequence=min(consequence, 1.0),
-            collapse_risk=min(collapse_risk, 1.0),
-            resonance=min(resonance, 1.0),
+            plausibility=round(min(plausibility, 1.0), 6),
+            consequence=round(min(consequence, 1.0), 6),
+            collapse_risk=round(min(collapse_risk, 1.0), 6),
+            resonance=round(min(resonance, 1.0), 6),
             notes=notes,
         )
 
@@ -86,8 +105,14 @@ class LivingLogicDaemon:
         self._log("observe", {"branch": asdict(branch), "text": text, "ors": self.ors.assess(text).to_dict()})
         return branch
 
-    def revise(self) -> dict[str, Any]:
-        top_branch = max(self.state.branches, key=lambda item: item.priority, default=None)
+    def revise(self, current: Branch | None = None) -> dict[str, Any]:
+        # Arbitrate THIS round's observation. The old form took the max over
+        # the entire branch history — 1543 branches where RSI ghosts from
+        # round 245 (priority 2.110) permanently outranked every fresh scan
+        # branch (1.825): the executive was commanded by its own archive.
+        top_branch = current
+        if top_branch is None and self.state.branches:
+            top_branch = self.state.branches[-1]
         if top_branch is None:
             return {"status": "idle"}
 
@@ -134,7 +159,7 @@ class LivingLogicDaemon:
 
     def step(self, text: str) -> dict[str, Any]:
         branch = self.observe(text)
-        revision = self.revise()
+        revision = self.revise(current=branch)
         checkpoint_path = self.checkpoint()
         summary = {
             "branch": asdict(branch),

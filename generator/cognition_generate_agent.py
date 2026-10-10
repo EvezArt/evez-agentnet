@@ -37,7 +37,10 @@ def _queue_item_to_prediction(item: dict[str, Any]) -> dict[str, Any]:
     notes = item.get("notes", [])
     return {
         "title": label,
-        "deliverable_type": "github_post",
+        # github_post has no delivery path (no repo push auth); the queue
+        # must drain into a channel the shipper can actually publish to.
+        # Telegram is the one proven-live channel on this host.
+        "deliverable_type": "telegram_message",
         "action_plan": f"Build queued artifact for {label}. Notes: {'; '.join(notes)}",
         "source": "daemon_build_queue",
         "opportunity_score": item.get("priority", 0.0),

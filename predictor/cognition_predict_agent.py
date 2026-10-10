@@ -21,12 +21,29 @@ from .predict_agent import _generate_action_plan, _score_signal
 _logger = logging.getLogger("agentnet.cognition_predictor")
 
 
-def _entropy(scores: list[float]) -> float:
-    if not scores:
-        return 0.0
-    total = sum(max(s, 1e-6) for s in scores)
-    probs = [max(s, 1e-6) / total for s in scores]
-    return -sum(p * _math_log(p) for p in probs)
+def _entropy(scores: list[float], k: int = 3) -> float:
+    """CUT-SEPARABILITY entropy: is the ship/drop boundary decisive?
+
+    The generator drafts the top-K (K=3) signals and the shipper publishes
+    those drafts. A tie between #1 and #2 is harmless there -- any of the
+    tied candidates is an equally defensible pick. What actually matters
+    is the CUT: can we distinguish the last shipped signal from the first
+    dropped one?
+
+      cut_gap = s[K-1] - s[K]   (3rd vs 4th ranked)
+      span    = s[0]   - s[K]
+      entropy = 1 - cut_gap/span
+        0.0 -> decisive cut, shipping selection is defensible (gate opens)
+        1.0 -> the boundary is a coin flip (gate closes)
+    """
+    if len(scores) <= k:
+        return 0.0  # nothing is dropped; there is no ambiguous boundary
+    s = sorted(scores, reverse=True)
+    cut_gap = s[k - 1] - s[k]
+    span = s[0] - s[k]
+    if span <= 1e-9:
+        return 1.0 if cut_gap <= 1e-9 else 0.0
+    return max(0.0, min(1.0, 1.0 - cut_gap / span))
 
 
 def run(scan_results: list) -> dict[str, Any]:

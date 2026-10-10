@@ -108,12 +108,21 @@ def truth_plane(reputation: float) -> str:
 
 
 def summarize_scan(scan_results: list, maes_obs: dict, round_no: int) -> str:
+    # Balanced signal diet for the daemon's branch scorer. The old
+    # scan_results[:3] slice fed it polymarket sports titles only, so
+    # build/deploy/ship language never reached the scorer and the
+    # 'construct' mode was unreachable regardless of thresholds.
+    top = scan_results[:3]
+    github = next((s for s in scan_results if s.get("source") == "github_trending"), None)
+    if github and github not in top:
+        top = top[:2] + [github]
     payload = {
         "round": round_no,
         "signal_count": len(scan_results),
         "maes_agents": maes_obs.get("agent_count", 0),
         "maes_players": maes_obs.get("player_count", 0),
-        "top_signals": scan_results[:3],
+        "top_signals": top,
+        "intent": "observe, rank, then build and ship artifacts this round",
     }
     return json.dumps(payload, ensure_ascii=False)
 
@@ -232,8 +241,17 @@ def main():
         "top_rivals": uncertainty.get("top_rivals", []),
     })
 
-    if predictor_entropy >= 1.2:
-        _DAEMON.state.unresolved_residue.append(f"predictor_entropy:{predictor_entropy}")
+    # One residue entry, upserted: the old form appended the same string
+    # every round (373 of 377 entries identical). Measurement earns collapse:
+    # when entropy is below the gate the residue entry is removed outright.
+    residue = _DAEMON.state.unresolved_residue
+    marker = f"predictor_entropy:{predictor_entropy}"
+    residue[:] = [e for e in residue if not e.startswith("predictor_entropy:")]
+    if predictor_entropy >= 1.0:
+        # Flat tie = cannot rank = seek evidence THIS round. Scoped: the
+        # executive re-derives action_mode from the next branch next round;
+        # the old permanent pin was the 498-round $0.00 death spiral.
+        residue.append(marker)
         _DAEMON.state.self_model["action_mode"] = "evidence_seek"
         append_spine("cognition_gate", {"round": rnd, "gate": "predictor_entropy", "entropy": predictor_entropy})
 
