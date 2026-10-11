@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T19:45:16.989467+00:00",
+  "generated": "2026-10-11T20:20:25.701587+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -116,7 +116,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sun 2026-10-11 21:38:07 CEST"
+      "since": "Sun 2026-10-11 22:08:55 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -159,7 +159,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 820435,
+      "pid": 854793,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -259,7 +259,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 816075,
+      "pid": 850990,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -419,7 +419,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 816075,
+      "pid": 850990,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -429,7 +429,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 816075,
+      "pid": 850990,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -526,10 +526,10 @@
       "fw_blocked": false
     },
     {
-      "port": 45149,
+      "port": 45357,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 816075,
+      "pid": 850990,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -697,17 +697,17 @@
     },
     {
       "name": "ruview-demo",
-      "status": "Up 12 hours",
+      "status": "Up 13 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 12 hours",
+      "status": "Up 13 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 12 hours",
+      "status": "Up 13 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -754,9 +754,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "d1bd8c0",
-    "last": "DIABIN NETWORK identified: 3-shell UK chain behind attacker range",
-    "dirty": 21
+    "head": "edb5622",
+    "last": "full volley: v3 bundle, ServHost demand SERVED, CH drafts, new clocks, calligraphy daemon LIVE",
+    "dirty": 14
   },
   "mirrors": 2329
 }

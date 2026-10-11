@@ -1,0 +1,23 @@
+To: abuse@serv.host
+From: rubikspubes69@gmail.com
+Date: Sun, 11 Oct 2026 19:59:29 -0000
+Subject: Abuse report & preservation demand — attacking host 150.241.74.83 (AS207957), attack of 2026-10-08
+Message-ID: <1791748769.670304@gmail.com>
+
+Dear abuse team of SERV.HOST GROUP LTD,
+
+I am writing to report criminal activity originating from your network and to make a formal preservation demand.
+
+ATTACK: On 2026-10-08 my server sustained SSH brute-force attempts from 150.241.74.83, inside 150.241.74.0/24, announced by your AS207957. Full logs are preserved in hash-chained form and filed with the FBI (IC3).
+
+EVIDENCE YOUR RANGE IS CRIMINAL INFRASTRUCTURE: that host is listed by 34 independent threat-intelligence sources (malware/phishing/attack categories) as of 2026-10-11; 1,999 addresses across your announced space are currently listed (malware 1,913; C2 listings include 150.241.73.0/24; SmartLoader/StealC exfiltration C2 documented at 144.31.57.65/.67 in April 2026).
+
+I DEMAND that you:
+1. Preserve all records relating to the assignment of 150.241.74.83 on 2026-10-08 — lessee identity, payment records, IP assignment logs, session data — for not less than 24 months. This is a litigation hold.
+2. Disclose the lessee identity to me or to law enforcement on request.
+3. Terminate criminal hosting on the affected ranges.
+
+I am also notifying your upstream transit provider. Destruction of records after this notice will be treated as spoliation.
+
+Sincerely,
+Victim operator (IC3 complainant)

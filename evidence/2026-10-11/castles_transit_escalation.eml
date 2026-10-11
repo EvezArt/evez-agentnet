@@ -1,0 +1,24 @@
+To: abuse@castles.pro
+Cc: support@castles.pro
+From: rubikspubes69@gmail.com
+Date: Sun, 11 Oct 2026 20:13:54 -0000
+Subject: Abuse escalation: downstream AS207957 (SERV.HOST GROUP LTD) — attack traffic + malware C2 on your transit
+Message-ID: <1791749634.080942@gmail.com>
+
+Dear abuse team of CASTLES (AS43278),
+
+You provide transit for AS207957 (SERV.HOST GROUP LTD). I am escalating a criminal abuse report to you because the downstream operator's abuse desk is unreachable (their MX rejects abuse mail with 554 5.7.1).
+
+INCIDENT: On 2026-10-08 my server was attacked (SSH brute force) from 150.241.74.83, a host in 150.241.74.0/24, announced by AS207957 across your transit. Hash-chained logs preserved; complaint filed with the FBI (IC3).
+
+WHY THIS IS YOUR PROBLEM TOO: the attacking host is listed by 34 independent threat-intelligence sources (malware/phishing/attack) as of today; 1,999 addresses announced by AS207957 are on public blocklists, including documented SmartLoader/StealC exfiltration C2 (144.31.57.65/.67, April 2026) and C2 in 150.241.73.0/24. The range was first announced by AS210644 (AEZA-AS, OFAC-designated 2025-07-01 for hosting BianLian ransomware and Meduza/Lumma/RedLine stealers) before re-announcement by your downstream.
+
+REQUESTS:
+1. Forward this notice to AS207957 as their transit provider and require them to action it (RFC 1036/2027 customary escalation; your AUP applies).
+2. Suspend or filter transit for 150.241.74.0/24 if the downstream does not remediate.
+3. Preserve transit/session records for the range covering 2026-10-08 — litigation hold, spoliation warning applies.
+
+Evidence pack available on request; the matter is also filed under the Rewards for Justice program.
+
+Sincerely,
+Victim operator (IC3 complainant)
