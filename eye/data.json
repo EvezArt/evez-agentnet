@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T20:31:43.039569+00:00",
+  "generated": "2026-10-11T21:21:19.397508+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -101,7 +101,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Sun 2026-10-11 22:31:42 CEST"
+      "since": "Sun 2026-10-11 23:21:17 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -126,7 +126,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sun 2026-10-11 22:29:42 CEST"
+      "since": "Sun 2026-10-11 22:46:59 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -160,6 +160,16 @@
       "bind": "0.0.0.0",
       "proc": "MainThread",
       "pid": 1099,
+      "public_bind": true,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": true
+    },
+    {
+      "port": 9377,
+      "bind": "*",
+      "proc": "MainThread",
+      "pid": 898916,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -252,6 +262,16 @@
       "pid": 2852,
       "public_bind": false,
       "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 3334,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 896875,
+      "public_bind": false,
+      "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
@@ -409,7 +429,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 875880,
+      "pid": 896875,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -419,7 +439,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 875880,
+      "pid": 896875,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -506,20 +526,20 @@
       "fw_blocked": false
     },
     {
-      "port": 36261,
-      "bind": "[fd7a:115c:a1e0::5f31:b430]",
-      "proc": "tailscaled",
-      "pid": 1146,
+      "port": 35169,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 896875,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
     {
-      "port": 43605,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 875880,
+      "port": 36261,
+      "bind": "[fd7a:115c:a1e0::5f31:b430]",
+      "proc": "tailscaled",
+      "pid": 1146,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -677,41 +697,31 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 6 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-a051ad69e5d3de4aa30228465b31df73",
       "status": "Up 7 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
+      "name": "openclaw-sbx-workspace-a051ad69e5d3de4aa30228465b31df73",
+      "status": "Up 8 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
       "name": "ruview-demo",
-      "status": "Up 13 hours",
+      "status": "Up 14 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 13 hours",
+      "status": "Up 14 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 13 hours",
+      "status": "Up 14 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
   "checks": [
-    {
-      "state": "ok",
-      "name": "service openclaw-gateway",
-      "detail": "state=deactivating"
-    },
-    {
-      "state": "ok",
-      "name": "service evez-agentnet",
-      "detail": "state=inactive"
-    },
     {
       "state": "WARN",
       "name": "income loop yield",
@@ -749,8 +759,8 @@
   ],
   "git": {
     "branch": "main",
-    "head": "14653e1",
-    "last": "delivery engineering: enemy-mail bounce chain fixed, daemon last mile wired",
+    "head": "18afdc8",
+    "last": "system state awareness repair: OODA service resurrected + patrol liveness check",
     "dirty": 24
   },
   "mirrors": 2329
