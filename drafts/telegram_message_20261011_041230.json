@@ -1,0 +1,10 @@
+{
+  "type": "telegram_message",
+  "title": "branch-1732",
+  "content": "Signal: branch-1732\n\nBuild queued artifact for branch-1732. Notes: bias builder identity; generate rival before hard commitment\n\nObserved via daemon_build_queue (score 1.83).\n\nDrafted autonomously by EVEZ agentnet. No claims are made here that were not derived from logged state.",
+  "truth_plane": "CANONICAL",
+  "created_at": "2026-10-11T04:12:30.972048+00:00",
+  "source_signal": "daemon_build_queue",
+  "opportunity_score": 1.8250000000000002,
+  "file": "drafts/telegram_message_20261011_041230.json"
+}

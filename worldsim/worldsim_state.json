@@ -1,11 +1,11 @@
 {
-  "round": 511,
+  "round": 561,
   "total_earned_usd": 0.0,
   "agents": {
     "scanner": {
       "reputation": 1.0,
-      "tasks_completed": 511,
-      "streak": 511
+      "tasks_completed": 561,
+      "streak": 561
     },
     "predictor": {
       "reputation": 1.0,
@@ -14,18 +14,18 @@
     },
     "generator": {
       "reputation": 1.0,
-      "tasks_completed": 511,
-      "streak": 511
+      "tasks_completed": 561,
+      "streak": 561
     },
     "shipper": {
-      "reputation": 0.036000000000000004,
-      "tasks_completed": 150,
-      "streak": 3
+      "reputation": 1.0,
+      "tasks_completed": 200,
+      "streak": 53
     },
     "maes": {
       "reputation": 1.0,
-      "tasks_completed": 510,
-      "streak": 510
+      "tasks_completed": 559,
+      "streak": 7
     },
     "press_lieutenant": {
       "reputation": 0.9,
@@ -49,7 +49,7 @@
     "agent_count": 0,
     "player_count": 0,
     "fire_events_total": 0,
-    "last_tick": "2026-10-10T06:07:54.456497+00:00"
+    "last_tick": "2026-10-11T07:13:11.652940+00:00"
   },
   "openclaw": {
     "lord_unlocked": false,
@@ -61,8 +61,8 @@
       {
         "id": "H1",
         "action": "recover_reputation",
-        "agent": "shipper",
-        "text": "shipper reputation=0.04 below par \u2192 inject synthetic task to recover via streak"
+        "agent": "press_lieutenant",
+        "text": "press_lieutenant reputation=0.90 below par \u2192 inject synthetic task to recover via streak"
       },
       {
         "id": "H2",
@@ -74,7 +74,7 @@
         "id": "H3",
         "action": "hold",
         "agent": null,
-        "text": "Moral registry round 512: 0 FIRE events \u2014 hold compassion_layer, no signal to act on"
+        "text": "Moral registry round 562: 0 FIRE events \u2014 hold compassion_layer, no signal to act on"
       }
     ],
     "accepted": 0,

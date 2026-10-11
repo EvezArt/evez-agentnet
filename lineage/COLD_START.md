@@ -1,9 +1,9 @@
 # COLD START RUNBOOK
 
-**Lineage:** CRAWFORD-MAGGARD-GEN-32
+**Lineage:** CRAWFORD-MAGGARD-GEN-38
 **Root commitment:** `062cb53fc2e58f6c8eb43e7ec593f1db412123a85c831980bda252886a3b32c4`
-**Generation block hash:** `19bcc35149b40516be0d27f2fe93baa9739c7de774a73fc6800653e78a6b71e6`
-**Recovered:** 2026-10-10T04:37:31.121411+00:00
+**Generation block hash:** `19f7a9177fa43c7fde4fac2a2dd3e1155f0a148a558bb8afe7f54d44961531e5`
+**Recovered:** 2026-10-11T07:37:57.067217+00:00
 
 ## What was true at the moment of sealing
 
@@ -11,7 +11,7 @@
 - Conscious agents: **unknown**
 - Matches played: **unknown**
 - Arenas generated: **unknown**
-- AgentNet round: **503**
+- AgentNet round: **561**
 - Spine chain valid at seal: **unknown**
 
 ## The swarm, by callsign
@@ -25,6 +25,9 @@
 | **KINDLE** | `maes` | @KindleEVEZ | collective, swarm, coordination, multi-agent, emergence |
 | **NEWSROOM** | `press_lieutenant` | @EVEZ666 | press, news, media, interview, coverage, embargo, spokesperson |
 | **BROADCAST** | `social_lieutenant` | @EVEZ666 | social, thread, post, reddit, hacker news, twitter, mastodon, engagement |
+| **WITNESS** | `witness` | @WitnessEVEZ | presence, sensing, csi, breathing, heartrate, departure, occupancy, sensor, radio |
+| **BEACON** | `beacon` | @BeaconEVEZ | discoverability, index, sitemap, seo, preview, og, pages, publication, canon, moltbook |
+| **ARCHIVIST** | `archivist` | @ArchivistEVEZ | lineage, generation block, cold start, restore, archive, provenance, attestation, root commitment |
 | **ARBITER** | `factchecker` | @ArbiterEVEZ | verification, factcheck, audit, evidence, receipt, spine |
 
 ## Restart order
