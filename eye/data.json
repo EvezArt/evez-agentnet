@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T21:29:30.997451+00:00",
+  "generated": "2026-10-11T21:34:39.088284+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -97,11 +97,6 @@
       "unit": "gueriella-openclaw-watchdog.service",
       "sub": "running",
       "since": "Sun 2026-10-11 09:37:54 CEST"
-    },
-    {
-      "unit": "hermes-dashboard.service",
-      "sub": "running",
-      "since": "Sun 2026-10-11 23:29:25 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -759,9 +754,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "6f8d98b",
-    "last": "aeza continuation addendum: OFAC-designated BPH re-shelled to HK, storefront live",
-    "dirty": 3
+    "head": "e25ac61",
+    "last": "RFJ tip: submit-ready text for the custodian's own hands",
+    "dirty": 19
   },
   "mirrors": 2329
 }

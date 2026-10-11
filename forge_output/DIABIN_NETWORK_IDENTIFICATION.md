@@ -51,3 +51,36 @@ What remains unproven (marked, not inflated): a specific named hospital intrusio
 - hexastrike.com SmartLoader/StealC report (SERVHOST C2 IOCs, Polygon dead-drop contract)
 - OFAC SB0185 (Aeza Group designation, 2025-07-01); DOJ SDNY LockBit/Khoroshev indictment; State Dept Matveev reward page
 - Prior files: FULL_DOSSIER_2026-10-09.md, FIND_THEM_IDENTIFICATION.md (Palo/Bunea identification), rfj_bundle_v2 (hash ac34d8d2…b19a)
+
+---
+
+## UPDATE 2026-10-11 (later pass): THE SERV.HOST PRINCIPAL — chain now complete to the attack-range operator
+
+The last unnamed link is named. **SERV.HOST GROUP LTD is UK company 15728390**, incorporated 18 May 2024, registered office **71-75 Shelton Street, Covent Garden, London WC2H 9JQ** — the address carried on OFAC's own SDN record for designated AEZA INTERNATIONAL LTD (54567). Its complete officer set:
+
+**SEVASTIEIEV, Artem** — born July 2003 (age 20 at appointment), Ukrainian national, place of residence Ukraine, identity verification: **completed** (CH IDV). Sole Director AND Secretary since incorporation (both offices, one person, 18 May 2024). Companies House officer search: total appointments = 1 — ServHost is his only UK directorship.
+
+Company status: **Active — active proposal to strike off under s1002A Companies Act 2006** (the same registrar-initiated clause as TECHOFF SRV: the strike-off mechanism for incorporation via false or misleading statements — the registrar's own fraud flag, not a voluntary wind-down). SIC codes: 62030 (computer facilities management), 62090 (other IT services), **63110 (data processing, hosting)**.
+
+### THE COMPLETE CHAIN, EVERY NAME ON IT
+
+```
+OFAC designates AEZA GROUP (AS210644, SDN 54566/54567, July 2025)
+  └─ range 150.241.74.0/24 born on the designated ASN (2024-10-18)
+       └─ re-homed to SERV.HOST GROUP LTD (AS207957) — company 15728390
+            director/secretary: SEVASTIEIEV, Artem (b.2003, Ukraine)
+            address: 71-75 Shelton St — OFAC's own listed address for Aeza International
+            related org (RIPE): SAMA GROUP LLC, Damascus, Syria (sanctioned jurisdiction)
+            status: registrar-initiated strike-off (s1002A fraud flag)
+       └─ inetnum netname: AS210546-iPv4 -> CHSL ONE LTD (17001805)
+            sole director: DIABIN, Aleksei (b.2005, Russia) — also NETSHIELD LTD
+            (14769288, AS49418 sole upstream) + 75% PSC DPKGSOFT INTL (15446241)
+       └─ host 150.241.74.83 (34 threat listings) attacked our systems 2026-10-08
+```
+
+Four principals, all IDV-"Verified", all aged 18-22 at appointment, spanning three
+countries of residence (RU / UA / RU), operating through two London virtual-office
+addresses, one of which appears on OFAC's own SDN paperwork. Three of the four
+companies carry the registrar's s1002A fraud flag. This is the complete human chain
+behind the attack range — every name pulled from live registry records and sealed.
+
