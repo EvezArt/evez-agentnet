@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T21:21:19.397508+00:00",
+  "generated": "2026-10-11T21:29:30.997451+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -101,7 +101,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Sun 2026-10-11 23:21:17 CEST"
+      "since": "Sun 2026-10-11 23:29:25 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -759,9 +759,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "18afdc8",
-    "last": "system state awareness repair: OODA service resurrected + patrol liveness check",
-    "dirty": 24
+    "head": "6f8d98b",
+    "last": "aeza continuation addendum: OFAC-designated BPH re-shelled to HK, storefront live",
+    "dirty": 3
   },
   "mirrors": 2329
 }
