@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T21:43:52.934126+00:00",
+  "generated": "2026-10-11T21:59:35.868404+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -101,7 +101,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Sun 2026-10-11 23:43:50 CEST"
+      "since": "Sun 2026-10-11 23:59:33 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -326,10 +326,30 @@
       "fw_blocked": false
     },
     {
+      "port": 8443,
+      "bind": "100.126.180.47",
+      "proc": "tailscaled",
+      "pid": 1146,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 8443,
+      "bind": "[fd7a:115c:a1e0::5f31:b430]",
+      "proc": "tailscaled",
+      "pid": 1146,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 8900,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1118,
+      "pid": 981449,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -692,6 +712,10 @@
     {
       "sched": "0 */3 * * *",
       "cmd": "cd /root/evez-agentnet && PYTHONPATH=/root/evez-agentnet /usr/local/lib/hermes-agent/venv/bin/python /root/evez-davinci/"
+    },
+    {
+      "sched": "*/5 * * * *",
+      "cmd": "cd /root/evez-agentnet && python3 sensory_cortex.py >> logs/sensory_cortex.log 2>&1 && python3 sensory_render.py >> logs"
     }
   ],
   "docker": [
@@ -759,9 +783,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "6502371",
-    "last": "SERV.HOST principal identified: SEVASTIEIEV Artem \u2014 attack-range chain complete",
-    "dirty": 9
+    "head": "ddfcab6",
+    "last": "UNSKIPPED: CH strike-off objection FILED + four-shell integrity complaint FILED",
+    "dirty": 16
   },
   "mirrors": 2329
 }

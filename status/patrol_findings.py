@@ -117,6 +117,28 @@ def main():
             continue
         findings.append(f"CODE-DRIFT {p}")
 
+    # Sensory cortex: any receptor firing novel stimulus is a finding —
+    # the patrol reads what the machine FEELS, not just what it computes.
+    try:
+        sc = json.loads(Path("/root/evez-agentnet/status/sensory_state.json").read_text())
+        age_min = None
+        try:
+            import datetime as _dt
+            age_min = (_dt.datetime.now(_dt.timezone.utc)
+                       - _dt.datetime.fromisoformat(sc["rendered_at"])).total_seconds() / 60
+        except Exception:
+            pass
+        if age_min is None or age_min > 20:
+            findings.append(f"CORTEX-STALE rendered_at={sc.get('rendered_at','?')}")
+        for s in sc.get("sensations", []):
+            if s.get("novel"):
+                findings.append(
+                    f"CORTEX-NOVEL {s['receptor']} v={s['value']} {json.dumps(s.get('detail',{}))[:100]}")
+    except FileNotFoundError:
+        findings.append("CORTEX-MISSING sensory_state.json not rendered yet")
+    except Exception as e:
+        findings.append(f"CORTEX-ERROR {type(e).__name__}")
+
     for f in findings:
         print(f)
     sys.exit(0)

@@ -1,0 +1,144 @@
+{
+ "baselines": {
+  "flow": [
+   7.0,
+   7.0,
+   8.0
+  ],
+  "hand": [
+   8.0,
+   8.0,
+   8.0
+  ],
+  "heartbeat": [
+   4.0,
+   4.0,
+   4.0
+  ],
+  "intruder": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "load": [
+   1.81,
+   1.81,
+   1.75
+  ],
+  "memory": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "touch": [
+   4320.0,
+   4320.0,
+   4320.0
+  ],
+  "voice": [
+   505.0,
+   505.0,
+   505.0
+  ]
+ },
+ "last": {},
+ "rendered_at": "2026-10-11T21:54:03.838683+00:00",
+ "sensations": [
+  {
+   "detail": {
+    "distinct": 903,
+    "top_sources": [
+     [
+      "217.146.81.113",
+      1063
+     ],
+     [
+      "31.14.32.8",
+      102
+     ],
+     [
+      "85.217.140.13",
+      49
+     ],
+     [
+      "31.14.32.7",
+      46
+     ],
+     [
+      "85.217.140.45",
+      44
+     ]
+    ]
+   },
+   "novel": false,
+   "receptor": "touch",
+   "ts": "2026-10-11T21:54:03.838683+00:00",
+   "value": 4320.0
+  },
+  {
+   "detail": {
+    "window": "tail-200"
+   },
+   "novel": false,
+   "receptor": "intruder",
+   "ts": "2026-10-11T21:54:03.838683+00:00",
+   "value": 0.0
+  },
+  {
+   "detail": {
+    "alive": 4,
+    "expected": 4
+   },
+   "novel": false,
+   "receptor": "heartbeat",
+   "ts": "2026-10-11T21:54:03.838683+00:00",
+   "value": 4.0
+  },
+  {
+   "detail": {
+    "window_min": 5
+   },
+   "novel": false,
+   "receptor": "memory",
+   "ts": "2026-10-11T21:54:03.838683+00:00",
+   "value": 0.0
+  },
+  {
+   "detail": {
+    "params": {
+     "slant": -0.25
+    }
+   },
+   "novel": false,
+   "receptor": "hand",
+   "ts": "2026-10-11T21:54:03.838683+00:00",
+   "value": 8.0
+  },
+  {
+   "detail": {
+    "window_h": 1
+   },
+   "novel": false,
+   "receptor": "voice",
+   "ts": "2026-10-11T21:54:03.838683+00:00",
+   "value": 505.0
+  },
+  {
+   "detail": {
+    "mem_pct": 35
+   },
+   "novel": false,
+   "receptor": "load",
+   "ts": "2026-10-11T21:54:03.838683+00:00",
+   "value": 1.75
+  },
+  {
+   "detail": {},
+   "novel": false,
+   "receptor": "flow",
+   "ts": "2026-10-11T21:54:03.838683+00:00",
+   "value": 8.0
+  }
+ ],
+ "tick": 3
+}

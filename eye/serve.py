@@ -54,7 +54,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         path = self.path.split("?")[0].lstrip("/") or "index.html"
         # Strict allowlist. This daemon serves the eye and nothing else; a
         # path-traversal or SSRF surface here would be self-inflicted.
-        if path not in ("index.html", "data.json"):
+        if path not in ("index.html", "data.json", "sensory.html"):
             self.send_error(404, "not found")
             return
         f = ROOT / path
