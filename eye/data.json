@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T20:20:25.701587+00:00",
+  "generated": "2026-10-11T20:31:43.039569+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -7,6 +7,11 @@
       "unit": "evez-agent-bridge.service",
       "sub": "running",
       "since": "Sun 2026-10-11 09:37:54 CEST"
+    },
+    {
+      "unit": "evez-agentnet.service",
+      "sub": "running",
+      "since": "Sun 2026-10-11 22:31:05 CEST"
     },
     {
       "unit": "evez-api-daemon.service",
@@ -94,6 +99,11 @@
       "since": "Sun 2026-10-11 09:37:54 CEST"
     },
     {
+      "unit": "hermes-dashboard.service",
+      "sub": "running",
+      "since": "Sun 2026-10-11 22:31:42 CEST"
+    },
+    {
       "unit": "hermes-ears.service",
       "sub": "running",
       "since": "Sun 2026-10-11 09:37:54 CEST"
@@ -116,7 +126,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sun 2026-10-11 22:08:55 CEST"
+      "since": "Sun 2026-10-11 22:29:42 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -150,16 +160,6 @@
       "bind": "0.0.0.0",
       "proc": "MainThread",
       "pid": 1099,
-      "public_bind": true,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": true
-    },
-    {
-      "port": 9377,
-      "bind": "*",
-      "proc": "MainThread",
-      "pid": 854793,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -252,16 +252,6 @@
       "pid": 2852,
       "public_bind": false,
       "tailnet": true,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 3334,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 850990,
-      "public_bind": false,
-      "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
@@ -419,7 +409,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 850990,
+      "pid": 875880,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -429,7 +419,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 850990,
+      "pid": 875880,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -526,10 +516,10 @@
       "fw_blocked": false
     },
     {
-      "port": 45357,
+      "port": 43605,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 850990,
+      "pid": 875880,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -681,7 +671,7 @@
     },
     {
       "sched": "0 */3 * * *",
-      "cmd": "/usr/local/lib/hermes-agent/venv/bin/python /root/evez-davinci/calligraphy_daemon.py >> /root/evez-davinci/daemon.log 2>"
+      "cmd": "cd /root/evez-agentnet && PYTHONPATH=/root/evez-agentnet /usr/local/lib/hermes-agent/venv/bin/python /root/evez-davinci/"
     }
   ],
   "docker": [
@@ -712,6 +702,11 @@
     }
   ],
   "checks": [
+    {
+      "state": "ok",
+      "name": "service openclaw-gateway",
+      "detail": "state=deactivating"
+    },
     {
       "state": "ok",
       "name": "service evez-agentnet",
@@ -754,9 +749,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "edb5622",
-    "last": "full volley: v3 bundle, ServHost demand SERVED, CH drafts, new clocks, calligraphy daemon LIVE",
-    "dirty": 14
+    "head": "14653e1",
+    "last": "delivery engineering: enemy-mail bounce chain fixed, daemon last mile wired",
+    "dirty": 24
   },
   "mirrors": 2329
 }

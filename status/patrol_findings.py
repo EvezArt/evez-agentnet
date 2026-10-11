@@ -63,6 +63,19 @@ def main():
         if line.strip():
             findings.append(f"UNIT-FAILED {line.split()[0]}")
 
+    # Expected-services liveness: a unit that is merely "inactive" is invisible
+    # to --failed but still an outage if it is supposed to be running. The
+    # evez-agentnet OODA loop ran dead for 11 hours under exactly this blind
+    # spot on 2026-10-11 (never enabled, died silently, patrol saw nothing).
+    EXPECTED_UNITS = [
+        "evez-agentnet", "evez-event-spine", "openclaw-gateway",
+        "evez-cogview", "ruview-bootstrap",
+    ]
+    for unit in EXPECTED_UNITS:
+        out = sh(f"systemctl is-active {unit}").stdout.strip()
+        if out != "active":
+            findings.append(f"UNIT-NOT-LIVE {unit} state={out}")
+
     r = sh("docker ps --format '{{.Names}} {{.Status}}'")
     if r.returncode == 0:
         for line in r.stdout.splitlines():
