@@ -192,6 +192,17 @@ RECEPTORS = {
     "flow": sense_flow,
 }
 
+# v2 — evidence-verity organs: the cortex verifies its own inputs.
+import sensory_receptors_v2 as _v2  # noqa: E402
+RECEPTORS.update({
+    "verity": _v2.sense_verity,
+    "delivery": _v2.sense_delivery,
+    "clocks": _v2.sense_clocks,
+    "enemy": _v2.sense_enemy,
+    "field": _v2.sense_field,
+    "superego": _v2.sense_superego,
+})
+
 
 def main() -> int:
     state = load_state()

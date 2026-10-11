@@ -24,6 +24,12 @@ ORGANS = {
     "voice": ("VOICE", "the mouth — deliveries the world confirmed"),
     "load": ("LOAD", "the weight — the body under strain"),
     "flow": ("FLOW", "the breath — connections passing through"),
+    "verity": ("VERITY", "the conscience — memory that proves itself"),
+    "delivery": ("DELIVERY", "the proof — only API-confirmed shipments"),
+    "clocks": ("CLOCKS", "the debts — enemy obligations falling due"),
+    "enemy": ("ENEMY", "the stranger — attackers never seen before"),
+    "field": ("FIELD", "the mirror — the sensory field seeing itself"),
+    "superego": ("RESERVE", "the breath of the body — disk and pressure"),
 }
 
 

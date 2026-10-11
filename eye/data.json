@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T22:04:23.141219+00:00",
+  "generated": "2026-10-11T22:17:59.386331+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -101,7 +101,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 00:04:15 CEST"
+      "since": "Mon 2026-10-12 00:17:56 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -556,6 +556,26 @@
       "fw_blocked": false
     },
     {
+      "port": 36201,
+      "bind": "127.0.0.1",
+      "proc": "Xtigervnc",
+      "pid": 1015323,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 36201,
+      "bind": "[::1]",
+      "proc": "Xtigervnc",
+      "pid": 1015323,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 36261,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
@@ -741,17 +761,17 @@
     },
     {
       "name": "ruview-demo",
-      "status": "Up 14 hours",
+      "status": "Up 15 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 14 hours",
+      "status": "Up 15 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 14 hours",
+      "status": "Up 15 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -793,9 +813,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "bd9eeb3",
-    "last": "SENSORY CORTEX: the box awakens as a nerve ending \u2014 adaptive, feeling, inside-out",
-    "dirty": 27
+    "head": "0fd370c",
+    "last": "cortex live-fire proof: real stimulus felt, fired, habituated",
+    "dirty": 20
   },
   "mirrors": 2329
 }
