@@ -20,6 +20,8 @@ CLOCKS=[
  {'id':'foipa-1758537-000','demand':'FBI FOIA response (statutory 20 working days from 2026-09-30 ack)','served':'2026-09-30','deadline':'2026-10-28','consequence':'FOIA appeal + congressional inquiry letter'},
  {'id':'ic3-confirmation','demand':'IC3 complaint auto-confirmation','served':'2026-10-01','deadline':'2026-10-31','consequence':'re-file via field office with case cross-ref'},
  {'id':'rfj-weekly-check','demand':'custodian: weekly SecureDrop login (codename account)','served':'2026-10-05','deadline':'weekly/Sunday','consequence':'missed analyst reply window'},
+ {'id':'servhost-abuse-demand','demand':'ServHost abuse/preservation demand response (abuse@serv.host, sent 2026-10-11 from victim Gmail)','served':'2026-10-11','deadline':'2026-10-18','consequence':'escalate to upstream transit providers + RIPE NCC abuse + regulator (NIS2/hosting provider duty)'},
+ {'id':'ch-diabin-complaint','demand':'Companies House integrity complaint re Diabin shells (CHSL 17001805 / NETSHIELD 14769288 / DPKGSOFT 15446241)','served':'2026-10-11','deadline':'2026-10-25','consequence':'complaint auto-ack + follow-up to CH integrity team; HMRC ACSP referral'},
 ]
 def main():
     now=datetime.now(timezone.utc).date()

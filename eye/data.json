@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T10:37:43.494652+00:00",
+  "generated": "2026-10-11T19:45:16.989467+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -116,7 +116,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sun 2026-10-11 12:35:02 CEST"
+      "since": "Sun 2026-10-11 21:38:07 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -159,7 +159,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 206711,
+      "pid": 820435,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -252,6 +252,16 @@
       "pid": 2852,
       "public_bind": false,
       "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 3334,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 816075,
+      "public_bind": false,
+      "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
@@ -409,7 +419,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 202723,
+      "pid": 816075,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -419,7 +429,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 202723,
+      "pid": 816075,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -516,20 +526,10 @@
       "fw_blocked": false
     },
     {
-      "port": 42921,
-      "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 162709,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 43319,
+      "port": 45149,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 202723,
+      "pid": 816075,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -678,27 +678,36 @@
     {
       "sched": "*/15 * * * *",
       "cmd": "/usr/local/lib/hermes-agent/venv/bin/python /root/evez-agentnet/tailnet_portal_attestor.py >> /root/evez-agentnet/logs/t"
+    },
+    {
+      "sched": "0 */3 * * *",
+      "cmd": "/usr/local/lib/hermes-agent/venv/bin/python /root/evez-davinci/calligraphy_daemon.py >> /root/evez-davinci/daemon.log 2>"
     }
   ],
   "docker": [
     {
-      "name": "ruview-demo",
-      "status": "Up 3 hours",
-      "image": "ruvnet/wifi-densepose:latest"
-    },
-    {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 3 hours",
+      "status": "Up 6 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
+      "name": "openclaw-sbx-workspace-a051ad69e5d3de4aa30228465b31df73",
+      "status": "Up 7 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "ruview-demo",
+      "status": "Up 12 hours",
+      "image": "ruvnet/wifi-densepose:latest"
+    },
+    {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 3 hours",
+      "status": "Up 12 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 3 hours",
+      "status": "Up 12 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -745,9 +754,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "afbe29c",
-    "last": "tailnet portal: resurrected HTTPS surface + 15-min uptime attestor",
-    "dirty": 135
+    "head": "d1bd8c0",
+    "last": "DIABIN NETWORK identified: 3-shell UK chain behind attacker range",
+    "dirty": 21
   },
   "mirrors": 2329
 }

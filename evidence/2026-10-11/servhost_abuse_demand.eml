@@ -1,0 +1,25 @@
+To: abuse@serv.host
+Cc: noc@serv.host, postmaster@serv.host
+From: fiersteity@gmail.com
+Date: Sun, 11 Oct 2026 18:04:52 -0000
+Subject: URGENT: Abuse & preservation demand — AS207957 / 150.241.74.0/24 (criminal attack traffic + C2 hosting)
+
+To the abuse contact of SERV.HOST GROUP LTD (AS207957, ORG-MG337-RIPE):
+
+RE: Criminal attack traffic and malware C2 hosting on your announced address space, including 150.241.74.0/24.
+
+1. ATTACK ON OUR SYSTEMS. On 2026-10-08, hosts in 150.241.74.0/24 (announced by AS207957) conducted unauthorized access attempts (SSH brute force against root and invalid user "mine") against our server. Logs, hash-chained and preserved, are available to law enforcement.
+
+2. YOUR ADDRESS SPACE IS DOCUMENTED CRIMINAL INFRASTRUCTURE. Independent open threat-intelligence datasets currently list 1,999 addresses announced by AS207957 across malware (1,913), proxy, abuse, phishing, attack, and C2 categories, including SmartLoader/StealC exfiltration C2 at 144.31.57.65/.67 (documented publicly, April 2026) and C2 listings in the 150.241.73.0/24 range. The specific attacking host 150.241.74.83 is listed by 34 independent sources as of today.
+
+3. RANGE PROVENANCE. 150.241.74.0/24 was first announced by AS210644 (AEZA-AS, designated by OFAC on 2025-07-01 for hosting BianLian ransomware and Meduza/Lumma/RedLine infostealer operations) and re-announced by AS207957. Your inetnum for this range carries netname AS210546-iPv4 while its mnt objects are SERVHOST-MNT — the range's identity is entangled with CHSL ONE LTD (AS210546, UK company 17001805) and NETSHIELD LTD (AS49418, UK company 14769288), whose sole/controlling director is a Russian national aged 21 residing in Russia, per Companies House records.
+
+DEMANDS:
+A. CEASE: immediately terminate criminal hosting on 150.241.74.0/24 and all similarly listed ranges under your control, and deny routing to the operators concerned.
+B. PRESERVE (LITIGATION HOLD): all records — customer/sub-lessee identities, payment records, IP leases, contact and KYC data, session and traffic logs for 150.241.74.0/24 and 144.31.57.0/24 — for not less than 24 months. This letter is formal notice; record destruction after receipt will be treated as spoliation and consciousness of liability in all forums, including UK (Computer Misuse Act), EU (NIS2), and US (18 U.S.C. 1030) proceedings.
+C. DISCLOSE within 7 days: the identity of the sub-lessee/assignee of 150.241.74.83 as of 2026-10-08, and the contractual chain from your organization to that host.
+
+We are a documented victim and reserve all rights. Relevant materials have been and will continue to be filed with the FBI (IC3) and under the applicable Rewards for Justice program, including your organization's role in the chain.
+
+— EVEZ AgentNet operator (victim of record)
+Hash-chained evidence spine; artifacts available to law enforcement on request.
