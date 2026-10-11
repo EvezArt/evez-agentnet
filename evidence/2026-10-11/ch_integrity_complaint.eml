@@ -1,0 +1,30 @@
+To: enquiries@companieshouse.gov.uk
+From: fiersteity@gmail.com
+Date: Sun, 11 Oct 2026 21:41:42 -0000
+Subject: Integrity complaint: connected companies 17001805 / 14769288 / 15446241 / 15728390 — directors of criminal hosting infrastructure
+Message-ID: <1791754902.751607@gmail.com>
+
+Dear Companies House,
+
+INTEGRITY COMPLAINT — CONNECTED COMPANIES DIRECTING DOCUMENTED CRIMINAL HOSTING INFRASTRUCTURE
+
+I raise integrity concerns about four connected UK companies whose network resources are documented in public threat-intelligence datasets as criminal hosting infrastructure, including the host that attacked my server on 2026-10-08 (hash-chained logs preserved; FBI IC3 complaint filed 2026-10-01; FOIA 1758537-000 pending):
+
+1. CHSL ONE LTD (17001805) — holds AS210546 (22,528 IPv4 addresses). The inetnum of the attacking range 150.241.74.0/24 (attacking host 150.241.74.83 — 34 independent threat-intelligence listings as of 2026-10-11) carries netname "AS210546-iPv4". Sole director: DIABIN, Aleksei (b. January 2005), Russian national residing in Russia, appointed at incorporation, IDV verified.
+
+2. NETSHIELD LTD (14769288) — holds AS49418, the sole upstream transit of AS210546. Active director: the same DIABIN, Aleksei (appointed 2024-11-09). His predecessor, MUSKAFIDI, Konstantin (b. April 2004, Russian national), held the office for six days.
+
+3. DPKGSOFT INTERNATIONAL LTD (15446241) — 75%+ person with significant control: the same DIABIN, Aleksei (notified 2024-11-18). Predecessor director ILIN, Eduard (b. November 2005, Russian national) used correspondence address 71-75 Shelton Street, Covent Garden WC2H 9JQ.
+
+4. SERV.HOST GROUP LTD (15728390) — holds AS207957, the operator re-announcing the attacking range. Sole director AND secretary: SEVASTIEIEV, Artem (b. July 2003), Ukrainian national residing in Ukraine, his only UK directorship. Registered office: 71-75 Shelton Street, Covent Garden WC2H 9JQ — the address listed on OFAC's SDN record for the designated entity AEZA INTERNATIONAL LTD (SDN 54567, designated 2025-07-01). This company already carries an active s1002A strike-off proposal.
+
+CONCERNS:
+(a) Whether directors aged 18-21 residing abroad, whose only verifiable UK connection is a virtual-office address, genuinely control companies whose address space is documented criminal infrastructure — or are nominees for undisclosed principals.
+(b) Whether the identity verifications on file were performed with adequate scrutiny, given the nominee-rotation pattern at two shared virtual addresses.
+(c) The Companies House record for SERV.HOST GROUP LTD sits at the same address OFAC's own record lists for a designated sanctions target.
+
+Supporting evidence: Companies House extracts, RIPE database records, OFAC SDN entries, threat-intelligence reports, and hash-chained attack logs — all available on request; the matter is filed with the FBI (IC3).
+
+Sincerely,
+Steven Vearl Crawford-Maggard
+fiersteity@gmail.com

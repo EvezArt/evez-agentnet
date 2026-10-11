@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T21:34:39.088284+00:00",
+  "generated": "2026-10-11T21:43:52.934126+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -97,6 +97,11 @@
       "unit": "gueriella-openclaw-watchdog.service",
       "sub": "running",
       "since": "Sun 2026-10-11 09:37:54 CEST"
+    },
+    {
+      "unit": "hermes-dashboard.service",
+      "sub": "running",
+      "since": "Sun 2026-10-11 23:43:50 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -692,12 +697,12 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 7 hours",
+      "status": "Up 8 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-a051ad69e5d3de4aa30228465b31df73",
-      "status": "Up 8 hours",
+      "status": "Up 9 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -754,9 +759,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "e25ac61",
-    "last": "RFJ tip: submit-ready text for the custodian's own hands",
-    "dirty": 19
+    "head": "6502371",
+    "last": "SERV.HOST principal identified: SEVASTIEIEV Artem \u2014 attack-range chain complete",
+    "dirty": 9
   },
   "mirrors": 2329
 }

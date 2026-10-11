@@ -15,13 +15,13 @@ CLOCKS=[
  {'id':'godaddy-preservation','demand':'domain + WHOIS/payment data preservation','served':'2026-10-05','deadline':'ongoing','consequence':'regulator escalation'},
  {'id':'namecheap-preservation','demand':'registration/privacy/payment preservation','served':'2026-10-05','deadline':'ongoing','consequence':'ICANN WHOIS inaccuracy complaint'},
  {'id':'cloudflare-preservation','demand':'zone/account data preservation','served':'2026-10-05','deadline':'ongoing','consequence':'litigation hold cited in claim'},
- {'id':'ch-strikeoff-objection','demand':'Companies House: record creditor objection, suspend strike-off TECHOFF 16090235','served':'2026-10-05','deadline':'2026-10-19','consequence':'escalate to CH objections team + MP letter'},
+ {'id':'ch-strikeoff-objection','demand':'OBJECTION SERVED to enquiries@companieshouse.gov.uk 2026-10-11 (TECHOFF 16090235, creditor claim, suspension request); track acknowledgement','served':'2026-10-11','deadline':'2026-10-18','consequence':'no CH ack in 7d: re-file via web form + post + MP letter'},
  {'id':'ch-acsp-review','demand':'CH integrity review of Paramount ACSP co-location','served':'2026-10-05','deadline':'2026-11-04','consequence':'HMRC supervisory referral'},
  {'id':'foipa-1758537-000','demand':'FBI FOIA response (statutory 20 working days from 2026-09-30 ack)','served':'2026-09-30','deadline':'2026-10-28','consequence':'FOIA appeal + congressional inquiry letter'},
  {'id':'ic3-confirmation','demand':'IC3 complaint auto-confirmation','served':'2026-10-01','deadline':'2026-10-31','consequence':'re-file via field office with case cross-ref'},
  {'id':'rfj-weekly-check','demand':'custodian: weekly SecureDrop login (codename account)','served':'2026-10-05','deadline':'weekly/Sunday','consequence':'missed analyst reply window'},
  {'id':'servhost-abuse-demand','demand':'ServHost abuse/preservation demand response (abuse@serv.host, sent 2026-10-11 from victim Gmail)','served':'2026-10-11','deadline':'2026-10-18','consequence':'escalate to upstream transit providers + RIPE NCC abuse + regulator (NIS2/hosting provider duty)'},
- {'id':'ch-diabin-complaint','demand':'Companies House integrity complaint re Diabin shells (CHSL 17001805 / NETSHIELD 14769288 / DPKGSOFT 15446241)','served':'2026-10-11','deadline':'2026-10-25','consequence':'complaint auto-ack + follow-up to CH integrity team; HMRC ACSP referral'},
+ {'id':'ch-diabin-complaint','demand':'INTEGRITY COMPLAINT SERVED to enquiries@companieshouse.gov.uk 2026-10-11 (CHSL/NETSHIELD/DPKGSOFT/SERVHOST four-shell nominee network); track acknowledgement','served':'2026-10-11','deadline':'2026-10-25','consequence':'no ack in 14d: follow-up + HMRC ACSP supervisory referral'},
 ]
 def main():
     now=datetime.now(timezone.utc).date()
