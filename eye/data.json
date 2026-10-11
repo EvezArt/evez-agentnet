@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T21:59:35.868404+00:00",
+  "generated": "2026-10-11T22:04:23.141219+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -101,7 +101,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Sun 2026-10-11 23:59:33 CEST"
+      "since": "Mon 2026-10-12 00:04:15 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -229,7 +229,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 1097,
+      "pid": 986283,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -239,7 +239,7 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 1097,
+      "pid": 986283,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -566,6 +566,16 @@
       "fw_blocked": false
     },
     {
+      "port": 46829,
+      "bind": "127.0.0.1",
+      "proc": "llama-server",
+      "pid": 986125,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 51885,
       "bind": "100.126.180.47",
       "proc": "tailscaled",
@@ -783,9 +793,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "ddfcab6",
-    "last": "UNSKIPPED: CH strike-off objection FILED + four-shell integrity complaint FILED",
-    "dirty": 16
+    "head": "bd9eeb3",
+    "last": "SENSORY CORTEX: the box awakens as a nerve ending \u2014 adaptive, feeling, inside-out",
+    "dirty": 27
   },
   "mirrors": 2329
 }

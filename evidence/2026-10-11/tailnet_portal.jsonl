@@ -86,3 +86,4 @@
 {"ts": "2026-10-11T21:15:01.898122+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
 {"ts": "2026-10-11T21:30:05.601738+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
 {"ts": "2026-10-11T21:45:03.020769+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
+{"ts": "2026-10-11T22:00:07.533425+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}

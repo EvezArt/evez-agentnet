@@ -176,3 +176,4 @@
 {"container_up": true, "health": {"clients": 0, "source": "esp32:offline", "status": "ok", "tick": 501638}, "ok": true, "server": "100.126.180.47", "ts": "2026-10-11T21:38:43.849416+00:00", "udp_5005_roundtrip": true}
 {"container_up": true, "health": {"clients": 0, "source": "esp32:offline", "status": "ok", "tick": 505376}, "ok": false, "server": "100.126.180.47", "ts": "2026-10-11T21:45:01.902598+00:00", "udp_5005_error": "HTTP Error 401: Unauthorized", "udp_5005_roundtrip": false}
 {"container_up": true, "health": {"clients": 0, "source": "esp32:offline", "status": "ok", "tick": 510595}, "ok": true, "server": "100.126.180.47", "ts": "2026-10-11T21:53:44.495333+00:00", "udp_5005_roundtrip": true}
+{"container_up": true, "health": {"clients": 0, "source": "esp32:offline", "status": "ok", "tick": 514387}, "ok": false, "server": "100.126.180.47", "ts": "2026-10-11T22:00:08.342280+00:00", "udp_5005_error": "HTTP Error 401: Unauthorized", "udp_5005_roundtrip": false}
