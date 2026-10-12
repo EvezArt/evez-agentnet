@@ -6,9 +6,9 @@ set -u
 RUVIEW_URL="${EVEZ_RUVIEW_URL:-https://vmi3544756.mooneye-shade.ts.net}"
 TIMEOUT="${EVEZ_DIAG_TIMEOUT:-4}"
 
-emit() {
-  printf '{"check":"%s","status":"%s","detail":"%s"}\n' "$1" "$2" "$3"
-}
+rows="$(mktemp)"
+trap 'rm -f "$rows"' EXIT
+emit() { printf '{"check":"%s","status":"%s","detail":"%s"}\n' "$1" "$2" "$3" >>"$rows"; }
 
 probe_http() {
   local name="$1" url="$2" code
@@ -16,7 +16,7 @@ probe_http() {
     emit "$name" "unknown" "curl-not-installed"
     return
   fi
-  code="$(curl -k -sS -o /dev/null -w '%{http_code}' --connect-timeout "$TIMEOUT" --max-time "$TIMEOUT" "$url" 2>/dev/null || true)"
+  code="$(curl -sS -o /dev/null -w '%{http_code}' --connect-timeout "$TIMEOUT" --max-time "$TIMEOUT" "$url" 2>/dev/null || true)"
   case "$code" in
     2??) emit "$name" "ok" "http-$code" ;;
     3??) emit "$name" "degraded" "http-$code-redirect" ;;
@@ -53,13 +53,6 @@ check_port() {
   fi
 }
 
-printf '{"suite":"evez-mesh-doctor","mode":"read-only","checks":['
-first=1
-# emit emits one JSON object per line, so buffer rows and wrap them into a valid JSON document.
-rows="$(mktemp)"
-trap 'rm -f "$rows"' EXIT
-emit() { printf '{"check":"%s","status":"%s","detail":"%s"}\n' "$1" "$2" "$3" >>"$rows"; }
-
 check_command "tailscale-status" tailscale status
 check_command "tailscale-serve" tailscale serve status
 probe_http "ruview-remote-health" "${RUVIEW_URL%/}/health"
@@ -79,7 +72,10 @@ else
   emit "docker-ruview" "unknown" "docker-not-installed"
 fi
 
-# Produce valid JSON with only sanitized status metadata.
+if ! command -v python3 >/dev/null 2>&1; then
+  printf '%s\n' '{"suite":"evez-mesh-doctor","mode":"read-only","error":"python3-not-installed"}'
+  exit 2
+fi
 python3 - "$rows" <<'PY'
 import json, pathlib, sys
 items = [json.loads(line) for line in pathlib.Path(sys.argv[1]).read_text().splitlines() if line.strip()]
