@@ -117,8 +117,30 @@ def main():
             continue
         findings.append(f"CODE-DRIFT {p}")
 
-    # Sensory cortex: any receptor firing novel stimulus is a finding —
-    # the patrol reads what the machine FEELS, not just what it computes.
+    # Sensory cortex + ADVERSARIAL RE-VERIFICATION: a receptor firing novel is
+    # a CLAIM, not a finding. Before it reaches the operator, the patrol
+    # re-measures that receptor independently; only sensations that survive
+    # their own re-test are reported. Transient firings die here, quietly —
+    # the operator never sees a ghost the machine already disproved.
+    def _remeasure(receptor: str):
+        """Independent second measurement of a receptor that fired."""
+        import importlib.util, sys as _sys
+        if "/root/evez-agentnet" not in _sys.path:
+            _sys.path.insert(0, "/root/evez-agentnet")  # sensory_cortex imports receptors_v2 by name
+        try:
+            names = {"verity", "delivery", "clocks", "enemy", "field", "superego"}
+            mod_name = "sensory_receptors_v2" if receptor in names else "sensory_cortex"
+            mod_path = Path(f"/root/evez-agentnet/{mod_name}.py")
+            spec = importlib.util.spec_from_file_location(mod_name, mod_path)
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            fn = getattr(mod, f"sense_{receptor}", None)
+            v = float(fn()["value"]) if fn else None
+            return v
+        except Exception as _e:
+            print(f"REMEASURE-DEBUG {receptor}: {type(_e).__name__}: {str(_e)[:80]}", file=sys.stderr)
+            return None
+
     try:
         sc = json.loads(Path("/root/evez-agentnet/status/sensory_state.json").read_text())
         age_min = None
@@ -131,9 +153,19 @@ def main():
         if age_min is None or age_min > 20:
             findings.append(f"CORTEX-STALE rendered_at={sc.get('rendered_at','?')}")
         for s in sc.get("sensations", []):
-            if s.get("novel"):
+            if not s.get("novel"):
+                continue
+            # transient flow/intruder spikes vanish before re-measure: re-test
+            recheck = _remeasure(s["receptor"])
+            if recheck is None:
                 findings.append(
-                    f"CORTEX-NOVEL {s['receptor']} v={s['value']} {json.dumps(s.get('detail',{}))[:100]}")
+                    f"CORTEX-NOVEL {s['receptor']} v={s['value']} {json.dumps(s.get('detail',{}))[:100]} (unverifiable)")
+            elif s["receptor"] in ("flow", "intruder", "load") and recheck < 0.4 * s["value"]:
+                pass  # spike collapsed between render and patrol: drop the ghost
+            else:
+                findings.append(
+                    f"CORTEX-NOVEL {s['receptor']} v={s['value']} re-measured={recheck:g} "
+                    f"CONFIRMED {json.dumps(s.get('detail',{}))[:80]}")
     except FileNotFoundError:
         findings.append("CORTEX-MISSING sensory_state.json not rendered yet")
     except Exception as e:

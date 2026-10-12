@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T02:53:58.780203+00:00",
+  "generated": "2026-10-12T03:02:39.787414+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -707,7 +707,7 @@
     },
     {
       "sched": "*/15 * * * *",
-      "cmd": "/usr/bin/python3 /root/ruview/tailnet_watch.py --once >> /root/ruview/tailnet_watch_cron.log 2>&1; rc=$?; if [ \"$rc\" -ne"
+      "cmd": "set -a; . /root/ruview/.env; set +a; /usr/bin/python3 /root/ruview/tailnet_watch.py --once >> /root/ruview/tailnet_watch"
     },
     {
       "sched": "*/15 * * * *",
@@ -807,9 +807,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "3d4033e",
-    "last": "SELF-OBSERVATION: the manifold caught itself, and corrupted its own memory doing it",
-    "dirty": 33
+    "head": "334b73d",
+    "last": "build queue ships substance: context-brief artifacts replace stub spam",
+    "dirty": 16
   },
   "mirrors": 2329
 }
