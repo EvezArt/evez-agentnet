@@ -14,3 +14,9 @@
 {"ts": "2026-10-12T03:15:01.643743+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
 {"ts": "2026-10-12T03:30:04.536457+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
 {"ts": "2026-10-12T03:45:01.861250+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
+{"ts": "2026-10-12T04:00:02.143385+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-12T04:15:02.666472+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-12T04:30:03.805101+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-12T04:45:02.933770+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-12T05:00:02.249582+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-12T05:15:05.142909+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}

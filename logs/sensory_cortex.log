@@ -296,3 +296,79 @@ FELT [memory] v=41.0 {"window_min": 5} stamp=271ae2445ae2
 FELT [voice] v=4.0 {"window_h": 1} stamp=9e0210cb0ba1
 tick 99: 14 receptors, 2 novel firings
 rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [memory] v=50.0 {"window_min": 5} stamp=e9a38ee34d81
+FELT [voice] v=3.0 {"window_h": 1} stamp=3811c29700a6
+tick 100: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [voice] v=3.0 {"window_h": 1} stamp=785eb39a78aa
+tick 101: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=a5948c1cf7e3
+FELT [voice] v=3.0 {"window_h": 1} stamp=8a1167512b0f
+tick 102: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=db1ef9d93aa8
+FELT [voice] v=3.0 {"window_h": 1} stamp=f145b171b8fa
+tick 103: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=ad1f63ad222e
+FELT [voice] v=3.0 {"window_h": 1} stamp=c37fafeec4ca
+tick 104: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=e94de84bac7c
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=d9c82f73904b
+FELT [voice] v=4.0 {"window_h": 1} stamp=97a0d10cece6
+tick 105: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=e2ba718288f8
+FELT [voice] v=3.0 {"window_h": 1} stamp=e39df54f0127
+tick 106: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=5cb9523d294d
+FELT [voice] v=3.0 {"window_h": 1} stamp=4f9debf32ccb
+tick 107: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=6428a4e7a329
+FELT [voice] v=3.0 {"window_h": 1} stamp=6a732783004f
+FELT [superego] v=44.0 {"disk_pct": 44} stamp=57e3edb2f98c
+tick 108: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=2b42d877b2fa
+FELT [superego] v=44.0 {"disk_pct": 44} stamp=73741f0d26e8
+tick 109: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=e7c8cc2e43f3
+FELT [flow] v=24.0 {} stamp=01d4f87e29a3
+tick 110: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=5a681446b903
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=b5d58ee554d9
+tick 111: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=aa1cd48f2de6
+tick 112: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=feb3950c5490
+tick 113: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=af2f273eb08e
+FELT [superego] v=44.0 {"disk_pct": 44} stamp=d8a6d80a5211
+tick 114: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=5e151ee5bac6
+FELT [superego] v=44.0 {"disk_pct": 44} stamp=ec18fba2514d
+tick 115: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=30ea9946317e
+tick 116: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [heartbeat] v=5.0 {"alive": 5, "expected": 6} stamp=8ac7c72015c9
+FELT [memory] v=11.0 {"window_min": 5} stamp=4fc9976e80f3
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=9cad62b0d0be
+FELT [superego] v=44.0 {"disk_pct": 44} stamp=e9bf5f37ec2a
+tick 117: 14 receptors, 4 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 4 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=1e2f5265dc2a
+FELT [flow] v=24.0 {} stamp=18bbf08b0fad
+tick 118: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
