@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T01:04:26.830654+00:00",
+  "generated": "2026-10-12T01:12:22.429307+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -47,6 +47,11 @@
       "unit": "evez-evidence-api.service",
       "sub": "running",
       "since": "Sun 2026-10-11 09:37:54 CEST"
+    },
+    {
+      "unit": "evez-films.service",
+      "sub": "running",
+      "since": "Mon 2026-10-12 03:07:06 CEST"
     },
     {
       "unit": "evez-honey.service",
@@ -97,6 +102,11 @@
       "unit": "gueriella-openclaw-watchdog.service",
       "sub": "running",
       "since": "Sun 2026-10-11 09:37:54 CEST"
+    },
+    {
+      "unit": "hermes-dashboard.service",
+      "sub": "running",
+      "since": "Mon 2026-10-12 03:12:18 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -345,6 +355,16 @@
       "bind": "127.0.0.1",
       "proc": "python3",
       "pid": 981449,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 8901,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 1348933,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -740,17 +760,17 @@
     },
     {
       "name": "ruview-demo",
-      "status": "Up 17 hours",
+      "status": "Up 18 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 17 hours",
+      "status": "Up 18 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 17 hours",
+      "status": "Up 18 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -792,9 +812,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "48f6104",
-    "last": "sealed_bundle.py: the FIX-DIRECTIVE hard-block, executed and proven",
-    "dirty": 30
+    "head": "9ef83a0",
+    "last": "films: the environment replayed from hash-stamped evidence",
+    "dirty": 13
   },
   "mirrors": 2329
 }

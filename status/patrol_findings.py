@@ -69,7 +69,7 @@ def main():
     # spot on 2026-10-11 (never enabled, died silently, patrol saw nothing).
     EXPECTED_UNITS = [
         "evez-agentnet", "evez-event-spine", "openclaw-gateway",
-        "evez-cogview", "ruview-bootstrap", "evez-raw-drops",
+        "evez-cogview", "ruview-bootstrap", "evez-raw-drops", "evez-films",
     ]
     for unit in EXPECTED_UNITS:
         out = sh(f"systemctl is-active {unit}").stdout.strip()

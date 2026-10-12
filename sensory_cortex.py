@@ -51,7 +51,7 @@ SHIP_LOG = HOME / "shipper" / "ship_log.jsonl"
 
 WINDOW = 48          # ticks in the rolling baseline (at 5min/tick = 4h memory)
 K_SIGMA = 4.0        # fire when |x - med| > K * MAD
-SERVICE_SET = ["evez-agentnet", "evez-event-spine", "openclaw-gateway", "evez-cogview", "evez-raw-drops"]
+SERVICE_SET = ["evez-agentnet", "evez-event-spine", "openclaw-gateway", "evez-cogview", "evez-raw-drops"], "evez-films"]
 
 
 def sh(cmd: str) -> str:
