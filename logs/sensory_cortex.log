@@ -132,3 +132,10 @@ FELT [load] v=1.6 {"mem_pct": 41} stamp=3a1c76b13fde
 FELT [enemy] v=881.0 {"new_sources": ["100.29.192.127", "100.29.192.44", "100.29.192.48", "100.51.6.16", "100.53.92.177", stamp=c073600f9e01
 tick 58: 14 receptors, 6 novel firings
 rendered /root/evez-agentnet/eye/sensory.html — 6 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=303267b16ff2
+FELT [hand] v=11.0 {"params": {"base_width": 5.0, "slant": -0.25}} stamp=8c88ad5fd5b8
+FELT [voice] v=511.0 {"window_h": 1} stamp=1e2e1b687f69
+FELT [flow] v=17.0 {} stamp=fd5906a04b47
+FELT [enemy] v=881.0 {"new_sources": ["100.29.192.127", "100.29.192.44", "100.29.192.48", "100.51.6.16", "100.53.92.177", stamp=03d8698f907a
+tick 59: 14 receptors, 5 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 5 novel receptors

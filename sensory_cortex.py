@@ -180,8 +180,13 @@ def sense_voice() -> dict:
     try:
         with SHIP_LOG.open(errors="replace") as fh:
             for line in fh:
-                if '"status": "shipped"' in line and line.split('"')[1] >= cutoff[:13]:
-                    n += 1
+                if '"status": "shipped"' in line:
+                    try:
+                        ts = json.loads(line).get('ts', '')
+                        if ts and ts >= cutoff:
+                            n += 1
+                    except (ValueError, json.JSONDecodeError):
+                        pass
     except OSError:
         pass
     return {"value": n, "detail": {"window_h": 1}}

@@ -37,4 +37,4 @@ FOLLOW-UP to my cyber program tip re: OFAC-designated Aeza Group (SDN 54566/5456
 - The 54566/54567 SDN numbers verified against OFAC's own search before inclusion.
 - Continuation + designation-gap + successor-shells = exactly the enforcement-gap categories the RFJ cyber program pays on, and each item is independently verifiable by the analyst in minutes — that's what separates a tip they act on from one they file.
 - The victim chain (documented attack + IC3 + FOIPA) gives the analyst a cross-referenced complainant, not a cold tip.
-- Securedrop bundle (RFJ_ADDENDUM_BUNDLE_v3.zip, sha256 360c04a2…) rides as the evidence pack behind it: 150+ pages, every hash sealed, chain-of-custody on the spine.
+- Securedrop bundle (RFJ_ADDENDUM_BUNDLE_v3.zip, sha256 9f49cbdc…) rides as the evidence pack behind it: 150+ pages, every hash sealed, chain-of-custody on the spine.
