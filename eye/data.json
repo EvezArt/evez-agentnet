@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T22:17:59.386331+00:00",
+  "generated": "2026-10-12T00:16:50.307753+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -101,7 +101,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 00:17:56 CEST"
+      "since": "Mon 2026-10-12 02:16:49 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -126,7 +126,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sun 2026-10-11 22:46:59 CEST"
+      "since": "Mon 2026-10-12 00:31:43 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -169,7 +169,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 898916,
+      "pid": 1056808,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -269,7 +269,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 896875,
+      "pid": 1050092,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -449,7 +449,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 896875,
+      "pid": 1050092,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -459,7 +459,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 896875,
+      "pid": 1050092,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -546,36 +546,6 @@
       "fw_blocked": false
     },
     {
-      "port": 35169,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 896875,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 36201,
-      "bind": "127.0.0.1",
-      "proc": "Xtigervnc",
-      "pid": 1015323,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 36201,
-      "bind": "[::1]",
-      "proc": "Xtigervnc",
-      "pid": 1015323,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 36261,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
@@ -586,10 +556,20 @@
       "fw_blocked": false
     },
     {
-      "port": 46829,
+      "port": 38767,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 1050092,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 41265,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 986125,
+      "pid": 1245002,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -751,27 +731,27 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 8 hours",
+      "status": "Up 10 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-a051ad69e5d3de4aa30228465b31df73",
-      "status": "Up 9 hours",
+      "status": "Up 11 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ruview-demo",
-      "status": "Up 15 hours",
+      "status": "Up 17 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 15 hours",
+      "status": "Up 17 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 15 hours",
+      "status": "Up 17 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -813,9 +793,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "0fd370c",
-    "last": "cortex live-fire proof: real stimulus felt, fired, habituated",
-    "dirty": 20
+    "head": "1c483db",
+    "last": "cortex v2: six evidence-verity receptors \u2014 the cortex verifies its own inputs",
+    "dirty": 45
   },
   "mirrors": 2329
 }

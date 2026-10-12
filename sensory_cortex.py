@@ -51,7 +51,7 @@ SHIP_LOG = HOME / "shipper" / "ship_log.jsonl"
 
 WINDOW = 48          # ticks in the rolling baseline (at 5min/tick = 4h memory)
 K_SIGMA = 4.0        # fire when |x - med| > K * MAD
-SERVICE_SET = ["evez-agentnet", "evez-event-spine", "openclaw-gateway", "evez-cogview"]
+SERVICE_SET = ["evez-agentnet", "evez-event-spine", "openclaw-gateway", "evez-cogview", "evez-raw-drops"]
 
 
 def sh(cmd: str) -> str:
@@ -92,25 +92,44 @@ def baseline(state: dict, key: str, value: float) -> tuple[bool, float]:
 
 
 def sense_touch() -> dict:
-    """Skin: blocks in the last 5 minutes, grouped by source."""
-    cutoff = time.time() - 300
+    """Skin: blocks in the last 5 minutes, grouped by source.
+
+    ACCURACY FIX: ufw.log rotates slowly and holds days of history; reading
+    the whole file counted EVERYTHING ever blocked, not the live window —
+    the value could only ratchet upward and any 'novelty' was fake. Read
+    only the file tail (last 4000 lines ~ the recent window).
+    """
     count = 0
     sources: dict[str, int] = {}
+    now = dt.datetime.now()
     try:
-        with UFW_LOG.open(errors="replace") as fh:
-            for line in fh:
-                if "UFW BLOCK" not in line:
-                    continue
-                m = re.search(r"Jan|Feb|... ", line)  # cheap prefilter
-                m2 = re.search(r"SRC=(\d+\.\d+\.\d+\.\d+)", line)
-                if not m2:
-                    continue
-                count += 1
-                sources[m2.group(1)] = sources.get(m2.group(1), 0) + 1
-    except OSError:
+        out = subprocess.run(["tail", "-n", "6000", str(UFW_LOG)],
+                             capture_output=True, text=True, timeout=30).stdout
+        for line in out.splitlines():
+            if "UFW BLOCK" not in line:
+                continue
+            # RFC3339 timestamp: "2026-10-12T02:08:13.627556+02:00"
+            src = re.search(r"SRC=((?:\d{1,3}\.){3}\d{1,3})", line)
+            if not src:
+                continue
+            tsm = re.match(r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})", line)
+            in_window = True
+            if tsm:
+                try:
+                    when = dt.datetime.fromisoformat(tsm.group(1))
+                    local = dt.datetime.fromisoformat(
+                        dt.datetime.now(dt.timezone.utc).astimezone().isoformat())
+                    in_window = (local - when).total_seconds() <= 300
+                except ValueError:
+                    in_window = True  # unparseable: count (fail-open, visible)
+            if not in_window:
+                continue
+            count += 1
+            sources[src.group(1)] = sources.get(src.group(1), 0) + 1
+    except Exception:
         pass
     top = sorted(sources.items(), key=lambda x: -x[1])[:5]
-    return {"value": count, "detail": {"top_sources": top, "distinct": len(sources)}}
+    return {"value": count, "detail": {"top_sources": top, "distinct": len(sources), "window_s": 300}}
 
 
 def sense_intruder() -> dict:
@@ -228,6 +247,24 @@ def main() -> int:
         if fires:
             stamp = hashlib.sha256(json.dumps(rec, sort_keys=True).encode()).hexdigest()[:12]
             print(f"FELT [{name}] v={val} {json.dumps(reading['detail'])[:100]} stamp={stamp}")
+
+    # Definition-change reseed: if the receptor set itself changed since the
+    # last tick (organs added/removed), the affected baselines describe a
+    # DIFFERENT sensor and must relearn instead of firing a false novelty.
+    set_sig = sorted(RECEPTORS)
+    if state.get("receptor_set") != set_sig:
+        changed = {k for k in set(RECEPTORS) - set(state.get("receptor_set", []))}
+        changed |= {k for k in set(state.get("receptor_set", [])) - set(RECEPTORS)}
+        # any receptor whose SERVICE_SET/definition inputs changed reseeds too:
+        # heartbeat watches SERVICE_SET; if its size changed, reseed it.
+        if "heartbeat" in RECEPTORS and state.get("service_set_size") != len(SERVICE_SET):
+            changed.add("heartbeat")
+            state["service_set_size"] = len(SERVICE_SET)
+        for k in changed:
+            state["baselines"].pop(k, None)
+        state["receptor_set"] = set_sig
+        if changed:
+            print(f"RESEEDED {sorted(changed)} — definition change, not stimulus")
 
     state["sensations"] = sensations
     state["rendered_at"] = now.isoformat()

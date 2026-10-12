@@ -1,0 +1,2 @@
+{"ts": "2026-10-12T00:00:02.287484+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
+{"ts": "2026-10-12T00:15:01.805214+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}

@@ -116,8 +116,11 @@ def sense_clocks() -> dict:
 
 
 def sense_enemy() -> dict:
-    """Threat sense: NEW UFW sources in 24h that the registry has never seen."""
-    cutoff = time.time() - 86400
+    """Threat sense: NEW UFW sources in the last 24h that the registry has
+    never seen. ACCURACY FIX (2026-10-12): previously read the whole log
+    (days of history) — now a true 24h window via RFC3339 parse, same as
+    the touch receptor, so the novelty count is a real rate, not a ratchet."""
+    import datetime as _dt
     known: set[str] = set()
     try:
         known = set(re.findall(r"\b(?:\d{1,3}\.){3}\d{1,3}\b", REGISTRY.read_text(errors="replace")))
@@ -125,20 +128,30 @@ def sense_enemy() -> dict:
         pass
     fresh: set[str] = set()
     try:
-        with UFW_LOG.open(errors="replace") as fh:
-            for line in fh:
-                if "UFW BLOCK" not in line:
-                    continue
-                m = re.search(r"SRC=((?:\d{1,3}\.){3}\d{1,3})", line)
-                if not m:
-                    continue
-                ip = m.group(1)
-                if ip not in known:
-                    fresh.add(ip)
-    except OSError:
+        out = subprocess.run(["tail", "-n", "20000", str(UFW_LOG)],
+                             capture_output=True, text=True, timeout=60).stdout
+        now_local = _dt.datetime.now()
+        for line in out.splitlines():
+            if "UFW BLOCK" not in line:
+                continue
+            tsm = re.match(r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})", line)
+            src = re.search(r"SRC=((?:\d{1,3}\.){3}\d{1,3})", line)
+            if not src:
+                continue
+            if tsm:
+                try:
+                    when = _dt.datetime.fromisoformat(tsm.group(1))
+                    if (now_local - when).total_seconds() > 86400:
+                        continue
+                except ValueError:
+                    pass
+            ip = src.group(1)
+            if ip not in known:
+                fresh.add(ip)
+    except Exception:
         pass
     fresh = {ip for ip in fresh if not ip.startswith(("172.1", "10.", "192.168."))}
-    return {"value": len(fresh), "detail": {"new_sources": sorted(fresh)[:10]}}
+    return {"value": len(fresh), "detail": {"new_sources": sorted(fresh)[:10], "window_h": 24}}
 
 
 def sense_field() -> dict:

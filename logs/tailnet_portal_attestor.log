@@ -158,3 +158,11 @@
 {"ts": "2026-10-11T21:45:03.020769+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
 {"ts": "2026-10-11T22:00:07.533425+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
 {"ts": "2026-10-11T22:15:02.400746+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
+{"ts": "2026-10-11T22:30:07.047397+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "The read operation timed out"}
+{"ts": "2026-10-11T22:45:02.691739+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
+{"ts": "2026-10-11T23:00:03.833450+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
+{"ts": "2026-10-11T23:15:02.208628+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
+{"ts": "2026-10-11T23:30:05.751922+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
+{"ts": "2026-10-11T23:45:01.509667+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
+{"ts": "2026-10-12T00:00:02.287484+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
+{"ts": "2026-10-12T00:15:01.805214+00:00", "check": "tailnet_portal", "ok": true, "http": 200, "body": "{\"ok\":true,\"status\":\"live\"}", "cert_valid": true}
