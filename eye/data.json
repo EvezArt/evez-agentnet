@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T03:02:39.787414+00:00",
+  "generated": "2026-10-12T03:39:32.560739+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -11,7 +11,7 @@
     {
       "unit": "evez-agentnet.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 04:51:11 CEST"
+      "since": "Mon 2026-10-12 05:35:28 CEST"
     },
     {
       "unit": "evez-api-daemon.service",
@@ -576,16 +576,6 @@
       "fw_blocked": false
     },
     {
-      "port": 46675,
-      "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 1559112,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 51885,
       "bind": "100.126.180.47",
       "proc": "tailscaled",
@@ -755,17 +745,17 @@
     },
     {
       "name": "ruview-demo",
-      "status": "Up 19 hours",
+      "status": "Up 20 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 19 hours",
+      "status": "Up 20 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 19 hours",
+      "status": "Up 20 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -807,9 +797,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "334b73d",
-    "last": "build queue ships substance: context-brief artifacts replace stub spam",
-    "dirty": 16
+    "head": "2b7589f",
+    "last": "patrol adversarial re-verification: sensations must survive re-measure",
+    "dirty": 36
   },
   "mirrors": 2329
 }

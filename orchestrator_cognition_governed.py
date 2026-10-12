@@ -187,16 +187,11 @@ def run_openclaw(state: dict):
         return
     try:
         from openclaw.agent import OpenClawAgent
-        from openclaw.engine import OpenClawEngine
         from worldsim.secret_levels import SECRET_LEVELS
-        lord_enabled = os.environ.get("OPENCLAW_LORD", "0") == "1"
-        engine = OpenClawEngine(level_pack=SECRET_LEVELS)
-        agent = OpenClawAgent(agent_id="orchestrator-openclaw", engine=engine)
-        if lord_enabled:
-            from openclaw.lord_bridge import LordBridge
-            bridge = LordBridge()
-            bridge.sync_entropy()
-            agent.set_lord_bridge(bridge)
+        # Fixed 2026-10-12: the engine/agent constructors never accepted
+        # level_pack/agent_id — 530 identical openclaw_failed events across
+        # 574 rounds, every one preventable by reading the signature.
+        agent = OpenClawAgent()
         results = [agent.play_level(lvl) for lvl in SECRET_LEVELS]
         passed = sum(1 for r in results if r.get("success"))
         oc = state.setdefault("openclaw", {})

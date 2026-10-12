@@ -154,7 +154,11 @@ class OpenClawAgent:
 
         # Run engine iterations
         result = self.engine.run()
-        success = result.get("status") == "complete" or result.get("iterations", 0) > 0
+        # Fixed 2026-10-12: the engine never emits a 'status' key — it emits
+        # iteration counts, unlocks, and living entities. Success = the run
+        # advanced AND the level's entities are alive in the result.
+        iter_count = result.get("iteration", 0)
+        success = iter_count > 0 and bool(result.get("living_entities")) or result.get("TIER_3_SECRET_unlocked")
 
         if self.verbose:
             print(f"[OpenClawAgent] Level '{level_name}' — success={success}")
