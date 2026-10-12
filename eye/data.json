@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T02:23:43.769393+00:00",
+  "generated": "2026-10-12T02:53:58.780203+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -11,7 +11,7 @@
     {
       "unit": "evez-agentnet.service",
       "sub": "running",
-      "since": "Sun 2026-10-11 22:31:05 CEST"
+      "since": "Mon 2026-10-12 04:51:11 CEST"
     },
     {
       "unit": "evez-api-daemon.service",
@@ -104,11 +104,6 @@
       "since": "Sun 2026-10-11 09:37:54 CEST"
     },
     {
-      "unit": "hermes-dashboard.service",
-      "sub": "running",
-      "since": "Mon 2026-10-12 04:23:40 CEST"
-    },
-    {
       "unit": "hermes-ears.service",
       "sub": "running",
       "since": "Sun 2026-10-11 09:37:54 CEST"
@@ -131,7 +126,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 04:14:37 CEST"
+      "since": "Mon 2026-10-12 04:33:36 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -174,7 +169,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 1487642,
+      "pid": 1528021,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -274,7 +269,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1476737,
+      "pid": 1522089,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -464,7 +459,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1476737,
+      "pid": 1522089,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -474,7 +469,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 1476737,
+      "pid": 1522089,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -571,10 +566,20 @@
       "fw_blocked": false
     },
     {
-      "port": 45985,
+      "port": 45139,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1476737,
+      "pid": 1522089,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 46675,
+      "bind": "127.0.0.1",
+      "proc": "llama-server",
+      "pid": 1559112,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -740,12 +745,12 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 12 hours",
+      "status": "Up 13 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-a051ad69e5d3de4aa30228465b31df73",
-      "status": "Up 13 hours",
+      "status": "Up 14 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -802,9 +807,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "44d74c2",
-    "last": "fix syntax error in SERVICE_SET edit",
-    "dirty": 36
+    "head": "3d4033e",
+    "last": "SELF-OBSERVATION: the manifold caught itself, and corrupted its own memory doing it",
+    "dirty": 33
   },
   "mirrors": 2329
 }
