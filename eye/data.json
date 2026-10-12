@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T05:25:13.860465+00:00",
+  "generated": "2026-10-12T05:39:35.090564+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -131,7 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:20:12 CEST"
+      "since": "Mon 2026-10-12 07:37:05 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -174,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 8825,
+      "pid": 23079,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -267,16 +267,6 @@
       "pid": 2792,
       "public_bind": false,
       "tailnet": true,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 3334,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 6777,
-      "public_bind": false,
-      "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
@@ -464,7 +454,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 6777,
+      "pid": 22027,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -474,7 +464,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 6777,
+      "pid": 22027,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -581,10 +571,10 @@
       "fw_blocked": false
     },
     {
-      "port": 40417,
+      "port": 46179,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 6777,
+      "pid": 22027,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -749,22 +739,35 @@
     {
       "sched": "*/2 * * * *",
       "cmd": "/usr/bin/python3 /root/.openclaw/workspace/evez_selfmind/machine_probe.py >> /root/.openclaw/workspace/evez_selfmind/pro"
+    },
+    {
+      "sched": "15 6 * * *",
+      "cmd": "cd /root/evez-agentnet && python3 registry_growth.py >> logs/registry_growth.log 2>&1"
+    },
+    {
+      "sched": "17 */6 * * *",
+      "cmd": "/usr/bin/python3 /usr/local/bin/evez-kalshi-digest >> /root/.openclaw/workspace/evez_kalshi/digest.log 2>&1"
     }
   ],
   "docker": [
     {
+      "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
+      "status": "Up 13 minutes",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
       "name": "ruview-demo",
-      "status": "Up 7 minutes",
+      "status": "Up 21 minutes",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 7 minutes",
+      "status": "Up 21 minutes",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 7 minutes",
+      "status": "Up 21 minutes",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -806,9 +809,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "0414982",
-    "last": "queue drafts carry real briefs; shipper restart-loop hotfix",
-    "dirty": 45
+    "head": "31b2c0d",
+    "last": "registry organ: the attacker registry grows itself",
+    "dirty": 16
   },
   "mirrors": 2329
 }

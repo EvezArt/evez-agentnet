@@ -372,3 +372,14 @@ FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=1e2f526
 FELT [flow] v=24.0 {} stamp=18bbf08b0fad
 tick 118: 14 receptors, 2 novel firings
 rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=3577187f700e
+tick 119: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=8ff35d22efd4
+tick 120: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=13.0 {"params": {"base_width": 4.5, "slant": -0.25}} stamp=7a7c29e435d5
+FELT [flow] v=22.0 {} stamp=e4ce401e4983
+FELT [superego] v=44.0 {"disk_pct": 44} stamp=cb56351a9638
+tick 121: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors

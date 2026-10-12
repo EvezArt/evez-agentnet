@@ -53,3 +53,5 @@
 {"container_up": true, "health": {"clients": 0, "source": "esp32:offline", "status": "ok", "tick": 769548}, "ok": true, "server": "100.126.180.47", "ts": "2026-10-12T05:09:03.016693+00:00", "udp_5005_roundtrip": true}
 {"container_up": true, "health": {"clients": 0, "source": "esp32:offline", "status": "ok", "tick": 773102}, "ok": true, "server": "100.126.180.47", "ts": "2026-10-12T05:15:02.333079+00:00", "udp_5005_roundtrip": true}
 {"container_up": true, "health_error": "<urlopen error [Errno 111] Connection refused>", "ok": false, "server": "100.126.180.47", "ts": "2026-10-12T05:17:58.916475+00:00"}
+{"container_up": true, "health": {"clients": 0, "source": "simulated", "status": "ok", "tick": 7239}, "ok": true, "server": "100.126.180.47", "ts": "2026-10-12T05:30:03.518660+00:00", "udp_5005_roundtrip": true}
+{"container_up": true, "health": {"clients": 0, "source": "esp32:offline", "status": "ok", "tick": 8940}, "ok": true, "server": "100.126.180.47", "ts": "2026-10-12T05:32:59.110715+00:00", "udp_5005_roundtrip": true}

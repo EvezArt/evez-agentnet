@@ -52,6 +52,7 @@ commands on this box on Oct 3 ~07:16–07:29.
 - 185.2.80.0/24 — blocked, standing scan pressure
 - 85.217.140.0/24 + 85.217.149.0/24 — Modat B.V. commercial scanner (NL)
 - 109.160.32.0/24 — GBTCloud botnet range (SSH study); 109.160.32.157 top single-IP scanner Oct 12
+- 194.180.49.0/24 — MEVSPACE sp. z o.o. (PL): documented hostile scanning (registry prose, consolidated)
 
 ## CONTACT LEDGER (auto-appended)
 
