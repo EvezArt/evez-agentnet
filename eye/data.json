@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T00:16:50.307753+00:00",
+  "generated": "2026-10-12T00:35:36.477464+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -101,7 +101,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 02:16:49 CEST"
+      "since": "Mon 2026-10-12 02:35:31 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -726,6 +726,10 @@
     {
       "sched": "*/5 * * * *",
       "cmd": "cd /root/evez-agentnet && python3 sensory_cortex.py >> logs/sensory_cortex.log 2>&1 && python3 sensory_render.py >> logs"
+    },
+    {
+      "sched": "*/10 * * * *",
+      "cmd": "/usr/local/lib/hermes-agent/venv/bin/python /root/evez-agentnet/publish_sensory_public.py >> /root/evez-agentnet/logs/se"
     }
   ],
   "docker": [
@@ -793,9 +797,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "1c483db",
-    "last": "cortex v2: six evidence-verity receptors \u2014 the cortex verifies its own inputs",
-    "dirty": 45
+    "head": "821f14e",
+    "last": "touch+enemy receptor accuracy surgery: true time windows, not log ratchets",
+    "dirty": 29
   },
   "mirrors": 2329
 }
