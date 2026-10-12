@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T01:12:22.429307+00:00",
+  "generated": "2026-10-12T01:13:11.592371+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -106,7 +106,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 03:12:18 CEST"
+      "since": "Mon 2026-10-12 03:13:03 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -812,9 +812,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "9ef83a0",
-    "last": "films: the environment replayed from hash-stamped evidence",
-    "dirty": 13
+    "head": "698324f",
+    "last": "films on the a16 tailnet: serve_films + evez-films unit + 8443 paths",
+    "dirty": 7
   },
   "mirrors": 2329
 }
