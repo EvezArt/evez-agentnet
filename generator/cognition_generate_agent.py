@@ -35,13 +35,18 @@ def _drain_queue(remaining: list[dict[str, Any]]) -> None:
 def _queue_item_to_prediction(item: dict[str, Any]) -> dict[str, Any]:
     label = item.get("label", "queued-artifact")
     notes = item.get("notes", [])
+    # The draft must carry the artifact brief itself — the shipped post is
+    # the operator's window into the build queue, and a one-line stub
+    # ("Build queued artifact for branch-N") is noise. The artifact file
+    # (same label, .state/draft_artifacts/) holds the full context-brief.
+    brief = ""
+    artifact_path = Path(".state/draft_artifacts") / f"{label}.md"
+    if artifact_path.is_file():
+        brief = artifact_path.read_text(encoding="utf-8")[:1600]
     return {
         "title": label,
-        # github_post has no delivery path (no repo push auth); the queue
-        # must drain into a channel the shipper can actually publish to.
-        # Telegram is the one proven-live channel on this host.
         "deliverable_type": "telegram_message",
-        "action_plan": f"Build queued artifact for {label}. Notes: {'; '.join(notes)}",
+        "action_plan": brief or f"Build queued artifact for {label}. Notes: {'; '.join(notes)}",
         "source": "daemon_build_queue",
         "opportunity_score": item.get("priority", 0.0),
     }

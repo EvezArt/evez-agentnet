@@ -20,9 +20,9 @@
     "mode": "running",
     "active_identity": "builder",
     "action_mode": "construct",
-    "predictor_entropy": 0.9183116522142637,
-    "rsi_branch_entropy": 7.504336,
-    "rsi_last_injected_at": "2026-10-12T03:35:34.254403+00:00"
+    "predictor_entropy": 0.9183024998563174,
+    "rsi_branch_entropy": 7.509274,
+    "rsi_last_injected_at": "2026-10-12T03:47:25.117955+00:00"
   },
   "branches": [
     {
@@ -23822,6 +23822,114 @@
         "action:hold",
         "dark pressure candidate"
       ]
+    },
+    {
+      "label": "branch-1828",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "branch-1829",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "branch-1830",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "branch-1831",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "branch-1832",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "branch-1833",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-579-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:579",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-579-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:579",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-579-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:579",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
     }
   ],
   "unresolved_residue": [],
@@ -23867,10 +23975,10 @@
         "ship"
       ],
       "stability": 1.0,
-      "control_gain": 2.535000000000002,
-      "coherence_gain": 1.3650000000000004,
-      "contradiction_load": 0.2924999999999999,
-      "last_activated_at": "2026-10-12T03:35:31.283574+00:00"
+      "control_gain": 2.730000000000003,
+      "coherence_gain": 1.4700000000000009,
+      "contradiction_load": 0.3149999999999998,
+      "last_activated_at": "2026-10-12T03:47:21.993334+00:00"
     }
   ],
   "valuation": {
@@ -105346,9 +105454,567 @@
         "unresolved_count": 0,
         "dark_pressure_count": 0
       }
+    },
+    {
+      "at": "2026-10-12T03:46:04.067960+00:00",
+      "kind": "boot",
+      "payload": {
+        "checkpoint_id": "af4a7f29-89a0-4d0a-bc5f-020121ebed98"
+      }
+    },
+    {
+      "at": "2026-10-12T03:46:26.189086+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-1828",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 579, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will the lowest temperature in Munich be 0\u00b0C on October 13?\", \"volume_usd\": 99.99949000000001, \"end_date\": \"2026-10-13T12:00:00Z\", \"url\": \"https://polymarket.com/event/lowest-temperature-in-munich-on-october-13-2026-0c\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-12T03:46:26.187657+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Washington Capitals be the 2027 NHL Eastern Conference Champion?\", \"volume_usd\": 9999.899694, \"end_date\": \"2027-07-01T03:59:00Z\", \"url\": \"https://polymarket.com/event/will-washington-capitals-be-the-2027-nhl-eastern-conference-champion-20260630185127021\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-12T03:46:26.187848+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 487651, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-12T03:46:26.188111+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-12T03:46:26.189841+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-1828",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-12T03:46:26.189314+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-12T03:46:26.189370+00:00",
+            "identity": "builder",
+            "label": "branch-1828",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-1828.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-12T03:46:37.062879+00:00",
+      "kind": "boot",
+      "payload": {
+        "checkpoint_id": "af4a7f29-89a0-4d0a-bc5f-020121ebed98"
+      }
+    },
+    {
+      "at": "2026-10-12T03:46:38.134691+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-1829",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 579, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will the lowest temperature in Munich be 0\u00b0C on October 13?\", \"volume_usd\": 99.99949000000001, \"end_date\": \"2026-10-13T12:00:00Z\", \"url\": \"https://polymarket.com/event/lowest-temperature-in-munich-on-october-13-2026-0c\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-12T03:46:38.133479+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Washington Capitals be the 2027 NHL Eastern Conference Champion?\", \"volume_usd\": 9999.899694, \"end_date\": \"2027-07-01T03:59:00Z\", \"url\": \"https://polymarket.com/event/will-washington-capitals-be-the-2027-nhl-eastern-conference-champion-20260630185127021\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-12T03:46:38.133557+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 487651, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-12T03:46:38.133801+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-12T03:46:38.135267+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-1829",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-12T03:46:38.134858+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-12T03:46:38.134906+00:00",
+            "identity": "builder",
+            "label": "branch-1829",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-1829.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-12T03:46:48.845562+00:00",
+      "kind": "boot",
+      "payload": {
+        "checkpoint_id": "af4a7f29-89a0-4d0a-bc5f-020121ebed98"
+      }
+    },
+    {
+      "at": "2026-10-12T03:46:50.205046+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-1830",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 579, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will the lowest temperature in Munich be 0\u00b0C on October 13?\", \"volume_usd\": 99.99949000000001, \"end_date\": \"2026-10-13T12:00:00Z\", \"url\": \"https://polymarket.com/event/lowest-temperature-in-munich-on-october-13-2026-0c\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-12T03:46:50.203900+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Washington Capitals be the 2027 NHL Eastern Conference Champion?\", \"volume_usd\": 9999.899694, \"end_date\": \"2027-07-01T03:59:00Z\", \"url\": \"https://polymarket.com/event/will-washington-capitals-be-the-2027-nhl-eastern-conference-champion-20260630185127021\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-12T03:46:50.203965+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 487651, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-12T03:46:50.204203+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-12T03:46:50.205761+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-1830",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-12T03:46:50.205246+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-12T03:46:50.205292+00:00",
+            "identity": "builder",
+            "label": "branch-1830",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-1830.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-12T03:47:01.093409+00:00",
+      "kind": "boot",
+      "payload": {
+        "checkpoint_id": "af4a7f29-89a0-4d0a-bc5f-020121ebed98"
+      }
+    },
+    {
+      "at": "2026-10-12T03:47:02.431394+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-1831",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 579, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will the lowest temperature in Munich be 0\u00b0C on October 13?\", \"volume_usd\": 99.99949000000001, \"end_date\": \"2026-10-13T12:00:00Z\", \"url\": \"https://polymarket.com/event/lowest-temperature-in-munich-on-october-13-2026-0c\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-12T03:47:02.428588+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Washington Capitals be the 2027 NHL Eastern Conference Champion?\", \"volume_usd\": 9999.899694, \"end_date\": \"2027-07-01T03:59:00Z\", \"url\": \"https://polymarket.com/event/will-washington-capitals-be-the-2027-nhl-eastern-conference-champion-20260630185127021\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-12T03:47:02.428716+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 487651, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-12T03:47:02.428942+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-12T03:47:02.433509+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-1831",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-12T03:47:02.431896+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-12T03:47:02.431972+00:00",
+            "identity": "builder",
+            "label": "branch-1831",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-1831.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-12T03:47:13.317747+00:00",
+      "kind": "boot",
+      "payload": {
+        "checkpoint_id": "af4a7f29-89a0-4d0a-bc5f-020121ebed98"
+      }
+    },
+    {
+      "at": "2026-10-12T03:47:14.907459+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-1832",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 579, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will the lowest temperature in Munich be 0\u00b0C on October 13?\", \"volume_usd\": 99.99949000000001, \"end_date\": \"2026-10-13T12:00:00Z\", \"url\": \"https://polymarket.com/event/lowest-temperature-in-munich-on-october-13-2026-0c\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-12T03:47:14.906177+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Washington Capitals be the 2027 NHL Eastern Conference Champion?\", \"volume_usd\": 9999.899694, \"end_date\": \"2027-07-01T03:59:00Z\", \"url\": \"https://polymarket.com/event/will-washington-capitals-be-the-2027-nhl-eastern-conference-champion-20260630185127021\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-12T03:47:14.906253+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 487652, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-12T03:47:14.906532+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-12T03:47:14.908135+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-1832",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-12T03:47:14.907706+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-12T03:47:14.907757+00:00",
+            "identity": "builder",
+            "label": "branch-1832",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-1832.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-12T03:47:20.879514+00:00",
+      "kind": "boot",
+      "payload": {
+        "checkpoint_id": "af4a7f29-89a0-4d0a-bc5f-020121ebed98"
+      }
+    },
+    {
+      "at": "2026-10-12T03:47:21.991355+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-1833",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 579, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will the lowest temperature in Munich be 0\u00b0C on October 13?\", \"volume_usd\": 99.99949000000001, \"end_date\": \"2026-10-13T12:00:00Z\", \"url\": \"https://polymarket.com/event/lowest-temperature-in-munich-on-october-13-2026-0c\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-12T03:47:21.990216+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Washington Capitals be the 2027 NHL Eastern Conference Champion?\", \"volume_usd\": 9999.899694, \"end_date\": \"2027-07-01T03:59:00Z\", \"url\": \"https://polymarket.com/event/will-washington-capitals-be-the-2027-nhl-eastern-conference-champion-20260630185127021\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-12T03:47:21.990289+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 487652, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-12T03:47:21.990617+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-12T03:47:21.994020+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-1833",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-12T03:47:21.993264+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-12T03:47:21.993347+00:00",
+            "identity": "builder",
+            "label": "branch-1833",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-1833.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-12T03:47:22.274210+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-12T03:47:22.274456+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-1833",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-1833",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-12T03:47:21.993264+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-12T03:47:21.993347+00:00",
+              "identity": "builder",
+              "label": "branch-1833",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-1833.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "ade9e5f7b74ce4e9b7505d10fa9218cf4ad39c9e4a16d41766290ae613deb967"
+      }
+    },
+    {
+      "at": "2026-10-12T03:47:25.117984+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 579,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-579-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:579",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-579-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:579",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-579-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:579",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.509273952827185,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
     }
   ],
   "checkpoint_id": "af4a7f29-89a0-4d0a-bc5f-020121ebed98",
   "created_at": "2026-09-25T11:29:16.047324+00:00",
-  "updated_at": "2026-10-12T03:35:34.254642+00:00"
+  "updated_at": "2026-10-12T03:47:25.118342+00:00"
 }

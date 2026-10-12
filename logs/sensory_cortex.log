@@ -285,3 +285,14 @@ tick 95: 14 receptors, 2 novel firings
 rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
 tick 96: 14 receptors, 0 novel firings
 rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=e617f2972e4a
+FELT [voice] v=3.0 {"window_h": 1} stamp=20e2f8873f0e
+tick 97: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [voice] v=3.0 {"window_h": 1} stamp=e455ca549307
+tick 98: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [memory] v=41.0 {"window_min": 5} stamp=271ae2445ae2
+FELT [voice] v=4.0 {"window_h": 1} stamp=9e0210cb0ba1
+tick 99: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors

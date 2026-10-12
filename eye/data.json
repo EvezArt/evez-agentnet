@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T03:39:32.560739+00:00",
+  "generated": "2026-10-12T03:52:00.310903+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -11,7 +11,7 @@
     {
       "unit": "evez-agentnet.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 05:35:28 CEST"
+      "since": "Mon 2026-10-12 05:47:20 CEST"
     },
     {
       "unit": "evez-api-daemon.service",
@@ -102,6 +102,11 @@
       "unit": "gueriella-openclaw-watchdog.service",
       "sub": "running",
       "since": "Sun 2026-10-11 09:37:54 CEST"
+    },
+    {
+      "unit": "hermes-dashboard.service",
+      "sub": "running",
+      "since": "Mon 2026-10-12 05:51:55 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -566,6 +571,16 @@
       "fw_blocked": false
     },
     {
+      "port": 38511,
+      "bind": "127.0.0.1",
+      "proc": "llama-server",
+      "pid": 1675599,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 45139,
       "bind": "127.0.0.1",
       "proc": "MainThread",
@@ -735,12 +750,12 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 13 hours",
+      "status": "Up 14 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-a051ad69e5d3de4aa30228465b31df73",
-      "status": "Up 14 hours",
+      "status": "Up 15 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -797,9 +812,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "2b7589f",
-    "last": "patrol adversarial re-verification: sensations must survive re-measure",
-    "dirty": 36
+    "head": "f91813a",
+    "last": "sprint: openclaw wall broken \u2014 first clean run in 574 rounds",
+    "dirty": 40
   },
   "mirrors": 2329
 }
