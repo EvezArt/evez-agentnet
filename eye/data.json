@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T00:42:41.795042+00:00",
+  "generated": "2026-10-12T01:04:26.830654+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -97,11 +97,6 @@
       "unit": "gueriella-openclaw-watchdog.service",
       "sub": "running",
       "since": "Sun 2026-10-11 09:37:54 CEST"
-    },
-    {
-      "unit": "hermes-dashboard.service",
-      "sub": "running",
-      "since": "Mon 2026-10-12 02:42:37 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -735,7 +730,7 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 10 hours",
+      "status": "Up 11 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -797,9 +792,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "7ee6d47",
-    "last": "public sensory field + tailnet URL diagnosis: the phone left the tailnet",
-    "dirty": 17
+    "head": "48f6104",
+    "last": "sealed_bundle.py: the FIX-DIRECTIVE hard-block, executed and proven",
+    "dirty": 30
   },
   "mirrors": 2329
 }
