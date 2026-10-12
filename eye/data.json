@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T01:13:11.592371+00:00",
+  "generated": "2026-10-12T02:23:43.769393+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -106,7 +106,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 03:13:03 CEST"
+      "since": "Mon 2026-10-12 04:23:40 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -131,7 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 00:31:43 CEST"
+      "since": "Mon 2026-10-12 04:14:37 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -174,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 1056808,
+      "pid": 1487642,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -274,7 +274,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1050092,
+      "pid": 1476737,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -464,7 +464,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1050092,
+      "pid": 1476737,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -474,7 +474,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 1050092,
+      "pid": 1476737,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -571,20 +571,10 @@
       "fw_blocked": false
     },
     {
-      "port": 38767,
+      "port": 45985,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1050092,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 41265,
-      "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 1245002,
+      "pid": 1476737,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -750,27 +740,27 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 11 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-a051ad69e5d3de4aa30228465b31df73",
       "status": "Up 12 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
+      "name": "openclaw-sbx-workspace-a051ad69e5d3de4aa30228465b31df73",
+      "status": "Up 13 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
       "name": "ruview-demo",
-      "status": "Up 18 hours",
+      "status": "Up 19 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 18 hours",
+      "status": "Up 19 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 18 hours",
+      "status": "Up 19 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -812,9 +802,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "698324f",
-    "last": "films on the a16 tailnet: serve_films + evez-films unit + 8443 paths",
-    "dirty": 7
+    "head": "44d74c2",
+    "last": "fix syntax error in SERVICE_SET edit",
+    "dirty": 36
   },
   "mirrors": 2329
 }
