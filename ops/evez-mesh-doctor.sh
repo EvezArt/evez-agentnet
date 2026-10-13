@@ -56,7 +56,7 @@ check_port() {
 check_udp() {
   local port="$1"
   if command -v ss >/dev/null 2>&1; then
-    if ss -lun 2>/dev/null | awk '{print $5}' | grep -Eq "([.:])${port}$"; then
+    if ss -lun 2>/dev/null | awk '{print $4}' | grep -Eq "([.:])${port}$"; then
       emit "udp-${port}" "listening" "local-udp-listener-present"
     else
       emit "udp-${port}" "not-listening" "no-local-udp-listener"
