@@ -44,7 +44,7 @@ check_port() {
   local port="$1"
   if command -v ss >/dev/null 2>&1; then
     if ss -ltn 2>/dev/null | awk '{print $4}' | grep -Eq "([.:])${port}$"; then
-      emit "tcp-${port}" "listening" "local-listener-present"
+      emit "tcp-${port}" "listening" "local-tcp-listener-present"
     else
       emit "tcp-${port}" "not-listening" "no-local-tcp-listener"
     fi
@@ -53,14 +53,28 @@ check_port() {
   fi
 }
 
+check_udp() {
+  local port="$1"
+  if command -v ss >/dev/null 2>&1; then
+    if ss -lun 2>/dev/null | awk '{print $5}' | grep -Eq "([.:])${port}$"; then
+      emit "udp-${port}" "listening" "local-udp-listener-present"
+    else
+      emit "udp-${port}" "not-listening" "no-local-udp-listener"
+    fi
+  else
+    emit "udp-${port}" "unknown" "ss-not-installed"
+  fi
+}
+
 check_command "tailscale-status" tailscale status
 check_command "tailscale-serve" tailscale serve status
 probe_http "ruview-remote-health" "${RUVIEW_URL%/}/health"
 probe_http "ruview-remote-nodes" "${RUVIEW_URL%/}/api/v1/nodes"
 
-for port in 3000 3001 5005 8787 8788 18789 18790; do
+for port in 3000 3001 8787 8788 18789 18790; do
   check_port "$port"
 done
+check_udp 5005
 
 if command -v docker >/dev/null 2>&1; then
   if docker ps --format '{{.Names}} {{.Status}}' 2>/dev/null | grep -qi ruview; then
