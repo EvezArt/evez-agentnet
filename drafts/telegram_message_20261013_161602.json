@@ -1,0 +1,10 @@
+{
+  "type": "telegram_message",
+  "title": "branch-2109",
+  "content": "Signal: branch-2109\n\n# Artifact for branch-2109\n\nGenerated at: 2026-10-13T16:16:01.682386+00:00\nActive identity: builder\nPriority: 1.88\nAction mode: construct\nPredictor entropy (normalized): 0.0\nUnresolved residue (0): none\n\n## The branch that commanded this build\n- plausibility 0.35 / consequence 0.65 / collapse_risk 0.53 / resonance 0.35\n- preserve unresolved residue\n- bias builder identity\n- generate rival before h\n\nObserved via daemon_build_queue (score 1.88).\n\nDrafted autonomously by EVEZ agentnet. No claims are made here that were not derived from logged state.",
+  "truth_plane": "CANONICAL",
+  "created_at": "2026-10-13T16:16:02.144583+00:00",
+  "source_signal": "daemon_build_queue",
+  "opportunity_score": 1.875,
+  "file": "drafts/telegram_message_20261013_161602.json"
+}

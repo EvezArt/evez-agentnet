@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T05:39:35.090564+00:00",
+  "generated": "2026-10-14T21:21:46.251829+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -106,7 +106,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Wed 2026-10-14 23:21:38 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -116,7 +116,7 @@
     {
       "unit": "hermes-gateway.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Wed 2026-10-14 23:10:47 CEST"
     },
     {
       "unit": "hermes-live.service",
@@ -131,12 +131,12 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:37:05 CEST"
+      "since": "Wed 2026-10-14 23:10:10 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:50 CEST"
+      "since": "Wed 2026-10-14 01:36:14 CEST"
     }
   ],
   "ports": [
@@ -154,7 +154,7 @@
       "port": 8644,
       "bind": "0.0.0.0",
       "proc": "hermes",
-      "pid": 1176,
+      "pid": 3727844,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -174,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 23079,
+      "pid": 3730131,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -194,7 +194,7 @@
       "port": 53,
       "bind": "127.0.0.53%lo",
       "proc": "systemd-resolve",
-      "pid": 887,
+      "pid": 2117955,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -204,7 +204,7 @@
       "port": 53,
       "bind": "127.0.0.54",
       "proc": "systemd-resolve",
-      "pid": 887,
+      "pid": 2117955,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -234,7 +234,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 1110,
+      "pid": 2064674,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -244,7 +244,7 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 1110,
+      "pid": 2064674,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -254,7 +254,7 @@
       "port": 3000,
       "bind": "100.126.180.47",
       "proc": "docker-proxy",
-      "pid": 2775,
+      "pid": 2150084,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -264,9 +264,19 @@
       "port": 3001,
       "bind": "100.126.180.47",
       "proc": "docker-proxy",
-      "pid": 2792,
+      "pid": 2150098,
       "public_bind": false,
       "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 3334,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 3726008,
+      "public_bind": false,
+      "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
@@ -454,7 +464,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 22027,
+      "pid": 3726008,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -464,7 +474,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 22027,
+      "pid": 3726008,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -474,7 +484,7 @@
       "port": 18790,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1163,
+      "pid": 2154829,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -484,17 +494,7 @@
       "port": 18790,
       "bind": "100.126.180.47",
       "proc": "MainThread",
-      "pid": 1822,
-      "public_bind": false,
-      "tailnet": true,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 18791,
-      "bind": "100.126.180.47",
-      "proc": "hermes",
-      "pid": 1127,
+      "pid": 2154826,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -571,10 +571,20 @@
       "fw_blocked": false
     },
     {
-      "port": 46179,
+      "port": 37279,
+      "bind": "127.0.0.1",
+      "proc": "llama-server",
+      "pid": 3712929,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 37309,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 22027,
+      "pid": 3726008,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -747,27 +757,44 @@
     {
       "sched": "17 */6 * * *",
       "cmd": "/usr/bin/python3 /usr/local/bin/evez-kalshi-digest >> /root/.openclaw/workspace/evez_kalshi/digest.log 2>&1"
+    },
+    {
+      "sched": "30 6 * * *",
+      "cmd": "cd /root/evez-agentnet && python3 subnet_rollout.py >> logs/subnet_rollout.log 2>&1"
+    },
+    {
+      "sched": "*/5 * * * *",
+      "cmd": "/usr/bin/python3 /usr/local/bin/evez-forage >> /workspace/evez_hypergraph/04_active_nodes/forage_cron.log 2>&1"
+    },
+    {
+      "sched": "*/15 * * * *",
+      "cmd": "getent hosts google.com >/dev/null 2>&1 || /usr/local/sbin/evez-dns-guard"
     }
   ],
   "docker": [
     {
+      "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
+      "status": "Up 2 days",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 13 minutes",
+      "status": "Up 2 days",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ruview-demo",
-      "status": "Up 21 minutes",
+      "status": "Up 22 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 21 minutes",
+      "status": "Up 2 days",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 21 minutes",
+      "status": "Up 2 days",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -780,7 +807,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "8 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "83 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -809,9 +836,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "31b2c0d",
-    "last": "registry organ: the attacker registry grows itself",
-    "dirty": 16
+    "head": "5ebde33",
+    "last": "6g subnet rollout: declarative enforcement from the registry organ",
+    "dirty": 297
   },
   "mirrors": 2329
 }

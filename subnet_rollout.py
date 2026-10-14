@@ -16,7 +16,9 @@ import subprocess
 from pathlib import Path
 
 REGISTRY = Path("/root/evez-agentnet/forge_output/ATTACKER_REGISTRY.md")
-PROMOTE_THRESHOLD = 50  # subnet strikes in 24h to earn standing block
+PROMOTE_THRESHOLD = 50   # subnet strikes in 24h to earn standing block
+PROMOTE_FAST = 25       # strikes within a 6h burst: walls a range in hours, not days
+RAW_DROP_AFTER = 100    # strikes/24h on an already-walled range = kernel-level silence
 WINDOW_H = 24
 
 
@@ -72,17 +74,47 @@ def ensure_ufw(cidr: str, tag: str) -> bool:
     return r.returncode == 0
 
 
-def promote_candidates() -> list[tuple[str, int]]:
-    """Subnets of CONTACT LEDGER entries whose 24h strike count crosses the threshold."""
-    t = REGISTRY.read_text(errors="replace")
+def subnet_strikes(window_h: int) -> dict[str, int]:
+    """Live /24 strike counts from ufw.log within the window."""
+    import datetime as _dt
+    out = subprocess.run(["tail", "-n", "30000", "/var/log/ufw.log"],
+                         capture_output=True, text=True, timeout=60).stdout
+    now = _dt.datetime.now()
     counts: dict[str, int] = {}
-    for m in re.finditer(r"\|\s*([\d.]+)\s*\|\s*(\d+)\s*\|", t):
-        ip, n = m.group(1), int(m.group(2))
+    for line in out.splitlines():
+        if "UFW BLOCK" not in line:
+            continue
+        src = re.search(r"SRC=((?:\d{1,3}\.){3}\d{1,3})", line)
+        if not src:
+            continue
+        tsm = re.match(r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})", line)
+        if tsm:
+            try:
+                when = _dt.datetime.fromisoformat(tsm.group(1))
+                if (now - when).total_seconds() > window_h * 3600:
+                    continue
+            except ValueError:
+                pass
+        ip = src.group(1)
         if ip.startswith(("10.", "172.16.", "192.168.")):
             continue
         net = ipaddress.ip_network(f"{ip}/24", strict=False)
-        counts[str(net)] = counts.get(str(net), 0) + n
-    return [(c, n) for c, n in sorted(counts.items(), key=lambda x: -x[1]) if n >= PROMOTE_THRESHOLD]
+        counts[str(net)] = counts.get(str(net), 0) + 1
+    return counts
+
+
+def promote_candidates() -> list[tuple[str, int]]:
+    """A range earns standing UFW block at 25 strikes/6h (fast) or 50/24h."""
+    fast = subnet_strikes(6)
+    slow = subnet_strikes(24)
+    cands: dict[str, int] = {}
+    for net, n in fast.items():
+        if n >= PROMOTE_FAST:
+            cands[net] = max(cands.get(net, 0), n)
+    for net, n in slow.items():
+        if n >= PROMOTE_THRESHOLD:
+            cands[net] = max(cands.get(net, 0), n)
+    return [(c, n) for c, n in sorted(cands.items(), key=lambda x: -x[1])]
 
 
 def main() -> int:
@@ -100,6 +132,21 @@ def main() -> int:
             tag = f"IOC-promoted-{strikes}strikes-{now[:10]}"
             if ensure_ufw(cidr, tag):
                 actions.append(f"PROMOTED {cidr} ({strikes} strikes/24h)")
+    # 3. SHARPEN THE TOP: walled ranges still hammering >=100/day get the
+    # kernel raw-drop (UFW entry stays as documentation; raw stops the noise
+    # from ever reaching the log or the cortex — freeing senses for real signal)
+    live = ufw_live()
+    day = subnet_strikes(24)
+    raw_now = sh("iptables -t raw -S PREROUTING")
+    for net, strikes in sorted(day.items(), key=lambda x: -x[1]):
+        if strikes < RAW_DROP_AFTER:
+            break
+        base = net.split("/")[0]
+        if base in live and net not in raw_now:
+            r = subprocess.run(f"iptables -t raw -I PREROUTING -s {net} -j DROP",
+                               shell=True, capture_output=True, text=True, timeout=30)
+            if r.returncode == 0:
+                actions.append(f"RAW-DROP {net} ({strikes} strikes/24h — cortex freed)")
     for a in actions:
         print(a)
     if not actions:

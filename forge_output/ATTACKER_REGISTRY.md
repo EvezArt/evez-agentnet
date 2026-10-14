@@ -85,3 +85,51 @@ commands on this box on Oct 3 ~07:16–07:29.
 | 85.217.140.9 | 41 | 2026-10-12 | 765a73da95e6 | contact only — no attribution |
 | 85.217.140.36 | 40 | 2026-10-12 | 1a693468c022 | contact only — no attribution |
 | 79.124.62.230 | 39 | 2026-10-12 | 33df7ea3c473 | contact only — no attribution |
+
+### 2026-10-13
+
+| Source | Strikes (24h) | First seen | Stamp | Note |
+|---|---|---|---|---|
+| 85.239.151.10 | 179 | 2026-10-13 | 91dec932c285 | contact only — no attribution |
+| 216.180.246.152 | 121 | 2026-10-13 | df6dc53cf401 | contact only — no attribution |
+| 92.204.138.51 | 94 | 2026-10-13 | f06bb0256c31 | contact only — no attribution |
+| 172.110.223.179 | 42 | 2026-10-13 | 2db068bcf934 | contact only — no attribution |
+| 198.46.134.48 | 28 | 2026-10-13 | 2c09fdae2ef3 | contact only — no attribution |
+| 185.224.128.16 | 27 | 2026-10-13 | 746b01ab6586 | contact only — no attribution |
+| 164.92.211.98 | 27 | 2026-10-13 | 336638427190 | contact only — no attribution |
+| 79.124.49.70 | 24 | 2026-10-13 | 7a0016ca522c | contact only — no attribution |
+| 78.128.114.174 | 22 | 2026-10-13 | 0891e40cdd19 | contact only — no attribution |
+| 78.128.114.46 | 21 | 2026-10-13 | e623eb3a0b57 | contact only — no attribution |
+| 176.65.149.165 | 21 | 2026-10-13 | 976f195dc0fd | contact only — no attribution |
+| 143.110.153.215 | 20 | 2026-10-13 | d1229e8b6c2c | contact only — no attribution |
+| 194.122.175.208 | 19 | 2026-10-13 | 9390ac0b93ad | contact only — no attribution |
+| 79.124.58.90 | 18 | 2026-10-13 | f752e32fa413 | contact only — no attribution |
+| 38.103.158.153 | 18 | 2026-10-13 | 95ae09b35c62 | contact only — no attribution |
+| 179.43.167.3 | 18 | 2026-10-13 | fdeb7aa39186 | contact only — no attribution |
+| 193.232.68.221 | 17 | 2026-10-13 | 3f64e57dac02 | contact only — no attribution |
+| 78.128.114.162 | 16 | 2026-10-13 | 329915c7848f | contact only — no attribution |
+| 85.11.167.7 | 16 | 2026-10-13 | 508514a51e1d | contact only — no attribution |
+| 79.124.59.78 | 16 | 2026-10-13 | 54eaaac52acd | contact only — no attribution |
+| 79.124.49.90 | 15 | 2026-10-13 | 95af9ef034f9 | contact only — no attribution |
+| 192.161.49.2 | 15 | 2026-10-13 | 1333a67b080c | contact only — no attribution |
+| 91.92.153.208 | 14 | 2026-10-13 | cb941242751d | contact only — no attribution |
+| 91.191.209.46 | 14 | 2026-10-13 | e7b1bbda0a57 | contact only — no attribution |
+| 79.124.56.142 | 13 | 2026-10-13 | fb4dc51d01d5 | contact only — no attribution |
+
+### 2026-10-14
+
+| Source | Strikes (24h) | First seen | Stamp | Note |
+|---|---|---|---|---|
+| 94.154.43.215 | 148 | 2026-10-14 | 788e2bcf2ab7 | contact only — no attribution |
+| 89.248.163.168 | 55 | 2026-10-14 | 5e4bcb7795d6 | contact only — no attribution |
+| 110.73.215.119 | 47 | 2026-10-14 | 9836c7ccf4fb | contact only — no attribution |
+| 77.91.71.27 | 32 | 2026-10-14 | f35dcb298c68 | contact only — no attribution |
+| 190.211.252.4 | 30 | 2026-10-14 | 9b4fcf2ad6bc | contact only — no attribution |
+| 49.158.209.91 | 26 | 2026-10-14 | ba88ce18aa2f | contact only — no attribution |
+| 79.124.60.218 | 24 | 2026-10-14 | bac2efd40cad | contact only — no attribution |
+| 104.248.210.24 | 17 | 2026-10-14 | 469fb2274f1b | contact only — no attribution |
+| 112.111.231.171 | 15 | 2026-10-14 | 0ea098b2a7f4 | contact only — no attribution |
+| 185.136.15.86 | 15 | 2026-10-14 | 788b32b1c6b8 | contact only — no attribution |
+| 79.124.40.162 | 14 | 2026-10-14 | c6f622c675d1 | contact only — no attribution |
+| 95.214.53.157 | 13 | 2026-10-14 | 9a03817e5ea9 | contact only — no attribution |
+| 37.26.86.162 | 13 | 2026-10-14 | 161d9c5aa853 | contact only — no attribution |
