@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-14T21:21:46.251829+00:00",
+  "generated": "2026-10-14T21:53:52.233482+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -106,7 +106,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Wed 2026-10-14 23:21:38 CEST"
+      "since": "Wed 2026-10-14 23:53:47 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -116,7 +116,7 @@
     {
       "unit": "hermes-gateway.service",
       "sub": "running",
-      "since": "Wed 2026-10-14 23:10:47 CEST"
+      "since": "Wed 2026-10-14 23:35:47 CEST"
     },
     {
       "unit": "hermes-live.service",
@@ -131,7 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Wed 2026-10-14 23:10:10 CEST"
+      "since": "Wed 2026-10-14 23:33:48 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -154,7 +154,7 @@
       "port": 8644,
       "bind": "0.0.0.0",
       "proc": "hermes",
-      "pid": 3727844,
+      "pid": 3763788,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -174,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 3730131,
+      "pid": 3764798,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -274,7 +274,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3726008,
+      "pid": 3760033,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -464,7 +464,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3726008,
+      "pid": 3760033,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -474,7 +474,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 3726008,
+      "pid": 3760033,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -571,20 +571,10 @@
       "fw_blocked": false
     },
     {
-      "port": 37279,
-      "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 3712929,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 37309,
+      "port": 46419,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3726008,
+      "pid": 3760033,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -807,7 +797,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "83 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "82 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -836,9 +826,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "5ebde33",
-    "last": "6g subnet rollout: declarative enforcement from the registry organ",
-    "dirty": 297
+    "head": "5e160d0",
+    "last": "two days of autonomous operation survived the provider storm",
+    "dirty": 34
   },
   "mirrors": 2329
 }

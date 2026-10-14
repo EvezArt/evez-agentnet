@@ -1,0 +1,35 @@
+{
+ "baseline": {
+  "ts": "2026-10-14T21:44:08.440196+00:00",
+  "cpu": "Model name:                              AMD EPYC Processor (with IBPB)",
+  "cores": "6",
+  "load": "2.25 2.94 3.38",
+  "mem_mb": "11960 4987",
+  "disk_pct": "45%",
+  "spine_rows": "8542",
+  "cortex_tick": 889,
+  "hand_cycle": 34,
+  "round": "574+ (OODA governed, live)"
+ },
+ "anomalies": [
+  {
+   "id": "ANOMALY_001",
+   "friction": "OODA loop ships to Telegram but earns $0.00 \u2014 the revenue organ is structurally inert (no credentialed transport)",
+   "testable": "wire one revenue transport or measure that none can be wired without operator credentials",
+   "state": "OPEN"
+  },
+  {
+   "id": "ANOMALY_002",
+   "friction": "scanner deduplicates within-run only; cross-run signal memory lives in drafts/ pileup (878 files) \u2014 retrieval cost compounds",
+   "testable": "add cross-run seen-ledger; measure draft-pile growth before/after",
+   "state": "OPEN"
+  },
+  {
+   "id": "ANOMALY_003",
+   "friction": "enemy receptor reads ~880 novel sources/day against a registry that grows daily but has no ASN-level clustering \u2014 attribution stalls at /24",
+   "testable": "cluster novel sources by ASN via RIPEstat; measure unknown-ASN fraction",
+   "state": "OPEN"
+  }
+ ],
+ "ts": "2026-10-14T21:44:08.440196+00:00"
+}

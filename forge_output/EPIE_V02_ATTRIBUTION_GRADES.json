@@ -1,0 +1,86 @@
+{
+ "ts": "2026-10-14T21:53:07.488210+00:00",
+ "engine": "EPIE v0.2 attribution grading",
+ "typed_claims": [
+  {
+   "claim": "IP attribution set: 7 records tying attack IPs to ASNs/orgs",
+   "type": "OBSERVED",
+   "grade": "A",
+   "source": "evidence/infrastructure-attribution.json",
+   "portal_receipt": "RIPE RDAP acdcfa0d5c6d5cf1 confirms AN32913-RIPE @ Shelton Street for 150.241.74.83"
+  },
+  {
+   "claim": "SEVASTIEIEV directorship of ServHost (15728390)",
+   "type": "OBSERVED",
+   "grade": "A",
+   "source": "CH portal receipt for 15728390",
+   "portal_receipt": "fetched 2026-10-14, sealed evidence/2026-10-14/portal_receipts.json"
+  },
+  {
+   "claim": "DIABIN directorship of CHSL (17001805)",
+   "type": "OBSERVED",
+   "grade": "A",
+   "source": "CH portal receipt for 17001805",
+   "portal_receipt": "fetched 2026-10-14, sealed evidence/2026-10-14/portal_receipts.json"
+  },
+  {
+   "claim": "DIABIN directorship of Netshield (14769288)",
+   "type": "OBSERVED",
+   "grade": "A",
+   "source": "CH portal receipt for 14769288",
+   "portal_receipt": "fetched 2026-10-14, sealed evidence/2026-10-14/portal_receipts.json"
+  },
+  {
+   "claim": "DIABIN directorship of DPKGSOFT (15446241)",
+   "type": "OBSERVED",
+   "grade": "A",
+   "source": "CH portal receipt for 15446241",
+   "portal_receipt": "fetched 2026-10-14, sealed evidence/2026-10-14/portal_receipts.json"
+  },
+  {
+   "claim": "Attack range first announced by AS210644 (AEZA-AS, OFAC-designated)",
+   "type": "OBSERVED",
+   "grade": "A",
+   "source": "OFAC SB0185 + RIPEstat routing-status",
+   "portal_receipt": "Treasury press release + SDN 54566/54567 verified 2026-10-11"
+  },
+  {
+   "claim": "The successor shells operate as nominee infrastructure for continuation of the designated ecosystem",
+   "type": "INFERRED",
+   "grade": "B",
+   "source": "pattern: 4 young RU/UA directors, 2 shared virtual offices, 3 s1002A strike-off flags, address shared with OFAC-listed entity",
+   "portal_receipt": null,
+   "note": "strong pattern, NOT proven control \u2014 stays INFERRED per doctrine"
+  },
+  {
+   "claim": "Specific hospital intrusion passed through 150.241.74.0/24 or the successor shells",
+   "type": "UNKNOWN",
+   "grade": "U",
+   "source": null,
+   "portal_receipt": null,
+   "note": "the neck remains missing; requires victim-side healthcare infrastructure data \u2014 the honest gap in every report"
+  },
+  {
+   "claim": "ServHost CHSL/NETSHIELD/DPKGSOFT operate as a coordinated shell network",
+   "type": "INFERRED",
+   "grade": "B+",
+   "source": "shared directors, shared addresses, single-upstream topology (AS49418->AS210546), inetnum netname AS210546-iPv4",
+   "portal_receipt": "CH receipts x4 + RDAP receipt"
+  },
+  {
+   "claim": "Commodity scan noise threads (79.124.62.0/24, 204.76.203.0/24 et al) are uncoordinated background",
+   "type": "INFERRED",
+   "grade": "C",
+   "source": "subnet rollout data: varied ASNs, no shared infra, classic botnet/commercial scanner cadence",
+   "note": "likely collapses to null under adversarial grading \u2014 flagged for falsification"
+  }
+ ],
+ "summary": {
+  "OBSERVED_A": 6,
+  "INFERRED_B": 2,
+  "INFERRED_C_falsify_candidates": 1,
+  "UNKNOWN_U": 1,
+  "coordinated_threads_surviving": "1 (the Diabin shell network \u2014 B+, receipts intact)",
+  "commodity_threads_expected_to_collapse": "the /24 scan-noise family (C-grade, no shared-infrastructure evidence)"
+ }
+}
