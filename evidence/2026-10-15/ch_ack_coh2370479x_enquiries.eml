@@ -1,0 +1,357 @@
+Delivered-To: fiersteity@gmail.com
+Received: by 2002:a05:7412:e05:b0:21e:75c:acc6 with SMTP id m5csp756863rdc;
+        Wed, 14 Oct 2026 10:38:29 -0700 (PDT)
+X-Received: by 2002:a05:690c:ec9:b0:8a8:4cd6:b345 with SMTP id 00721157ae682-8b07ed9b398mr57269017b3.64.1791999509529;
+        Wed, 14 Oct 2026 10:38:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1791999509; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=ELItS7JBhSTXUFwQEqIZ5sfvNYHuo6mueW0g2AUj/0DFZz6nxONGMSooNsUqlDlFdv
+         LJadTW0tmTHvAMSPp24H/4Hl9i0PSljxcDObSKQhmkMNPvign6mEwwAYUhN6q2i54Mtk
+         JHJt5SZoxa72tg2gmBbQo5OPar8odwlTvH47/uLiTwuURVBTrn8j+/JQUfil38xCg6xt
+         w5McVvpKjHgJ+1uwfieaGvl+V1T8Ogda9MP/ECxFskJryt0isnthgInxZH1CI5Vgm8eU
+         rM0oIGU2IK6V7Q2vAF8DVcri7bDTjFPLaTqSQhGMPNVPdDMnvn/yamye26UTXYantLoF
+         1htw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=mime-version:content-language:accept-language:reply-to:message-id
+         :date:thread-index:thread-topic:subject:to:from:dkim-signature;
+        bh=hnz/QCFEZ93M5yfbk6KyTkCVa7wAgSp6FYRZRmNHuv0=;
+        fh=Dp37FMacbHFECyybR3O82s0qHk3E5QTp8C59Z9EoGaQ=;
+        b=LR0RzqoTiVjs4/n/QmZz/+SdYTfwz9WSj4D3/YBGhii6yfnGTtOZRY3Yzh4fGr4Zlo
+         +UMMVkLN+qIg6hPNKKPoKkPRqbr5eTKQjrmqW5WbNVwLLVcKU6mDIA7tSaE6uydSFE5O
+         WifNV0mrT98/YXt/ERH/rJer1dEVZ2I6gtsbGvE4Am5WqB44hMs292N14pCZU6p2J+VC
+         QMfSRgjprbIrKjDL00AvdFxwfQOsbjRzGAam16tdGdnNp8rW6u0w+xzt8kcuq9HqGu0t
+         d0alk2vMeuSc9Ei8fxqsjU6te/0/5XaMJnZd/zOmsE2ijjQFEp64p1C1fsOjQwUufYCv
+         EgVQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@companieshouse.onmicrosoft.com header.s=selector2-companieshouse-onmicrosoft-com header.b=drziourF;
+       arc=pass (i=1 spf=pass spfdomain=companieshouse.gov.uk dkim=pass dkdomain=companieshouse.gov.uk dmarc=pass fromdomain=companieshouse.gov.uk);
+       spf=pass (google.com: domain of enquiries@companieshouse.gov.uk designates 2a01:111:f403:c206::1 as permitted sender) smtp.mailfrom=enquiries@companieshouse.gov.uk;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=companieshouse.gov.uk
+Return-Path: <enquiries@companieshouse.gov.uk>
+Received: from CWXP265CU008.outbound.protection.outlook.com (mail-ukwestazlp170100001.outbound.protection.outlook.com. [2a01:111:f403:c206::1])
+        by mx.google.com with ESMTPS id 00721157ae682-8b09ebf9f67si32984467b3.250.2026.10.14.10.38.29
+        for <fiersteity@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Oct 2026 10:38:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of enquiries@companieshouse.gov.uk designates 2a01:111:f403:c206::1 as permitted sender) client-ip=2a01:111:f403:c206::1;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@companieshouse.onmicrosoft.com header.s=selector2-companieshouse-onmicrosoft-com header.b=drziourF;
+       arc=pass (i=1 spf=pass spfdomain=companieshouse.gov.uk dkim=pass dkdomain=companieshouse.gov.uk dmarc=pass fromdomain=companieshouse.gov.uk);
+       spf=pass (google.com: domain of enquiries@companieshouse.gov.uk designates 2a01:111:f403:c206::1 as permitted sender) smtp.mailfrom=enquiries@companieshouse.gov.uk;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=companieshouse.gov.uk
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dfHduIcbpxMJ+HtIGuWhcCB5nt0ltX+Q02yuCLRmYTPtLmMrzPYwHcstIAqEgI1lKhjunEh1Q1KhKc/f7SDi8ZX3uEzecKmCRsC1lHE+H9Opu/LmE21HloA8y4QEEJ0rxFmOYhIt0HztZa8xcZju593+nqZ3ly5CAsXVLPqgddgqyKVrBQchxvY3a5rz1gmhW2D9vUq4N95j4dmR9mSSVCVPotoj/SbFurMUd6wMSmTbBj5EpwbuLWqWuXV1SvvDWxMxVwDXE3hO9fHr96WgYTRhIYZmhir4E1BqW/Af9k9yjQPF+T04NRcGacTpo2VAxalXosIB3aWa6J+4icAslA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001; h=From:Date:Subject:Message-ID:MIME-Version;
+ bh=hnz/QCFEZ93M5yfbk6KyTkCVa7wAgSp6FYRZRmNHuv0=;
+ b=doRHsywe3djOerw1VC4iwQLz6iHCHv6NWwgsLVM5FlkZAB0pJdhig24wb5Hm5/UlJ3u2Vj71dIq2gWFk7JQYQ1YD0YBZdnz4TwOTIvyPRUP2tic5Le2MgsqiDVfsWP9ymdC7hnidn+Rb5U6eJnRk3Kf0rgZ5+5Rlz3t4px92IUHgU9fzjNCSwM7kZGUglWdSVj3AOEKhReAeqrH2qMzyaCVujSvNfrxCtY2wA2cdIZMQyu5kCYcWFHP6BoBJ2BRdO1xQNaBmM9Uv3G8Jy02f2ZEFe+Rg/oder0j7zI2vL5gf55UVLTQrc3AFqPIbokiKMJPm57Rzhw6tAvls24JwCg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=companieshouse.gov.uk; dmarc=pass action=none
+ header.from=companieshouse.gov.uk; dkim=pass header.d=companieshouse.gov.uk;
+ arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=companieshouse.onmicrosoft.com; s=selector2-companieshouse-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hnz/QCFEZ93M5yfbk6KyTkCVa7wAgSp6FYRZRmNHuv0=;
+ b=drziourFWo0SY3TcgvvwgxoYe1l7RqebaYJ//mBDjKWJjiCfmQpPkBWsQqdomr1lsjbLw+nz0wgVqjSlsurUJ6Uty9M5lLEQcv14rca9I/L7uEiOWSzkI/Tmu/ybirwE4792Oh7ld6E0z3mLr2eupx2MSDtLjYh9pHYvM9bsgr0=
+Received: from CW1P123MB083354.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:400:2b0::15) by LNXP123MB3689.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:134::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.13; Wed, 14 Oct
+ 2026 17:38:27 +0000
+Received: from CW1P123MB083354.GBRP123.PROD.OUTLOOK.COM
+ ([fe80::fb4d:355f:1330:6e23]) by CW1P123MB083354.GBRP123.PROD.OUTLOOK.COM
+ ([fe80::fb4d:355f:1330:6e23%7]) with mapi id 15.21.0522.012; Wed, 14 Oct 2026
+ 17:38:27 +0000
+From: enquiries <enquiries@companieshouse.gov.uk>
+To: "fiersteity@gmail.com" <fiersteity@gmail.com>
+Subject: RE: Your Communication with Companies House, Ref: COH2370479X
+Thread-Topic: Your Communication with Companies House, Ref: COH2370479X
+Thread-Index: AQHdXALR2qHwEouhlUeuM3IQRSiC9A==
+Date: Wed, 14 Oct 2026 17:38:27 +0000
+Message-ID:
+ <CW1P123MB083354C3E72687CDF83F928CBDD89D2@CW1P123MB083354.GBRP123.PROD.OUTLOOK.COM>
+Reply-To: enquiries <enquiries@companieshouse.gov.uk>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=companieshouse.gov.uk;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CW1P123MB083354:EE_|LNXP123MB3689:EE_
+x-ms-office365-filtering-correlation-id: 9119e36d-e2f8-4e46-26e8-08df2a19f462
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|376014|23010399003|1800799024|6049299003|366016|13003099007|10067099003|18002099003|4053099003|8096899003|38070700021|11063799006|261009223027099003|56012099006;
+x-microsoft-antispam-message-info:
+ GQ7awodygGC32n5kJ+HQQ0iIf1jAkEmDOuJNf5Pv2JaSfKMzRtO4vq34Ot7XyKKOUTyU5hvkdbAVwmDvZH0h5S4hvZZcSA6XmM24D0Ts9XzKCBDof32OlqJUOdlUWaEzS09jGFwJj9Mbv11LS7XEbOO/SWbBTR6w0VHAAkYUykITupUfMzNsyTPzkQTSeHVgsqJpIcQV/Zb7Qrx+3WTvlf1te+kyaMgM15qIeFcmp3Vg5nfNpNwks0hCUTFD5yUxXa/Luezd4TOneu/0bjAxDJ1PwY26Y1iPYMwOQ/BeJhVnqUtvg/DGkx39FP8jBXu3RokhA3OF9ZKS+yYEs908qf9w75US0+aE3NvDt1BuFwwuQMyuH4yz5SV6QYOx9nYjwmIOTsan+4HJiKLnWMgx6/9zhM4rkdt+XRPrQapqQS3ByUajIn3JkTOFLLUtPx+mkW8RjcxXR5XY8c3z3A3LFuHnLLKpBm/W21kQtGPQtlN4LYj+M+OW5rswqlyxMdMHkTSDWsY/fVHwiN9apTAE/FSLIp14pf6pinnQX142KpBcAQ8tg18ssZSzZxPBB0sImpo1zVwQJ9EhLsJ5QOhG1V4fhUs/e6shO/NzYrUbsM7hG4gMVhx9cZhntn0Oh8JbOcQc3Xt8pRBJpB/kMpPAv873+qsFBjjMvX05wqYV+7M=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CW1P123MB083354.GBRP123.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(6049299003)(366016)(13003099007)(10067099003)(18002099003)(4053099003)(8096899003)(38070700021)(11063799006)(261009223027099003)(56012099006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?WkkTMiV6aGKFfGrwdDm9NE8jzD8TUfVHQIC1ODGHt64eUQbJp+90QLpVAJB/?=
+ =?us-ascii?Q?nnDpWwssC49aD+jQa/7HsZa0duv4UKl2d1vmXqHAAFYICUM/oMBPyxoYHjz4?=
+ =?us-ascii?Q?b0S5b94OtCwGUB5g/76iWTnbCPo4PAAG1kCnn2pI9dsCPzG/sa3ESRJDsR2y?=
+ =?us-ascii?Q?P0Me9MZOoh2TUAi9QSXQzruqlRJesQQgd6YzSfRQu1RxRagG2O69cGlCZt7v?=
+ =?us-ascii?Q?dmp31nmGeWGv3SzI88o0Rcis4Nd8+2S9OsyjqZe1QI78r/BTXfmXKsFqwqHa?=
+ =?us-ascii?Q?necDhyBpCXBynBd5OvsE91CPq8uKpdH2gKwyLLIIKUE3pkVCEedXGAuR1DYw?=
+ =?us-ascii?Q?r8WKdbImcRPSS4FHOIbKse68G6ZO94HM/l6xowncbcbQf9kgh95Y2KYoYX4S?=
+ =?us-ascii?Q?ezF4Lg13YVRosTSsPIpUb5KGKS7Inn6oltgQG1SfPhrjcZCbFNbzzBmw4FM+?=
+ =?us-ascii?Q?mwaLRKYtqyjRDbyWdGevAXhl+TBSy+DsAhaGe+Qh5wJe6+5KYop1qhiA012i?=
+ =?us-ascii?Q?Kaa969Kfgc2SAzdsMLfg8bEP0YscTIGq3h7iwhGz+gtQkblf7ND4SBs7sl/q?=
+ =?us-ascii?Q?x7m7fKhB0npNKP2McXFkcEMae1W7voXj2lZYNULrt5WsVF48yjv2m/UtwJ04?=
+ =?us-ascii?Q?5jh36GcGLVPhUFbedi3XC7bBlZCZeN2M1m25oAc4gq+k9CMuXOfQwchyK9MZ?=
+ =?us-ascii?Q?x2PeqicqHsVknTiruHTttiR+G4brCexcnOoqw36rBCtPHcnn0GctxdnvqZaw?=
+ =?us-ascii?Q?JneZ7ow6WINKw8yz6saF2NAwUZ9vQMcrIj/zU8431TSYvjpYwz3GxyaKQK0I?=
+ =?us-ascii?Q?hpaaP9KtD+nN2szFD3C5uXgkKDqelLZNpOdWdEhaDnxlQp37nA6F0CtWI/B6?=
+ =?us-ascii?Q?+xi6AoKyVl7teDL5qhFueG8fEFOQ3Ifoyr3WRkD7HpuYcNMrvWNhM/VUVmK/?=
+ =?us-ascii?Q?PnGwWSJlY+JaZd1uTOn62U3j1hKeQ7chI8adL0UHmZ6r4NwzbZkV80N6fVLi?=
+ =?us-ascii?Q?ZLZV3tSkXZo8+CQZhscpUo15xj5mvocOW0IiTksLTJwz3ZarGvUVrVn/7SAM?=
+ =?us-ascii?Q?PXn+37NtIY1nTJGe5BLfD2YIWaHknP/x/0lIZGpPLm/GhaFXo5KDOwQJ9OFI?=
+ =?us-ascii?Q?TW3XOspYWWvhX2ae05OgHz+i7F7Rf+4l/eexUkX9tvb2pKUHujQaKStLXixa?=
+ =?us-ascii?Q?yOk4TnyFVyEUzuEEFW2lScSI/EFq5mV2mPvWuEVpR3op6W1x4Q/hYO621ixW?=
+ =?us-ascii?Q?DuLWZ06QErV5FXEGSAh4zGaA9V/4SN3HyzunaLGc5hsfPJhWsnMBRCCHGf9Z?=
+ =?us-ascii?Q?yYn/RaAEyOUaIFiWHkVYi10KImD7RuK1sOwcvtXynx263xDSwK/Ywy7AgPGS?=
+ =?us-ascii?Q?MnMockA89OgLlJQf4bR8xdV6OIGu2xvPLZBzYtu3UwREWPRl1o8zK53ECege?=
+ =?us-ascii?Q?J0+GA/ywulyHam/NxElAPXM/exoIn6I7ZZiREgNsnOm9+rCcZi+dPB8T+kHE?=
+ =?us-ascii?Q?LqA1XFdeEMzmdZqy00uivjbnEMvDlAq+iSQrwfvJNUMarKlRE21e3oju/ghc?=
+ =?us-ascii?Q?swIP8KFBT3xQrdUR9RpWeWiLrp27q21amHibyq2uPbm3qePf4X+ysG5qKcB3?=
+ =?us-ascii?Q?CyuuWhlU9y6FjLnIcVs3pcz2cvvqvk6QTU7/1nSG/jB7cYqQ0+sfPKxs2TVN?=
+ =?us-ascii?Q?JSM/CdD/9jMmXm4EWJuzNET411xvj7zJWC6kqPNuoGcuwCP5EnaFdvi1oOOu?=
+ =?us-ascii?Q?RcCT9tQDJg=3D=3D?=
+Content-Type: multipart/related;
+	boundary="_004_CW1P123MB083354C3E72687CDF83F928CBDD89D2CW1P123MB083354_";
+	type="multipart/alternative"
+MIME-Version: 1.0
+X-OriginatorOrg: companieshouse.gov.uk
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CW1P123MB083354.GBRP123.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9119e36d-e2f8-4e46-26e8-08df2a19f462
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Oct 2026 17:38:27.2505
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: e6acfe5e-7f2a-455a-9d85-ecf93371f601
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: eP7nk4bg3lCbj/vqAuUFYMuCJeoLFolzVakDmdGBlf63qCWSCiJP1kX45y97Y1fpzmr2xOwmCSO3GH7VQXaj99V4X+0+KDORKn1WFoGrxRUtXL/3CMZTAlIB4cjBHwW4
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LNXP123MB3689
+
+--_004_CW1P123MB083354C3E72687CDF83F928CBDD89D2CW1P123MB083354_
+Content-Type: multipart/alternative;
+	boundary="_000_CW1P123MB083354C3E72687CDF83F928CBDD89D2CW1P123MB083354_"
+
+--_000_CW1P123MB083354C3E72687CDF83F928CBDD89D2CW1P123MB083354_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+The Companies House Enquiries Team has received your email.
+A response will be with you shortly.
+Please note our opening hours - Monday - Friday 08.30 - 18.00 excluding Ban=
+k Holidays
+
+
+Mae Tim Ymholiadau Ty'r Cwmniau wedi derbyn eich neges e-bost.
+Anfonir ateb atoch cyn bo hir.
+Nodwch ein horiau agor - Llun - Gwener 08.30 - 18.00  ac eithrio Gwyliau Ba=
+nc
+
+
+[Companies House Footer Image]
+
+For details on how your personal data is handled by Companies House, please=
+ see our privacy policy -https://www.gov.uk/government/organisations/compan=
+ies-house/about/personal-information-charter
+
+This message and any attachments are intended for the persons named as addr=
+essees only and may contain confidential information. In addition they may =
+be protected by copyright. If you receive it in error, notify us, delete it=
+ and do not make use of or copy it. You must not copy, disseminate or other=
+wise distribute or publish this message, except for the purposes for which =
+this message is intended, without our consent. Please note that this e-mail=
+ has been created in the knowledge that Internet e-mail is not a 100% secur=
+e communications medium. We advise that you understand and accept this lack=
+ of security when e-mailing us. For company information, guidance and how t=
+o file documents online, please visit our website www.companieshouse.gov.uk=
+. This message has been scanned for viruses by MailControl, a service from =
+Forcepoint.
+
+This notice sets out how we handle your personal data and how we comply wit=
+h the requirements of the UK General Data Protection Regulation (GDPR).
+This message and any attachments are intended for the persons named as addr=
+essees only and may contain confidential information. In addition they may =
+be protected by copyright. If you receive it in error, notify us, delete it=
+ and do not make use of or copy it. You must not copy, disseminate or other=
+wise distribute or publish this message, except for the purposes for which =
+this message is intended, without our consent. Please note that this e-mail=
+ has been created in the knowledge that Internet e-mail is not a 100% secur=
+e communications medium. We advise that you understand and accept this lack=
+ of security when e-mailing us. For company information, guidance and how t=
+o file documents online, please see our website www.companieshouse.gov.uk. =
+For more details on how your personal data is handled by Companies House, p=
+lease see our privacy policy: https://www.gov.uk/government/organisations/c=
+ompanies-house/about/personal-information-charter
+
+--_000_CW1P123MB083354C3E72687CDF83F928CBDD89D2CW1P123MB083354_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/htm=
+l4/strict.dtd">
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+</head>
+<body>
+<span class=3D"sa4_cursorPosition"></span>The Companies House Enquiries Tea=
+m has received your email.<br>
+A response will be with you shortly.<br>
+Please note our opening hours - Monday - Friday 08.30 - 18.00 excluding Ban=
+k Holidays<br>
+<br>
+<br>
+Mae Tim Ymholiadau Ty'r Cwmniau wedi derbyn eich neges e-bost.<br>
+Anfonir ateb atoch cyn bo hir.<br>
+Nodwch ein horiau agor - Llun - Gwener 08.30 - 18.00&nbsp; ac eithrio Gwyli=
+au Banc<br>
+<br>
+<br>
+<img alt=3D"Companies House Footer Image" style=3D"height:125px;width:300px=
+;" data-outlook-trace=3D"F:0|T:1" src=3D"cid:2ceefebb-3c77-49cc-8f12-eafdf9=
+5806f3"><br>
+<br>
+<div>For details on how your personal data is handled by Companies House, p=
+lease see our privacy policy -<a class=3D"Hyperlink SCXW197287683 BCX8" hre=
+f=3D"https://www.gov.uk/government/organisations/companies-house/about/pers=
+onal-information-charter" target=3D"_blank" rel=3D"noreferrer noopener" sty=
+le=3D"color: inherit; text-decoration-line: none; -webkit-user-drag: none; =
+-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; user-s=
+elect: text; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web&quot;, A=
+rial, Verdana, sans-serif; font-size: 12px;"><span data-contrast=3D"none" x=
+ml:lang=3D"EN-GB" lang=3D"EN-GB" class=3D"TextRun Underlined SCXW197287683 =
+BCX8" style=3D"-webkit-user-drag: none; -webkit-tap-highlight-color: transp=
+arent; margin: 0px; padding: 0px; user-select: text; color: #467886; font-s=
+ize: 10pt; line-height: 18.5333px; font-family: Arial, Arial_EmbeddedFont, =
+Arial_MSFontService, sans-serif; font-variant-ligatures: none !important;">=
+https://www.gov.uk/government/organisations/companies-house/about/personal-=
+information-charter</span></a></div>
+<div><br>
+<div>This message and any attachments are intended for the persons named as=
+ addressees only and may contain confidential information. In addition they=
+ may be protected by copyright. If you receive it in error, notify us, dele=
+te it and do not make use of or
+ copy it. You must not copy, disseminate or otherwise distribute or publish=
+ this message, except for the purposes for which this message is intended, =
+without our consent. Please note that this e-mail has been created in the k=
+nowledge that Internet e-mail is
+ not a 100% secure communications medium. We advise that you understand and=
+ accept this lack of security when e-mailing us. For company information, g=
+uidance and how to file documents online, please visit our website www.comp=
+anieshouse.gov.uk. This message
+ has been scanned for viruses by MailControl, a service from Forcepoint.&nb=
+sp;</div>
+<br>
+<div>This notice sets out how we handle your personal data and how we compl=
+y with the requirements of the UK General Data Protection Regulation (GDPR)=
+.&nbsp;</div>
+</div>
+This message and any attachments are intended for the persons named as addr=
+essees only and may contain confidential information. In addition they may =
+be protected by copyright. If you receive it in error, notify us, delete it=
+ and do not make use of or copy
+ it. You must not copy, disseminate or otherwise distribute or publish this=
+ message, except for the purposes for which this message is intended, witho=
+ut our consent. Please note that this e-mail has been created in the knowle=
+dge that Internet e-mail is not
+ a 100% secure communications medium. We advise that you understand and acc=
+ept this lack of security when e-mailing us. For company information, guida=
+nce and how to file documents online, please see our website www.companiesh=
+ouse.gov.uk. For more details on
+ how your personal data is handled by Companies House, please see our priva=
+cy policy: https://www.gov.uk/government/organisations/companies-house/abou=
+t/personal-information-charter
+</body>
+</html>
+
+--_000_CW1P123MB083354C3E72687CDF83F928CBDD89D2CW1P123MB083354_--
+
+--_004_CW1P123MB083354C3E72687CDF83F928CBDD89D2CW1P123MB083354_
+Content-Type: image/png; name="Companies House Footer Image"
+Content-Description: Companies House Footer Image
+Content-Disposition: inline; filename="Companies House Footer Image";
+	size=3730; creation-date="Wed, 14 Oct 2026 17:38:27 GMT";
+	modification-date="Wed, 14 Oct 2026 17:38:27 GMT"
+Content-ID: <2ceefebb-3c77-49cc-8f12-eafdf95806f3>
+Content-Transfer-Encoding: base64
+
+iVBORw0KGgoAAAANSUhEUgAAAPIAAABkCAMAAACLiZ3IAAAAAXNSR0IArs4c6QAAAARnQU1BAACx
+jwv8YQUAAALfUExURf///5q81V6Uvdrm8eLi4mCWvgBXl8bZ6OPj44yMjObm5lSOuQBWlsLX5ouL
+iwAAAI+Pj8TExPr6+sXZ5+7u7omJidbW1sfHx/Pz87KysikpKbW1taurq2hoaKWlpTw8PL6+vq2t
+rbq6uvHx8Z+fn2RkZKKiooSEhE5NTra2tri4uHt7eywsLJ2dnefn55WVlZiYmLm5uXFxcVhXV3V1
+dZycnJ6enurq6lFRUcrKyk9PTyQkJDQ0NEVFRT4+PlRUVJmZmfj4+IODg66urn19fWtra3p6evn5
++bOzs4aGhvb29hMTE1dXV7GxsdXV1ZqamiEhISgoKCAgIO3s7JeXl9/f39LS0ry8vNHR0Xx8fCUl
+JW5ubioqKpGRkbCwsKioqHZ2dvv7+1NTU+np6Xh4eLS0tKSkpEdHR0FBQWVlZV1dXXd3d2FhYS8v
+L97e3uXl5WBgYMLCwt3d3QMDA729vWZmZs/Pz87OzsXFxX5+fru7uysrKzc3Nx8fHzo6OgYGBllZ
+WRUVFcPDwxwcHNvb2zg4OEpKSgwMDGdnZ/7+/sDAwCIiIh0dHRERETIyMklJSYCAgIiIiIGBgZub
+m6enp5CQkJaWltDQ0HR0dAkJCbe3t42NjT8/P46Ojk1MTS4tLRkZGfX29V5eXlBQUFpaWicnJ2xs
+bNzc3Hl5ef39/aCgoKampkRERKqqqltbWxoaGiYmJqysrPDv739/f5KSkqGhoQ8PD9PT03Nzc19f
+X5OTkzAwMFZWVtfX18nJyeTk5IqKikhISGNjY+vr6xcXF9jY2FxcXHBwcDU1NWJiYq+vr83NzcbG
+xszMzExLTIWFhdnZ2ampqW9vb8HBwcjIyEVERWlpaZSUlIKCgm1tbVJSUtra2uDg4NTU1GpqaqOj
+o3JycsvLy+jo6EtLS+Hh4YeHh0NDQ7+/v/X19VVUVTExMVONuMHW5WSYvwNZmMfa6PH2+ubu9uXu
+9fv9/gAAAFFCo3cAAAD1dFJOU///////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////8Awu13zwAAAAlwSFlzAAAOwwAADsMB
+x2+oZAAACjtJREFUeF7tWzuyHbcRHSt4EV1IEHgBChwrRoCAG3DCkBtAokIVEiSKpGRqAiyAgfMB
+V8EUkXbgDEWrLO/Apxs933sfSUnvlQW+ORLvxdzB7+B0Nz4zb7hw4cKFCxcuXLhw4cKFCxe+AH/5
+5pv/SvJRaPn+SvDLw8NfJfkYfPq6OH98ePiPJB9DUklSQ5HvrgHKNyrr5KMkCXFcr3KQRM+AYZ9V
+1tnEvLCETdtgV392c/vuGR9fvTpTzjG6ESwBba2NobqI70a6Gv7qGb883FAu82jmuRJplwcfXXDR
+D1kceqqxc4+Gyv+W5Ao7jqNRkx4ia62Np68ktq7U5ttd4p7KzozKjerdkDOEHvSs8Ql757t5Vkp1
+7dF3fDmo4EKFmF7X6FWyk03Kx0Bal1GNoKx6jtz3VAal4vDxGvOTNSmNNhnbrJn51gkZOGuXuOPL
+Fqwmb2C+eghkxoS56VrGEeEN1y2id4k7KsdpAmXwMnp4q+aUckqzkpBlbWal4dy94uOrhzeSXDHD
+cAkfwDAibDv+pDu6aMRyQt8qHxectgxOKCs/eKE/kZHHIZlg7WxgBZK7R0DlPeVgwlyGxLYLB/4n
+Areg6lEFH5XBUuz7nu365MuIXLrUIQpNS4xtto7it8GWKlNizjUMrqZegzYi9k5lUBycHYiYmqaa
+aaWVcrYa87GKmn4m1MG+xj0p1BsOKicig30D85qCx6ePxuVYbVRj/bCY+b+GOuAmr0P7w35eLnPE
+OgSrS2FmjXJlnGt206QdpisJbIhdbApVynWGvcpQLU6I0kTLjGCXpmJDcLm8M7moishGyxRMyjqP
+ftABS/AOcVx96RExicL1VAboOlpfA4w6/2xdMSrAfQs+EMGwIEHOPs/EjhE7YFPchJywU4bMOeVv
+7fuACIaJy/gKnp6MO2Pp2akrn1TGbqlgualohaUzePvgnLPfG2MQs2n9kWdedcONU6+7qaPKY7CG
+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
+MxiG/wENFo3jACP0FQAAAABJRU5ErkJggg==
+
+--_004_CW1P123MB083354C3E72687CDF83F928CBDD89D2CW1P123MB083354_--

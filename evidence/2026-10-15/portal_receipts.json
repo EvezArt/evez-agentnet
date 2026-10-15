@@ -1,0 +1,20 @@
+{
+ "ts": "2026-10-15T08:13:40.507716+00:00",
+ "receipts": [
+  {
+   "source": "RDAP attacker IP 150.241.74.83 (retry via rdap.org, repairs 2026-10-14 fetch failure)",
+   "url": "https://rdap.org/ip/150.241.74.83",
+   "http": 200,
+   "bytes": 7853,
+   "fetched_at": "2026-10-15T08:13:40.507716+00:00",
+   "receipt_sha": "acdcfa0d5c6d5cf1",
+   "resolved": {
+    "network": "AS210546-iPv4",
+    "startAddress": "150.241.74.0",
+    "endAddress": "150.241.74.255",
+    "org": "SERV.HOST GROUP LTD (ORG-MG337-RIPE)",
+    "abuse_contact": "AN32913-RIPE ABUSE NOC"
+   }
+  }
+ ]
+}
