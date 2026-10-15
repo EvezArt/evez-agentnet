@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T12:55:41.237847+00:00",
+  "generated": "2026-10-15T13:24:53.802841+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -275,6 +275,16 @@
       "bind": "127.0.0.1",
       "proc": "node-MainThread",
       "pid": 4059710,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 3334,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 563027,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -832,7 +842,7 @@
   "docker": [
     {
       "name": "ruview-demo",
-      "status": "Up 11 hours",
+      "status": "Up 12 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -857,11 +867,6 @@
     }
   ],
   "checks": [
-    {
-      "state": "ok",
-      "name": "service openclaw-gateway",
-      "detail": "state=deactivating"
-    },
     {
       "state": "WARN",
       "name": "income loop yield",
@@ -899,9 +904,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "870f67a",
-    "last": "PROTOCOL // EVEZ-404: the theme song exists \u2014 rendered, measured, sealed",
-    "dirty": 47
+    "head": "0930530",
+    "last": "PROTOCOL // EVEZ-404 (VOX): Steven's cloned voice chopped into the theme",
+    "dirty": 34
   },
   "mirrors": 2329
 }
