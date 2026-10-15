@@ -4,7 +4,7 @@ ROOT=Path(__file__).resolve().parents[1]
 class APITest(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory()
- _s=socket.socket(); _s.bind(('127.0.0.1',0)); self.port=_s.getsockname()[1]; _s.close()  # 18789 is the EVEZ gateway organ on this host; bind ephemeral instead
+  _s=socket.socket(); _s.bind(('127.0.0.1',0)); self.port=_s.getsockname()[1]; _s.close()  # 18789 is the EVEZ gateway organ on this host; bind ephemeral instead
   env=os.environ.copy(); env.update(DWS_DATA_DIR=self.tmp.name,DWS_HOST='127.0.0.1',DWS_PORT=str(self.port),DWS_API_TOKEN='test-token')
   self.p=subprocess.Popen([sys.executable,str(ROOT/'dws_server.py')],env=env,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
   self.base=f'http://127.0.0.1:{self.port}'

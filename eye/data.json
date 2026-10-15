@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T03:16:12.169979+00:00",
+  "generated": "2026-10-15T05:43:33.649350+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -106,17 +106,17 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Thu 2026-10-15 02:01:38 CEST"
+      "since": "Thu 2026-10-15 07:43:31 CEST"
     },
     {
       "unit": "hermes-ears.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Thu 2026-10-15 06:34:26 CEST"
     },
     {
       "unit": "hermes-gateway.service",
       "sub": "running",
-      "since": "Thu 2026-10-15 00:37:25 CEST"
+      "since": "Thu 2026-10-15 06:06:36 CEST"
     },
     {
       "unit": "hermes-live.service",
@@ -131,7 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Thu 2026-10-15 04:01:58 CEST"
+      "since": "Thu 2026-10-15 06:09:15 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -144,7 +144,7 @@
       "port": 22,
       "bind": "0.0.0.0",
       "proc": "sshd",
-      "pid": 1277,
+      "pid": 58453,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -154,7 +154,7 @@
       "port": 8644,
       "bind": "0.0.0.0",
       "proc": "hermes",
-      "pid": 3848116,
+      "pid": 17675,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -174,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 4082540,
+      "pid": 22703,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -184,7 +184,7 @@
       "port": 22,
       "bind": "[::]",
       "proc": "sshd",
-      "pid": 1277,
+      "pid": 58453,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -194,7 +194,7 @@
       "port": 53,
       "bind": "127.0.0.53%lo",
       "proc": "systemd-resolve",
-      "pid": 2117955,
+      "pid": 42309,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -204,7 +204,7 @@
       "port": 53,
       "bind": "127.0.0.54",
       "proc": "systemd-resolve",
-      "pid": 2117955,
+      "pid": 42309,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -234,7 +234,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 3796883,
+      "pid": 49454,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -244,7 +244,7 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 3796883,
+      "pid": 49454,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -284,7 +284,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 4078706,
+      "pid": 19122,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -361,6 +361,36 @@
       "fw_blocked": false
     },
     {
+      "port": 8787,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 4176962,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 8788,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 4185814,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 8789,
+      "bind": "127.0.0.1",
+      "proc": "python3",
+      "pid": 4176959,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 8900,
       "bind": "127.0.0.1",
       "proc": "python3",
@@ -414,7 +444,7 @@
       "port": 9050,
       "bind": "127.0.0.1",
       "proc": "tor",
-      "pid": 1327,
+      "pid": 47025,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -451,6 +481,26 @@
       "fw_blocked": false
     },
     {
+      "port": 9443,
+      "bind": "100.126.180.47",
+      "proc": "tailscaled",
+      "pid": 1139,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 9443,
+      "bind": "[fd7a:115c:a1e0::5f31:b430]",
+      "proc": "tailscaled",
+      "pid": 1139,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 9800,
       "bind": "127.0.0.1",
       "proc": "python3",
@@ -474,7 +524,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 4078706,
+      "pid": 19122,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -484,7 +534,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 4078706,
+      "pid": 19122,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -511,20 +561,10 @@
       "fw_blocked": false
     },
     {
-      "port": 18791,
-      "bind": "127.0.0.1",
-      "proc": "hermes",
-      "pid": 3962839,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 18792,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1130,
+      "pid": 46700,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -591,20 +631,10 @@
       "fw_blocked": false
     },
     {
-      "port": 43389,
-      "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 4115611,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 43935,
+      "port": 44041,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 4078706,
+      "pid": 19122,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -802,7 +832,7 @@
   "docker": [
     {
       "name": "ruview-demo",
-      "status": "Up 2 hours",
+      "status": "Up 4 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -812,17 +842,17 @@
     },
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 2 days",
+      "status": "Up 3 days",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 2 days",
+      "status": "Up 3 days",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 2 days",
+      "status": "Up 3 days",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -864,9 +894,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "e9ebd3c",
-    "last": "four-zip intake sealed: digital meteorology station live as the dws organ; LORD GOD evez-tools 1.2.1 composed and verified",
-    "dirty": 28
+    "head": "f46bf81",
+    "last": "war-mode heartbeat 2026-10-15: two enemy clocks at DUE-3; the blind calligraphy master made honest",
+    "dirty": 58
   },
   "mirrors": 2329
 }

@@ -25,6 +25,18 @@ def read_jsonl(path):
         except json.JSONDecodeError: continue
     return out
 
+def obs_rows():
+    """Unwrap collector envelope records; keep server-native flat rows.
+    The collector engine writes {event_type:'OBSERVATION', payload:{...}, prev_hash, hash, recorded_at};
+    API posts write flat observation rows. Both are valid ledger entries; readers accept both."""
+    out=[]
+    for r in read_jsonl(OBS):
+        if isinstance(r,dict) and r.get('event_type')=='OBSERVATION' and isinstance(r.get('payload'),dict):
+            out.append(r['payload'])
+        elif isinstance(r,dict) and 'metric' in r and 'value' in r:
+            out.append(r)
+    return out
+
 def append_chain(path, obj):
     ROOT.mkdir(parents=True, exist_ok=True)
     with LOCK:
@@ -92,7 +104,7 @@ class Handler(BaseHTTPRequestHandler):
         if not self._auth(): return self._json(401,{'error':'unauthorized'})
         path=urlparse(self.path).path
         if path=='/health': return self._json(200,{'ok':True,'service':'digital-weather-station','version':'1.0','data_dir':str(ROOT),'auth_enabled':bool(TOKEN),'time':now()})
-        rows=read_jsonl(OBS)
+        rows=obs_rows()
         if path=='/observations':
             q=parse_qs(urlparse(self.path).query); metric=q.get('metric',[None])[0]; limit=min(10000,max(1,int(q.get('limit',['1000'])[0])))
             filtered=[r for r in rows if metric is None or r.get('metric')==metric]
