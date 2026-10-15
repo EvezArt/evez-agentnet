@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "evez-tools",
+  "version": "1.2.1",
+  "description": "Distributed tool discovery, policy-gated invocation, and auditable orchestration for the EVEZ agent mesh.",
+  "author": { "name": "EVEZ" },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "EVEZ Distributed Tools",
+        "shortDescription": "Discover and govern mesh tools",
+        "longDescription": "A safety-first toolkit and reference registry for discovering tools as services across EVEZ, authorizing per-agent capabilities, validating schemas, bounding invocations, governing high-risk calls through Hermes policy, and recording tamper-evident audit evidence. Includes deployment guidance for Hermes and OpenClaw, without claiming access to remote hosts until an actual connection is configured.",
+        "developerName": "EVEZ",
+        "category": "Developer Tools",
+        "capabilities": ["Tools", "Interactive"],
+        "defaultPrompt": [
+          "Help me design or implement an EVEZ distributed tool service.",
+          "Review a mesh tool for security, schemas, and auditability.",
+          "Plan a safe Hermes and OpenClaw integration for EVEZ tools."
+        ]
+      }
+    }
+  }
+}

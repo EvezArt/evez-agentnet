@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T02:01:45.965389+00:00",
+  "generated": "2026-10-15T02:51:09.049563+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -131,7 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Thu 2026-10-15 04:01:09 CEST"
+      "since": "Thu 2026-10-15 04:01:58 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -171,6 +171,16 @@
       "fw_blocked": true
     },
     {
+      "port": 9377,
+      "bind": "*",
+      "proc": "MainThread",
+      "pid": 4082540,
+      "public_bind": true,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": true
+    },
+    {
       "port": 22,
       "bind": "[::]",
       "proc": "sshd",
@@ -195,6 +205,26 @@
       "bind": "127.0.0.54",
       "proc": "systemd-resolve",
       "pid": 2117955,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 443,
+      "bind": "100.126.180.47",
+      "proc": "tailscaled",
+      "pid": 1139,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 443,
+      "bind": "[fd7a:115c:a1e0::5f31:b430]",
+      "proc": "tailscaled",
+      "pid": 1139,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -245,6 +275,16 @@
       "bind": "127.0.0.1",
       "proc": "node-MainThread",
       "pid": 4059710,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 3334,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 4078706,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -431,6 +471,26 @@
       "fw_blocked": false
     },
     {
+      "port": 18789,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 4078706,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18789,
+      "bind": "[::1]",
+      "proc": "MainThread",
+      "pid": 4078706,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 18790,
       "bind": "127.0.0.1",
       "proc": "python3",
@@ -531,10 +591,20 @@
       "fw_blocked": false
     },
     {
-      "port": 36887,
+      "port": 43389,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 4048163,
+      "pid": 4115611,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 43935,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 4078706,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -723,12 +793,16 @@
     {
       "sched": "0 4 * * *",
       "cmd": "systemctl restart openclaw-gateway # evez-maintenance predictable restart"
+    },
+    {
+      "sched": "*/30 * * * *",
+      "cmd": "pgrep -f digital_weather_engine >/dev/null || /root/evez-agentnet/dws/start-autopilot.sh >> /root/.local/share/digital-w"
     }
   ],
   "docker": [
     {
       "name": "ruview-demo",
-      "status": "Up 19 minutes",
+      "status": "Up About an hour",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -790,9 +864,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "a4bb55f",
-    "last": "ruview recorder: the eye records itself; delivery organ resurrected",
-    "dirty": 37
+    "head": "18cea1b",
+    "last": "ruview live behind the tailnet name: serve root mount + host gate, proven end-to-end",
+    "dirty": 36
   },
   "mirrors": 2329
 }

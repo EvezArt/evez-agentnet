@@ -26,6 +26,17 @@ jobs:
       - name: Test
         run: |
           if [ -d tests ]; then python -m pytest tests/ -q; fi
+      - name: DWS collector + evez-tools registry
+        run: |
+          # dws: stdlib-only tokenless public-source collector (vendor pearson
+          # None-guard fix applied). evez-tools: LORD GOD reference registry;
+          # skipped with a clear message if fastapi/httpx are absent.
+          python3 dws/tests_tokenless.py
+          if python -c "import fastapi, httpx" 2>/dev/null; then
+            python -m pytest evez-tools/tests/test_registry.py -q
+          else
+            echo "evez-tools registry tests skipped: fastapi/httpx not installed"
+          fi
       - name: RSI engine regression
         run: |
           # Was previously unreferenced and unreachable from CI. These cover
