@@ -81,6 +81,7 @@ def main():
     ap.add_argument("--probe", action="store_true",
                     help="inject manual probe frames (node 254) during capture")
     ap.add_argument("--out-dir", default="/root/evez-agentnet/forge_output/ruview_recordings")
+    ap.add_argument("--url", default=None, help="override target URL (e.g. the tailscale serve address)")
     args = ap.parse_args()
 
     out_dir = args.out_dir
@@ -95,12 +96,18 @@ def main():
     token = api_token()
     print("api token present:", bool(token), "| server:", SERVER)
 
-    chrome = subprocess.Popen([
-        "google-chrome", "--headless=new",
-        "--remote-debugging-port=%d" % CDP_PORT,
-        "--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage",
-        "--no-first-run", "--user-data-dir=/tmp/ruview-rec-prof", "about:blank"],
-        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    url = args.url or ("http://%s:%d/ui/index.html" % (SERVER, HTTP_PORT))
+    import urllib.parse as _up
+    _host = _up.urlparse(url).hostname or ""
+    chrome_args = ["google-chrome", "--headless=new",
+                   "--remote-debugging-port=%d" % CDP_PORT,
+                   "--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage",
+                   "--no-first-run", "--user-data-dir=/tmp/ruview-rec-prof"]
+    if _host.endswith(".ts.net"):
+        # MagicDNS ts.net names may not resolve from the host itself; pin to the tailnet IP
+        chrome_args.append("--host-resolver-rules=MAP %s %s" % (_host, SERVER))
+    chrome_args.append("about:blank")
+    chrome = subprocess.Popen(chrome_args, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
     sock = None
     try:
@@ -110,7 +117,6 @@ def main():
                 break
             except Exception:
                 time.sleep(0.5)
-        url = "http://%s:%d/ui/index.html" % (SERVER, HTTP_PORT)
         target = http("/json/new?" + url.replace("?", "%3F").replace("&", "%26"), "PUT")
         async def run():
             async with websockets.connect(target["webSocketDebuggerUrl"], max_size=256 * 1024 * 1024) as ws:

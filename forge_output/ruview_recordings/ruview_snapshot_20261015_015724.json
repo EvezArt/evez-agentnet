@@ -1,0 +1,43 @@
+{
+ "ts": "2026-10-15T01:58:16.227798+00:00",
+ "server": "100.126.180.47",
+ "health": {
+  "clients": 0,
+  "source": "esp32",
+  "status": "ok",
+  "tick": 9203
+ },
+ "status": {
+  "source": "esp32",
+  "source_state": "live_unverified",
+  "status": "ready",
+  "trust": {
+   "demoted": false,
+   "effective_class": "Anonymous",
+   "engine_error_count": 0,
+   "last_witness": "330bd21c9d131d78dae428eb55d395cb39a2e0746b489d10167998bd89129be4",
+   "raw_outputs_suppressed": false,
+   "recalibration_recommended": false
+  }
+ },
+ "nodes": {
+  "nodes": [
+   {
+    "csi_last_seen_ms": 2683,
+    "csi_sequence": 1792029552,
+    "csi_status": "active",
+    "last_seen_ms": 2683,
+    "motion_level": "active",
+    "node_id": 254,
+    "person_count": 1,
+    "person_count_valid": null,
+    "rssi_dbm": -60.0,
+    "status": "active"
+   }
+  ],
+  "total": 1
+ },
+ "mat_events": {
+  "error": "HTTP Error 404: Not Found"
+ }
+}

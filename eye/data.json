@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T01:11:35.468941+00:00",
+  "generated": "2026-10-15T02:01:45.965389+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -131,7 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Thu 2026-10-15 02:37:25 CEST"
+      "since": "Thu 2026-10-15 04:01:09 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -171,16 +171,6 @@
       "fw_blocked": true
     },
     {
-      "port": 9377,
-      "bind": "*",
-      "proc": "MainThread",
-      "pid": 4001752,
-      "public_bind": true,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": true
-    },
-    {
       "port": 22,
       "bind": "[::]",
       "proc": "sshd",
@@ -211,26 +201,6 @@
       "fw_blocked": false
     },
     {
-      "port": 443,
-      "bind": "100.126.180.47",
-      "proc": "tailscaled",
-      "pid": 1139,
-      "public_bind": false,
-      "tailnet": true,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 443,
-      "bind": "[fd7a:115c:a1e0::5f31:b430]",
-      "proc": "tailscaled",
-      "pid": 1139,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
@@ -254,7 +224,7 @@
       "port": 3000,
       "bind": "100.126.180.47",
       "proc": "docker-proxy",
-      "pid": 2150084,
+      "pid": 4059071,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -264,17 +234,17 @@
       "port": 3001,
       "bind": "100.126.180.47",
       "proc": "docker-proxy",
-      "pid": 2150098,
+      "pid": 4059085,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
       "fw_blocked": false
     },
     {
-      "port": 3334,
+      "port": 3210,
       "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 3997124,
+      "proc": "node-MainThread",
+      "pid": 4059710,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -461,26 +431,6 @@
       "fw_blocked": false
     },
     {
-      "port": 18789,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 3997124,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 18789,
-      "bind": "[::1]",
-      "proc": "MainThread",
-      "pid": 3997124,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 18790,
       "bind": "127.0.0.1",
       "proc": "python3",
@@ -581,20 +531,10 @@
       "fw_blocked": false
     },
     {
-      "port": 38463,
+      "port": 36887,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 3992229,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 43237,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 3997124,
+      "pid": 4048163,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -787,6 +727,11 @@
   ],
   "docker": [
     {
+      "name": "ruview-demo",
+      "status": "Up 19 minutes",
+      "image": "ruvnet/wifi-densepose:latest"
+    },
+    {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
       "status": "Up 2 days",
       "image": "openclaw-sandbox:bookworm-slim"
@@ -795,11 +740,6 @@
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
       "status": "Up 2 days",
       "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "ruview-demo",
-      "status": "Up 26 hours",
-      "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "ban-engine-saas-redis-1",
@@ -850,9 +790,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "49eaac6",
-    "last": "protocol // evez-404: conversing theme engine built and driven live; god kernel sealed as law",
-    "dirty": 33
+    "head": "a4bb55f",
+    "last": "ruview recorder: the eye records itself; delivery organ resurrected",
+    "dirty": 37
   },
   "mirrors": 2329
 }
