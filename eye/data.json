@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-14T21:53:52.233482+00:00",
+  "generated": "2026-10-15T00:28:45.646032+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -106,7 +106,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Wed 2026-10-14 23:53:47 CEST"
+      "since": "Thu 2026-10-15 02:01:38 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -116,7 +116,7 @@
     {
       "unit": "hermes-gateway.service",
       "sub": "running",
-      "since": "Wed 2026-10-14 23:35:47 CEST"
+      "since": "Thu 2026-10-15 00:37:25 CEST"
     },
     {
       "unit": "hermes-live.service",
@@ -154,7 +154,7 @@
       "port": 8644,
       "bind": "0.0.0.0",
       "proc": "hermes",
-      "pid": 3763788,
+      "pid": 3848116,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -234,7 +234,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 2064674,
+      "pid": 3796883,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -244,7 +244,7 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 2064674,
+      "pid": 3796883,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -441,6 +441,16 @@
       "fw_blocked": false
     },
     {
+      "port": 9222,
+      "bind": "127.0.0.1",
+      "proc": "chrome",
+      "pid": 3978231,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 9800,
       "bind": "127.0.0.1",
       "proc": "python3",
@@ -497,6 +507,16 @@
       "pid": 2154826,
       "public_bind": false,
       "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18791,
+      "bind": "127.0.0.1",
+      "proc": "hermes",
+      "pid": 3962839,
+      "public_bind": false,
+      "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
@@ -759,6 +779,10 @@
     {
       "sched": "*/15 * * * *",
       "cmd": "getent hosts google.com >/dev/null 2>&1 || /usr/local/sbin/evez-dns-guard"
+    },
+    {
+      "sched": "0 4 * * *",
+      "cmd": "systemctl restart openclaw-gateway # evez-maintenance predictable restart"
     }
   ],
   "docker": [
@@ -774,7 +798,7 @@
     },
     {
       "name": "ruview-demo",
-      "status": "Up 22 hours",
+      "status": "Up 25 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -797,7 +821,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "82 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "80 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -826,9 +850,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "5e160d0",
-    "last": "two days of autonomous operation survived the provider storm",
-    "dirty": 34
+    "head": "ec6caeb",
+    "last": "all three storm fragments executed: AEE core, portal receipts, EPIE v0.2 grading",
+    "dirty": 46
   },
   "mirrors": 2329
 }

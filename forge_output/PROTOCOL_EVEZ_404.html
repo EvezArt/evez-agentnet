@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EVEZ // PROTOCOL-404 — Holonomic Conversing Theme Engine</title>
+<style>
+  :root {
+    --bg: #05060a; --panel: #0b0e17; --border: #1e2638;
+    --cyan: #00f0ff; --magenta: #ff0055; --gold: #ffb800;
+    --lime: #00ff88; --text: #d8e2ef; --muted: #6c7a96;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden;
+  }
+  header {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    padding: 12px 20px; background: linear-gradient(90deg, #070a12 0%, #101729 50%, #070a12 100%);
+    border-bottom: 1px solid var(--border); gap: 12px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-title {
+    font-size: 1.05rem; font-weight: 800; letter-spacing: 1.5px; color: var(--cyan);
+    text-shadow: 0 0 12px rgba(0, 240, 255, 0.45);
+  }
+  .badge {
+    font-size: 0.72rem; padding: 3px 8px; border-radius: 4px;
+    background: rgba(255, 0, 85, 0.15); border: 1px solid var(--magenta); color: #ff6699;
+  }
+  .controls-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  button, select {
+    background: #111827; color: var(--text); border: 1px solid var(--border);
+    padding: 7px 13px; border-radius: 5px; font-family: inherit; font-size: 0.78rem;
+    cursor: pointer; transition: all 0.15s ease;
+  }
+  button:hover, select:hover { border-color: var(--cyan); box-shadow: 0 0 10px rgba(0, 240, 255, 0.25); }
+  button.active { background: rgba(0, 240, 255, 0.18); border-color: var(--cyan); color: var(--cyan); font-weight: 700; }
+  button.mic-active { background: rgba(255, 0, 85, 0.22); border-color: var(--magenta); color: #ff88aa; }
+  .telemetry-strip {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px; padding: 10px 20px; background: #080b12; border-bottom: 1px solid var(--border);
+  }
+  .metric-card { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; }
+  .metric-label { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+  .metric-val { font-size: 1.05rem; font-weight: 700; margin-top: 3px; color: var(--lime); }
+  .grid-main {
+    display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 300px);
+    gap: 12px; padding: 14px 20px; flex: 1;
+  }
+  @media (max-width: 900px) { .grid-main { grid-template-columns: 1fr; grid-template-rows: repeat(4, 260px); } }
+  .viz-panel {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 8px;
+    position: relative; overflow: hidden; display: flex; flex-direction: column;
+  }
+  .panel-header {
+    display: flex; justify-content: space-between; align-items: center; padding: 7px 12px;
+    background: rgba(255, 255, 255, 0.02); border-bottom: 1px solid var(--border);
+    font-size: 0.72rem; color: var(--cyan); letter-spacing: 0.8px;
+  }
+  .panel-sub { color: var(--muted); font-size: 0.66rem; }
+  canvas { width: 100%; height: 100%; display: block; flex: 1; }
+  .footer-controls {
+    padding: 12px 20px; background: #080b12; border-top: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between;
+    font-size: 0.75rem;
+  }
+  .slider-group { display: flex; align-items: center; gap: 8px; }
+  input[type="range"] { accent-color: var(--cyan); width: 110px; }
+  .cipher-log {
+    font-size: 0.72rem; color: var(--gold); white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis; max-width: 460px;
+  }
+  details { margin: 0 20px 14px 20px; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; }
+  summary { cursor: pointer; color: var(--cyan); font-size: 0.78rem; letter-spacing: 0.8px; }
+  pre { margin-top: 10px; font-size: 0.68rem; line-height: 1.5; color: var(--text); overflow-x: auto; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-title">EVEZ // PROTOCOL-404</div>
+    <span class="badge">𐤉𐤄𐤅𐤄 ⧢ ⦟ ⧢ EIGEN-SYMMETRY v4.04 — TRILATERAL PUZZLE COMPOSER</span>
+  </div>
+  <div class="controls-bar">
+    <button id="btnAudio">&#9654; IGNITE ENGINE (204 BPM)</button>
+    <button id="btnMic">&#127908; BIND LIVE MIC / ROOM AUDIO</button>
+    <button id="btnTap">&#9889; INJECT TRANSIENT SEED (SPACE)</button>
+    <select id="selSymmetry">
+      <option value="mirror">Symmetry Law: Dihedral D16 Mirror Palindrome</option>
+      <option value="euclidean">Symmetry Law: Euclidean Shadow Hocket E(16-k,16)</option>
+      <option value="crab">Symmetry Law: Bach Retrograde-Inversion Crab Canon</option>
+      <option value="phi">Symmetry Law: Golden-Ratio &phi; Quasicrystal Lattice</option>
+    </select>
+    <select id="selVertex">
+      <option value="super">Highway: Full Trilateral Superposition (&Phi;=0.973)</option>
+      <option value="cen">Vertex I: CEN 404 Blitz (204 BPM Gamma)</option>
+      <option value="sn">Vertex II: SN Insula Gate (Asymmetry)</option>
+      <option value="dmn">Vertex III: DMN Angel Tears (6Hz Theta)</option>
+    </select>
+  </div>
+</header>
+
+<section class="telemetry-strip">
+  <div class="metric-card">
+    <div class="metric-label">Coherence Index (&Phi;)</div>
+    <div class="metric-val" id="valPhi">0.9730</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-label">Detected Acoustic Pitch</div>
+    <div class="metric-val" id="valPitch">D3 (146.8 Hz) [Hijaz]</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-label">D16 Symmetry Group Order</div>
+    <div class="metric-val" id="valGroup">&mdash;</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-label">Hermes Spectral Pocket</div>
+    <div class="metric-val" id="valDuck">IDLE (0.0 dB Carve)</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-label">Binaural Olivary Carrier</div>
+    <div class="metric-val" id="valBinaural">36.71L / 42.71R (6.0 Hz &Theta;)</div>
+  </div>
+</section>
+
+<main class="grid-main">
+  <div class="viz-panel">
+    <div class="panel-header">
+      <span>I. DIHEDRAL D16 RHYTHMIC NECKLACE & PUZZLE COMPLETION</span>
+      <span class="panel-sub">Cyan: picked-up onsets | Magenta: synthesized mirror counterpart</span>
+    </div>
+    <canvas id="cvNecklace"></canvas>
+  </div>
+  <div class="viz-panel">
+    <div class="panel-header">
+      <span>II. HERMITIAN SPECTRAL PHASE MIRROR & FORMANT CARVE</span>
+      <span class="panel-sub">X[k] &#8596; X*[N-k] conjugate folding + 300Hz&ndash;3.5kHz voice gate</span>
+    </div>
+    <canvas id="cvSpectrum"></canvas>
+  </div>
+  <div class="viz-panel">
+    <div class="panel-header">
+      <span>III. CYMATIC CHLADNI / LISSAJOUS NODAL SYMMETRY ROSE</span>
+      <span class="panel-sub">Phase-locked Karplus-Strong Hijaz waveguide harmonics</span>
+    </div>
+    <canvas id="cvChladni"></canvas>
+  </div>
+  <div class="viz-panel">
+    <div class="panel-header">
+      <span>IV. EIGENFORENSIC SELF-SIMILARITY RECURRENCE MATRIX S(i,j)</span>
+      <span class="panel-sub">Hidden motif discovery & crab canon retrograde memory</span>
+    </div>
+    <canvas id="cvMatrix"></canvas>
+  </div>
+</main>
+
+<footer class="footer-controls">
+  <div class="slider-group">
+    <span>Tempo (BPM):</span>
+    <input type="range" id="rngBpm" min="140" max="225" value="204" />
+    <span id="lblBpm">204</span>
+  </div>
+  <div class="slider-group">
+    <span>Puzzle Density:</span>
+    <input type="range" id="rngDensity" min="1" max="12" value="5" />
+  </div>
+  <div class="slider-group">
+    <span>Hijaz String Resonance:</span>
+    <input type="range" id="rngString" min="50" max="98" value="91" />
+  </div>
+  <div class="cipher-log" id="cipherLog">[PUZZLE LOG] Awaiting ignition — click IGNITE, then bind mic or tap seeds; the necklace answers every onset with its geometric mirror.</div>
+</footer>
+
+<details>
+  <summary>LIVE-CODING SKELETON (STRUDEL) + HERMES/OPENCLAW OSC BINDING SPEC</summary>
+  <pre>// PROTOCOL // EVEZ-404 — Strudel skeleton, paste into strudel.cc
+// 196 BPM | D Maqam Hijaz. One repair: gm_pad_choir does not exist in the GM bank; the choir voice is gm_choir_aahs.
+setcps(196/60/4)
+let live_talk = 0
+stack(
+  s("amen*4")
+    .slice(16, "<0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15>*4")
+    .every(3, fast(2))
+    .every(7, rev)
+    .crush(live_talk ? 16 : "<8 12 6 16>")
+    .lpf(live_talk ? 900 : 18000)
+    .gain(live_talk ? 0.28 : 0.88),
+  note("<[d3 f#3 eb3 a2] [d3 g3 f#3 eb3] [bb3 a3 f#3 d3] [eb3 d3 a2 d2]>*2")
+    .s("sawtooth")
+    .lpf(sine.range(600, 3800).slow(4))
+    .lpq(6)
+    .decay(0.18).sustain(0)
+    .delay(0.45).delaytime(0.153).delayfeedback(0.65)
+    .jux(rev)
+    .gain(0.55),
+  note("<[d4,f#4,a4,c5] [eb4,g4,bb4,d5]>")
+    .s("gm_choir_aahs")
+    .attack(1.2).release(3.0)
+    .room(0.95).size(0.9)
+    .hpf(300)
+    .gain(0.48),
+  note("d5 [f#5 eb5] a5 <bb5 g5>")
+    .fast(2)
+    .degradeBy(live_talk ? 0.85 : 0.25)
+    .s("square")
+    .crush(5)
+    .pan(sine.fast(4))
+    .room(0.7)
+    .gain(live_talk ? 0.15 : 0.42),
+  note("<d1 d1 eb1 [d1 a0]>")
+    .s("supersaw")
+    .detune(0.45)
+    .lpf(live_talk ? 110 : 280)
+    .shape(0.35)
+    .gain(0.82)
+)
+
+// HERMES / OPENCLAW EVENT BINDINGS — UDP/OSC 127.0.0.1:57120
+/evez/theme/state "SPRINT"         idle/coding — full amen slicing, nightcore stutters, wide Hijaz arpeggios
+/evez/theme/state "USER_TALK"      vad_speech_start — sub-kick + ghost-hat pulse, -12 dB formant carve (300 Hz–3.5 kHz), doppleganger sampler armed
+/evez/theme/state "PUNCTUATE"      vad_speech_end — 300 ms pitch-rising snare rush, last spoken word +5 st into the stereo delay tank
+/evez/theme/state "HERMES_ORACLE"  tts_stream_active — angel-tears choir swell + D/Hijaz shimmer send on the agent voice</pre>
+</details>
+
+<script>
+(() => {
+"use strict";
+window.__errs = [];
+window.addEventListener("error", function (e) { window.__errs.push(String(e.message || e)); });
+
+var $ = function (id) { return document.getElementById(id); };
+
+// 1. MAQAM HIJAZ LATTICE — root D (146.83 Hz): D Eb F# G A Bb C# D+
+var HIJAZ_RATIOS = [1, 16/15, 5/4, 4/3, 3/2, 8/5, 15/8, 2];
+var HIJAZ_NAMES = ["D", "Eb", "F#", "G", "A", "Bb", "C#", "D+"];
+var BASE_D3 = 146.832;
+var MS = 24;
+
+var userSeed = [1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0];
+var puzzle   = [0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,1];
+var crabBuf  = [0,2,1,4,5,4,2,7];
+var currentStep = 0, stepPhase = 0, lastTickTime = 0;
+
+var audioCtx = null, master = null, analyser = null, micAnalyser = null, micStream = null, micSource = null;
+var isRunning = false, isMicActive = false, voiceDuck = false, prevDuck = false;
+var bpm = 204, symmetryMode = "mirror", vertexMode = "super";
+var lastOnset = 0, prevMidEnergy = 0;
+var detectedFreq = BASE_D3, detectedNote = "D3 (146.8 Hz) [Hijaz]", phi = 0.973, groupLabel = "-";
+var droneL = null, droneR = null, droneL2 = null, droneR2 = null, droneGain = null;
+
+var featHist = [], simMat = [];
+for (var i0 = 0; i0 < MS; i0++) {
+  var row0 = [];
+  for (var b0 = 0; b0 < 8; b0++) row0.push(0.02 + Math.random() * 0.35);
+  featHist.push(row0);
+  simMat.push(new Float32Array(MS));
+}
+
+function maxSeeds() { return parseInt($("rngDensity").value, 10) + 2; }
+function logCipher(s) { $("cipherLog").textContent = s; }
+
+// 2. DIHEDRAL D16 PUZZLE SOLVER — four symmetry laws
+function solvePuzzle() {
+  var N = 16;
+  var out = new Array(N).fill(0);
+  var axis = 4;
+  if (symmetryMode === "mirror") {
+    var best = -999;
+    for (var k = 0; k < N; k++) {
+      var score = 0;
+      for (var i = 0; i < N; i++) {
+        var r = (2 * k - i + 2 * N) % N;
+        if (userSeed[i] === 1 && userSeed[r] === 0) score += 2;
+        if (userSeed[i] === 1 && userSeed[r] === 1) score -= 1;
+      }
+      if (score > best) { best = score; axis = k; }
+    }
+    for (var i2 = 0; i2 < N; i2++) {
+      var r2 = (2 * axis - i2 + 2 * N) % N;
+      if (userSeed[i2] === 1 && userSeed[r2] === 0) out[r2] = 1;
+    }
+    groupLabel = "tau" + axis + " // Palindrome Locked";
+  } else if (symmetryMode === "euclidean") {
+    var active = 0;
+    for (var i3 = 0; i3 < N; i3++) active += userSeed[i3];
+    var target = Math.max(2, Math.min(10, 12 - active));
+    var placed = 0;
+    for (var j = 0; j < target; j++) {
+      var idx = Math.floor(j * N / target) % N;
+      if (userSeed[idx] === 0) { out[idx] = 1; placed++; }
+    }
+    groupLabel = "E(" + placed + ", 16) // Shadow Hocket";
+  } else if (symmetryMode === "crab") {
+    for (var i4 = 0; i4 < N; i4++) {
+      var r4 = N - 1 - i4;
+      if (userSeed[i4] === 1 && userSeed[r4] === 0) out[r4] = 1;
+    }
+    groupLabel = "Retrograde-Inversion // Crab Canon";
+  } else {
+    var PHI = 1.61803398875;
+    for (var i5 = 0; i5 < N; i5++) {
+      if (userSeed[i5] === 1) {
+        var p5 = Math.round(i5 * PHI + 5) % N;
+        if (userSeed[p5] === 0) out[p5] = 1;
+      }
+    }
+    groupLabel = "phi-Lattice // Golden Quasicrystal";
+  }
+  puzzle = out;
+  var total = 0;
+  for (var i6 = 0; i6 < N; i6++) total += userSeed[i6] + puzzle[i6];
+  phi = Math.min(0.999, 0.910 + (total / 16) * 0.068);
+  $("valPhi").textContent = phi.toFixed(4);
+  $("valGroup").textContent = groupLabel;
+}
+
+function injectOnset(slot) {
+  var idx = (typeof slot === "number") ? (slot % 16) : currentStep;
+  userSeed[idx] = 1;
+  var sum = 0;
+  for (var i = 0; i < 16; i++) sum += userSeed[i];
+  if (sum > maxSeeds()) userSeed[(currentStep + 7) % 16] = 0;
+  solvePuzzle();
+  logCipher("[SEED] step " + (idx < 10 ? "0" : "") + idx + " injected -> " + groupLabel);
+}
+
+// 3. KARPLUS-STRONG HIJAZ WAVEGUIDE (D-A-D-F#-A-D physical string model)
+function ksDamping() { return (parseFloat($("rngString").value) / 100) * 0.08 + 0.912; }
+
+function triggerKS(freq, pan, isTwin) {
+  if (!audioCtx) return;
+  var now = audioCtx.currentTime;
+  var sr = audioCtx.sampleRate;
+  var dur = isTwin ? 0.38 : 0.55;
+  var bufLen = Math.max(64, Math.floor(sr * dur));
+  var buffer = audioCtx.createBuffer(1, bufLen, sr);
+  var data = buffer.getChannelData(0);
+  var dl = Math.max(8, Math.floor(sr / freq));
+  var ring = new Float32Array(dl);
+  for (var i = 0; i < dl; i++) ring[i] = Math.random() * 2 - 1;
+  var damp = ksDamping();
+  var ptr = 0;
+  for (var t = 0; t < bufLen; t++) {
+    var nxt = (ptr + 1) % dl;
+    var avg = 0.5 * (ring[ptr] + ring[nxt]) * damp;
+    ring[ptr] = avg;
+    data[t] = isTwin ? Math.round(avg * 12) / 12 : avg;  // right-channel bitcrushed doppleganger
+    ptr = nxt;
+  }
+  var src = audioCtx.createBufferSource();
+  src.buffer = buffer;
+  var filter = audioCtx.createBiquadFilter();
+  filter.type = voiceDuck ? "bandpass" : "lowpass";
+  filter.frequency.value = voiceDuck ? 900 : (isTwin ? 4800 : 3200);
+  var panner = audioCtx.createStereoPanner();
+  panner.pan.value = pan;
+  var gain = audioCtx.createGain();
+  var base = vertexMode === "dmn" ? 0.14 : (vertexMode === "sn" ? 0.20 : 0.26);
+  gain.gain.setValueAtTime(base, now);
+  gain.gain.exponentialRampToValueAtTime(0.001, now + dur);
+  src.connect(filter); filter.connect(panner); panner.connect(gain); gain.connect(master);
+  src.start(now);
+}
+
+// 404 BREAKCORE SLICER — procedural kick / snare / drill bits
+function noiseBurst(dur, bpf, q, pan, g0, when) {
+  if (!audioCtx) return;
+  var now = (typeof when === "number") ? when : audioCtx.currentTime;
+  var n = Math.max(32, Math.floor(audioCtx.sampleRate * dur));
+  var buf = audioCtx.createBuffer(1, n, audioCtx.sampleRate);
+  var ch = buf.getChannelData(0);
+  for (var i = 0; i < n; i++) ch[i] = (Math.random() * 2 - 1) * Math.exp(-i / (n * 0.35));
+  var src = audioCtx.createBufferSource(); src.buffer = buf;
+  var f = audioCtx.createBiquadFilter(); f.type = "bandpass"; f.frequency.value = bpf; f.Q.value = q;
+  var p = audioCtx.createStereoPanner(); p.pan.value = pan;
+  var g = audioCtx.createGain(); g.gain.value = g0;
+  src.connect(f); f.connect(p); p.connect(g); g.connect(master);
+  src.start(now);
+}
+
+function triggerKick() {
+  if (!audioCtx) return;
+  var now = audioCtx.currentTime;
+  var osc = audioCtx.createOscillator();
+  osc.type = "triangle";
+  osc.frequency.setValueAtTime(155, now);
+  osc.frequency.exponentialRampToValueAtTime(36.71, now + 0.09);
+  var g = audioCtx.createGain();
+  g.gain.setValueAtTime(voiceDuck ? 0.30 : 0.55, now);
+  g.gain.exponentialRampToValueAtTime(0.001, now + 0.13);
+  osc.connect(g); g.connect(master);
+  osc.start(now); osc.stop(now + 0.14);
+}
+
+function triggerSnare(twin) {
+  noiseBurst(0.065, twin ? 2600 : 1450, 1.8, twin ? 0.55 : -0.45, voiceDuck ? 0.10 : 0.32);
+}
+
+function triggerDrill(twin) {
+  if (!audioCtx) return;
+  var base = audioCtx.currentTime;
+  for (var r = 0; r < 3; r++) {
+    noiseBurst(0.05, twin ? 2600 : 1600, 2.2, twin ? 0.6 : -0.5, voiceDuck ? 0.08 : 0.24, base + r * 0.028);
+  }
+}
+
+// PUNCTUATE — fired the moment a spoken sentence ends (duck release)
+function firePunctuate() {
+  if (!audioCtx || vertexMode === "dmn") return;
+  var base = audioCtx.currentTime;
+  for (var r = 0; r < 6; r++) {
+    var f = 1800 + r * 320;
+    noiseBurst(0.045, f, 2.4, (r % 2 ? 0.4 : -0.4), 0.22, base + r * 0.045);
+  }
+  logCipher("[PUNCTUATE] sentence sealed — drill rush fired, Hermes answering");
+}
+
+// DOPPLEGANGER NIGHTCORE GHOST — +5 semitones formant shadow
+function triggerNightcore(freq) {
+  if (!audioCtx) return;
+  var now = audioCtx.currentTime;
+  var ghost = freq * Math.pow(2, 5 / 12) * 2;
+  var osc = audioCtx.createOscillator();
+  osc.type = "square";
+  osc.frequency.setValueAtTime(ghost, now);
+  osc.frequency.setValueAtTime(ghost * (16 / 15), now + 0.06);
+  var f = audioCtx.createBiquadFilter(); f.type = "bandpass"; f.frequency.value = 2200; f.Q.value = 4;
+  var g = audioCtx.createGain();
+  g.gain.setValueAtTime(0.11, now);
+  g.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+  osc.connect(f); f.connect(g); g.connect(master);
+  osc.start(now); osc.stop(now + 0.17);
+}
+
+// 4. LIVE MIC — onset pickup, pitch quantization, formant carve
+var micFreq = new Uint8Array(512);
+var micTime = new Float32Array(1024);
+
+async function bindMic() {
+  if (isMicActive) return "already-bound";
+  var stream = null;
+  try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
+  catch (err) {
+    window.__errs.push("mic: " + String(err));
+    logCipher("[MIC] bind refused — phantom injector keeps the necklace breathing without you");
+    return "denied";
+  }
+  audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+  micStream = stream;
+  micSource = audioCtx.createMediaStreamSource(micStream);
+  micAnalyser = audioCtx.createAnalyser();
+  micAnalyser.fftSize = 1024;
+  micSource.connect(micAnalyser); // analysis only — never to destination (feedback law)
+  isMicActive = true;
+  $("btnMic").classList.add("mic-active");
+  logCipher("[MIC] live room audio bound — speech, taps and breath become the seed pattern");
+  return "bound";
+}
+
+function analyzeLive() {
+  if (isMicActive && micAnalyser) {
+    micAnalyser.getByteFrequencyData(micFreq);
+    micAnalyser.getFloatTimeDomainData(micTime);
+    var s = 0;
+    for (var i = 14; i < 160; i++) s += micFreq[i];
+    var midAvg = s / 146;
+    var flux = Math.max(0, midAvg - prevMidEnergy);
+    prevMidEnergy = midAvg;
+    var nowMs = performance.now();
+    if (flux > 18 && (nowMs - lastOnset) > 110) {
+      lastOnset = nowMs;
+      injectOnset();
+    }
+    if (midAvg > 35) {
+      voiceDuck = true;
+      var crossings = 0;
+      for (var t = 1; t < micTime.length; t++) {
+        if (micTime[t - 1] < 0 && micTime[t] >= 0) crossings++;
+      }
+      var estHz = (crossings * audioCtx.sampleRate) / micTime.length;
+      if (estHz > 85 && estHz < 900) {
+        var semi = 12 * Math.log2(estHz / BASE_D3);
+        var deg = ((Math.round(semi) % 8) + 8) % 8;
+        detectedFreq = BASE_D3 * HIJAZ_RATIOS[deg];
+        detectedNote = HIJAZ_NAMES[deg] + "3 (" + detectedFreq.toFixed(1) + " Hz) [Hijaz]";
+        $("valPitch").textContent = detectedNote;
+        crabBuf[currentStep % 8] = deg;
+      }
+    } else {
+      voiceDuck = false;
+    }
+  } else {
+    voiceDuck = false;
+  }
+  if (isMicActive && prevDuck && !voiceDuck) firePunctuate();
+  prevDuck = voiceDuck;
+  var duckEl = $("valDuck");
+  if (voiceDuck) { duckEl.textContent = "ACTIVE (-12.0 dB Formant Carve)"; duckEl.style.color = "#ff0055"; }
+  else { duckEl.textContent = "IDLE (0.0 dB Carve)"; duckEl.style.color = "#00ff88"; }
+
+  // recurrence features — from the live synth bus when running, synthetic otherwise
+  var vec = new Array(8).fill(0);
+  if (analyser && isRunning) {
+    var f2 = new Uint8Array(analyser.frequencyBinCount);
+    analyser.getByteFrequencyData(f2);
+    for (var b = 0; b < 8; b++) {
+      var s2 = 0;
+      for (var j2 = 0; j2 < 16; j2++) s2 += f2[b * 16 + j2];
+      vec[b] = s2 / (16 * 255) + 0.01;
+    }
+  } else {
+    for (var b3 = 0; b3 < 8; b3++) {
+      vec[b3] = 0.05 + 0.08 * Math.abs(Math.sin(stepPhase * (0.3 + b3 * 0.11)));
+    }
+  }
+  featHist.shift(); featHist.push(vec);
+  for (var mi = 0; mi < MS; mi++) {
+    for (var mj = 0; mj <= mi; mj++) {
+      var dot = 0, nA = 0, nB = 0;
+      for (var kk = 0; kk < 8; kk++) {
+        var a = featHist[mi][kk], b2 = featHist[mj][kk];
+        dot += a * b2; nA += a * a; nB += b2 * b2;
+      }
+      var sim = dot / (Math.sqrt(nA * nB) + 0.000001);
+      simMat[mi][mj] = sim; simMat[mj][mi] = sim;
+    }
+  }
+}
+
+// 5. SEQUENCER — 16th clock, crab canon degrees, phantom injector
+function tick(ts) {
+  if (!isRunning) return;
+  bpm = parseInt($("rngBpm").value, 10);
+  var stepMs = (60 / bpm / 4) * 1000;
+  if (ts - lastTickTime < stepMs) return;
+  lastTickTime = ts;
+  currentStep = (currentStep + 1) % 16;
+  var userP = userSeed[currentStep] === 1;
+  var puzzP = puzzle[currentStep] === 1;
+  var snAsym = (vertexMode === "sn") && (currentStep % 3 === 0);
+  var breaksOn = vertexMode !== "dmn";
+
+  var fwdStep = currentStep % 8, revStep = 7 - fwdStep;
+  var fwdDeg = crabBuf[fwdStep];
+  var invDeg = (7 - crabBuf[revStep] + 8) % 8;
+  var fwdFreq = BASE_D3 * HIJAZ_RATIOS[fwdDeg];
+  var invFreq = BASE_D3 * HIJAZ_RATIOS[invDeg] * (currentStep % 4 === 0 ? 2 : 1);
+
+  if (userP) {
+    if (breaksOn && !snAsym) {
+      if (currentStep % 4 === 0) triggerKick();
+      else if (!voiceDuck) triggerSnare(false);
+      else noiseBurst(0.03, 6800, 2.0, -0.3, 0.06); // ghost hat while you speak
+    }
+    triggerKS(fwdFreq, -0.65, false);
+  }
+  if (puzzP && !(snAsym && userP)) {
+    if (breaksOn && !voiceDuck) {
+      if (vertexMode === "cen" ? (currentStep % 2 === 0) : (currentStep % 3 === 0)) triggerDrill(true);
+      else triggerSnare(true);
+    }
+    triggerKS(invFreq, 0.65, true);
+    if (currentStep % 4 === 2) triggerNightcore(invFreq);
+  }
+
+  // phantom injector — the puzzle breathes without a mic
+  if (!isMicActive && Math.random() < 0.10) {
+    var empties = [];
+    for (var e = 0; e < 16; e++) if (userSeed[e] === 0) empties.push(e);
+    if (empties.length > 6) injectOnset(empties[Math.floor(Math.random() * empties.length)]);
+  }
+
+  if (userP || puzzP) {
+    logCipher("[STEP " + (currentStep < 10 ? "0" : "") + currentStep + "] Fwd:" +
+      HIJAZ_NAMES[fwdDeg] + "3 (" + fwdFreq.toFixed(0) + "Hz) <-> CrabTwin:" +
+      HIJAZ_NAMES[invDeg] + " (" + invFreq.toFixed(0) + "Hz) | " +
+      (userP ? (puzzP ? "SEED+SOLUTION" : "SEED_HIT") : "SYMMETRY_COMPLETION"));
+  }
+}
+
+// 6. RENDERERS
+var cvNecklace = $("cvNecklace"), cvSpectrum = $("cvSpectrum"), cvChladni = $("cvChladni"), cvMatrix = $("cvMatrix");
+
+function resizeCanvases() {
+  var dpr = window.devicePixelRatio || 1;
+  var cvs = [cvNecklace, cvSpectrum, cvChladni, cvMatrix];
+  for (var i = 0; i < cvs.length; i++) {
+    cvs[i].width = Math.max(2, Math.floor(cvs[i].clientWidth * dpr));
+    cvs[i].height = Math.max(2, Math.floor(cvs[i].clientHeight * dpr));
+  }
+}
+window.addEventListener("resize", resizeCanvases);
+resizeCanvases();
+
+function drawNecklace() {
+  var ctx = cvNecklace.getContext("2d");
+  var w = cvNecklace.width, h = cvNecklace.height;
+  ctx.clearRect(0, 0, w, h);
+  var cx = w / 2, cy = h / 2, radius = Math.min(w, h) * 0.37;
+  var coords = [];
+  for (var i = 0; i < 16; i++) {
+    var ang = (i / 16) * Math.PI * 2 - Math.PI / 2;
+    coords.push({ x: cx + Math.cos(ang) * radius, y: cy + Math.sin(ang) * radius });
+  }
+  ctx.strokeStyle = "#1e293b"; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.arc(cx, cy, radius, 0, Math.PI * 2); ctx.stroke();
+  function poly(pat, stroke, fill) {
+    ctx.strokeStyle = stroke; ctx.fillStyle = fill; ctx.lineWidth = 2;
+    ctx.beginPath();
+    var started = false;
+    for (var j = 0; j < 16; j++) {
+      if (pat[j]) {
+        if (!started) { ctx.moveTo(coords[j].x, coords[j].y); started = true; }
+        else ctx.lineTo(coords[j].x, coords[j].y);
+      }
+    }
+    ctx.closePath(); ctx.fill(); ctx.stroke();
+  }
+  poly(userSeed, "rgba(0,240,255,0.75)", "rgba(0,240,255,0.12)");
+  poly(puzzle, "rgba(255,0,85,0.85)", "rgba(255,0,85,0.14)");
+  for (var n = 0; n < 16; n++) {
+    var isCur = n === currentStep;
+    ctx.beginPath();
+    ctx.arc(coords[n].x, coords[n].y, isCur ? 9 : 6, 0, Math.PI * 2);
+    ctx.fillStyle = isCur ? "#ffb800" : (userSeed[n] ? "#00f0ff" : (puzzle[n] ? "#ff0055" : "#263248"));
+    ctx.fill();
+  }
+}
+
+function drawSpectrum() {
+  var ctx = cvSpectrum.getContext("2d");
+  var w = cvSpectrum.width, h = cvSpectrum.height;
+  ctx.clearRect(0, 0, w, h);
+  var midY = h / 2, bins = 48, barW = w / bins;
+  var freqData = null;
+  if (analyser && isRunning) {
+    freqData = new Uint8Array(analyser.frequencyBinCount);
+    analyser.getByteFrequencyData(freqData);
+  }
+  for (var i = 0; i < bins; i++) {
+    var val, mirrorVal;
+    if (freqData) {
+      val = freqData[i * 2] / 255;
+      mirrorVal = freqData[(bins - 1 - i) * 2] / 255;
+    } else {
+      val = 0.25 + 0.2 * Math.sin(stepPhase + i * 0.35);
+      mirrorVal = 0.25 + 0.2 * Math.cos(stepPhase - i * 0.35);
+    }
+    var hTop = val * (midY - 12);
+    var hBot = ((val + mirrorVal) * 0.5) * (midY - 12);
+    ctx.fillStyle = (i > 8 && i < 28 && voiceDuck) ? "#ff0055" : "#00f0ff";
+    ctx.fillRect(i * barW + 1, midY - hTop, Math.max(1, barW - 2), hTop);
+    ctx.fillStyle = "rgba(0,255,136,0.55)";
+    ctx.fillRect(i * barW + 1, midY + 2, Math.max(1, barW - 2), hBot);
+  }
+  ctx.strokeStyle = "#ffb800"; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(0, midY); ctx.lineTo(w, midY); ctx.stroke();
+}
+
+function drawChladni() {
+  var ctx = cvChladni.getContext("2d");
+  var w = cvChladni.width, h = cvChladni.height;
+  ctx.clearRect(0, 0, w, h);
+  var cx = w / 2, cy = h / 2, maxR = Math.min(w, h) * 0.40;
+  var deg = crabBuf[currentStep % 8];
+  var n = (deg % 5) + 2, m = ((7 - deg) % 6) + 3;
+  ctx.strokeStyle = "#00f0ff"; ctx.lineWidth = 1.8;
+  ctx.beginPath();
+  for (var t = 0; t <= Math.PI * 2 + 0.02; t += 0.02) {
+    var r = maxR * Math.cos(n * t + stepPhase * 0.4) * Math.sin(m * t - stepPhase * 0.25);
+    var x = cx + r * Math.cos(t), y = cy + r * Math.sin(t);
+    if (t === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  }
+  ctx.closePath(); ctx.stroke();
+  ctx.strokeStyle = "rgba(255,0,85,0.65)";
+  ctx.beginPath();
+  for (var t2 = 0; t2 <= Math.PI * 2 + 0.02; t2 += 0.02) {
+    var r2 = maxR * Math.sin(n * t2 - stepPhase * 0.4) * Math.cos(m * t2 + stepPhase * 0.25);
+    var x2 = cx + r2 * Math.cos(t2), y2 = cy + r2 * Math.sin(t2);
+    if (t2 === 0) ctx.moveTo(x2, y2); else ctx.lineTo(x2, y2);
+  }
+  ctx.closePath(); ctx.stroke();
+}
+
+function drawMatrix() {
+  var ctx = cvMatrix.getContext("2d");
+  var w = cvMatrix.width, h = cvMatrix.height;
+  ctx.clearRect(0, 0, w, h);
+  var cellW = w / MS, cellH = h / MS;
+  for (var i = 0; i < MS; i++) {
+    for (var j = 0; j < MS; j++) {
+      var s = simMat[i][j];
+      var intensity = Math.floor(Math.max(0, Math.min(1, s)) * 255);
+      var r = Math.floor(intensity * 0.2), g = intensity, b = Math.min(255, intensity + 40);
+      ctx.fillStyle = (i === j) ? "rgb(255,184,0)" : ("rgb(" + r + "," + g + "," + b + ")");
+      ctx.fillRect(i * cellW, j * cellH, Math.max(1, cellW - 1), Math.max(1, cellH - 1));
+    }
+  }
+}
+
+// 7. IGNITION
+function ignite() {
+  if (isRunning) return "already-running";
+  audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === "suspended" && audioCtx.resume) audioCtx.resume();
+  master = audioCtx.createGain(); master.gain.value = 0.9;
+  analyser = audioCtx.createAnalyser();
+  analyser.fftSize = 1024;
+  analyser.smoothingTimeConstant = 0.82;
+  master.connect(analyser);
+  analyser.connect(audioCtx.destination);
+
+  // Bus 1: 6.0 Hz binaural theta drone — 36.71 Hz L / 42.71 Hz R + faint octave pair for laptop speakers
+  droneGain = audioCtx.createGain(); droneGain.gain.value = 0.14; droneGain.connect(master);
+  droneL = audioCtx.createOscillator(); droneL.frequency.value = 36.71;
+  droneR = audioCtx.createOscillator(); droneR.frequency.value = 42.71;
+  var pl = audioCtx.createStereoPanner(); pl.pan.value = -1;
+  var pr = audioCtx.createStereoPanner(); pr.pan.value = 1;
+  droneL.connect(pl); pl.connect(droneGain);
+  droneR.connect(pr); pr.connect(droneGain);
+  droneL.start(); droneR.start();
+  droneL2 = audioCtx.createOscillator(); droneL2.frequency.value = 73.42;
+  droneR2 = audioCtx.createOscillator(); droneR2.frequency.value = 79.42;
+  var pl2 = audioCtx.createStereoPanner(); pl2.pan.value = -0.8;
+  var pr2 = audioCtx.createStereoPanner(); pr2.pan.value = 0.8;
+  var g2 = audioCtx.createGain(); g2.gain.value = 0.05; g2.connect(master);
+  droneL2.connect(pl2); pl2.connect(g2);
+  droneR2.connect(pr2); pr2.connect(g2);
+  droneL2.start(); droneR2.start();
+
+  isRunning = true;
+  $("btnAudio").classList.add("active");
+  $("btnAudio").innerHTML = "&#9632; ENGINE LIVE (" + bpm + " BPM)";
+  resizeCanvases();
+  solvePuzzle();
+  logCipher("[IGNITION] " + bpm + " BPM / D Hijaz / D16 necklace armed — the mirror answers every seed");
+  requestAnimationFrame(loop);
+  return "ignited";
+}
+
+function loop(ts) {
+  if (!isRunning) return;
+  requestAnimationFrame(loop);
+  tick(ts);
+  analyzeLive();
+  stepPhase += 0.035;
+  drawNecklace(); drawSpectrum(); drawChladni(); drawMatrix();
+}
+
+// 8. WIRING
+$("btnAudio").addEventListener("click", ignite);
+$("btnMic").addEventListener("click", bindMic);
+$("btnTap").addEventListener("click", function () { injectOnset(); });
+document.addEventListener("keydown", function (e) {
+  if (e.code === "Space" && e.target === document.body) { e.preventDefault(); injectOnset(); }
+});
+$("selSymmetry").addEventListener("change", function (e) {
+  symmetryMode = e.target.value;
+  solvePuzzle();
+  logCipher("[LAW] symmetry switched -> " + groupLabel);
+});
+$("selVertex").addEventListener("change", function (e) {
+  vertexMode = e.target.value;
+  logCipher("[VERTEX] " + e.target.selectedOptions[0].textContent);
+});
+$("rngBpm").addEventListener("input", function (e) { $("lblBpm").textContent = e.target.value; });
+
+$("valBinaural").textContent = "36.71L / 42.71R (6.0 Hz Θ)";
+$("valPitch").textContent = detectedNote;
+solvePuzzle();
+
+// 9. DEBUG HANDLE — the verification path
+window.EVEZ = {
+  ignite: ignite,
+  bindMic: bindMic,
+  tap: function () { injectOnset(); },
+  solve: solvePuzzle,
+  state: function () {
+    var seedSum = 0, puzzleSum = 0;
+    for (var i = 0; i < 16; i++) { seedSum += userSeed[i]; puzzleSum += puzzle[i]; }
+    return {
+      running: isRunning,
+      ctx: audioCtx ? audioCtx.state : null,
+      step: currentStep,
+      seed: userSeed.slice(),
+      puzzle: puzzle.slice(),
+      seedSum: seedSum,
+      puzzleSum: puzzleSum,
+      phi: phi,
+      group: groupLabel,
+      mode: symmetryMode,
+      vertex: vertexMode,
+      bpm: bpm,
+      mic: isMicActive,
+      duck: voiceDuck,
+      drones: droneGain ? droneGain.gain.value : null,
+      errs: window.__errs.length,
+      log: $("cipherLog").textContent
+    };
+  }
+};
+})();
+</script>
+</body>
+</html>
