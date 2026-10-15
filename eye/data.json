@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T02:51:09.049563+00:00",
+  "generated": "2026-10-15T03:16:12.169979+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -802,7 +802,7 @@
   "docker": [
     {
       "name": "ruview-demo",
-      "status": "Up About an hour",
+      "status": "Up 2 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -864,9 +864,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "18cea1b",
-    "last": "ruview live behind the tailnet name: serve root mount + host gate, proven end-to-end",
-    "dirty": 36
+    "head": "e9ebd3c",
+    "last": "four-zip intake sealed: digital meteorology station live as the dws organ; LORD GOD evez-tools 1.2.1 composed and verified",
+    "dirty": 28
   },
   "mirrors": 2329
 }

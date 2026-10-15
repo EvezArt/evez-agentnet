@@ -1,0 +1,21 @@
+[Unit]
+Description=Digital Weather Station local API
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=%h/digital_meteorology_station
+Environment=DWS_HOST=127.0.0.1
+Environment=DWS_PORT=8788
+ExecStart=/usr/bin/python3 %h/digital_meteorology_station/dws_server.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=%h/.local/share/digital-weather-station
+
+[Install]
+WantedBy=default.target

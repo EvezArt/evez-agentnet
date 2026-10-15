@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+CMD="${1:-help}"; shift || true
+case "$CMD" in
+  serve) exec python3 "$HERE/dws_server.py" "$@" ;;
+  health) curl -fsS "${DWS_URL:-http://127.0.0.1:8788}/health" ${DWS_API_TOKEN:+-H "Authorization: Bearer $DWS_API_TOKEN"} ; echo ;;
+  import-csv)
+    FILE="${1:?Usage: dws import-csv file.csv}"; URL="${DWS_URL:-http://127.0.0.1:8788}"; TOKEN_ARGS=(); [[ -n "${DWS_API_TOKEN:-}" ]] && TOKEN_ARGS=(-H "Authorization: Bearer $DWS_API_TOKEN")
+    python3 - "$FILE" <<'PY' | curl -fsS -X POST "$URL/observations" -H 'Content-Type: application/json' "${TOKEN_ARGS[@]}" --data-binary @-
+import csv,json,sys
+out=[]
+with open(sys.argv[1],newline='',encoding='utf-8-sig') as f:
+ for r in csv.DictReader(f):
+  if r.get('timestamp') and r.get('metric') and r.get('value'):
+   try: float(r['value'])
+   except ValueError: continue
+   out.append({k:r.get(k,'') for k in ('timestamp','metric','value','source','domain','event_id','note')})
+print(json.dumps({'observations':out}))
+PY
+    echo ;;
+  analysis) URL="${DWS_URL:-http://127.0.0.1:8788}"; if [[ -n "${DWS_API_TOKEN:-}" ]]; then curl -fsS "$URL/analysis" -H "Authorization: Bearer $DWS_API_TOKEN"; else curl -fsS "$URL/analysis"; fi; echo ;;
+  event) TITLE="${1:?Usage: dws event 'title' [detail] [type]}"; DETAIL="${2:-}"; TYPE="${3:-observation}"; URL="${DWS_URL:-http://127.0.0.1:8788}"; python3 - "$TITLE" "$DETAIL" "$TYPE" <<'PY' | { if [[ -n "${DWS_API_TOKEN:-}" ]]; then curl -fsS -X POST "$URL/events" -H 'Content-Type: application/json' -H "Authorization: Bearer $DWS_API_TOKEN" --data-binary @-; else curl -fsS -X POST "$URL/events" -H 'Content-Type: application/json' --data-binary @-; fi; }
+import json,sys,datetime
+print(json.dumps({'title':sys.argv[1],'detail':sys.argv[2],'type':sys.argv[3],'timestamp':datetime.datetime.now(datetime.timezone.utc).isoformat()}))
+PY
+    echo ;;
+  help|*) cat <<EOF
+Digital Weather Station CLI
+  dws serve                 Start local API (127.0.0.1:8788)
+  dws health                Check API status
+  dws import-csv FILE       Import normalized observation CSV
+  dws analysis              Print anomaly summary JSON
+  dws event TITLE [DETAIL] [TYPE]  Record observation/hypothesis/intervention/context/correction
+Environment: DWS_URL, DWS_API_TOKEN, DWS_HOST, DWS_PORT, DWS_DATA_DIR
+EOF
+  ;;
+esac

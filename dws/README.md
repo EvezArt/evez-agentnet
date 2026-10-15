@@ -45,24 +45,59 @@ Use ISO 8601 timestamps (UTC is recommended). One row represents one observation
 - `README.md`: usage and limitations
 - `sample_observations.csv`: synthetic sample observations
 
-## Tokenless autonomous collector (new)
+## Hermes + OpenClaw integration
 
-`collectors/digital_weather_engine.py` uses only Python's standard library and polls an explicit HTTPS allowlist of anonymous public feeds: NOAA SWPC alerts, USGS earthquake GeoJSON, NASA EONET events, CISA cyber advisories, and GitHub Status RSS. No API keys or manually provided tokens are used. A source that fails is marked `error`/unknown rather than interpreted as zero events.
+The bundle now includes a Python-standard-library JSON API, a CLI, and an Agent Skills-format `SKILL.md` for both Hermes and OpenClaw. The browser dashboard remains standalone; the API is the shared ingestion and evidence layer agents can use.
 
-From the project root:
+### Start the API
 
 ```bash
-python3 collectors/digital_weather_engine.py collect
-python3 collectors/digital_weather_engine.py matrix
-python3 collectors/digital_weather_engine.py run
-python3 collectors/digital_weather_engine.py loop --minutes 60
-./start-autopilot.sh
-python3 collectors/digital_weather_engine.py verify-ledger
-python3 tests_tokenless.py
+python3 dws_server.py
+# default: http://127.0.0.1:8788
 ```
 
-Outputs default to `~/.local/share/digital-weather-station/` (override with `DWS_DATA_DIR`). `observations.jsonl` and `events.jsonl` are append-only hash-chained records; `latest_collection.json` records coverage/errors; `latest_matrix.json` reports robust-MAD anomaly flags and exact-timestamp pairwise Pearson correlations. Correlations are exploratory, and feed item counts measure feed publications—not total internet attention or human intent.
+The API stores records under `~/.local/share/digital-weather-station/` as JSONL and appends SHA-256-linked records (`prev_hash` + `hash`) for tamper-evident sequencing. This is not a signed or externally anchored ledger; an administrator who can rewrite the files can rewrite the chain.
 
-Hermes and OpenClaw instructions are in `skills/hermes/SKILL.md` and `skills/openclaw/SKILL.md`. Run `./install-agent-skills.sh` to copy them into the default local skill directories (override with `HERMES_SKILLS_DIR` and `OPENCLAW_SKILLS_DIR`). Run `./start-autopilot.sh` to start the hourly collector in the background; stop it with `kill $(cat ~/.local/share/digital-weather-station/collector.pid)`. A GitHub Actions workflow performs a six-hourly public-source scan without repository secrets and stores short-retention artifacts. Hosted CI artifacts are not a permanent ledger; copy/export them to a durable store if long-term retention is required. For always-on collection, run the loop on your own trusted machine or server.
+Endpoints:
 
-The collector is intentionally conservative: it does not crawl arbitrary sites, access private accounts, bypass login/rate limits, track individuals, or infer wrongdoing from statistical anomalies. Expand the allowlist only after checking source terms, cadence, data schema, and provenance requirements.
+- `GET /health`
+- `GET /observations?limit=1000` (optional `&metric=...`)
+- `POST /observations` with `{"observations":[...]}`
+- `GET /analysis`
+- `GET /events`
+- `POST /events`
+
+Set `DWS_API_TOKEN` to require bearer-token authentication. The service refuses a non-loopback bind without a token. If running the API on another host, set `DWS_HOST` to a private interface, set a strong token, and restrict access with the host firewall/Tailscale ACLs. Do not expose this API to the public internet. Keep tokens out of logs, skills, shell history, and prompts.
+
+### CLI
+
+```bash
+bin/dws serve
+bin/dws health
+bin/dws import-csv sample_observations.csv
+bin/dws analysis
+bin/dws event "unexpected latency spike" "Source and time window" hypothesis
+```
+
+### Install agent skills
+
+```bash
+./install-agent-skills.sh
+```
+
+Defaults: OpenClaw `~/.openclaw/workspace/skills/digital-weather-station/SKILL.md`; Hermes `~/.hermes/skills/digital-weather-station/SKILL.md`. Override with `OPENCLAW_SKILLS_DIR` and `HERMES_SKILLS_DIR` if your installation uses different skill roots. Restart/reload each agent runtime if it does not discover the new skill automatically.
+
+For a local agent on the same machine, use `DWS_URL=http://127.0.0.1:8788`. If the agent is containerized, its `127.0.0.1` is the container, not the host; use a reachable private/Tailscale host address and `DWS_API_TOKEN`. The skills provide operating instructions but do not themselves create network reachability or grant runtime tool permissions.
+
+### Security and evidence boundaries
+
+- API writes should be explicitly authorized by the operator. Agent skill instructions prohibit autonomous platform changes or unapproved collection.
+- Import only authorized, aggregated observations. Do not collect private messages, credentials, personal identifiers, or individual-level behavioral traces.
+- Anomaly flags are not evidence of malicious intent. Correlation and lag scans are not causal proof.
+- The hash chain is tamper-evident only if its files and hashes are preserved independently; it is not a cryptographic signature or remote witness.
+
+### Test
+
+```bash
+python3 -m unittest discover -s tests -v
+```
