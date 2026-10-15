@@ -101,12 +101,25 @@ def main():
 
     clocks = EVID / "enemy_clocks.jsonl"
     if clocks.exists():
-        for line in clocks.read_text(errors="replace").splitlines():
+        # One clock = one finding. Read only the LATEST snapshot (last
+        # parseable line): earlier 5-min snapshots of the same clock are
+        # history, and re-printing every one floods the heartbeat with
+        # hundreds of duplicates of a single finding. No snapshot ts in
+        # the line either — identical state must print identically or the
+        # determinism contract (and any monitor gate) is dead.
+        for line in reversed(clocks.read_text(errors="replace").splitlines()):
             try:
-                if walk_near(json.loads(line)):
-                    findings.append(f"ENEMY-CLOCK-NEAR {line[:160]}")
+                snap = json.loads(line)
             except ValueError:
                 continue
+            for c in snap.get("clocks", []):
+                if isinstance(c, dict) and walk_near(c):
+                    findings.append(
+                        f"ENEMY-CLOCK-NEAR {c.get('id', '?')} "
+                        f"deadline={c.get('deadline', '?')} "
+                        f"days_left={c.get('days_left', '?')} "
+                        f"status={c.get('status', '?')}")
+            break
 
     r = sh(f"cd {REPO} && git status --porcelain")
     for line in r.stdout.splitlines():
