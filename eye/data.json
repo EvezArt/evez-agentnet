@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T09:20:57.017799+00:00",
+  "generated": "2026-10-15T10:31:42.525547+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -631,6 +631,16 @@
       "fw_blocked": false
     },
     {
+      "port": 34115,
+      "bind": "127.0.0.1",
+      "proc": "llama-server",
+      "pid": 424636,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 34479,
       "bind": "127.0.0.1",
       "proc": "MainThread",
@@ -842,7 +852,7 @@
   "docker": [
     {
       "name": "ruview-demo",
-      "status": "Up 8 hours",
+      "status": "Up 9 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -904,9 +914,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "bc99805",
-    "last": "hermes dashboard live behind the tailnet name: gate, auth, and three real defects fixed",
-    "dirty": 44
+    "head": "3c1c212",
+    "last": "heartbeat 2026-10-15: CH replied on strike-off (COH2370479X) \u2014 ack + 14d hold archived, clocks corrected to real deadlines (evidence 10-28, diabin deflected), RDAP receipt for 150.241.74.83 repaired (ServHost GROUP/AS210546), ServHost escalation + CH evidence packs staged in forge_output",
+    "dirty": 38
   },
   "mirrors": 2329
 }
