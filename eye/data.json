@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T00:28:45.646032+00:00",
+  "generated": "2026-10-15T01:11:35.468941+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -131,7 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Wed 2026-10-14 23:33:48 CEST"
+      "since": "Thu 2026-10-15 02:37:25 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -174,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 3764798,
+      "pid": 4001752,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -274,7 +274,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3760033,
+      "pid": 3997124,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -441,16 +441,6 @@
       "fw_blocked": false
     },
     {
-      "port": 9222,
-      "bind": "127.0.0.1",
-      "proc": "chrome",
-      "pid": 3978231,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 9800,
       "bind": "127.0.0.1",
       "proc": "python3",
@@ -474,7 +464,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3760033,
+      "pid": 3997124,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -484,7 +474,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 3760033,
+      "pid": 3997124,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -591,10 +581,20 @@
       "fw_blocked": false
     },
     {
-      "port": 46419,
+      "port": 38463,
+      "bind": "127.0.0.1",
+      "proc": "llama-server",
+      "pid": 3992229,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 43237,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3760033,
+      "pid": 3997124,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -798,7 +798,7 @@
     },
     {
       "name": "ruview-demo",
-      "status": "Up 25 hours",
+      "status": "Up 26 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -850,9 +850,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "ec6caeb",
-    "last": "all three storm fragments executed: AEE core, portal receipts, EPIE v0.2 grading",
-    "dirty": 46
+    "head": "49eaac6",
+    "last": "protocol // evez-404: conversing theme engine built and driven live; god kernel sealed as law",
+    "dirty": 33
   },
   "mirrors": 2329
 }
