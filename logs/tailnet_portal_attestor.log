@@ -495,3 +495,12 @@
 {"ts": "2026-10-15T10:00:03.247116+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
 {"ts": "2026-10-15T10:15:02.645246+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
 {"ts": "2026-10-15T10:30:07.902024+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-15T10:45:02.739328+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-15T11:00:02.956222+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-15T11:15:02.828671+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-15T11:30:05.525843+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-15T11:45:02.843225+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-15T12:00:03.074559+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-15T12:15:01.949510+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-15T12:30:04.424949+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-15T12:45:02.509318+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}

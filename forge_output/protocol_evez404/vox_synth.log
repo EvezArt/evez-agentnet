@@ -1,0 +1,14 @@
+/root/evez-media-venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/root/evez-media-venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+loading XTTS v2 (cpu)...
+model loaded; refs: ['/root/evez-davinci/voice/steven_ref.wav', '/root/evez-davinci/voice/steven_ref2.wav', '/root/evez-davinci/voice/steven_ref3.wav']
+rendered: evez 153676 bytes
+rendered: protocol 149068 bytes
+rendered: loop 119884 bytes
+rendered: sealed 293964 bytes
+rendered: witness 113228 bytes
+rendered: grid 73292 bytes
+rendered: wheel 95820 bytes
+ALL LINES DONE
