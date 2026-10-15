@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DWS // LIVE — Digital Weather Station</title>
+<style>
+  :root { --bg:#05060a; --panel:#0b0e17; --border:#1e2638; --cyan:#00f0ff; --magenta:#ff0055; --lime:#00ff88; --gold:#ffb800; --text:#d8e2ef; --muted:#6c7a96; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:'JetBrains Mono','Fira Code',monospace; padding:16px; max-width:980px; margin:0 auto; }
+  header { display:flex; flex-wrap:wrap; gap:10px; align-items:baseline; justify-content:space-between; margin-bottom:14px; border-bottom:1px solid var(--border); padding-bottom:10px; }
+  h1 { font-size:1.05rem; color:var(--cyan); letter-spacing:1.5px; font-weight:800; }
+  .badge { font-size:.72rem; padding:3px 8px; border-radius:4px; border:1px solid var(--lime); color:var(--lime); }
+  .badge.err { border-color:var(--magenta); color:var(--magenta); }
+  .meta { color:var(--muted); font-size:.72rem; }
+  .card { background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:12px; margin-bottom:12px; }
+  .card h2 { font-size:.8rem; color:var(--cyan); letter-spacing:1px; margin-bottom:8px; }
+  .m-latest { color:var(--muted); font-size:.74rem; margin:4px 0 8px; word-break:break-word; }
+  .m-stats { font-size:.74rem; color:var(--text); }
+  .outlier { border-left:3px solid var(--magenta); padding:6px 10px; margin:6px 0; font-size:.74rem; background:rgba(255,0,85,.06); border-radius:0 5px 5px 0; }
+  .z { color:var(--magenta); font-weight:700; }
+  .ev { padding:6px 0; border-bottom:1px solid var(--border); font-size:.74rem; }
+  .ev:last-child { border-bottom:none; }
+  .ev .t { color:var(--gold); font-size:.66rem; }
+  .type { display:inline-block; font-size:.62rem; padding:1px 6px; border:1px solid var(--border); border-radius:3px; color:var(--cyan); margin-right:6px; }
+  footer { color:var(--muted); font-size:.66rem; margin-top:16px; line-height:1.6; }
+  a { color:var(--cyan); }
+</style>
+</head>
+<body>
+<header>
+  <h1>DWS // LIVE</h1>
+  <span class="badge" id="badge">connecting…</span>
+  <span class="meta" id="meta"></span>
+</header>
+<section id="metrics"></section>
+<section class="card"><h2>EVENT LEDGER — hash-chained</h2><div id="events"></div></section>
+<footer id="caveats">Anomaly flags are statistical deviations, not causal diagnoses or evidence of intent. Correlation is not causation. Auto-refresh: 30s. This page reads the station API and stores nothing.</footer>
+<script>
+(() => {
+  const qs = new URLSearchParams(location.search);
+  const API = (qs.get('api') || '/dwsapi').replace(/\/+$/, '');
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&','<':'<','>':'>','"':'"',"'":'&#39;'}[c]));
+  async function j(p) { const r = await fetch(API + p); if (!r.ok) throw new Error(p + ' -> ' + r.status); return r.json(); }
+  async function tick() {
+    const badge = $('badge');
+    try {
+      const h = await j('/health');
+      if (!h.ok) throw new Error('health not ok');
+      badge.textContent = 'LIVE · ' + h.service + ' v' + h.version;
+      badge.classList.remove('err');
+      const a = await j('/analysis');
+      $('meta').textContent = a.records + ' observations · analysis ' + (a.generated_at || '') + (a.data_origin ? ' · ' + a.data_origin : '');
+      let html = '';
+      for (const m of (a.metrics || [])) {
+        const L = m.latest || {};
+        html += '<div class="card"><h2>' + esc(m.metric) + ' <span style="color:var(--muted)">n=' + m.count + '</span></h2>';
+        html += '<div class="m-latest">latest ' + esc(L.timestamp || '?') + ' · ' + esc(L.value) + ' · ' + esc(L.source || '?') + (L.note ? ' — ' + esc(L.note) : '') + '</div>';
+        html += '<div class="m-stats">median ' + m.median + ' · MAD ' + m.mad + ' · outliers ' + m.outlier_count + '</div>';
+        for (const o of (m.outliers || [])) {
+          html += '<div class="outlier"><span class="z">z ' + esc(o.robust_z) + '</span> · ' + esc(o.timestamp) + ' · ' + esc(o.value) + (o.note ? ' — ' + esc(o.note) : '') + '</div>';
+        }
+        html += '</div>';
+      }
+      $('metrics').innerHTML = html || '<div class="card">no observations yet — the collector runs hourly</div>';
+      const e = await j('/events');
+      const evs = (e.events || []).map((x) => x.payload || x).slice(-12).reverse();
+      $('events').innerHTML = evs.map((x) =>
+        '<div class="ev"><span class="t">' + esc(x.timestamp || x.recorded_at || '') + '</span> <span class="type">' + esc(x.type || '') + '</span> ' + esc(x.title || '') +
+        (x.detail ? '<div style="color:var(--muted);margin-top:3px">' + esc(String(x.detail).slice(0, 300)) + '</div>' : '') + '</div>'
+      ).join('') || '<div class="ev">ledger empty</div>';
+    } catch (err) {
+      badge.textContent = 'ERROR — ' + err.message;
+      badge.classList.add('err');
+    }
+  }
+  tick();
+  setInterval(tick, 30000);
+})();
+</script>
+</body>
+</html>

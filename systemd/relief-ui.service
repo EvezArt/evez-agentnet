@@ -1,0 +1,14 @@
+[Unit]
+Description=EVEZ 3D Relief Lab static viewer (self-contained WebGL2)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -m http.server 8787 --bind 127.0.0.1 --directory /root/evez-agentnet/relief_lab
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

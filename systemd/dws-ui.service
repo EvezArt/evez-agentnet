@@ -1,0 +1,14 @@
+[Unit]
+Description=DWS static UI (vendor dashboard + live view page)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -m http.server 8789 --bind 127.0.0.1 --directory /root/evez-agentnet/dws
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

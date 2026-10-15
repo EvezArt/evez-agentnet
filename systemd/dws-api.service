@@ -1,0 +1,20 @@
+[Unit]
+Description=EVEZ Digital Weather Station local API (vendor user-unit adapted for root system install)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/evez-agentnet/dws
+Environment=DWS_HOST=127.0.0.1
+Environment=DWS_PORT=8788
+ExecStart=/usr/bin/python3 /root/evez-agentnet/dws/dws_server.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/root/.local/share/digital-weather-station
+
+[Install]
+WantedBy=multi-user.target
