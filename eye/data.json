@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T05:43:33.649350+00:00",
+  "generated": "2026-10-15T07:12:28.388864+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -94,6 +94,11 @@
       "since": "Mon 2026-10-12 07:17:45 CEST"
     },
     {
+      "unit": "evez-xtts.service",
+      "sub": "running",
+      "since": "Thu 2026-10-15 09:02:42 CEST"
+    },
+    {
       "unit": "gueriella-hermes-watchdog.service",
       "sub": "running",
       "since": "Mon 2026-10-12 07:17:45 CEST"
@@ -106,7 +111,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Thu 2026-10-15 07:43:31 CEST"
+      "since": "Thu 2026-10-15 08:44:45 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -131,7 +136,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Thu 2026-10-15 06:09:15 CEST"
+      "since": "Thu 2026-10-15 08:37:55 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -174,7 +179,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 22703,
+      "pid": 217380,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -284,7 +289,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 19122,
+      "pid": 210981,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -481,6 +486,16 @@
       "fw_blocked": false
     },
     {
+      "port": 9222,
+      "bind": "127.0.0.1",
+      "proc": "chrome",
+      "pid": 237973,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 9443,
       "bind": "100.126.180.47",
       "proc": "tailscaled",
@@ -524,7 +539,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 19122,
+      "pid": 210981,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -534,7 +549,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 19122,
+      "pid": 210981,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -557,6 +572,16 @@
       "pid": 2154826,
       "public_bind": false,
       "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18791,
+      "bind": "127.0.0.1",
+      "proc": "hermes",
+      "pid": 221557,
+      "public_bind": false,
+      "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
@@ -611,10 +636,30 @@
       "fw_blocked": false
     },
     {
+      "port": 18797,
+      "bind": "100.126.180.47",
+      "proc": "python",
+      "pid": 238949,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 18891,
       "bind": "127.0.0.1",
       "proc": "python3",
       "pid": 1185,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 34479,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 210981,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -631,10 +676,10 @@
       "fw_blocked": false
     },
     {
-      "port": 44041,
+      "port": 42863,
       "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 19122,
+      "proc": "llama-server",
+      "pid": 243587,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -832,7 +877,7 @@
   "docker": [
     {
       "name": "ruview-demo",
-      "status": "Up 4 hours",
+      "status": "Up 5 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -894,9 +939,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "f46bf81",
-    "last": "war-mode heartbeat 2026-10-15: two enemy clocks at DUE-3; the blind calligraphy master made honest",
-    "dirty": 58
+    "head": "af84af1",
+    "last": "war-mode heartbeat 2026-10-15 05:50 UTC: dws drift sealed \u2014 ledger reader now speaks collector envelopes (obs_rows), live view page wired, three organs enshrined as root systemd units (dws-api/dws-ui/relief-ui, all 127.0.0.1-bound, repo==installed); spine verified before commit; dws tests 4/4; clock floor unchanged at DUE-3 (CH strike-off ack + ServHost abuse response, both 2026-10-18); hand stepped to v37 honest, superego disk 47 confirmed",
+    "dirty": 37
   },
   "mirrors": 2329
 }
