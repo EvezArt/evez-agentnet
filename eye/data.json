@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T13:24:53.802841+00:00",
+  "generated": "2026-10-15T21:52:19.463531+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -131,7 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Thu 2026-10-15 14:51:56 CEST"
+      "since": "Thu 2026-10-15 20:53:48 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -174,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 566761,
+      "pid": 885236,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -284,7 +284,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 563027,
+      "pid": 881357,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -524,7 +524,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 563027,
+      "pid": 881357,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -534,7 +534,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 563027,
+      "pid": 881357,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -641,10 +641,10 @@
       "fw_blocked": false
     },
     {
-      "port": 44941,
+      "port": 44761,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 563027,
+      "pid": 881357,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -842,7 +842,7 @@
   "docker": [
     {
       "name": "ruview-demo",
-      "status": "Up 12 hours",
+      "status": "Up 20 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -904,9 +904,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "0930530",
-    "last": "PROTOCOL // EVEZ-404 (VOX): Steven's cloned voice chopped into the theme",
-    "dirty": 34
+    "head": "4d31200",
+    "last": "ANGELS & DEMONS: his voice is both the angel and the demon",
+    "dirty": 65
   },
   "mirrors": 2329
 }
