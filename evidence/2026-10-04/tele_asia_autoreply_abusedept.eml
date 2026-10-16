@@ -1,0 +1,58 @@
+Delivered-To: fiersteity@gmail.com
+Received: by 2002:a05:7412:f:b0:215:adb6:5a30 with SMTP id 15csp3118502rdb;
+        Sun, 4 Oct 2026 15:34:57 -0700 (PDT)
+X-Received: by 2002:a05:6a20:918c:b0:3da:e57d:4a79 with SMTP id adf61e73a8af0-3deacbef024mr9270875637.13.1791153296788;
+        Sun, 04 Oct 2026 15:34:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791153296; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Ns1bMrJBAYoJg1XVAgqT4cLCNyrxnr18GPUdri/il6WtJFeWbPQQ/gcm19ig33MCVc
+         IG69vI/dhExuKxvh66lDjMsc2kffAdL/wl/uNLwgNaC0SA7KNzQWHr5p27VpAcli2mGV
+         M7L/mjASXD3mc5d+ZMxQ2c24/elvUW7vnKQTtetlDfWquS5avNNfaG8N6IoVeeCBrq6c
+         mKeGhPi31FlFowaPxGsxzLiTw0Iiqb01L6XNVCgs6lWzP6jxmWzE+tal82TqzeROiZdY
+         DZqAJOIj2kwKowcG2etDCcumPerbM7gJyWdkMBvMPjztGGl5ZaJYykLNzXBRVeQCgVOt
+         cRjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=date:message-id:mime-version:auto-submitted:references:in-reply-to
+         :subject:to:from;
+        bh=uxS+8mpSh6j7t8Wm7T8NxFtRpky8pVz/E2TdqamcF60=;
+        fh=/JhzwJccBl/VWKC7JoKAdL5LEtd+cwW5QfOwmLfkCAk=;
+        b=eC1FEPYFjEw/g5gVrCdzYVGy5lJTs0Ly6TU1q6/1BvPaO3uRk60RG5JlDCeIKcbsBF
+         DRvY74C9rUhoEWDOc2t82k0WUstl323L0nwCMGlSKXiydrN1HbFpnqFnRlxXCQIy6B3k
+         Z/M+ls9wm5am1URTf5MUYyC3n6C1pZEF4xAY9XnzyfntcgTOzCfhpW/lK9C1shfG45RI
+         ejPYvAXr5I3XSDr7wKBOFobVKGqNb4wRRMXidQ4ikHCS3l1gecjlGYGbDf41JVZbzA8s
+         YThFZze4R2JbbJlOmOb29yohIdumKI0ljoJzxeQYbxuEvnevLVWh0CL1AfOEIGFSEtR6
+         /w7Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of postmaster@main.hosthongkong.net designates 103.16.228.35 as permitted sender) smtp.helo=main.hosthongkong.net
+Return-Path: <>
+Received: from main.hosthongkong.net (main.hosthongkong.net. [103.16.228.35])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-ccb75dada92si8702628a12.214.2026.10.04.15.34.56
+        for <fiersteity@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 04 Oct 2026 15:34:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of postmaster@main.hosthongkong.net designates 103.16.228.35 as permitted sender) client-ip=103.16.228.35;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of postmaster@main.hosthongkong.net designates 103.16.228.35 as permitted sender) smtp.helo=main.hosthongkong.net
+Received: from mail by main.hosthongkong.net with local (Exim 4.91)
+	id 1xDUnG-000Eok-Tc
+	for fiersteity@gmail.com; Mon, 05 Oct 2026 06:34:54 +0800
+From: abusedept@tele-asia.net
+To: fiersteity@gmail.com
+Subject: Autoreply: "ABUSE NOTICE — downstream AS48090 (TECHOFF SRV /\\n DMZHOST)"
+In-Reply-To: <6ac2d48a.1fb8f4c1.1f0f45.f992@mx.google.com>
+References: <6ac2d48a.1fb8f4c1.1f0f45.f992@mx.google.com>
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Message-Id: <E1xDUnG-000Eok-Tc@main.hosthongkong.net>
+Date: Mon, 05 Oct 2026 06:34:54 +0800
+
+
+Thank you for your abuse report. However, due to heavy abuse of our abuse E-Mails, it is no longer possible to manually filter through all the emails received. With the vast majority of E-Mails being junk and automated, we now require abuse reports to be done through our ticketing system.
+
+You can submit your abuse report here:
+
+https://tele-asia.net/billing/submitticket.php?step=2&deptid=5
+
+Thank you for your kind understanding.

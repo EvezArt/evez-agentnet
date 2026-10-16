@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-16T00:48:41.821267+00:00",
+  "generated": "2026-10-16T04:33:31.444763+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -131,7 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Thu 2026-10-15 20:53:48 CEST"
+      "since": "Fri 2026-10-16 04:05:32 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -174,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 885236,
+      "pid": 1274031,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -284,7 +284,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 881357,
+      "pid": 1272305,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -524,7 +524,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 881357,
+      "pid": 1272305,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -534,7 +534,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 881357,
+      "pid": 1272305,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -641,10 +641,10 @@
       "fw_blocked": false
     },
     {
-      "port": 44761,
+      "port": 43227,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 881357,
+      "pid": 1272305,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -841,8 +841,13 @@
   ],
   "docker": [
     {
+      "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
+      "status": "Up 3 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
       "name": "ruview-demo",
-      "status": "Up 23 hours",
+      "status": "Up 27 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -875,7 +880,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "80 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "82 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -904,9 +909,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "154277d",
-    "last": "PATROL: enemy-clock flood sealed \u2014 latest snapshot only, one clock one line, no drifting ts; operational churn through 2026-10-15",
-    "dirty": 46
+    "head": "fe23cc7",
+    "last": "war-mode heartbeat 2026-10-16: relief lab gains live client-side GLB export (no external file); operational churn through 2026-10-16; servhost clock at DUE-2, escalation brief armed",
+    "dirty": 60
   },
-  "mirrors": 2329
+  "mirrors": 2340
 }

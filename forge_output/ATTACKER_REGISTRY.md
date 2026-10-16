@@ -149,3 +149,15 @@ commands on this box on Oct 3 ~07:16–07:29.
 | 185.136.15.13 | 9 | 2026-10-15 | 1240b7686aa8 | contact only — no attribution |
 | 45.198.224.125 | 9 | 2026-10-15 | 83f36938a8e9 | contact only — no attribution |
 | 18.221.179.104 | 9 | 2026-10-15 | 5e10e7015a71 | contact only — no attribution |
+
+### 2026-10-16
+
+| Source | Strikes (24h) | First seen | Stamp | Note |
+|---|---|---|---|---|
+| 94.26.88.90 | 107 | 2026-10-16 | 1192e478d5d4 | contact only — no attribution |
+| 64.89.160.202 | 29 | 2026-10-16 | fedbba00d2c1 | contact only — no attribution |
+| 149.28.180.140 | 19 | 2026-10-16 | 7ceb46ede0ff | contact only — no attribution |
+| 149.154.166.110 | 18 | 2026-10-16 | 7a4a11c378e6 | contact only — no attribution |
+| 79.124.59.106 | 16 | 2026-10-16 | 0ef85a690238 | contact only — no attribution |
+| 198.211.102.183 | 16 | 2026-10-16 | 40732b8faa31 | contact only — no attribution |
+| 79.124.56.214 | 15 | 2026-10-16 | 25c3dceba854 | contact only — no attribution |

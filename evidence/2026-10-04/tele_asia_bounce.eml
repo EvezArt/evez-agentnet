@@ -1,0 +1,158 @@
+Delivered-To: fiersteity@gmail.com
+Received: by 2002:a05:7412:f:b0:215:adb6:5a30 with SMTP id 15csp3118501rdb;
+        Sun, 4 Oct 2026 15:34:57 -0700 (PDT)
+X-Received: by 2002:a05:6300:210a:b0:3de:3f4d:f2e8 with SMTP id adf61e73a8af0-3e0bd195fcdmr8545528637.25.1791153296785;
+        Sun, 04 Oct 2026 15:34:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791153296; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ckBUOid56YUngTWDWYf0c0AhVYzxY425i5jSzIsRYaLAH7fdVQkYjf4iJ22fWPkALF
+         V3UYAbzRVQ1K5F1Cr1JQ3yyC+hzRf8eNVtVpXvQhAdcsqBLM1kxiXS/v6WfnAPKeH1ns
+         atIu3pbzcOKjB+MraKrwKixMgcujPnTfK3m7OGk5eFsaHbP6cJvxUyeZ2vc2tiDX/n1S
+         l7NE01SWAerUNRZAw2ccoHoJSHBm6ujE4AoFVHi1w/Vao1k6N/lWxXDfuchsbAxAeOHo
+         6vo5CXxWjo6yRJuseTmIWF8fZwgNxZqgdcjIsyFiX27YUCq1hQ7dmuqkMdeymOkvsSGU
+         YB1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=date:message-id:subject:mime-version:to:from:auto-submitted;
+        bh=OLXXKwNWuqubV22yePGLFcUan+Jj+DPpqp9oo5hS57A=;
+        fh=/JhzwJccBl/VWKC7JoKAdL5LEtd+cwW5QfOwmLfkCAk=;
+        b=OY2b+iI16dHxJMcX6m/9dLWIhbo6Y/jVxM3gy4rAikyh/8CRat8DlnXgOlt14UguyJ
+         sPapG98K4Twqbl4jp2xeyIddz3hy4zfi2Sqjgme1CstO0rGlEpRq7dbkUuwxl4GzwVnV
+         WM0mbfBFNv0Lw8DN4wzAvIiWD73yqDsLM1sJKVwJcYFSBbWhOpy4w7MZUfrQLoSZB85z
+         UyPte2MeheGosW0Ujs+DgGQ2OOtlJx9QJxx6XmADY66iFgYRccyJuLp4HTqbN46a+t2P
+         29CK2GI1kw/FjYwRpQawUiQo/YQ2eyLSeYN3asdh2Q5HFI4kN/Z1vite31S8DnYQhBjq
+         6mOQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of postmaster@main.hosthongkong.net designates 103.16.228.35 as permitted sender) smtp.helo=main.hosthongkong.net
+Return-Path: <>
+Received: from main.hosthongkong.net (main.hosthongkong.net. [103.16.228.35])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-ccb71bbc613si8772978a12.23.2026.10.04.15.34.56
+        for <fiersteity@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 04 Oct 2026 15:34:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of postmaster@main.hosthongkong.net designates 103.16.228.35 as permitted sender) client-ip=103.16.228.35;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of postmaster@main.hosthongkong.net designates 103.16.228.35 as permitted sender) smtp.helo=main.hosthongkong.net
+Received: from mail by main.hosthongkong.net with local (Exim 4.91)
+	id 1xDUnG-000Eos-VK
+	for fiersteity@gmail.com; Mon, 05 Oct 2026 06:34:54 +0800
+X-Failed-Recipients: abusedept@tele-asia.net
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@main.hosthongkong.net>
+To: fiersteity@gmail.com
+Content-Type: multipart/report; report-type=delivery-status; boundary=1791153294-eximdsn-1045759563
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1xDUnG-000Eos-VK@main.hosthongkong.net>
+Date: Mon, 05 Oct 2026 06:34:54 +0800
+
+--1791153294-eximdsn-1045759563
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  abusedept@tele-asia.net
+    (ultimately generated from abuse@tele-asia.net)
+    LMTP error after RCPT TO:<abusedept@tele-asia.net>:
+    552 5.2.2 <abusedept@tele-asia.net> Quota exceeded (mailbox for user is full)
+
+--1791153294-eximdsn-1045759563
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; main.hosthongkong.net
+
+Action: failed
+Final-Recipient: rfc822;abusedept@tele-asia.net
+Status: 5.0.0
+
+--1791153294-eximdsn-1045759563
+Content-type: message/rfc822
+
+Return-path: <fiersteity@gmail.com>
+Received: from mail-wm2-f13.google.com ([74.125.225.141])
+	by main.hosthongkong.net with esmtps (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
+	(Exim 4.91)
+	(envelope-from <fiersteity@gmail.com>)
+	id 1xDUnG-000EoZ-Bp
+	for abuse@tele-asia.net; Mon, 05 Oct 2026 06:34:54 +0800
+Received: by mail-wm2-f13.google.com with SMTP id 5b1f17b1804b1-49d1fb0cf5eso10455875e9.3
+        for <abuse@tele-asia.net>; Sun, 04 Oct 2026 15:34:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791153291; x=1791758091; darn=tele-asia.net;
+        h=mime-version:content-transfer-encoding:content-type:subject:to:from
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tiO0J8W9UPRC7XlFU81+tnThKGpiz7gAm9J/SkfK0QE=;
+        b=GTNnFwkKSvfSmcRrBc7NPQf8KyT5rzydj1tCD8+1ZjieDk8O2SjQhXvEere1yulngh
+         V/ACuj8WGWhcaE6kg2zPMTyE6hB0WIhWAutC+2COGNumcOtuyYrQn6BOzI8RmKXy3Kk2
+         MOUuxQrOwtWNTfWzyXw/s3lArR89+sH7zIIk7FRxV/1F49+GTAAOTbnF6Iu69N3v3cOl
+         MhasMAkjeW4GyECKF0CNGX9BV40YejmoZaPsbVdh3hG/YhSmX3pDeLK6v0qOFbtTvNMn
+         fV024jmlrlHj4l2y3Nj9O73OJ2KEd8xocdYVprzJ0nR8mKcMUwf5UrPUfBfdHvk5l+bc
+         0yNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791153291; x=1791758091;
+        h=mime-version:content-transfer-encoding:content-type:subject:to:from
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tiO0J8W9UPRC7XlFU81+tnThKGpiz7gAm9J/SkfK0QE=;
+        b=BntUGOIqdgEjvz4MHX2m4WzrJiQWUGgYXB4QdZ7o94ulvyCSKJVdm5ngR7jxMueFfm
+         fK7MNQzROxXMd4W0cc9fukTa3zpVx5lcuyXCQ3+9YInCKidIpiR/QdMJErNeIqYkdEQx
+         6YuVENbRPvMtQCMLEDwrZwklRTeJaMPNJSwew+xr5//LydYx8qdwdfS9kq1LRo2ucYSf
+         WhKidq+r1uVdHygBCYTc+6PZbJ53bAudQ5k/PXhHGV3TxmMVoDwgme1p9MIlxdrx0Bfu
+         9RMZ5JVZH2PneTaUEB5s2kzFrKkoXxJRrmteICu6LWHtSJSuOg3r1SSKHx84BAhSQwV5
+         CK6w==
+X-Gm-Message-State: AFuF++mXgOynMlHrppc0bAtqRaCpSfsrf7cdYWUNEIyZtFeyH4vyN/Bf
+	izo47WJ4npu1pQ+B929FXW+LpA7KUBbH5GuZgpRtwN9hPaLZ2FaqXz6lqCeIg3n7
+X-Gm-Gg: AYBFou25IKMG4h0DxMp8edjBdnRH/iLzY24NDqwUOSHCN9njUVYEJipIa7oDKVKb9PQ
+	i1JKxfKCj8CgOfin3AkceN1nEcTHxVK01AnsRC6ldVqLwIPPsNowYK/Lo/Nu3zolaZQcSotE6Q0
+	03S/OimF4zTecWUG+JbKEeDsMOkkVeGqTCGlK4+4RkAtTOjWt1nNjf7Za22YRV53bqmheNJi2pN
+	Qi63TWuUjgTL7r7kaVdgYss6e43HMUKNyj4G6yTptxgLjIamTZOB9cgm3rut11fYard37i4KRJy
+	R4r6SFFTomfydI6soBZU6eCyNIU3gJwNv5t2CrN1ax6Lzk3kARRv0GuxiMnJ37CWxVbBYIPgbqS
+	jMgvDwDwzHj+3brkGIgbfJ6oUS/njkQzmJiO7aO84mo+JipyHVcu/ay4n3fgRjCIXVZQJVz9/lT
+	rkcOlayX0N9cKlx+tgt2+60qEBPKtnyJDNAhCxqfPDuwA8MBYJdfs2wAB8c9PHa397FqXx0W7io
+	qchrMjSBxG8rA==
+X-Received: by 2002:a05:600c:5493:b0:4a1:65d2:7912 with SMTP id 5b1f17b1804b1-4a165d27973mr103693905e9.8.1791153290365;
+        Sun, 04 Oct 2026 15:34:50 -0700 (PDT)
+Received: from [127.0.0.1] (vmi3544756.contaboserver.net. [2a02:c207:2354:4756::1])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a02770e8f2sm257375755e9.6.2026.10.04.15.34.49
+        for <abuse@tele-asia.net>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 04 Oct 2026 15:34:50 -0700 (PDT)
+Message-ID: <6ac2d48a.1fb8f4c1.1f0f45.f992@mx.google.com>
+Date: Sun, 04 Oct 2026 15:34:50 -0700 (PDT)
+From: Steven Crawford-Maggard <fiersteity@gmail.com>
+X-Google-Original-From: Steven Crawford-Maggard <rubikspubes69@gmail.com>
+To: abuse@tele-asia.net
+Subject: ABUSE NOTICE =?utf-8?b?4oCU?= downstream AS48090 (TECHOFF SRV /
+ DMZHOST) documented attacks on US victim; preservation request
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Tele Asia Limited Abuse Desk (Unit 211, 2/F Poly Centre, 15 Yip Fung Street, =
+On Lok Tsuen, HK),
+
+Your AS133398 is a transit provider of AS48090 (TECHOFF SRV LIMITED =E2=80=94=
+ "DMZHOST"
+bulletproof hosting, RIPE org 35 Firs Avenue, London N11 3NE). That operator =
+executed
+unauthorized access against my US systems (SSH from 80.94.92.166, 22 May 2026=
+) and its
+partner network AS47890 (UNMANAGED LTD) conducted 130+ attacks in Oct 2026.
+
+This matter is in an open FBI complaint (IC3, filed 2026-10-01; FOIPA 1758537=
+-000).
+The ecosystem is adjacent to the Dutch FIOD May 2026 seizures and the DOJ/SDNY
+Media Land/ML.Cloud enforcement action.
+
+REQUESTED: (1) AUP review/action against AS48090 and related downstreams;
+(2) preservation of all customer, transit and payment records against legal p=
+rocess;
+(3) confirmation of handling. Hash-chained evidence bundle available.
+
+Steven Crawford-Maggard (victim) =E2=80=94 rubikspubes69@gmail.com
+
+--1791153294-eximdsn-1045759563--
