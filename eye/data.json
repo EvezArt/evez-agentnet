@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-16T04:33:31.444763+00:00",
+  "generated": "2026-10-16T07:42:17.017775+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -94,6 +94,11 @@
       "since": "Mon 2026-10-12 07:17:45 CEST"
     },
     {
+      "unit": "evez-xtts.service",
+      "sub": "running",
+      "since": "Fri 2026-10-16 09:05:20 CEST"
+    },
+    {
       "unit": "gueriella-hermes-watchdog.service",
       "sub": "running",
       "since": "Mon 2026-10-12 07:17:45 CEST"
@@ -131,7 +136,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Fri 2026-10-16 04:05:32 CEST"
+      "since": "Fri 2026-10-16 08:57:18 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -174,7 +179,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 1274031,
+      "pid": 1542714,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -284,7 +289,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1272305,
+      "pid": 1538674,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -524,7 +529,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1272305,
+      "pid": 1538674,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -534,7 +539,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 1272305,
+      "pid": 1538674,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -621,6 +626,16 @@
       "fw_blocked": false
     },
     {
+      "port": 18797,
+      "bind": "100.126.180.47",
+      "proc": "python",
+      "pid": 1547044,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 18891,
       "bind": "127.0.0.1",
       "proc": "python3",
@@ -641,10 +656,10 @@
       "fw_blocked": false
     },
     {
-      "port": 43227,
+      "port": 42631,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1272305,
+      "pid": 1538674,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -842,12 +857,12 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
-      "status": "Up 3 hours",
+      "status": "Up 6 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ruview-demo",
-      "status": "Up 27 hours",
+      "status": "Up 30 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -857,17 +872,17 @@
     },
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 3 days",
+      "status": "Up 4 days",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 3 days",
+      "status": "Up 4 days",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 3 days",
+      "status": "Up 4 days",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -909,9 +924,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "fe23cc7",
-    "last": "war-mode heartbeat 2026-10-16: relief lab gains live client-side GLB export (no external file); operational churn through 2026-10-16; servhost clock at DUE-2, escalation brief armed",
-    "dirty": 60
+    "head": "9d3258a",
+    "last": "war-mode heartbeat 2026-10-16 03:5x UTC: servhost clock DUE-2 \u2014 silence re-verified airtight (every inbox msg back to 2026-09-29 + all spam, 5 days, zero response), escalation brief refreshed to 10-16; Prime Telecom AS39737 denial of AS48090/AS47890 downstream (10-06) + tele-asia autoreplies/bounce pulled from spam into evidence with SHA256SUMS; cortex memory burst traced to the machine's own 03:00 cognition round (11 spine events), benign; operational churn through 03:5x",
+    "dirty": 47
   },
   "mirrors": 2340
 }
