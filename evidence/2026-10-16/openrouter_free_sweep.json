@@ -1,0 +1,25 @@
+{
+ "swept_at": "2026-10-16T20:46:56Z",
+ "results": {
+  "xingchen-agi/xing4.0-29b-a4b:free": "guardrail-blocked",
+  "nvidia/nemotron-3.5-super-vl:free": "guardrail-blocked",
+  "dots-studio/dots-3-note-preview:free": "guardrail-blocked",
+  "liquid/lfm-2.5-2.6b:free": "guardrail-blocked",
+  "nvidia/nemotron-3.5-lightning:free": "DEAD TimeoutError",
+  "thinkingmachines/inkling-small:free": "http403",
+  "poolside/laguna-s-2.1:free": "guardrail-blocked",
+  "thinkingmachines/inkling:free": "http403",
+  "poolside/laguna-xs-2.1:free": "guardrail-blocked",
+  "@preset/evez": "http400",
+  "cohere/north-mini-code:free": "guardrail-blocked",
+  "nvidia/nemotron-3.5-content-safety:free": "guardrail-blocked",
+  "nvidia/nemotron-3-ultra-550b-a55b:free": "guardrail-blocked",
+  "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free": "guardrail-blocked",
+  "google/gemma-4-26b-a4b-it:free": "guardrail-blocked",
+  "google/gemma-4-31b-it:free": "guardrail-blocked",
+  "google/lyria-3-pro-preview": "guardrail-blocked",
+  "google/lyria-3-clip-preview": "guardrail-blocked",
+  "nvidia/nemotron-3-super-120b-a12b:free": "guardrail-blocked",
+  "openrouter/free": "DEAD TimeoutError"
+ }
+}
