@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T21:52:19.463531+00:00",
+  "generated": "2026-10-16T00:48:41.821267+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -234,7 +234,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 49454,
+      "pid": 1048429,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -244,7 +244,7 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 49454,
+      "pid": 1048429,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -842,7 +842,7 @@
   "docker": [
     {
       "name": "ruview-demo",
-      "status": "Up 20 hours",
+      "status": "Up 23 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -904,9 +904,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "4d31200",
-    "last": "ANGELS & DEMONS: his voice is both the angel and the demon",
-    "dirty": 65
+    "head": "154277d",
+    "last": "PATROL: enemy-clock flood sealed \u2014 latest snapshot only, one clock one line, no drifting ts; operational churn through 2026-10-15",
+    "dirty": 46
   },
   "mirrors": 2329
 }
