@@ -1,0 +1,137 @@
+Delivered-To: fiersteity@gmail.com
+Received: by 2002:a05:7412:f:b0:215:adb6:5a30 with SMTP id 15csp4804633rdb;
+        Tue, 6 Oct 2026 01:14:32 -0700 (PDT)
+X-Received: by 2002:a5d:5d06:0:b0:488:5468:c23a with SMTP id ffacd0b85a97d-48c6d1a3861mr1603762f8f.17.1791274472296;
+        Tue, 06 Oct 2026 01:14:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791274472; cv=none;
+        d=google.com; s=arc-20260327;
+        b=gQVxT8rrhKiPejPNdw+DkPPufJV25RtqmhAQdADyMoxvqqXP941Xe0VfrgfdAQmp1g
+         H4QoAQ8B8ZC9h1WaL2Ihxu2FMk3Z+1bAuIPgGP7Q6gQlv4E78KSa03TW7dW5413o4T6L
+         +BTxFVz2T/pNhDEEeKwZ/0t+Lxtf5AaH1oOIzDBwdnnpVnBeLCl+bOR9jdjHd1tka6aH
+         pNj8pQo8MqqBG2BKJiqPaYP1hafqPetqAY+I0gDr41ucXNr8H8MKcr7/AlXOS0Fdfno9
+         cwbcw+Cfl7Y7XvBf3y5jxPGn+UjH8v7gP/53YXCNdYTLj008ORoPR4JIUizL0LdIHQT6
+         JK6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :dkim-signature:dkim-filter;
+        bh=iVwkP02nIMLoYlTA99iykxS286GWB9WhDfs2ZM3lJPg=;
+        fh=E5xSyKIxPdswHkvWLtk7UJHI6F6UEm+MDkwshQirwkA=;
+        b=IBJ/cMB666B08hXz7XnYG6SDiSfXqNK1Y1wJGxOBB/DMwblHJh78RZdgwsJJNJ1oJz
+         Z9dzBWKKgCTz+h3Ntkxh7fCCr/2uxCBwtTaNG28TwypoOEQkiFIhDbv6G+QjAQLRPMVz
+         xl0hqqkejAndlF3UKmD1U9J/ynB+t2mWXWO2wdGGhjMj7IU31oUKSG/7bm+kso19n6ry
+         t2+6iq5NlalllBOlsFnH+V0cdGY68N+FxMd3KsTcUmhLu2xcnNgs4alwV2y7/e6aAeB2
+         CRyDxxLRm4MmuLFO/dCTDnwX4lcadO2jQqL1+KjbE6YhboWseZBBmDWVbdgiTMMG1Zqi
+         nR6Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@primetelecom.ro header.s=52C7E34C-FE92-11E6-9596-D6105FD7DD5D header.b=VQgXBOLK;
+       spf=pass (google.com: domain of mihai.rasturnoiu@primetelecom.ro designates 89.44.235.230 as permitted sender) smtp.mailfrom=mihai.rasturnoiu@primetelecom.ro;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=primetelecom.ro
+Return-Path: <mihai.rasturnoiu@primetelecom.ro>
+Received: from mail.primetelecom.ro (mail.primetelecom.ro. [89.44.235.230])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-48c68bbbe70si3553796f8f.49.2026.10.06.01.14.31
+        for <fiersteity@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Oct 2026 01:14:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mihai.rasturnoiu@primetelecom.ro designates 89.44.235.230 as permitted sender) client-ip=89.44.235.230;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@primetelecom.ro header.s=52C7E34C-FE92-11E6-9596-D6105FD7DD5D header.b=VQgXBOLK;
+       spf=pass (google.com: domain of mihai.rasturnoiu@primetelecom.ro designates 89.44.235.230 as permitted sender) smtp.mailfrom=mihai.rasturnoiu@primetelecom.ro;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=primetelecom.ro
+Received: from localhost (localhost [127.0.0.1])
+	by mail.primetelecom.ro (Postfix) with ESMTP id 786131003A96B2;
+	Tue,  6 Oct 2026 11:14:31 +0300 (EEST)
+Received: from mail.primetelecom.ro ([127.0.0.1])
+ by localhost (mail.primetelecom.ro [127.0.0.1]) (amavis, port 10032)
+ with ESMTP id znZoTlNSlvu9; Tue,  6 Oct 2026 11:14:30 +0300 (EEST)
+Received: from localhost (localhost [127.0.0.1])
+	by mail.primetelecom.ro (Postfix) with ESMTP id 0E5361003A936A;
+	Tue,  6 Oct 2026 11:14:30 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.10.3 mail.primetelecom.ro 0E5361003A936A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=primetelecom.ro;
+	s=52C7E34C-FE92-11E6-9596-D6105FD7DD5D; t=1791274470;
+	bh=iVwkP02nIMLoYlTA99iykxS286GWB9WhDfs2ZM3lJPg=;
+	h=Message-ID:Date:MIME-Version:To:From;
+	b=VQgXBOLKU73SiChrgeHkkm+Jqtd651uiinFdkRQzahxNm6WmqGKO+o+HIwKqN+60E
+	 o9G6H2YYKwIVNUa35PeFXkgeNyxOnSOI0i8ZY6KdNoyAZR03v9OTolHsimu/RuWbHm
+	 HRtuixQaju04qESr/wA5tRHSR05AYoOlcQxHaNvrRWsE83oSMGKJVspQbpEciO8Q8C
+	 js1TzTrzbfFGzVxJ3PPX59wNC9qjFqCni+fxXjkhDH4d9ByC2ujA0/0ONOHt/6qWWT
+	 F0RHVzgLLyOxkmE1mR6q7ur9fwNVsNYBajpKsqOR+7waiJdnr99SDla0voCDgrKMLp
+	 3g0KJyqRW/WQw==
+X-Virus-Scanned: amavis at primetelecom.ro
+Received: from mail.primetelecom.ro ([127.0.0.1])
+ by localhost (mail.primetelecom.ro [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id qGgnGkUpuGHW; Tue,  6 Oct 2026 11:14:29 +0300 (EEST)
+Received: from [192.168.0.79] (unknown [192.168.0.79])
+	by mail.primetelecom.ro (Postfix) with ESMTPSA id D10621003A96B2;
+	Tue,  6 Oct 2026 11:14:29 +0300 (EEST)
+Message-ID: <37e41efa-f791-4343-9632-60767af6bcbd@primetelecom.ro>
+Date: Tue, 6 Oct 2026 11:14:53 +0300
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: =?UTF-8?Q?Re=3A_ABUSE_NOTICE_=E2=80=94_AS48090/AS47890_=28TECHOFF/U?=
+ =?UTF-8?Q?NMANAGED=29_attacks_on_US_victim=3B_preservation_request?=
+Content-Language: en-US
+To: Steven Crawford-Maggard <fiersteity@gmail.com>
+Cc: abuse@unmanaged.uk, abuse@primetelecom.ro
+References: <6ac2d3f3.cbade83c.308c58.a2cc@mx.google.com>
+From: Mihai Rasturnoiu <mihai.rasturnoiu@primetelecom.ro>
+In-Reply-To: <6ac2d3f3.cbade83c.308c58.a2cc@mx.google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+Neither AS48090, nor AS47890 are customers of ours or in our downstream,=20
+this is visbile on any Tier 1 routing table looking glass, or BGP tool.
+
+Best Regards,
+
+Mihai Rasturnoiu
+IP Network Engineer
+
+Prime Telecom
+Tel: +40 215390000
+Mob: +40 751053589
+https://primetelecom.ro
+
+
+On 5 oct. 2026 01:32, Steven Crawford-Maggard wrote:
+> [EXTERNAL] This message came from outside primetelecom.ro. Be cautious =
+with links and attachments, and verify the sender before you reply.
+> --------------------------------------------------------------------
+>
+> Prime Telecom Abuse Desk (cc: UNMANAGED abuse contact),
+>
+> AS48090 (TECHOFF SRV LIMITED, "DMZHOST") and its ecosystem partner AS47=
+890
+> (UNMANAGED LTD / Bunea) are documented attacking a US victim:
+>
+> - unauthorized SSH access 2026-05-22 from 80.94.92.166 (AS48090) =E2=80=
+=94 open FBI IC3
+>    complaint (filed 2026-10-01), FOIPA 1758537-000 pending;
+> - 130+ authentication attacks October 2026 from AS47890 ranges =E2=80=94=
+ kernel-logged,
+>    hash-chained, SHA-256 manifest;
+> - separate root compromise 2026-10-03 (NL IP + Tor exit) =E2=80=94 vict=
+im-sworn
+>    non-attribution, incident filed.
+>
+> Routing records show AS48090 announces via upstreams including AS62380/=
+AS42397
+> (Bunea Telecom SRL) and AS39737 (Prime Telecom).
+>
+> REQUESTED: (1) AUP action against these downstreams, up to disconnectio=
+n of the
+> attacking ranges (80.94.92.0/24, 2.57.122.0/24); (2) preservation of cu=
+stomer,
+> transit and payment records against legal process (FBI matter open); (3=
+) confirmation
+> of handling. Note TECHOFF SRV LIMITED is in UK strike-off and its sole =
+director also
+> controls the successor entity BESTDC LIMITED (15259087).
+>
+> Evidence bundle on request. Steven Crawford-Maggard (victim) =E2=80=94 =
+rubikspubes69@gmail.com
+

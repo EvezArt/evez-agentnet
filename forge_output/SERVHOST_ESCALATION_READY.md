@@ -7,6 +7,13 @@
   (criminal attack traffic + C2 hosting)".
 - 2026-10-15 — inbox + spam swept from fiersteity@gmail.com (the sending account):
   ZERO response from serv.host. Silence verified this tick.
+- 2026-10-16 — full re-sweep (every inbox message back to 2026-09-29 + all spam):
+  still ZERO response from serv.host. Five days of silence, re-verified this tick.
+- Prime Telecom (target 1 below) replied 2026-10-06 to the AS48090/AS47890 notice
+  DENYING that those ASNs are in their downstream (ingested from spam 2026-10-16:
+  evidence/2026-10-06/primetelecom_reply_as39737_denial.eml, SHA256SUMS verified).
+  This escalation concerns AS207957 — a different ASN — so that denial neither
+  blocks nor answers it; it is Prime's posture on the record.
 - Clock consequence (enemy_obligations.py): escalate to upstream transit providers +
   RIPE NCC abuse + regulator (hosting-provider duty).
 
@@ -37,7 +44,7 @@ Subject: ESCALATION: unanswered abuse & preservation demand — SERV.HOST GROUP 
 On 2026-10-11 a formal abuse and preservation demand was sent to abuse@serv.host
 regarding criminal attack traffic and C2 hosting on 150.241.74.0/24 (AS207957,
 SERV.HOST GROUP LTD, RIPE org ORG-MG337-RIPE, abuse NOC AN32913-RIPE). As of
-2026-10-15 no acknowledgement or action has been received. The range continues to
+2026-10-16 no acknowledgement or action has been received. The range continues to
 be announced by AS207957. I am escalating to you as upstream/transit provider and
 registry participant: this provider is failing its abuse-handling duty for
 infrastructure used in an ongoing criminal matter (FBI IC3 complaint filed
