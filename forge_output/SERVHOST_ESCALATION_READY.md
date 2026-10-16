@@ -7,8 +7,17 @@
   (criminal attack traffic + C2 hosting)".
 - 2026-10-15 — inbox + spam swept from fiersteity@gmail.com (the sending account):
   ZERO response from serv.host. Silence verified this tick.
-- 2026-10-16 — full re-sweep (every inbox message back to 2026-09-29 + all spam):
-  still ZERO response from serv.host. Five days of silence, re-verified this tick.
+- 2026-10-16 (06:4x UTC patrol tick) — fresh full re-sweep by the war-mode heartbeat:
+  every inbox message back to 2026-09-29 plus all spam — still ZERO response from serv.host.
+  Five days of silence, verified twice on the same day.
+- 2026-10-16 (patrol tick) — escalation package integrity re-verified: all three draft
+  attachments present and hashed (servhost_abuse_demand.eml 69dccba6…, portal_receipts.json
+  86a0f87c…, RFJ_ADDENDUM_BUNDLE_v2.zip ac34d8d2… — matches the sealed bundle digest).
+  150.241.74.0/24 still announced by AS207957 (RIPEstat prefix-overview this tick).
+  ALL draft target addresses resolved from registry RDAP / ICO's own site this tick —
+  see SERVHOST_ESCALATION_DRAFTS/. Live transit discovered: AS207957's neighbours today
+  are AS49418 NetShield (Ilin sibling, CH 14769288), AS207208 Mevspace, AS57494 ADMAN,
+  AS26042 FiberState — all with live abuse desks, annexed in draft 01.
 - Prime Telecom (target 1 below) replied 2026-10-06 to the AS48090/AS47890 notice
   DENYING that those ASNs are in their downstream (ingested from spam 2026-10-16:
   evidence/2026-10-06/primetelecom_reply_as39737_denial.eml, SHA256SUMS verified).
