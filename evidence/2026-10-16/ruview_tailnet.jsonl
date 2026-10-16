@@ -1,0 +1,7 @@
+{"container_up": true, "health": {"clients": 1, "source": "esp32:offline", "status": "ok", "tick": 793672}, "ok": true, "server": "100.126.180.47", "ts": "2026-10-16T00:00:03.961916+00:00", "udp_5005_roundtrip": true}
+{"container_up": true, "health": {"clients": 1, "source": "esp32:offline", "status": "ok", "tick": 796477}, "ok": true, "server": "100.126.180.47", "ts": "2026-10-16T00:04:51.328607+00:00", "udp_5005_roundtrip": true}
+{"container_up": true, "health": {"clients": 1, "source": "esp32:offline", "status": "ok", "tick": 802545}, "ok": true, "server": "100.126.180.47", "ts": "2026-10-16T00:15:02.190180+00:00", "udp_5005_roundtrip": true}
+{"container_up": true, "health": {"clients": 1, "source": "esp32:offline", "status": "ok", "tick": 805386}, "ok": true, "server": "100.126.180.47", "ts": "2026-10-16T00:19:51.930741+00:00", "udp_5005_roundtrip": true}
+{"container_up": true, "health": {"clients": 1, "source": "esp32:offline", "status": "ok", "tick": 811473}, "ok": true, "server": "100.126.180.47", "ts": "2026-10-16T00:30:04.444205+00:00", "udp_5005_roundtrip": true}
+{"container_up": true, "health": {"clients": 1, "source": "esp32:offline", "status": "ok", "tick": 814294}, "ok": true, "server": "100.126.180.47", "ts": "2026-10-16T00:34:52.575809+00:00", "udp_5005_roundtrip": true}
+{"container_up": true, "health": {"clients": 1, "source": "esp32:offline", "status": "ok", "tick": 820367}, "ok": true, "server": "100.126.180.47", "ts": "2026-10-16T00:45:03.845810+00:00", "udp_5005_roundtrip": true}

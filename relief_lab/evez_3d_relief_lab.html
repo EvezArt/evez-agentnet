@@ -9,7 +9,7 @@
 <div class="section"><h2>Surface view</h2><div class="btnrow"><button id="photoMode" class="active">Photo</button><button id="shadeMode">Relief</button><button id="edgeMode">Contours</button></div><div class="labelrow"><label for="depthRange">Relief exaggeration</label><strong id="depthVal">100%</strong></div><input type="range" id="depthRange" min="0" max="250" value="100" step="5"><div class="labelrow"><label for="lightRange">Raking light direction</label><span id="lightVal">35°</span></div><input type="range" id="lightRange" min="0" max="355" value="35" step="5"><div class="btnrow" style="margin-top:8px"><button id="wireBtn">Wire mesh</button><button id="autoSpinBtn">Auto-rotate</button></div></div>
 <div class="section"><h2>Reference views</h2><div class="note" style="margin-bottom:9px">Tap a photograph to inspect the original camera view. Reference photographs are not reprojected onto the mesh.</div><div id="refs" class="refs"></div></div>
 <div class="section"><h2>Geometry status</h2><div class="warning">This is a photograph-derived relief model, not a calibrated full-object photogrammetry scan. The visible surface is textured from the original photo; depth is inferred from shading and contrast. The back and thickness are neutral synthetic geometry because those surfaces are not fully measured in the supplied images.</div><p class="note">Dimensions are normalized, not metric. Orthographic viewing removes added perspective in the 3D viewer, but cannot undo perspective or lens distortion already baked into the source photograph.</p></div>
-<div class="section"><h2>Export meshes</h2><p class="note">The GLB files open in common 3D viewers and retain the photo-textured relief shell. Depth and back-side geometry are approximate, as disclosed above.</p><div class="btnrow"><a id="glbLink" href="dark_interactive_relief.glb" download style="flex:1;text-decoration:none"><button style="width:100%">Download GLB</button></a></div></div>
+<div class="section"><h2>Export meshes</h2><p class="note">Download exports the currently built relief surface (front shell) as a GLB — generated live in your browser, fully offline, no external files required. The shell retains the photo texture; depth and back-side geometry are approximate, as disclosed above.</p><div class="btnrow"><a id="glbLink" href="dark_interactive_relief.glb" download style="flex:1;text-decoration:none"><button style="width:100%">Download GLB</button></a></div></div>
 </aside></div>
 <div id="modal"><button id="closeModal">Close ✕</button><img id="modalImg" alt="Original source photograph"></div>
 <script>
@@ -40,7 +40,7 @@ function buildGeometry(maskP,depP,bodyP,aspect,scale){const m=maskP.data,dd=depP
  const ff=[],bf=[],edgeCounts=new Map();function addEdge(a,b){const lo=Math.min(a,b),hi=Math.max(a,b),k=lo+','+hi;let e=edgeCounts.get(k);if(e)e.count++;else edgeCounts.set(k,{a,b,count:1});}
  for(let y=0;y<h-1;y++)for(let x=0;x<w-1;x++){let a=ids[y*w+x],b=ids[y*w+x+1],c=ids[(y+1)*w+x],d=ids[(y+1)*w+x+1];if(a>=0&&b>=0&&c>=0&&d>=0){ff.push(a,c,b,b,c,d);bf.push(a,b,c,b,d,c);addEdge(a,c);addEdge(c,b);addEdge(b,a);addEdge(b,d);addEdge(d,c);addEdge(c,b);}}
  const sidePos=[],sideIdx=[];for(const e of edgeCounts.values())if(e.count===1){const a=e.a,b=e.b,ix=sidePos.length/3;sidePos.push(...fp.slice(a*3,a*3+3),...fp.slice(b*3,b*3+3),...bp.slice(a*3,a*3+3),...bp.slice(b*3,b*3+3));sideIdx.push(ix,ix+1,ix+2,ix+1,ix+3,ix+2);}
- const front=makeDrawMesh(fp,ff,uv),back=makeDrawMesh(bp,bf),side=makeDrawMesh(new Float32Array(sidePos),sideIdx);const wire=[];for(let k=0;k<ff.length;k+=3){wire.push(ff[k],ff[k+1],ff[k+1],ff[k+2],ff[k+2],ff[k]);}front.wireIndex=uploadBuffer(gl.ELEMENT_ARRAY_BUFFER,new Uint32Array(wire));front.wireCount=wire.length;return {front,back,side,n,tri:ff.length/3};}
+ const front=makeDrawMesh(fp,ff,uv),back=makeDrawMesh(bp,bf),side=makeDrawMesh(new Float32Array(sidePos),sideIdx);const wire=[];for(let k=0;k<ff.length;k+=3){wire.push(ff[k],ff[k+1],ff[k+1],ff[k+2],ff[k+2],ff[k]);}front.wireIndex=uploadBuffer(gl.ELEMENT_ARRAY_BUFFER,new Uint32Array(wire));front.wireCount=wire.length;const _nrm=normals(fp,ff);return {front,back,side,n,tri:ff.length/3,_cpu:{fp:fp,nrm:_nrm,uv:uv,ff:ff}};}
 function makeTexture(img){const tx=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tx);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,img);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR_MIPMAP_LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.generateMipmap(gl.TEXTURE_2D);return tx;}
 function bindMesh(m){gl.bindBuffer(gl.ARRAY_BUFFER,m.posBuf);gl.enableVertexAttribArray(loc.aPosition);gl.vertexAttribPointer(loc.aPosition,3,gl.FLOAT,false,0,0);gl.bindBuffer(gl.ARRAY_BUFFER,m.normalBuf);gl.enableVertexAttribArray(loc.aNormal);gl.vertexAttribPointer(loc.aNormal,3,gl.FLOAT,false,0,0);gl.bindBuffer(gl.ARRAY_BUFFER,m.uvBuf);gl.enableVertexAttribArray(loc.aUV);gl.vertexAttribPointer(loc.aUV,2,gl.FLOAT,false,0,0);gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,m.indexBuf);}
 function draw(m,color,tex=null,useTex=false){bindMesh(m);gl.uniform1i(loc.uUseTexture,useTex?1:0);gl.uniform3fv(loc.uColor,new Float32Array(color));if(tex){gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);gl.uniform1i(loc.uTexture,0);}gl.drawElements(gl.TRIANGLES,m.count,gl.UNSIGNED_INT,0);}
@@ -52,10 +52,55 @@ async function buildModel(key){current=key;toast.style.display='block';toast.tex
 function addReferenceCards(refs){const box=document.getElementById('refs');box.innerHTML='';refs.forEach(r=>{let b=document.createElement('button');b.className='ref';let im=document.createElement('img');im.src=r.src;im.alt=r.label;let s=document.createElement('span');s.textContent=r.label;b.append(im,s);b.onclick=()=>{document.getElementById('modalImg').src=r.src;document.getElementById('modal').style.display='flex';};box.appendChild(b);});}
 function setMode(m){mode=m;document.getElementById('modeTag').textContent=m==='photo'?'PHOTO RELIEF':m==='shade'?'GEOMETRY / SHADED':'EDGE CONTOURS';[['photoMode','photo'],['shadeMode','shade'],['edgeMode','edges']].forEach(([id,val])=>document.getElementById(id).classList.toggle('active',m===val));render();}
 function updateWireButton(){wire=document.getElementById('wireBtn').classList.contains('active');render();}
+function exportGLB(){
+  const geo=sceneMeshes[0];
+  if(!geo||!geo._cpu){toast.style.display='block';toast.textContent='Build a specimen first.';return;}
+  const pos=geo._cpu.fp,nrm=geo._cpu.nrm,uv=geo._cpu.uv,idx=new Uint32Array(geo._cpu.ff);
+  const posB=new Uint8Array(pos.buffer,pos.byteOffset,pos.byteLength);
+  const nrmB=new Uint8Array(nrm.buffer,nrm.byteOffset,nrm.byteLength);
+  const uvB=new Uint8Array(uv.buffer,uv.byteOffset,uv.byteLength);
+  const idxB=new Uint8Array(idx.buffer,idx.byteOffset,idx.byteLength);
+  const align4=o=>(o+3)&~3;
+  let off=0;const posOff=off;off+=posB.length;off=align4(off);
+  const nrmOff=off;off+=nrmB.length;off=align4(off);
+  const uvOff=off;off+=uvB.length;off=align4(off);
+  const idxOff=off;off+=idxB.length;off=align4(off);
+  const binLen=off;const bin=new Uint8Array(binLen);
+  bin.set(posB,posOff);bin.set(nrmB,nrmOff);bin.set(uvB,uvOff);bin.set(idxB,idxOff);
+  const mn=[1e9,1e9,1e9],mx=[-1e9,-1e9,-1e9];
+  for(let i=0;i<pos.length;i+=3)for(let k=0;k<3;k++){const v=pos[i+k];if(v<mn[k])mn[k]=v;if(v>mx[k])mx[k]=v;}
+  const n=pos.length/3;
+  const gltf={asset:{version:"2.0",generator:"EVEZ Relief Lab"},scene:0,scenes:[{nodes:[0]}],nodes:[{mesh:0}],
+    meshes:[{primitives:[{attributes:{POSITION:0,NORMAL:1,TEXCOORD_0:2},indices:3,mode:4}]}],
+    buffers:[{byteLength:binLen}],
+    bufferViews:[{buffer:0,byteOffset:posOff,byteLength:posB.length,target:34962},
+      {buffer:0,byteOffset:nrmOff,byteLength:nrmB.length,target:34962},
+      {buffer:0,byteOffset:uvOff,byteLength:uvB.length,target:34962},
+      {buffer:0,byteOffset:idxOff,byteLength:idxB.length,target:34963}],
+    accessors:[{bufferView:0,componentType:5126,count:n,type:"VEC3",min:mn,max:mx},
+      {bufferView:1,componentType:5126,count:n,type:"VEC3"},
+      {bufferView:2,componentType:5126,count:n,type:"VEC2"},
+      {bufferView:3,componentType:5125,count:idx.length,type:"SCALAR"}]};
+  let js=JSON.stringify(gltf);while(js.length%4!==0)js+=' ';
+  const jsBin=new TextEncoder().encode(js);
+  const total=12+8+jsBin.length+8+binLen;
+  const out=new Uint8Array(total);const dv=new DataView(out.buffer);let p=0;
+  dv.setUint32(p,0x46546C67,true);p+=4;dv.setUint32(p,2,true);p+=4;dv.setUint32(p,total,true);p+=4;
+  dv.setUint32(p,jsBin.length,true);p+=4;dv.setUint32(p,0x4E4F534A,true);p+=4;
+  out.set(jsBin,p);p+=jsBin.length;
+  dv.setUint32(p,binLen,true);p+=4;dv.setUint32(p,0x004E4942,true);p+=4;
+  out.set(bin,p);
+  const blob=new Blob([out],{type:'model/gltf-binary'});
+  const url=URL.createObjectURL(blob);
+  const a=document.getElementById('glbLink');
+  a.href=url;a.download=(current||'specimen')+'_interactive_relief.glb';
+  a.click();setTimeout(()=>URL.revokeObjectURL(url),4000);
+}
 function loop(t){if(!lastT)lastT=t;const dt=Math.min(.05,(t-lastT)/1000);lastT=t;if(autoSpin){yaw+=dt*.32;}render();requestAnimationFrame(loop);}
 function pointerPos(e){return {x:e.clientX,y:e.clientY};}
 function pdist(){const a=[...pointers.values()];return Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);}
 canvas.addEventListener('contextmenu',e=>e.preventDefault());canvas.addEventListener('pointerdown',e=>{pointers.set(e.pointerId,pointerPos(e));canvas.setPointerCapture(e.pointerId);if(pointers.size===2){drag=null;pinch={dist:pdist(),zoom};}else drag={x:e.clientX,y:e.clientY,pan:e.button===2||e.shiftKey};});canvas.addEventListener('pointermove',e=>{if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,pointerPos(e));if(pointers.size>=2&&pinch){zoom=Math.max(.4,Math.min(5,pinch.zoom*pdist()/Math.max(1,pinch.dist)));return;}if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;drag.x=e.clientX;drag.y=e.clientY;if(drag.pan){const s=1.5/zoom/Math.max(1,view.clientHeight);target[0]-=dx*s;target[1]+=dy*s;}else{yaw-=dx*.008;pitch=Math.max(.07,Math.min(Math.PI-.07,pitch+dy*.008));}});function pointerUp(e){pointers.delete(e.pointerId);drag=null;pinch=null;if(pointers.size===1){const a=[...pointers.entries()][0];drag={x:a[1].x,y:a[1].y,pan:false};}}canvas.addEventListener('pointerup',pointerUp);canvas.addEventListener('pointercancel',pointerUp);canvas.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.4,Math.min(5,zoom*Math.exp(-e.deltaY*.001)));},{passive:false});
-document.getElementById('specimen').addEventListener('change',e=>buildModel(e.target.value));document.getElementById('photoMode').onclick=()=>setMode('photo');document.getElementById('shadeMode').onclick=()=>setMode('shade');document.getElementById('edgeMode').onclick=()=>setMode('edges');document.getElementById('depthRange').oninput=e=>document.getElementById('depthVal').textContent=e.target.value+'%';document.getElementById('depthRange').onchange=e=>{relief=Number(e.target.value)/100;buildModel(current);};document.getElementById('lightRange').oninput=e=>{lightAngle=Number(e.target.value);document.getElementById('lightVal').textContent=e.target.value+'°';};document.getElementById('wireBtn').onclick=e=>{e.currentTarget.classList.toggle('active');updateWireButton();};document.getElementById('autoSpinBtn').onclick=e=>{autoSpin=!autoSpin;e.currentTarget.classList.toggle('active',autoSpin);};document.getElementById('frontBtn').onclick=()=>goView('front');document.getElementById('leftBtn').onclick=()=>goView('left');document.getElementById('sideBtn').onclick=()=>goView('side');document.getElementById('topBtn').onclick=()=>goView('top');document.getElementById('backBtn').onclick=()=>goView('back');document.getElementById('resetBtn').onclick=resetCamera;document.getElementById('closeModal').onclick=()=>document.getElementById('modal').style.display='none';document.getElementById('modal').onclick=e=>{if(e.target.id==='modal')e.currentTarget.style.display='none';};
+document.getElementById('specimen').addEventListener('change',e=>buildModel(e.target.value));document.getElementById('photoMode').onclick=()=>setMode('photo');document.getElementById('shadeMode').onclick=()=>setMode('shade');document.getElementById('edgeMode').onclick=()=>setMode('edges');document.getElementById('depthRange').oninput=e=>document.getElementById('depthVal').textContent=e.target.value+'%';document.getElementById('depthRange').onchange=e=>{relief=Number(e.target.value)/100;buildModel(current);};document.getElementById('lightRange').oninput=e=>{lightAngle=Number(e.target.value);document.getElementById('lightVal').textContent=e.target.value+'°';};document.getElementById('wireBtn').onclick=e=>{e.currentTarget.classList.toggle('active');updateWireButton();};document.getElementById('autoSpinBtn').onclick=e=>{autoSpin=!autoSpin;e.currentTarget.classList.toggle('active',autoSpin);};document.getElementById('frontBtn').onclick=()=>goView('front');document.getElementById('leftBtn').onclick=()=>goView('left');document.getElementById('sideBtn').onclick=()=>goView('side');document.getElementById('topBtn').onclick=()=>goView('top');document.getElementById('backBtn').onclick=()=>goView('back');document.getElementById('resetBtn').onclick=resetCamera;document.getElementById('closeModal').onclick=()=>document.getElementById('modal').style.display='none';
+document.getElementById('glbLink').addEventListener('click',e=>{e.preventDefault();exportGLB();});document.getElementById('modal').onclick=e=>{if(e.target.id==='modal')e.currentTarget.style.display='none';};
 try{initGL();resize();window.addEventListener('resize',resize);buildModel('dark');requestAnimationFrame(loop);}catch(e){toast.style.display='block';toast.textContent=e.message;}
 </script></body></html>
