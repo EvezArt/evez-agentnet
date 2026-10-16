@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-16T07:42:17.017775+00:00",
+  "generated": "2026-10-16T10:12:01.566117+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -94,11 +94,6 @@
       "since": "Mon 2026-10-12 07:17:45 CEST"
     },
     {
-      "unit": "evez-xtts.service",
-      "sub": "running",
-      "since": "Fri 2026-10-16 09:05:20 CEST"
-    },
-    {
       "unit": "gueriella-hermes-watchdog.service",
       "sub": "running",
       "since": "Mon 2026-10-12 07:17:45 CEST"
@@ -136,7 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Fri 2026-10-16 08:57:18 CEST"
+      "since": "Fri 2026-10-16 09:45:53 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -179,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 1542714,
+      "pid": 1586492,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -289,7 +284,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1538674,
+      "pid": 1584180,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -529,7 +524,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1538674,
+      "pid": 1584180,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -539,7 +534,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 1538674,
+      "pid": 1584180,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -626,16 +621,6 @@
       "fw_blocked": false
     },
     {
-      "port": 18797,
-      "bind": "100.126.180.47",
-      "proc": "python",
-      "pid": 1547044,
-      "public_bind": false,
-      "tailnet": true,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 18891,
       "bind": "127.0.0.1",
       "proc": "python3",
@@ -656,10 +641,20 @@
       "fw_blocked": false
     },
     {
-      "port": 42631,
+      "port": 37469,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1538674,
+      "pid": 1584180,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 37957,
+      "bind": "127.0.0.1",
+      "proc": "llama-server",
+      "pid": 1692933,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -857,12 +852,12 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
-      "status": "Up 6 hours",
+      "status": "Up 8 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ruview-demo",
-      "status": "Up 30 hours",
+      "status": "Up 32 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -924,9 +919,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "9d3258a",
-    "last": "war-mode heartbeat 2026-10-16 03:5x UTC: servhost clock DUE-2 \u2014 silence re-verified airtight (every inbox msg back to 2026-09-29 + all spam, 5 days, zero response), escalation brief refreshed to 10-16; Prime Telecom AS39737 denial of AS48090/AS47890 downstream (10-06) + tele-asia autoreplies/bounce pulled from spam into evidence with SHA256SUMS; cortex memory burst traced to the machine's own 03:00 cognition round (11 spine events), benign; operational churn through 03:5x",
-    "dirty": 47
+    "head": "c3b84d3",
+    "last": "war-mode heartbeat 2026-10-16 07:44 UTC: servhost clock DUE-2 \u2014 silence re-swept twice on the 16th (all inbox msgs back to 09-29 + full spam, zero response), escalation package re-hashed intact (RFJ zip ac34d8d2 matches sealed digest, /24 still announced by AS207957 via RIPEstat prefix-overview); all draft send-gates resolved from live registries: FiberXpress AS57717 abuse@fiberxpress.net (orig notice went to a different fiberxpress@fiberxpress.nl addr), Prime AS39737 abuse@primetelecom.ro, Tele Asia AS133398 abuse@tele-asia.net hard-bounced 10-04 w/ registrant-level abusedept@tele-asia.net, GoDaddy AS26496 abuse@godaddy.com, Cloudflare AS13335 abuse@cloudflare.com; ICO verified as UK NIS competent authority for RDSPs per its own Guide to NIS; live transit discovered \u2014 AS207957 neighbours AS49418 NetShield (Ilin sibling CH14769288, abuse@netshield.ltd), AS207208 Mevspace, AS57494 ADMAN, AS26042 FiberState, all annexed in local-only drafts; cortex memory v11 + hand v43->46 traced to own cognition round + Hand evolution, benign; operational churn through 07:44 UTC",
+    "dirty": 42
   },
   "mirrors": 2340
 }

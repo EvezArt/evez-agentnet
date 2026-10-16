@@ -20,9 +20,9 @@
     "mode": "running",
     "active_identity": "builder",
     "action_mode": "construct",
-    "predictor_entropy": 0.9197762629645624,
-    "rsi_branch_entropy": 7.863022,
-    "rsi_last_injected_at": "2026-10-16T07:32:37.700413+00:00"
+    "predictor_entropy": 0.7303016983646692,
+    "rsi_branch_entropy": 7.870672,
+    "rsi_last_injected_at": "2026-10-16T10:03:22.445907+00:00"
   },
   "branches": [
     {
@@ -34290,6 +34290,271 @@
         "action:hold",
         "dark pressure candidate"
       ]
+    },
+    {
+      "label": "branch-2613",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-774-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:774",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-774-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:774",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-774-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:774",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "branch-2617",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-775-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:775",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-775-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:775",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-775-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:775",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "branch-2621",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-776-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:776",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-776-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:776",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-776-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:776",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "branch-2625",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-777-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:777",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-777-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:777",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-777-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:777",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "branch-2629",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-778-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:778",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-778-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:778",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-778-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:778",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
     }
   ],
   "unresolved_residue": [],
@@ -34335,10 +34600,10 @@
         "ship"
       ],
       "stability": 1.0,
-      "control_gain": 9.035,
-      "coherence_gain": 4.865000000000014,
-      "contradiction_load": 1.1594999999999966,
-      "last_activated_at": "2026-10-16T07:32:29.072312+00:00"
+      "control_gain": 9.197500000000003,
+      "coherence_gain": 4.952500000000015,
+      "contradiction_load": 1.1782499999999962,
+      "last_activated_at": "2026-10-16T10:03:18.616267+00:00"
     }
   ],
   "valuation": {
@@ -154282,9 +154547,974 @@
         "unresolved_count": 0,
         "dark_pressure_count": 0
       }
+    },
+    {
+      "at": "2026-10-16T07:32:38.003470+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T08:02:39.891146+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-2613",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 774, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"GTA VI released by November 30?\", \"volume_usd\": 99999.864301, \"end_date\": \"2026-12-01T04:59:00Z\", \"url\": \"https://polymarket.com/event/gta-vi-released-by-november-30\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T08:02:39.889045+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Bitcoin more valuable than any company before 2027?\", \"volume_usd\": 9999.277993000003, \"end_date\": \"2027-01-01T04:59:00Z\", \"url\": \"https://polymarket.com/event/bitcoin-more-valuable-than-any-company-before-2027\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T08:02:39.889167+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 489233, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-16T08:02:39.889425+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T08:02:39.909535+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-2613",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-16T08:02:39.891600+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-16T08:02:39.891775+00:00",
+            "identity": "builder",
+            "label": "branch-2613",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-2613.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T08:02:40.307350+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T08:02:40.307552+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-2613",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-2613",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-16T08:02:39.891600+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-16T08:02:39.891775+00:00",
+              "identity": "builder",
+              "label": "branch-2613",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-2613.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "c8e8ecabdd3fe70f1a33b421dae6ca2e302c1ebf63d7f7a1c669b2cbf6f75ee1"
+      }
+    },
+    {
+      "at": "2026-10-16T08:02:44.042639+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 774,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-774-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:774",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-774-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:774",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-774-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:774",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.864556634310288,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
+    },
+    {
+      "at": "2026-10-16T08:02:44.374650+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T08:32:47.450742+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-2617",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 775, \"signal_count\": 34, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"GTA VI released by November 30?\", \"volume_usd\": 99999.86430099998, \"end_date\": \"2026-12-01T04:59:00Z\", \"url\": \"https://polymarket.com/event/gta-vi-released-by-november-30\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T08:32:47.447448+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Sydney FC vs. Western Sydney Wanderers FC: Western Sydney Wanderers FC 1st Half O/U 2.5\", \"volume_usd\": 999.989666, \"end_date\": \"2026-10-16T09:00:00Z\", \"url\": \"https://polymarket.com/event/aus-syd-wsw-2026-10-16-first-half-team-total-away-2pt5\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T08:32:47.447513+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 489245, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-16T08:32:47.447796+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T08:32:47.460288+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-2617",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-16T08:32:47.454503+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-16T08:32:47.454690+00:00",
+            "identity": "builder",
+            "label": "branch-2617",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-2617.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T08:32:47.976766+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T08:32:48.025403+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-2617",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-2617",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-16T08:32:47.454503+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-16T08:32:47.454690+00:00",
+              "identity": "builder",
+              "label": "branch-2617",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-2617.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "d1c2ab6e96a81486ae261345c318d9f0d8129bef34d0c0658bbb39b5bc0166e8"
+      }
+    },
+    {
+      "at": "2026-10-16T08:32:54.361929+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 775,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-775-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:775",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-775-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:775",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-775-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:775",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.866088992037219,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
+    },
+    {
+      "at": "2026-10-16T08:32:54.642671+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T09:02:57.055862+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-2621",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 776, \"signal_count\": 34, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"GTA VI released by November 30?\", \"volume_usd\": 99999.864301, \"end_date\": \"2026-12-01T04:59:00Z\", \"url\": \"https://polymarket.com/event/gta-vi-released-by-november-30\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T09:02:57.050572+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Sydney FC vs. Western Sydney Wanderers FC: Western Sydney Wanderers FC 1st Half O/U 2.5\", \"volume_usd\": 999.989666, \"end_date\": \"2026-10-16T09:00:00Z\", \"url\": \"https://polymarket.com/event/aus-syd-wsw-2026-10-16-first-half-team-total-away-2pt5\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T09:02:57.050649+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 489256, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-16T09:02:57.050946+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T09:02:57.057664+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-2621",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-16T09:02:57.056426+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-16T09:02:57.056564+00:00",
+            "identity": "builder",
+            "label": "branch-2621",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-2621.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T09:02:57.433527+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T09:02:57.433732+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-2621",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-2621",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-16T09:02:57.056426+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-16T09:02:57.056564+00:00",
+              "identity": "builder",
+              "label": "branch-2621",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-2621.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "05b0b9c76cc27d16dc5d33cba6877db5aa87e8fc6c4aa7740e2f30257878d6fa"
+      }
+    },
+    {
+      "at": "2026-10-16T09:03:07.146554+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 776,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-776-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:776",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-776-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:776",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-776-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:776",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.867619006192215,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
+    },
+    {
+      "at": "2026-10-16T09:03:07.413100+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T09:33:09.523926+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-2625",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 777, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"GTA VI released by November 30?\", \"volume_usd\": 99999.86430099998, \"end_date\": \"2026-12-01T04:59:00Z\", \"url\": \"https://polymarket.com/event/gta-vi-released-by-november-30\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T09:33:09.517906+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Sydney FC vs. Western Sydney Wanderers FC: Western Sydney Wanderers FC 1st Half O/U 2.5\", \"volume_usd\": 999.989666, \"end_date\": \"2026-10-16T09:00:00Z\", \"url\": \"https://polymarket.com/event/aus-syd-wsw-2026-10-16-first-half-team-total-away-2pt5\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T09:33:09.517987+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 489262, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-16T09:33:09.518445+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T09:33:09.532697+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-2625",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-16T09:33:09.524546+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-16T09:33:09.524705+00:00",
+            "identity": "builder",
+            "label": "branch-2625",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-2625.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T09:33:10.641215+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T09:33:10.641486+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-2625",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-2625",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-16T09:33:09.524546+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-16T09:33:09.524705+00:00",
+              "identity": "builder",
+              "label": "branch-2625",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-2625.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "b237f279f19c1dca1c976c48a6ceab6c0ec6d73075320ea854b6421d4e0a606e"
+      }
+    },
+    {
+      "at": "2026-10-16T09:33:15.224001+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 777,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-777-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:777",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-777-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:777",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-777-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:777",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.869146683929765,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
+    },
+    {
+      "at": "2026-10-16T09:33:15.545160+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T10:03:18.615797+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-2629",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 778, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"GTA VI released by November 30?\", \"volume_usd\": 99999.864301, \"end_date\": \"2026-12-01T04:59:00Z\", \"url\": \"https://polymarket.com/event/gta-vi-released-by-november-30\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T10:03:18.613344+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Sydney FC vs. Western Sydney Wanderers FC: Western Sydney Wanderers FC 1st Half O/U 2.5\", \"volume_usd\": 999.989666, \"end_date\": \"2026-10-16T09:00:00Z\", \"url\": \"https://polymarket.com/event/aus-syd-wsw-2026-10-16-first-half-team-total-away-2pt5\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T10:03:18.613416+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 489271, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-16T10:03:18.613794+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T10:03:18.621352+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-2629",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-16T10:03:18.616137+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-16T10:03:18.616290+00:00",
+            "identity": "builder",
+            "label": "branch-2629",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-2629.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T10:03:18.961699+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T10:03:18.961938+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-2629",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-2629",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-16T10:03:18.616137+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-16T10:03:18.616290+00:00",
+              "identity": "builder",
+              "label": "branch-2629",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-2629.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "1a65665f75724d71963685a902a962b5eb33470dbc113bc34aa3458c0b1590ad"
+      }
+    },
+    {
+      "at": "2026-10-16T10:03:22.445920+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 778,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-778-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:778",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-778-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:778",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-778-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:778",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.870672032371669,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
     }
   ],
   "checkpoint_id": "af4a7f29-89a0-4d0a-bc5f-020121ebed98",
   "created_at": "2026-09-25T11:29:16.047324+00:00",
-  "updated_at": "2026-10-16T07:32:37.701060+00:00"
+  "updated_at": "2026-10-16T10:03:22.446123+00:00"
 }
