@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-16T10:12:01.566117+00:00",
+  "generated": "2026-10-16T21:03:06.015499+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -131,7 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Fri 2026-10-16 09:45:53 CEST"
+      "since": "Fri 2026-10-16 13:28:25 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -174,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 1586492,
+      "pid": 1787279,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -284,7 +284,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1584180,
+      "pid": 1783612,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -524,7 +524,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1584180,
+      "pid": 1783612,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -534,7 +534,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 1584180,
+      "pid": 1783612,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -621,6 +621,16 @@
       "fw_blocked": false
     },
     {
+      "port": 18799,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 1783612,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 18891,
       "bind": "127.0.0.1",
       "proc": "python3",
@@ -641,20 +651,10 @@
       "fw_blocked": false
     },
     {
-      "port": 37469,
+      "port": 46437,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1584180,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 37957,
-      "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 1692933,
+      "pid": 1783612,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -852,17 +852,17 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
-      "status": "Up 8 hours",
+      "status": "Up 19 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ruview-demo",
-      "status": "Up 32 hours",
+      "status": "Up 43 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 3 days",
+      "status": "Up 4 days",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -890,7 +890,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "82 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "61 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -919,9 +919,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "c3b84d3",
-    "last": "war-mode heartbeat 2026-10-16 07:44 UTC: servhost clock DUE-2 \u2014 silence re-swept twice on the 16th (all inbox msgs back to 09-29 + full spam, zero response), escalation package re-hashed intact (RFJ zip ac34d8d2 matches sealed digest, /24 still announced by AS207957 via RIPEstat prefix-overview); all draft send-gates resolved from live registries: FiberXpress AS57717 abuse@fiberxpress.net (orig notice went to a different fiberxpress@fiberxpress.nl addr), Prime AS39737 abuse@primetelecom.ro, Tele Asia AS133398 abuse@tele-asia.net hard-bounced 10-04 w/ registrant-level abusedept@tele-asia.net, GoDaddy AS26496 abuse@godaddy.com, Cloudflare AS13335 abuse@cloudflare.com; ICO verified as UK NIS competent authority for RDSPs per its own Guide to NIS; live transit discovered \u2014 AS207957 neighbours AS49418 NetShield (Ilin sibling CH14769288, abuse@netshield.ltd), AS207208 Mevspace, AS57494 ADMAN, AS26042 FiberState, all annexed in local-only drafts; cortex memory v11 + hand v43->46 traced to own cognition round + Hand evolution, benign; operational churn through 07:44 UTC",
-    "dirty": 42
+    "head": "33db15f",
+    "last": "war-mode heartbeat 2026-10-16 10:0x UTC: servhost clock DUE-2 (deadline 2026-10-18) \u2014 escalation package integrity re-verified live this tick: all three send attachments hash-match (demand 69dccba6, RDAP receipts 86a0f87c, RFJ zip ac34d8d2 byte-exact vs sealed digest), 150.241.74.0/24 still announced by AS207957 ServHost-AS per live RIPEstat; enemy silence swept twice on the 16th (all inbox msgs back to 09-29 + full spam, zero response); escalation drafts + depo-provera POA audit pinned local-only via .git/info/exclude \u2014 no accidental publication path remains; adversary shell network audit (CH PSC live-verified 2026-10-16) committed; spine gate green (chain verifies, timestamps non-decreasing); operational churn through 10:0x UTC",
+    "dirty": 79
   },
   "mirrors": 2340
 }
