@@ -161,3 +161,16 @@ commands on this box on Oct 3 ~07:16–07:29.
 | 79.124.59.106 | 16 | 2026-10-16 | 0ef85a690238 | contact only — no attribution |
 | 198.211.102.183 | 16 | 2026-10-16 | 40732b8faa31 | contact only — no attribution |
 | 79.124.56.214 | 15 | 2026-10-16 | 25c3dceba854 | contact only — no attribution |
+
+### 2026-10-17
+
+| Source | Strikes (24h) | First seen | Stamp | Note |
+|---|---|---|---|---|
+| 104.243.42.83 | 46 | 2026-10-17 | ec4dc9036131 | contact only — no attribution |
+| 82.47.63.121 | 35 | 2026-10-17 | ad27574d5265 | contact only — no attribution |
+| 82.47.63.33 | 32 | 2026-10-17 | f8d99bffad21 | contact only — no attribution |
+| 218.104.106.82 | 26 | 2026-10-17 | d558bb1fc8a6 | contact only — no attribution |
+| 92.154.95.236 | 23 | 2026-10-17 | e037a37972f2 | contact only — no attribution |
+| 37.49.227.189 | 19 | 2026-10-17 | 132a25a05db6 | contact only — no attribution |
+| 91.191.209.118 | 17 | 2026-10-17 | cfdacf1908cf | contact only — no attribution |
+| 78.128.113.46 | 15 | 2026-10-17 | d7f96226ba4e | contact only — no attribution |
