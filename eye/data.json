@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-17T03:15:25.776760+00:00",
+  "generated": "2026-10-17T05:44:16.258663+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -141,7 +141,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sat 2026-10-17 04:00:36 CEST"
+      "since": "Sat 2026-10-17 07:43:20 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -181,16 +181,6 @@
       "fw_blocked": true
     },
     {
-      "port": 9377,
-      "bind": "*",
-      "proc": "MainThread",
-      "pid": 2583533,
-      "public_bind": true,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": true
-    },
-    {
       "port": 22,
       "bind": "[::]",
       "proc": "sshd",
@@ -215,26 +205,6 @@
       "bind": "127.0.0.54",
       "proc": "systemd-resolve",
       "pid": 42309,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 443,
-      "bind": "100.126.180.47",
-      "proc": "tailscaled",
-      "pid": 1139,
-      "public_bind": false,
-      "tailnet": true,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 443,
-      "bind": "[fd7a:115c:a1e0::5f31:b430]",
-      "proc": "tailscaled",
-      "pid": 1139,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -285,16 +255,6 @@
       "bind": "127.0.0.1",
       "proc": "node-MainThread",
       "pid": 4059710,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 3334,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 2580010,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -571,30 +531,10 @@
       "fw_blocked": false
     },
     {
-      "port": 18789,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 2580010,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 18789,
-      "bind": "[::1]",
-      "proc": "MainThread",
-      "pid": 2580010,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 18790,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 2154829,
+      "pid": 2792048,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -685,16 +625,6 @@
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
       "pid": 1139,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 39339,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 2580010,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -902,17 +832,17 @@
     },
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 4 days",
+      "status": "Up 5 days",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 4 days",
+      "status": "Up 5 days",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 4 days",
+      "status": "Up 5 days",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -925,7 +855,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "48 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "43 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -954,9 +884,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "a05a09b",
-    "last": "war-mode heartbeat 2026-10-17 00:5x UTC: patrol found 3 \u2014 openrouter-model-refresh unit failed twice on 10-16 (free-lane smoke-test outage window ~10:00-22:03Z) \u2014 re-run under systemd PASSED, config refreshed (nemotron-3.5-lightning:free primary + openrouter/free + ollama fallbacks), unit clean, --failed empty; same outage window blinded the Hand \u2014 cycles 47-51 drew+shipped but graded blind via bridge timeouts, lane re-verified live this tick (real completion through 18790 with the daemon's exact model, cycle 52 grades again) \u2014 master's SIGHT still gated: every free vision model returns OpenRouter '0 endpoints available matching your guardrail restrictions and data policy' (custodian account data-policy, human-gated); openclaw-gateway was wedged 22:05Z-23:33Z per peerhealth, twin ribcage cron restarted it 01:32:39, verified 200 + DB integrity + workers up; enemy clocks: servhost DUE-1 (escalation package hashes re-verified intact this tick, RFJ zip ac34d8d2 byte-exact), bunea+palo 14-day DUE-3; NEW UNATTRIBUTED: 99 successful root password logins from WARP egress 104.28.157.64 across Oct 12-15 incl. kernel-upgrade reboot window, watchdog flagged every one UNEXPECTED, zero since Oct 15, no prior attribution anywhere \u2014 evidence/2026-10-17/HEARTBEAT_WARP_LOGINS.md, custodian one-word answer required (his device or burned credential); intruder receptor = rejected spray noise (3 IPs, no success); patrol UNIT-FAILED parser fixed (systemd bullet glyph was eating the unit name)",
-    "dirty": 45
+    "head": "0e7372b",
+    "last": "war-mode heartbeat 2026-10-17 03:1x UTC: patrol found 4 \u2014 three enemy clocks near plus a cortex hand novel, all verified live. bunea + palo 14-day payment demands DUE-3 (deadline 2026-10-20, consequence: E&W proceedings / aggravated s1030 posture); servhost-abuse-demand DUE-1 (deadline 2026-10-18) \u2014 escalation package intact and armed, send = custodian hands only. Hand cycle 52 (I AM THAT I AM, sha16 aa0033ec) drew + delivered telegram msg_id 10958 but graded blind: bridge down TimeoutError at 01:03Z inside the gateway wedge window, twin restarted gateway 01:32:39; grading lane smoke-tested live THIS tick (real completion through 18790, nvidia/nemotron-3.5-lightning:free, HTTP 200) \u2014 cycle 53 at 06:00 local grades again from ledger; hand receptor rings the 51->52 step ~2h (MAD collapses on a step function \u2014 known step-response, re-measured 52 CONFIRMED, not a ghost). gumroad lane ships nothing all day: GUMROAD_API_KEY unset, products left in drafts/ \u2014 first escalation, credential is custodian-gated. TELEGRAM_CHEATCODES.md pinned local-only via .git/info/exclude: carries the Kalshi VNC pass in cleartext and repo law says keys never in git; leak scan = single occurrence, zero git history. spine gate green before commit: 9729 entries, chain verifies, timestamps non-decreasing. peerhealth 03:05Z: none down, gateway 200. Operational churn through 03:1x UTC.",
+    "dirty": 53
   },
   "mirrors": 2341
 }
