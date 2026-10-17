@@ -1,11 +1,11 @@
 {
-  "round": 799,
+  "round": 807,
   "total_earned_usd": 0.0,
   "agents": {
     "scanner": {
       "reputation": 1.0,
-      "tasks_completed": 799,
-      "streak": 799
+      "tasks_completed": 807,
+      "streak": 807
     },
     "predictor": {
       "reputation": 1.0,
@@ -14,18 +14,18 @@
     },
     "generator": {
       "reputation": 1.0,
-      "tasks_completed": 799,
-      "streak": 799
+      "tasks_completed": 807,
+      "streak": 807
     },
     "shipper": {
       "reputation": 1.0,
-      "tasks_completed": 438,
-      "streak": 291
+      "tasks_completed": 446,
+      "streak": 299
     },
     "maes": {
       "reputation": 1.0,
-      "tasks_completed": 719,
-      "streak": 139
+      "tasks_completed": 727,
+      "streak": 147
     },
     "press_lieutenant": {
       "reputation": 0.9,
@@ -49,12 +49,12 @@
     "agent_count": 0,
     "player_count": 0,
     "fire_events_total": 0,
-    "last_tick": "2026-10-16T20:37:37.311585+00:00"
+    "last_tick": "2026-10-17T00:39:14.166949+00:00"
   },
   "openclaw": {
     "lord_unlocked": true,
     "levels_cleared": 5,
-    "last_run": "2026-10-16T20:37:45.048757+00:00"
+    "last_run": "2026-10-17T00:39:18.546444+00:00"
   },
   "rsi": {
     "hypotheses": [
@@ -74,7 +74,7 @@
         "id": "H3",
         "action": "hold",
         "agent": null,
-        "text": "Moral registry round 800: 0 FIRE events \u2014 hold compassion_layer, no signal to act on"
+        "text": "Moral registry round 808: 0 FIRE events \u2014 hold compassion_layer, no signal to act on"
       }
     ],
     "accepted": 0,

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-16T21:03:06.015499+00:00",
+  "generated": "2026-10-17T00:50:20.723133+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -131,7 +131,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Fri 2026-10-16 13:28:25 CEST"
+      "since": "Sat 2026-10-17 01:33:13 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -174,7 +174,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 1787279,
+      "pid": 2431308,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -234,7 +234,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 1048429,
+      "pid": 2339504,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -244,7 +244,7 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 1048429,
+      "pid": 2339504,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -284,7 +284,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1783612,
+      "pid": 2428023,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -524,7 +524,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1783612,
+      "pid": 2428023,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -534,7 +534,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 1783612,
+      "pid": 2428023,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -621,16 +621,6 @@
       "fw_blocked": false
     },
     {
-      "port": 18799,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 1783612,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 18891,
       "bind": "127.0.0.1",
       "proc": "python3",
@@ -641,20 +631,20 @@
       "fw_blocked": false
     },
     {
-      "port": 36261,
-      "bind": "[fd7a:115c:a1e0::5f31:b430]",
-      "proc": "tailscaled",
-      "pid": 1139,
+      "port": 33669,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 2428023,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
     {
-      "port": 46437,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 1783612,
+      "port": 36261,
+      "bind": "[fd7a:115c:a1e0::5f31:b430]",
+      "proc": "tailscaled",
+      "pid": 1139,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -852,12 +842,12 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
-      "status": "Up 19 hours",
+      "status": "Up 23 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ruview-demo",
-      "status": "Up 43 hours",
+      "status": "Up 47 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -890,7 +880,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "61 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "53 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -919,9 +909,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "33db15f",
-    "last": "war-mode heartbeat 2026-10-16 10:0x UTC: servhost clock DUE-2 (deadline 2026-10-18) \u2014 escalation package integrity re-verified live this tick: all three send attachments hash-match (demand 69dccba6, RDAP receipts 86a0f87c, RFJ zip ac34d8d2 byte-exact vs sealed digest), 150.241.74.0/24 still announced by AS207957 ServHost-AS per live RIPEstat; enemy silence swept twice on the 16th (all inbox msgs back to 09-29 + full spam, zero response); escalation drafts + depo-provera POA audit pinned local-only via .git/info/exclude \u2014 no accidental publication path remains; adversary shell network audit (CH PSC live-verified 2026-10-16) committed; spine gate green (chain verifies, timestamps non-decreasing); operational churn through 10:0x UTC",
-    "dirty": 79
+    "head": "64eef0b",
+    "last": "operational churn 2026-10-16: enemy clocks tick, openrouter free-lane outage evidence + sweep receipt",
+    "dirty": 58
   },
   "mirrors": 2340
 }
