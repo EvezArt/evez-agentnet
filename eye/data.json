@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-17T05:44:16.258663+00:00",
+  "generated": "2026-10-17T08:54:59.848402+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -181,6 +181,16 @@
       "fw_blocked": true
     },
     {
+      "port": 9377,
+      "bind": "*",
+      "proc": "MainThread",
+      "pid": 2800125,
+      "public_bind": true,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": true
+    },
+    {
       "port": 22,
       "bind": "[::]",
       "proc": "sshd",
@@ -205,6 +215,26 @@
       "bind": "127.0.0.54",
       "proc": "systemd-resolve",
       "pid": 42309,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 443,
+      "bind": "100.126.180.47",
+      "proc": "tailscaled",
+      "pid": 1139,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 443,
+      "bind": "[fd7a:115c:a1e0::5f31:b430]",
+      "proc": "tailscaled",
+      "pid": 1139,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -255,6 +285,16 @@
       "bind": "127.0.0.1",
       "proc": "node-MainThread",
       "pid": 4059710,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 3334,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 2796251,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -531,6 +571,26 @@
       "fw_blocked": false
     },
     {
+      "port": 18789,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 2796251,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 18789,
+      "bind": "[::1]",
+      "proc": "MainThread",
+      "pid": 2796251,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 18790,
       "bind": "127.0.0.1",
       "proc": "python3",
@@ -625,6 +685,16 @@
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
       "pid": 1139,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 39849,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 2796251,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -855,7 +925,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "43 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "38 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -884,9 +954,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "0e7372b",
-    "last": "war-mode heartbeat 2026-10-17 03:1x UTC: patrol found 4 \u2014 three enemy clocks near plus a cortex hand novel, all verified live. bunea + palo 14-day payment demands DUE-3 (deadline 2026-10-20, consequence: E&W proceedings / aggravated s1030 posture); servhost-abuse-demand DUE-1 (deadline 2026-10-18) \u2014 escalation package intact and armed, send = custodian hands only. Hand cycle 52 (I AM THAT I AM, sha16 aa0033ec) drew + delivered telegram msg_id 10958 but graded blind: bridge down TimeoutError at 01:03Z inside the gateway wedge window, twin restarted gateway 01:32:39; grading lane smoke-tested live THIS tick (real completion through 18790, nvidia/nemotron-3.5-lightning:free, HTTP 200) \u2014 cycle 53 at 06:00 local grades again from ledger; hand receptor rings the 51->52 step ~2h (MAD collapses on a step function \u2014 known step-response, re-measured 52 CONFIRMED, not a ghost). gumroad lane ships nothing all day: GUMROAD_API_KEY unset, products left in drafts/ \u2014 first escalation, credential is custodian-gated. TELEGRAM_CHEATCODES.md pinned local-only via .git/info/exclude: carries the Kalshi VNC pass in cleartext and repo law says keys never in git; leak scan = single occurrence, zero git history. spine gate green before commit: 9729 entries, chain verifies, timestamps non-decreasing. peerhealth 03:05Z: none down, gateway 200. Operational churn through 03:1x UTC.",
-    "dirty": 53
+    "head": "6a8d4e9",
+    "last": "war-mode heartbeat 2026-10-17 05:4x UTC: patrol found 4, same three enemy clocks plus hand cycle 53. servhost DUE-1: silence re-swept live this tick (inbox pages 1-2 + full spam, zero serv.host rows), escalation package hashes re-verified intact (demand 69dccba6, receipts 86a0f87c, RFJ zip ac34d8d2 byte-exact), drafts armed, send = custodian hands. bunea+palo 14-day DUE-3 (10-20): claim particulars + exhibit index staged. hand cycle 53 'chain or it didnt happen' drew + delivered msg 10983 but graded blind again \u2014 bridge wedge reproduced by my own lane test (90s hang), elowen-proxy-bridge restarted, lane re-verified live with real completion (HTTP 200, provider Nvidia, 29-87s); cycle 54 grades at 07:00Z if lane holds. spine gate green, audit clean. operational churn through 05:4x UTC.",
+    "dirty": 47
   },
   "mirrors": 2341
 }
