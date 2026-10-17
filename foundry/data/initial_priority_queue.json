@@ -1,0 +1,68 @@
+{
+  "schema": "evez.foundry.priority.v1",
+  "observed_at": "2026-10-05",
+  "scope": "initial read-only cleanup and capability extraction queue",
+  "priority": [
+    {
+      "id": "SEC-001",
+      "target": "EvezArt/evez-agentnet",
+      "issue": 103,
+      "action": "Rotate credentials represented by public exposure findings, then re-audit.",
+      "authority": 9,
+      "state": "HUMAN_AUTH_REQUIRED"
+    },
+    {
+      "id": "CORPUS-001",
+      "target": "EvezArt/evez-ai",
+      "issue": 104,
+      "action": "Map nested repository mirrors and determine canonical sources before consolidation.",
+      "authority": 6,
+      "state": "PROPOSED"
+    },
+    {
+      "id": "DOC-001",
+      "target": "EvezArt/evez-os",
+      "issue": 105,
+      "action": "Replace stale operational claims with evidence-linked current state.",
+      "authority": 6,
+      "state": "PROPOSED"
+    },
+    {
+      "id": "FOUND-001",
+      "target": "EvezArt/evez-agentnet",
+      "issue": 107,
+      "action": "Extract source-level capabilities from the ten core repositories.",
+      "authority": 6,
+      "state": "PROPOSED"
+    },
+    {
+      "id": "FOUND-002",
+      "target": "EvezArt/evez-agentnet",
+      "issue": 108,
+      "action": "Run continuous read-only corpus inspection and produce evidence receipts.",
+      "authority": 5,
+      "state": "PROPOSED"
+    },
+    {
+      "id": "REPO-001",
+      "target": "EvezArt/evez-liminal",
+      "action": "Prepare isolated cleanup of committed virtual-environment material while preserving history and evidence.",
+      "authority": 6,
+      "state": "PROPOSED"
+    },
+    {
+      "id": "REPO-002",
+      "target": "EvezArt/evez-os",
+      "action": "Treat stale live-status artifacts as historical until independently re-observed.",
+      "authority": 1,
+      "state": "OBSERVATION_POLICY"
+    }
+  ],
+  "rules": [
+    "read-only discovery before mutation",
+    "no destructive cleanup without a staged branch and evidence",
+    "no credential values in reports",
+    "preserve contradictory evidence",
+    "UNKNOWN remains UNKNOWN"
+  ]
+}

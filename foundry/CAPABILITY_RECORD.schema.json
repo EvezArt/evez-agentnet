@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EVEZ Capability Record",
+  "type": "object",
+  "required": [
+    "capability_id",
+    "name",
+    "repository",
+    "state",
+    "confidence",
+    "evidence"
+  ],
+  "properties": {
+    "capability_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "UNKNOWN",
+        "OBSERVED",
+        "EXECUTABLE",
+        "TESTED",
+        "REPRODUCED",
+        "VALIDATED",
+        "PROMOTED"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "UNKNOWN",
+        "PROPOSED",
+        "SUPPORTED",
+        "VERIFIED"
+      ]
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "side_effects": {
+      "type": "string"
+    },
+    "reproducibility": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
