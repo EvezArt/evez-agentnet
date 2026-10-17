@@ -1,0 +1,4 @@
+{"ts": "2026-10-17T00:00:06.823974+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-17T00:15:02.232642+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-17T00:30:03.724343+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-17T00:45:02.864150+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}

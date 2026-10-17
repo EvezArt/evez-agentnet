@@ -20,9 +20,9 @@
     "mode": "running",
     "active_identity": "builder",
     "action_mode": "construct",
-    "predictor_entropy": 0.9487347241496941,
-    "rsi_branch_entropy": 7.902179,
-    "rsi_last_injected_at": "2026-10-16T20:37:45.054235+00:00"
+    "predictor_entropy": 0.9487407017343544,
+    "rsi_branch_entropy": 7.913925,
+    "rsi_last_injected_at": "2026-10-17T00:39:18.556562+00:00"
   },
   "branches": [
     {
@@ -35668,6 +35668,430 @@
         "action:hold",
         "dark pressure candidate"
       ]
+    },
+    {
+      "label": "branch-2717",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-800-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:800",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-800-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:800",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-800-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:800",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "branch-2721",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-801-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:801",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-801-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:801",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-801-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:801",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "branch-2725",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-802-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:802",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-802-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:802",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-802-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:802",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "branch-2729",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-803-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:803",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-803-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:803",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-803-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:803",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "branch-2733",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-804-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:804",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-804-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:804",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-804-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:804",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "branch-2737",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-805-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:805",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-805-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:805",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-805-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:805",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "branch-2741",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-806-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:806",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-806-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:806",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-806-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:806",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "branch-2745",
+      "plausibility": 0.35,
+      "consequence": 0.65,
+      "collapse_risk": 0.475,
+      "resonance": 0.35,
+      "notes": [
+        "bias builder identity",
+        "generate rival before hard commitment"
+      ]
+    },
+    {
+      "label": "rsi-branch-807-1",
+      "plausibility": 0.44,
+      "consequence": 0.5900000000000001,
+      "collapse_risk": 0.48,
+      "resonance": 0.44,
+      "notes": [
+        "source:rsi",
+        "round:807",
+        "preserve rival future",
+        "action:recover_reputation"
+      ]
+    },
+    {
+      "label": "rsi-branch-807-2",
+      "plausibility": 0.44,
+      "consequence": 0.73,
+      "collapse_risk": 0.48,
+      "resonance": 0.46,
+      "notes": [
+        "source:rsi",
+        "round:807",
+        "preserve rival future",
+        "action:wait_for_ecology",
+        "high consequence branch",
+        "dark pressure candidate"
+      ]
+    },
+    {
+      "label": "rsi-branch-807-3",
+      "plausibility": 0.42,
+      "consequence": 0.45,
+      "collapse_risk": 0.48,
+      "resonance": 0.49,
+      "notes": [
+        "source:rsi",
+        "round:807",
+        "preserve rival future",
+        "action:hold",
+        "dark pressure candidate"
+      ]
     }
   ],
   "unresolved_residue": [],
@@ -35713,10 +36137,10 @@
         "ship"
       ],
       "stability": 1.0,
-      "control_gain": 9.880000000000017,
-      "coherence_gain": 5.320000000000016,
-      "contradiction_load": 1.2569999999999946,
-      "last_activated_at": "2026-10-16T20:37:38.417174+00:00"
+      "control_gain": 10.140000000000022,
+      "coherence_gain": 5.460000000000017,
+      "contradiction_load": 1.286999999999994,
+      "last_activated_at": "2026-10-17T00:39:15.073388+00:00"
     }
   ],
   "valuation": {
@@ -160678,9 +161102,1553 @@
         "unresolved_count": 0,
         "dark_pressure_count": 0
       }
+    },
+    {
+      "at": "2026-10-16T20:37:45.403568+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T21:07:47.459738+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-2717",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 800, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"RC Deportivo A Coru\u00f1a vs. Levante UD: Levante UD 1st Half O/U 1.5\", \"volume_usd\": 999.989666, \"end_date\": \"2026-10-16T19:00:00Z\", \"url\": \"https://polymarket.com/event/lal-dep-lev-2026-10-16-first-half-team-total-away-1pt5\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T21:07:47.457509+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"AA Ponte Preta vs. AC Goianiense: Both Teams to Score\", \"volume_usd\": 99.998597, \"end_date\": \"2026-10-16T22:30:00Z\", \"url\": \"https://polymarket.com/event/bra2-pop-acg-2026-10-16-btts\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T21:07:47.457593+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 489457, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-16T21:07:47.458204+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T21:07:47.461539+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-2717",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-16T21:07:47.460124+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-16T21:07:47.460293+00:00",
+            "identity": "builder",
+            "label": "branch-2717",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-2717.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T21:07:47.999008+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T21:07:47.999237+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-2717",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-2717",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-16T21:07:47.460124+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-16T21:07:47.460293+00:00",
+              "identity": "builder",
+              "label": "branch-2717",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-2717.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "608db51a9044770f743fcc63ff641b7e62bc144b964ee0bcac9d0a14943ae4f2"
+      }
+    },
+    {
+      "at": "2026-10-16T21:07:52.454000+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 800,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-800-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:800",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-800-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:800",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-800-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:800",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.903654399924178,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
+    },
+    {
+      "at": "2026-10-16T21:07:52.748307+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T21:37:54.918706+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-2721",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 801, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"AA Ponte Preta vs. AC Goianiense: Both Teams to Score\", \"volume_usd\": 99.998597, \"end_date\": \"2026-10-16T22:30:00Z\", \"url\": \"https://polymarket.com/event/bra2-pop-acg-2026-10-16-btts\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T21:37:54.917129+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"San Jose Earthquakes vs. Nashville SC: San Jose Earthquakes O/U 4.5 Corners\", \"volume_usd\": 999.979167, \"end_date\": \"2026-10-18T02:30:00Z\", \"url\": \"https://polymarket.com/event/mls-sje-nas-2026-10-17-corners-team-home-4pt5\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T21:37:54.917201+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 489460, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-16T21:37:54.917532+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T21:37:54.922431+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-2721",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-16T21:37:54.919111+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-16T21:37:54.919234+00:00",
+            "identity": "builder",
+            "label": "branch-2721",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-2721.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T21:37:55.317246+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T21:37:55.317935+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-2721",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-2721",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-16T21:37:54.919111+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-16T21:37:54.919234+00:00",
+              "identity": "builder",
+              "label": "branch-2721",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-2721.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "e0ec7dda0b6c9d2692a5c73e0c0da9bd5e9a72bb58498ae52b0d11b4cb4f8831"
+      }
+    },
+    {
+      "at": "2026-10-16T21:37:59.500532+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 801,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-801-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:801",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-801-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:801",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-801-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:801",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.905128067853626,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
+    },
+    {
+      "at": "2026-10-16T21:37:59.777727+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T22:08:02.150291+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-2725",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 802, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Tamworth FC win on 2026-10-23?\", \"volume_usd\": 9.999592, \"end_date\": \"2026-10-23T18:45:00Z\", \"url\": \"https://polymarket.com/event/enl-gat-tam-2026-10-23-tam\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T22:08:02.137712+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Folkestone Invicta win on 2026-10-17?\", \"volume_usd\": 99.99451599999999, \"end_date\": \"2026-10-17T14:00:00Z\", \"url\": \"https://polymarket.com/event/nls-fol-tot-2026-10-17-fol\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T22:08:02.137774+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 489466, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-16T22:08:02.138092+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T22:08:02.407728+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-2725",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-16T22:08:02.283350+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-16T22:08:02.283537+00:00",
+            "identity": "builder",
+            "label": "branch-2725",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-2725.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T22:08:05.979362+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T22:08:05.979799+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-2725",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-2725",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-16T22:08:02.283350+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-16T22:08:02.283537+00:00",
+              "identity": "builder",
+              "label": "branch-2725",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-2725.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "e374f3f4858b07e0625d6db10128cf79d272f094a99c320228a7354ca50ba0a4"
+      }
+    },
+    {
+      "at": "2026-10-16T22:08:36.548487+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 802,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-802-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:802",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-802-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:802",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-802-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:802",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.906599568096537,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
+    },
+    {
+      "at": "2026-10-16T22:08:36.898215+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T22:38:39.370914+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-2729",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 803, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Tamworth FC win on 2026-10-23?\", \"volume_usd\": 9.999592, \"end_date\": \"2026-10-23T18:45:00Z\", \"url\": \"https://polymarket.com/event/enl-gat-tam-2026-10-23-tam\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T22:38:39.354106+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Folkestone Invicta win on 2026-10-17?\", \"volume_usd\": 99.99451599999999, \"end_date\": \"2026-10-17T14:00:00Z\", \"url\": \"https://polymarket.com/event/nls-fol-tot-2026-10-17-fol\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T22:38:39.354326+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 489470, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-16T22:38:39.357122+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T22:38:39.392250+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-2729",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-16T22:38:39.375655+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-16T22:38:39.378671+00:00",
+            "identity": "builder",
+            "label": "branch-2729",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-2729.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T22:38:40.930642+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T22:38:40.930962+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-2729",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-2729",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-16T22:38:39.375655+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-16T22:38:39.378671+00:00",
+              "identity": "builder",
+              "label": "branch-2729",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-2729.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "856402df7fc829683a0dfad973c810d7ec9e08906ac247b953882784d10d6e33"
+      }
+    },
+    {
+      "at": "2026-10-16T22:38:46.026049+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 803,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-803-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:803",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-803-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:803",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-803-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:803",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.908068907018163,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
+    },
+    {
+      "at": "2026-10-16T22:38:46.337629+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T23:08:49.098151+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-2733",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 804, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Mirassol FC vs. SC Internacional: SC Internacional 1st Half O/U 1.5\", \"volume_usd\": 999.98888, \"end_date\": \"2026-10-16T23:00:00Z\", \"url\": \"https://polymarket.com/event/bra-mir-int-2026-10-16-first-half-team-total-away-1pt5\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T23:08:49.095298+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Tamworth FC win on 2026-10-23?\", \"volume_usd\": 9.999592, \"end_date\": \"2026-10-23T18:45:00Z\", \"url\": \"https://polymarket.com/event/enl-gat-tam-2026-10-23-tam\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T23:08:49.095388+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 489475, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-16T23:08:49.095728+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T23:08:49.100437+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-2733",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-16T23:08:49.099486+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-16T23:08:49.099620+00:00",
+            "identity": "builder",
+            "label": "branch-2733",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-2733.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T23:08:49.470571+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T23:08:49.470791+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-2733",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-2733",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-16T23:08:49.099486+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-16T23:08:49.099620+00:00",
+              "identity": "builder",
+              "label": "branch-2733",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-2733.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "8eb752de0e161101eb6a44d884307989f0fce58b7abff75a233238e8f705227f"
+      }
+    },
+    {
+      "at": "2026-10-16T23:08:53.725556+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 804,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-804-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:804",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-804-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:804",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-804-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:804",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.909536090955774,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
+    },
+    {
+      "at": "2026-10-16T23:08:54.034483+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T23:38:56.316061+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-2737",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 805, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Mirassol FC vs. SC Internacional: SC Internacional 1st Half O/U 1.5\", \"volume_usd\": 999.98888, \"end_date\": \"2026-10-16T23:00:00Z\", \"url\": \"https://polymarket.com/event/bra-mir-int-2026-10-16-first-half-team-total-away-1pt5\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T23:38:56.306811+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Tamworth FC win on 2026-10-23?\", \"volume_usd\": 9.999592, \"end_date\": \"2026-10-23T18:45:00Z\", \"url\": \"https://polymarket.com/event/enl-gat-tam-2026-10-23-tam\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-16T23:38:56.306880+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 489479, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-16T23:38:56.309472+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T23:38:56.337946+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-2737",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-16T23:38:56.318302+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-16T23:38:56.320700+00:00",
+            "identity": "builder",
+            "label": "branch-2737",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-2737.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-16T23:38:57.539864+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-16T23:38:57.540232+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-2737",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-2737",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-16T23:38:56.318302+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-16T23:38:56.320700+00:00",
+              "identity": "builder",
+              "label": "branch-2737",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-2737.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "e2b021f885bf33fc927d556e8a3bc5e365782c359b58e41692150402fba780e2"
+      }
+    },
+    {
+      "at": "2026-10-16T23:39:05.623616+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 805,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-805-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:805",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-805-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:805",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-805-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:805",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.911001126218817,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
+    },
+    {
+      "at": "2026-10-16T23:39:05.986874+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-17T00:09:08.471776+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-2741",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 806, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Mirassol FC vs. SC Internacional: SC Internacional 1st Half O/U 1.5\", \"volume_usd\": 999.98888, \"end_date\": \"2026-10-16T23:00:00Z\", \"url\": \"https://polymarket.com/event/bra-mir-int-2026-10-16-first-half-team-total-away-1pt5\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-17T00:09:08.469797+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Tamworth FC win on 2026-10-23?\", \"volume_usd\": 9.999592, \"end_date\": \"2026-10-23T18:45:00Z\", \"url\": \"https://polymarket.com/event/enl-gat-tam-2026-10-23-tam\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-17T00:09:08.469866+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 489480, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-17T00:09:08.470394+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-17T00:09:08.476050+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-2741",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-17T00:09:08.472185+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-17T00:09:08.472361+00:00",
+            "identity": "builder",
+            "label": "branch-2741",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-2741.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-17T00:09:08.836275+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-17T00:09:08.836537+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-2741",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-2741",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-17T00:09:08.472185+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-17T00:09:08.472361+00:00",
+              "identity": "builder",
+              "label": "branch-2741",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-2741.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "340251c9fd9b65d9cf14d4dba90831986ac2b4e865ca91630f068f65841194cb"
+      }
+    },
+    {
+      "at": "2026-10-17T00:09:11.592325+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 806,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-806-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:806",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-806-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:806",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-806-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:806",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.912464019089087,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
+    },
+    {
+      "at": "2026-10-17T00:09:11.858904+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-17T00:39:15.072881+00:00",
+      "kind": "observe",
+      "payload": {
+        "branch": {
+          "label": "branch-2745",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "text": "{\"round\": 807, \"signal_count\": 35, \"maes_agents\": 0, \"maes_players\": 0, \"top_signals\": [{\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Mirassol FC vs. SC Internacional: SC Internacional 1st Half O/U 1.5\", \"volume_usd\": 999.98888, \"end_date\": \"2026-10-16T23:00:00Z\", \"url\": \"https://polymarket.com/event/bra-mir-int-2026-10-16-first-half-team-total-away-1pt5\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-17T00:39:15.070958+00:00\"}, {\"source\": \"polymarket\", \"type\": \"prediction_market\", \"title\": \"Will Tamworth FC win on 2026-10-23?\", \"volume_usd\": 9.999592, \"end_date\": \"2026-10-23T18:45:00Z\", \"url\": \"https://polymarket.com/event/enl-gat-tam-2026-10-23-tam\", \"opportunity\": \"prediction_report\", \"scanned_at\": \"2026-10-17T00:39:15.071042+00:00\"}, {\"source\": \"github_trending\", \"type\": \"trending_repo\", \"title\": \"public-apis/public-apis\", \"description\": \"A collective list of free APIs\", \"stars\": 489483, \"language\": \"Python\", \"url\": \"https://github.com/public-apis/public-apis\", \"opportunity\": \"tutorial_or_integration\", \"scanned_at\": \"2026-10-17T00:39:15.071441+00:00\"}], \"intent\": \"observe, rank, then build and ship artifacts this round\"}",
+        "ors": {
+          "force_channels": [
+            "EVID"
+          ],
+          "rival_required": true,
+          "acquisition_needed": false,
+          "state_locked_risk": 0.30000000000000004
+        }
+      }
+    },
+    {
+      "at": "2026-10-17T00:39:15.077272+00:00",
+      "kind": "revise",
+      "payload": {
+        "active_identity": "builder",
+        "executive_plan": {
+          "identity": "builder",
+          "action_mode": "construct",
+          "reason": "high_consequence_builder_branch",
+          "branch": {
+            "label": "branch-2745",
+            "plausibility": 0.35,
+            "consequence": 0.65,
+            "collapse_risk": 0.475,
+            "resonance": 0.35,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "at": "2026-10-17T00:39:15.073260+00:00"
+        },
+        "promoted": [],
+        "unresolved_count": 0,
+        "dark_pressure_count": 0,
+        "build_result": {
+          "queue_item": {
+            "at": "2026-10-17T00:39:15.073408+00:00",
+            "identity": "builder",
+            "label": "branch-2745",
+            "priority": 1.8250000000000002,
+            "notes": [
+              "bias builder identity",
+              "generate rival before hard commitment"
+            ]
+          },
+          "artifact": ".state/draft_artifacts/branch-2745.md"
+        }
+      }
+    },
+    {
+      "at": "2026-10-17T00:39:15.592420+00:00",
+      "kind": "checkpoint",
+      "payload": {
+        "path": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json"
+      }
+    },
+    {
+      "at": "2026-10-17T00:39:15.592812+00:00",
+      "kind": "step_complete",
+      "payload": {
+        "branch": {
+          "label": "branch-2745",
+          "plausibility": 0.35,
+          "consequence": 0.65,
+          "collapse_risk": 0.475,
+          "resonance": 0.35,
+          "notes": [
+            "bias builder identity",
+            "generate rival before hard commitment"
+          ]
+        },
+        "revision": {
+          "active_identity": "builder",
+          "action_mode": "construct",
+          "executive_plan": {
+            "identity": "builder",
+            "action_mode": "construct",
+            "reason": "high_consequence_builder_branch",
+            "branch": {
+              "label": "branch-2745",
+              "plausibility": 0.35,
+              "consequence": 0.65,
+              "collapse_risk": 0.475,
+              "resonance": 0.35,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "at": "2026-10-17T00:39:15.073260+00:00"
+          },
+          "promoted": [],
+          "unresolved_count": 0,
+          "dark_pressure_count": 0,
+          "build_result": {
+            "queue_item": {
+              "at": "2026-10-17T00:39:15.073408+00:00",
+              "identity": "builder",
+              "label": "branch-2745",
+              "priority": 1.8250000000000002,
+              "notes": [
+                "bias builder identity",
+                "generate rival before hard commitment"
+              ]
+            },
+            "artifact": ".state/draft_artifacts/branch-2745.md"
+          }
+        },
+        "checkpoint": ".state/checkpoint-af4a7f29-89a0-4d0a-bc5f-020121ebed98.json",
+        "active_identity": "builder",
+        "action_mode": "construct",
+        "lineage_hash": "93fce4bc1f7b9e31a50209fa227b2b87e8711a6e7ff039fec051f00eded2738e"
+      }
+    },
+    {
+      "at": "2026-10-17T00:39:18.556596+00:00",
+      "kind": "rsi_branch_injection",
+      "payload": {
+        "round": 807,
+        "hypothesis_count": 3,
+        "branches": [
+          {
+            "label": "rsi-branch-807-1",
+            "plausibility": 0.44,
+            "consequence": 0.5900000000000001,
+            "collapse_risk": 0.48,
+            "resonance": 0.44,
+            "notes": [
+              "source:rsi",
+              "round:807",
+              "preserve rival future",
+              "action:recover_reputation"
+            ]
+          },
+          {
+            "label": "rsi-branch-807-2",
+            "plausibility": 0.44,
+            "consequence": 0.73,
+            "collapse_risk": 0.48,
+            "resonance": 0.46,
+            "notes": [
+              "source:rsi",
+              "round:807",
+              "preserve rival future",
+              "action:wait_for_ecology",
+              "high consequence branch",
+              "dark pressure candidate"
+            ]
+          },
+          {
+            "label": "rsi-branch-807-3",
+            "plausibility": 0.42,
+            "consequence": 0.45,
+            "collapse_risk": 0.48,
+            "resonance": 0.49,
+            "notes": [
+              "source:rsi",
+              "round:807",
+              "preserve rival future",
+              "action:hold",
+              "dark pressure candidate"
+            ]
+          }
+        ],
+        "entropy": 7.913924775820872,
+        "unresolved_count": 0,
+        "dark_pressure_count": 0
+      }
     }
   ],
   "checkpoint_id": "af4a7f29-89a0-4d0a-bc5f-020121ebed98",
   "created_at": "2026-09-25T11:29:16.047324+00:00",
-  "updated_at": "2026-10-16T20:37:45.054663+00:00"
+  "updated_at": "2026-10-17T00:39:18.557058+00:00"
 }

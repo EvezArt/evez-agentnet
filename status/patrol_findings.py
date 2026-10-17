@@ -60,8 +60,11 @@ def main():
 
     r = sh("systemctl --failed --no-legend")
     for line in r.stdout.strip().splitlines():
-        if line.strip():
-            findings.append(f"UNIT-FAILED {line.split()[0]}")
+        # this systemd prefixes --no-legend rows with a status glyph (●/×);
+        # skip it or the finding names the bullet, not the unit.
+        toks = [t for t in line.split() if t not in ("●", "×", "*")]
+        if toks:
+            findings.append(f"UNIT-FAILED {toks[0]}")
 
     # Expected-services liveness: a unit that is merely "inactive" is invisible
     # to --failed but still an outage if it is supposed to be running. The
