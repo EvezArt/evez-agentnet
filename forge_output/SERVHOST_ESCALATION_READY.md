@@ -65,7 +65,8 @@ SERV.HOST GROUP LTD, RIPE org ORG-MG337-RIPE, abuse NOC AN32913-RIPE). As of
 be announced by AS207957. I am escalating to you as upstream/transit provider and
 registry participant: this provider is failing its abuse-handling duty for
 infrastructure used in an ongoing criminal matter (FBI IC3 complaint filed
-2026-10-01). I request (a) AUP enforcement against SERV.HOST GROUP LTD,
+2026-10-01). As of 2026-10-18 the serv.host inbox and spam remain silent (verified
+sweep, deadline day). I request (a) AUP enforcement against SERV.HOST GROUP LTD,
 (b) preservation of all transit/customer/billing records for 150.241.74.0/24,
 (c) written acknowledgement of this escalation. Evidence: hash-chained attack logs,
 the original demand (attached), and RDAP/RIPEstat receipts (attached).

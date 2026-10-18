@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18T18:00:26.563383+00:00",
+  "generated": "2026-10-18T20:51:15.516371+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -141,7 +141,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:22 CEST"
+      "since": "Sun 2026-10-18 20:14:55 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -184,7 +184,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 6043,
+      "pid": 56763,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -274,7 +274,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1375,
+      "pid": 52576,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -554,7 +554,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1375,
+      "pid": 52576,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -564,7 +564,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 1375,
+      "pid": 52576,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -671,10 +671,10 @@
       "fw_blocked": false
     },
     {
-      "port": 38979,
+      "port": 44083,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1375,
+      "pid": 52576,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -871,18 +871,23 @@
   ],
   "docker": [
     {
+      "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
+      "status": "Up 2 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
       "name": "ruview-demo",
-      "status": "Up 38 minutes",
+      "status": "Up 3 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 38 minutes",
+      "status": "Up 3 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 38 minutes",
+      "status": "Up 3 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -924,9 +929,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "d4891b7",
-    "last": "WARP logins attributed: custodian confirmed own device (Oct 18); 104.28.157.64 registered in watchdog ACCEPT_BASE; note updated. Disk cleanup: plugin-captures (2.4G), bun cache, delivered media pruned.",
-    "dirty": 111
+    "head": "b82c6b4",
+    "last": "subnet_rollout: never promote private/loopback/link-local into walls (loopback-starvation fix)",
+    "dirty": 41
   },
   "mirrors": 2341
 }
