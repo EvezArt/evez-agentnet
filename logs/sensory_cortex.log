@@ -5554,3 +5554,800 @@ rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
 FELT [hand] v=54.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=e3293607aaab
 tick 1600: 14 receptors, 1 novel firings
 rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=54.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=15e6987d1592
+tick 1601: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+tick 1602: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=f02d658f0b8b
+tick 1603: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=12e42338fe33
+FELT [memory] v=11.0 {"window_min": 5} stamp=2cbc41cf35a3
+tick 1604: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=7b09dce71af4
+tick 1605: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=18933a8eb108
+tick 1606: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+tick 1607: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1608: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1609: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+FELT [heartbeat] v=5.0 {"alive": 5, "expected": 6} stamp=ef94cb466f56
+FELT [memory] v=11.0 {"window_min": 5} stamp=fdb41504ed53
+FELT [flow] v=13.0 {} stamp=45a2391face2
+tick 1610: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [flow] v=17.0 {} stamp=0931d3a6f9f6
+tick 1611: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [heartbeat] v=5.0 {"alive": 5, "expected": 6} stamp=de76ec70a457
+FELT [flow] v=13.0 {} stamp=053cc94a2e60
+tick 1612: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [load] v=7.24 {"mem_pct": 31} stamp=2717e18f2971
+FELT [flow] v=16.0 {} stamp=3ed1382eeecd
+tick 1613: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+tick 1614: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=58e330fb45d2
+tick 1615: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=ebce56a40b61
+FELT [memory] v=11.0 {"window_min": 5} stamp=2a3faafa0270
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=2195088cc1c0
+tick 1616: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=9321db75754f
+tick 1617: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=9ba622be30c5
+tick 1618: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=4066b5486dd7
+tick 1619: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=1b66ae4ed75e
+tick 1620: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=585922e8856f
+tick 1621: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=f7cb71e74d06
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=fbc096e579d1
+tick 1622: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=caa58ec8e19e
+tick 1623: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=55434d32d5ba
+tick 1624: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=e4990ab73186
+FELT [flow] v=15.0 {} stamp=bf2d93083d28
+tick 1625: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=dbca3375dbb5
+tick 1626: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=18f1bcb916d4
+tick 1627: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=f2d06859ddbb
+FELT [memory] v=11.0 {"window_min": 5} stamp=bcf6c6509e5f
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=853236acb914
+tick 1628: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=96f8cb24d29b
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=ef9ee4977235
+tick 1629: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=d30e1446de1d
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=dce429d92bb6
+tick 1630: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=5be27bed142b
+tick 1631: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=81e2500af9c9
+tick 1632: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=61ae072735ab
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=d12f80dda7de
+tick 1633: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=ad34fc3628ff
+FELT [heartbeat] v=5.0 {"alive": 5, "expected": 6} stamp=3b8b2f2073cb
+FELT [memory] v=11.0 {"window_min": 5} stamp=805ae3c08465
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=b3272aa12fdd
+tick 1634: 14 receptors, 4 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 4 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=7c3ab7204ac1
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=62c9bef3e6b8
+FELT [flow] v=16.0 {} stamp=9a2bef4d2406
+tick 1635: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=2499657a621c
+tick 1636: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=1326e834825e
+tick 1637: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=39eda0557e6b
+tick 1638: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=55.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.65, "rot_jitter": 3.0, "size_j stamp=63e7a26e1d86
+tick 1639: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=a40f39d9f806
+FELT [memory] v=11.0 {"window_min": 5} stamp=851961aaea8b
+tick 1640: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=38ca403b0791
+tick 1641: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=9420ed35c478
+tick 1642: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+tick 1643: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1644: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1645: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=0f6cda1a8977
+tick 1646: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+tick 1647: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1648: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1649: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1650: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=a710e5d1b13f
+tick 1651: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=8c84ab9dcb64
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=7e4c8c004cac
+tick 1652: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=e7d34b3d4bc5
+tick 1653: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=247f0612946f
+tick 1654: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=bb2c4ce060f1
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=26720181c9ae
+tick 1655: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=41dce1658fc8
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=919cd162882b
+tick 1656: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=3.0 {"window": "tail-200"} stamp=52f1b48ec602
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=5dc0a9e7e3df
+tick 1657: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=2dbcc2a809c5
+FELT [memory] v=11.0 {"window_min": 5} stamp=6c68a0fffb66
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=7e81cd43a249
+tick 1658: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=89e798e2947b
+tick 1659: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=5db28bf7dae6
+tick 1660: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=eb609798ad75
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=2ad8043786be
+tick 1661: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=e4345f0c099f
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=c4df4fc86794
+tick 1662: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=3.0 {"window": "tail-200"} stamp=c53c30deac43
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=9d5fef696f4f
+tick 1663: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=3.0 {"window": "tail-200"} stamp=e968c1e05065
+FELT [memory] v=11.0 {"window_min": 5} stamp=6556a9357807
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=a72b869bd1df
+tick 1664: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=91e0e5fe4c3b
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=513acc67c920
+tick 1665: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=916b8ca0c385
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=cfed6a6d4757
+tick 1666: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=1e48034311ff
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=f7b10520ea83
+tick 1667: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=61d8842bb1bc
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=09ac0699649a
+tick 1668: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=8c4d2fcee718
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=9930e837a3e9
+tick 1669: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [memory] v=7.0 {"window_min": 5} stamp=94c90a65acf5
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=60b19fd5a161
+tick 1670: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [memory] v=4.0 {"window_min": 5} stamp=b4f5fe5da06b
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=4c091a26b630
+tick 1671: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=a33bc1e1f5cb
+tick 1672: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=d095e2463462
+tick 1673: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [heartbeat] v=5.0 {"alive": 5, "expected": 6} stamp=8f9f0c1d4535
+FELT [hand] v=56.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.35, "line_wander": 1.0, "rot_jitter": 3.0, "size_ji stamp=3974eaaba348
+FELT [flow] v=14.0 {} stamp=11ad8079c52d
+tick 1674: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [load] v=3.27 {"mem_pct": 30} stamp=05fc17769a15
+FELT [flow] v=17.0 {} stamp=7c2f3355459a
+tick 1675: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [voice] v=1.0 {"window_h": 1} stamp=e697d03e89bb
+tick 1676: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=ee4f13734ec7
+tick 1677: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+tick 1678: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1679: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=a513b15a9e96
+tick 1680: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=4.0 {"window": "tail-200"} stamp=ce28ee0f56e0
+tick 1681: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=4.0 {"window": "tail-200"} stamp=7512053498de
+FELT [voice] v=1.0 {"window_h": 1} stamp=5a84847140f5
+tick 1682: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=e165aacdecba
+FELT [memory] v=11.0 {"window_min": 5} stamp=56406d49795e
+tick 1683: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+tick 1684: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1685: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+FELT [intruder] v=4.0 {"window": "tail-200"} stamp=278deee57225
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=8d4b1e79a7f6
+tick 1686: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=8.0 {"window": "tail-200"} stamp=5fb2e62b5e5e
+FELT [flow] v=15.0 {} stamp=572a9ec74eaf
+tick 1687: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=6.0 {"window": "tail-200"} stamp=26c62f1119e4
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=a48047a9a6aa
+FELT [load] v=3.98 {"mem_pct": 55} stamp=33f0d5d1806a
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=c1fc81bc487f
+tick 1688: 14 receptors, 4 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 4 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=9415cf6f44d5
+FELT [memory] v=11.0 {"window_min": 5} stamp=db400b871107
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=c88b2b73d236
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=e930109ab1f0
+tick 1689: 14 receptors, 4 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 4 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=294aef5453b3
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=9c94ff1f930e
+tick 1690: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=c046319885b4
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=35be044e3d2f
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=7920b58f096b
+tick 1691: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [intruder] v=4.0 {"window": "tail-200"} stamp=2c9aca79548e
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=3d397663a1b8
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=b91b94890129
+tick 1692: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [intruder] v=4.0 {"window": "tail-200"} stamp=edef8a2d3fb1
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=8d7325a40b31
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=50a3c1cadf9a
+tick 1693: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=f1af5118fba9
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=bf8580aa9880
+tick 1694: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=be9bcf89eafb
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=cc5b0c562e4e
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=e729082fa3ce
+tick 1695: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=cb6782ae3316
+FELT [enemy] v=2004.0 {"new_sources": ["1.177.162.4", "1.207.24.197", "100.28.153.226", "100.28.191.174", "100.29.192.11", stamp=fa9c02c0716c
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=5e98c94a0e0d
+tick 1696: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=5490ea2aaf08
+FELT [enemy] v=2006.0 {"new_sources": ["1.177.162.4", "1.207.24.197", "1.83.125.35", "100.28.153.226", "100.28.191.174", " stamp=bb671f914d66
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=b825e4b4d8a2
+tick 1697: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=637140524610
+FELT [enemy] v=2005.0 {"new_sources": ["1.177.162.4", "1.207.24.197", "1.83.125.35", "100.28.153.226", "100.28.191.174", " stamp=6c471f86819c
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=65b832ef9eae
+tick 1698: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [heartbeat] v=5.0 {"alive": 5, "expected": 6} stamp=1cfd0e1f2957
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=2f3058d73740
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=0bce51bfc03e
+tick 1699: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [intruder] v=8.0 {"window": "tail-200"} stamp=ee0233f8ee2f
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=203c86422a23
+FELT [flow] v=12.0 {} stamp=868145c3e39d
+FELT [enemy] v=2005.0 {"new_sources": ["1.177.162.4", "1.207.24.197", "1.83.125.35", "100.28.153.226", "100.28.191.174", " stamp=c3ca5239aa7a
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=6aab9511579f
+tick 1700: 14 receptors, 5 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 5 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=d19a1bc67137
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=fc3dc58ab485
+FELT [enemy] v=2006.0 {"new_sources": ["1.177.162.4", "1.207.24.197", "1.83.125.35", "100.28.153.226", "100.28.191.174", " stamp=c581d6ae6843
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=7fd93d7a62ab
+tick 1701: 14 receptors, 4 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 4 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=94ac00963616
+FELT [enemy] v=2009.0 {"new_sources": ["1.177.162.4", "1.207.24.197", "1.83.125.35", "100.28.153.226", "100.28.191.174", " stamp=8a3ac044cb36
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=e2c98df9a37c
+tick 1702: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=f565b69e2c4e
+FELT [enemy] v=2010.0 {"new_sources": ["1.177.162.4", "1.207.24.197", "1.83.125.35", "100.28.153.226", "100.28.191.174", " stamp=b375ea873765
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=455e05ed14a3
+tick 1703: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=d657eecf46e4
+FELT [enemy] v=2007.0 {"new_sources": ["1.177.162.4", "1.207.24.197", "1.83.125.35", "100.28.153.226", "100.28.191.174", " stamp=0212fafaeeed
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=bf337913657f
+tick 1704: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=e0ce610f5a46
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=fb0d3dcae9ca
+tick 1705: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=40f138398a98
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=9363edd28948
+tick 1706: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=78f1c27e838f
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=1429a63f2aa2
+FELT [flow] v=15.0 {} stamp=700c1a6781d4
+FELT [superego] v=80.0 {"disk_pct": 80} stamp=d25e2e4a8ecc
+tick 1707: 14 receptors, 4 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 4 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=4ef78e48b257
+FELT [superego] v=81.0 {"disk_pct": 81} stamp=b204967595d5
+tick 1708: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=04f2e3b63677
+FELT [superego] v=81.0 {"disk_pct": 81} stamp=60be5ac4392a
+tick 1709: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=d82dada19b3b
+tick 1710: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=57.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=0c211477d878
+FELT [flow] v=14.0 {} stamp=7e4afe570bc3
+tick 1711: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [flow] v=14.0 {} stamp=7c0ce50b545a
+tick 1712: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=8743348f1a9b
+tick 1713: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+tick 1714: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1715: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1716: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1717: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1718: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=affc00c76016
+tick 1719: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+tick 1720: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1721: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1722: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1723: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=c08e3d079681
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=03d8a3ceb3f6
+tick 1724: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=45243d158a00
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=07d68b6bf48d
+tick 1725: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=1d32d20d9a0d
+tick 1726: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=48070986829d
+tick 1727: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=b6c0dad1f4e8
+tick 1728: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=ace361a0a15a
+tick 1729: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=91e73de84901
+tick 1730: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=6798c9616fee
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=5d0c1afba712
+tick 1731: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=271a736d20b8
+tick 1732: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=95fe010e1f2b
+tick 1733: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=1a38765519e4
+tick 1734: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=e137297883d9
+tick 1735: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [heartbeat] v=5.0 {"alive": 5, "expected": 6} stamp=d0785f8cad13
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=b6111d3fcc80
+FELT [flow] v=13.0 {} stamp=52a57a00c72c
+tick 1736: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=9e1d52b77796
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=a9a07c50905d
+tick 1737: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=b5f33cc4420d
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=ecf1c5b8613c
+tick 1738: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=3.0 {"window": "tail-200"} stamp=967652fdaaa6
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=8fa7948d870b
+tick 1739: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=3.0 {"window": "tail-200"} stamp=6cc89bd17caf
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=3f5cd438841d
+tick 1740: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=3.0 {"window": "tail-200"} stamp=9ea697a1e91c
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=9be2a8748bd6
+tick 1741: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=7eef59b229f7
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=e09aaed9312c
+tick 1742: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=48839e259bc5
+FELT [memory] v=11.0 {"window_min": 5} stamp=1eee7da9dc02
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=e180fe139f61
+tick 1743: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=574158245516
+tick 1744: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=230380b36e1c
+tick 1745: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [heartbeat] v=5.0 {"alive": 5, "expected": 6} stamp=8b03ab919a64
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=1fff966d8fc4
+tick 1746: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=58.0 {"params": {"base_width": 5.8, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=696312f7fea9
+FELT [flow] v=15.0 {} stamp=ad70ef0d5fbf
+tick 1747: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=f7339ed01868
+tick 1748: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=3.0 {"window": "tail-200"} stamp=bed381707f0d
+FELT [memory] v=11.0 {"window_min": 5} stamp=9e7914de5f1c
+tick 1749: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=3.0 {"window": "tail-200"} stamp=cc302d926cdd
+tick 1750: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=43043566c3ac
+tick 1751: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+tick 1752: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1753: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+tick 1754: 14 receptors, 0 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 0 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=5dd82135abf2
+FELT [memory] v=11.0 {"window_min": 5} stamp=23eae22ba74c
+tick 1755: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=38f381059a3d
+tick 1756: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=f83d79309f9d
+tick 1757: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [enemy] v=10.0 {"new_sources": ["103.149.26.230", "148.153.56.174", "152.32.146.235", "152.32.201.247", "152.32.206 stamp=93393dc2c7f1
+tick 1758: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [enemy] v=21.0 {"new_sources": ["103.149.26.230", "107.150.112.48", "128.14.232.254", "13.204.242.170", "144.202.82 stamp=d89d6215a3e7
+tick 1759: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=189698b5e6da
+FELT [enemy] v=32.0 {"new_sources": ["103.149.26.230", "107.150.112.48", "128.14.232.254", "13.204.242.170", "130.12.180 stamp=d0220e715b7a
+tick 1760: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=8b1f03d36565
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=e43526956f82
+FELT [enemy] v=46.0 {"new_sources": ["100.29.192.74", "103.14.32.192", "103.149.26.230", "104.23.187.246", "107.150.104. stamp=21a47d414028
+tick 1761: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=ad1bd2eeff9e
+FELT [enemy] v=54.0 {"new_sources": ["100.29.192.74", "103.14.32.192", "103.149.26.230", "104.23.187.246", "107.150.104. stamp=f216edebad91
+tick 1762: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=9d308b1fc04b
+FELT [enemy] v=62.0 {"new_sources": ["100.29.192.74", "103.14.32.192", "103.149.26.230", "104.23.187.246", "107.150.104. stamp=d4fc87dcd7d3
+tick 1763: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=0ebf188217ad
+FELT [enemy] v=70.0 {"new_sources": ["100.29.192.74", "103.14.32.192", "103.149.26.230", "104.23.187.246", "107.150.104. stamp=8489f8e65393
+tick 1764: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=6a2f2d7947a2
+FELT [enemy] v=84.0 {"new_sources": ["100.29.192.74", "103.14.32.192", "103.149.26.230", "103.87.175.110", "104.23.187.2 stamp=b998cefcd9fe
+tick 1765: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=b49fa4739fe2
+FELT [enemy] v=93.0 {"new_sources": ["100.29.192.74", "103.14.32.192", "103.149.26.230", "103.87.175.110", "104.23.187.2 stamp=5e4c3fcb820e
+tick 1766: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=dd37c178ca28
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=e2a62933888b
+FELT [enemy] v=105.0 {"new_sources": ["100.29.192.74", "103.14.32.192", "103.149.26.230", "103.87.175.110", "104.23.187.2 stamp=7090d92ae614
+tick 1767: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=7ede5c4c19d8
+FELT [enemy] v=120.0 {"new_sources": ["100.29.192.74", "103.14.32.192", "103.149.26.230", "103.87.175.110", "104.23.187.2 stamp=4cff98c6a01d
+tick 1768: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=9a7c00fda6de
+FELT [enemy] v=133.0 {"new_sources": ["100.29.192.74", "101.43.16.32", "103.14.32.192", "103.149.26.230", "103.87.175.110 stamp=ec8ff621669e
+tick 1769: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=705528a5bea2
+FELT [enemy] v=145.0 {"new_sources": ["100.29.192.74", "101.43.16.32", "103.14.32.192", "103.149.26.230", "103.87.175.110 stamp=e58f9a541703
+tick 1770: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [heartbeat] v=5.0 {"alive": 5, "expected": 6} stamp=bb81b42c6b23
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=91fd15d23f6b
+FELT [flow] v=18.0 {} stamp=5a8e322809ab
+FELT [enemy] v=156.0 {"new_sources": ["100.29.192.74", "101.43.16.32", "103.14.32.192", "103.149.26.230", "103.87.175.110 stamp=fcfb7b8ca142
+tick 1771: 14 receptors, 4 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 4 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=c642631c3907
+FELT [enemy] v=166.0 {"new_sources": ["100.29.192.74", "101.36.105.94", "101.43.16.32", "103.14.32.192", "103.149.26.230" stamp=59cfb42b005e
+tick 1772: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=10d7923cd50f
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=02801b0b2cbe
+FELT [flow] v=17.0 {} stamp=4ebd3ffe12d5
+FELT [enemy] v=177.0 {"new_sources": ["100.29.192.74", "101.36.105.94", "101.43.16.32", "103.14.32.192", "103.149.26.230" stamp=60e9b0517d79
+tick 1773: 14 receptors, 4 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 4 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=bb2c76f5c428
+FELT [enemy] v=183.0 {"new_sources": ["100.29.192.74", "101.36.105.94", "101.43.16.32", "103.14.32.192", "103.149.26.230" stamp=049b18c7b20a
+tick 1774: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=2993ed635e8e
+FELT [enemy] v=190.0 {"new_sources": ["100.29.192.74", "101.36.105.94", "101.43.16.32", "103.14.32.192", "103.149.26.230" stamp=4e038966f351
+tick 1775: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=2866887522d7
+FELT [enemy] v=197.0 {"new_sources": ["100.29.192.74", "101.36.105.94", "101.43.16.32", "103.14.32.192", "103.149.26.230" stamp=0fb02e720a77
+tick 1776: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=e0248deef217
+FELT [enemy] v=209.0 {"new_sources": ["100.29.192.74", "101.36.105.94", "101.43.16.32", "103.14.32.192", "103.149.26.230" stamp=6ba9543bc346
+tick 1777: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=592494522ae7
+FELT [enemy] v=218.0 {"new_sources": ["100.29.192.74", "101.36.105.94", "101.43.16.32", "103.14.32.192", "103.149.26.230" stamp=b623e5660594
+tick 1778: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=27de45248bc8
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=936c6e46d82f
+FELT [enemy] v=226.0 {"new_sources": ["100.29.192.74", "101.36.105.94", "101.43.16.32", "103.14.32.192", "103.149.26.230" stamp=c232430ece46
+tick 1779: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=5794f1df3900
+FELT [enemy] v=234.0 {"new_sources": ["100.29.192.74", "101.36.105.94", "101.43.16.32", "103.14.32.192", "103.149.26.230" stamp=1a5b2399fab4
+FELT [superego] v=84.0 {"disk_pct": 84} stamp=573e94a6b603
+tick 1780: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=3581d784b192
+FELT [enemy] v=243.0 {"new_sources": ["100.29.192.74", "101.36.105.94", "101.43.16.32", "103.14.32.192", "103.149.26.230" stamp=2e229d3c6313
+FELT [superego] v=78.0 {"disk_pct": 78} stamp=419fc1f3e08e
+tick 1781: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=bb7725b2496d
+FELT [superego] v=75.0 {"disk_pct": 75} stamp=05f57ae19a55
+tick 1782: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=59.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 1.0, "rot_jitter": 3.0, "size_jit stamp=981f60dbf376
+FELT [superego] v=75.0 {"disk_pct": 75} stamp=90048002f713
+tick 1783: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=4bd3619c545f
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=2677fa514a0d
+tick 1784: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=3.0 {"window": "tail-200"} stamp=a11b3f42dd4d
+FELT [memory] v=11.0 {"window_min": 5} stamp=524ef49428ca
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=d800b6c5d470
+tick 1785: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=24ac51308584
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=d048a645cec7
+tick 1786: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=5f772e94b19a
+tick 1787: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=01ae6e2f3f0b
+tick 1788: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=f87956a91404
+tick 1789: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=0f8bfd01b96c
+tick 1790: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=c820ad00aa71
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=56d082e10627
+tick 1791: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=bafc8260b227
+tick 1792: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=3999e7981281
+tick 1793: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=0e24a024ac3c
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=5440ff7af4d1
+tick 1794: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=1790c20c708e
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=f8d63cfd9aed
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=ca856f382dbf
+tick 1795: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=c0bbc8a80cc3
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=c0508ac1d980
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=7dadaff45345
+tick 1796: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=c83ddfccb808
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=e0258db208fe
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=d23e45f2a600
+tick 1797: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=c4f0d84361d8
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=8a52e7cfd13d
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=41fc9644b103
+tick 1798: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [intruder] v=3.0 {"window": "tail-200"} stamp=1eb06adf25ec
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=88ee65e72dfe
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=0fa5539ff169
+tick 1799: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [intruder] v=3.0 {"window": "tail-200"} stamp=e381dca1e350
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=505d798d8edc
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=53fdbf1c7402
+tick 1800: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [intruder] v=3.0 {"window": "tail-200"} stamp=099203bded95
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=11bc0603f20a
+FELT [superego] v=76.0 {"disk_pct": 76} stamp=9587dd68ab0d
+tick 1801: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [intruder] v=2.0 {"window": "tail-200"} stamp=c5d466625e20
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=dfbcedeec1ff
+FELT [superego] v=37.0 {"disk_pct": 37} stamp=185a33c58656
+tick 1802: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=4b736ca4414f
+FELT [memory] v=11.0 {"window_min": 5} stamp=19ee0a7013d3
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=cbf2ecbd3735
+FELT [superego] v=37.0 {"disk_pct": 37} stamp=5cea19b12949
+tick 1803: 14 receptors, 4 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 4 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=ac4abda1263c
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=253ba69d187c
+FELT [superego] v=37.0 {"disk_pct": 37} stamp=1ee610dbc0c3
+tick 1804: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [heartbeat] v=5.0 {"alive": 5, "expected": 6} stamp=fe00e48b62eb
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=d4debf34d103
+FELT [superego] v=37.0 {"disk_pct": 37} stamp=a3770d296bb3
+tick 1805: 14 receptors, 3 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 3 novel receptors
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=fc605b2f061b
+FELT [superego] v=37.0 {"disk_pct": 37} stamp=9f60a9dc92e0
+tick 1806: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=659217d23640
+tick 1807: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=0a22adaf12f1
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=cd3c85e26c7c
+tick 1808: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=cf9ab3ef4719
+FELT [heartbeat] v=5.0 {"alive": 5, "expected": 6} stamp=088278ed9c34
+FELT [memory] v=11.0 {"window_min": 5} stamp=a761740367af
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=ea6f04a1c474
+FELT [flow] v=22.0 {} stamp=60462ab0d793
+tick 1809: 14 receptors, 5 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 5 novel receptors
+FELT [intruder] v=1.0 {"window": "tail-200"} stamp=5ece3a63f76c
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=45564a688f91
+tick 1810: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=7d5b3b45aebd
+tick 1811: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=5b59f098d541
+tick 1812: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=f1658995672e
+tick 1813: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=c716b797129f
+tick 1814: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors
+FELT [memory] v=11.0 {"window_min": 5} stamp=8acfdf172afd
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=6f7ec740d590
+tick 1815: 14 receptors, 2 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 2 novel receptors
+FELT [hand] v=60.0 {"params": {"base_width": 6.1, "glyph_jitter": 0.2, "line_wander": 0.5, "rot_jitter": 3.0, "size_jit stamp=4e911e6d7a1a
+tick 1816: 14 receptors, 1 novel firings
+rendered /root/evez-agentnet/eye/sensory.html — 1 novel receptors

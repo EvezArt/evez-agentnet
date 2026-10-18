@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-17T08:54:59.848402+00:00",
+  "generated": "2026-10-18T02:58:48.595237+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -24,6 +24,11 @@
       "since": "Mon 2026-10-12 07:17:45 CEST"
     },
     {
+      "unit": "evez-ares.service",
+      "sub": "running",
+      "since": "Sun 2026-10-18 04:20:22 CEST"
+    },
+    {
       "unit": "evez-cogview.service",
       "sub": "running",
       "since": "Mon 2026-10-12 07:17:52 CEST"
@@ -37,6 +42,11 @@
       "unit": "evez-commerce.service",
       "sub": "running",
       "since": "Mon 2026-10-12 07:17:45 CEST"
+    },
+    {
+      "unit": "evez-desk15.service",
+      "sub": "running",
+      "since": "Sun 2026-10-18 02:24:19 CEST"
     },
     {
       "unit": "evez-event-spine.service",
@@ -116,7 +126,7 @@
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Thu 2026-10-15 08:44:45 CEST"
+      "since": "Sat 2026-10-17 23:16:31 CEST"
     },
     {
       "unit": "hermes-ears.service",
@@ -126,7 +136,7 @@
     {
       "unit": "hermes-gateway.service",
       "sub": "running",
-      "since": "Thu 2026-10-15 13:17:44 CEST"
+      "since": "Sat 2026-10-17 12:07:33 CEST"
     },
     {
       "unit": "hermes-live.service",
@@ -141,7 +151,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sat 2026-10-17 07:43:20 CEST"
+      "since": "Sun 2026-10-18 04:40:40 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -164,7 +174,7 @@
       "port": 8644,
       "bind": "0.0.0.0",
       "proc": "hermes",
-      "pid": 476128,
+      "pid": 3036858,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -184,7 +194,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 2800125,
+      "pid": 3966138,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -244,7 +254,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 2339504,
+      "pid": 3680176,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -254,7 +264,7 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 2339504,
+      "pid": 3680176,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -294,7 +304,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 2796251,
+      "pid": 3964455,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -574,7 +584,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 2796251,
+      "pid": 3964455,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -584,7 +594,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 2796251,
+      "pid": 3964455,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -614,7 +624,7 @@
       "port": 18791,
       "bind": "127.0.0.1",
       "proc": "hermes",
-      "pid": 221557,
+      "pid": 3641337,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -681,6 +691,16 @@
       "fw_blocked": false
     },
     {
+      "port": 33645,
+      "bind": "127.0.0.1",
+      "proc": "llama-server",
+      "pid": 3974565,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 36261,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
@@ -691,10 +711,10 @@
       "fw_blocked": false
     },
     {
-      "port": 39849,
+      "port": 45177,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 2796251,
+      "pid": 3964455,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -891,14 +911,19 @@
   ],
   "docker": [
     {
-      "name": "ruview-demo",
-      "status": "Up 2 days",
-      "image": "ruvnet/wifi-densepose:latest"
+      "name": "openclaw-sbx-workspace-e514fff36632e6f54647fc82eee03a79",
+      "status": "Up 15 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 4 days",
+      "status": "Up 16 hours",
       "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "ruview-demo",
+      "status": "Up 3 days",
+      "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
@@ -925,7 +950,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "38 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "31 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -954,9 +979,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "6a8d4e9",
-    "last": "war-mode heartbeat 2026-10-17 05:4x UTC: patrol found 4, same three enemy clocks plus hand cycle 53. servhost DUE-1: silence re-swept live this tick (inbox pages 1-2 + full spam, zero serv.host rows), escalation package hashes re-verified intact (demand 69dccba6, receipts 86a0f87c, RFJ zip ac34d8d2 byte-exact), drafts armed, send = custodian hands. bunea+palo 14-day DUE-3 (10-20): claim particulars + exhibit index staged. hand cycle 53 'chain or it didnt happen' drew + delivered msg 10983 but graded blind again \u2014 bridge wedge reproduced by my own lane test (90s hang), elowen-proxy-bridge restarted, lane re-verified live with real completion (HTTP 200, provider Nvidia, 29-87s); cycle 54 grades at 07:00Z if lane holds. spine gate green, audit clean. operational churn through 05:4x UTC.",
-    "dirty": 47
+    "head": "8e916ce",
+    "last": "retire ruview recorder per Steven's direct order: no recording unless shipped on demand; delete telemetry dumps and committed recordings; recorder script removed; output paths excluded. The live tailnet screen serves ruview visuals on demand without recording.",
+    "dirty": 110
   },
   "mirrors": 2341
 }

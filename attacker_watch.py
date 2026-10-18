@@ -14,7 +14,11 @@ KNOWN = {  # May 2026 attack ecosystem IOCs — CIDR: attribution
     '45.156.87.': 'VMHeaven/Winter (WorkTitans, AS209847) — 1201 brute-forces on 2026-05-22',
 }
 BF_THRESHOLD = 10       # failed SSH auths per IP per window = cluster
-ACCEPT_BASE = {'104.28.164.133'}  # authorized remote-access sources (Cloudflare front)
+ACCEPT_BASE = {'104.28.164.133', '104.28.157.64'}  # authorized remote-access sources.
+# 104.28.157.64 added 2026-10-18: custodian confirmed the Oct 12-15 WARP-egress
+# root logins were his own WARP-routed device ("Do the warp logins" — Telegram,
+# 2026-10-18). WARP egress IPs can rotate: a future flag from a different WARP
+# IP gets raised for attribution again, not silently ignored.
 LOGS = sorted(glob.glob('/var/log/auth.log*'))
 
 def state(): return json.load(open(STATE)) if os.path.exists(STATE) else {'offsets': {}}

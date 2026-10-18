@@ -1,4 +1,4 @@
-# WARP-EGRESS ROOT LOGINS — UNATTRIBUTED (raised 2026-10-17 heartbeat, needs custodian answer)
+# WARP-EGRESS ROOT LOGINS — ATTRIBUTED 2026-10-18 (custodian confirmed)
 
 ## Observed (all commands run this tick, 2026-10-17 ~00:45 UTC)
 - `/var/log/auth.log`: `Accepted password for root from 104.28.157.64` — repeated short
