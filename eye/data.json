@@ -1,162 +1,152 @@
 {
-  "generated": "2026-10-18T02:58:48.595237+00:00",
+  "generated": "2026-10-18T18:00:26.563383+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
     {
       "unit": "evez-agent-bridge.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-agentnet.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-api-daemon.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:21 CEST"
     },
     {
       "unit": "evez-api-node.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
-    },
-    {
-      "unit": "evez-ares.service",
-      "sub": "running",
-      "since": "Sun 2026-10-18 04:20:22 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-cogview.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:52 CEST"
+      "since": "Sun 2026-10-18 19:21:39 CEST"
     },
     {
       "unit": "evez-commerce-api.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-commerce.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-desk15.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 02:24:19 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-event-spine.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-evidence-api.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:21 CEST"
     },
     {
       "unit": "evez-films.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-honey.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
-    },
-    {
-      "unit": "evez-kalshi-browser.service",
-      "sub": "running",
-      "since": "Sat 2026-10-17 03:40:14 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-kalshi-screen.service",
       "sub": "running",
-      "since": "Sat 2026-10-17 03:27:14 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-lineage.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-media-shipper.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-outreach.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-presence.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:47 CEST"
+      "since": "Sun 2026-10-18 19:21:23 CEST"
     },
     {
       "unit": "evez-reconciler.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "evez-twin.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:52 CEST"
+      "since": "Sun 2026-10-18 19:21:39 CEST"
     },
     {
       "unit": "evez-voice.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "gueriella-hermes-watchdog.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:21 CEST"
     },
     {
       "unit": "gueriella-openclaw-watchdog.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:21 CEST"
     },
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Sat 2026-10-17 23:16:31 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "hermes-ears.service",
       "sub": "running",
-      "since": "Thu 2026-10-15 06:34:26 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "hermes-gateway.service",
       "sub": "running",
-      "since": "Sat 2026-10-17 12:07:33 CEST"
+      "since": "Sun 2026-10-18 19:21:21 CEST"
     },
     {
       "unit": "hermes-live.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:54 CEST"
+      "since": "Sun 2026-10-18 19:21:39 CEST"
     },
     {
       "unit": "hermes-mouth.service",
       "sub": "running",
-      "since": "Mon 2026-10-12 07:17:45 CEST"
+      "since": "Sun 2026-10-18 19:21:20 CEST"
     },
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 04:40:40 CEST"
+      "since": "Sun 2026-10-18 19:21:22 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
       "sub": "running",
-      "since": "Wed 2026-10-14 01:36:14 CEST"
+      "since": "Sun 2026-10-18 19:21:36 CEST"
     }
   ],
   "ports": [
@@ -164,7 +154,7 @@
       "port": 22,
       "bind": "0.0.0.0",
       "proc": "sshd",
-      "pid": 58453,
+      "pid": 1298,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -174,7 +164,7 @@
       "port": 8644,
       "bind": "0.0.0.0",
       "proc": "hermes",
-      "pid": 3036858,
+      "pid": 1194,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -184,7 +174,7 @@
       "port": 9090,
       "bind": "0.0.0.0",
       "proc": "MainThread",
-      "pid": 1111,
+      "pid": 1122,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -194,7 +184,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 3966138,
+      "pid": 6043,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -204,7 +194,7 @@
       "port": 22,
       "bind": "[::]",
       "proc": "sshd",
-      "pid": 58453,
+      "pid": 1298,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -214,7 +204,7 @@
       "port": 53,
       "bind": "127.0.0.53%lo",
       "proc": "systemd-resolve",
-      "pid": 42309,
+      "pid": 884,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -224,7 +214,7 @@
       "port": 53,
       "bind": "127.0.0.54",
       "proc": "systemd-resolve",
-      "pid": 42309,
+      "pid": 884,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -234,7 +224,7 @@
       "port": 443,
       "bind": "100.126.180.47",
       "proc": "tailscaled",
-      "pid": 1139,
+      "pid": 1155,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -244,7 +234,7 @@
       "port": 443,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
-      "pid": 1139,
+      "pid": 1155,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -254,7 +244,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 3680176,
+      "pid": 1118,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -264,29 +254,9 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 3680176,
+      "pid": 1118,
       "public_bind": false,
       "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 3000,
-      "bind": "100.126.180.47",
-      "proc": "docker-proxy",
-      "pid": 4059071,
-      "public_bind": false,
-      "tailnet": true,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 3001,
-      "bind": "100.126.180.47",
-      "proc": "docker-proxy",
-      "pid": 4059085,
-      "public_bind": false,
-      "tailnet": true,
       "exposed": false,
       "fw_blocked": false
     },
@@ -294,7 +264,7 @@
       "port": 3210,
       "bind": "127.0.0.1",
       "proc": "node-MainThread",
-      "pid": 4059710,
+      "pid": 1761,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -304,7 +274,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3964455,
+      "pid": 1375,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -314,7 +284,7 @@
       "port": 4222,
       "bind": "127.0.0.1",
       "proc": "nats-server",
-      "pid": 1177,
+      "pid": 1196,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -324,7 +294,7 @@
       "port": 5900,
       "bind": "[::1]",
       "proc": "x11vnc",
-      "pid": 2541611,
+      "pid": 1366,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -334,7 +304,7 @@
       "port": 5901,
       "bind": "127.0.0.1",
       "proc": "x11vnc",
-      "pid": 2541611,
+      "pid": 1366,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -344,7 +314,7 @@
       "port": 5901,
       "bind": "[::1]",
       "proc": "x11vnc",
-      "pid": 2541611,
+      "pid": 1366,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -354,7 +324,7 @@
       "port": 6080,
       "bind": "127.0.0.1",
       "proc": "websockify",
-      "pid": 2541612,
+      "pid": 1367,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -364,7 +334,7 @@
       "port": 6379,
       "bind": "127.0.0.1",
       "proc": "docker-proxy",
-      "pid": 2850,
+      "pid": 2478,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -374,7 +344,7 @@
       "port": 8080,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1104,
+      "pid": 1113,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -384,7 +354,7 @@
       "port": 8099,
       "bind": "100.126.180.47",
       "proc": "python3",
-      "pid": 3063,
+      "pid": 3428,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -394,7 +364,7 @@
       "port": 8192,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1180,
+      "pid": 1200,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -404,7 +374,7 @@
       "port": 8443,
       "bind": "100.126.180.47",
       "proc": "tailscaled",
-      "pid": 1139,
+      "pid": 1155,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -414,7 +384,7 @@
       "port": 8443,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
-      "pid": 1139,
+      "pid": 1155,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -424,7 +394,7 @@
       "port": 8787,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 4176962,
+      "pid": 1148,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -434,7 +404,7 @@
       "port": 8788,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 4185814,
+      "pid": 1120,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -444,7 +414,7 @@
       "port": 8789,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 4176959,
+      "pid": 1121,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -454,7 +424,7 @@
       "port": 8900,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1122,
+      "pid": 1136,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -464,7 +434,7 @@
       "port": 8901,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1115,
+      "pid": 1125,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -474,7 +444,7 @@
       "port": 8904,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1166,
+      "pid": 1186,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -484,7 +454,7 @@
       "port": 9000,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1169,
+      "pid": 1182,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -494,7 +464,7 @@
       "port": 9001,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1170,
+      "pid": 1183,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -504,7 +474,7 @@
       "port": 9050,
       "bind": "127.0.0.1",
       "proc": "tor",
-      "pid": 47025,
+      "pid": 1372,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -514,7 +484,7 @@
       "port": 9113,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1121,
+      "pid": 1135,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -524,7 +494,7 @@
       "port": 9116,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1114,
+      "pid": 1124,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -534,7 +504,7 @@
       "port": 9200,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1167,
+      "pid": 1187,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -544,7 +514,7 @@
       "port": 9443,
       "bind": "100.126.180.47",
       "proc": "tailscaled",
-      "pid": 1139,
+      "pid": 1155,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -554,7 +524,7 @@
       "port": 9443,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
-      "pid": 1139,
+      "pid": 1155,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -564,7 +534,7 @@
       "port": 9800,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1303,
+      "pid": 1262,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -574,7 +544,7 @@
       "port": 11434,
       "bind": "127.0.0.1",
       "proc": "ollama",
-      "pid": 1179,
+      "pid": 1197,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -584,7 +554,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3964455,
+      "pid": 1375,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -594,7 +564,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 3964455,
+      "pid": 1375,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -604,7 +574,7 @@
       "port": 18790,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 2792048,
+      "pid": 1167,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -614,7 +584,7 @@
       "port": 18790,
       "bind": "100.126.180.47",
       "proc": "MainThread",
-      "pid": 2154826,
+      "pid": 2925,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -624,7 +594,7 @@
       "port": 18791,
       "bind": "127.0.0.1",
       "proc": "hermes",
-      "pid": 3641337,
+      "pid": 1138,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -634,7 +604,7 @@
       "port": 18792,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 46700,
+      "pid": 1139,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -644,7 +614,7 @@
       "port": 18793,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1134,
+      "pid": 1142,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -654,7 +624,7 @@
       "port": 18794,
       "bind": "100.126.180.47",
       "proc": "python3",
-      "pid": 2267,
+      "pid": 3029,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -664,7 +634,7 @@
       "port": 18795,
       "bind": "100.126.180.47",
       "proc": "python3",
-      "pid": 2108,
+      "pid": 3011,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -674,7 +644,7 @@
       "port": 18796,
       "bind": "100.126.180.47",
       "proc": "python3",
-      "pid": 2044,
+      "pid": 3028,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -684,17 +654,7 @@
       "port": 18891,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1185,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 33645,
-      "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 3974565,
+      "pid": 1202,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -704,17 +664,17 @@
       "port": 36261,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
-      "pid": 1139,
+      "pid": 1155,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
     {
-      "port": 45177,
+      "port": 38979,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3964455,
+      "pid": 1375,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -724,7 +684,7 @@
       "port": 51885,
       "bind": "100.126.180.47",
       "proc": "tailscaled",
-      "pid": 1139,
+      "pid": 1155,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -911,33 +871,18 @@
   ],
   "docker": [
     {
-      "name": "openclaw-sbx-workspace-e514fff36632e6f54647fc82eee03a79",
-      "status": "Up 15 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 16 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
       "name": "ruview-demo",
-      "status": "Up 3 days",
+      "status": "Up 38 minutes",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
-      "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 5 days",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 5 days",
+      "status": "Up 38 minutes",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 5 days",
+      "status": "Up 38 minutes",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -950,7 +895,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "31 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "34 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -979,9 +924,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "8e916ce",
-    "last": "retire ruview recorder per Steven's direct order: no recording unless shipped on demand; delete telemetry dumps and committed recordings; recorder script removed; output paths excluded. The live tailnet screen serves ruview visuals on demand without recording.",
-    "dirty": 110
+    "head": "d4891b7",
+    "last": "WARP logins attributed: custodian confirmed own device (Oct 18); 104.28.157.64 registered in watchdog ACCEPT_BASE; note updated. Disk cleanup: plugin-captures (2.4G), bun cache, delivered media pruned.",
+    "dirty": 111
   },
   "mirrors": 2341
 }

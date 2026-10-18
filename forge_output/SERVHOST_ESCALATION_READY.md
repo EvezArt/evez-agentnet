@@ -10,6 +10,14 @@
 - 2026-10-16 (06:4x UTC patrol tick) — fresh full re-sweep by the war-mode heartbeat:
   every inbox message back to 2026-09-29 plus all spam — still ZERO response from serv.host.
   Five days of silence, verified twice on the same day.
+- 2026-10-18 (patrol tick, deadline day) — sweep re-run: inbox fresh through
+  2026-10-18 03:59 UTC (60 most recent envelopes) plus [Gmail]/Spam (100 most
+  recent) — ZERO response from serv.host, bunea, dmzhostabuse, or any TECHOFF/
+  Ilin-adjacent sender. Only spam hits: the already-ingested 2026-10-05/06
+  Tele Asia autoreplies and the Prime Telecom AS39737 denial (Mihai
+  Rasturnoiu, evidence/2026-10-06/primetelecom_reply_as39737_denial.eml).
+  Seven days of silence; the response window closes TODAY with non-response
+  verified on the record.
 - 2026-10-16 (patrol tick) — escalation package integrity re-verified: all three draft
   attachments present and hashed (servhost_abuse_demand.eml 69dccba6…, portal_receipts.json
   86a0f87c…, RFJ_ADDENDUM_BUNDLE_v2.zip ac34d8d2… — matches the sealed bundle digest).

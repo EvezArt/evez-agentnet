@@ -174,3 +174,20 @@ commands on this box on Oct 3 ~07:16–07:29.
 | 37.49.227.189 | 19 | 2026-10-17 | 132a25a05db6 | contact only — no attribution |
 | 91.191.209.118 | 17 | 2026-10-17 | cfdacf1908cf | contact only — no attribution |
 | 78.128.113.46 | 15 | 2026-10-17 | d7f96226ba4e | contact only — no attribution |
+
+### 2026-10-18
+
+| Source | Strikes (24h) | First seen | Stamp | Note |
+|---|---|---|---|---|
+| 102.220.161.84 | 34 | 2026-10-18 | 154b5064237c | contact only — no attribution |
+| 88.199.167.10 | 15 | 2026-10-18 | 301f8b0e9061 | contact only — no attribution |
+| 52.50.95.39 | 14 | 2026-10-18 | b7a0a8057841 | contact only — no attribution |
+| 42.200.130.174 | 10 | 2026-10-18 | 55995a2cc0e6 | contact only — no attribution |
+| 185.136.15.12 | 7 | 2026-10-18 | 49339cc0c58e | contact only — no attribution |
+| 104.200.72.151 | 7 | 2026-10-18 | c06fc604824d | contact only — no attribution |
+| 45.77.61.56 | 6 | 2026-10-18 | b8fe42e81ee3 | contact only — no attribution |
+| 89.125.120.8 | 5 | 2026-10-18 | d6e529cbef4e | contact only — no attribution |
+| 109.234.166.42 | 5 | 2026-10-18 | df968abef601 | contact only — no attribution |
+| 89.248.168.227 | 5 | 2026-10-18 | 76a8b938e0a8 | contact only — no attribution |
+| 5.188.206.34 | 4 | 2026-10-18 | 759593c9f9bd | contact only — no attribution |
+| 211.107.189.125 | 4 | 2026-10-18 | 92928ee3f7a2 | contact only — no attribution |

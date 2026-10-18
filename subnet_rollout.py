@@ -96,7 +96,16 @@ def subnet_strikes(window_h: int) -> dict[str, int]:
             except ValueError:
                 pass
         ip = src.group(1)
-        if ip.startswith(("10.", "172.16.", "192.168.")):
+        try:
+            addr = ipaddress.ip_address(ip)
+        except ValueError:
+            continue
+        # NEVER promote local/private space (loopback, docker bridges, LAN)
+        # into firewall blocks: hairpinned docker-proxy scans and local
+        # services show up with these sources, and blocking them kills the
+        # organism's own mesh (2026-10-18: a promoted 127.0.0.1/32 raw drop
+        # starved NATS/spine/ollama/redis for 3.5h at boot).
+        if addr.is_private or addr.is_loopback or addr.is_link_local:
             continue
         net = ipaddress.ip_network(f"{ip}/24", strict=False)
         counts[str(net)] = counts.get(str(net), 0) + 1
