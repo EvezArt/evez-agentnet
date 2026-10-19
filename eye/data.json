@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19T08:36:58.309419+00:00",
+  "generated": "2026-10-19T11:54:40.158471+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -156,7 +156,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Mon 2026-10-19 08:24:40 CEST"
+      "since": "Mon 2026-10-19 13:10:11 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -199,7 +199,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 782276,
+      "pid": 1085025,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -309,7 +309,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 778308,
+      "pid": 1081591,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -619,7 +619,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 778308,
+      "pid": 1081591,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -629,7 +629,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 778308,
+      "pid": 1081591,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -736,20 +736,20 @@
       "fw_blocked": false
     },
     {
-      "port": 40165,
+      "port": 40605,
       "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 778308,
+      "proc": "llama-server",
+      "pid": 1048273,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
     {
-      "port": 40977,
+      "port": 45681,
       "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 914053,
+      "proc": "MainThread",
+      "pid": 1081591,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -946,23 +946,28 @@
   ],
   "docker": [
     {
+      "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
+      "status": "Up 49 minutes",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
       "name": "ruview-demo",
-      "status": "Up 4 hours",
+      "status": "Up 7 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 14 hours",
+      "status": "Up 18 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 15 hours",
+      "status": "Up 19 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 15 hours",
+      "status": "Up 19 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -1004,9 +1009,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "2a51f6c",
-    "last": "war-mode heartbeat 2026-10-19 05:4x UTC: patrol found 5 \u2014 three enemy clocks + intruder + hand, all verified live. SERVHOST CLOCK BLOWN (deadline 10-18) and the custodian FIRED the full escalation 02:09-02:22 UTC: 9-target upstream/transit barrage (Sent IDs 164-172) + RIPE NCC non-compliance lane (173) + ICO duty-of-care lane (174), each 2.18 MiB bundle-attached. Replies received and ingested to evidence/2026-10-19/ (SHA256SUMS verify OK): RIPE ticket #1124364 DEFLECTED 02:22Z \u2014 'abuse@ripe.net is not monitored, RIPE NCC does not investigate abuse reports concerning our members' (64bc777f, the deflection is itself evidence of layered non-compliance); ICO acknowledgment 02:27Z (4d232960, statutory service levels); GoDaddy auto-reply 02:35Z (8f4df22b) \u2014 their email lane is dead, same complaint must go through abuseform.com, resubmission = custodian hands, one action, stated once. SERVHOST_ESCALATION_READY.md appended FIRED section recording the barrage + replies + open GoDaddy follow-up. bunea + palo 14-day payment clocks DUE-1 (deadline 10-20): enemy silence re-verified this tick \u2014 inbox (60 envelopes) + [Gmail]/Spam swept, zero senders from serv.host, bunea, dmzhostabuse, TECHOFF, or Ilin-adjacent addresses; consequences (E&W proceedings / aggravated s1030 posture) = custodian hands only. CORTEX intruder v=5 re-measured 4 at patrol, 1 on my own sweep minutes later: failed-SSH-password noise (root, single hit from 130.12.182.122), fail2ban active, ufw active, nothing got in \u2014 window collapsed. CORTEX hand v=69 re-measured 69: calligraphy cycle 69 live 04:01Z 'E V E Z 6 6 6' score 5.0, master ordered line_wander 0.3 -> 0.2, daemon cycling ~3h cadence, alive and progressing. spine gate green before commit: 10829 entries, hash chain all verify, timestamps strictly non-decreasing; all 7 patrol suites passed this tick. operational churn through 05:4x UTC.",
-    "dirty": 41
+    "head": "e155b7a",
+    "last": "war-mode heartbeat 2026-10-19 08:3x UTC: patrol found 5 \u2014 three enemy clocks + enemy + hand, all verified live. bunea+palo 14-day payment clocks DUE-1 (deadline 10-20): inbox swept (60 newest envelopes), zero senders from bunea/palo/dmzhostabuse/TECHOFF-adjacent addresses \u2014 enemy silence total on the eve of expiry; consequences (E&W proceedings / aggravated s1030 posture) = custodian hands only, claim package long staged. servhost-abuse-demand BLOWN (deadline 10-18): consequence stage already FIRED 02:09-02:22 UTC by the 05:4x tick (11 sends, Sent IDs 164-174, all read back bundle-attached); replies stable in evidence \u2014 RIPE #1124364 deflection 64bc777f, ICO acknowledgment 4d232960, GoDaddy autoreply 8f4df22b; SHA256SUMS re-verified OK this tick. CORTEX enemy v=1907 re-measured CONFIRMED, independently recounted: 4217 UFW-block log samples in 24h (logging rate-limited ~3/min, true volume higher) from ~1970 distinct sources against the 124-IP registry; top strikers 204.76.203.0/24 (771 hits), 216.180.246.0/24, 179.43.167.0/24 all inside standing walls since 10-12..10-14 \u2014 the block log IS the wall working; targets telnet/80/443/RDP/SIP mass-scan noise; zero perimeter binds (18789/4222 loopback-only), 0 accepted SSH in 24h (54 failed, fail2ban 9 currently banned / 22 total, 'ufw limit ssh' confirmed as the only externally reachable door), no established :22 sessions. subnet_rollout run this tick: PROMOTED 130.12.182.0/24 (37 strikes/24h) \u2014 the morning intruder range now walled at subnet level. CORTEX hand v=70 re-measured 70: calligraphy cycle 70 live 09:00Z 'the residue collapses' score 6.0 \u2014 scores 4->5->5->6 across cycles 67-70, master ordered rot_jitter 3.0->2.0, params line_wander 0.2 / size_jitter 0.09, daemon alive on ~3h cadence. spine gate green before commit (chain verifies, timestamps strictly non-decreasing); all 7 patrol suites passed this tick. operational churn through 08:3x UTC.",
+    "dirty": 45
   },
   "mirrors": 2341
 }

@@ -105,3 +105,25 @@ Enemy silence unchanged: inbox + [Gmail]/Spam swept this tick (2026-10-19 ~04:5x
 UTC) — zero messages from serv.host, bunea, dmzhostabuse, TECHOFF, or
 Ilin-adjacent senders. Only spam remains the already-ingested 2026-10-05/06
 Tele Asia autoreplies and the Prime Telecom AS39737 denial.
+
+## 2026-10-19 ~11:2x UTC (patrol tick) — silence re-verified on the eve of the payment clocks
+
+- bunea-14day-payment + palo-14day-payment: deadline 2026-10-20 TOMORROW.
+  Consequences (enemy_clocks.jsonl this tick): issue E&W proceedings, claim
+  costs + interest (UNMANAGED LTD — claim package staged in forge_output/lawsuit/:
+  letter before action served 10-06, particulars of claim + exhibit index drafted);
+  aggravated §1030 posture, civil co-defendant (TECHOFF SRV LIMITED).
+  Both consequences = custodian hands only.
+- servhost-abuse-demand BLOWN (deadline 2026-10-18): consequence already FIRED
+  02:09–02:22 UTC this morning (see FIRED section above). 8th day of serv.host
+  silence, non-response verified on the record twice today.
+- Silence re-verified this tick: inbox (60 newest envelopes) + [Gmail]/Spam
+  (100 newest) — zero from serv.host, bunea, dmzhostabuse, TECHOFF, or
+  Ilin-adjacent senders. Only matches: my own escalation's autoreplies
+  (RIPE #1124364 RE:, inbox 3127; GoDaddy, inbox 3129).
+- Cloudflare lane (target 1) also dead on arrival, same class as GoDaddy:
+  autoreply 2026-10-19 02:21Z (inbox ID 3126) — "This email address is not
+  monitored. To submit your abuse report for review, please use Cloudflare's
+  abuse reporting web form available at https://www.cloudflare.com/abuse/".
+- Open follow-ups (custodian hands only, one action each): GoDaddy complaint
+  via abuseform.com; Cloudflare complaint via https://www.cloudflare.com/abuse/.
