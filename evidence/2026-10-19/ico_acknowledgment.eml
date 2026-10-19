@@ -1,0 +1,798 @@
+Delivered-To: fiersteity@gmail.com
+Received: by 2002:a05:7412:1295:b0:230:b293:9fb6 with SMTP id f21csp2149298rdb;
+        Sun, 18 Oct 2026 19:27:46 -0700 (PDT)
+X-Received: by 2002:a05:690e:bc1:b0:679:b98d:9b87 with SMTP id 956f58d0204a3-679ca8885bamr2134726d50.69.1792376866285;
+        Sun, 18 Oct 2026 19:27:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1792376866; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=m6EDTZoq6rO7zQrK+vHk+uGl6az2SRLq27Q/mX0/6QnVPV3MzJBIg1eYOtwasXxTrf
+         aHFzLmockFkkbwJVGvYRJVcovC+HP2H75WDlUER7o5ePTBOYJvcqXUI1QifmVAaCcbwR
+         j4jrRVTjj3YrpI+6CMkmyKD/XRkTjerVo0UK12OSQBFYO/yeUKpXDdGgehJapK4QqlIK
+         4zQXVazg+bESUdlUmas9OqgKZH+rxT4n9z1jWgrc75ysIUdUy+sQVatONPeafte8dByu
+         O1UIPGy/uDmp8jr+TgEI1yRrpyKHDL2AiUYvX8g1A8t2+wDaMM9hjB6l1CDuG7rTGXKc
+         y40Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=mime-version:auto-submitted:message-id:date:thread-index
+         :thread-topic:subject:to:from:dkim-signature;
+        bh=LgEmRXZcMcj2NMTM0u/fHL7wQbS/0ZSYZ2N5CVQL0nU=;
+        fh=Dp37FMacbHFECyybR3O82s0qHk3E5QTp8C59Z9EoGaQ=;
+        b=Sr5TJc2H1OLkvy9EvutsNn/dCgXyuBh1yBT6AiTct911/ZCslnnA7KGHM0zm0Uj/EQ
+         eyCpMR2sgv4W6+E2GVYiITC7LzPggR1/+ImO8zmy4XHoe/1GGwmcyLyjGj84C7E9e30f
+         vyC7pSXramkaXGcO5OebPeQp/OcN7WpnI/pfOZzO79/J4WeefZz+O7NfHHTjwJAbWO7i
+         kzM6RrLjq214k6LLZeSZkHi3VagwMzeixGMeF1ti1sVHo17h4Zk+J7tiOo3SX7yzTCdk
+         dZVx9xV3Uwp7jBQe09lBq3gxRKUf+3O2+myGTFiTSOaevfy5fBw+AsiCZ9+WNftW41Da
+         fLGA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@ico.org.uk header.s=selector2 header.b=m0r1VfMb;
+       arc=pass (i=1 spf=pass spfdomain=ico.org.uk dkim=pass dkdomain=ico.org.uk dmarc=pass fromdomain=ico.org.uk);
+       spf=pass (google.com: domain of icocasework@ico.org.uk designates 2a01:111:f403:c205::1 as permitted sender) smtp.mailfrom=icocasework@ico.org.uk;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=ico.org.uk
+Return-Path: <icocasework@ico.org.uk>
+Received: from LO3P265CU004.outbound.protection.outlook.com (mail-uksouthazlp170100001.outbound.protection.outlook.com. [2a01:111:f403:c205::1])
+        by mx.google.com with ESMTPS id 00721157ae682-8b0e5afade6si29552847b3.47.2026.10.18.19.27.45
+        for <fiersteity@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Oct 2026 19:27:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of icocasework@ico.org.uk designates 2a01:111:f403:c205::1 as permitted sender) client-ip=2a01:111:f403:c205::1;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ico.org.uk header.s=selector2 header.b=m0r1VfMb;
+       arc=pass (i=1 spf=pass spfdomain=ico.org.uk dkim=pass dkdomain=ico.org.uk dmarc=pass fromdomain=ico.org.uk);
+       spf=pass (google.com: domain of icocasework@ico.org.uk designates 2a01:111:f403:c205::1 as permitted sender) smtp.mailfrom=icocasework@ico.org.uk;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=ico.org.uk
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cC/GNmC1sqrwlgyW337Pkk7JXLVTUWG4vWF2LGASraUVvDxZRcdLXJ/Fdy4sgsVguxYD9dhj1j8BhKqMBPHRCnJGQtoAigDRRF5LIss8yCNlBFDa0jfpQz2FTEPfRRomXkUl4SPfV9GexGIYr+5AjZMh4V9125IAyVIcPMePOUedO8g7rNKqgqSpTT3BaIlIsR/U04kPDLNe3iYfk8fU9phq6LSnRUmTC2jke7HI9BeWnRgVSYQrC1f4rJO3zjw0ymnIgi5F+5GdlkBclOrVLRJ0hfS3YWoDFBFPlOALFbU/+a7wFMJRd0OGzLTif9aq8DQ1Wzssev8I6yQodvL3HA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LgEmRXZcMcj2NMTM0u/fHL7wQbS/0ZSYZ2N5CVQL0nU=;
+ b=AGTiOH9t+Wi4Q/WvOa9326Kr3mR6DEpXCUXa2HIMCnXIhUdI1jr7zNSvpWWYJCi7RH5swkuW7u1vjypPBkR8v92LfvvOQJ1IpdmTi/6xL9RQASgO7faIjiqqeBwMFF3K6E0RWReJE7IaR++QiwRbb9W0B/WA6iAk0waD/q2Anie3Kb1TQzaHA6ynnnfVHbvl2Zfzh/RsB66a/UQ+sdBJeE5Zd0lfu/coSobNvHdmJxJoA5BXyHx8++71sDPfzaMZt5qaFyH/2ONywasxkHB8wWYtuaKkOoV2KiCkgQWM2tqbLnAwQfbiVWtZys6kF+J4lQggBoLsfDzPnCJsFYfWaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=ico.org.uk; dmarc=pass action=none header.from=ico.org.uk;
+ dkim=pass header.d=ico.org.uk; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ico.org.uk;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LgEmRXZcMcj2NMTM0u/fHL7wQbS/0ZSYZ2N5CVQL0nU=;
+ b=m0r1VfMbAEw4vi8F6lFyGvqUPomvkguu+vXG6/Mpg+B5C/noWo9jHqLzvibZC+FbFEQ5zYFxdACsSlHQUGq708V3hmsIpA21eRA2FhRPKeV2cPU51I2YLy91YihnhQhoyHCWNoQ/lBp6JV2babOPSUR9K6/SRdwVwd3AXTMfQO3Tf2XMaEmnNimWMSZ3kZPNwUskQTh5A9LkZXaCDcCO0q0rYOslTQxSKF+BOXsJ+Pm1zMzxF96k4/APTZGrPWgx3279k63Q1UwgWlRpVepyLmBRO+yeIBuXby8E/D86WMN8uC2y25iU1jjDS59RWq57bhU3Di0Q+AX54/lFILTwnw==
+Received: from LOEP265MB555277.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:503::23) by LO6P265MB6809.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:327::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Mon, 19 Oct
+ 2026 02:27:44 +0000
+Received: from LOEP265MB555277.GBRP265.PROD.OUTLOOK.COM ([::1]) by
+ LOEP265MB555277.GBRP265.PROD.OUTLOOK.COM ([fe80::786:4dd2:decb:40ab%4]) with
+ Microsoft SMTP Server id 15.21.0522.017; Mon, 19 Oct 2026 02:27:43 +0000
+From: icocasework <icocasework@ico.org.uk>
+To: "fiersteity@gmail.com" <fiersteity@gmail.com>
+Subject: We have received your email. Rydym wedi derbyn eich ebost
+Thread-Topic: We have received your email. Rydym wedi derbyn eich ebost
+Thread-Index: AQHdX3FsoTZjsjdAQ0yG5utsWRESAA==
+Date: Mon, 19 Oct 2026 02:27:43 +0000
+Message-ID:
+ <ff6d38dedf8a49a5a94549bbd5d1f805@LOEP265MB555277.GBRP265.PROD.OUTLOOK.COM>
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: All
+X-MS-Exchange-Inbox-Rules-Loop: icocasework@ico.org.uk
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=ico.org.uk;
+x-ms-exchange-parent-message-id:
+ <18dfccf5b2f8e1b3.1facb8cd112da2ad.dcebfae1df3d230f@vmi3544756>
+auto-submitted: auto-generated
+x-ms-exchange-generated-message-source: Mailbox Rules Agent
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: LOEP265MB555277:EE_|LO6P265MB6809:EE_
+x-ms-office365-filtering-correlation-id: bbd2483a-606f-4fb4-ca84-08df2d888e87
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|10070799003|23010399003|366016|1800799024|376014|13003099007|11063799006|56012099006|261009223027099003|10067099003|18002099003|5133699003|8096899003|3023799007|12063799003;
+x-microsoft-antispam-message-info:
+ PvNS/5Ucc5D9xFfuXU2WLXprmIVSQ8/qUUGJB0d27PtIVF6n2Ur4nYCGS/8knkmTDKfQ3LzdEigPn/j+M/+sF0KXgtMS7UrhW7hilaJy7XqGxOGwQtwG8AP1HAmiSkZ2fIiqGRPShXDydpv+dcJF0SNifrv8dhs1QuVX0a0cyxusGl/Ha53ycSC1x+pQpvzOXWRUnsRaZcMr7q8hKrvQD4T9ii7YLnqNWIuiP75Ft0Hshw0bAjDj7OSDL7AoeG7L7iA62t23mCjn3GdAJ71ywnixXZVI5623n1QhtbQd7/WTC5ehcsDl0QbZHj3+uQzmpKJcmBZwqyv7TeICo+sFZlR1EFJM/tGqQxxSPiZ5SR1DqYkXhTrE43jD/if76GTWtkqX4ilbaONjH4FYgFCYIssuJFSNQpy2yu/wh6jDIQmrJaeeE+mwtSpANW6gmdAtuoeRdeaWor/YA9hr5OdV8qF4ibeBpNXFaW3KIY60ZRh3qssBH/8PdRcL7Z5rz873EKDsyfVx9ttDqRx/MzpAo74xwAepKKPReZGB0BZz5p/FcXc7uE9OFaPPXlQ6/yc7V6DfndzT3B8E639GTWqpnQ6v+SgzxIAZoSanKs65tE4=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:cy;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOEP265MB555277.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(23010399003)(366016)(1800799024)(376014)(13003099007)(11063799006)(56012099006)(261009223027099003)(10067099003)(18002099003)(5133699003)(8096899003)(3023799007)(12063799003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ oKStxrTCZJGTNsOiKSNJq8Td/5Dp3e2lI8/05NM+nqWEjs2PgOFRpdYbhg9ZXp45SioFRIk5UWX/6Dpg17F1iLuVtBDo9TUuxmkHLOEcmc2dCGIl7QxH14ui2aCt8UF0ICArGlIB4ahj4wZEbnBrmAC9qzIM/jDTKuGjCezbEBYxlpQHDHE6tTrMg4jZHSV258fN2eLiGug77ASaqYoyaUcMukURr78HUayRDIcelLEeUFc+0YgWiMESIYIaQTT+UIDP947ItpFE1ZRFJYRRAgl/S81GzejV8INO2GiRjMaXOuLLIDdmCzlvrBUHarlqZI7ZaAIccfA4Xj13BK5CFRkDbMsXi07w1rIoE9jMa2xlOEm801cyCW1g1teXepmwdcFUATh9kIBY6v15SGevKR5tG+UahaCloDyMsHaWOop/dg3/R/Zx3Zn5WZ1iJTrq
+Content-Type: multipart/alternative;
+	boundary="_000_ff6d38dedf8a49a5a94549bbd5d1f805LOEP265MB555277GBRP265P_"
+MIME-Version: 1.0
+X-OriginatorOrg: ico.org.uk
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: LOEP265MB555277.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: bbd2483a-606f-4fb4-ca84-08df2d888e87
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Oct 2026 02:27:43.9675
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 50129323-8fab-4000-adc1-c4cfebfa21e6
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO6P265MB6809
+
+--_000_ff6d38dedf8a49a5a94549bbd5d1f805LOEP265MB555277GBRP265P_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Thank you for contacting the Information Commissioner=92s Office. We confir=
+m that we have received your correspondence. If you have any special requir=
+ements that mean you would like us to communicate with you in a specific wa=
+y, please let us know and we will make adjustments if we can.
+If you have made a new complaint - we=92re unlikely to look into it unless =
+you have raised it with the responsible organisation (for a data protection=
+ complaint) or the responsible public authority (for a freedom of informati=
+on complaint) first. Please make sure you have sent us a copy of their fina=
+l response to you. We're supporting a high number of people with their comp=
+laints at the moment. For the latest timescales to allocate cases, please v=
+isit the make a complaint page<https://ico.org.uk/make-a-complaint/data-pro=
+tection-complaints/> on our website. We apologise for this delay but we wan=
+t to reassure you we take your complaint very seriously.
+If your correspondence relates to an existing case - we will add it to your=
+ case and consider it on allocation to a case officer. If you believe we ha=
+ve either failed to take appropriate steps to respond to your data protecti=
+on complaint, or we do not provide you with information about the progress =
+or outcome of your complaint within the next three months, you may be able =
+to apply to the First-tier Tribunal to require us to respond to your compla=
+int or to provide you with information about its progress. (www.gov.uk<http=
+://www.gov.uk/> - information rights and data protection: appeal against th=
+e Information Commissioner)
+If you have asked us for advice - we will respond within 7 days. While you =
+wait, you should regularly check our website (www.ico.org.uk<http://www.ico=
+.org.uk/>) for relevant guidance, as we are updating this all the time. You=
+ should read our Guide to the UK GDPR<https://ico.org.uk/for-organisations/=
+guide-to-data-protection/guide-to-the-general-data-protection-regulation-gd=
+pr/>. If you have raised a question that we have answered on our website, w=
+e may respond by sending you a link to it. But will do our best to provide =
+you with the information you need.
+If you represent an organisation and you are reporting a personal data brea=
+ch under the GDPR or the Data Protection Act 2018 - we aim to contact you w=
+ithin seven days to confirm receipt and to provide you with a case referenc=
+e number. If you want advice urgently, you should telephone our helpline on=
+ 0303 123 1113. You can find out more about data breach reporting on our we=
+bsite.
+Where a significant cyber incident occurs, you may also need to report this=
+ to the National Cyber Security Centre (the NCSC). To help you decide, you =
+should read the NCSC=92s guidance about their role and the type of incident=
+s that you should consider reporting. (www.ncsc.gov.uk<http://www.ncsc.gov.=
+uk/> -incident-management)
+Incidents that might lead to a heightened risk of individuals being affecte=
+d by fraud, should be reported to Report Fraud (https://www.reportfraud.pol=
+ice.uk/) - the UK=92s national fraud and cybercrime reporting centre. If yo=
+ur organisation is in Scotland, then reports should be made to Police Scotl=
+and (www.scotland.police.uk<http://www.scotland.police.uk/>).
+If you are a Communications Service Provider reporting a security breach un=
+der the Privacy and Electronic Communications Regulations =96 you will need=
+ to report the security breach via the secure portal that can be found on t=
+he PECR pages of our website.
+If you represent an organisation and are reporting a potential incident und=
+er the NIS Directive - we will contact you as soon as we can. You can find =
+out more about the NIS Regulations on our website
+If you represent an organisation and you are reporting a security breach wi=
+thin the definition of the eIDAS regulation =96 we will contact you as soon=
+ as we can. You can find out more about the eIDAS regulation on our website=
+.
+If you have reported spam email =96 we are unlikely to need to contact you =
+again, unless we need more information to help with our investigations. We =
+publish details about the action we've taken on nuisance messages on our we=
+bsite.
+If you have asked for information you think we might hold - we will contact=
+ you if we need any more information to help us respond. Otherwise, we will=
+ respond within our public and statutory service levels. For more informati=
+on please visit our webpage =91request information from us=92 (go to our ho=
+mepage and follow the link for =91about the ICO=92 and =91our information=
+=92).
+If you have only copied your correspondence to us - we will not respond.
+There is more detailed information, including information on our current re=
+sponse times, on our service standards and what to expect webpage. You can =
+also call 0303 123 1113, we welcome calls in Welsh on 029 2067 8400. You ca=
+n also contact us on live chat (please visit our webpage =91contact us=92 a=
+nd =91live chat=92).
+For information about what we do with personal data please see our privacy =
+notice: https://ico.org.uk/global/privacy-notice/
+Yours sincerely
+The Information Commissioner=92s Office
+
+Diolch yn fawr ichi am gysylltu =E2 Swyddfa=92r Comisiynydd Gwybodaeth. Ryd=
+ym yn cadarnhau bod eich gohebiaeth wedi dod i law. Os oes gennych unrhyw o=
+fynion arbennig sy'n golygu yr hoffech i ni gyfathrebu =E2 chi mewn ffordd =
+benodol, rhowch wybod i ni a byddwn yn gwneud addasiadau os gallwn.
+Os ydych wedi gwneud cwyn newydd =96 dydyn ni ddim yn debygol o edrych i me=
+wn iddo oni bai eich bod wedi=92i godi=92n gyntaf gyda=92r sefydliad cyfrif=
+ol (cwyn am ddiogelu data) neu=92r awdurdod cyhoeddus cyfrifol (cwyn am ryd=
+did gwybodaeth). Gofalwch eich bod wedi anfon copi aton ni o=92u hymateb te=
+rfynol ichi.
+Rydyn ni wrthi=92n helpu nifer fawr o bobl gyda=92u cwynion ar hyn o bryd. =
+Am yr amserlenni diweddaraf i ddyrannu achosion, ewch i'r dudalen gwneud cw=
+yn<https://ico.org.uk/make-a-complaint/data-protection-complaints/> ar ein =
+gwefan. Ymddiheurwn am yr oedi yma ond hoffem eich sicrhau ein bod yn cymry=
+d eich cwyn o ddifrif.
+Os yw=92ch gohebiaeth yn ymwneud ag achos sydd eisoes yn bod - byddwn yn ei=
+ hychwanegu at eich achos ac fe gaiff ei hystyried ar =F4l cael ei dyrannu =
+i swyddog achosion. Os ydych yn credu ein bod ni naill ai wedi methu cymryd=
+ camau priodol i ymateb i'ch cwyn diogelu data, neu heb ddarparu gwybodaeth=
+ ichi am gynnydd neu ganlyniad eich cwyn o fewn y tri mis nesaf, efallai y =
+byddwch yn gallu gwneud cais i'r Tribiwnlys Haen Gyntaf i=92w gwneud yn ofy=
+nnol inni ICO ymateb i'ch cwyn neu ddarparu gwybodaeth ichi am gynnydd eich=
+ cwyn. (www.gov.uk<http://www.gov.uk/> - information rights and data protec=
+tion: appeal against the Information Commissioner)
+Os ydych wedi gofyn am gyngor =96 byddwn yn ymateb o fewn 14 diwrnod. Tra b=
+yddwch yn aros, dylech edrych yn rheolaidd ar ein gwefan<http://www.ico.org=
+.uk/> (www.ico.org.uk<http://www.ico.org.uk/>) i chwilio am ganllawiau pert=
+hnasol, gan eu bod yn cael eu diweddaru drwy=92r amser. Hefyd dylech ddarll=
+en ein blogiau ynghylch =91mythau=92r GDPR<https://ico.org.uk/for-organisat=
+ions/guide-to-data-protection/guide-to-the-general-data-protection-regulati=
+on-gdpr>=92. Os ydych wedi codi cwestiwn sydd wedi=92i ateb ar ein gwefan, =
+mae=92n bosibl y byddwn yn ymateb drwy anfon dolen atoch i gysylltu =E2=92r=
+ ateb.  Ond fe wnawn ein gorau glas i roi=92r wybodaeth angenrheidiol ichi
+Os ydych yn cynrychioli sefydliad a=92ch bod yn rhoi gwybod am drosedd data=
+ personol o dan y GDPR neu Ddeddf Diogelu Data 2018 =96 rydym yn anelu at g=
+ysylltu =E2 chi o fewn saith niwrnod calendr i gadarnhau bod eich neges wed=
+i dod i law ac i roi rhif cyfeirnod achos ichi. Os oes arnoch eisiau cyngor=
+ ar frys, dylech ffonio=92n llinell gymorth ar 0303 123 1113. Cewch ragor o=
+ wybodaeth am roi gwybod am droseddau data ar ein gwefan.
+Pan fo digwyddiad seibr arwyddocaol yn digwydd, mae=92n bosibl y bydd angen=
+ ichi roi gwybod amdano hefyd i=92r Ganolfan Seiberddiogelwch Genedlaethol =
+(yr NCSC). I=92ch helpu i benderfynu, dylech ddarllen canllawiau=92r NCSC a=
+r eu r=F4l a=92r math o ddigwyddiadau y dylech ystyried rhoi gwybod amdanyn=
+ nhw. (www.ncsc.gov.uk<http://www.ncsc.gov.uk/> -incident-management)
+Dylai digwyddiadau a allai arwain at risg uwch y bydd twyll yn effeithio ar=
+ unigolion gael eu cyfleu i Report Fraud (https://www.reportfraud.police.uk=
+/) =96 sef canolfan genedlaethol y Deyrnas Unedig ar gyfer rhoi gwybod am d=
+wyll a seiberdroseddau. Os yw eich sefydliad yn yr Alban, yna i Heddlu=92r =
+Alban y dylech chi roi gwybod (www.scotland.police.uk<http://www.scotland.p=
+olice.uk/>).
+Os ydych yn Ddarparwr Gwasanaethau Cyfathrebu sy=92n rhoi gwybod am dor dio=
+gelwch o dan y Rheoliadau Preifatrwydd a Chyfathrebu Electronig =96 bydd an=
+gen ichi roi gwybod am y tor diogelwch drwy=92r porth diogel<https://report=
+.ico.org.uk/security-breach/> sydd ar gael ar y tudalennau ar ein gwefan sy=
+=92n ymwneud =E2=92r PECR.
+Os ydych yn cynrychioli sefydliad a=92ch bod yn rhoi gwybod am ddigwyddiad =
+posibl o dan Gyfarwyddeb yr NIS =96 byddwn yn cysylltu =E2 chi cyn gynted a=
+g y gallwn. Cewch ragor o wybodaeth am Reoliadau=92r NIS ar ein gwefan.
+Os ydych yn cynrychioli sefydliad a=92ch bod yn rhoi gwybod am dor diogelwc=
+h o fewn y diffiniad yn Rheoliad eIDAS =96 byddwn yn cysylltu =E2 chi cyn g=
+ynted ag y gallwn. Cewch ragor o wybodaeth am Reoliad eIDAS ar ein gwefan.
+Os ydych wedi rhoi gwybod am ebost sbam =96 mae=92n annhebygol y bydd angen=
+ inni gysylltu =E2 chi eto, oni bai bod arnon ni angen rhagor o wybodaeth i=
+ helpu yn ein hymchwiliad. Rydym yn cyhoeddi gwybodaeth am y camau rydyn ni=
+ wedi=92u cymryd ynghylch negeseuon niwsans ar ein gwefan.
+Os ydych wedi gofyn am wybodaeth yr ydych yn credu ei bod gennyn ni =96 byd=
+dwn yn cysylltu =E2 chi os bydd arnom angen rhagor o wybodaeth i=92n helpu =
+i ymateb. Fel arall, byddwn yn ymateb ichi o fewn ein lefelau gwasanaeth st=
+atudol a chyhoeddus. I gael rhagor o wybodaeth, ewch i=92n tudalen gwe =91r=
+equest information from us=92 (ewch i=92n tudalen hafan a dilynwch y ddolen=
+ =91about the ICO=92 ac =91our information=92).
+Os ydych wedi anfon copi o=92ch gohebiaeth aton ni ond dim byd arall =96 fy=
+ddwn ni ddim yn ymateb.
+Mae gwybodaeth fanylach, gan gynnwys gwybodaeth am ein hamserau ymateb pres=
+ennol, ar ein tudalen gwe safonau gwasanaeth a beth i=92w ddisgwyl. Gallwch=
+ ffonio hefyd yn y Gymraeg ar 0303 123 1113 opsiwn 9 neu yn Saesneg ar 0303=
+ 123 1113. Gallwch gysylltu =E2 ni hefyd i gael sgwrs fyw (ewch i=92n tudal=
+en gwe =91contact us=92 a =91live chat=92).
+I gael gwybodaeth am yr hyn rydyn ni=92n ei wneud =E2 data personol, gweler=
+ ein hysbysiad preifatrwydd: https://ico.org.uk/global/privacy-notice/
+Yn gywir
+Swyddfa=92r Comisiynydd Gwybodaeth
+
+
+
+
+
+--_000_ff6d38dedf8a49a5a94549bbd5d1f805LOEP265MB555277GBRP265P_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Aptos;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+span.EmailStyle18
+	{mso-style-type:personal-compose;
+	font-family:"Verdana",sans-serif;
+	color:windowtext;
+	font-weight:normal;
+	font-style:normal;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-GB" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:=
+break-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif;color:black">Thank you for contacting the Informa=
+tion Commissioner=92s Office. We confirm that we have
+ received your correspondence. <span style=3D"background:white">If you have=
+ any special requirements that mean you would like us to communicate with y=
+ou in a specific way, please let us know and we will make adjustments if we=
+ can.</span></span><span style=3D"font-size:9.0pt;line-height:105%;font-fam=
+ily:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span lang=3D"EN-US" style=3D"font-size:12.0pt;line-height:105%=
+;font-family:&quot;Verdana&quot;,sans-serif;color:black">If you have made a=
+ new complaint</span></b><span style=3D"font-size:12.0pt;line-height:105%;f=
+ont-family:&quot;Verdana&quot;,sans-serif;color:black">
+ - </span><span lang=3D"EN-US" style=3D"font-size:12.0pt;line-height:105%;f=
+ont-family:&quot;Verdana&quot;,sans-serif;color:black">we=92re unlikely to =
+look into it unless you have raised it with the responsible organisation (f=
+or a data protection complaint) or the responsible
+ public authority (for a freedom of information complaint) first.&nbsp;</sp=
+an><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot;Verda=
+na&quot;,sans-serif;color:black">Please make sure you have sent us a copy o=
+f their final response to you.
+</span><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot;V=
+erdana&quot;,sans-serif;mso-fareast-language:EN-GB">We're supporting a high=
+ number of people with their complaints at the moment. For the latest times=
+cales to allocate cases, please visit the
+</span><a href=3D"https://ico.org.uk/make-a-complaint/data-protection-compl=
+aints/"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot;=
+Verdana&quot;,sans-serif;mso-fareast-language:EN-GB">make a complaint page<=
+/span></a><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quo=
+t;Verdana&quot;,sans-serif;mso-fareast-language:EN-GB">
+ on our website. We apologise for this delay but we want to reassure you we=
+ take your complaint very seriously.<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span lang=3D"EN-US" style=3D"font-size:12.0pt;line-height:105%=
+;font-family:&quot;Verdana&quot;,sans-serif;color:black">If your correspond=
+ence relates to an existing case -
+</span></b><span lang=3D"EN-US" style=3D"font-size:12.0pt;line-height:105%;=
+font-family:&quot;Verdana&quot;,sans-serif;color:black">we will add it to y=
+our case and consider it on allocation to a case officer.&nbsp;</span><span=
+ style=3D"font-size:12.0pt;line-height:105%;font-family:&quot;Verdana&quot;=
+,sans-serif;color:black">If
+ you believe we have either failed to take appropriate steps to respond to =
+your data protection complaint, or we do not provide you with information a=
+bout the progress or outcome of your complaint within the next three months=
+, you may be able to apply to the
+ First-tier Tribunal to require us to respond to your complaint or to provi=
+de you with information about its progress. (</span><a href=3D"http://www.g=
+ov.uk/" target=3D"_blank"><span style=3D"font-size:12.0pt;line-height:105%;=
+font-family:&quot;Verdana&quot;,sans-serif">www.gov.uk</span></a><span styl=
+e=3D"font-size:12.0pt;line-height:105%;font-family:&quot;Verdana&quot;,sans=
+-serif;color:black">&nbsp;-&nbsp;</span><span lang=3D"EN" style=3D"font-siz=
+e:12.0pt;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif;color:=
+black">information
+ rights and data protection: appeal against the Information Commissioner)</=
+span><span style=3D"font-size:9.0pt;line-height:105%;font-family:&quot;Taho=
+ma&quot;,sans-serif;color:black;mso-ligatures:standardcontextual"><o:p></o:=
+p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span lang=3D"EN-US" style=3D"font-size:12.0pt;line-height:105%=
+;font-family:&quot;Verdana&quot;,sans-serif;color:black">If you have asked =
+us for advice -&nbsp;</span></b><span lang=3D"EN-US" style=3D"font-size:12.=
+0pt;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif;color:black=
+">we
+ will respond&nbsp;</span><span style=3D"font-size:12.0pt;line-height:105%;=
+font-family:&quot;Verdana&quot;,sans-serif;color:black">within 7 days</span=
+><span lang=3D"EN-US" style=3D"font-size:12.0pt;line-height:105%;font-famil=
+y:&quot;Verdana&quot;,sans-serif;color:black">. While you wait,
+ you should regularly check our website (</span><a href=3D"http://www.ico.o=
+rg.uk/" target=3D"_blank"><span lang=3D"EN-US" style=3D"font-size:12.0pt;li=
+ne-height:105%;font-family:&quot;Verdana&quot;,sans-serif">www.ico.org.uk</=
+span></a><span lang=3D"EN-US" style=3D"font-size:12.0pt;line-height:105%;fo=
+nt-family:&quot;Verdana&quot;,sans-serif;color:black">)
+ for relevant guidance, as we are updating this all the time. You should re=
+ad our&nbsp;</span><a href=3D"https://ico.org.uk/for-organisations/guide-to=
+-data-protection/guide-to-the-general-data-protection-regulation-gdpr/" tar=
+get=3D"_blank"><span lang=3D"EN-US" style=3D"font-size:12.0pt;line-height:1=
+05%;font-family:&quot;Verdana&quot;,sans-serif">Guide
+ to the UK GDPR</span></a><span lang=3D"EN-US" style=3D"font-size:12.0pt;li=
+ne-height:105%;font-family:&quot;Verdana&quot;,sans-serif;color:black">. If=
+ you have raised a question that we have answered on our website, we may re=
+spond by sending you a link to it.&nbsp;But will do
+ our best to provide you with the information you need.</span><span style=
+=3D"font-size:9.0pt;line-height:105%;font-family:&quot;Tahoma&quot;,sans-se=
+rif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">If you represent an organisation =
+and you are reporting a personal data breach under
+ the GDPR or the Data Protection Act 2018 -&nbsp;</span></b><span style=3D"=
+font-size:12.0pt;line-height:105%;font-family:&quot;Verdana&quot;,sans-seri=
+f;color:black">we aim to contact you within seven days to confirm receipt a=
+nd to provide you with a case reference number. If
+ you want advice urgently, you should telephone our helpline on 0303 123 11=
+13. You can find out more about data breach reporting on our website.</span=
+><span style=3D"font-size:9.0pt;line-height:105%;font-family:&quot;Tahoma&q=
+uot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif;color:black">Where a significant cyber incident o=
+ccurs, you may also need to&nbsp;report this to the National
+ Cyber Security Centre (the NCSC). To help you decide, you should read the =
+NCSC=92s guidance about their role and the type of incidents that you shoul=
+d consider reporting. (</span><a href=3D"http://www.ncsc.gov.uk/" target=3D=
+"_blank"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif">www.ncsc.gov.uk</span></a><span style=3D"font-si=
+ze:12.0pt;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif;color=
+:black">&nbsp;-incident-management)</span><span style=3D"font-size:9.0pt;li=
+ne-height:105%;font-family:&quot;Tahoma&quot;,sans-serif;color:black"><o:p>=
+</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif;color:black">Incidents that might lead to a heigh=
+tened risk of individuals being affected by fraud,
+ should be reported to&nbsp;Report Fraud (</span><a href=3D"https://www.rep=
+ortfraud.police.uk/" target=3D"_blank"><span style=3D"font-size:12.0pt;line=
+-height:105%;font-family:&quot;Verdana&quot;,sans-serif">https://www.report=
+fraud.police.uk/</span></a><span style=3D"font-size:12.0pt;line-height:105%=
+;font-family:&quot;Verdana&quot;,sans-serif;color:black">)
+ - the UK=92s national fraud and cybercrime reporting centre. If your organ=
+isation is in Scotland, then reports should be made to&nbsp;Police Scotland=
+ (</span><a href=3D"http://www.scotland.police.uk/" target=3D"_blank"><span=
+ style=3D"font-size:12.0pt;line-height:105%;font-family:&quot;Verdana&quot;=
+,sans-serif">www.scotland.police.uk</span></a><span style=3D"font-size:12.0=
+pt;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif;color:black"=
+>).</span><span style=3D"font-size:9.0pt;line-height:105%;font-family:&quot=
+;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">If you are a Communications Servi=
+ce Provider reporting a security breach under the
+ Privacy and Electronic Communications Regulations =96&nbsp;</span></b><spa=
+n style=3D"font-size:12.0pt;line-height:105%;font-family:&quot;Verdana&quot=
+;,sans-serif;color:black">you will need to report the security breach via t=
+he secure portal that can be found on the PECR pages
+ of our website.</span><span style=3D"font-size:9.0pt;line-height:105%;font=
+-family:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">If you represent an organisation =
+and are reporting a potential incident under the
+ NIS Directive -&nbsp;</span></b><span style=3D"font-size:12.0pt;line-heigh=
+t:105%;font-family:&quot;Verdana&quot;,sans-serif;color:black">we will cont=
+act you as soon as we can. You can find out more about the NIS Regulations =
+on our website</span><span style=3D"font-size:9.0pt;line-height:105%;font-f=
+amily:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span lang=3D"EN" style=3D"font-size:12.0pt;line-height:105%;fo=
+nt-family:&quot;Verdana&quot;,sans-serif;color:black">If you represent an o=
+rganisation and you are reporting a security breach
+ within the definition of the eIDAS regulation =96&nbsp;</span></b><span la=
+ng=3D"EN" style=3D"font-size:12.0pt;line-height:105%;font-family:&quot;Verd=
+ana&quot;,sans-serif;color:black">we will contact you as soon as we can. Yo=
+u can find out more about the eIDAS regulation on our
+ website.</span><span style=3D"font-size:9.0pt;line-height:105%;font-family=
+:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span lang=3D"EN-US" style=3D"font-size:12.0pt;line-height:105%=
+;font-family:&quot;Verdana&quot;,sans-serif;color:black">If you have report=
+ed spam email</span></b><span lang=3D"EN-US" style=3D"font-size:12.0pt;line=
+-height:105%;font-family:&quot;Verdana&quot;,sans-serif;color:black">&nbsp;=
+=96
+ we are unlikely to need to contact you again, unless we need more informat=
+ion to help with our investigations. We publish details about the action we=
+'ve taken on nuisance messages on our website.</span><span style=3D"font-si=
+ze:9.0pt;line-height:105%;font-family:&quot;Tahoma&quot;,sans-serif;color:b=
+lack"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span lang=3D"EN" style=3D"font-size:12.0pt;line-height:105%;fo=
+nt-family:&quot;Verdana&quot;,sans-serif;color:black">If you have asked for=
+ information you think we might hold -&nbsp;</span></b><span lang=3D"EN" st=
+yle=3D"font-size:12.0pt;line-height:105%;font-family:&quot;Verdana&quot;,sa=
+ns-serif;color:black">we
+ will contact you if we need any more information to help us respond. Other=
+wise, we will respond within our public and statutory service levels. For m=
+ore information please visit our webpage =91request information from us=92 =
+(go to our homepage and follow the link
+ for =91about the ICO=92 and =91our information=92).</span><span style=3D"f=
+ont-size:9.0pt;line-height:105%;font-family:&quot;Tahoma&quot;,sans-serif;c=
+olor:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">If you have only copied your corr=
+espondence to us -</span></b><span style=3D"font-size:12.0pt;line-height:10=
+5%;font-family:&quot;Verdana&quot;,sans-serif;color:black">&nbsp;we
+ will not respond.</span><span style=3D"font-size:9.0pt;line-height:105%;fo=
+nt-family:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif;color:black">There is more detailed information, =
+including information on our current response times,
+ on our service standards and what to expect webpage. You can also call 030=
+3&nbsp;123 1113, we welcome calls in Welsh on 029 2067 8400. You can also c=
+ontact us on live chat (please visit our webpage =91contact us=92 and =91li=
+ve chat=92).</span><span style=3D"font-size:9.0pt;line-height:105%;font-fam=
+ily:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif;color:black">For information about what we do wit=
+h personal data please see our privacy notice:&nbsp;</span><a href=3D"https=
+://ico.org.uk/global/privacy-notice/" target=3D"_blank"><span style=3D"font=
+-size:12.0pt;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif">h=
+ttps://ico.org.uk/global/privacy-notice/</span></a><span style=3D"font-size=
+:9.0pt;line-height:105%;font-family:&quot;Tahoma&quot;,sans-serif;color:bla=
+ck"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"font-size:12.0pt;line-height:105%;fo=
+nt-family:&quot;Verdana&quot;,sans-serif;color:black">Yours sincerely</span=
+><span style=3D"font-size:9.0pt;line-height:105%;font-family:&quot;Tahoma&q=
+uot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span lang=3D"EN-US" style=3D"font-size:12.0pt;line-height:105%;fo=
+nt-family:&quot;Verdana&quot;,sans-serif;color:black">The Information Commi=
+ssioner=92s Office</span><span style=3D"font-size:9.0pt;line-height:105%;fo=
+nt-family:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:9.0pt;line-height:105%;font-family:&quot;=
+Tahoma&quot;,sans-serif;color:black"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif;color:black">Diolch yn fawr ichi am gysylltu =E2 =
+Swyddfa=92r Comisiynydd Gwybodaeth. Rydym yn cadarnhau
+ bod eich gohebiaeth wedi dod i law. Os oes gennych unrhyw ofynion arbennig=
+ sy'n golygu yr hoffech i ni gyfathrebu =E2 chi mewn ffordd benodol, rhowch=
+ wybod i ni a byddwn yn gwneud addasiadau os gallwn.</span><span style=3D"f=
+ont-size:9.0pt;line-height:105%;font-family:&quot;Tahoma&quot;,sans-serif;c=
+olor:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">Os ydych wedi gwneud cwyn newydd<=
+/span></b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quo=
+t;Verdana&quot;,sans-serif;color:black">&nbsp;=96
+ dydyn ni ddim yn debygol o edrych i mewn iddo oni bai eich bod wedi=92i go=
+di=92n gyntaf gyda=92r sefydliad cyfrifol (cwyn am ddiogelu data) neu=92r a=
+wdurdod cyhoeddus cyfrifol (cwyn am ryddid gwybodaeth). Gofalwch eich bod w=
+edi anfon copi aton ni o=92u hymateb terfynol
+ ichi. <o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif;color:black">R</span><span style=3D"font-size:12.=
+0pt;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif;mso-fareast=
+-language:EN-GB">ydyn&nbsp;ni&nbsp;wrthi=92n&nbsp;helpu&nbsp;nifer&nbsp;faw=
+r&nbsp;o&nbsp;bobl&nbsp;gyda=92u&nbsp;cwynion&nbsp;ar&nbsp;hyn&nbsp;o&nbsp;=
+bryd.
+ Am yr amserlenni diweddaraf i ddyrannu achosion, ewch i'r </span><a href=
+=3D"https://ico.org.uk/make-a-complaint/data-protection-complaints/" target=
+=3D"_blank" title=3D"https://ico.org.uk/make-a-complaint/data-protection-co=
+mplaints/"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&qu=
+ot;Verdana&quot;,sans-serif;mso-fareast-language:EN-GB">dudalen
+ gwneud cwyn</span></a><span style=3D"font-size:12.0pt;line-height:105%;fon=
+t-family:&quot;Verdana&quot;,sans-serif;mso-fareast-language:EN-GB"> ar ein=
+ gwefan. Ymddiheurwn am yr oedi yma ond hoffem eich sicrhau ein bod yn cymr=
+yd eich cwyn o ddifrif.<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">Os yw=92ch gohebiaeth yn ymwneud =
+ag achos sydd eisoes yn bod&nbsp;</span></b><span style=3D"font-size:12.0pt=
+;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif;color:black">-
+ byddwn yn ei hychwanegu at eich achos ac fe gaiff ei hystyried ar =F4l cae=
+l ei dyrannu i swyddog achosion. Os ydych yn credu ein bod ni naill ai wedi=
+ methu cymryd camau priodol i ymateb i'ch cwyn diogelu data, neu heb ddarpa=
+ru gwybodaeth ichi am gynnydd neu
+ ganlyniad eich cwyn o fewn y tri mis nesaf, efallai y byddwch yn gallu gwn=
+eud cais i'r Tribiwnlys Haen Gyntaf i=92w gwneud yn ofynnol inni ICO ymateb=
+ i'ch cwyn neu ddarparu gwybodaeth ichi am gynnydd eich cwyn. (</span><a hr=
+ef=3D"http://www.gov.uk/" target=3D"_blank"><span style=3D"font-size:12.0pt=
+;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif">www.gov.uk</s=
+pan></a><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot;=
+Verdana&quot;,sans-serif;color:black">&nbsp;-
+ information rights and data protection: appeal against the Information Com=
+missioner)<b>&nbsp;</b></span><span style=3D"font-size:9.0pt;line-height:10=
+5%;font-family:&quot;Tahoma&quot;,sans-serif;color:black;mso-ligatures:stan=
+dardcontextual"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">Os ydych wedi gofyn am gyngor</sp=
+an></b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot;V=
+erdana&quot;,sans-serif;color:black">&nbsp;=96
+ byddwn yn ymateb o fewn 14 diwrnod. Tra byddwch yn aros, dylech edrych yn =
+rheolaidd ar ein&nbsp;</span><a href=3D"http://www.ico.org.uk/" target=3D"_=
+blank"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot;V=
+erdana&quot;,sans-serif">gwefan</span></a><span style=3D"font-size:12.0pt;l=
+ine-height:105%;font-family:&quot;Verdana&quot;,sans-serif;color:black">&nb=
+sp;(</span><a href=3D"http://www.ico.org.uk/" target=3D"_blank"><span style=
+=3D"font-size:12.0pt;line-height:105%;font-family:&quot;Verdana&quot;,sans-=
+serif">www.ico.org.uk</span></a><span style=3D"font-size:12.0pt;line-height=
+:105%;font-family:&quot;Verdana&quot;,sans-serif;color:black">)
+ i chwilio am ganllawiau perthnasol, gan eu bod yn cael eu diweddaru drwy=
+=92r amser. Hefyd dylech ddarllen ein&nbsp;</span><a href=3D"https://ico.or=
+g.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-p=
+rotection-regulation-gdpr" target=3D"_blank"><span style=3D"font-size:12.0p=
+t;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif">blogiau
+ ynghylch =91mythau=92r GDPR</span></a><span style=3D"font-size:12.0pt;line=
+-height:105%;font-family:&quot;Verdana&quot;,sans-serif;color:black">=92. O=
+s ydych wedi codi cwestiwn sydd wedi=92i ateb ar ein gwefan, mae=92n bosibl=
+ y byddwn yn ymateb drwy anfon dolen atoch i gysylltu
+ =E2=92r ateb.&nbsp; Ond fe wnawn ein gorau glas i roi=92r wybodaeth angenr=
+heidiol ichi</span><span style=3D"font-size:9.0pt;line-height:105%;font-fam=
+ily:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">Os ydych yn cynrychioli sefydliad=
+ a=92ch bod yn rhoi gwybod am drosedd data personol
+ o dan y GDPR neu Ddeddf Diogelu Data 2018&nbsp;</span></b><span style=3D"f=
+ont-size:12.0pt;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif=
+;color:black">=96 rydym yn anelu at gysylltu =E2 chi o fewn saith niwrnod c=
+alendr i gadarnhau bod eich neges wedi dod i law ac i
+ roi rhif cyfeirnod achos ichi. Os oes arnoch eisiau cyngor ar frys, dylech=
+ ffonio=92n llinell gymorth ar 0303 123 1113. Cewch ragor o wybodaeth am ro=
+i gwybod am droseddau data ar ein gwefan.</span><span style=3D"font-size:9.=
+0pt;line-height:105%;font-family:&quot;Tahoma&quot;,sans-serif;color:black"=
+><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif;color:black">Pan fo digwyddiad seibr arwyddocaol =
+yn digwydd, mae=92n bosibl y bydd angen ichi roi gwybod
+ amdano hefyd i=92r Ganolfan Seiberddiogelwch Genedlaethol (yr NCSC). I=92c=
+h helpu i benderfynu, dylech ddarllen canllawiau=92r NCSC ar eu r=F4l a=92r=
+ math o ddigwyddiadau y dylech ystyried rhoi gwybod amdanyn nhw. (</span><a=
+ href=3D"http://www.ncsc.gov.uk/" target=3D"_blank"><span style=3D"font-siz=
+e:12.0pt;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif">www.n=
+csc.gov.uk</span></a><span style=3D"font-size:12.0pt;line-height:105%;font-=
+family:&quot;Verdana&quot;,sans-serif;color:black">&nbsp;-incident-manageme=
+nt)&nbsp;</span><span style=3D"font-size:9.0pt;line-height:105%;font-family=
+:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif;color:black">Dylai digwyddiadau a allai arwain at=
+ risg uwch y bydd twyll yn effeithio ar unigolion
+ gael eu cyfleu i Report Fraud (</span><a href=3D"https://www.reportfraud.p=
+olice.uk/" target=3D"_blank"><span style=3D"font-size:12.0pt;line-height:10=
+5%;font-family:&quot;Verdana&quot;,sans-serif">https://www.reportfraud.poli=
+ce.uk/</span></a><span style=3D"font-size:12.0pt;line-height:105%;font-fami=
+ly:&quot;Verdana&quot;,sans-serif;color:black">)
+ =96 sef canolfan genedlaethol y Deyrnas Unedig ar gyfer rhoi gwybod am dwy=
+ll a seiberdroseddau. Os yw eich sefydliad yn yr Alban, yna i Heddlu=92r Al=
+ban y dylech chi roi gwybod (</span><a href=3D"http://www.scotland.police.u=
+k/" target=3D"_blank"><span style=3D"font-size:12.0pt;line-height:105%;font=
+-family:&quot;Verdana&quot;,sans-serif">www.scotland.police.uk</span></a><s=
+pan style=3D"font-size:12.0pt;line-height:105%;font-family:&quot;Verdana&qu=
+ot;,sans-serif;color:black">).</span><span style=3D"font-size:9.0pt;line-he=
+ight:105%;font-family:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p=
+></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">Os ydych yn Ddarparwr Gwasanaetha=
+u Cyfathrebu sy=92n rhoi gwybod am dor diogelwch o
+ dan y Rheoliadau Preifatrwydd a Chyfathrebu Electronig&nbsp;</span></b><sp=
+an style=3D"font-size:12.0pt;line-height:105%;font-family:&quot;Verdana&quo=
+t;,sans-serif;color:black">=96 bydd angen ichi roi gwybod am y tor diogelwc=
+h drwy=92r&nbsp;</span><a href=3D"https://report.ico.org.uk/security-breach=
+/" target=3D"_blank"><span style=3D"font-size:12.0pt;line-height:105%;font-=
+family:&quot;Verdana&quot;,sans-serif">porth
+ diogel</span></a><span style=3D"font-size:12.0pt;line-height:105%;font-fam=
+ily:&quot;Verdana&quot;,sans-serif;color:black">&nbsp;sydd ar gael ar y tud=
+alennau ar ein gwefan sy=92n ymwneud =E2=92r PECR.</span><span style=3D"fon=
+t-size:9.0pt;line-height:105%;font-family:&quot;Tahoma&quot;,sans-serif;col=
+or:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">Os ydych yn cynrychioli sefydliad=
+ a=92ch bod yn rhoi gwybod am ddigwyddiad posibl o
+ dan Gyfarwyddeb yr NIS&nbsp;</span></b><span style=3D"font-size:12.0pt;lin=
+e-height:105%;font-family:&quot;Verdana&quot;,sans-serif;color:black">=96 b=
+yddwn yn cysylltu =E2 chi cyn gynted ag y gallwn. Cewch ragor o wybodaeth a=
+m Reoliadau=92r NIS ar ein gwefan.</span><span style=3D"font-size:9.0pt;lin=
+e-height:105%;font-family:&quot;Tahoma&quot;,sans-serif;color:black"><o:p><=
+/o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">Os ydych yn cynrychioli sefydliad=
+ a=92ch bod yn rhoi gwybod am dor diogelwch o fewn
+ y diffiniad yn Rheoliad eIDAS&nbsp;</span></b><span style=3D"font-size:12.=
+0pt;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif;color:black=
+">=96 byddwn yn cysylltu =E2 chi cyn gynted ag y gallwn. Cewch ragor o wybo=
+daeth am Reoliad eIDAS ar ein gwefan.</span><span style=3D"font-size:9.0pt;=
+line-height:105%;font-family:&quot;Tahoma&quot;,sans-serif;color:black"><o:=
+p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">Os ydych wedi rhoi gwybod am ebos=
+t sbam&nbsp;</span></b><span style=3D"font-size:12.0pt;line-height:105%;fon=
+t-family:&quot;Verdana&quot;,sans-serif;color:black">=96
+ mae=92n annhebygol y bydd angen inni gysylltu =E2 chi eto, oni bai bod arn=
+on ni angen rhagor o wybodaeth i helpu yn ein hymchwiliad. Rydym yn cyhoedd=
+i gwybodaeth am y camau rydyn ni wedi=92u cymryd ynghylch negeseuon niwsans=
+ ar ein gwefan.</span><span style=3D"font-size:9.0pt;line-height:105%;font-=
+family:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">Os ydych wedi gofyn am wybodaeth =
+yr ydych yn credu ei bod gennyn ni&nbsp;</span></b><span style=3D"font-size=
+:12.0pt;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif;color:b=
+lack">=96
+ byddwn yn cysylltu =E2 chi os bydd arnom angen rhagor o wybodaeth i=92n he=
+lpu i ymateb. Fel arall, byddwn yn ymateb ichi o fewn ein lefelau gwasanaet=
+h statudol a chyhoeddus. I gael rhagor o wybodaeth, ewch i=92n tudalen gwe =
+=91request information from us=92 (ewch i=92n
+ tudalen hafan a dilynwch y ddolen =91about the ICO=92 ac =91our informatio=
+n=92).<b>&nbsp;</b></span><span style=3D"font-size:9.0pt;line-height:105%;f=
+ont-family:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p=
+>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><b><span style=3D"font-size:12.0pt;line-height:105%;font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black">Os ydych wedi anfon copi o=92ch g=
+ohebiaeth aton ni ond dim byd arall&nbsp;</span></b><span style=3D"font-siz=
+e:12.0pt;line-height:105%;font-family:&quot;Verdana&quot;,sans-serif;color:=
+black">=96
+ fyddwn ni ddim yn ymateb.</span><span style=3D"font-size:9.0pt;line-height=
+:105%;font-family:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></s=
+pan></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif;color:black">Mae gwybodaeth fanylach, gan gynnwys=
+ gwybodaeth am ein hamserau ymateb presennol, ar
+ ein tudalen gwe safonau gwasanaeth a beth i=92w ddisgwyl. Gallwch ffonio h=
+efyd yn y Gymraeg ar 0303 123 1113 opsiwn 9 neu yn Saesneg ar 0303&nbsp;123=
+ 1113. Gallwch gysylltu =E2 ni hefyd i gael sgwrs fyw (ewch i=92n tudalen g=
+we =91contact us=92 a =91live chat=92).</span><span style=3D"font-size:9.0p=
+t;line-height:105%;font-family:&quot;Tahoma&quot;,sans-serif;color:black"><=
+o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif;color:black">I gael gwybodaeth am yr hyn rydyn ni=
+=92n ei wneud =E2 data personol, gweler ein hysbysiad
+ preifatrwydd:&nbsp;</span><a href=3D"https://ico.org.uk/global/privacy-not=
+ice/" target=3D"_blank"><span style=3D"font-size:12.0pt;line-height:105%;fo=
+nt-family:&quot;Verdana&quot;,sans-serif">https://ico.org.uk/global/privacy=
+-notice/</span></a><span style=3D"font-size:9.0pt;line-height:105%;font-fam=
+ily:&quot;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif;color:black">Yn gywir</span><span style=3D"font-s=
+ize:9.0pt;line-height:105%;font-family:&quot;Tahoma&quot;,sans-serif;color:=
+black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-a=
+lt:auto"><span style=3D"font-size:12.0pt;line-height:105%;font-family:&quot=
+;Verdana&quot;,sans-serif;color:black">Swyddfa=92r Comisiynydd Gwybodaeth&n=
+bsp;</span><span style=3D"font-size:9.0pt;line-height:105%;font-family:&quo=
+t;Tahoma&quot;,sans-serif;color:black"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;line-height:105%;fon=
+t-family:&quot;Verdana&quot;,sans-serif"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-left:36.0pt;text-indent:-36.0pt"><sp=
+an style=3D"font-size:12.0pt;line-height:105%;font-family:&quot;Verdana&quo=
+t;,sans-serif"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;line-height:105%;fon=
+t-family:&quot;Verdana&quot;,sans-serif"><o:p>&nbsp;</o:p></span></p>
+</div>
+</body>
+</html>
+
+--_000_ff6d38dedf8a49a5a94549bbd5d1f805LOEP265MB555277GBRP265P_--

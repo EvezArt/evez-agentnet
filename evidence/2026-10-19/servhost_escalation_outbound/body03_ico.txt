@@ -1,0 +1,34 @@
+To the Information Commission (the Information Commission's Office, "the ICO"), as the
+UK's competent authority for relevant digital service providers under the NIS Regulations
+2018:
+
+SERV.HOST GROUP LTD (Companies House 15728390, registered in England & Wales, London)
+operates AS207957, which announces 150.241.74.0/24 (origin verified live 2026-10-19 against
+BGP routing data). On that range, criminal attack traffic and command-and-control
+infrastructure has been observed targeting third parties.
+
+A formal abuse and preservation demand was served to the provider's abuse contact on
+2026-10-11. By 2026-10-19 the provider had not acknowledged or acted on it. The service
+record further shows the provider's mail servers rejecting the first transmission of the
+demand on all three of its published addresses (abuse@, noc@ and postmaster@serv.host —
+SMTP 554 5.7.1; delivery receipts retained), with a second transmission accepted the same
+day and then ignored for eight days.
+
+As a UK-established hosting/transit provider, SERV.HOST GROUP LTD carries security and
+duty-of-care obligations under the UK NIS regime (Network and Information Systems
+Regulations 2018) and hosting-provider security expectations. An eight-day failure to
+action abuse involving active criminal infrastructure — through an abuse channel that
+itself rejects abuse mail — suggests a breakdown in those obligations.
+
+We request the authority:
+
+  (a) open an enquiry into SERV.HOST GROUP LTD's abuse-handling and due diligence over
+      resources used in an ongoing criminal matter (FBI IC3 complaint filed 2026-10-01);
+  (b) confirm the provider's registered details and filings are current and accurate;
+  (c) preserve relevant records.
+
+Evidence is attached: the original demand, RDAP/RIPEstat receipts, and hash-chained
+attack logs.
+
+Filed by the victim operator identified in the attached demand (FBI IC3 complaint
+2026-10-01); replies to this mailbox reach me directly.

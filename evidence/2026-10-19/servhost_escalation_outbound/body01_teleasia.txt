@@ -1,0 +1,37 @@
+On 2026-10-11 a formal abuse and preservation demand was served to abuse@serv.host concerning
+criminal attack traffic and C2 hosting on 150.241.74.0/24 (AS207957, SERV.HOST GROUP LTD,
+RIPE org ORG-MG337-RIPE, abuse NOC AN32913-RIPE). As of 2026-10-19 no acknowledgement or
+remediation has been received. The range continues to be announced by AS207957 (origin
+verified live 2026-10-19 against BGP routing data).
+
+Service record, for completeness: the demand was first transmitted at 18:04 UTC on 2026-10-11
+to abuse@serv.host, copied to noc@serv.host and postmaster@serv.host. The provider's mail
+servers rejected all three copies (SMTP 554 5.7.1 "Message rejected under suspicion of SPAM";
+delivery receipts retained). A second transmission at 19:59 UTC the same day was accepted.
+Eight days later there is still no acknowledgement or remediation. A provider whose abuse
+channel rejects abuse mail while its announced range hosts criminal infrastructure is itself
+escalation-grade evidence.
+
+As an upstream or transit provider in the path of this infrastructure, we request you:
+
+  (a) confirm whether SERV.HOST GROUP LTD / AS207957 is or was in your downstream, transit,
+      or peering path;
+  (b) enforce your acceptable-use policy against this customer for hosting criminal
+      infrastructure (attack traffic + C2);
+  (c) preserve all transit, customer, billing, and peering records for 150.241.74.0/24;
+  (d) provide written acknowledgement of this escalation.
+
+Note specific to Tele Asia Limited (AS133398): your published abuse contact
+abuse@tele-asia.net hard-bounced an earlier notice on 2026-10-04 (SMTP 5.0.0 permanent
+failure via Mailer-Daemon@main.hosthongkong.net; receipt retained). A dead abuse-c on a
+transit ASN is itself escalation-grade evidence. If abuse@tele-asia.net is not monitored,
+please route this escalation to a live contact — the APNIC registrant-level address on
+record is abusedept@tele-asia.net — and repair the published abuse mailbox.
+
+Scope note on Prime Telecom srl: Prime responded to an earlier (2026-10-06) notice denying
+that AS48090 and AS47890 are in its downstream. Those are separate ASNs from the AS207957
+matter addressed here. This request concerns ONLY AS207957 / 150.241.74.0/24. If Prime does
+not transit or peer AS207957, no action is requested of Prime beyond acknowledgement.
+
+This is part of an ongoing criminal matter (FBI IC3 complaint filed 2026-10-01). Evidence is
+attached: the original demand, RDAP/RIPEstat receipts, and hash-chained attack logs.

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18T20:51:15.516371+00:00",
+  "generated": "2026-10-19T05:48:21.866863+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -22,6 +22,11 @@
       "unit": "evez-api-node.service",
       "sub": "running",
       "since": "Sun 2026-10-18 19:21:20 CEST"
+    },
+    {
+      "unit": "evez-ares.service",
+      "sub": "running",
+      "since": "Mon 2026-10-19 00:50:28 CEST"
     },
     {
       "unit": "evez-cogview.service",
@@ -72,6 +77,16 @@
       "unit": "evez-lineage.service",
       "sub": "running",
       "since": "Sun 2026-10-18 19:21:20 CEST"
+    },
+    {
+      "unit": "evez-live-monitor-vnc.service",
+      "sub": "running",
+      "since": "Mon 2026-10-19 03:49:24 CEST"
+    },
+    {
+      "unit": "evez-live-monitor.service",
+      "sub": "running",
+      "since": "Mon 2026-10-19 03:49:24 CEST"
     },
     {
       "unit": "evez-media-shipper.service",
@@ -141,7 +156,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 20:14:55 CEST"
+      "since": "Mon 2026-10-19 04:01:00 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -184,7 +199,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 56763,
+      "pid": 491626,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -224,7 +239,7 @@
       "port": 443,
       "bind": "100.126.180.47",
       "proc": "tailscaled",
-      "pid": 1155,
+      "pid": 201839,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -234,7 +249,7 @@
       "port": 443,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
-      "pid": 1155,
+      "pid": 201839,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -244,7 +259,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 1118,
+      "pid": 263189,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -254,9 +269,29 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 1118,
+      "pid": 263189,
       "public_bind": false,
       "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 3000,
+      "bind": "100.126.180.47",
+      "proc": "docker-proxy",
+      "pid": 664527,
+      "public_bind": false,
+      "tailnet": true,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 3001,
+      "bind": "100.126.180.47",
+      "proc": "docker-proxy",
+      "pid": 664539,
+      "public_bind": false,
+      "tailnet": true,
       "exposed": false,
       "fw_blocked": false
     },
@@ -274,7 +309,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 52576,
+      "pid": 489231,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -321,10 +356,40 @@
       "fw_blocked": false
     },
     {
+      "port": 5902,
+      "bind": "127.0.0.1",
+      "proc": "x11vnc",
+      "pid": 474841,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 5902,
+      "bind": "[::1]",
+      "proc": "x11vnc",
+      "pid": 474841,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 6080,
       "bind": "127.0.0.1",
       "proc": "websockify",
       "pid": 1367,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 6081,
+      "bind": "127.0.0.1",
+      "proc": "websockify",
+      "pid": 474843,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -374,7 +439,7 @@
       "port": 8443,
       "bind": "100.126.180.47",
       "proc": "tailscaled",
-      "pid": 1155,
+      "pid": 201839,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -384,7 +449,7 @@
       "port": 8443,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
-      "pid": 1155,
+      "pid": 201839,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -514,7 +579,7 @@
       "port": 9443,
       "bind": "100.126.180.47",
       "proc": "tailscaled",
-      "pid": 1155,
+      "pid": 201839,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -524,7 +589,7 @@
       "port": 9443,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
-      "pid": 1155,
+      "pid": 201839,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -554,7 +619,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 52576,
+      "pid": 489231,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -564,7 +629,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 52576,
+      "pid": 489231,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -661,20 +726,30 @@
       "fw_blocked": false
     },
     {
-      "port": 36261,
-      "bind": "[fd7a:115c:a1e0::5f31:b430]",
-      "proc": "tailscaled",
-      "pid": 1155,
+      "port": 35015,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 489231,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
     {
-      "port": 44083,
+      "port": 36261,
+      "bind": "[fd7a:115c:a1e0::5f31:b430]",
+      "proc": "tailscaled",
+      "pid": 201839,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 38709,
       "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 52576,
+      "proc": "llama-server",
+      "pid": 531917,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -684,7 +759,7 @@
       "port": 51885,
       "bind": "100.126.180.47",
       "proc": "tailscaled",
-      "pid": 1155,
+      "pid": 201839,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -871,23 +946,23 @@
   ],
   "docker": [
     {
-      "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 2 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
       "name": "ruview-demo",
-      "status": "Up 3 hours",
+      "status": "Up About an hour",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
+      "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
+      "status": "Up 11 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 3 hours",
+      "status": "Up 12 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 3 hours",
+      "status": "Up 12 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -929,9 +1004,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "b82c6b4",
-    "last": "subnet_rollout: never promote private/loopback/link-local into walls (loopback-starvation fix)",
-    "dirty": 41
+    "head": "98c9172",
+    "last": "war-mode heartbeat 2026-10-18 20:5x UTC: patrol found 5 \u2014 three enemy clocks + intruder + hand, all verified live. bunea+palo 14-day DUE-2 (deadline 10-20): E&W proceedings / aggravated s1030 posture, claim package staged, send = custodian hands only. servhost-abuse-demand DUE-0 (deadline TODAY 10-18): escalation package re-verified \u2014 demand eml 69dccba6 and portal receipts 86a0f87c byte-exact this tick, 3 draft targets (upstream transit / RIPE NCC / regulator) hashed, READY.md draft body refreshed to record 7 days of verified silence on deadline day; send = custodian hands only. CORTEX intruder v=2 re-measured 2 at patrol, 0 on independent re-measure 3 min later: failed-SSH-password noise (4 hits today, all invalid/generic users from scanner IPs, last 08:52 local), window collapsed \u2014 ghost by the patrol's own <0.4x rule, no perimeter finding. CORTEX hand v=66 re-measured 66: calligraphy cycle 66 live in evolution ledger (19:10Z, score 4.0). spine gate green before commit (chain verifies, timestamps non-decreasing), all 7 patrol suites passed this tick. operational churn through 20:5x UTC incl. the_smug.mp4 (3.7M, films tracked).",
+    "dirty": 78
   },
   "mirrors": 2341
 }

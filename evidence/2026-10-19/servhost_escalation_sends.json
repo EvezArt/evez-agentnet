@@ -1,0 +1,263 @@
+{
+  "operation": "servhost_escalation_sends",
+  "executed_utc": "2026-10-19T02:09:48Z .. 2026-10-19T02:22:12Z",
+  "sent_by": "hermes cron run 2026-10-19, from default himalaya account fiersteity@gmail.com",
+  "authorization": "Steven, 2026-10-17: 'Yes do it all' (GO for ServHost escalation after the 2026-10-18 silence deadline)",
+  "gate0_abort_check": {
+    "scope": "default account (fiersteity) inbox+spam+trash, window 2026-10-11 through 2026-10-19",
+    "inbox_coverage": "300 newest envelopes, back to 2026-09-22T17:44Z",
+    "spam": "6 envelopes, back to 2026-09-23T13:43Z (newest: Prime Telecom denial 2026-10-06T11:14+03:00)",
+    "trash": "empty",
+    "serv_host_senders_found": 0,
+    "cross_check": "rubik69 inbox swept to 2026-10-11T23:26Z + spam to 2026-09-24; zero serv.host senders",
+    "result": "NO REPLY FROM SERV.HOST — deadline 2026-10-18 expired in silence. ESCALATION FIRED."
+  },
+  "gate1_reverifications": {
+    "ripe_abuse_contact": {
+      "live_web_pages": "ripe.net abuse/contact pages render NO mailbox at all (checked in real browser 2026-10-19: /about-us/support/abuse/, /contact/, /about-us/contact/, /support/contact/ — zero @ripe.net addresses in rendered DOM)",
+      "registry_live": "RDAP (rdap.db.ripe.net) for RIPE NCC's own resources 193.0.0.1 -> entity OPS4-RIPE, email type abuse: abuse@ripe.net",
+      "decision": "sent to abuse@ripe.net per plan; caveat: the human-facing ripe.net pages no longer publish a mailbox, address confirmed live only via the registry itself"
+    },
+    "ico": {
+      "live_branding": "homepage <title> = 'Information Commission's Office'; zero 'Commissioner' occurrences on live homepage; ICO news 2026-09 + gov.uk confirm the Information Commission took over 2026-09-30 under the Data (Use and Access) Act 2025; organisation continues as 'the ICO'",
+      "nis_mailbox": "icocasework@ico.org.uk — published inside the ICO's own live-linked NIS incident notification form (ico-nis-reporting-form.docx, fetched 2026-10-19): 'Please send your completed form to icocasework@ico.org.uk, with NIS incident notification form in the subject field'",
+      "addressee_used": "To the Information Commission (the Information Commission's Office, 'the ICO') as the UK's NIS competent authority for relevant digital service providers"
+    },
+    "registry_facts_live_2026_10_19": {
+      "rdap_150_241_74_83": "network AS210546-iPv4, org ORG-MG337-RIPE SERV.HOST GROUP LTD, abuse role AN32913-RIPE -> abuse@serv.host",
+      "bgp_origin": "Team Cymru origin.asn.cymru.com TXT: '207957 | 150.241.74.0/24 | US | ripencc' — range still announced by AS207957 on send day"
+    }
+  },
+  "service_record_correction": {
+    "what_happened": "The 2026-10-11 18:04:52Z demand (To abuse@serv.host, Cc noc@ + postmaster@serv.host, from fiersteity) was REJECTED by the provider's MX at 18:06Z on all three addresses: SMTP 554 5.7.1 'Message rejected under suspicion of SPAM' (3 Gmail DSNs, uids 3031/3032/3033). A second transmission 2026-10-11 19:59:29Z from rubikspubes69@gmail.com to abuse@serv.host was ACCEPTED (no DSN ever arrived across deep sweeps of both accounts). Zero response in the 8 days since. Demand therefore SERVED and IGNORED, with the 554 rejections documented.",
+    "letters_amended": "All bodies updated: 'As of 2026-10-16' -> 'As of 2026-10-19', five days -> eight days; one 'service record' paragraph added per letter stating the 554 rejections and the accepted second transmission. Draft structure, requests, subjects unchanged. Tele Asia copy additionally cites its own 2026-10-04 hard bounce per the draft's warning. Required for factual accuracy; strengthens the abuse-c non-compliance thesis (provider MX refuses abuse mail while its range hosts criminal infrastructure).",
+    "bounce_receipts_saved": {
+      "dir": "evidence/2026-10-19/servhost_bounce_receipts/",
+      "servhost_bounce_abuse.eml": "sha256 b6c6dd0439d1c1f49e06017f23b2ccbaf9ce8cc9e64c343d75f00e37818dcc01",
+      "servhost_bounce_postmaster.eml": "sha256 ec735dfecd46c88358ba9edd9e2d57c694d91e5cbbe17ccf3aaafb8d51bc2224",
+      "servhost_bounce_noc.eml": "sha256 a8710ff1d25fed6a465e77666b5031d98ff504d9bb04077e788d8f7088e5f5bf",
+      "source": "fetched raw via himalaya imap fetch --body from fiersteity INBOX (uids 3031/3032/3033) on 2026-10-19"
+    }
+  },
+  "attachments_on_every_send": [
+    {
+      "file": "evidence/2026-10-11/servhost_abuse_demand.eml",
+      "sha256": "69dccba62ba7a18583e29d53ad78e64178b8815831cca6a2cf01e8f9fe99a5a0"
+    },
+    {
+      "file": "evidence/2026-10-15/portal_receipts.json",
+      "sha256": "86a0f87c0cc506bfc0389087337cc791844ed765446cf4a129a617c6f6c48709"
+    },
+    {
+      "file": "forge_output/rfj_bundle_v2/RFJ_ADDENDUM_BUNDLE_v2.zip",
+      "sha256": "ac34d8d2d4e20a8598098d23d38c9bcc310c2ed24373f9a99165adebe48cb19a"
+    }
+  ],
+  "sha_prefixes_match_2026_10_17_verification": [
+    "69dccba6",
+    "86a0f87c",
+    "ac34d8d2"
+  ],
+  "sends": [
+    {
+      "draft": "01_upstream_transit",
+      "recipient": "abuse@fiberxpress.net",
+      "subject": "ESCALATION: upstream/transit AUP enforcement requested — SERV.HOST GROUP LTD (AS207957 / 150.241.74.0/24) — attack traffic + C2 hosting",
+      "subject_note": "canonical subject; envelope-list rendering collapses whitespace but the stored message header carries the full subject (verified via message read)",
+      "message_id": "18dfcc488c73b63d.c5b2a4ba0b1a5afa.76e7481204059687@vmi3544756",
+      "sent_at_utc": "2026-10-19T02:09:48Z",
+      "sent_copy_id": "164",
+      "body_file": "evidence/2026-10-19/servhost_escalation_outbound/body01.txt",
+      "attachments": [
+        "servhost_abuse_demand.eml",
+        "portal_receipts.json",
+        "RFJ_ADDENDUM_BUNDLE_v2.zip"
+      ],
+      "attachments_verified": true,
+      "status": "sent",
+      "bounce_at_send_time": "none as of 2026-10-19T02:27Z sweep"
+    },
+    {
+      "draft": "01_upstream_transit",
+      "recipient": "abuse@primetelecom.ro",
+      "subject": "ESCALATION: upstream/transit AUP enforcement requested — SERV.HOST GROUP LTD (AS207957 / 150.241.74.0/24) — attack traffic + C2 hosting",
+      "subject_note": "canonical subject; envelope-list rendering collapses whitespace but the stored message header carries the full subject (verified via message read)",
+      "message_id": "18dfcce91e8e0080.357c1fac18d00332.5e5e30c080402885@vmi3544756",
+      "sent_at_utc": "2026-10-19T02:21:18Z",
+      "sent_copy_id": "165",
+      "body_file": "evidence/2026-10-19/servhost_escalation_outbound/body01.txt",
+      "attachments": [
+        "servhost_abuse_demand.eml",
+        "portal_receipts.json",
+        "RFJ_ADDENDUM_BUNDLE_v2.zip"
+      ],
+      "attachments_verified": true,
+      "status": "sent",
+      "bounce_at_send_time": "none as of 2026-10-19T02:27Z sweep"
+    },
+    {
+      "draft": "01_upstream_transit",
+      "recipient": "abuse@tele-asia.net",
+      "subject": "ESCALATION: upstream/transit AUP enforcement requested — SERV.HOST GROUP LTD (AS207957 / 150.241.74.0/24) — attack traffic + C2 hosting",
+      "subject_note": "canonical subject; envelope-list rendering collapses whitespace but the stored message header carries the full subject (verified via message read)",
+      "message_id": "18dfcceb0609a6fd.3a68cafe00f8d5e6.6ac94898226e5e9b@vmi3544756",
+      "sent_at_utc": "2026-10-19T02:21:26Z",
+      "sent_copy_id": "166",
+      "body_file": "evidence/2026-10-19/servhost_escalation_outbound/body01_teleasia.txt",
+      "attachments": [
+        "servhost_abuse_demand.eml",
+        "portal_receipts.json",
+        "RFJ_ADDENDUM_BUNDLE_v2.zip"
+      ],
+      "attachments_verified": true,
+      "status": "sent",
+      "bounce_at_send_time": "none as of 2026-10-19T02:27Z sweep"
+    },
+    {
+      "draft": "01_upstream_transit",
+      "recipient": "abuse@godaddy.com",
+      "subject": "ESCALATION: upstream/transit AUP enforcement requested — SERV.HOST GROUP LTD (AS207957 / 150.241.74.0/24) — attack traffic + C2 hosting",
+      "subject_note": "canonical subject; envelope-list rendering collapses whitespace but the stored message header carries the full subject (verified via message read)",
+      "message_id": "18dfccec5bab7359.e152a173adb52acb.2e5f325256139b75@vmi3544756",
+      "sent_at_utc": "2026-10-19T02:21:32Z",
+      "sent_copy_id": "167",
+      "body_file": "evidence/2026-10-19/servhost_escalation_outbound/body01.txt",
+      "attachments": [
+        "servhost_abuse_demand.eml",
+        "portal_receipts.json",
+        "RFJ_ADDENDUM_BUNDLE_v2.zip"
+      ],
+      "attachments_verified": true,
+      "status": "sent",
+      "bounce_at_send_time": "none as of 2026-10-19T02:27Z sweep"
+    },
+    {
+      "draft": "01_upstream_transit",
+      "recipient": "abuse@cloudflare.com",
+      "subject": "ESCALATION: upstream/transit AUP enforcement requested — SERV.HOST GROUP LTD (AS207957 / 150.241.74.0/24) — attack traffic + C2 hosting",
+      "subject_note": "canonical subject; envelope-list rendering collapses whitespace but the stored message header carries the full subject (verified via message read)",
+      "message_id": "18dfcceda3f599e3.69e5a1d66ad2d08a.e48b4944e30ccc11@vmi3544756",
+      "sent_at_utc": "2026-10-19T02:21:37Z",
+      "sent_copy_id": "168",
+      "body_file": "evidence/2026-10-19/servhost_escalation_outbound/body01.txt",
+      "attachments": [
+        "servhost_abuse_demand.eml",
+        "portal_receipts.json",
+        "RFJ_ADDENDUM_BUNDLE_v2.zip"
+      ],
+      "attachments_verified": true,
+      "status": "sent",
+      "bounce_at_send_time": "none as of 2026-10-19T02:27Z sweep"
+    },
+    {
+      "draft": "01_upstream_transit",
+      "recipient": "abuse@netshield.ltd",
+      "subject": "ESCALATION: upstream/transit AUP enforcement requested — SERV.HOST GROUP LTD (AS207957 / 150.241.74.0/24) — attack traffic + C2 hosting",
+      "subject_note": "canonical subject; envelope-list rendering collapses whitespace but the stored message header carries the full subject (verified via message read)",
+      "message_id": "18dfccef01685b84.eea574b41411ebeb.24b66676bc11c8ff@vmi3544756",
+      "sent_at_utc": "2026-10-19T02:21:43Z",
+      "sent_copy_id": "169",
+      "body_file": "evidence/2026-10-19/servhost_escalation_outbound/body01.txt",
+      "attachments": [
+        "servhost_abuse_demand.eml",
+        "portal_receipts.json",
+        "RFJ_ADDENDUM_BUNDLE_v2.zip"
+      ],
+      "attachments_verified": true,
+      "status": "sent",
+      "bounce_at_send_time": "none as of 2026-10-19T02:27Z sweep"
+    },
+    {
+      "draft": "01_upstream_transit",
+      "recipient": "abuse@mevspace.com",
+      "subject": "ESCALATION: upstream/transit AUP enforcement requested — SERV.HOST GROUP LTD (AS207957 / 150.241.74.0/24) — attack traffic + C2 hosting",
+      "subject_note": "canonical subject; envelope-list rendering collapses whitespace but the stored message header carries the full subject (verified via message read)",
+      "message_id": "18dfccf051d0f5e0.a1585029f821a4f9.ea6ab7d9f1d9787@vmi3544756",
+      "sent_at_utc": "2026-10-19T02:21:49Z",
+      "sent_copy_id": "170",
+      "body_file": "evidence/2026-10-19/servhost_escalation_outbound/body01.txt",
+      "attachments": [
+        "servhost_abuse_demand.eml",
+        "portal_receipts.json",
+        "RFJ_ADDENDUM_BUNDLE_v2.zip"
+      ],
+      "attachments_verified": true,
+      "status": "sent",
+      "bounce_at_send_time": "none as of 2026-10-19T02:27Z sweep"
+    },
+    {
+      "draft": "01_upstream_transit",
+      "recipient": "boss@adman.com",
+      "subject": "ESCALATION: upstream/transit AUP enforcement requested — SERV.HOST GROUP LTD (AS207957 / 150.241.74.0/24) — attack traffic + C2 hosting",
+      "subject_note": "canonical subject; envelope-list rendering collapses whitespace but the stored message header carries the full subject (verified via message read)",
+      "message_id": "18dfccf1a2f07dfb.651d16eacbece210.f243f19d7b19b35d@vmi3544756",
+      "sent_at_utc": "2026-10-19T02:21:54Z",
+      "sent_copy_id": "171",
+      "body_file": "evidence/2026-10-19/servhost_escalation_outbound/body01.txt",
+      "attachments": [
+        "servhost_abuse_demand.eml",
+        "portal_receipts.json",
+        "RFJ_ADDENDUM_BUNDLE_v2.zip"
+      ],
+      "attachments_verified": true,
+      "status": "sent",
+      "bounce_at_send_time": "none as of 2026-10-19T02:27Z sweep"
+    },
+    {
+      "draft": "01_upstream_transit",
+      "recipient": "abuse@fiberstate.com",
+      "subject": "ESCALATION: upstream/transit AUP enforcement requested — SERV.HOST GROUP LTD (AS207957 / 150.241.74.0/24) — attack traffic + C2 hosting",
+      "subject_note": "canonical subject; envelope-list rendering collapses whitespace but the stored message header carries the full subject (verified via message read)",
+      "message_id": "18dfccf2ec9c68f4.c4fad89ac8028498.84a25c167ac8f61@vmi3544756",
+      "sent_at_utc": "2026-10-19T02:22:00Z",
+      "sent_copy_id": "172",
+      "body_file": "evidence/2026-10-19/servhost_escalation_outbound/body01.txt",
+      "attachments": [
+        "servhost_abuse_demand.eml",
+        "portal_receipts.json",
+        "RFJ_ADDENDUM_BUNDLE_v2.zip"
+      ],
+      "attachments_verified": true,
+      "status": "sent",
+      "bounce_at_send_time": "none as of 2026-10-19T02:27Z sweep"
+    },
+    {
+      "draft": "02_ripe_ncc",
+      "recipient": "abuse@ripe.net",
+      "subject": "Abuse-handling non-compliance — ORG-MG337-RIPE (SERV.HOST GROUP LTD) ignoring published abuse contact on criminal traffic (AS207957 / 150.241.74.0/24)",
+      "subject_note": "canonical subject; envelope-list rendering collapses whitespace but the stored message header carries the full subject (verified via message read)",
+      "message_id": "18dfccf45e50e9ca.4309d2db4929cf4f.586cbb833ac5e5eb@vmi3544756",
+      "sent_at_utc": "2026-10-19T02:22:06Z",
+      "sent_copy_id": "173",
+      "body_file": "evidence/2026-10-19/servhost_escalation_outbound/body02_ripe.txt",
+      "attachments": [
+        "servhost_abuse_demand.eml",
+        "portal_receipts.json",
+        "RFJ_ADDENDUM_BUNDLE_v2.zip"
+      ],
+      "attachments_verified": true,
+      "status": "sent",
+      "bounce_at_send_time": "none as of 2026-10-19T02:27Z sweep"
+    },
+    {
+      "draft": "03_regulator",
+      "recipient": "icocasework@ico.org.uk",
+      "subject": "Hosting-provider duty-of-care failure — criminal attack infrastructure hosted by SERV.HOST GROUP LTD (AS207957 / 150.241.74.0/24), UK-registered",
+      "subject_note": "canonical subject; envelope-list rendering collapses whitespace but the stored message header carries the full subject (verified via message read)",
+      "message_id": "18dfccf5b2f8e1b3.1facb8cd112da2ad.dcebfae1df3d230f@vmi3544756",
+      "sent_at_utc": "2026-10-19T02:22:12Z",
+      "sent_copy_id": "174",
+      "body_file": "evidence/2026-10-19/servhost_escalation_outbound/body03_ico.txt",
+      "attachments": [
+        "servhost_abuse_demand.eml",
+        "portal_receipts.json",
+        "RFJ_ADDENDUM_BUNDLE_v2.zip"
+      ],
+      "attachments_verified": true,
+      "status": "sent",
+      "bounce_at_send_time": "none as of 2026-10-19T02:27Z sweep"
+    }
+  ],
+  "verification": "All 11 read back from [Gmail]/Sent Mail on 2026-10-19: recipient, full subject (from message headers), and all three attachments (servhost_abuse_demand.eml 2.82 KiB / portal_receipts.json 569 B / RFJ_ADDENDUM_BUNDLE_v2.zip 1.59 MiB) confirmed on every message. No CC chains; each recipient sent individually.",
+  "next_watch": "war cycle: monitor fiersteity + rubik69 inbox/spam for DSNs and replies from the 11 targets (Tele Asia has a 2026-10-04 hard-bounce history on abuse@tele-asia.net); drafts remain uncommitted local files per README gating — do not push to public repo."
+}

@@ -75,3 +75,33 @@ the original demand (attached), and RDAP/RIPEstat receipts (attached).
 SEND = CUSTODIAN'S HANDS ONLY. Attachments to pull from:
 evidence/2026-10-11/servhost_abuse_demand.eml, evidence/2026-10-15/portal_receipts.json,
 forge_output/rfj_bundle_v2/ (hash manifests inside RFJ_ADDENDUM_BUNDLE_v2.zip).
+
+## FIRED — 2026-10-19 02:09–02:22 UTC (custodian's hands, verified from Sent + inbox)
+
+- Transit barrage: 9 sends of the upstream/transit AUP escalation (IDs 164–172,
+  each 2.18 MiB with bundle attached), 02:09–02:22 UTC.
+- RIPE NCC lane (ID 173, 02:22): abuse-handling non-compliance, ORG-MG337-RIPE.
+- Regulator lane (ID 174, 02:22): hosting-provider duty-of-care failure,
+  SERV.HOST GROUP LTD (UK-registered) — ICO.
+
+Replies received and ingested to evidence/2026-10-19/ (SHA256SUMS verified):
+
+- RIPE NCC Support, ticket #1124364, 02:22 UTC — DEFLECTION: "abuse@ripe.net is
+  not monitored. The RIPE NCC does not investigate abuse reports concerning our
+  members." Policy-level refusal to act on a member ignoring its published abuse
+  contact; the deflection itself is evidence. ripe_ncc_reply_deflection.eml 64bc777f…
+- ICO casework acknowledgment, 02:27 UTC — receipt confirmed; new complaints
+  reviewed only after allocation to a case officer (statutory service levels).
+  ico_acknowledgment.eml 4d232960…
+- GoDaddy abuse auto-reply, 02:35 UTC — email lane not monitored; reports must be
+  (re)submitted via the GoDaddy Abuse Reporting Form (abuseform.com) or the bulk
+  abuse-reporting API. godaddy_abuse_autoreply.eml 8f4df22b…
+
+Open follow-up (custodian hands only, one action): GoDaddy form resubmission —
+the email escalation to abuse@godaddy.com is dead on arrival per their own
+auto-reply; the same complaint must go through abuseform.com to be reviewed.
+
+Enemy silence unchanged: inbox + [Gmail]/Spam swept this tick (2026-10-19 ~04:5x
+UTC) — zero messages from serv.host, bunea, dmzhostabuse, TECHOFF, or
+Ilin-adjacent senders. Only spam remains the already-ingested 2026-10-05/06
+Tele Asia autoreplies and the Prime Telecom AS39737 denial.

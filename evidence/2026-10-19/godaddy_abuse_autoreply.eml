@@ -1,0 +1,535 @@
+Delivered-To: fiersteity@gmail.com
+Received: by 2002:a05:7412:1295:b0:230:b293:9fb6 with SMTP id f21csp2153452rdb;
+        Sun, 18 Oct 2026 19:35:29 -0700 (PDT)
+X-Received: by 2002:a05:690e:43d3:b0:66e:5d40:6dab with SMTP id 956f58d0204a3-679ca7f97famr942554d50.23.1792377329019;
+        Sun, 18 Oct 2026 19:35:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1792377329; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=Jrwwxaf+8mM7ed0plStpOobfF3Xr6qW7/nCjNyFkVJDF4T8GnxlqpO6hkwC9Rf6KbW
+         AK1gfT/iKk/oKBVy+dxtT9TItaX7wJqmZnXSVj7Lh52IqfUHU7PkXFEysCZBdOxbmro+
+         TIDpmpOE/pK+1AX9ep/MNIoNhB2bUI60cnLnxzLGe2WsXt+rM+SpYNrqFeJRbo1X9x0k
+         MikC7uNUkVPaES5NpLa0MEj4vwS0jxlDzKjgOJZe5cGk2ItlOw6OuLttQr/4A3zi+ybN
+         OKNxw4QiWnAIpcmDPieFfY5Zo+J5HfjqeT+Rdb88k3cucijcqN9uowAFnzHR5RxUZbRe
+         MmjQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=mime-version:auto-submitted:in-reply-to:references:message-id:date
+         :thread-index:thread-topic:subject:to:from:dkim-signature;
+        bh=oT4adZr7JlMcwcaa5WX8WcswwtVSOqM7kUt3+ex9J7E=;
+        fh=Dp37FMacbHFECyybR3O82s0qHk3E5QTp8C59Z9EoGaQ=;
+        b=Yq/rDXBVii107eH1f11gakFvz/KzaKFYhbBQ4X2JltYXAZ/rBJGkwXxKAW43i+NdnH
+         3DKmBhJHO+4lVbzOdPYPb0FkttZhUi24t2JR1XESABCKPElh1XKTKbGbqTR3kq4d73ek
+         vypXgzrwo7IVxNkOaVeQQ6AR60PQBODwhITK73nr1EHPkkoGbEFK6ZdrPLjKKs6RgCSq
+         glwnZled3Pd+inbtb3tGP8TCZc8fSTE+MnRhzD4VrjHdse/gaKkUX3zkuYNrYce2ap12
+         ZSwcjMa9I1UzoceKxnhzTbVD3LFjrW9x2wO+NTqkDAwF7nTHfgsTZLwxLnQCne6dFjUf
+         YOzQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@godaddy.com header.s=selector2 header.b=Vl6yjv4g;
+       arc=pass (i=1 dkim=pass dkdomain=godaddy.com dmarc=pass fromdomain=godaddy.com);
+       spf=pass (google.com: domain of postmaster@dm5pr21cu001.outbound.protection.outlook.com designates 2a01:111:f403:d905:: as permitted sender) smtp.helo=DM5PR21CU001.outbound.protection.outlook.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=godaddy.com
+Return-Path: <>
+Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazhn150110000.outbound.protection.outlook.com. [2a01:111:f403:d905::])
+        by mx.google.com with ESMTPS id 956f58d0204a3-679b1fe262esi3630465d50.156.2026.10.18.19.35.28
+        for <fiersteity@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Oct 2026 19:35:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of postmaster@dm5pr21cu001.outbound.protection.outlook.com designates 2a01:111:f403:d905:: as permitted sender) client-ip=2a01:111:f403:d905::;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@godaddy.com header.s=selector2 header.b=Vl6yjv4g;
+       arc=pass (i=1 dkim=pass dkdomain=godaddy.com dmarc=pass fromdomain=godaddy.com);
+       spf=pass (google.com: domain of postmaster@dm5pr21cu001.outbound.protection.outlook.com designates 2a01:111:f403:d905:: as permitted sender) smtp.helo=DM5PR21CU001.outbound.protection.outlook.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=godaddy.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PMab6ob4dbRTUpVYYUvs6sDTTwLTg7JowaBI5nCl5oZ0J+7q0XnC/8UY5F7WcupYetlo3/FZnvRest1/8q73Yp5vxd5Ja7u04IEyaRq8jN0yuEwv8G3whReCmomBUFw2r3sFF4LHJRe+4tuGTZzMe+fSDb4l/CgkSQmUIC9dM4bwcGbEzcugHwoOWLeovV5Akwpj8teb/rXGTMhHD/uDed9OshgrvPfYSfrn3AOvvyRCe8rXf+5Xwtl1MWqhwNlVzdYNxuM7KpINmHTPH7ndDS4xx5h1v9N8z6hm4gXBNOxaM6a18U3IC1NQgF4HvdE+59fGKMplEy5kU3JxdFo9xQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oT4adZr7JlMcwcaa5WX8WcswwtVSOqM7kUt3+ex9J7E=;
+ b=nSgBBAtvQ6S2vWlL4u1MJj34v8Q+b0/gBTJcp3ylk+9Nfc84IFU+y4LwE9UdZtXmSF4AwG8SOrFrsVkpNemk91B7tKETkmAsFNuzBCPJDPj77yt21TG3Gio/qvMFUnREqUtxg+DMEKuKMwI7YZ3/aRkXYLrIBu4AlBt5IjzFqIWXFBtPnSk2gsM0LQaNjbZpj2isUQzY0ZZ5Tm4tujzJXQklCzDzmp/LO50iI6tUwRU6j8vqlGzkfviB1/s0fUuF/YLm+ikPxOSVqAaqHiADKaminjgjk0KUWe/bZr2OUbqh0sUM88UOqlHDTUgleoVxfua2jCOmd0E+k09ZQBrR2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=pass
+ action=none header.from=godaddy.com; dkim=pass header.d=godaddy.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=godaddy.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oT4adZr7JlMcwcaa5WX8WcswwtVSOqM7kUt3+ex9J7E=;
+ b=Vl6yjv4g7g1GT47Id1XFflNaO1VruLXd781fg1czui5cO9RsWEbvuh/fKaXziYx3glv7E5JCVgFNhhO/gTN+uAAZ9Vlx8JbAS3N43Q2atG7yn4mXiWY5Qz1wyGhAfn+lLYwsc7djb93V9/g4KN43sfQC0T9u6aBQcVfmiWE0xt6QeILEn6aakIiK085PnuhO5w8c8GRDl/rb2GXHyoBCUjy3lZkPhhTg1K5IgQGp9771WK6F4fIYbTTB1rMKwj7ZXssSZxMH/n2n8kIR+ukhoe4a3AjNGE0MC1E4xScZ3oAlFKiuyW8H8GXBeXEgf8JY5dz3Q69bOxAAf9k42NJ+Sw==
+Received: from CH8PR02MB394272.namprd02.prod.outlook.com
+ (2603:10b6:610:32e::21) by CH0PR02MB8076.namprd02.prod.outlook.com
+ (2603:10b6:610:109::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.19; Mon, 19 Oct
+ 2026 02:35:25 +0000
+Received: from CH8PR02MB394272.namprd02.prod.outlook.com ([::1]) by
+ CH8PR02MB394272.namprd02.prod.outlook.com ([fe80::182d:cf28:304a:513d%4])
+ with Microsoft SMTP Server id 15.21.0522.017; Mon, 19 Oct 2026 02:35:25 +0000
+From: "abuse@godaddy.com" <abuse@godaddy.com>
+To: "fiersteity@gmail.com" <fiersteity@gmail.com>
+Subject:
+ =?Windows-1252?Q?Automatic_reply:_ESCALATION:_upstream/transit_AUP_enforc?=
+ =?Windows-1252?Q?ement_requested_=97_SERV.HOST_GROUP_LTD_(AS207957_/_150.?=
+ =?Windows-1252?Q?241.74.0/24)_=97_attack_traffic_+_C2_hosting?=
+Thread-Topic:
+ =?Windows-1252?Q?ESCALATION:_upstream/transit_AUP_enforcement_requested_?=
+ =?Windows-1252?Q?=97_SERV.HOST_GROUP_LTD_(AS207957_/_150.241.74.0/24)_=97?=
+ =?Windows-1252?Q?_attack_traffic_+_C2_hosting?=
+Thread-Index: AQHdX3J+iLrIp6xfhkui5lA76rmG2LcEJhnO
+Date: Mon, 19 Oct 2026 02:35:25 +0000
+Message-ID:
+ <2e17e7f612134a5c968600e3201e726d@CH8PR02MB394272.namprd02.prod.outlook.com>
+References: <18dfccec5bab7359.e152a173adb52acb.2e5f325256139b75@vmi3544756>
+In-Reply-To: <18dfccec5bab7359.e152a173adb52acb.2e5f325256139b75@vmi3544756>
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: All
+X-MS-Exchange-Inbox-Rules-Loop: abuse@godaddy.com
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=godaddy.com;
+x-ms-exchange-parent-message-id:
+ <18dfccec5bab7359.e152a173adb52acb.2e5f325256139b75@vmi3544756>
+auto-submitted: auto-generated
+x-ms-exchange-generated-message-source: Mailbox Rules Agent
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CH8PR02MB394272:EE_|CH0PR02MB8076:EE_
+x-ms-office365-filtering-correlation-id: ad4d5b8a-fb20-486b-f3a0-08df2d89a19e
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|50650200027|366016|1800799024|376014|10070799003|5133699003|18002099003|22082099003|8096899003|12063799003|11063799006|10067099003|56012099006|43062017|80100003;
+x-microsoft-antispam-message-info:
+ NsSXvMlf1TWYM2hWdyGVX+WEySuPM0Cq/lD8C5+gqAUF+GRuO9i+V42GoEq60bxiETinDU004ol+9l1OH8obNO5fiwrhxc88rNh3Jh6wX96BmPZQ0Ed4YGwblLkVydjtanWZDs+48aZSnPUlNJPlSsAwwo8lr+hgoQOPeaE+g3JI98VoJDLKXZk8SL1QA/rCX5zANSynfbugQ9+TqEVV5ZCS1LomEK8oOW70qv1HpAinyIcOcHC+yh/NFkhU5KFADMzapoVT9kcUOrDBNDjqHrgIort6yGYDFol9bN11IBODa+fSna5ymWDyrWy+uAK/GhZUn/ChTYFd1f+DLWfLLN6gZwlOG8B03KHGFKkXAZs6ofeN25JszwHpZElcEuiaqUZ5aPQhnx7RZ70NmlVJ+/pX/RmhbFZWtqVYwmTTp1CiNsVOmXSOo+V25N09SoxG0dvMgCbPVhZujXkCoo0/+AWYeebtROE/SRIkNJ1Cte06vRt4UlVBlRA6rBEuupKUP++2WP37akxd4KDMjuOiDnXAj0rIczwl6zJzKyjoHAZ8ru9o6dq17MjK1rLQWPQbOPmtQloCIcw7qoSo3/o/TvnKb3vpN0YBtu0PZhsSZM4yi3PBDBD2n3RlgHGIzGLEEKyln8W9XtWYmXW1FIKf/fzq5n8j2rUSJA5d4yXpxnY=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH8PR02MB394272.namprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(50650200027)(366016)(1800799024)(376014)(10070799003)(5133699003)(18002099003)(22082099003)(8096899003)(12063799003)(11063799006)(10067099003)(56012099006)(43062017)(80100003);DIR:OUT;SFP:1501;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ fagdbMbHvbrgTN6ohJFpLODpt15ALqeznHfooqO5lzY6SX8M0LfOEPfuet9HFJ1owir98IMVt2Sk3ttDTRHCzyXOqqLpwAqwfoMuxVWzHVHa6lkvfS9gLswjlwtYXq9itNDJRtaWfsEzE6fBcayNG5xu23f9DBBYpO4AzmIOgG768RQi6SevrLzJlErSMIVusQma8II68EAgrZxqAs7X0+7Voxdl6r7ZFAgJP97nl0c3LEuW/58psqZUn88GKVEH9aZZHunRFSrc02uxGJECdnpXanc5peFHyPvWwupxjsaQrc50NfLbGqGpZIpoor2K9NrpdGxetwjylWM4X0dZQGWdJWHO1HS1H6sRkZKr+WXuhP5hdisR5R/y+tR+zpV6n5IBfwvWfr2gbWwyz7qP/gsozGyRdM3Kl3i468VVMMtcJpqGnZrVfPv+gRefLUmm
+Content-Type: multipart/alternative;
+	boundary="_000_2e17e7f612134a5c968600e3201e726dCH8PR02MB394272namprd02_"
+MIME-Version: 1.0
+X-OriginatorOrg: godaddy.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CH8PR02MB394272.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad4d5b8a-fb20-486b-f3a0-08df2d89a19e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Oct 2026 02:35:25.4950
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: d5f1622b-14a3-45a6-b069-003f8dc4851f
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR02MB8076
+
+--_000_2e17e7f612134a5c968600e3201e726dCH8PR02MB394272namprd02_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+ATTENTION:  This email account is not monitored. Do not reply to this messa=
+ge.
+
+To ensure your report is received and reviewed, you must submit a report us=
+ing our Abuse Reporting Form
+
+View Abuse Reporting Form<https://abuseform.com/>
+
+Reports received will be reviewed and actioned according to our Terms of Se=
+rvice, located here<https://www.godaddy.com/legal/agreements>.
+
+To submit bulk Abuse Reports, consider API Reporting<https://developer.goda=
+ddy.com/doc/endpoint/abuse>.
+
+
+
+For other issues, check out these resources:
+
+Trademark or copyright complaints
+
+Submit them here.<https://www.godaddy.com/legal/agreements/trademark-copyri=
+ght-infringement>
+
+Domain disputes
+
+Please refer to ICANN's Uniform Domain-Name Dispute-Resolution Policy.<http=
+s://www.icann.org/resources/pages/help/dndr/udrp-en>
+
+Account changes
+
+Read our guide<https://uk.godaddy.com/help/regain-access-to-my-domain-or-my=
+-godaddy-account-4043> for more info.
+
+Invalid WHOIS
+
+If you suspect a domain has been registered with fake information, please c=
+omplete the form located here<https://www.godaddy.com/whois?isc=3Dgdbb3454a=
+&utm_source=3Dgdocp&utm_medium=3Demail&utm_campaign=3Den-US_other_email-non=
+revenue_base_gd&utm_content=3D220826_3454_Engagement_Other_Service_Customer=
+-Service_gdbb3454a_1Bqz4cHImrXrj3aElYhsDg> by searching for the domain, and=
+ then clicking the Report Invalid Whois link at the bottom.
+
+Disclosure Requests
+
+Info displayed in public WHOIS is limited for privacy reasons. You can lear=
+n more about access to non-public domain contact information here<https://w=
+ww.godaddy.com/help/request-for-disclosure-of-non-public-registrant-informa=
+tion-27915?isc=3Dgdbb3454a&utm_source=3Dgdocp&utm_medium=3Demail&utm_campai=
+gn=3Den-US_other_email-nonrevenue_base_gd&utm_content=3D220826_3454_Engagem=
+ent_Other_Service_Customer-Service_gdbb3454a_6ltCwbc6F2cwxk9gWBoSzN>.
+
+Important note
+
+If you didn't see your issue in this email, read this article for a more co=
+mprehensive list<https://www.godaddy.com/help/reporting-abuse-27154?isc=3Dg=
+dbb3454a&utm_source=3Dgdocp&utm_medium=3Demail&utm_campaign=3Den-US_other_e=
+mail-nonrevenue_base_gd&utm_content=3D220826_3454_Engagement_Other_Service_=
+Customer-Service_gdbb3454a_2yS34p0utql0ZMYLEoJiAs>.
+
+
+--_000_2e17e7f612134a5c968600e3201e726dCH8PR02MB394272namprd02_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<meta name=3D"ProgId" content=3D"Word.Document">
+<meta name=3D"Generator" content=3D"Microsoft Word 15">
+<meta name=3D"Originator" content=3D"Microsoft Word 15">
+<style>=0A=
+<!--=0A=
+@font-face=0A=
+	{font-family:"Cambria Math"}=0A=
+@font-face=0A=
+	{font-family:Aptos}=0A=
+p.MsoNormal, li.MsoNormal, div.MsoNormal=0A=
+	{margin-top:0in;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:8.0pt;=0A=
+	margin-left:0in;=0A=
+	line-height:107%;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Aptos",sans-serif}=0A=
+h1=0A=
+	{margin-top:.25in;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:4.0pt;=0A=
+	margin-left:0in;=0A=
+	line-height:107%;=0A=
+	page-break-after:avoid;=0A=
+	font-size:20.0pt;=0A=
+	font-family:"Aptos Display",sans-serif;=0A=
+	color:#0F4761;=0A=
+	font-weight:normal}=0A=
+h2=0A=
+	{margin-top:8.0pt;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:4.0pt;=0A=
+	margin-left:0in;=0A=
+	line-height:107%;=0A=
+	page-break-after:avoid;=0A=
+	font-size:16.0pt;=0A=
+	font-family:"Aptos Display",sans-serif;=0A=
+	color:#0F4761;=0A=
+	font-weight:normal}=0A=
+h3=0A=
+	{margin-top:8.0pt;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:4.0pt;=0A=
+	margin-left:0in;=0A=
+	line-height:107%;=0A=
+	page-break-after:avoid;=0A=
+	font-size:14.0pt;=0A=
+	font-family:"Aptos",sans-serif;=0A=
+	color:#0F4761;=0A=
+	font-weight:normal}=0A=
+h4=0A=
+	{margin-top:4.0pt;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:2.0pt;=0A=
+	margin-left:0in;=0A=
+	line-height:107%;=0A=
+	page-break-after:avoid;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Aptos",sans-serif;=0A=
+	color:#0F4761;=0A=
+	font-weight:normal;=0A=
+	font-style:italic}=0A=
+h5=0A=
+	{margin-top:4.0pt;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:2.0pt;=0A=
+	margin-left:0in;=0A=
+	line-height:107%;=0A=
+	page-break-after:avoid;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Aptos",sans-serif;=0A=
+	color:#0F4761;=0A=
+	font-weight:normal}=0A=
+h6=0A=
+	{margin-top:2.0pt;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:0in;=0A=
+	margin-left:0in;=0A=
+	line-height:107%;=0A=
+	page-break-after:avoid;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Aptos",sans-serif;=0A=
+	color:#595959;=0A=
+	font-weight:normal;=0A=
+	font-style:italic}=0A=
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7=0A=
+	{margin-top:2.0pt;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:0in;=0A=
+	margin-left:0in;=0A=
+	line-height:107%;=0A=
+	page-break-after:avoid;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Aptos",sans-serif;=0A=
+	color:#595959}=0A=
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8=0A=
+	{margin:0in;=0A=
+	line-height:107%;=0A=
+	page-break-after:avoid;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Aptos",sans-serif;=0A=
+	color:#272727;=0A=
+	font-style:italic}=0A=
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9=0A=
+	{margin:0in;=0A=
+	line-height:107%;=0A=
+	page-break-after:avoid;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Aptos",sans-serif;=0A=
+	color:#272727}=0A=
+p.MsoTitle, li.MsoTitle, div.MsoTitle=0A=
+	{margin-top:0in;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:4.0pt;=0A=
+	margin-left:0in;=0A=
+	font-size:28.0pt;=0A=
+	font-family:"Aptos Display",sans-serif;=0A=
+	letter-spacing:-.5pt}=0A=
+p.MsoTitleCxSpFirst, li.MsoTitleCxSpFirst, div.MsoTitleCxSpFirst=0A=
+	{margin:0in;=0A=
+	font-size:28.0pt;=0A=
+	font-family:"Aptos Display",sans-serif;=0A=
+	letter-spacing:-.5pt}=0A=
+p.MsoTitleCxSpMiddle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle=0A=
+	{margin:0in;=0A=
+	font-size:28.0pt;=0A=
+	font-family:"Aptos Display",sans-serif;=0A=
+	letter-spacing:-.5pt}=0A=
+p.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast=0A=
+	{margin-top:0in;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:4.0pt;=0A=
+	margin-left:0in;=0A=
+	font-size:28.0pt;=0A=
+	font-family:"Aptos Display",sans-serif;=0A=
+	letter-spacing:-.5pt}=0A=
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle=0A=
+	{margin-top:0in;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:8.0pt;=0A=
+	margin-left:0in;=0A=
+	line-height:107%;=0A=
+	font-size:14.0pt;=0A=
+	font-family:"Aptos",sans-serif;=0A=
+	color:#595959;=0A=
+	letter-spacing:.75pt}=0A=
+a:link, span.MsoHyperlink=0A=
+	{color:blue;=0A=
+	text-decoration:underline}=0A=
+a:visited, span.MsoHyperlinkFollowed=0A=
+	{color:#96607D;=0A=
+	text-decoration:underline}=0A=
+p=0A=
+	{margin-right:0in;=0A=
+	margin-left:0in;=0A=
+	font-size:12.0pt;=0A=
+	font-family:"Times New Roman",serif}=0A=
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph=0A=
+	{margin-top:0in;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:8.0pt;=0A=
+	margin-left:.5in;=0A=
+	line-height:107%;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Aptos",sans-serif}=0A=
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParag=
+raphCxSpFirst=0A=
+	{margin-top:0in;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:0in;=0A=
+	margin-left:.5in;=0A=
+	line-height:107%;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Aptos",sans-serif}=0A=
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListPar=
+agraphCxSpMiddle=0A=
+	{margin-top:0in;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:0in;=0A=
+	margin-left:.5in;=0A=
+	line-height:107%;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Aptos",sans-serif}=0A=
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagra=
+phCxSpLast=0A=
+	{margin-top:0in;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:8.0pt;=0A=
+	margin-left:.5in;=0A=
+	line-height:107%;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Aptos",sans-serif}=0A=
+p.MsoQuote, li.MsoQuote, div.MsoQuote=0A=
+	{margin-top:8.0pt;=0A=
+	margin-right:0in;=0A=
+	margin-bottom:8.0pt;=0A=
+	margin-left:0in;=0A=
+	text-align:center;=0A=
+	line-height:107%;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Aptos",sans-serif;=0A=
+	color:#404040;=0A=
+	font-style:italic}=0A=
+p.MsoIntenseQuote, li.MsoIntenseQuote, div.MsoIntenseQuote=0A=
+	{margin-top:.25in;=0A=
+	margin-right:.6in;=0A=
+	margin-bottom:.25in;=0A=
+	margin-left:.6in;=0A=
+	text-align:center;=0A=
+	line-height:107%;=0A=
+	border:none;=0A=
+	padding:0in;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Aptos",sans-serif;=0A=
+	color:#0F4761;=0A=
+	font-style:italic}=0A=
+span.MsoIntenseEmphasis=0A=
+	{color:#0F4761;=0A=
+	font-style:italic}=0A=
+span.MsoIntenseReference=0A=
+	{font-variant:small-caps;=0A=
+	color:#0F4761;=0A=
+	letter-spacing:.25pt;=0A=
+	font-weight:bold}=0A=
+span.Heading1Char=0A=
+	{font-family:"Aptos Display",sans-serif;=0A=
+	color:#0F4761}=0A=
+span.Heading2Char=0A=
+	{font-family:"Aptos Display",sans-serif;=0A=
+	color:#0F4761}=0A=
+span.Heading3Char=0A=
+	{font-family:"Times New Roman",serif;=0A=
+	color:#0F4761}=0A=
+span.Heading4Char=0A=
+	{font-family:"Times New Roman",serif;=0A=
+	color:#0F4761;=0A=
+	font-style:italic}=0A=
+span.Heading5Char=0A=
+	{font-family:"Times New Roman",serif;=0A=
+	color:#0F4761}=0A=
+span.Heading6Char=0A=
+	{font-family:"Times New Roman",serif;=0A=
+	color:#595959;=0A=
+	font-style:italic}=0A=
+span.Heading7Char=0A=
+	{font-family:"Times New Roman",serif;=0A=
+	color:#595959}=0A=
+span.Heading8Char=0A=
+	{font-family:"Times New Roman",serif;=0A=
+	color:#272727;=0A=
+	font-style:italic}=0A=
+span.Heading9Char=0A=
+	{font-family:"Times New Roman",serif;=0A=
+	color:#272727}=0A=
+span.TitleChar=0A=
+	{font-family:"Aptos Display",sans-serif;=0A=
+	letter-spacing:-.5pt}=0A=
+span.SubtitleChar=0A=
+	{font-family:"Times New Roman",serif;=0A=
+	color:#595959;=0A=
+	letter-spacing:.75pt}=0A=
+span.QuoteChar=0A=
+	{color:#404040;=0A=
+	font-style:italic}=0A=
+span.IntenseQuoteChar=0A=
+	{color:#0F4761;=0A=
+	font-style:italic}=0A=
+span.SpellE=0A=
+	{}=0A=
+.MsoChpDefault=0A=
+	{font-size:11.0pt}=0A=
+.MsoPapDefault=0A=
+	{margin-bottom:8.0pt;=0A=
+	line-height:107%}=0A=
+@page WordSection1=0A=
+	{margin:1.0in 1.0in 1.0in 1.0in}=0A=
+div.WordSection1=0A=
+	{}=0A=
+-->=0A=
+</style>
+</head>
+<body lang=3D"EN-US" link=3D"blue" vlink=3D"#96607D" style=3D"word-wrap:bre=
+ak-word">
+<div class=3D"WordSection1">
+<p><strong><span style=3D"">ATTENTION: &nbsp;This email account is not moni=
+tored. Do not reply to this message.</span></strong></p>
+<p><strong><span style=3D"">To ensure your report is received and reviewed,=
+ you must submit a report using our Abuse Reporting Form</span></strong></p=
+>
+<p><a href=3D"https://abuseform.com/"><span style=3D"">View Abuse Reporting=
+ Form</span></a></p>
+<p>Reports received will be reviewed and actioned according to our Terms of=
+ Service,
+<a href=3D"https://www.godaddy.com/legal/agreements"><span style=3D"">locat=
+ed here</span></a>.</p>
+<p>To submit bulk Abuse Reports, consider <a href=3D"https://developer.goda=
+ddy.com/doc/endpoint/abuse">
+<span style=3D"">API Reporting</span></a>.</p>
+<p>&nbsp;</p>
+<p>For other issues, check out these resources:</p>
+<p><strong><span style=3D"">Trademark or copyright complaints</span></stron=
+g></p>
+<p><a href=3D"https://www.godaddy.com/legal/agreements/trademark-copyright-=
+infringement"><span style=3D"">Submit them here.</span></a></p>
+<p><strong><span style=3D"">Domain disputes</span></strong></p>
+<p>Please refer to ICANN's <a href=3D"https://www.icann.org/resources/pages=
+/help/dndr/udrp-en">
+<span style=3D"">Uniform Domain-Name Dispute-Resolution Policy.</span></a><=
+/p>
+<p><strong><span style=3D"">Account changes</span></strong></p>
+<p><a href=3D"https://uk.godaddy.com/help/regain-access-to-my-domain-or-my-=
+godaddy-account-4043"><span style=3D"">Read our guide</span></a> for more i=
+nfo.</p>
+<p><strong><span style=3D"">Invalid WHOIS</span></strong></p>
+<p>If you suspect a domain has been registered with fake information, pleas=
+e complete the form located
+<a href=3D"https://www.godaddy.com/whois?isc=3Dgdbb3454a&amp;utm_source=3Dg=
+docp&amp;utm_medium=3Demail&amp;utm_campaign=3Den-US_other_email-nonrevenue=
+_base_gd&amp;utm_content=3D220826_3454_Engagement_Other_Service_Customer-Se=
+rvice_gdbb3454a_1Bqz4cHImrXrj3aElYhsDg">
+<span style=3D"">here</span></a> by searching for the domain, and then clic=
+king the Report Invalid
+<span class=3D"SpellE">Whois</span> link at the bottom.</p>
+<p><strong><span style=3D"">Disclosure Requests</span></strong></p>
+<p>Info displayed in public WHOIS is limited for privacy reasons. You can l=
+earn more about access to non-public domain contact information
+<a href=3D"https://www.godaddy.com/help/request-for-disclosure-of-non-publi=
+c-registrant-information-27915?isc=3Dgdbb3454a&amp;utm_source=3Dgdocp&amp;u=
+tm_medium=3Demail&amp;utm_campaign=3Den-US_other_email-nonrevenue_base_gd&a=
+mp;utm_content=3D220826_3454_Engagement_Other_Service_Customer-Service_gdbb=
+3454a_6ltCwbc6F2cwxk9gWBoSzN">
+<span style=3D"">here</span></a>.</p>
+<p><strong><span style=3D"">Important note</span></strong></p>
+<p>If you didn't see your issue in this email, <a href=3D"https://www.godad=
+dy.com/help/reporting-abuse-27154?isc=3Dgdbb3454a&amp;utm_source=3Dgdocp&am=
+p;utm_medium=3Demail&amp;utm_campaign=3Den-US_other_email-nonrevenue_base_g=
+d&amp;utm_content=3D220826_3454_Engagement_Other_Service_Customer-Service_g=
+dbb3454a_2yS34p0utql0ZMYLEoJiAs">
+<span style=3D"">read this article for a more comprehensive list</span></a>=
+.</p>
+<p class=3D"MsoNormal">&nbsp;</p>
+</div>
+</body>
+</html>
+
+--_000_2e17e7f612134a5c968600e3201e726dCH8PR02MB394272namprd02_--

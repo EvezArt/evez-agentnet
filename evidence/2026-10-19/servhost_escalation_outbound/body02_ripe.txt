@@ -1,0 +1,29 @@
+SERV.HOST GROUP LTD (RIPE org ORG-MG337-RIPE, UK company 15728390) sponsors
+150.241.74.0/24, announced by AS207957 "ServHost-AS" (origin verified live 2026-10-19
+against BGP routing data).
+
+A formal abuse and preservation demand was served to its published abuse contact
+AN32913-RIPE (abuse@serv.host) on 2026-10-11 concerning criminal attack traffic and
+C2 hosting originating from that range. As of 2026-10-19 — eight days after service —
+there has been no acknowledgement or remediation, in breach of RIPE's abuse-c handling
+expectations for resources sponsored by a registered organisation.
+
+The service record speaks directly to the state of this abuse channel: the provider's mail
+servers rejected the first transmission of the demand on all three of its published
+addresses — abuse@, noc@ and postmaster@serv.host — with SMTP 554 5.7.1 "Message rejected
+under suspicion of SPAM" (2026-10-11 18:06 UTC; delivery receipts retained). A second
+transmission the same day (19:59 UTC) was accepted and has since been ignored.
+
+We request RIPE NCC:
+
+  (a) review ORG-MG337-RIPE's abuse-handling compliance and the accuracy, validity, and
+      responsiveness of the published abuse contact AN32913-RIPE;
+  (b) if warranted, flag or escalate per RIPE procedures for abuse-c non-handling;
+  (c) preserve relevant registration and sponsorship records for ORG-MG337-RIPE,
+      AS207957, and 150.241.74.0/24.
+
+Supporting evidence is attached: the original demand served 2026-10-11, RDAP/RIPEstat
+receipts (including the receipt hash acdcfa0d5c6d5cf1), and hash-chained attack logs.
+
+Filed by the victim operator identified in the attached demand (FBI IC3 complaint
+2026-10-01); replies to this mailbox reach me directly.

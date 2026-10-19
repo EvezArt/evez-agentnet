@@ -1,0 +1,343 @@
+Delivered-To: fiersteity@gmail.com
+Received: by 2002:a05:7412:2e09:b0:21e:75c:acc6 with SMTP id gp9csp5587813rdb;
+        Sun, 11 Oct 2026 11:06:28 -0700 (PDT)
+X-Received: by 2002:a05:600c:4ecb:b0:4a0:c01:1902 with SMTP id 5b1f17b1804b1-4a18e43a29fmr147242875e9.2.1791741987835;
+        Sun, 11 Oct 2026 11:06:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791741987; cv=none;
+        d=google.com; s=arc-20260327;
+        b=QLGaX2h67MypLxjwurIt3wqpz35Bi1jASea4w96x8bxvmZcjB3DohRQOKAo+bDLJ+q
+         rC4C2K96RfGhGQrc7wQjG1YSt7fizyYQLIFSEho3yvS6NCGK9HO5AT3pREJm3HC3CFs7
+         wLfzGvYYUSQuoKUMx4JNV2PWfCj/ezo6LBI2gVCFfD0Urrw1Ned8HNxEPuBmnbhvnxag
+         l1twNVa5Os+nlwyEgrI01I4pAmFlSp0JM9r4h49Gs1HqPpP9ZaSZ7ejWNQE8sVD9Dji5
+         hJSVoFn7ImKdEgI/Hls2thD1Y4gqNHpTl1DCaciiT4172GIysadxPMUfIkjnETJy0fLn
+         8BVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:dkim-signature;
+        bh=o67mdUlhm43Kuej/rUm5CzesKPb4dVslVdHiB3kb9ZA=;
+        fh=/JhzwJccBl/VWKC7JoKAdL5LEtd+cwW5QfOwmLfkCAk=;
+        b=bbT0jb1IdHZMPvSPsjl4KUPUqL6IIh2nEWJIUDCrxZyTFRQGWdhL2yHmbQ2vJksAXz
+         vEnw3MXtcLdJZPhV2vDvCM/L0nD/8uKXyvpxinkQKy74sXz3m2hEjcFJTQsXdXAdRxoD
+         Eab6730/T9h6BbpyimxV+tO6NZoTHkbSH67hijnDy2WzSikBSZwCmBgEWKKuFFUI5Yyj
+         WNVLWFJv+doxBPayib5LHn4IzhzLe5Dz7IGuXlbMdn2vlxHx01XUfekRKogmmyFxfvVB
+         bG31Z7AIYR5Je99vkepuX63g1i1lOaowm8Gu30g925bS8nZdainPSkW383V02rXP8AKA
+         cvPg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20251104 header.b="QC/T9hum";
+       spf=none (google.com: postmaster@mail-sor-f69.google.com does not designate permitted sender hosts) smtp.helo=mail-sor-f69.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 5b1f17b1804b1-4a18bec85fcsor9839635e9.11.2026.10.11.11.06.27
+        for <fiersteity@gmail.com>
+        (Google Transport Security);
+        Sun, 11 Oct 2026 11:06:27 -0700 (PDT)
+Received-SPF: none (google.com: postmaster@mail-sor-f69.google.com does not designate permitted sender hosts) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20251104 header.b="QC/T9hum";
+       spf=none (google.com: postmaster@mail-sor-f69.google.com does not designate permitted sender hosts) smtp.helo=mail-sor-f69.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20251104; t=1791741987; x=1792346787; dara=google.com;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:content-type:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=o67mdUlhm43Kuej/rUm5CzesKPb4dVslVdHiB3kb9ZA=;
+        b=QC/T9humxMwQZMpNTlWQOKazoZcuBtlBA7bLgWfRsxhYQlraWT+Q4Irl0AEKnWqrfP
+         HAlDB8Yvsjl7ip/3kNiVFYLcJWSlpdJh9QxLgziri/jw1ZkZoKdUYONixl59aOZcNn7B
+         dnMvMg5IYjy81BsdvzXjpqaK0BMi/oYCmVNnxV1wmYAqmVFuKE35nWz9HW065YikP+Z/
+         2RabTDX7SYGLKjcpSCm6rj7ushDTVJj+kVCSDT19bVmFwk1uXpsnT8ytxg0ur3MiGWUB
+         aqgZafElwci2+h3cCxs2gCPMvMSnP3m4mOtKgPQpN5wbZ/ANLI5Ap3Wq1TokpHrLLWuo
+         NtTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791741987; x=1792346787;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:content-type:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=o67mdUlhm43Kuej/rUm5CzesKPb4dVslVdHiB3kb9ZA=;
+        b=WJB1+236xuMhwhSez1Ib76inR2bU+Wuh+JJ9HSluAjGXjAekW/OZ3+Bl977Vz/m04b
+         iOdlhOizSBYsI/GZ2qm2nduYa6Rl0RCTWHZGTPYQsu7CSj8WZ55u4kL9W8X9fkNuplAG
+         7mjcup8YDJbAoCfq3sdQRp46u6FFQr+1jtSFk6zNosk/weqwSFPAdze59Y3zkorZSt+O
+         l8tijee8dFd6rDEcedzjrW90mQ2JUIuYnH7SyvBHQHAt1eTEvHRB28b2OcBI4oboIMIp
+         aTWRRmBv9pZDxjHygUrriARXXxZs1Zb35Rz9FM+kgzgoE2oJeh67XMTvAJhObtNwGdFc
+         iPTg==
+X-Gm-Message-State: AFq9FYI10CNQXA1HlJctp2QHUzbtqNJCOz9f+jAtxeKUuTF8+8JDaT3+
+	11P+2m8OOWNBbECg5kYI2cjS0inrlspB+UbOWjLw5Yee1m1PAyw/1PZy8aoZHlMi4kgaYjgDyLv
+	82y4oSqYZ+jRmM+oWGU4qbXTwY4Aq+1WcezuatECt0056A26hrDASzLDyH6VR
+X-Received: by 2002:a05:600c:c113:b0:4a1:985b:83a9 with SMTP id 5b1f17b1804b1-4a1985b87f5mr39301475e9.4.1791741987558;
+        Sun, 11 Oct 2026 11:06:27 -0700 (PDT)
+Content-Type: multipart/report; boundary="000000000000b282ca065d9470c9"; report-type=delivery-status
+To: fiersteity@gmail.com
+Received: by 2002:a05:600c:c113:b0:4a1:985b:83a9 with SMTP id
+ 5b1f17b1804b1-4a1985b87f5mr35681105e9.4; Sun, 11 Oct 2026 11:06:27 -0700 (PDT)
+Return-Path: <>
+Auto-Submitted: auto-replied
+Message-ID: <6acbd023.a9835b98.1b2c4f.5f5a.GMR@mx.google.com>
+Date: Sun, 11 Oct 2026 11:06:27 -0700 (PDT)
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+Subject: Delivery Status Notification (Failure)
+References: <6acbd021.e9321e8c.26011e.42c9@mx.google.com>
+In-Reply-To: <6acbd021.e9321e8c.26011e.42c9@mx.google.com>
+X-Failed-Recipients: noc@serv.host
+
+--000000000000b282ca065d9470c9
+Content-Type: multipart/related; boundary="000000000000b29071065d9470da"
+
+--000000000000b29071065d9470da
+Content-Type: multipart/alternative; boundary="000000000000b29077065d9470db"
+
+--000000000000b29077065d9470db
+Content-Type: text/plain; charset="UTF-8"
+
+
+** Message not delivered **
+
+There was a problem delivering your message to noc@serv.host. See the technical details below, or try resending in a few minutes.
+
+Learn more here: https://ya.cc/1IrBc
+(Warning: This link will take you to a third-party site)
+
+The response from the remote server was:
+554 5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1791741987-Q6WnWB6PG0U0-qIGXp1oH
+
+--000000000000b29077065d9470db
+Content-Type: text/html; charset="UTF-8"
+
+
+<html>
+<head>
+<style>
+* {
+font-family:Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" class="email-wrapper" style="padding-top:32px;background-color:#ffffff;"><tbody>
+<tr><td>
+<table cellpadding=0 cellspacing=0><tbody>
+<tr><td style="max-width:560px;padding:24px 24px 32px;background-color:#fafafa;border:1px solid #e0e0e0;border-radius:2px">
+<img style="padding:0 24px 16px 0;float:left" width=72 height=72 alt="Error Icon" src="cid:icon.png">
+<table style="min-width:272px;padding-top:8px"><tbody>
+<tr><td><h2 style="font-size:20px;color:#212121;font-weight:bold;margin:0">
+Message not delivered
+</h2></td></tr>
+<tr><td style="padding-top:20px;color:#757575;font-size:16px;font-weight:normal;text-align:left">
+There was a problem delivering your message to <a style='color:#212121;text-decoration:none'><b>noc@serv.host</b></a>. See the technical details below, or try resending in a few minutes.
+</td></tr>
+<tr><td style="padding-top:24px;color:#4285F4;font-size:14px;font-weight:bold;text-align:left">
+<a style="text-decoration:none" href="https://ya.cc/1IrBc">LEARN MORE</a>
+</td></tr>
+<tr><td style="margin-top:8px;font-style:italic;font-size:12px;color:#757575">
+<img style="padding:0 4 0 0;float:left" width=12 height=12 alt="Warning" src="cid:warning_triangle.png">
+This link will take you to a third-party site
+</td></tr>
+</tbody></table>
+</td></tr>
+</tbody></table>
+</td></tr>
+<tr style="border:none;background-color:#fff;font-size:12.8px;width:90%">
+<td align="left" style="padding:48px 10px">
+The response from the remote server was:<br/>
+<p style="font-family:monospace">
+554 5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1791741987-Q6WnWB6PG0U0-qIGXp1oH
+</p>
+</td>
+</tr>
+</tbody></table>
+</body>
+</html>
+
+--000000000000b29077065d9470db--
+--000000000000b29071065d9470da
+Content-Type: image/png; name="icon.png"
+Content-Disposition: attachment; filename="icon.png"
+Content-Transfer-Encoding: base64
+Content-ID: <icon.png>
+
+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
+--000000000000b29071065d9470da
+Content-Type: image/png; name="warning_triangle.png"
+Content-Disposition: attachment; filename="warning_triangle.png"
+Content-Transfer-Encoding: base64
+Content-ID: <warning_triangle.png>
+
+iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAYxJREFUSA3t
+VLFOhEAUBKLFXXMd3VlqZXGJrX6AP+AHWFsZ4CpDoQmBhMTyfkdbEwsrLaiJnQ1XmIAzCuTt3nKs
+xk432fB2dmYeb9+C4/ypEQTBKed3ivZsyavVatd13ZyTsa3OOkFRFBdN0xxwMrZN4NoQ4zj2q6p6
+gfmMfFTxNp1O94G/jumtKoD5TWdOQ8bExsy5P1rBcrlc1HX9AFPlZVBF7XneUZIkj9sSKSITEea3
+ujl5xLhn0khsawJcyTMYHUuBjLlHjsT0eDBBnucTkDMpyLLM5ZQYOS1Xg7+WgwnKsoxAmRtVKjhv
+uSrarowJoijaQ/mhUWEAyaXGsOUYE0CQgswjsh2TVrPB18/TQdPY1LsNph1wgh7dS6pSAb5MD/d7
+9OpJAxlTSw+JKYv1en2OUheSIOOBW9RTqKVHDyDoE6BJM3w413LzJzE96NVpd7oA2a8Q+93a9ER/
+GhOuYX7rdUn8s8lhGPI3/IS19X9eM9WX7+jHYZqmz90R5b9ozmR8UXr+j/ET+ADSfKckAihanAAA
+AABJRU5ErkJggg==
+--000000000000b29071065d9470da--
+--000000000000b282ca065d9470c9
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; googlemail.com
+Received-From-MTA: dns; fiersteity@gmail.com
+Arrival-Date: Sun, 11 Oct 2026 11:06:25 -0700 (PDT)
+X-Original-Message-ID: <6acbd021.e9321e8c.26011e.42c9@mx.google.com>
+
+Final-Recipient: rfc822; noc@serv.host
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; mx.yandex.net. (2a02:6b8::311, the server for the domain serv.host.)
+Diagnostic-Code: smtp; 554 5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1791741987-Q6WnWB6PG0U0-qIGXp1oH
+Last-Attempt-Date: Sun, 11 Oct 2026 11:06:27 -0700 (PDT)
+
+--000000000000b282ca065d9470c9
+Content-Type: message/global-headers
+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1791741986; x=1792346786; darn=serv.host;
+        h=subject:date:from:cc:to:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zkscb0YCu+FdpUq7173djehaQEH/v5/rK+8SAu3kcz4=;
+        b=jggKGCmSScfkV/fGvAOTsLylFhf4bHPeaPUXTFNCoVvAOaFqMPHZMPe/5TIk3b+MI5
+         1PU2NygVT6atwPzzg1HwDm84Jt6nsLJozoIeEmrRYoYalnt+ivbGMpFWOneelwfQ0atn
+         RLaM4kkCuwoLF2BDVdjqMLfDe/CjcDexbIYPgEg88MvIuTbO6233ILgnZrC/2k0jT3ia
+         +psVkD9R0AnogNtooI1Szu8VJvqLMUCtmlh3YmC6tLm5lwvwjs4mfRA1Rxo2C/MiC9wm
+         ElSF787gc/hU3ttoKStU5EZWD+wxgKLcYTeiAV4ALfALyzWxptfvBjai9gLEksNBHmRR
+         dHTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1791741986; x=1792346786;
+        h=subject:date:from:cc:to:message-id:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=zkscb0YCu+FdpUq7173djehaQEH/v5/rK+8SAu3kcz4=;
+        b=sz16LPwdkeVhK4+L4jFDbbuoudYCypdTT0UNMiDLw7N+1eh9R1x0djRmBhVSulr7lb
+         kbyROo7WtBQT3mzhJZf88+RZGF/On5p0PR/9I/VVz0mM82Uplx5ZkxMNBTLDs8h6SLwS
+         V5YrEr3PjPA+rm9Hv9mdHZI3irHqgKAFnZEU69bdpZvEA2jRtfk7VNqojD5Te0LZ0g9e
+         KaEo1LYk4UO/oBwzYsanqrZvHXj8gXPzB2mk6uyTjjQQuDRW10yZsuFLeolrppuJB1RX
+         NvpDm6mt1hn79eN/SgZWGya3tx8ALT/p0Dvxu2s6pqoVxyJpjXS6ZbBobKvE611bRfX3
+         w7cQ==
+X-Gm-Message-State: AFq9FYKOYg1YNBfdnDCr1S0a+L1kaqAze2k1870epWkTQoT1QAMXfzap
+	kXhAW6+9LHmta//N4SbhkSVirMmOKbcdtWZ4ZY4s747ho4LnC6kFcl0z
+X-Gm-Gg: AYBFou3HeX1bVctuSB3Ci3xyprSntoMzoIHIRMf6A65D4GCr/eFuLWtGihw02Cc8Cy0
+	oLfoBM1XRUu352f0HCEMgmKvvoquKW91EGuUDIpmRcElNutgMl4JSSrWmobVWncSQ13qSXOOWc6
+	7/nHAPXwPTSN+PwBazr4IOv8Ke4xQiWrv9TuceiatYLN8ezPYFxOjpuuIdtIUos0w/9b5YQAfqi
+	fYsw3RPBzCzXwDvHr8tSIqYGeAWOa4GtL33KLfnFvjzhOSbzR3r021JoNwFWmSKA5GoPgth7GuM
+	GFf9ljjbPyTjNh32K8484Sd0VmpbhNoVlu26J9D1bbCTqE+rh0INZ8c1ePBytfRrfopZDIQsYXf
+	NKYvo6mxIKK8b/NHWJe3EcrwImjLVVZwUCH2PrY1fnIxNmMy4h/UQ3fDNQeBNFg4/04FeO3h3IO
+	vTj81/aCD/l9vZ2wfSHpRpF5jLHqemA20cUjrRYHVPVQh+Mpyua5YJoIgoqe3QRnzQ2YgboHzT5
+	EoljOeV
+X-Received: by 2002:a05:600c:c113:b0:4a1:985b:83a9 with SMTP id 5b1f17b1804b1-4a1985b87f5mr39300855e9.4.1791741986115;
+        Sun, 11 Oct 2026 11:06:26 -0700 (PDT)
+Return-Path: <fiersteity@gmail.com>
+Received: from [127.0.0.1] (vmi3544756.contaboserver.net. [2a02:c207:2354:4756::1])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a18c1e33d2sm310929335e9.0.2026.10.11.11.06.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 Oct 2026 11:06:25 -0700 (PDT)
+Message-ID: <6acbd021.e9321e8c.26011e.42c9@mx.google.com>
+To: abuse@serv.host
+Cc: noc@serv.host, postmaster@serv.host
+From: fiersteity@gmail.com
+Date: Sun, 11 Oct 2026 18:04:52 -0000
+Subject: URGENT: Abuse & preservation demand — AS207957 / 150.241.74.0/24 (criminal attack traffic + C2 hosting)
+
+
+--000000000000b282ca065d9470c9--
