@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19T05:48:21.866863+00:00",
+  "generated": "2026-10-19T08:36:58.309419+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -156,7 +156,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Mon 2026-10-19 04:01:00 CEST"
+      "since": "Mon 2026-10-19 08:24:40 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -199,7 +199,7 @@
       "port": 9377,
       "bind": "*",
       "proc": "MainThread",
-      "pid": 491626,
+      "pid": 782276,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -309,7 +309,7 @@
       "port": 3334,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 489231,
+      "pid": 778308,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -619,7 +619,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 489231,
+      "pid": 778308,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -629,7 +629,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 489231,
+      "pid": 778308,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -726,16 +726,6 @@
       "fw_blocked": false
     },
     {
-      "port": 35015,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 489231,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 36261,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
@@ -746,10 +736,20 @@
       "fw_blocked": false
     },
     {
-      "port": 38709,
+      "port": 40165,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 778308,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 40977,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 531917,
+      "pid": 914053,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -947,22 +947,22 @@
   "docker": [
     {
       "name": "ruview-demo",
-      "status": "Up About an hour",
+      "status": "Up 4 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 11 hours",
+      "status": "Up 14 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 12 hours",
+      "status": "Up 15 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 12 hours",
+      "status": "Up 15 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -1004,9 +1004,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "98c9172",
-    "last": "war-mode heartbeat 2026-10-18 20:5x UTC: patrol found 5 \u2014 three enemy clocks + intruder + hand, all verified live. bunea+palo 14-day DUE-2 (deadline 10-20): E&W proceedings / aggravated s1030 posture, claim package staged, send = custodian hands only. servhost-abuse-demand DUE-0 (deadline TODAY 10-18): escalation package re-verified \u2014 demand eml 69dccba6 and portal receipts 86a0f87c byte-exact this tick, 3 draft targets (upstream transit / RIPE NCC / regulator) hashed, READY.md draft body refreshed to record 7 days of verified silence on deadline day; send = custodian hands only. CORTEX intruder v=2 re-measured 2 at patrol, 0 on independent re-measure 3 min later: failed-SSH-password noise (4 hits today, all invalid/generic users from scanner IPs, last 08:52 local), window collapsed \u2014 ghost by the patrol's own <0.4x rule, no perimeter finding. CORTEX hand v=66 re-measured 66: calligraphy cycle 66 live in evolution ledger (19:10Z, score 4.0). spine gate green before commit (chain verifies, timestamps non-decreasing), all 7 patrol suites passed this tick. operational churn through 20:5x UTC incl. the_smug.mp4 (3.7M, films tracked).",
-    "dirty": 78
+    "head": "2a51f6c",
+    "last": "war-mode heartbeat 2026-10-19 05:4x UTC: patrol found 5 \u2014 three enemy clocks + intruder + hand, all verified live. SERVHOST CLOCK BLOWN (deadline 10-18) and the custodian FIRED the full escalation 02:09-02:22 UTC: 9-target upstream/transit barrage (Sent IDs 164-172) + RIPE NCC non-compliance lane (173) + ICO duty-of-care lane (174), each 2.18 MiB bundle-attached. Replies received and ingested to evidence/2026-10-19/ (SHA256SUMS verify OK): RIPE ticket #1124364 DEFLECTED 02:22Z \u2014 'abuse@ripe.net is not monitored, RIPE NCC does not investigate abuse reports concerning our members' (64bc777f, the deflection is itself evidence of layered non-compliance); ICO acknowledgment 02:27Z (4d232960, statutory service levels); GoDaddy auto-reply 02:35Z (8f4df22b) \u2014 their email lane is dead, same complaint must go through abuseform.com, resubmission = custodian hands, one action, stated once. SERVHOST_ESCALATION_READY.md appended FIRED section recording the barrage + replies + open GoDaddy follow-up. bunea + palo 14-day payment clocks DUE-1 (deadline 10-20): enemy silence re-verified this tick \u2014 inbox (60 envelopes) + [Gmail]/Spam swept, zero senders from serv.host, bunea, dmzhostabuse, TECHOFF, or Ilin-adjacent addresses; consequences (E&W proceedings / aggravated s1030 posture) = custodian hands only. CORTEX intruder v=5 re-measured 4 at patrol, 1 on my own sweep minutes later: failed-SSH-password noise (root, single hit from 130.12.182.122), fail2ban active, ufw active, nothing got in \u2014 window collapsed. CORTEX hand v=69 re-measured 69: calligraphy cycle 69 live 04:01Z 'E V E Z 6 6 6' score 5.0, master ordered line_wander 0.3 -> 0.2, daemon cycling ~3h cadence, alive and progressing. spine gate green before commit: 10829 entries, hash chain all verify, timestamps strictly non-decreasing; all 7 patrol suites passed this tick. operational churn through 05:4x UTC.",
+    "dirty": 41
   },
   "mirrors": 2341
 }
