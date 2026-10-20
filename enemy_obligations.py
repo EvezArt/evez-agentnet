@@ -20,7 +20,7 @@ CLOCKS=[
  {'id':'foipa-1758537-000','demand':'FBI FOIA response (statutory 20 working days from 2026-09-30 ack)','served':'2026-09-30','deadline':'2026-10-28','consequence':'FOIA appeal + congressional inquiry letter'},
  {'id':'ic3-confirmation','demand':'IC3 complaint auto-confirmation','served':'2026-10-01','deadline':'2026-10-31','consequence':'re-file via field office with case cross-ref'},
  {'id':'rfj-weekly-check','demand':'custodian: weekly SecureDrop login (codename account)','served':'2026-10-05','deadline':'weekly/Sunday','consequence':'missed analyst reply window'},
- {'id':'servhost-abuse-demand','demand':'ServHost abuse/preservation demand response (abuse@serv.host, sent 2026-10-11 from victim Gmail)','served':'2026-10-11','deadline':'2026-10-18','consequence':'escalate to upstream transit providers + RIPE NCC abuse + regulator (NIS2/hosting provider duty)'},
+ {'id':'servhost-abuse-demand','demand':'ServHost abuse/preservation demand response (abuse@serv.host, sent 2026-10-11 from victim Gmail)','served':'2026-10-11','deadline':'2026-10-18','consequence':'escalate to upstream transit providers + RIPE NCC abuse + regulator (NIS2/hosting provider duty)','resolved':'2026-10-19','resolution':'deadline expired in 8 days of verified silence; consequence EXECUTED 2026-10-19 02:09-02:22 UTC under custodian GO of 2026-10-17: transit/provider lane (NetShield AS49418, Mevspace AS207208, ADMAN AS57494, FiberState AS26042, Tele Asia cc), RIPE NCC non-compliance lane (abuse@ripe.net, tickets #1124364 + #1124969), ICO NIS2 lane (icocasework@ico.org.uk). Receipts: evidence/2026-10-19/servhost_escalation_sends.json + servhost_escalation_outbound/ + ico_acknowledgment.eml; replies on record: RIPE deflections x2 (64bc777f 10-19, 78ce7ab7 10-20), Prime Telecom AS207957 denial (eb424881), Cardiff ECMS deferral, GoDaddy autoreply. Enemy silence preserved = spoliation inference stands; clock discharged.'},
  {'id':'ch-diabin-complaint','demand':'INTEGRITY COMPLAINT SERVED to enquiries@companieshouse.gov.uk 2026-10-11 (CHSL/NETSHIELD/DPKGSOFT/SERVHOST four-shell nominee network); CH Contact Centre replied 2026-10-12 (ref COH2382672X) with deflection to Action Fraud 0300 123 2040 + Insolvency Service, no integrity review opened','served':'2026-10-12','deadline':'2026-10-25','consequence':'follow-up per CH guidance: Insolvency Service complaint (gov.uk/complain-company) + HMRC ACSP supervisory referral; legal posture decision = custodian'},
 ]
 def main():
@@ -28,6 +28,13 @@ def main():
     recs=[]
     fails=0
     for c in CLOCKS:
+        if c.get('resolved'):
+            # Consequence executed, receipts archived: the clock is discharged.
+            # days_left is emitted as null so downstream consumers (patrol
+            # walk_near, dashboards) stop firing an alarm over a consequence
+            # we already carried out; the resolution text keeps the provenance.
+            recs.append({**c,'days_left':None,'status':'RESOLVED'})
+            continue
         dl=date.fromisoformat(c['deadline']) if len(c['deadline'])==10 else None
         days=(dl-now).days if dl else None
         blown = days is not None and days<0

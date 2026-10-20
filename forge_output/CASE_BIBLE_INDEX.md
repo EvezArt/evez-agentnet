@@ -10,7 +10,7 @@
 | 7 | Lawsuit pack (LBA, particulars, addenda) | forge_output/lawsuit/ |
 | 8 | RFJ bundle (FINAL: 14959f1e…, pre-withdrawal v) | forge_output/rfj_bundle_v2/ |
 | 9 | Victim impact statement | forge_output/VICTIM_IMPACT_STATEMENT.md |
-| 10 | Enforcement clocks (11 demand-deadlines) | enemy_obligations.py → evidence/enemy_clocks.jsonl |
+| 10 | Enforcement clocks (13 demand clocks; servhost discharged with receipts 2026-10-19, 12 live) | enemy_obligations.py → evidence/enemy_clocks.jsonl |
 | 11 | Standing defense (firewall/Tor-wall/watchdog) | attacker_watch.py + ufw + crons |
 | 12 | Comms archive | evidence/2026-10-05/comms/ (15+ notices served) |
 | 13 | Epistemic state machine | evidence/2026-10-05/epistemic_state/README.md |

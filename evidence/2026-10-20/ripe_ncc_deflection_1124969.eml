@@ -1,0 +1,174 @@
+Delivered-To: fiersteity@gmail.com
+Received: by 2002:a05:7412:1295:b0:230:b293:9fb6 with SMTP id f21csp3456207rdb;
+        Mon, 19 Oct 2026 19:53:21 -0700 (PDT)
+X-Received: by 2002:a05:6000:611:b0:48d:f56d:be56 with SMTP id ffacd0b85a97d-48e07bbd245mr22400974f8f.13.1792464801388;
+        Mon, 19 Oct 2026 19:53:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792464801; cv=none;
+        d=google.com; s=arc-20260327;
+        b=StedSEmBWXAeTbfkwAf/nv0ipSRvy2C9bRNlS2H/4WjGpaXNBWRAKlsitKyNLFtCSm
+         NHcDgu9Q/IK5FQEeAujUeHuykl0BBIyb6ZxGFgxPlAiCrjmejma4x8KLZUPpNf4hO7ij
+         LpuxUazKdf4fGkhpwT/PbUYd2BDIMBSwB+w99LBZIJqd5YP9vngcRu3udF34mqcP/ZXo
+         0m/SW72z+73TjWQGYT47mCRGlzJBMVbKdKl6MN2vMtAJA9y1phZQTzdTRD/nIJVSvCJC
+         cDh4A+XJ25G0Rw6Slm0EcRb+CqOlt1MXzn6B315ZFqTde9Z/XeKH7lWlsobs5gd3dh5A
+         Mh9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=dkim-signature:auto-submitted:content-transfer-encoding
+         :mime-version:subject:references:in-reply-to:message-id:to:reply-to
+         :from:date;
+        bh=yEuHJUu8RFujnUbwXVnhlURUmI9TclEivqUIKrWqixY=;
+        fh=8k3NOEz1Vkfod5kre38uLC/BCmmhayRs6WIhEYfl5l0=;
+        b=igbdbrT4BwLUp/i7aXMDBPP4jttkC8Vu8p+WWKDsZcs2Jj45nGNJo+FO3yZB2SeLDx
+         3kiKbmk37sf9Zkgv6DU9uWc/a0EFIpvIEFZgXsyXfmyZ5Gx/WnU7H/0bn8jjuXTasRxU
+         4XTWoXvaiflPVPl+zSVn42HrtoaWR/THpM4qtPhq8djOKnnljluhRjZ13W3gP19J78CX
+         Ts1TObIpE4Coadkdrw4geziIRtLxsiO0PBur975uvDVUt1IP7jct95/XsiW4ntS+3XK6
+         Ncx99jJTAPv1ZHCwziJ0jUEhu9hXiMwwLipYowvuQwcFb0Z16w2BE7lh0TxbtkSqsO6L
+         jtBg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@ripe.net header.s=zendesk2 header.b=CLgKbJj8;
+       spf=pass (google.com: domain of abuse@ripe.net designates 188.172.138.14 as permitted sender) smtp.mailfrom=abuse@ripe.net;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ripe.net
+Return-Path: <abuse@ripe.net>
+Received: from mta-out14.pod18.euc1.zdsys.com (mta-out14.pod18.euc1.zdsys.com. [188.172.138.14])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-48e1d85173dsi2119330f8f.433.2026.10.19.19.53.21
+        for <fiersteity@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Oct 2026 19:53:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of abuse@ripe.net designates 188.172.138.14 as permitted sender) client-ip=188.172.138.14;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ripe.net header.s=zendesk2 header.b=CLgKbJj8;
+       spf=pass (google.com: domain of abuse@ripe.net designates 188.172.138.14 as permitted sender) smtp.mailfrom=abuse@ripe.net;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ripe.net
+Received: from unknown (unknown [127.0.0.6])
+	by mta-out15.pod18.euc1.zdsys.com (Zendesk) with HTTP
+	id c109bab1-bbd7-4832-97f2-75b934e03fb0;
+	Tue, 20 Oct 2026 02:53:21 +0000 (UTC)
+Date: Tue, 20 Oct 2026 02:53:20 +0000
+From: Support <abuse@ripe.net>
+Reply-To: Support <abuse@ripe.net>
+To: Fiersteity <fiersteity@gmail.com>
+Message-ID: <DDG50Y30PM6_6ad6d7a0d4569_015eb995c3e80a_sprut@zendesk.com>
+In-Reply-To: <6ad6d79e.7c2b95dc.12a842.0715@mx.google.com>
+References: <DDG50Y30PM6@zendesk.com>
+ <6ad6d79e.7c2b95dc.12a842.0715@mx.google.com>
+Subject: RE: RE: Abuse-handling non-compliance - ORG-MG337-RIPE (SERV.HOST
+ GROUP LTD) ignoring published abuse contact on criminal traffic (AS207957 /
+ 150.241.7... - #1124969
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6ad6d7a0ed38b_2ff18a855338";
+ charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Delivery-Context: rule-2-event-id-39964349814290
+X-Zendesk-From-Account-Id: 11483e7
+Auto-Submitted: auto-generated
+X-Auto-Response-Suppress: All
+X-Mailer: Zendesk Mailer
+X-Zendesk-Email-Id: 01M5BKMJRCYVWPFPF7XNJZG2WB
+DKIM-Signature:  v=1; a=rsa-sha256; c=relaxed/relaxed; d=ripe.net; q=dns/txt;
+ s=zendesk2; t=1792464801; bh=yEuHJUu8RFujnUbwXVnhlURUmI9TclEivqUIKrWqixY=;
+ h=date:from:reply-to:to:message-id:in-reply-to:references:subject:mime-version:content-type:content-transfer-encoding;
+ b=CLgKbJj8+kwJrjtyMKg4/ZxWPFGMCBEgrenK6d5rha5GdqDfMvDEcW9nbPTaHLmT/9RSgr/y7HHfTWJaOaBrOsgdhygjc9pUufpjfQHHK1SylYf/uFWtB+QoaY2ObptmFX83Xi4f1JHSSxeNFixg5aLZviRy/5NW284dpUB5V88lBYNGH9ifYthFkS2wiBXJnKwt1cmmNlxL2dtcvxFrqbCy/GpwFHYop135GVAaaf2Yz+k5Rxiraj/VsOQ0JL4d6vxzQktQvzsbORDMD3pDgRyrxMrmhCSM6RjfJkOc9D9VWDw030qy34sRhjQOybJYYDj+y/tZ7bwZfnl52IRVGw==
+
+
+----==_mimepart_6ad6d7a0ed38b_2ff18a855338
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+##- Please type your reply above this line -##
+
+Dear  Fiersteity,
+
+Thank you for your email.
+
+Please note that abuse@ripe.net is not monitored.
+The RIPE NCC does not investigate abuse reports concerning our members. I=
+f you're trying to report network abuse (such as spam, hacking or other n=
+etwork misuse), please send it to the organisation that manages the IP ad=
+dress the abuse is coming from.
+
+To do this, follow these steps:
+1. Go to RIPEstat: https://stat.ripe.net
+2. Enter the IP address
+
+You will find the abuse contact for the responsible IP network.
+
+Please note that the contact listed may not the abuser, it's the network =
+operator responsible for handling abuse reports.
+
+Thank you for your understanding.
+
+--------------------------------
+This email is a service from RIPE NCC Support.
+
+
+
+
+
+
+
+
+
+[DDG50Y-30PM6]=
+
+----==_mimepart_6ad6d7a0ed38b_2ff18a855338
+Content-Type: text/html;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+  <style type=3D"text/css">
+    table td {
+      border-collapse: collapse;
+    }
+    body[dir=3Drtl] .directional_text_wrapper { direction: rtl; unicode-b=
+idi: embed; }
+
+  </style>
+
+          <style type=3D"text/css">
+            @media only screen and (max-width: 768px) {
+              .simplified-email-footer .namecard {
+                display: block;
+                min-width: 100%;
+                padding: 0 0 16px 0; }
+
+              .simplified-email-footer .content {
+                padding: 16px; }
+            }
+          </style>
+        </head>
+<body lang=3D"en-us" style=3D"width: 100%!important; margin: 0; padding: =
+0;">
+  <div style=3D"padding: 10px ; line-height: 18px; font-family: 'Lucida G=
+rande',Verdana,Arial,sans-serif; font-size: 12px; color:#444444;">
+    <div style=3D"color: #b5b5b5;">##- Please type your reply above this =
+line -##</div>
+    <p dir=3D"ltr">Dear  Fiersteity,</p><p dir=3D"ltr">Thank you for your=
+ email.</p><p dir=3D"ltr">Please note that abuse@ripe.net is not monitore=
+d.<br>The RIPE NCC does not investigate abuse reports concerning our memb=
+ers. If you're trying to report network abuse (such as spam, hacking or o=
+ther network misuse), please send it to the organisation that manages the=
+ IP address the abuse is coming from.</p><p dir=3D"ltr">To do this, follo=
+w these steps:<br>1. Go to RIPEstat: <a href=3D"https://stat.ripe.net" re=
+l=3D"noreferrer">https://stat.ripe.net</a><br>2. Enter the IP address</p>=
+<p dir=3D"ltr">You will find the abuse contact for the responsible IP net=
+work.</p><p dir=3D"ltr">Please note that the contact listed may not the a=
+buser, it's the network operator responsible for handling abuse reports.<=
+/p><p dir=3D"ltr">Thank you for your understanding.</p>
+  </div>
+  <div style=3D"padding: 10px ; line-height: 18px; font-family: 'Lucida G=
+rande',Verdana,Arial,sans-serif; font-size: 12px; color: #aaaaaa;
+    margin: 10px 0 14px 0; padding-top: 10px; border-top: 1px solid #eeee=
+ee;">
+    This email is a service from RIPE NCC Support.
+  </div>
+<span style=3D"color:#FFFFFF" aria-hidden=3D"true" class=3D"zd_encoded_id=
+">[DDG50Y-30PM6]</span>
+
+</body></html>=
+
+----==_mimepart_6ad6d7a0ed38b_2ff18a855338--

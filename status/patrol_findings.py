@@ -11,7 +11,7 @@ import sys
 import json
 import re
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 REPO = Path("/root/evez-agentnet")
 EVID = REPO / "evidence" / datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -138,6 +138,53 @@ def main():
     # re-measures that receptor independently; only sensations that survive
     # their own re-test are reported. Transient firings die here, quietly —
     # the operator never sees a ghost the machine already disproved.
+    #
+    # MATERIALITY GATES (2026-10-20): surviving re-measure is not enough. The
+    # baseline math (median + MAD over a mostly-zero bursty signal) makes
+    # MAD=0, so ANY burst is "4-sigma novel" forever — the cortex fired
+    # intruder on 29% of renders and memory on 19% for a week straight, waking
+    # the operator every 2h for repelled scans and the machine's own OODA
+    # rounds. Evidence keeps ALL sensations; the TRIPWIRE reports only what
+    # demands a human hand.
+    ROUND_KINDS = {
+        "round_start", "maes_tick", "scan_complete", "cognition_step",
+        "predict_complete", "generate_complete", "ship_governance",
+        "openclaw_run", "rsi_hypotheses", "rsi_branch_injection", "round_end",
+    }
+
+    def _breach_in_auth_tail() -> bool:
+        # A password-auth SUCCESS from an IP that ALSO failed in the recent
+        # tail: the one scan outcome that is a breach, not noise. All
+        # extraction shell-side (grep -a) so raw bytes in attacker password
+        # garbage cannot crash the patrol.
+        r = sh(
+            "f=$(mktemp); a=$(mktemp); "
+            "grep -a 'Failed password' /var/log/auth.log 2>/dev/null | tail -n 200 | "
+            "grep -aoE '([0-9]{1,3}\\.){3}[0-9]{1,3}' | sort -u > \"$f\"; "
+            "tail -n 400 /var/log/auth.log 2>/dev/null | grep -a 'Accepted password' | "
+            "grep -aoE '([0-9]{1,3}\\.){3}[0-9]{1,3}' | sort -u > \"$a\"; "
+            "comm -12 \"$f\" \"$a\"; rm -f \"$f\" \"$a\"")
+        return bool(r.stdout.strip())
+
+    def _spine_window_is_own_round() -> bool:
+        # True when the last 5 minutes of spine traffic is exactly the
+        # machine's own scheduled OODA round — its resting pulse, not news.
+        cutoff = (datetime.now(timezone.utc) - timedelta(minutes=5)).isoformat()
+        kinds, count = set(), 0
+        try:
+            out = sh(f"tail -n 60 {REPO / 'spine' / 'spine.jsonl'}", timeout=30)
+        except Exception:
+            return False
+        for line in (out.stdout or "").splitlines():
+            try:
+                o = json.loads(line)
+            except ValueError:
+                continue
+            if o.get("ts", "") >= cutoff:
+                count += 1
+                kinds.add(o.get("type", o.get("kind", "?")))
+        return count <= 25 and bool(kinds) and kinds <= ROUND_KINDS
+
     def _remeasure(receptor: str):
         """Independent second measurement of a receptor that fired."""
         import importlib.util, sys as _sys
@@ -171,13 +218,22 @@ def main():
         for s in sc.get("sensations", []):
             if not s.get("novel"):
                 continue
-            # transient flow/intruder spikes vanish before re-measure: re-test
+            # transient flow/intruder/load spikes vanish before re-measure: re-test
             recheck = _remeasure(s["receptor"])
             if recheck is None:
                 findings.append(
                     f"CORTEX-NOVEL {s['receptor']} v={s['value']} {json.dumps(s.get('detail',{}))[:100]} (unverifiable)")
             elif s["receptor"] in ("flow", "intruder", "load") and recheck < 0.4 * s["value"]:
                 pass  # spike collapsed between render and patrol: drop the ghost
+            elif s["receptor"] == "memory" and _spine_window_is_own_round():
+                pass  # the machine's own scheduled OODA round: resting pulse, not news
+            elif s["receptor"] == "intruder" and recheck < 30 and not _breach_in_auth_tail():
+                pass  # repelled scan floor: fail2ban eats it, zero breaches — the wall working
+            elif s["receptor"] == "hand" and recheck == s["value"]:
+                pass  # calligraphy cycle counter ticked: the art daemon being alive, not news
+            elif s["receptor"] == "enemy" and recheck < 10000:
+                pass  # chronic 24h new-source storm (~2k/day) the firewall eats by design;
+                      # 10k+ = a coordinated event an order above the floor — report that
             else:
                 findings.append(
                     f"CORTEX-NOVEL {s['receptor']} v={s['value']} re-measured={recheck:g} "

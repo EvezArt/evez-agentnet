@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-20T01:28:07.407915+00:00",
+  "generated": "2026-10-20T05:44:20.990559+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -71,7 +71,7 @@
     {
       "unit": "evez-kalshi-screen.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Tue 2026-10-20 06:50:09 CEST"
     },
     {
       "unit": "evez-lineage.service",
@@ -81,7 +81,7 @@
     {
       "unit": "evez-live-monitor-vnc.service",
       "sub": "running",
-      "since": "Mon 2026-10-19 03:49:24 CEST"
+      "since": "Tue 2026-10-20 06:50:08 CEST"
     },
     {
       "unit": "evez-live-monitor.service",
@@ -124,6 +124,11 @@
       "since": "Sun 2026-10-18 19:21:21 CEST"
     },
     {
+      "unit": "gueriella-openclaw-watchdog.service",
+      "sub": "running",
+      "since": "Tue 2026-10-20 03:35:09 CEST"
+    },
+    {
       "unit": "hermes-dashboard.service",
       "sub": "running",
       "since": "Sun 2026-10-18 19:21:20 CEST"
@@ -151,7 +156,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Tue 2026-10-20 02:43:48 CEST"
+      "since": "Tue 2026-10-20 04:00:11 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -304,7 +309,7 @@
       "port": 5900,
       "bind": "[::1]",
       "proc": "x11vnc",
-      "pid": 1366,
+      "pid": 2214105,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -314,7 +319,7 @@
       "port": 5901,
       "bind": "127.0.0.1",
       "proc": "x11vnc",
-      "pid": 1366,
+      "pid": 2214149,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -324,7 +329,7 @@
       "port": 5901,
       "bind": "[::1]",
       "proc": "x11vnc",
-      "pid": 1366,
+      "pid": 2214149,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -334,7 +339,7 @@
       "port": 5902,
       "bind": "127.0.0.1",
       "proc": "x11vnc",
-      "pid": 474841,
+      "pid": 2214105,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -344,7 +349,7 @@
       "port": 5902,
       "bind": "[::1]",
       "proc": "x11vnc",
-      "pid": 474841,
+      "pid": 2214105,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -354,7 +359,7 @@
       "port": 6080,
       "bind": "127.0.0.1",
       "proc": "websockify",
-      "pid": 1367,
+      "pid": 2214150,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -364,7 +369,7 @@
       "port": 6081,
       "bind": "127.0.0.1",
       "proc": "websockify",
-      "pid": 474843,
+      "pid": 2214106,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -594,7 +599,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1934000,
+      "pid": 2017445,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -604,7 +609,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 1934000,
+      "pid": 2017445,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -701,6 +706,16 @@
       "fw_blocked": false
     },
     {
+      "port": 33859,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 2017445,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 36261,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
@@ -711,20 +726,10 @@
       "fw_blocked": false
     },
     {
-      "port": 41691,
+      "port": 43971,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 1977466,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 45299,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 1934000,
+      "pid": 2263359,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -921,33 +926,38 @@
   ],
   "docker": [
     {
-      "name": "openclaw-sbx-workspace-10f0b0b0c828aacd1b76382916528fa6",
+      "name": "openclaw-sbx-workspace-8a5267375258c9ec2155562d56abb770",
       "status": "Up 4 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
+      "name": "openclaw-sbx-workspace-10f0b0b0c828aacd1b76382916528fa6",
+      "status": "Up 9 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 14 hours",
+      "status": "Up 19 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ruview-demo",
-      "status": "Up 21 hours",
+      "status": "Up 25 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 31 hours",
+      "status": "Up 35 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 32 hours",
+      "status": "Up 36 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 32 hours",
+      "status": "Up 36 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -989,9 +999,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "8775576",
-    "last": "war-mode heartbeat 2026-10-19 11:2x UTC: patrol found 5 \u2014 three enemy clocks + intruder + hand, all verified live. bunea+palo 14-day payment clocks DUE-1 (deadline 10-20 TOMORROW): consequences = E&W proceedings / aggravated s1030 posture, claim package staged in forge_output/lawsuit/, custodian hands only. servhost-abuse-demand BLOWN (10-18): consequence FIRED 02:09-02:22 UTC, 8th day of silence re-verified this tick \u2014 inbox 60 newest + spam 100 newest swept, zero enemy-originated mail, only hits are my own escalation autoreplies (RIPE 3127, GoDaddy 3129). NEW: Cloudflare lane also dead on arrival (autoreply 3126 02:21Z, 'not monitored', form = cloudflare.com/abuse) \u2014 READY.md appended: two form resubmissions now open, custodian hands, one action each. CORTEX intruder v=4 re-measured 3 at patrol, 0 on my own sweep: last failed password 2026-10-18 08:52 (scanner noise, root/deploy/fc/user/adam/admin/anyuser single hits from internet IPs), the Oct-18 block drifted out of the tail-200 window \u2014 ghost, window collapsed, no perimeter finding. CORTEX hand v=71 re-measured 71: calligraphy cycle 71 live 10:15Z 'EVEZ', master's rot_jitter 3.0->2.0 order from cycle 70 applied in style params, daemon on ~3h cadence. CORTEX enemy v=2016 fresh UFW sources (10 sampled, all 100.28/100.29/100.49 cloud ranges) \u2014 mass-scan background, wall working, receptor habituated novel->false by 11:20Z render. spine gate green before commit (all 7 patrol suites passed this tick); operational churn through 11:2x UTC.",
-    "dirty": 99
+    "head": "752596f",
+    "last": "war-mode heartbeat 2026-10-20 01:2x UTC: patrol found 6 \u2014 three enemy clocks + intruder + hand + superego, all verified live. bunea+palo 14-day payment clocks DUE (deadline 2026-10-20, TODAY): inbox 60 newest + spam 100 newest swept this tick, zero senders from bunea/palo/serv.host/dmzhostabuse/TECHOFF/Ilin/Sevastiiev \u2014 enemy silence total as the payment window closes; consequences (E&W proceedings / aggravated s1030 posture) = custodian hands only, claim package verified staged in forge_output/lawsuit/ (letter before action, particulars draft, exhibit index, sign-ready docx). servhost-abuse-demand BLOWN (10-18): consequence FIRED by custodian 02:09-02:22 UTC 10-19; NEW reply this tick \u2014 Prime Telecom (Mihai Rasturnoiu) denies AS207957 is their customer/downstream, points to public BGP looking glass, second Prime denial after the 10-06 AS48090/AS47890 one; ingested from spam to evidence/2026-10-19/primetelecom_as207957_denial.eml (eb424881..., manifest verified), READY.md appended; GoDaddy/Cloudflare form lanes already stated once, not re-asked. NEW Companies House lane reply: Cardiff ECMS on COH2245019X defers conduct complaint to the Insolvency Service while conceding register-accuracy/fraud powers \u2014 reinforces ch-diabin-complaint clock (deadline 10-25), consequence already enumerated; ingested 6aac96c5... One personal-lane reply ingested and pinned local-only via .git/info/exclude (not war evidence; manifest carries digest only). CORTEX intruder v=3 re-measured 3 CONFIRMED \u2014 real burst, not ghost: root/kali from 203.113.105.99 + root/oana from 116.123.150.231, 4 failed passwords 01:08-01:16 local, burst dead, fail2ban active (11 banned / 0 current), ufw walls standing, zero accepts from attacker ranges; auth tail-200 spans ~13 min at current noise so the block slid out of window by follow-up sweep. Watcher flag per design: 13 successful root logins from NEW WARP egress 104.28.164.108 (22:53-23:11 local) interleaved same-minute with confirmed-device 104.28.157.64 logins, same Cloudflare WARP pool as authorized 104.28.164.133 \u2014 UNEXPECTED_SUCCESSFUL_LOGIN raised twice in evidence (21:00/21:15 UTC); attribution raised once for custodian word, NOT registered without it. CORTEX hand v=75 re-measured 75: calligraphy cycle 75 live 22:01Z 'the observer is the loop' score 5.0, master's slant=0.0 order applied, glyph_jitter 0.05 / line_wander 0.2, daemon alive on ~3h cadence. CORTEX superego v=38 re-measured 38: df / 38% (72G of 193G), 37-38 flap, reserve healthy. spine gate green before commit (hash chain verifies, timestamps strictly non-decreasing); all 7 patrol suites passed this tick; operational churn through 01:2x UTC.",
+    "dirty": 63
   },
   "mirrors": 2341
 }

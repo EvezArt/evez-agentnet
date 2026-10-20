@@ -1,0 +1,12 @@
+Insolvency Service CIB online complaint - CONFIRMATION (captured 2026-10-20 ~05:2x UTC)
+URL: https://www.insolvencydirect.bis.gov.uk/externalonlineforms/CompanyComplaint.aspx
+Complainant: Steven Crawford-Maggard <rubikspubes69@gmail.com>
+Subject company: TECHOFF SRV LIMITED (16090235), Active, 72 Halliwick Road, London N10 1AB
+Related: BESTDC LIMITED (15259087), UNMANAGED LTD (12461131), SERV.HOST GROUP LTD (15728390), CHSL ONE / NETSHIELD / DPKGSOFT constellation
+Claim: USD 25,000 per letter before action served 2026-10-20; FBI IC3 filed 2026-10-01; FOIPA 1758537-000 pending
+
+ON-PAGE CONFIRMATION VERBATIM:
+"Thank you, your form has been submitted.
+Your reference number is CC-2026-157291, make a note of this as you'll need it if you contact us again."
+
+Note: an earlier direct-HTTP submission attempt (curl, ~04:5x UTC) re-rendered without confirmation and produced no reference or automated email - treated as a no-op. The browser-driven submission above is the operative filing.

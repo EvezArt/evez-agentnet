@@ -205,3 +205,15 @@ commands on this box on Oct 3 ~07:16–07:29.
 | 103.78.166.108 | 47 | 2026-10-19 | cd0d51bbf864 | contact only — no attribution |
 | 82.151.84.22 | 41 | 2026-10-19 | 91fc45d7e706 | contact only — no attribution |
 | 138.226.239.34 | 29 | 2026-10-19 | 95d4aadbfd3c | contact only — no attribution |
+
+### 2026-10-20
+
+| Source | Strikes (24h) | First seen | Stamp | Note |
+|---|---|---|---|---|
+| 176.65.148.253 | 33 | 2026-10-20 | b930d9566d53 | contact only — no attribution |
+| 130.12.182.122 | 29 | 2026-10-20 | 7bde4efe3800 | contact only — no attribution |
+| 80.13.153.140 | 21 | 2026-10-20 | c1bd19acc2d6 | contact only — no attribution |
+| 78.128.113.22 | 18 | 2026-10-20 | 02b4255f9304 | contact only — no attribution |
+| 185.136.15.90 | 16 | 2026-10-20 | 690a14964f98 | contact only — no attribution |
+| 160.119.76.158 | 16 | 2026-10-20 | 4c21b17b1e05 | contact only — no attribution |
+| 45.142.193.169 | 15 | 2026-10-20 | c37c3aa768d2 | contact only — no attribution |
