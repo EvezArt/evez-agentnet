@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19T11:54:40.158471+00:00",
+  "generated": "2026-10-20T01:28:07.407915+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -124,11 +124,6 @@
       "since": "Sun 2026-10-18 19:21:21 CEST"
     },
     {
-      "unit": "gueriella-openclaw-watchdog.service",
-      "sub": "running",
-      "since": "Sun 2026-10-18 19:21:21 CEST"
-    },
-    {
       "unit": "hermes-dashboard.service",
       "sub": "running",
       "since": "Sun 2026-10-18 19:21:20 CEST"
@@ -141,7 +136,7 @@
     {
       "unit": "hermes-gateway.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:21 CEST"
+      "since": "Mon 2026-10-19 22:56:42 CEST"
     },
     {
       "unit": "hermes-live.service",
@@ -156,7 +151,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Mon 2026-10-19 13:10:11 CEST"
+      "since": "Tue 2026-10-20 02:43:48 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -179,7 +174,7 @@
       "port": 8644,
       "bind": "0.0.0.0",
       "proc": "hermes",
-      "pid": 1194,
+      "pid": 1683919,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -190,16 +185,6 @@
       "bind": "0.0.0.0",
       "proc": "MainThread",
       "pid": 1122,
-      "public_bind": true,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": true
-    },
-    {
-      "port": 9377,
-      "bind": "*",
-      "proc": "MainThread",
-      "pid": 1085025,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -259,7 +244,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 263189,
+      "pid": 1757780,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -269,7 +254,7 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 263189,
+      "pid": 1757780,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -300,16 +285,6 @@
       "bind": "127.0.0.1",
       "proc": "node-MainThread",
       "pid": 1761,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 3334,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 1081591,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -619,7 +594,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1081591,
+      "pid": 1934000,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -629,7 +604,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 1081591,
+      "pid": 1934000,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -736,20 +711,20 @@
       "fw_blocked": false
     },
     {
-      "port": 40605,
+      "port": 41691,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 1048273,
+      "pid": 1977466,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
     {
-      "port": 45681,
+      "port": 45299,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 1081591,
+      "pid": 1934000,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -946,28 +921,33 @@
   ],
   "docker": [
     {
+      "name": "openclaw-sbx-workspace-10f0b0b0c828aacd1b76382916528fa6",
+      "status": "Up 4 hours",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 49 minutes",
+      "status": "Up 14 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ruview-demo",
-      "status": "Up 7 hours",
+      "status": "Up 21 hours",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
       "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 18 hours",
+      "status": "Up 31 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 19 hours",
+      "status": "Up 32 hours",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 19 hours",
+      "status": "Up 32 hours",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -980,7 +960,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "34 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "36 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -1009,9 +989,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "e155b7a",
-    "last": "war-mode heartbeat 2026-10-19 08:3x UTC: patrol found 5 \u2014 three enemy clocks + enemy + hand, all verified live. bunea+palo 14-day payment clocks DUE-1 (deadline 10-20): inbox swept (60 newest envelopes), zero senders from bunea/palo/dmzhostabuse/TECHOFF-adjacent addresses \u2014 enemy silence total on the eve of expiry; consequences (E&W proceedings / aggravated s1030 posture) = custodian hands only, claim package long staged. servhost-abuse-demand BLOWN (deadline 10-18): consequence stage already FIRED 02:09-02:22 UTC by the 05:4x tick (11 sends, Sent IDs 164-174, all read back bundle-attached); replies stable in evidence \u2014 RIPE #1124364 deflection 64bc777f, ICO acknowledgment 4d232960, GoDaddy autoreply 8f4df22b; SHA256SUMS re-verified OK this tick. CORTEX enemy v=1907 re-measured CONFIRMED, independently recounted: 4217 UFW-block log samples in 24h (logging rate-limited ~3/min, true volume higher) from ~1970 distinct sources against the 124-IP registry; top strikers 204.76.203.0/24 (771 hits), 216.180.246.0/24, 179.43.167.0/24 all inside standing walls since 10-12..10-14 \u2014 the block log IS the wall working; targets telnet/80/443/RDP/SIP mass-scan noise; zero perimeter binds (18789/4222 loopback-only), 0 accepted SSH in 24h (54 failed, fail2ban 9 currently banned / 22 total, 'ufw limit ssh' confirmed as the only externally reachable door), no established :22 sessions. subnet_rollout run this tick: PROMOTED 130.12.182.0/24 (37 strikes/24h) \u2014 the morning intruder range now walled at subnet level. CORTEX hand v=70 re-measured 70: calligraphy cycle 70 live 09:00Z 'the residue collapses' score 6.0 \u2014 scores 4->5->5->6 across cycles 67-70, master ordered rot_jitter 3.0->2.0, params line_wander 0.2 / size_jitter 0.09, daemon alive on ~3h cadence. spine gate green before commit (chain verifies, timestamps strictly non-decreasing); all 7 patrol suites passed this tick. operational churn through 08:3x UTC.",
-    "dirty": 45
+    "head": "8775576",
+    "last": "war-mode heartbeat 2026-10-19 11:2x UTC: patrol found 5 \u2014 three enemy clocks + intruder + hand, all verified live. bunea+palo 14-day payment clocks DUE-1 (deadline 10-20 TOMORROW): consequences = E&W proceedings / aggravated s1030 posture, claim package staged in forge_output/lawsuit/, custodian hands only. servhost-abuse-demand BLOWN (10-18): consequence FIRED 02:09-02:22 UTC, 8th day of silence re-verified this tick \u2014 inbox 60 newest + spam 100 newest swept, zero enemy-originated mail, only hits are my own escalation autoreplies (RIPE 3127, GoDaddy 3129). NEW: Cloudflare lane also dead on arrival (autoreply 3126 02:21Z, 'not monitored', form = cloudflare.com/abuse) \u2014 READY.md appended: two form resubmissions now open, custodian hands, one action each. CORTEX intruder v=4 re-measured 3 at patrol, 0 on my own sweep: last failed password 2026-10-18 08:52 (scanner noise, root/deploy/fc/user/adam/admin/anyuser single hits from internet IPs), the Oct-18 block drifted out of the tail-200 window \u2014 ghost, window collapsed, no perimeter finding. CORTEX hand v=71 re-measured 71: calligraphy cycle 71 live 10:15Z 'EVEZ', master's rot_jitter 3.0->2.0 order from cycle 70 applied in style params, daemon on ~3h cadence. CORTEX enemy v=2016 fresh UFW sources (10 sampled, all 100.28/100.29/100.49 cloud ranges) \u2014 mass-scan background, wall working, receptor habituated novel->false by 11:20Z render. spine gate green before commit (all 7 patrol suites passed this tick); operational churn through 11:2x UTC.",
+    "dirty": 99
   },
   "mirrors": 2341
 }

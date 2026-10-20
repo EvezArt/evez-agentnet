@@ -1,0 +1,136 @@
+Delivered-To: fiersteity@gmail.com
+Received: by 2002:a05:7412:1295:b0:230:b293:9fb6 with SMTP id f21csp2323002rdb;
+        Mon, 19 Oct 2026 00:18:18 -0700 (PDT)
+X-Received: by 2002:a05:6000:4301:b0:48b:a4b:5a2c with SMTP id ffacd0b85a97d-48e07988931mr15272269f8f.3.1792394297926;
+        Mon, 19 Oct 2026 00:18:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792394297; cv=none;
+        d=google.com; s=arc-20260327;
+        b=RcIkSiF/H0sWPeLjzweSwCDXcv7p5Us/jG9Fneb9lWpRqIR+zY0wZXozbYR1SNHhdW
+         BY7XKlk6HyI7Zdq6WHpt7FRSttwqm22k82Gv1H+/wAEjrOAeatNGeQ9LD3z3vqC5lnbI
+         LNrMxrd0SHN13Qd03nqaMUcm0/d38Zbl33Ael3Fi9bJ2x5lOGNIr1CECsujdJNmuUDH4
+         HGXhjjAGrD8f3Jlog/gwDemfL8rAjzz4g1FAT1zUATp54N2AFjDDhBD1tkpvgFVkjiaj
+         bmLOGptvsquk93zsE4G1lGq/Kdw/myOX6H/rJh3cf7nHs0z0JFmnwfu5Z3Ckx5/wTXNC
+         EA6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:in-reply-to:from:cc:references:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :dkim-signature:dkim-filter;
+        bh=wdmP7xRzY2JmaW79CpxXUvjUR6zth94SBvJ+Na9s7R0=;
+        fh=8fJC33cZhURYXnjWhq4scVJj+G7WPoGU+wxOqiyU+XM=;
+        b=de01iA0DazaECyA4XXW7bxT97ue+E5nUi8P7ech+sGukc0wsNoPE9AmFFfUazwxoSm
+         kzyCgvrj1HvSvqLPo8og95ohw/UYA6vV5CE/sCgrYMR4pdqRMAnGxpb11dBF954wOj+t
+         sqlfGTfu9/3UVv6k7e1N01qIzs46x6nr2wDP+QBpZlsCXQcKLWMo4GL03shuGShHojEN
+         59J4URVnSJMQsbl/TTCaEAXKzZwZdWQ7EUBjdcWHit8DFJ42J3JuzhAKXdfponwxTpgT
+         w3cUzkpZo+mFTmZbJfs7xw+PiDjhSBqYZVR5qhRSfUSfN1ZFE21WOfz4NUOQKTNcVZxB
+         a2Hg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@primetelecom.ro header.s=52C7E34C-FE92-11E6-9596-D6105FD7DD5D header.b=i6GVUVYa;
+       spf=pass (google.com: domain of mihai.rasturnoiu@primetelecom.ro designates 89.44.235.230 as permitted sender) smtp.mailfrom=mihai.rasturnoiu@primetelecom.ro;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=primetelecom.ro
+Return-Path: <mihai.rasturnoiu@primetelecom.ro>
+Received: from mail.primetelecom.ro (mail.primetelecom.ro. [89.44.235.230])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-48dfd4fee75si18901479f8f.198.2026.10.19.00.18.17
+        for <fiersteity@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Oct 2026 00:18:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mihai.rasturnoiu@primetelecom.ro designates 89.44.235.230 as permitted sender) client-ip=89.44.235.230;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@primetelecom.ro header.s=52C7E34C-FE92-11E6-9596-D6105FD7DD5D header.b=i6GVUVYa;
+       spf=pass (google.com: domain of mihai.rasturnoiu@primetelecom.ro designates 89.44.235.230 as permitted sender) smtp.mailfrom=mihai.rasturnoiu@primetelecom.ro;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=primetelecom.ro
+Received: from localhost (localhost [127.0.0.1])
+	by mail.primetelecom.ro (Postfix) with ESMTP id 335B11003A96B2
+	for <fiersteity@gmail.com>; Mon, 19 Oct 2026 10:18:17 +0300 (EEST)
+Received: from mail.primetelecom.ro ([127.0.0.1])
+ by localhost (mail.primetelecom.ro [127.0.0.1]) (amavis, port 10032)
+ with ESMTP id DGI2xDAvig5h; Mon, 19 Oct 2026 10:18:16 +0300 (EEST)
+Received: from localhost (localhost [127.0.0.1])
+	by mail.primetelecom.ro (Postfix) with ESMTP id 268E71003A936A;
+	Mon, 19 Oct 2026 10:18:16 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.10.3 mail.primetelecom.ro 268E71003A936A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=primetelecom.ro;
+	s=52C7E34C-FE92-11E6-9596-D6105FD7DD5D; t=1792394296;
+	bh=wdmP7xRzY2JmaW79CpxXUvjUR6zth94SBvJ+Na9s7R0=;
+	h=Message-ID:Date:MIME-Version:To:From;
+	b=i6GVUVYarbhrSk6I6Y2ksJ31oEvG0NtRX97kV+6q4prCzOgwzExREr9Fz8sGpGhWK
+	 cyWnMueb0tf3ep6JMG2AUS44TAakiH2/s/7y8rnF6YCXy5ADlexWrhUiViYZEuPuUk
+	 7+cPkHh44/VwiCaamB3mNg93BvPHugX4VZzipLEk3xT69Ys9ocll74oWug77f9ywJb
+	 +UzGD/YV9x3+xDg3szPW0MhFs2JnIRi5SrTokfJ85iRLme89Nu30nnc556ENUGTEty
+	 eXXGDC8wd4xYagD7beChZV6zF4IObDZ0s4E2mY5msyr61RCkPtxnn88+Mq+1PP8lxa
+	 z+dNZiGC674Jw==
+X-Virus-Scanned: amavis at primetelecom.ro
+Received: from mail.primetelecom.ro ([127.0.0.1])
+ by localhost (mail.primetelecom.ro [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id TI4VEdIyuuZ6; Mon, 19 Oct 2026 10:18:16 +0300 (EEST)
+Received: from [192.168.1.238] (unknown [82.76.159.111])
+	by mail.primetelecom.ro (Postfix) with ESMTPSA id CC01B1003A96B2;
+	Mon, 19 Oct 2026 10:18:15 +0300 (EEST)
+Message-ID: <dbd69e46-277b-4628-85d1-4dba54412186@primetelecom.ro>
+Date: Mon, 19 Oct 2026 10:18:16 +0300
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: =?UTF-8?Q?Re=3A_ESCALATION=3A_upstream/transit_AUP_enforcement_requ?=
+ =?UTF-8?Q?ested_=E2=80=94_SERV=2EHOST_GROUP_LTD_=28AS207957_/_150=2E241=2E7?=
+ =?UTF-8?Q?4=2E0/24=29_=E2=80=94_attack_traffic_+_C2_hosting?=
+Content-Language: en-US
+To: fiersteity@gmail.com
+References: <18dfcce91e8e0080.357c1fac18d00332.5e5e30c080402885@vmi3544756>
+Cc: abuse@primetelecom.ro
+From: Mihai Rasturnoiu <mihai.rasturnoiu@primetelecom.ro>
+In-Reply-To: <18dfcce91e8e0080.357c1fac18d00332.5e5e30c080402885@vmi3544756>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+
+Hello,
+
+AS207957 is not a customer of ours, or in our downstream, this 
+information can be confirmed with any publically avaiable BGP/looking 
+glass tool.
+
+Best Regards,
+
+Mihai Rasturnoiu
+IP Network Engineer
+
+Prime Telecom
+Tel: +40 215390000
+Mob: +40 751053589
+https://primetelecom.ro
+
+
+On 19 oct. 2026 05:21, fiersteity@gmail.com wrote:
+> [EXTERNAL] This message came from outside primetelecom.ro. Be cautious with links and attachments, and verify the sender before you reply.
+> --------------------------------------------------------------------
+>
+> On 2026-10-11 a formal abuse and preservation demand was served to abuse@serv.host concerning
+> criminal attack traffic and C2 hosting on 150.241.74.0/24 (AS207957, SERV.HOST GROUP LTD,
+> RIPE org ORG-MG337-RIPE, abuse NOC AN32913-RIPE). As of 2026-10-19 no acknowledgement or
+> remediation has been received. The range continues to be announced by AS207957 (origin
+> verified live 2026-10-19 against BGP routing data).
+>
+> Service record, for completeness: the demand was first transmitted at 18:04 UTC on 2026-10-11
+> to abuse@serv.host, copied to noc@serv.host and postmaster@serv.host. The provider's mail
+> servers rejected all three copies (SMTP 554 5.7.1 "Message rejected under suspicion of SPAM";
+> delivery receipts retained). A second transmission at 19:59 UTC the same day was accepted.
+> Eight days later there is still no acknowledgement or remediation. A provider whose abuse
+> channel rejects abuse mail while its announced range hosts criminal infrastructure is itself
+> escalation-grade evidence.
+>
+> As an upstream or transit provider in the path of this infrastructure, we request you:
+>
+>    (a) confirm whether SERV.HOST GROUP LTD / AS207957 is or was in your downstream, transit,
+>        or peering path;
+>    (b) enforce your acceptable-use policy against this customer for hosting criminal
+>        infrastructure (attack traffic + C2);
+>    (c) preserve all transit, customer, billing, and peering records for 150.241.74.0/24;
+>    (d) provide written acknowledgement of this escalation.
+>
+> Scope note on Prime Telecom srl: Prime responded to an earlier (2026-10-06) notice denying
+> that AS48090 and AS47890 are in its downstream. Those are separate ASNs from the AS207957
+> matter addressed here. This request concerns ONLY AS207957 / 150.241.74.0/24. If Prime does
+> not transit or peer AS207957, no action is requested of Prime beyond acknowledgement.
+>
+> This is part of an ongoing criminal matter (FBI IC3 complaint filed 2026-10-01). Evidence is
+> attached: the original demand, RDAP/RIPEstat receipts, and hash-chained attack logs.
+

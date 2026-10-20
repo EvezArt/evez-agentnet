@@ -127,3 +127,11 @@ Tele Asia autoreplies and the Prime Telecom AS39737 denial.
   abuse reporting web form available at https://www.cloudflare.com/abuse/".
 - Open follow-ups (custodian hands only, one action each): GoDaddy complaint
   via abuseform.com; Cloudflare complaint via https://www.cloudflare.com/abuse/.
+- 2026-10-20 01:1x UTC patrol tick — Prime Telecom lane replied to the fired
+  escalation: Mihai Rasturnoiu (IP Network Engineer, abuse@primetelecom.ro cc'd)
+  denies AS207957 / SERV.HOST is a customer or in their downstream, pointing to
+  public BGP/looking-glass confirmation — second Prime denial (first: AS48090/
+  AS47890, 2026-10-06). Ingested from spam: evidence/2026-10-19/
+  primetelecom_as207957_denial.eml (sha256 eb424881d976e9d280ba00764c461a38eb
+  3289392b6a98faaa3d61955cb58393, manifest verified). Lane closed as evidence:
+  an upstream denial on the record is itself posture material.
