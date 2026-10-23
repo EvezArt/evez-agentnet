@@ -38,37 +38,31 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python -m agents.knowledge.harvester
-        continue-on-error: true
 
       - name: Run Learning Engine
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python -m agents.knowledge.learner
-        continue-on-error: true
 
       - name: Run Skill Synthesizer
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python -m agents.knowledge.skill_synth
-        continue-on-error: true
 
       - name: Run Memory Indexer
         run: python -m agents.knowledge.memory_index
-        continue-on-error: true
 
       - name: Run Capability Registry
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python -m agents.knowledge.capabilities
-        continue-on-error: true
 
       - name: Run Cross-Pollinator
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python -m agents.knowledge.cross_pollinate
-        continue-on-error: true
 
       - name: Generate Learning Report
         run: |
