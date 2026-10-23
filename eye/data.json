@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-23T18:38:43.195936+00:00",
+  "generated": "2026-10-23T21:20:34.542551+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -46,7 +46,7 @@
     {
       "unit": "evez-desk15.service",
       "sub": "running",
-      "since": "Fri 2026-10-23 09:29:54 CEST"
+      "since": "Fri 2026-10-23 23:10:40 CEST"
     },
     {
       "unit": "evez-event-spine.service",
@@ -156,7 +156,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Fri 2026-10-23 15:58:23 CEST"
+      "since": "Fri 2026-10-23 22:08:50 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -599,7 +599,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3124289,
+      "pid": 3506288,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -609,7 +609,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 3124289,
+      "pid": 3506288,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -706,6 +706,16 @@
       "fw_blocked": false
     },
     {
+      "port": 33341,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 3506288,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 36261,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
@@ -716,20 +726,10 @@
       "fw_blocked": false
     },
     {
-      "port": 37081,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 3124289,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 46657,
+      "port": 36659,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 3326663,
+      "pid": 3561561,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -935,22 +935,22 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-8a5267375258c9ec2155562d56abb770",
-      "status": "Up 50 minutes",
+      "status": "Up 4 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up About an hour",
+      "status": "Up 4 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
-      "status": "Up 17 hours",
+      "status": "Up 19 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-10f0b0b0c828aacd1b76382916528fa6",
-      "status": "Up 3 days",
+      "status": "Up 4 days",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -978,7 +978,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "10 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "9 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -1007,9 +1007,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "0656f7d",
-    "last": "war-mode heartbeat 2026-10-23 12:1x UTC: follow-through \u2014 twin check-in COMPLETED in background (ollama chat 10m51s of its 900s budget, ok=True, exit 0) after the 09:15 OOM-starved failure; cogview thought-log leg had died at its 15s timeout because the /events ingest embeds via ollama and serialized 9m24s behind the chat \u2014 the box answers, the queue starves short-timeout clients; replayed the twin's own reflection into the ledger by hand (POST /events ok=true, phi=0.5481, n_vectors=24, embed took 1m45s). evez-xtts voice server found OOM-crash-looping (7 OOM kills in 3h, restart counter 6, dies ~1min into torch load every cycle under the render+ollama memory wall, 3.2G swapped) \u2014 render pipeline scripts carry their own in-process XTTS and never call this service, so the loop was pure box harm: stopped + reset-failed; start it again when memory frees. Render batch untouched and healthy at nice +10 (com_06 batch producing, doc_render_v3 4h CPU, comedy_bank 2.7h). Patrol now prints only the four custodian-hands clocks. operational churn through 12:1x UTC.",
-    "dirty": 142
+    "head": "a525392",
+    "last": "patrol: memory ghost gate \u2014 collapse-dead bursts die quietly (empty spine window no longer stamps CONFIRMED); daily operational churn 2026-10-23",
+    "dirty": 79
   },
   "mirrors": 2341
 }

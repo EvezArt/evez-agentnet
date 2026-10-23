@@ -96,3 +96,46 @@ seg 41 (burst 30 part 0) attempt 0: dur=5.5 speech=3.9 ratio=0.71 OK
 seg 42 (burst 31 part 0) attempt 0: dur=27.5 speech=25.9 ratio=0.94 OK
 seg 43 (burst 31 part 1) attempt 0: dur=11.4 speech=10.4 ratio=0.91 OK
 seg 44 (burst 32 part 0) attempt 0: dur=5.8 speech=4.7 ratio=0.82 OK
+seg 45 (burst 33 part 0) attempt 0: dur=25.3 speech=1.2 ratio=0.05 reroll
+seg 45 (burst 33 part 0) attempt 1: dur=2.9 speech=2.3 ratio=0.79 OK
+seg 46 (burst 34 part 0) attempt 0: dur=16.1 speech=11.8 ratio=0.73 OK
+seg 47 (burst 35 part 0) attempt 0: dur=6.4 speech=4.6 ratio=0.71 OK
+seg 48 (burst 36 part 0) attempt 0: dur=27.4 speech=4.5 ratio=0.16 reroll
+seg 48 (burst 36 part 0) attempt 1: dur=27.5 speech=5.3 ratio=0.19 reroll
+seg 48 (burst 36 part 0) attempt 2: dur=7.7 speech=6.1 ratio=0.80 OK
+FINAL: dur=587.3s speech=493.4s ratio=0.84 gaps>0.9s=26
+Traceback (most recent call last):
+  File "/root/evez-agentnet/forge_output/render_pipeline/doc_render_v3.py", line 155, in <module>
+    main()
+  File "/root/evez-agentnet/forge_output/render_pipeline/doc_render_v3.py", line 151, in main
+    assert n_gaps == 0 and speech / dur > 0.75, "verification gate failed"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: verification gate failed
+--- fix pass (resume) ---
+/root/evez-media-venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/root/evez-media-venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+loading XTTS
+loading whisper
+models loaded
+seg 3: already clean (ratio=0.67) — skip
+seg 8: already clean (ratio=0.79) — skip
+seg 10: already clean (ratio=0.95) — skip
+seg 13: already clean (ratio=0.63) — skip
+seg 14: already clean (ratio=0.91) — skip
+seg 15 part 0 att 0: stats fail (dur=27.5 ratio=0.65)
+seg 15 part 0 att 1: stats fail (dur=27.5 ratio=0.27)
+seg 15 part 0 att 2: stats fail (dur=27.5 ratio=0.33)
+seg 15 part 0 att 3: stats fail (dur=27.5 ratio=0.43)
+seg 15 part 0 att 4: stats fail (dur=27.5 ratio=0.41)
+seg 15 part 0 att 5: stats fail (dur=27.5 ratio=0.30)
+seg 15 part 0 att 6: stats fail (dur=27.5 ratio=0.34)
+seg 15 part 0 att 7: stats fail (dur=27.5 ratio=0.25)
+seg 15 part 0 att 8: stats fail (dur=27.5 ratio=0.19)
+seg 15 part 0 att 9: stats fail (dur=27.5 ratio=0.30)
+seg 15 part 0: NO CLEAN TAKE in 10 rolls
+seg 15: nothing produced — keeping prior take
+seg 16: already clean (ratio=1.00) — skip
+seg 18: already clean (ratio=1.00) — skip
+FIX PASS DONE

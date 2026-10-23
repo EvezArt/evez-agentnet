@@ -1,0 +1,6 @@
+file '/root/evez-agentnet/forge_output/render_pipeline/doc_v2/micro_10_0_1.wav'
+file '/root/evez-agentnet/forge_output/render_pipeline/gap_short.wav'
+file '/root/evez-agentnet/forge_output/render_pipeline/doc_v2/micro_10_1_1.wav'
+file '/root/evez-agentnet/forge_output/render_pipeline/gap_short.wav'
+file '/root/evez-agentnet/forge_output/render_pipeline/doc_v2/micro_10_2_0.wav'
+file '/root/evez-agentnet/forge_output/render_pipeline/gap_short.wav'

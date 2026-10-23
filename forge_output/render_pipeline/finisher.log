@@ -1,0 +1,27 @@
+=== fix pass exited 2026-10-23T19:59:44Z ===
+=== micro pass exited 2026-10-23T20:16:20Z ===
+=== comedy bank resume ===
+/root/evez-media-venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/root/evez-media-venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+loading XTTS
+joke 0: already sealed — skip
+joke 1 att 0: dur=27.5 ratio=0.21 reroll
+joke 1 att 1: dur=27.5 ratio=0.10 reroll
+joke 1 att 2: dur=28.4 ratio=0.43 reroll
+joke 1 att 3: dur=28.4 ratio=0.19 reroll
+joke 1 att 4: dur=27.7 ratio=0.22 reroll
+joke 1 att 5: dur=27.5 ratio=0.21 reroll
+joke 1 att 6: dur=27.5 ratio=0.98 reroll
+joke 1 att 7: dur=28.4 ratio=0.25 reroll
+joke 2: already sealed — skip
+joke 3: already sealed — skip
+joke 4: already sealed — skip
+joke 5 att 0: dur=27.5 ratio=0.55 reroll
+joke 5 att 1: dur=27.5 ratio=0.98 reroll
+joke 5 att 2: dur=27.5 ratio=0.37 reroll
+joke 5 att 3: dur=27.5 ratio=0.96 reroll
+joke 5 att 4: dur=27.5 ratio=0.44 reroll
+joke 5 att 5: dur=27.4 ratio=0.05 reroll
+joke 5 att 6: dur=27.5 ratio=0.05 reroll
