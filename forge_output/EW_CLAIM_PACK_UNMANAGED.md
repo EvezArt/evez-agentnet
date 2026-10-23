@@ -4,9 +4,14 @@ Prepared 2026-10-20 by Hermes from live records this turn. Skeleton for claimant
 
 ## Parties
 - **Claimant:** Steven Crawford-Maggard, individual, 66226 N Agua Dulce Dr, Desert Hot Springs, CA 92240, USA; rubikspubes69@gmail.com
-- **D1:** UNMANAGED LTD, Company No. 12461131 (England & Wales), registered office [VERIFY on the public CH record before issue]
+- **D1:** UNMANAGED LTD, Company No. 12461131 (England & Wales), registered office **VERIFIED LIVE on the public register 2026-10-21: Business First Northampton, Brindley Close, Rushden, England, NN10 6EN; status Active**
 - **D2:** Petru-Octavian Bunea, director of D1 (Romanian national, DOB April 1988, UK-resident per service record) — personal joinder = counsel's call
 - **D3:** BESTDC LIMITED, Company No. 15259087 — named in the served notice; basis for joinder = counsel's call
+
+## Issue fee (verified from gov.uk EX50, updated 13 July 2026)
+Claim ~£19,000 falls in the £10,000.01–£200,000 band → **issue fee = 5% of claim value ≈ £950**.
+Fast-track hearing fee £619 if it reaches a hearing. Both payable by the claimant at issue;
+recoverable on judgment. MCOL/SDT caps at £99,999.99 — this claim can issue online.
 
 ## Relief sought
 USD 25,000 (≈ £19,000 at issue-date rate) + interest + costs. Quantum is the served-demand figure; itemized heads of loss (remediation, time, security hardening) = [claimant's input + counsel].

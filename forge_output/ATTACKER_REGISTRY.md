@@ -217,3 +217,42 @@ commands on this box on Oct 3 ~07:16–07:29.
 | 185.136.15.90 | 16 | 2026-10-20 | 690a14964f98 | contact only — no attribution |
 | 160.119.76.158 | 16 | 2026-10-20 | 4c21b17b1e05 | contact only — no attribution |
 | 45.142.193.169 | 15 | 2026-10-20 | c37c3aa768d2 | contact only — no attribution |
+
+### 2026-10-21
+
+| Source | Strikes (24h) | First seen | Stamp | Note |
+|---|---|---|---|---|
+| 95.133.253.15 | 82 | 2026-10-21 | a5ef000d9cc7 | contact only — no attribution |
+| 157.66.47.64 | 82 | 2026-10-21 | 5b20588c437b | contact only — no attribution |
+| 93.43.232.42 | 46 | 2026-10-21 | ce34911065e7 | contact only — no attribution |
+| 123.30.240.27 | 32 | 2026-10-21 | 41ae8e14b5ec | contact only — no attribution |
+| 185.234.69.227 | 22 | 2026-10-21 | 315c99fd14cc | contact only — no attribution |
+| 78.128.112.30 | 19 | 2026-10-21 | 35b2b7ae8064 | contact only — no attribution |
+| 45.198.224.124 | 17 | 2026-10-21 | 4c0ba3cfe98d | contact only — no attribution |
+| 195.182.16.23 | 15 | 2026-10-21 | 5e658272bcfb | contact only — no attribution |
+
+### 2026-10-22
+
+| Source | Strikes (24h) | First seen | Stamp | Note |
+|---|---|---|---|---|
+| 213.209.159.242 | 1655 | 2026-10-22 | 7c604d3a60b0 | contact only — no attribution |
+| 85.214.12.77 | 175 | 2026-10-22 | 14dbfeb0b27d | contact only — no attribution |
+| 64.89.160.222 | 59 | 2026-10-22 | d21c4c075033 | contact only — no attribution |
+| 193.32.162.214 | 14 | 2026-10-22 | fe043c6cbb27 | contact only — no attribution |
+| 160.119.76.165 | 14 | 2026-10-22 | a13056c09a70 | contact only — no attribution |
+| 141.98.83.48 | 11 | 2026-10-22 | 1eec6825dca7 | contact only — no attribution |
+| 100.28.153.226 | 11 | 2026-10-22 | fc4919c36196 | contact only — no attribution |
+| 62.204.35.9 | 11 | 2026-10-22 | f2865d3b9c2c | contact only — no attribution |
+
+### 2026-10-23
+
+| Source | Strikes (24h) | First seen | Stamp | Note |
+|---|---|---|---|---|
+| 79.124.59.86 | 380 | 2026-10-23 | 10cab3508f33 | contact only — no attribution |
+| 77.239.124.251 | 65 | 2026-10-23 | d062a6f0cb8c | contact only — no attribution |
+| 45.139.104.170 | 58 | 2026-10-23 | bef66488474d | contact only — no attribution |
+| 45.139.104.35 | 23 | 2026-10-23 | 6985e5a45657 | contact only — no attribution |
+| 45.153.34.117 | 21 | 2026-10-23 | 65d0eff7385c | contact only — no attribution |
+| 93.152.221.37 | 20 | 2026-10-23 | 2c3e62389449 | contact only — no attribution |
+| 45.194.92.221 | 19 | 2026-10-23 | 1cee544c4aa8 | contact only — no attribution |
+| 219.153.113.99 | 15 | 2026-10-23 | 9378c7945204 | contact only — no attribution |

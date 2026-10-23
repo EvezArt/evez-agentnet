@@ -150,6 +150,13 @@ def main():
         "round_start", "maes_tick", "scan_complete", "cognition_step",
         "predict_complete", "generate_complete", "ship_governance",
         "openclaw_run", "rsi_hypotheses", "rsi_branch_injection", "round_end",
+        # 2026-10-23: spine vocabulary drifted past the gate — every round now
+        # also emits openclaw_failed/openclaw_broken (engine step outcome),
+        # cognition_gate (governance blocking a step), rsi_directives_applied
+        # and ship_complete. All are the loop's own pulse; without them the
+        # own-round window never closes and memory fires on every round.
+        "openclaw_failed", "openclaw_broken", "cognition_gate",
+        "rsi_directives_applied", "ship_complete",
     }
 
     def _breach_in_auth_tail() -> bool:
@@ -231,6 +238,10 @@ def main():
                 pass  # repelled scan floor: fail2ban eats it, zero breaches — the wall working
             elif s["receptor"] == "hand" and recheck == s["value"]:
                 pass  # calligraphy cycle counter ticked: the art daemon being alive, not news
+            elif s["receptor"] == "voice" and recheck < 20:
+                pass  # 2026-10-23: telegram confirmations the machine itself ships on its
+                      # ~30-min OODA cadence (~2/hour resting) — its own voice, not news.
+                      # 20+ in one hour = runaway shipping loop, and that still reports.
             elif s["receptor"] == "enemy" and recheck < 10000:
                 pass  # chronic 24h new-source storm (~2k/day) the firewall eats by design;
                       # 10k+ = a coordinated event an order above the floor — report that

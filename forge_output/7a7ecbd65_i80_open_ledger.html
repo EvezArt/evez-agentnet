@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I-80 Corridor Records Integrity Audit — Open Ledger</title>
+<style>
+:root{--bg:#0b0d10;--card:#14181d;--ink:#e8e4da;--mut:#9aa3ad;--acc:#d97706;--line:#232a33}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.65;padding:2.5rem 1.25rem}
+.wrap{max-width:880px;margin:0 auto}
+h1{font-size:1.7rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+h2{font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin:2.4rem 0 .8rem;font-family:'Helvetica Neue',Arial,sans-serif}
+p{margin:.6rem 0;color:var(--ink)}
+.mut{color:var(--mut);font-size:.92rem}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.94rem}
+th{text-align:left;color:var(--mut);font-weight:400;text-transform:uppercase;letter-spacing:.08em;font-size:.75rem;padding:.5rem .6rem;border-bottom:1px solid var(--line)}
+td{padding:.65rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+.id{font-family:ui-monospace,Menlo,monospace;color:var(--acc);white-space:nowrap}
+.clock{font-family:ui-monospace,Menlo,monospace;white-space:nowrap}
+a{color:var(--acc);text-decoration:none;border-bottom:1px dotted var(--acc)}
+.box{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--acc);padding:1.1rem 1.3rem;margin:1.2rem 0}
+.sig{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--line);font-size:.88rem;color:var(--mut)}
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>I-80 Corridor Records Integrity Audit</h1>
+<p class="mut">Open Ledger — established September 19, 2026 · Filekeeper: Steven Crawford-Maggard (EVEZ)</p>
+
+<div class="box">
+<p>This ledger records every official records request and oversight communication concerning the
+Union Pacific derailment near Ogden, Utah (March 2, 2023; FRA record UP0323RM001; 37 hazardous
+materials cars) and its downstream footprint along the I-80 corridor in Uinta County, Wyoming.</p>
+<p><strong>Method:</strong> each request targets one verified cross-record gap identified in the
+public gap analysis (evezart.github.io/i80-gap-analysis.html). The ledger is append-only.
+A non-response is not nothing — after the statutory clock expires it becomes dated, attributable,
+machine-checkable evidence of absence, and feeds the gap score.</p>
+</div>
+
+<h2>Records Requests Filed</h2>
+<table>
+<tr><th>#</th><th>Agency / Channel</th><th>Records Sought</th><th>Sent</th><th>Ref</th><th>Response Clock</th></tr>
+<tr><td>1</td><td>NTSB — foia@ntsb.gov</td><td>Accident reports, hazmat release findings, safety recommendations, docketed materials (UP0323RM001)</td><td class="clock">2026-09-19</td><td class="id">gmail 1a0bc5824a0d365f</td><td class="clock">20 working days ≈ 2026-10-17</td></tr>
+<tr><td>2</td><td>PHMSA — PHMSA.FOIA@dot.gov</td><td>Hazmat incident reports, release documentation, enforcement/compliance records</td><td class="clock">2026-09-19</td><td class="id">gmail 1a0bc58264bd8504</td><td class="clock">20 working days ≈ 2026-10-17</td></tr>
+<tr><td>3</td><td>Wyoming Highway Patrol — NextRequest</td><td>Dispatch logs + 911 transfer records, I-80 Uinta County, 2023-02-18 → 03-05 (plume reports, elk mortality calls, UP coordination)</td><td class="clock">2026-09-19</td><td class="id">WHP #26-4120</td><td class="clock">W.S. 16-4-201 prompt response</td></tr>
+<tr><td>4</td><td>Wyoming DEQ — NextRequest</td><td>Soil/water/air sampling, spill database entries, WGFD elk-mortality coordination, March 2023</td><td class="clock">2026-09-19</td><td class="id">DEQ #26-880</td><td class="clock">W.S. 16-4-201 prompt response</td></tr>
+<tr><td>5</td><td>Wyoming State Archives — wyarchive@wyo.gov</td><td>Records retention schedules applicable to WHP dispatch, DEQ sampling, WGFD elk mortality (CY2023)</td><td class="clock">2026-09-19</td><td class="id">gmail 1a0bc5829bce679c</td><td class="clock">W.S. 16-4-201 prompt response</td></tr>
+</table>
+
+<h2>Congressional / Oversight Channel</h2>
+<table>
+<tr><th>#</th><th>Office</th><th>Request</th><th>Sent</th><th>Ref</th></tr>
+<tr><td>6</td><td>U.S. Senator Alex Padilla (CA, senator of record)</td><td>Transmit the evidence-audited AI Force / AI Czar governance submission (delivered 2026-09-19 to comments@whitehouse.gov, engagement@ostp.eop.gov, ustechforce@opm.gov, and the White House webform — all archived) to OSTP/OPM as a formal congressional inquiry; offered briefing on the I-80 gap-analysis method as it bears on federal rail-safety oversight</td><td class="clock">2026-09-19</td><td class="id">gmail 1a0bc5829c23f9b8</td></tr>
+</table>
+
+<h2>Standing Verification Artifacts</h2>
+<p>Causal Governance Kernel — Reproducible Benchmark Specification (falsifiable, deterministic, 5/5 PASS):
+<a href="https://base44.app/api/apps/69db8570b3d658a8f6acbf53/files/mp/public/69db8570b3d658a8f6acbf53/ab08db79f_CKK_BENCHMARK_SPEC.md">CKK_BENCHMARK_SPEC.md</a> ·
+Standards alignment: NIST SP 800-63-4 (FINAL, 2025-07-31, supersedes 800-63-3; DOI 10.6028/NIST.SP.800-63-4)</p>
+<p>Disclosure protocol manifest (declared-controlled-disclosure, append-only):
+<a href="https://base44.app/api/apps/69db8570b3d658a8f6acbf53/files/mp/public/69db8570b3d658a8f6acbf53/1eaaf4fc2_PROTOCOL_v2.md">PROTOCOL v1.1</a></p>
+
+<div class="box">
+<p class="mut"><strong>Claim-state discipline:</strong> the 20 cross-record gaps asserted in the gap analysis are machine-checkable facts.
+"Coordinated suppression" remains an interpretation — the gap score is a hypothesis metric, not a finding.
+This ledger holds the same line: filings are fact; motive is inference; the clocks do the arguing.</p>
+</div>
+
+<h2>Clock Status — Append-Only Entry (v1.1 · 2026-10-23)</h2>
+<table>
+<tr><th>#</th><th>Agency</th><th>Statutory Clock</th><th>State as of 2026-10-23</th><th>Recorded Consequence</th></tr>
+<tr><td>1</td><td>NTSB</td><td class="clock">20 working days ≈ 2026-10-17</td><td class="clock" style="color:var(--acc)">EXPIRED — 6 days of attributable non-response on the record</td><td>Evidence of absence, feeds the gap score. Constructive-denial posture opened: administrative appeal to the agency FOIA appeal authority is now available and prepared.</td></tr>
+<tr><td>2</td><td>PHMSA</td><td class="clock">20 working days ≈ 2026-10-17</td><td class="clock" style="color:var(--acc)">EXPIRED — 6 days of attributable non-response on the record</td><td>Evidence of absence, feeds the gap score. Constructive-denial posture opened: appeal prepared.</td></tr>
+<tr><td>3</td><td>Wyoming Highway Patrol (#26-4120)</td><td class="clock">W.S. 16-4-201 prompt response</td><td class="clock" style="color:var(--acc)">OVERDUE — 34 days elapsed since 2026-09-19</td><td>Evidence of absence, feeds the gap score. Follow-up letter prepared citing W.S. 16-4-202 enforcement path (Wyoming Attorney General referral).</td></tr>
+<tr><td>4</td><td>Wyoming DEQ (#26-880)</td><td class="clock">W.S. 16-4-201 prompt response</td><td class="clock" style="color:var(--acc)">OVERDUE — 34 days elapsed since 2026-09-19</td><td>Evidence of absence, feeds the gap score. AG-referral follow-up prepared.</td></tr>
+<tr><td>5</td><td>Wyoming State Archives</td><td class="clock">W.S. 16-4-201 prompt response</td><td class="clock" style="color:var(--acc)">OVERDUE — 34 days elapsed since 2026-09-19</td><td>Evidence of absence, feeds the gap score. Follow-up prepared.</td></tr>
+<tr><td>6</td><td>Sen. Padilla (CA) — congressional channel</td><td class="clock">No statutory clock</td><td class="clock">34 days elapsed — follow-up prepared</td><td>Non-statutory; courtesy follow-up citing the expired federal clocks it transmits.</td></tr>
+</table>
+<div class="box">
+<p class="mut"><strong>Entry discipline (v1.1):</strong> these entries record <em>clock expiry on the public record</em> — dated, attributable, machine-checkable.
+Any agency response actually received supersedes with a new dated entry; none is asserted absent here beyond what the expired clocks themselves establish.
+The federal expirations convert silence into the appealable posture described above; the state expirations ripen under W.S. 16-4-202's referral path.
+The clocks did the arguing. This ledger only kept the time.</p>
+</div>
+
+<div class="sig">
+<p>EVEZ Records Integrity Audit — Open Ledger v1.0 · 2026-09-19 · Append-only: subsequent filings and responses (or expired clocks) will be added as dated entries. Monitoring is automated; silence by an agency is itself a recordable event.</p>
+<p class="mut">v1.1 · 2026-10-23 · First expired-clock entries appended: NTSB, PHMSA (constructive denial), WHP, WY DEQ, WY Archives (W.S. 16-4-201 overdue), Padilla follow-up queued. Prior text unmodified.</p>
+</div>
+
+</div></body></html>

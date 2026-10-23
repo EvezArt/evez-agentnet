@@ -25,7 +25,12 @@ def run_worldsim(output_path: Path):
     """Run the base WorldSim secret level autoplay."""
     sim = WorldSim()
     summary = sim.play_until_secret_levels_awaken()
-    output_path.write_text(json.dumps(summary, indent=2))
+    # 2026-10-23: atomic swap — this file is co-written by openclaw/engine.py;
+    # a non-atomic truncate-then-write here can leave a 0-byte state that the
+    # engine's loader chokes on every round after.
+    tmp = output_path.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(summary, indent=2))
+    tmp.replace(output_path)
     print(json.dumps(summary, indent=2))
     print(f"\nSaved: {output_path}")
     return summary
@@ -71,7 +76,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     output_path = Path("worldsim/secret_levels_state.json")
-    run_worldsim(output_path)
+    summary = run_worldsim(output_path)
 
     if args.openclaw:
         run_openclaw(agent_id=args.agent_id, use_lord=args.lord)

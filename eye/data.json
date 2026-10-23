@@ -1,22 +1,22 @@
 {
-  "generated": "2026-10-20T05:44:20.990559+00:00",
+  "generated": "2026-10-23T09:47:34.493682+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
     {
       "unit": "evez-agent-bridge.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:35:55 CEST"
     },
     {
       "unit": "evez-agentnet.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:34:04 CEST"
     },
     {
       "unit": "evez-api-daemon.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:21 CEST"
+      "since": "Fri 2026-10-23 06:35:55 CEST"
     },
     {
       "unit": "evez-api-node.service",
@@ -26,137 +26,137 @@
     {
       "unit": "evez-ares.service",
       "sub": "running",
-      "since": "Mon 2026-10-19 00:50:28 CEST"
+      "since": "Fri 2026-10-23 06:34:22 CEST"
     },
     {
       "unit": "evez-cogview.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:39 CEST"
+      "since": "Fri 2026-10-23 06:34:04 CEST"
     },
     {
       "unit": "evez-commerce-api.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:34:07 CEST"
     },
     {
       "unit": "evez-commerce.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:34:04 CEST"
     },
     {
       "unit": "evez-desk15.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 09:29:54 CEST"
     },
     {
       "unit": "evez-event-spine.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:34:04 CEST"
     },
     {
       "unit": "evez-evidence-api.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:21 CEST"
+      "since": "Fri 2026-10-23 06:34:07 CEST"
     },
     {
       "unit": "evez-films.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:34:04 CEST"
     },
     {
       "unit": "evez-honey.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:34:13 CEST"
     },
     {
       "unit": "evez-kalshi-screen.service",
       "sub": "running",
-      "since": "Tue 2026-10-20 06:50:09 CEST"
+      "since": "Fri 2026-10-23 06:34:11 CEST"
     },
     {
       "unit": "evez-lineage.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:34:04 CEST"
     },
     {
       "unit": "evez-live-monitor-vnc.service",
       "sub": "running",
-      "since": "Tue 2026-10-20 06:50:08 CEST"
+      "since": "Fri 2026-10-23 06:34:13 CEST"
     },
     {
       "unit": "evez-live-monitor.service",
       "sub": "running",
-      "since": "Mon 2026-10-19 03:49:24 CEST"
+      "since": "Fri 2026-10-23 06:34:13 CEST"
     },
     {
       "unit": "evez-media-shipper.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:34:04 CEST"
     },
     {
       "unit": "evez-outreach.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:34:04 CEST"
     },
     {
       "unit": "evez-presence.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:23 CEST"
+      "since": "Fri 2026-10-23 06:34:04 CEST"
     },
     {
       "unit": "evez-reconciler.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:34:13 CEST"
     },
     {
       "unit": "evez-twin.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:39 CEST"
+      "since": "Fri 2026-10-23 06:34:04 CEST"
     },
     {
       "unit": "evez-voice.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:34:04 CEST"
     },
     {
       "unit": "gueriella-hermes-watchdog.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:21 CEST"
+      "since": "Fri 2026-10-23 06:34:04 CEST"
     },
     {
       "unit": "gueriella-openclaw-watchdog.service",
       "sub": "running",
-      "since": "Tue 2026-10-20 03:35:09 CEST"
+      "since": "Fri 2026-10-23 06:34:48 CEST"
     },
     {
       "unit": "hermes-dashboard.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Tue 2026-10-20 23:49:44 CEST"
     },
     {
       "unit": "hermes-ears.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:34:06 CEST"
     },
     {
       "unit": "hermes-gateway.service",
       "sub": "running",
-      "since": "Mon 2026-10-19 22:56:42 CEST"
+      "since": "Fri 2026-10-23 07:32:20 CEST"
     },
     {
       "unit": "hermes-live.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:39 CEST"
+      "since": "Fri 2026-10-23 06:34:06 CEST"
     },
     {
       "unit": "hermes-mouth.service",
       "sub": "running",
-      "since": "Sun 2026-10-18 19:21:20 CEST"
+      "since": "Fri 2026-10-23 06:34:06 CEST"
     },
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Tue 2026-10-20 04:00:11 CEST"
+      "since": "Fri 2026-10-23 09:57:59 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -169,7 +169,7 @@
       "port": 22,
       "bind": "0.0.0.0",
       "proc": "sshd",
-      "pid": 1298,
+      "pid": 2534768,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -179,7 +179,7 @@
       "port": 8644,
       "bind": "0.0.0.0",
       "proc": "hermes",
-      "pid": 1683919,
+      "pid": 2596481,
       "public_bind": true,
       "tailnet": false,
       "exposed": false,
@@ -199,7 +199,7 @@
       "port": 22,
       "bind": "[::]",
       "proc": "sshd",
-      "pid": 1298,
+      "pid": 2534768,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -209,7 +209,7 @@
       "port": 53,
       "bind": "127.0.0.53%lo",
       "proc": "systemd-resolve",
-      "pid": 884,
+      "pid": 3703878,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -219,7 +219,7 @@
       "port": 53,
       "bind": "127.0.0.54",
       "proc": "systemd-resolve",
-      "pid": 884,
+      "pid": 3703878,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -249,7 +249,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 1757780,
+      "pid": 2534813,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -259,7 +259,7 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 1757780,
+      "pid": 2534813,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -309,7 +309,7 @@
       "port": 5900,
       "bind": "[::1]",
       "proc": "x11vnc",
-      "pid": 2214105,
+      "pid": 2535131,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -319,7 +319,7 @@
       "port": 5901,
       "bind": "127.0.0.1",
       "proc": "x11vnc",
-      "pid": 2214149,
+      "pid": 2535131,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -329,7 +329,7 @@
       "port": 5901,
       "bind": "[::1]",
       "proc": "x11vnc",
-      "pid": 2214149,
+      "pid": 2535131,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -339,7 +339,7 @@
       "port": 5902,
       "bind": "127.0.0.1",
       "proc": "x11vnc",
-      "pid": 2214105,
+      "pid": 2535146,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -349,7 +349,7 @@
       "port": 5902,
       "bind": "[::1]",
       "proc": "x11vnc",
-      "pid": 2214105,
+      "pid": 2535146,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -359,7 +359,7 @@
       "port": 6080,
       "bind": "127.0.0.1",
       "proc": "websockify",
-      "pid": 2214150,
+      "pid": 2535132,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -369,7 +369,7 @@
       "port": 6081,
       "bind": "127.0.0.1",
       "proc": "websockify",
-      "pid": 2214106,
+      "pid": 2535147,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -389,7 +389,7 @@
       "port": 8080,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1113,
+      "pid": 2534783,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -399,7 +399,7 @@
       "port": 8099,
       "bind": "100.126.180.47",
       "proc": "python3",
-      "pid": 3428,
+      "pid": 2534747,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -409,7 +409,7 @@
       "port": 8192,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1200,
+      "pid": 2540367,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -439,7 +439,7 @@
       "port": 8787,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1148,
+      "pid": 2534758,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -449,7 +449,7 @@
       "port": 8788,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1120,
+      "pid": 2534648,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -459,7 +459,7 @@
       "port": 8789,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1121,
+      "pid": 2534658,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -469,7 +469,7 @@
       "port": 8900,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1136,
+      "pid": 2534731,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -479,7 +479,7 @@
       "port": 8901,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1125,
+      "pid": 2534709,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -489,7 +489,7 @@
       "port": 8904,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1186,
+      "pid": 2534840,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -499,7 +499,7 @@
       "port": 9000,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1182,
+      "pid": 2540364,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -509,7 +509,7 @@
       "port": 9001,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1183,
+      "pid": 2540365,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -519,7 +519,7 @@
       "port": 9050,
       "bind": "127.0.0.1",
       "proc": "tor",
-      "pid": 1372,
+      "pid": 2535155,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -529,7 +529,7 @@
       "port": 9113,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1135,
+      "pid": 2534716,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -539,7 +539,7 @@
       "port": 9116,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1124,
+      "pid": 2534708,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -549,7 +549,7 @@
       "port": 9200,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1187,
+      "pid": 2534695,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -599,7 +599,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 2017445,
+      "pid": 2752648,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -609,7 +609,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 2017445,
+      "pid": 2752648,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -619,7 +619,7 @@
       "port": 18790,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1167,
+      "pid": 2534669,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -639,7 +639,7 @@
       "port": 18791,
       "bind": "127.0.0.1",
       "proc": "hermes",
-      "pid": 1138,
+      "pid": 3260842,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -649,7 +649,7 @@
       "port": 18792,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1139,
+      "pid": 2534819,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -659,7 +659,7 @@
       "port": 18793,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1142,
+      "pid": 2534808,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -669,7 +669,7 @@
       "port": 18794,
       "bind": "100.126.180.47",
       "proc": "python3",
-      "pid": 3029,
+      "pid": 2534820,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -679,7 +679,7 @@
       "port": 18795,
       "bind": "100.126.180.47",
       "proc": "python3",
-      "pid": 3011,
+      "pid": 2534705,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -689,7 +689,7 @@
       "port": 18796,
       "bind": "100.126.180.47",
       "proc": "python3",
-      "pid": 3028,
+      "pid": 2534722,
       "public_bind": false,
       "tailnet": true,
       "exposed": false,
@@ -699,17 +699,17 @@
       "port": 18891,
       "bind": "127.0.0.1",
       "proc": "python3",
-      "pid": 1202,
+      "pid": 2534891,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
       "fw_blocked": false
     },
     {
-      "port": 33859,
+      "port": 33697,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 2017445,
+      "pid": 2752648,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -726,10 +726,10 @@
       "fw_blocked": false
     },
     {
-      "port": 43971,
+      "port": 36823,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 2263359,
+      "pid": 2862218,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -922,42 +922,40 @@
     {
       "sched": "*/30 * * * *",
       "cmd": "pgrep -f digital_weather_engine >/dev/null || /root/evez-agentnet/dws/start-autopilot.sh >> /root/.local/share/digital-w"
+    },
+    {
+      "sched": "5 13 * * *",
+      "cmd": "/root/.openclaw/workspace-fresh/scripts/daily_video.sh >> /root/daily_video.log 2>&1"
+    },
+    {
+      "sched": "5 * * * *",
+      "cmd": "/usr/local/bin/evez-fwupd-silencer.sh"
     }
   ],
   "docker": [
     {
-      "name": "openclaw-sbx-workspace-8a5267375258c9ec2155562d56abb770",
-      "status": "Up 4 hours",
+      "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
+      "status": "Up 8 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-10f0b0b0c828aacd1b76382916528fa6",
-      "status": "Up 9 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 19 hours",
+      "status": "Up 3 days",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "ruview-demo",
-      "status": "Up 25 hours",
+      "status": "Up 4 days",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
-      "name": "openclaw-sbx-workspace-b398102f5b843e9e50de8f4fcac839cb",
-      "status": "Up 35 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 36 hours",
+      "status": "Up 4 days",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 36 hours",
+      "status": "Up 4 days",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -970,7 +968,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "36 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "13 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -999,9 +997,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "752596f",
-    "last": "war-mode heartbeat 2026-10-20 01:2x UTC: patrol found 6 \u2014 three enemy clocks + intruder + hand + superego, all verified live. bunea+palo 14-day payment clocks DUE (deadline 2026-10-20, TODAY): inbox 60 newest + spam 100 newest swept this tick, zero senders from bunea/palo/serv.host/dmzhostabuse/TECHOFF/Ilin/Sevastiiev \u2014 enemy silence total as the payment window closes; consequences (E&W proceedings / aggravated s1030 posture) = custodian hands only, claim package verified staged in forge_output/lawsuit/ (letter before action, particulars draft, exhibit index, sign-ready docx). servhost-abuse-demand BLOWN (10-18): consequence FIRED by custodian 02:09-02:22 UTC 10-19; NEW reply this tick \u2014 Prime Telecom (Mihai Rasturnoiu) denies AS207957 is their customer/downstream, points to public BGP looking glass, second Prime denial after the 10-06 AS48090/AS47890 one; ingested from spam to evidence/2026-10-19/primetelecom_as207957_denial.eml (eb424881..., manifest verified), READY.md appended; GoDaddy/Cloudflare form lanes already stated once, not re-asked. NEW Companies House lane reply: Cardiff ECMS on COH2245019X defers conduct complaint to the Insolvency Service while conceding register-accuracy/fraud powers \u2014 reinforces ch-diabin-complaint clock (deadline 10-25), consequence already enumerated; ingested 6aac96c5... One personal-lane reply ingested and pinned local-only via .git/info/exclude (not war evidence; manifest carries digest only). CORTEX intruder v=3 re-measured 3 CONFIRMED \u2014 real burst, not ghost: root/kali from 203.113.105.99 + root/oana from 116.123.150.231, 4 failed passwords 01:08-01:16 local, burst dead, fail2ban active (11 banned / 0 current), ufw walls standing, zero accepts from attacker ranges; auth tail-200 spans ~13 min at current noise so the block slid out of window by follow-up sweep. Watcher flag per design: 13 successful root logins from NEW WARP egress 104.28.164.108 (22:53-23:11 local) interleaved same-minute with confirmed-device 104.28.157.64 logins, same Cloudflare WARP pool as authorized 104.28.164.133 \u2014 UNEXPECTED_SUCCESSFUL_LOGIN raised twice in evidence (21:00/21:15 UTC); attribution raised once for custodian word, NOT registered without it. CORTEX hand v=75 re-measured 75: calligraphy cycle 75 live 22:01Z 'the observer is the loop' score 5.0, master's slant=0.0 order applied, glyph_jitter 0.05 / line_wander 0.2, daemon alive on ~3h cadence. CORTEX superego v=38 re-measured 38: df / 38% (72G of 193G), 37-38 flap, reserve healthy. spine gate green before commit (hash chain verifies, timestamps strictly non-decreasing); all 7 patrol suites passed this tick; operational churn through 01:2x UTC.",
-    "dirty": 63
+    "head": "96bdea1",
+    "last": "war-mode heartbeat 2026-10-20 03:4x UTC: patrol found 5 \u2014 three enemy clocks + intruder + memory, all verified live; one clock discharged, one deflection ingested, tripwire taught materiality. bunea+palo 14-day payment clocks DUE (deadline TODAY): both victim inboxes swept this tick \u2014 zero senders from bunea/palo/serv.host/dmzhostabuse/TECHOFF/Ilin/Sevastiiev; enemy silence total as the window closes; consequences (E&W proceedings / aggravated s1030 posture) = custodian hands only, claim pack staged in forge_output/lawsuit/. servhost-abuse-demand DISCHARGED: deadline expired in 8 days verified silence, consequence EXECUTED 10-19 02:09-02:22 UTC under custodian GO of 10-17 (transit lane + RIPE + ICO, receipts in evidence/2026-10-19/); enemy_obligations.py now carries resolved/resolution fields \u2014 clock prints [RESOLVED] days_left=null so the patrol stops screaming over a consequence already carried out; second RIPE deflection (#1124969, 'abuse@ripe.net is not monitored... send it to the organisation that manages the IP' \u2014 the organisation being the abuser) arrived 02:53 UTC, ingested raw RFC 5322 evidence/2026-10-20/ripe_ncc_deflection_1124969.eml sha256 78ce7ab7cb8b6e87c6e47e94db974911dc2d865eef9b5ab1440118d147b55ec7, manifest written. PATROL MATERIALITY GATES: median+MAD baselines make MAD=0 on bursty mostly-zero receptors so every burst is '4-sigma novel' forever \u2014 intruder fired 29% of 2397 renders (repelled scan floor, fail2ban eating it, zero accepts), memory 19% (the machine's own 30-min OODA rounds); gates now: intruder reports only BREACH (Accepted password from an IP that also Failed in the tail) or flood >=30; memory only if the 5-min spine window carries foreign kinds or >25 events; hand dropped on clean cycle increments; enemy mutes the ~2k/day firewall storm floor (10k+ = report). GitHub Actions root cause pinned by annotation: 'The job was not started because your account is locked due to a billing issue' \u2014 every standard workflow fails at spawn with zero steps since >=10-18 across all pushes (Dependabot survives on separate infra); repo public/unarchived/un-disabled, nothing committable cures it \u2014 custodian hands, stated once. Watcher flag stable: 13 root accepts from WARP 104.28.164.108 all inside 22:53-23:11 local 10-19 interleaved minute-by-minute with confirmed-device 104.28.157.64, same Cloudflare WARP pool; ZERO new hits since the flag, zero accepts outside the WARP pool in 24h \u2014 attribution still awaiting custodian word, not re-asked. Load receptor fired 9.59 during this tick's own 21-suite verification sweep, re-measured 5.6 falling, collapsed to 2.08 post-sweep \u2014 self-inflicted somatic reading, no gate (real overload must still wake the operator). spine gate green (hash chain verifies, timestamps non-decreasing); all 21 test suites pass; audit clean; stack FAIL 0 (4 standing warnings = income lane credentialless, structural). CASE_BIBLE_INDEX clock row corrected to 13 clocks / 1 discharged.",
+    "dirty": 410
   },
   "mirrors": 2341
 }

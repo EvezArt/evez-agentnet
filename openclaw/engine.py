@@ -2,7 +2,7 @@
 # OpenClaw Core Engine
 # Author: Steven Crawford-Maggard (EVEZ666)
 
-import json, time, random, hashlib
+import json, os, time, random, hashlib
 from datetime import datetime
 from pathlib import Path
 
@@ -55,8 +55,15 @@ class OpenClawEngine:
             "last_updated": datetime.utcnow().isoformat(),
         }
         if STATE_FILE.exists():
-            with open(STATE_FILE) as f:
-                data = json.load(f)
+            try:
+                with open(STATE_FILE) as f:
+                    data = json.load(f)
+            except (ValueError, OSError):
+                # 2026-10-23: a truncated/empty state file (crash mid-write or a
+                # concurrent writer) must fall back to defaults, not deadlock —
+                # an unguarded load aborts run() before _save_state can ever
+                # rewrite the file, so the empty file reproduces forever.
+                data = {}
             if "run_id" not in data:
                 data["run_id"] = hashlib.sha256(str(time.time()).encode()).hexdigest()[:12]
             for k, v in _DEFAULTS.items():
@@ -82,8 +89,13 @@ class OpenClawEngine:
     def _save_state(self):
         STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
         self.state["last_updated"] = datetime.utcnow().isoformat()
-        with open(STATE_FILE, "w") as f:
+        # 2026-10-23: atomic swap — a plain truncate-then-write left a 0-byte
+        # state file when a writer died mid-save, and every later load died
+        # with it. Temp file + os.replace is crash-safe.
+        tmp = STATE_FILE.with_suffix(".json.tmp")
+        with open(tmp, "w") as f:
             json.dump(self.state, f, indent=2)
+        os.replace(tmp, STATE_FILE)
 
     def _sim_tick(self):
         s = self.state
