@@ -1,0 +1,3547 @@
+{
+  "schema": "evez.capability.graph.v1",
+  "observed_at": "2026-10-05T04:32:47.668Z",
+  "source": "GitHub repository inventory",
+  "owner": "EvezArt",
+  "repository_count": 220,
+  "active_count": 165,
+  "archived_count": 55,
+  "epistemic_status": "OBSERVED inventory; inferred capabilities are PROPOSED",
+  "nodes": [
+    {
+      "id": "repo:evez-skills",
+      "type": "repository",
+      "name": "evez-skills",
+      "archived": false,
+      "fork": false,
+      "size_kb": 137,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-agentnet",
+      "type": "repository",
+      "name": "evez-agentnet",
+      "archived": false,
+      "fork": false,
+      "size_kb": 27881,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "field_device"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-ai",
+      "type": "repository",
+      "name": "evez-ai",
+      "archived": false,
+      "fork": false,
+      "size_kb": 80973,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:awesome-evez",
+      "type": "repository",
+      "name": "awesome-evez",
+      "archived": false,
+      "fork": false,
+      "size_kb": 19,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:criticalmind-omega",
+      "type": "repository",
+      "name": "criticalmind-omega",
+      "archived": false,
+      "fork": false,
+      "size_kb": 464,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:freeclaw",
+      "type": "repository",
+      "name": "freeclaw",
+      "archived": false,
+      "fork": false,
+      "size_kb": 828,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-api",
+      "type": "repository",
+      "name": "evez-api",
+      "archived": false,
+      "fork": false,
+      "size_kb": 62,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:omega-conductor",
+      "type": "repository",
+      "name": "omega-conductor",
+      "archived": false,
+      "fork": false,
+      "size_kb": 86,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-constellation",
+      "type": "repository",
+      "name": "evez-constellation",
+      "archived": false,
+      "fork": false,
+      "size_kb": 1926,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-os",
+      "type": "repository",
+      "name": "evez-os",
+      "archived": false,
+      "fork": false,
+      "size_kb": 136866,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:ai-system-prompts",
+      "type": "repository",
+      "name": "ai-system-prompts",
+      "archived": false,
+      "fork": false,
+      "size_kb": 1358,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:metarom",
+      "type": "repository",
+      "name": "metarom",
+      "archived": false,
+      "fork": false,
+      "size_kb": 125,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-agi-pipeline",
+      "type": "repository",
+      "name": "evez-agi-pipeline",
+      "archived": true,
+      "fork": false,
+      "size_kb": 16,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-busnet-operator",
+      "type": "repository",
+      "name": "evez-busnet-operator",
+      "archived": true,
+      "fork": false,
+      "size_kb": 737,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device",
+        "web_ui",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-vercel",
+      "type": "repository",
+      "name": "evez-vercel",
+      "archived": false,
+      "fork": false,
+      "size_kb": 18,
+      "default_branch": "main",
+      "capabilities": [
+        "web_ui"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-psyche",
+      "type": "repository",
+      "name": "evez-psyche",
+      "archived": true,
+      "fork": false,
+      "size_kb": 2,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-python",
+      "type": "repository",
+      "name": "evez-python",
+      "archived": true,
+      "fork": false,
+      "size_kb": 14,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-landing",
+      "type": "repository",
+      "name": "evez-landing",
+      "archived": false,
+      "fork": false,
+      "size_kb": 43,
+      "default_branch": "gh-pages",
+      "capabilities": [
+        "commerce",
+        "web_ui"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-glitch",
+      "type": "repository",
+      "name": "evez-glitch",
+      "archived": false,
+      "fork": false,
+      "size_kb": 24,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:octoklaw-api",
+      "type": "repository",
+      "name": "octoklaw-api",
+      "archived": false,
+      "fork": false,
+      "size_kb": 34,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:autonomous-research-orchestrator",
+      "type": "repository",
+      "name": "autonomous-research-orchestrator",
+      "archived": false,
+      "fork": false,
+      "size_kb": 21,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-autonomous-ledger",
+      "type": "repository",
+      "name": "evez-autonomous-ledger",
+      "archived": false,
+      "fork": false,
+      "size_kb": 589,
+      "default_branch": "main",
+      "capabilities": [
+        "evidence"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez666-advancement",
+      "type": "repository",
+      "name": "evez666-advancement",
+      "archived": true,
+      "fork": false,
+      "size_kb": 295024,
+      "default_branch": "master",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-osint-engine",
+      "type": "repository",
+      "name": "evez-osint-engine",
+      "archived": false,
+      "fork": false,
+      "size_kb": 237,
+      "default_branch": "master",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-mesh-stack",
+      "type": "repository",
+      "name": "evez-mesh-stack",
+      "archived": false,
+      "fork": false,
+      "size_kb": 15,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:prophecy-bridge",
+      "type": "repository",
+      "name": "prophecy-bridge",
+      "archived": true,
+      "fork": false,
+      "size_kb": 43,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-bot",
+      "type": "repository",
+      "name": "evez-bot",
+      "archived": false,
+      "fork": false,
+      "size_kb": 18,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-platform",
+      "type": "repository",
+      "name": "evez-platform",
+      "archived": false,
+      "fork": false,
+      "size_kb": 39931,
+      "default_branch": "master",
+      "capabilities": [
+        "commerce"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-publications",
+      "type": "repository",
+      "name": "evez-publications",
+      "archived": true,
+      "fork": false,
+      "size_kb": 11,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:nexus",
+      "type": "repository",
+      "name": "nexus",
+      "archived": false,
+      "fork": false,
+      "size_kb": 1059,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-autonomous-system",
+      "type": "repository",
+      "name": "evez-autonomous-system",
+      "archived": true,
+      "fork": false,
+      "size_kb": 54,
+      "default_branch": "master",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-sim",
+      "type": "repository",
+      "name": "evez-sim",
+      "archived": false,
+      "fork": false,
+      "size_kb": 92,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-vcl",
+      "type": "repository",
+      "name": "evez-vcl",
+      "archived": false,
+      "fork": false,
+      "size_kb": 7621,
+      "default_branch": "main",
+      "capabilities": [
+        "web_ui"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-cli",
+      "type": "repository",
+      "name": "evez-cli",
+      "archived": false,
+      "fork": false,
+      "size_kb": 19,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:maes",
+      "type": "repository",
+      "name": "maes",
+      "archived": false,
+      "fork": false,
+      "size_kb": 177,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evezstation",
+      "type": "repository",
+      "name": "evezstation",
+      "archived": false,
+      "fork": false,
+      "size_kb": 198,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez666-arg-canon",
+      "type": "repository",
+      "name": "evez666-arg-canon",
+      "archived": false,
+      "fork": false,
+      "size_kb": 95,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:surething-offline",
+      "type": "repository",
+      "name": "surething-offline",
+      "archived": false,
+      "fork": false,
+      "size_kb": 111,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-openclaw-gcp",
+      "type": "repository",
+      "name": "evez-openclaw-gcp",
+      "archived": false,
+      "fork": false,
+      "size_kb": 7,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-bridge",
+      "type": "repository",
+      "name": "evez-bridge",
+      "archived": false,
+      "fork": false,
+      "size_kb": 2,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-profit",
+      "type": "repository",
+      "name": "evez-profit",
+      "archived": false,
+      "fork": false,
+      "size_kb": 11,
+      "default_branch": "main",
+      "capabilities": [
+        "commerce"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-claw-deploy",
+      "type": "repository",
+      "name": "evez-claw-deploy",
+      "archived": false,
+      "fork": false,
+      "size_kb": 68,
+      "default_branch": "master",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-scout",
+      "type": "repository",
+      "name": "evez-scout",
+      "archived": true,
+      "fork": false,
+      "size_kb": 5,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-meme-bus",
+      "type": "repository",
+      "name": "evez-meme-bus",
+      "archived": false,
+      "fork": false,
+      "size_kb": 128,
+      "default_branch": "main",
+      "capabilities": [
+        "media",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-dashboard",
+      "type": "repository",
+      "name": "evez-dashboard",
+      "archived": false,
+      "fork": false,
+      "size_kb": 13,
+      "default_branch": "master",
+      "capabilities": [
+        "web_ui"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:oracle-cloud",
+      "type": "repository",
+      "name": "oracle-cloud",
+      "archived": true,
+      "fork": false,
+      "size_kb": 4,
+      "default_branch": "master",
+      "capabilities": [
+        "field_device"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-credit-api",
+      "type": "repository",
+      "name": "evez-credit-api",
+      "archived": false,
+      "fork": false,
+      "size_kb": 60,
+      "default_branch": "main",
+      "capabilities": [
+        "commerce",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evezart.github.io",
+      "type": "repository",
+      "name": "evezart.github.io",
+      "archived": false,
+      "fork": false,
+      "size_kb": 5378,
+      "default_branch": "main",
+      "capabilities": [
+        "web_ui"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-cipher",
+      "type": "repository",
+      "name": "evez-cipher",
+      "archived": false,
+      "fork": false,
+      "size_kb": 5,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:quantum-consciousness-lord",
+      "type": "repository",
+      "name": "quantum-consciousness-lord",
+      "archived": true,
+      "fork": false,
+      "size_kb": 28,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez",
+      "type": "repository",
+      "name": "evez",
+      "archived": false,
+      "fork": false,
+      "size_kb": 70,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:spectrumscan-api",
+      "type": "repository",
+      "name": "spectrumscan-api",
+      "archived": false,
+      "fork": false,
+      "size_kb": 33,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-agi-pipeline-v2",
+      "type": "repository",
+      "name": "evez-agi-pipeline-v2",
+      "archived": true,
+      "fork": false,
+      "size_kb": 5911,
+      "default_branch": "master",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-promptforge",
+      "type": "repository",
+      "name": "evez-promptforge",
+      "archived": true,
+      "fork": false,
+      "size_kb": 5,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:eigenvalue-bridge",
+      "type": "repository",
+      "name": "eigenvalue-bridge",
+      "archived": false,
+      "fork": false,
+      "size_kb": 17,
+      "default_branch": "master",
+      "capabilities": [
+        "research_science",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:eventspine-ledger",
+      "type": "repository",
+      "name": "eventspine-ledger",
+      "archived": false,
+      "fork": false,
+      "size_kb": 6,
+      "default_branch": "main",
+      "capabilities": [
+        "evidence"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:eigenforensics",
+      "type": "repository",
+      "name": "eigenforensics",
+      "archived": false,
+      "fork": false,
+      "size_kb": 24,
+      "default_branch": "main",
+      "capabilities": [
+        "evidence",
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-research",
+      "type": "repository",
+      "name": "evez-research",
+      "archived": true,
+      "fork": false,
+      "size_kb": 3414,
+      "default_branch": "master",
+      "capabilities": [
+        "research_science",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-lord",
+      "type": "repository",
+      "name": "evez-lord",
+      "archived": false,
+      "fork": false,
+      "size_kb": 1363,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-os-automation",
+      "type": "repository",
+      "name": "evez-os-automation",
+      "archived": false,
+      "fork": false,
+      "size_kb": 29,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-services",
+      "type": "repository",
+      "name": "evez-services",
+      "archived": false,
+      "fork": false,
+      "size_kb": 19,
+      "default_branch": "main",
+      "capabilities": [
+        "commerce"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:clawbreak",
+      "type": "repository",
+      "name": "clawbreak",
+      "archived": false,
+      "fork": false,
+      "size_kb": 187,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-search",
+      "type": "repository",
+      "name": "evez-search",
+      "archived": false,
+      "fork": false,
+      "size_kb": 7,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-products",
+      "type": "repository",
+      "name": "evez-products",
+      "archived": true,
+      "fork": false,
+      "size_kb": 116453,
+      "default_branch": "master",
+      "capabilities": [
+        "commerce"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:quantumseal-api",
+      "type": "repository",
+      "name": "quantumseal-api",
+      "archived": true,
+      "fork": false,
+      "size_kb": 14,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-station-android",
+      "type": "repository",
+      "name": "evez-station-android",
+      "archived": true,
+      "fork": false,
+      "size_kb": 72,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-disaster-recovery",
+      "type": "repository",
+      "name": "evez-disaster-recovery",
+      "archived": true,
+      "fork": false,
+      "size_kb": 298663,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-consciousness-engine",
+      "type": "repository",
+      "name": "evez-consciousness-engine",
+      "archived": false,
+      "fork": false,
+      "size_kb": 10,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-claw-extensions",
+      "type": "repository",
+      "name": "evez-claw-extensions",
+      "archived": false,
+      "fork": false,
+      "size_kb": 2468,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-claw",
+      "type": "repository",
+      "name": "evez-claw",
+      "archived": false,
+      "fork": false,
+      "size_kb": 2494,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-witness",
+      "type": "repository",
+      "name": "evez-witness",
+      "archived": false,
+      "fork": false,
+      "size_kb": 6,
+      "default_branch": "main",
+      "capabilities": [
+        "evidence"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-health-aggregator",
+      "type": "repository",
+      "name": "evez-health-aggregator",
+      "archived": false,
+      "fork": false,
+      "size_kb": 6,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-openclaw-pwa",
+      "type": "repository",
+      "name": "evez-openclaw-pwa",
+      "archived": false,
+      "fork": false,
+      "size_kb": 14,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "field_device"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-observatory",
+      "type": "repository",
+      "name": "evez-observatory",
+      "archived": false,
+      "fork": false,
+      "size_kb": 2,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-manifold",
+      "type": "repository",
+      "name": "evez-manifold",
+      "archived": false,
+      "fork": false,
+      "size_kb": 3,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-cloud",
+      "type": "repository",
+      "name": "evez-cloud",
+      "archived": false,
+      "fork": false,
+      "size_kb": 16,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-liminal",
+      "type": "repository",
+      "name": "evez-liminal",
+      "archived": false,
+      "fork": false,
+      "size_kb": 116453,
+      "default_branch": "master",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-invariance-battery",
+      "type": "repository",
+      "name": "evez-invariance-battery",
+      "archived": false,
+      "fork": false,
+      "size_kb": 27,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-paradigm-supremacy",
+      "type": "repository",
+      "name": "evez-paradigm-supremacy",
+      "archived": false,
+      "fork": false,
+      "size_kb": 15,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-proofs",
+      "type": "repository",
+      "name": "evez-proofs",
+      "archived": false,
+      "fork": false,
+      "size_kb": 23,
+      "default_branch": "main",
+      "capabilities": [
+        "evidence"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-quantum-membranes",
+      "type": "repository",
+      "name": "evez-quantum-membranes",
+      "archived": true,
+      "fork": false,
+      "size_kb": 4,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-telemetric-metadna",
+      "type": "repository",
+      "name": "evez-telemetric-metadna",
+      "archived": true,
+      "fork": false,
+      "size_kb": 7,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:ai-search-exploitation",
+      "type": "repository",
+      "name": "ai-search-exploitation",
+      "archived": false,
+      "fork": false,
+      "size_kb": 27,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-mesh",
+      "type": "repository",
+      "name": "evez-mesh",
+      "archived": false,
+      "fork": false,
+      "size_kb": 18,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-federation",
+      "type": "repository",
+      "name": "evez-federation",
+      "archived": false,
+      "fork": false,
+      "size_kb": 17,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-evidence-runtime",
+      "type": "repository",
+      "name": "evez-evidence-runtime",
+      "archived": false,
+      "fork": false,
+      "size_kb": 35,
+      "default_branch": "main",
+      "capabilities": [
+        "evidence",
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-trunk-automation",
+      "type": "repository",
+      "name": "evez-trunk-automation",
+      "archived": false,
+      "fork": false,
+      "size_kb": 19,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:ClawBuster",
+      "type": "repository",
+      "name": "ClawBuster",
+      "archived": true,
+      "fork": false,
+      "size_kb": 0,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-tamagotchi-builder",
+      "type": "repository",
+      "name": "evez-tamagotchi-builder",
+      "archived": true,
+      "fork": false,
+      "size_kb": 7,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-code-review",
+      "type": "repository",
+      "name": "evez-code-review",
+      "archived": false,
+      "fork": false,
+      "size_kb": 0,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-audio",
+      "type": "repository",
+      "name": "evez-audio",
+      "archived": false,
+      "fork": false,
+      "size_kb": 19,
+      "default_branch": "main",
+      "capabilities": [
+        "media"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:opevez",
+      "type": "repository",
+      "name": "opevez",
+      "archived": true,
+      "fork": false,
+      "size_kb": 0,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-reflex",
+      "type": "repository",
+      "name": "evez-reflex",
+      "archived": true,
+      "fork": false,
+      "size_kb": 1,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-os-next",
+      "type": "repository",
+      "name": "evez-os-next",
+      "archived": false,
+      "fork": false,
+      "size_kb": 33,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:polymarket-speedrun",
+      "type": "repository",
+      "name": "polymarket-speedrun",
+      "archived": false,
+      "fork": false,
+      "size_kb": 49,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-openclaw-mesh",
+      "type": "repository",
+      "name": "evez-openclaw-mesh",
+      "archived": false,
+      "fork": false,
+      "size_kb": 94,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "field_device",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-phenomenology",
+      "type": "repository",
+      "name": "evez-phenomenology",
+      "archived": true,
+      "fork": false,
+      "size_kb": 2,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-pulse",
+      "type": "repository",
+      "name": "evez-pulse",
+      "archived": true,
+      "fork": false,
+      "size_kb": 2,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-os-manifest",
+      "type": "repository",
+      "name": "evez-os-manifest",
+      "archived": false,
+      "fork": false,
+      "size_kb": 4,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:clawbreak-ai",
+      "type": "repository",
+      "name": "clawbreak-ai",
+      "archived": false,
+      "fork": false,
+      "size_kb": 93,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-meme-engine",
+      "type": "repository",
+      "name": "evez-meme-engine",
+      "archived": false,
+      "fork": false,
+      "size_kb": 2,
+      "default_branch": "main",
+      "capabilities": [
+        "media",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:moltbot-live",
+      "type": "repository",
+      "name": "moltbot-live",
+      "archived": false,
+      "fork": false,
+      "size_kb": 1668,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:meshpulse-api",
+      "type": "repository",
+      "name": "meshpulse-api",
+      "archived": false,
+      "fork": false,
+      "size_kb": 18,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:vortexq-api",
+      "type": "repository",
+      "name": "vortexq-api",
+      "archived": false,
+      "fork": false,
+      "size_kb": 18,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-synapse-engine",
+      "type": "repository",
+      "name": "evez-synapse-engine",
+      "archived": true,
+      "fork": false,
+      "size_kb": 9,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-api-gateway",
+      "type": "repository",
+      "name": "evez-api-gateway",
+      "archived": false,
+      "fork": false,
+      "size_kb": 2,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-site",
+      "type": "repository",
+      "name": "evez-site",
+      "archived": false,
+      "fork": false,
+      "size_kb": 24,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:autoenveloper",
+      "type": "repository",
+      "name": "autoenveloper",
+      "archived": false,
+      "fork": false,
+      "size_kb": 60,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-infrastructure",
+      "type": "repository",
+      "name": "evez-infrastructure",
+      "archived": false,
+      "fork": false,
+      "size_kb": 8689,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-remote-browser",
+      "type": "repository",
+      "name": "evez-remote-browser",
+      "archived": true,
+      "fork": false,
+      "size_kb": 0,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-neural-nexus",
+      "type": "repository",
+      "name": "evez-neural-nexus",
+      "archived": false,
+      "fork": false,
+      "size_kb": 1,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-daw",
+      "type": "repository",
+      "name": "evez-daw",
+      "archived": false,
+      "fork": false,
+      "size_kb": 48862,
+      "default_branch": "main",
+      "capabilities": [
+        "media"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:EvezArt",
+      "type": "repository",
+      "name": "EvezArt",
+      "archived": false,
+      "fork": false,
+      "size_kb": 10,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-vcl-core",
+      "type": "repository",
+      "name": "evez-vcl-core",
+      "archived": false,
+      "fork": false,
+      "size_kb": 60,
+      "default_branch": "main",
+      "capabilities": [
+        "web_ui"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:holy-savior-matrix",
+      "type": "repository",
+      "name": "holy-savior-matrix",
+      "archived": false,
+      "fork": false,
+      "size_kb": 19,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:EvezClaw",
+      "type": "repository",
+      "name": "EvezClaw",
+      "archived": true,
+      "fork": false,
+      "size_kb": 9,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-digital-twin-3d",
+      "type": "repository",
+      "name": "evez-digital-twin-3d",
+      "archived": false,
+      "fork": false,
+      "size_kb": 6,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-gateway",
+      "type": "repository",
+      "name": "evez-gateway",
+      "archived": false,
+      "fork": false,
+      "size_kb": 17,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:hermes-remote-setup",
+      "type": "repository",
+      "name": "hermes-remote-setup",
+      "archived": false,
+      "fork": false,
+      "size_kb": 0,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-status",
+      "type": "repository",
+      "name": "evez-status",
+      "archived": false,
+      "fork": false,
+      "size_kb": 16,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-worldsystems",
+      "type": "repository",
+      "name": "evez-worldsystems",
+      "archived": true,
+      "fork": false,
+      "size_kb": 42,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-spectrum",
+      "type": "repository",
+      "name": "evez-spectrum",
+      "archived": false,
+      "fork": false,
+      "size_kb": 14,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:consciousness-detector",
+      "type": "repository",
+      "name": "consciousness-detector",
+      "archived": false,
+      "fork": false,
+      "size_kb": 3,
+      "default_branch": "master",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-agi-pipeline-v3",
+      "type": "repository",
+      "name": "evez-agi-pipeline-v3",
+      "archived": false,
+      "fork": false,
+      "size_kb": 18,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:nexuslink-api",
+      "type": "repository",
+      "name": "nexuslink-api",
+      "archived": false,
+      "fork": false,
+      "size_kb": 18,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-autonomy-platform",
+      "type": "repository",
+      "name": "evez-autonomy-platform",
+      "archived": false,
+      "fork": false,
+      "size_kb": 349,
+      "default_branch": "main",
+      "capabilities": [
+        "commerce"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-sdk",
+      "type": "repository",
+      "name": "evez-sdk",
+      "archived": true,
+      "fork": false,
+      "size_kb": 23,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:lord-evez",
+      "type": "repository",
+      "name": "lord-evez",
+      "archived": true,
+      "fork": false,
+      "size_kb": 93,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:tailscale-dashboard-app",
+      "type": "repository",
+      "name": "tailscale-dashboard-app",
+      "archived": true,
+      "fork": false,
+      "size_kb": 971,
+      "default_branch": "main",
+      "capabilities": [
+        "web_ui"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-toolbox",
+      "type": "repository",
+      "name": "evez-toolbox",
+      "archived": false,
+      "fork": false,
+      "size_kb": 15,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-funding-monitor",
+      "type": "repository",
+      "name": "evez-funding-monitor",
+      "archived": false,
+      "fork": false,
+      "size_kb": 5,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-event-spine",
+      "type": "repository",
+      "name": "evez-event-spine",
+      "archived": false,
+      "fork": false,
+      "size_kb": 45,
+      "default_branch": "main",
+      "capabilities": [
+        "evidence"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:openclaw-ops",
+      "type": "repository",
+      "name": "openclaw-ops",
+      "archived": false,
+      "fork": false,
+      "size_kb": 11,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:.github",
+      "type": "repository",
+      "name": ".github",
+      "archived": false,
+      "fork": false,
+      "size_kb": 2,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-guard",
+      "type": "repository",
+      "name": "evez-guard",
+      "archived": false,
+      "fork": false,
+      "size_kb": 28,
+      "default_branch": "main",
+      "capabilities": [
+        "security"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evezo",
+      "type": "repository",
+      "name": "evezo",
+      "archived": true,
+      "fork": false,
+      "size_kb": 1329,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-vault",
+      "type": "repository",
+      "name": "evez-vault",
+      "archived": true,
+      "fork": false,
+      "size_kb": 6,
+      "default_branch": "main",
+      "capabilities": [
+        "security"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-device-portal",
+      "type": "repository",
+      "name": "evez-device-portal",
+      "archived": false,
+      "fork": false,
+      "size_kb": 2,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device",
+        "web_ui"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-net",
+      "type": "repository",
+      "name": "evez-net",
+      "archived": false,
+      "fork": false,
+      "size_kb": 25,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:agentvault",
+      "type": "repository",
+      "name": "agentvault",
+      "archived": false,
+      "fork": false,
+      "size_kb": 73,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "security"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-replit",
+      "type": "repository",
+      "name": "evez-replit",
+      "archived": true,
+      "fork": false,
+      "size_kb": 20,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-cognitive-supremacy",
+      "type": "repository",
+      "name": "evez-cognitive-supremacy",
+      "archived": false,
+      "fork": false,
+      "size_kb": 5,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:krnl-swarm",
+      "type": "repository",
+      "name": "krnl-swarm",
+      "archived": false,
+      "fork": false,
+      "size_kb": 9,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-meshnet",
+      "type": "repository",
+      "name": "evez-meshnet",
+      "archived": false,
+      "fork": false,
+      "size_kb": 5,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:openclaw-portable",
+      "type": "repository",
+      "name": "openclaw-portable",
+      "archived": true,
+      "fork": false,
+      "size_kb": 32,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "field_device"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:CrawFather",
+      "type": "repository",
+      "name": "CrawFather",
+      "archived": true,
+      "fork": false,
+      "size_kb": 1775,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-phenomenologic",
+      "type": "repository",
+      "name": "evez-phenomenologic",
+      "archived": false,
+      "fork": false,
+      "size_kb": 36,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evezx-cryptozoo",
+      "type": "repository",
+      "name": "evezx-cryptozoo",
+      "archived": false,
+      "fork": false,
+      "size_kb": 7,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-sentiment",
+      "type": "repository",
+      "name": "evez-sentiment",
+      "archived": true,
+      "fork": false,
+      "size_kb": 0,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:eigenforensics-npm",
+      "type": "repository",
+      "name": "eigenforensics-npm",
+      "archived": false,
+      "fork": false,
+      "size_kb": 0,
+      "default_branch": "main",
+      "capabilities": [
+        "evidence",
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-game",
+      "type": "repository",
+      "name": "evez-game",
+      "archived": false,
+      "fork": false,
+      "size_kb": 2,
+      "default_branch": "main",
+      "capabilities": [
+        "media"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-forensic",
+      "type": "repository",
+      "name": "evez-forensic",
+      "archived": true,
+      "fork": false,
+      "size_kb": 36,
+      "default_branch": "main",
+      "capabilities": [
+        "evidence"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:legal-filings",
+      "type": "repository",
+      "name": "legal-filings",
+      "archived": false,
+      "fork": false,
+      "size_kb": 750,
+      "default_branch": "master",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:game-agent-infra",
+      "type": "repository",
+      "name": "game-agent-infra",
+      "archived": false,
+      "fork": false,
+      "size_kb": 20534,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "media"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-outreach",
+      "type": "repository",
+      "name": "evez-outreach",
+      "archived": false,
+      "fork": false,
+      "size_kb": 33,
+      "default_branch": "master",
+      "capabilities": [
+        "commerce"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:openclaw-dashboard-v2",
+      "type": "repository",
+      "name": "openclaw-dashboard-v2",
+      "archived": true,
+      "fork": false,
+      "size_kb": 212,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "web_ui"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:project-nomad-evez",
+      "type": "repository",
+      "name": "project-nomad-evez",
+      "archived": true,
+      "fork": false,
+      "size_kb": 12718,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-terrain-engine",
+      "type": "repository",
+      "name": "evez-terrain-engine",
+      "archived": true,
+      "fork": false,
+      "size_kb": 8,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:agent-bridge",
+      "type": "repository",
+      "name": "agent-bridge",
+      "archived": false,
+      "fork": false,
+      "size_kb": 53,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-firmament",
+      "type": "repository",
+      "name": "evez-firmament",
+      "archived": false,
+      "fork": false,
+      "size_kb": 16,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-hyperstream",
+      "type": "repository",
+      "name": "evez-hyperstream",
+      "archived": false,
+      "fork": false,
+      "size_kb": 43,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-model-distillery",
+      "type": "repository",
+      "name": "evez-model-distillery",
+      "archived": false,
+      "fork": false,
+      "size_kb": 9,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:totem-tower-os",
+      "type": "repository",
+      "name": "totem-tower-os",
+      "archived": true,
+      "fork": false,
+      "size_kb": 25,
+      "default_branch": "master",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-rom-forge",
+      "type": "repository",
+      "name": "evez-rom-forge",
+      "archived": false,
+      "fork": false,
+      "size_kb": 321,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-atlas",
+      "type": "repository",
+      "name": "evez-atlas",
+      "archived": false,
+      "fork": false,
+      "size_kb": 66130,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-revenue-bridge",
+      "type": "repository",
+      "name": "evez-revenue-bridge",
+      "archived": false,
+      "fork": false,
+      "size_kb": 20,
+      "default_branch": "master",
+      "capabilities": [
+        "commerce",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:openclaw-runtime",
+      "type": "repository",
+      "name": "openclaw-runtime",
+      "archived": false,
+      "fork": false,
+      "size_kb": 270,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-store",
+      "type": "repository",
+      "name": "evez-store",
+      "archived": false,
+      "fork": false,
+      "size_kb": 118855,
+      "default_branch": "master",
+      "capabilities": [
+        "commerce"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-math-surpasser",
+      "type": "repository",
+      "name": "evez-math-surpasser",
+      "archived": false,
+      "fork": false,
+      "size_kb": 3,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-os-sovereign",
+      "type": "repository",
+      "name": "evez-os-sovereign",
+      "archived": false,
+      "fork": false,
+      "size_kb": 387,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:openclaw-fork",
+      "type": "repository",
+      "name": "openclaw-fork",
+      "archived": false,
+      "fork": false,
+      "size_kb": 170391,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez_llm_integration",
+      "type": "repository",
+      "name": "evez_llm_integration",
+      "archived": false,
+      "fork": false,
+      "size_kb": 269,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:igre-speedrun",
+      "type": "repository",
+      "name": "igre-speedrun",
+      "archived": true,
+      "fork": false,
+      "size_kb": 14,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-song-decon",
+      "type": "repository",
+      "name": "evez-song-decon",
+      "archived": true,
+      "fork": false,
+      "size_kb": 2,
+      "default_branch": "main",
+      "capabilities": [
+        "media"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-openclaw-android",
+      "type": "repository",
+      "name": "evez-openclaw-android",
+      "archived": false,
+      "fork": false,
+      "size_kb": 116,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "field_device"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-benchmarks",
+      "type": "repository",
+      "name": "evez-benchmarks",
+      "archived": false,
+      "fork": false,
+      "size_kb": 25,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-engine",
+      "type": "repository",
+      "name": "evez-engine",
+      "archived": false,
+      "fork": false,
+      "size_kb": 20474,
+      "default_branch": "master",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evezart-openclaw",
+      "type": "repository",
+      "name": "evezart-openclaw",
+      "archived": false,
+      "fork": false,
+      "size_kb": 249,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-daw-agent",
+      "type": "repository",
+      "name": "evez-daw-agent",
+      "archived": false,
+      "fork": false,
+      "size_kb": 6,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "media"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-digital-twin-rom",
+      "type": "repository",
+      "name": "evez-digital-twin-rom",
+      "archived": false,
+      "fork": false,
+      "size_kb": 4,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:octoklaw-rom",
+      "type": "repository",
+      "name": "octoklaw-rom",
+      "archived": false,
+      "fork": false,
+      "size_kb": 13,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:hermes-setup",
+      "type": "repository",
+      "name": "hermes-setup",
+      "archived": false,
+      "fork": false,
+      "size_kb": 0,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-cognition-api",
+      "type": "repository",
+      "name": "evez-cognition-api",
+      "archived": false,
+      "fork": false,
+      "size_kb": 48,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-commerce",
+      "type": "repository",
+      "name": "evez-commerce",
+      "archived": false,
+      "fork": false,
+      "size_kb": 29,
+      "default_branch": "main",
+      "capabilities": [
+        "commerce"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-sentinel",
+      "type": "repository",
+      "name": "evez-sentinel",
+      "archived": false,
+      "fork": false,
+      "size_kb": 14,
+      "default_branch": "main",
+      "capabilities": [
+        "security"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-constitution",
+      "type": "repository",
+      "name": "evez-constitution",
+      "archived": false,
+      "fork": false,
+      "size_kb": 9,
+      "default_branch": "main",
+      "capabilities": [
+        "evidence"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-router",
+      "type": "repository",
+      "name": "evez-router",
+      "archived": false,
+      "fork": false,
+      "size_kb": 5,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-spectral-correlation",
+      "type": "repository",
+      "name": "evez-spectral-correlation",
+      "archived": true,
+      "fork": false,
+      "size_kb": 3,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-machine-voice",
+      "type": "repository",
+      "name": "evez-machine-voice",
+      "archived": false,
+      "fork": false,
+      "size_kb": 5,
+      "default_branch": "main",
+      "capabilities": [
+        "media"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-audio-packs",
+      "type": "repository",
+      "name": "evez-audio-packs",
+      "archived": false,
+      "fork": false,
+      "size_kb": 421861,
+      "default_branch": "main",
+      "capabilities": [
+        "media"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-openclaw-deploy",
+      "type": "repository",
+      "name": "evez-openclaw-deploy",
+      "archived": false,
+      "fork": false,
+      "size_kb": 194,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-lineage",
+      "type": "repository",
+      "name": "evez-lineage",
+      "archived": false,
+      "fork": false,
+      "size_kb": 15,
+      "default_branch": "main",
+      "capabilities": [
+        "evidence"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-cross-domain-engine",
+      "type": "repository",
+      "name": "evez-cross-domain-engine",
+      "archived": false,
+      "fork": false,
+      "size_kb": 5,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-truth-seeker",
+      "type": "repository",
+      "name": "evez-truth-seeker",
+      "archived": true,
+      "fork": false,
+      "size_kb": 20,
+      "default_branch": "main",
+      "capabilities": [
+        "evidence"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-brother-shield",
+      "type": "repository",
+      "name": "evez-brother-shield",
+      "archived": false,
+      "fork": false,
+      "size_kb": 3,
+      "default_branch": "master",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-openclaw-apk",
+      "type": "repository",
+      "name": "evez-openclaw-apk",
+      "archived": false,
+      "fork": false,
+      "size_kb": 58,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "field_device"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-threat",
+      "type": "repository",
+      "name": "evez-threat",
+      "archived": true,
+      "fork": false,
+      "size_kb": 7,
+      "default_branch": "main",
+      "capabilities": [
+        "security"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-mesh-health",
+      "type": "repository",
+      "name": "evez-mesh-health",
+      "archived": false,
+      "fork": false,
+      "size_kb": 4,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:disclosure.tools",
+      "type": "repository",
+      "name": "disclosure.tools",
+      "archived": false,
+      "fork": false,
+      "size_kb": 71,
+      "default_branch": "main",
+      "capabilities": [
+        "security"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-ban-engine",
+      "type": "repository",
+      "name": "evez-ban-engine",
+      "archived": false,
+      "fork": false,
+      "size_kb": 2,
+      "default_branch": "main",
+      "capabilities": [
+        "security",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-docker",
+      "type": "repository",
+      "name": "evez-docker",
+      "archived": false,
+      "fork": false,
+      "size_kb": 5,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:morpheus-workspace",
+      "type": "repository",
+      "name": "morpheus-workspace",
+      "archived": false,
+      "fork": false,
+      "size_kb": 14,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-investigation",
+      "type": "repository",
+      "name": "evez-investigation",
+      "archived": true,
+      "fork": false,
+      "size_kb": 4247,
+      "default_branch": "master",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-counterintel",
+      "type": "repository",
+      "name": "evez-counterintel",
+      "archived": true,
+      "fork": false,
+      "size_kb": 10,
+      "default_branch": "main",
+      "capabilities": [
+        "security"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:MyClaw",
+      "type": "repository",
+      "name": "MyClaw",
+      "archived": true,
+      "fork": false,
+      "size_kb": 62,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:disclosure-file",
+      "type": "repository",
+      "name": "disclosure-file",
+      "archived": false,
+      "fork": false,
+      "size_kb": 31,
+      "default_branch": "main",
+      "capabilities": [
+        "security"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-cognitive-bridge",
+      "type": "repository",
+      "name": "evez-cognitive-bridge",
+      "archived": false,
+      "fork": false,
+      "size_kb": 1,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-factory",
+      "type": "repository",
+      "name": "evez-factory",
+      "archived": false,
+      "fork": false,
+      "size_kb": 8,
+      "default_branch": "main",
+      "capabilities": [
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-runtime-core",
+      "type": "repository",
+      "name": "evez-runtime-core",
+      "archived": false,
+      "fork": false,
+      "size_kb": 38,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-codex",
+      "type": "repository",
+      "name": "evez-codex",
+      "archived": false,
+      "fork": false,
+      "size_kb": 57371,
+      "default_branch": "main",
+      "capabilities": [
+        "evidence"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-watchdog",
+      "type": "repository",
+      "name": "evez-watchdog",
+      "archived": true,
+      "fork": false,
+      "size_kb": 116460,
+      "default_branch": "master",
+      "capabilities": [
+        "security"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-consciousness-observatory",
+      "type": "repository",
+      "name": "evez-consciousness-observatory",
+      "archived": false,
+      "fork": false,
+      "size_kb": 19,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-moltbooks",
+      "type": "repository",
+      "name": "evez-moltbooks",
+      "archived": false,
+      "fork": false,
+      "size_kb": 7,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-livestream",
+      "type": "repository",
+      "name": "evez-livestream",
+      "archived": false,
+      "fork": false,
+      "size_kb": 34,
+      "default_branch": "main",
+      "capabilities": [
+        "media"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-backup",
+      "type": "repository",
+      "name": "evez-backup",
+      "archived": true,
+      "fork": false,
+      "size_kb": 43,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-cryptozoo",
+      "type": "repository",
+      "name": "evez-cryptozoo",
+      "archived": false,
+      "fork": false,
+      "size_kb": 3,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-revenue-engine",
+      "type": "repository",
+      "name": "evez-revenue-engine",
+      "archived": false,
+      "fork": false,
+      "size_kb": 33,
+      "default_branch": "main",
+      "capabilities": [
+        "commerce",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:spectral-topology-engine",
+      "type": "repository",
+      "name": "spectral-topology-engine",
+      "archived": true,
+      "fork": false,
+      "size_kb": 6,
+      "default_branch": "main",
+      "capabilities": [
+        "research_science",
+        "integration"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-spine",
+      "type": "repository",
+      "name": "evez-spine",
+      "archived": false,
+      "fork": false,
+      "size_kb": 36,
+      "default_branch": "master",
+      "capabilities": [
+        "evidence"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-neurologic-monitor",
+      "type": "repository",
+      "name": "evez-neurologic-monitor",
+      "archived": false,
+      "fork": false,
+      "size_kb": 6,
+      "default_branch": "main",
+      "capabilities": [
+        "field_device"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    }
+  ],
+  "capability_index": {
+    "general": [
+      "repo:evez-skills",
+      "repo:evez-ai",
+      "repo:awesome-evez",
+      "repo:evez-constellation",
+      "repo:evez-os",
+      "repo:ai-system-prompts",
+      "repo:evez-psyche",
+      "repo:evez-python",
+      "repo:evez-glitch",
+      "repo:evez666-advancement",
+      "repo:evez-publications",
+      "repo:nexus",
+      "repo:evez-autonomous-system",
+      "repo:evez-cli",
+      "repo:maes",
+      "repo:evez666-arg-canon",
+      "repo:surething-offline",
+      "repo:evez-scout",
+      "repo:evez-cipher",
+      "repo:evez",
+      "repo:evez-promptforge",
+      "repo:evez-lord",
+      "repo:evez-os-automation",
+      "repo:evez-disaster-recovery",
+      "repo:evez-liminal",
+      "repo:evez-invariance-battery",
+      "repo:evez-paradigm-supremacy",
+      "repo:evez-federation",
+      "repo:evez-trunk-automation",
+      "repo:evez-tamagotchi-builder",
+      "repo:evez-code-review",
+      "repo:opevez",
+      "repo:evez-reflex",
+      "repo:evez-os-next",
+      "repo:polymarket-speedrun",
+      "repo:evez-pulse",
+      "repo:evez-os-manifest",
+      "repo:evez-site",
+      "repo:autoenveloper",
+      "repo:evez-infrastructure",
+      "repo:evez-remote-browser",
+      "repo:evez-neural-nexus",
+      "repo:EvezArt",
+      "repo:holy-savior-matrix",
+      "repo:evez-digital-twin-3d",
+      "repo:evez-gateway",
+      "repo:evez-status",
+      "repo:evez-worldsystems",
+      "repo:evez-spectrum",
+      "repo:consciousness-detector",
+      "repo:evez-sdk",
+      "repo:lord-evez",
+      "repo:evez-toolbox",
+      "repo:evez-funding-monitor",
+      "repo:.github",
+      "repo:evezo",
+      "repo:evez-replit",
+      "repo:CrawFather",
+      "repo:evezx-cryptozoo",
+      "repo:evez-sentiment",
+      "repo:legal-filings",
+      "repo:project-nomad-evez",
+      "repo:evez-firmament",
+      "repo:evez-hyperstream",
+      "repo:totem-tower-os",
+      "repo:evez-rom-forge",
+      "repo:evez-atlas",
+      "repo:evez-os-sovereign",
+      "repo:igre-speedrun",
+      "repo:evez-benchmarks",
+      "repo:evez-digital-twin-rom",
+      "repo:octoklaw-rom",
+      "repo:evez-brother-shield",
+      "repo:morpheus-workspace",
+      "repo:evez-investigation",
+      "repo:evez-backup",
+      "repo:evez-cryptozoo"
+    ],
+    "agent_runtime": [
+      "repo:evez-agentnet",
+      "repo:criticalmind-omega",
+      "repo:freeclaw",
+      "repo:omega-conductor",
+      "repo:evez-bot",
+      "repo:evez-openclaw-gcp",
+      "repo:evez-claw-deploy",
+      "repo:clawbreak",
+      "repo:evez-claw-extensions",
+      "repo:evez-claw",
+      "repo:evez-openclaw-pwa",
+      "repo:evez-evidence-runtime",
+      "repo:ClawBuster",
+      "repo:evez-openclaw-mesh",
+      "repo:clawbreak-ai",
+      "repo:moltbot-live",
+      "repo:EvezClaw",
+      "repo:hermes-remote-setup",
+      "repo:openclaw-ops",
+      "repo:agentvault",
+      "repo:evez-cognitive-supremacy",
+      "repo:krnl-swarm",
+      "repo:openclaw-portable",
+      "repo:game-agent-infra",
+      "repo:openclaw-dashboard-v2",
+      "repo:agent-bridge",
+      "repo:openclaw-runtime",
+      "repo:openclaw-fork",
+      "repo:evez_llm_integration",
+      "repo:evez-openclaw-android",
+      "repo:evezart-openclaw",
+      "repo:evez-daw-agent",
+      "repo:hermes-setup",
+      "repo:evez-cognition-api",
+      "repo:evez-openclaw-deploy",
+      "repo:evez-openclaw-apk",
+      "repo:MyClaw",
+      "repo:evez-cognitive-bridge",
+      "repo:evez-runtime-core",
+      "repo:evez-moltbooks"
+    ],
+    "field_device": [
+      "repo:evez-agentnet",
+      "repo:evez-busnet-operator",
+      "repo:evez-mesh-stack",
+      "repo:evezstation",
+      "repo:oracle-cloud",
+      "repo:evez-station-android",
+      "repo:evez-health-aggregator",
+      "repo:evez-openclaw-pwa",
+      "repo:evez-cloud",
+      "repo:evez-mesh",
+      "repo:evez-openclaw-mesh",
+      "repo:meshpulse-api",
+      "repo:evez-device-portal",
+      "repo:evez-net",
+      "repo:evez-meshnet",
+      "repo:openclaw-portable",
+      "repo:evez-terrain-engine",
+      "repo:evez-openclaw-android",
+      "repo:evez-openclaw-apk",
+      "repo:evez-mesh-health",
+      "repo:evez-docker",
+      "repo:evez-neurologic-monitor"
+    ],
+    "integration": [
+      "repo:evez-api",
+      "repo:evez-agi-pipeline",
+      "repo:evez-busnet-operator",
+      "repo:octoklaw-api",
+      "repo:autonomous-research-orchestrator",
+      "repo:evez-osint-engine",
+      "repo:evez-mesh-stack",
+      "repo:prophecy-bridge",
+      "repo:evez-bridge",
+      "repo:evez-meme-bus",
+      "repo:evez-credit-api",
+      "repo:spectrumscan-api",
+      "repo:evez-agi-pipeline-v2",
+      "repo:eigenvalue-bridge",
+      "repo:evez-research",
+      "repo:evez-search",
+      "repo:quantumseal-api",
+      "repo:evez-consciousness-engine",
+      "repo:evez-claw-extensions",
+      "repo:ai-search-exploitation",
+      "repo:evez-mesh",
+      "repo:ClawBuster",
+      "repo:evez-openclaw-mesh",
+      "repo:evez-meme-engine",
+      "repo:meshpulse-api",
+      "repo:vortexq-api",
+      "repo:evez-synapse-engine",
+      "repo:evez-api-gateway",
+      "repo:evez-agi-pipeline-v3",
+      "repo:nexuslink-api",
+      "repo:evez-meshnet",
+      "repo:evez-terrain-engine",
+      "repo:agent-bridge",
+      "repo:evez-revenue-bridge",
+      "repo:evez-engine",
+      "repo:evez-cognition-api",
+      "repo:evez-router",
+      "repo:evez-cross-domain-engine",
+      "repo:evez-mesh-health",
+      "repo:evez-ban-engine",
+      "repo:evez-cognitive-bridge",
+      "repo:evez-factory",
+      "repo:evez-revenue-engine",
+      "repo:spectral-topology-engine"
+    ],
+    "research_science": [
+      "repo:metarom",
+      "repo:autonomous-research-orchestrator",
+      "repo:evez-sim",
+      "repo:quantum-consciousness-lord",
+      "repo:eigenvalue-bridge",
+      "repo:eigenforensics",
+      "repo:evez-research",
+      "repo:quantumseal-api",
+      "repo:evez-observatory",
+      "repo:evez-manifold",
+      "repo:evez-quantum-membranes",
+      "repo:evez-telemetric-metadna",
+      "repo:evez-phenomenology",
+      "repo:evez-phenomenologic",
+      "repo:eigenforensics-npm",
+      "repo:evez-model-distillery",
+      "repo:evez-math-surpasser",
+      "repo:evez-spectral-correlation",
+      "repo:evez-consciousness-observatory",
+      "repo:spectral-topology-engine"
+    ],
+    "web_ui": [
+      "repo:evez-busnet-operator",
+      "repo:evez-vercel",
+      "repo:evez-landing",
+      "repo:evez-vcl",
+      "repo:evez-dashboard",
+      "repo:evezart.github.io",
+      "repo:evez-vcl-core",
+      "repo:tailscale-dashboard-app",
+      "repo:evez-device-portal",
+      "repo:openclaw-dashboard-v2"
+    ],
+    "commerce": [
+      "repo:evez-landing",
+      "repo:evez-platform",
+      "repo:evez-profit",
+      "repo:evez-credit-api",
+      "repo:evez-services",
+      "repo:evez-products",
+      "repo:evez-autonomy-platform",
+      "repo:evez-outreach",
+      "repo:evez-revenue-bridge",
+      "repo:evez-store",
+      "repo:evez-commerce",
+      "repo:evez-revenue-engine"
+    ],
+    "evidence": [
+      "repo:evez-autonomous-ledger",
+      "repo:eventspine-ledger",
+      "repo:eigenforensics",
+      "repo:evez-witness",
+      "repo:evez-proofs",
+      "repo:evez-evidence-runtime",
+      "repo:evez-event-spine",
+      "repo:eigenforensics-npm",
+      "repo:evez-forensic",
+      "repo:evez-constitution",
+      "repo:evez-lineage",
+      "repo:evez-truth-seeker",
+      "repo:evez-codex",
+      "repo:evez-spine"
+    ],
+    "media": [
+      "repo:evez-meme-bus",
+      "repo:evez-audio",
+      "repo:evez-meme-engine",
+      "repo:evez-daw",
+      "repo:evez-game",
+      "repo:game-agent-infra",
+      "repo:evez-song-decon",
+      "repo:evez-daw-agent",
+      "repo:evez-machine-voice",
+      "repo:evez-audio-packs",
+      "repo:evez-livestream"
+    ],
+    "security": [
+      "repo:evez-guard",
+      "repo:evez-vault",
+      "repo:agentvault",
+      "repo:evez-sentinel",
+      "repo:evez-threat",
+      "repo:disclosure.tools",
+      "repo:evez-ban-engine",
+      "repo:evez-counterintel",
+      "repo:disclosure-file",
+      "repo:evez-watchdog"
+    ]
+  },
+  "large_repository_candidates": [
+    {
+      "id": "repo:evez-audio-packs",
+      "type": "repository",
+      "name": "evez-audio-packs",
+      "archived": false,
+      "fork": false,
+      "size_kb": 421861,
+      "default_branch": "main",
+      "capabilities": [
+        "media"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-disaster-recovery",
+      "type": "repository",
+      "name": "evez-disaster-recovery",
+      "archived": true,
+      "fork": false,
+      "size_kb": 298663,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez666-advancement",
+      "type": "repository",
+      "name": "evez666-advancement",
+      "archived": true,
+      "fork": false,
+      "size_kb": 295024,
+      "default_branch": "master",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:openclaw-fork",
+      "type": "repository",
+      "name": "openclaw-fork",
+      "archived": false,
+      "fork": false,
+      "size_kb": 170391,
+      "default_branch": "main",
+      "capabilities": [
+        "agent_runtime"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-os",
+      "type": "repository",
+      "name": "evez-os",
+      "archived": false,
+      "fork": false,
+      "size_kb": 136866,
+      "default_branch": "main",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-store",
+      "type": "repository",
+      "name": "evez-store",
+      "archived": false,
+      "fork": false,
+      "size_kb": 118855,
+      "default_branch": "master",
+      "capabilities": [
+        "commerce"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-watchdog",
+      "type": "repository",
+      "name": "evez-watchdog",
+      "archived": true,
+      "fork": false,
+      "size_kb": 116460,
+      "default_branch": "master",
+      "capabilities": [
+        "security"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-products",
+      "type": "repository",
+      "name": "evez-products",
+      "archived": true,
+      "fork": false,
+      "size_kb": 116453,
+      "default_branch": "master",
+      "capabilities": [
+        "commerce"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    },
+    {
+      "id": "repo:evez-liminal",
+      "type": "repository",
+      "name": "evez-liminal",
+      "archived": false,
+      "fork": false,
+      "size_kb": 116453,
+      "default_branch": "master",
+      "capabilities": [
+        "general"
+      ],
+      "inference": "NAME_HEURISTIC",
+      "confidence": "PROPOSED"
+    }
+  ],
+  "methodology": {
+    "capability_inference": "repository name and description only",
+    "not_claimed": "implementation quality, runtime health, security state, or reproducibility",
+    "next_probe": "clone/fetch repository tree and inspect manifests, entrypoints, tests, workflows, and evidence artifacts"
+  }
+}
