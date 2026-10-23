@@ -232,8 +232,10 @@ def main():
                     f"CORTEX-NOVEL {s['receptor']} v={s['value']} {json.dumps(s.get('detail',{}))[:100]} (unverifiable)")
             elif s["receptor"] in ("flow", "intruder", "load") and recheck < 0.4 * s["value"]:
                 pass  # spike collapsed between render and patrol: drop the ghost
-            elif s["receptor"] == "memory" and _spine_window_is_own_round():
-                pass  # the machine's own scheduled OODA round: resting pulse, not news
+            elif s["receptor"] == "memory" and (recheck < 0.4 * s["value"] or _spine_window_is_own_round()):
+                pass  # ghost: the burst collapsed before re-measure (an EMPTY spine
+                      # window also fails the own-round check), or the window is the
+                      # machine's own scheduled OODA round — resting pulse, not news
             elif s["receptor"] == "intruder" and recheck < 30 and not _breach_in_auth_tail():
                 pass  # repelled scan floor: fail2ban eats it, zero breaches — the wall working
             elif s["receptor"] == "hand" and recheck == s["value"]:

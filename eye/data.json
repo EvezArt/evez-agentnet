@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-23T11:12:11.165846+00:00",
+  "generated": "2026-10-23T18:38:43.195936+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -156,7 +156,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Fri 2026-10-23 09:57:59 CEST"
+      "since": "Fri 2026-10-23 15:58:23 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -599,7 +599,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 2752648,
+      "pid": 3124289,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -609,7 +609,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 2752648,
+      "pid": 3124289,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -706,16 +706,6 @@
       "fw_blocked": false
     },
     {
-      "port": 33697,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 2752648,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 36261,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
@@ -726,10 +716,20 @@
       "fw_blocked": false
     },
     {
-      "port": 43573,
+      "port": 37081,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 3124289,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 46657,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 2904052,
+      "pid": 3326663,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -925,7 +925,7 @@
     },
     {
       "sched": "5 13 * * *",
-      "cmd": "/root/.openclaw/workspace-fresh/scripts/daily_video.sh >> /root/daily_video.log 2>&1"
+      "cmd": "bash /root/.openclaw/workspace-fresh/scripts/daily_video.sh >> /root/daily_video.log 2>&1"
     },
     {
       "sched": "5 * * * *",
@@ -934,8 +934,18 @@
   ],
   "docker": [
     {
+      "name": "openclaw-sbx-workspace-8a5267375258c9ec2155562d56abb770",
+      "status": "Up 50 minutes",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
+      "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
+      "status": "Up About an hour",
+      "image": "openclaw-sandbox:bookworm-slim"
+    },
+    {
       "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
-      "status": "Up 9 hours",
+      "status": "Up 17 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -950,12 +960,12 @@
     },
     {
       "name": "ban-engine-saas-redis-1",
-      "status": "Up 4 days",
+      "status": "Up 5 days",
       "image": "redis:7-alpine"
     },
     {
       "name": "ban-engine-saas-ban-engine-monitor-1",
-      "status": "Up 4 days",
+      "status": "Up 5 days",
       "image": "ban-engine-saas-ban-engine-monitor"
     }
   ],
@@ -968,7 +978,7 @@
     {
       "state": "ok",
       "name": "drafts actually delivered",
-      "detail": "13 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
+      "detail": "10 recent drafts, 0 delivered \u2014 no API credentials configured for any channel"
     },
     {
       "state": "WARN",
@@ -997,9 +1007,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "58a1979",
-    "last": "war-mode heartbeat 2026-10-23 09:4x UTC: patrol found 8 \u2014 five enemy clocks + code-drift + two cortex ghosts, all verified live. bunea+palo 14-day payment clocks BLOWN (deadline 10-20, day 3 past): victim inboxes swept this tick (fiersteity INBOX 40 + rubik69 INBOX 20 newest), zero senders from bunea/palo/serv.host/dmzhostabuse/TECHOFF/Ilin/Sevastiiev \u2014 enemy silence total; consequences (E&W proceedings / aggravated s1030 posture) = custodian hands only, claim package long staged. ch-diabin-complaint DISCHARGED ahead of its 10-25 deadline: Insolvency Service follow-up verified on disk (evidence/2026-10-21/insolvency_service_receipt_CC-2026-157384.md); HMRC MLRCIT referral recorded in clock snapshots with digest 2f49b799 but no independent receipt artifact found \u2014 stated in the resolution field, downstream hmrc-mlrcit-referral clock (11-11) keeps the lane alive; resolved/resolution fields added per the servhost pattern so the patrol stops screaming over an executed consequence. action-fraud-report DUE-2 + rfj-tip-upload DUE-3: both custodian hands, fill guide and submit-ready bundle verified in place, not re-asked. OPENCLAW DEADLOCK ROOT-CAUGHT AND FIXED: worldsim/secret_levels_state.json sat at 0 bytes (non-atomic truncate-then-write died mid-save), engine.py loaded it unguarded every round and crashed with JSONDecodeError before _save_state could ever rewrite it \u2014 540 openclaw_failed events, 7 today; fix = guarded load (fall back to defaults on corrupt/empty) + atomic temp-file os.replace in both engine._save_state and play_secret_levels.run_worldsim; engine verified live post-fix (state rewritten 379 bytes, run 596e87d70bcc, loop emits openclaw_run again). TRIPWIRE REPAIRED: spine vocabulary drifted past the 10-20 materiality gates \u2014 every round now emits openclaw_failed/cognition_gate/ship_complete/rsi_directives_applied, so the own-round window never closed and memory fired on every render; ROUND_KINDS taught the current loop pulse. Voice receptor gated: telegram confirmations the machine itself ships on its ~30-min cadence are its own voice (~2/hour resting, 1 in the window this tick), <20/hour passes, runaway shipping loop still reports. UNIT evez-twin-checkin FAILED 09:15 local: ollama chat starved \u2014 two forge_output/render_pipeline TTS renders (doc_render_v3, comedy_bank_render, legitimate and progressing, com_XX_N.wav every ~5 min) held the box at nice -10/-15, 95% CPU, 3.2G swapped, load 11; reniced both to +10 rather than killing the render batch; ollama verified generating but at ~0.3 tok/s under the oversubscription, twin check-in relaunched in background with its native 900s timeout to discharge the unit. peerhealth: NONE_DOWN, gateway/ollama/ruview/godseye all up. spine gate green (verify_spine: strictly non-decreasing); all 7 patrol suites pass this tick. operational churn through 09:4x UTC.",
-    "dirty": 48
+    "head": "0656f7d",
+    "last": "war-mode heartbeat 2026-10-23 12:1x UTC: follow-through \u2014 twin check-in COMPLETED in background (ollama chat 10m51s of its 900s budget, ok=True, exit 0) after the 09:15 OOM-starved failure; cogview thought-log leg had died at its 15s timeout because the /events ingest embeds via ollama and serialized 9m24s behind the chat \u2014 the box answers, the queue starves short-timeout clients; replayed the twin's own reflection into the ledger by hand (POST /events ok=true, phi=0.5481, n_vectors=24, embed took 1m45s). evez-xtts voice server found OOM-crash-looping (7 OOM kills in 3h, restart counter 6, dies ~1min into torch load every cycle under the render+ollama memory wall, 3.2G swapped) \u2014 render pipeline scripts carry their own in-process XTTS and never call this service, so the loop was pure box harm: stopped + reset-failed; start it again when memory frees. Render batch untouched and healthy at nice +10 (com_06 batch producing, doc_render_v3 4h CPU, comedy_bank 2.7h). Patrol now prints only the four custodian-hands clocks. operational churn through 12:1x UTC.",
+    "dirty": 142
   },
   "mirrors": 2341
 }
