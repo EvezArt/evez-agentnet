@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-23T09:47:34.493682+00:00",
+  "generated": "2026-10-23T11:12:11.165846+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -726,10 +726,10 @@
       "fw_blocked": false
     },
     {
-      "port": 36823,
+      "port": 43573,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 2862218,
+      "pid": 2904052,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -935,7 +935,7 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
-      "status": "Up 8 hours",
+      "status": "Up 9 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -997,9 +997,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "96bdea1",
-    "last": "war-mode heartbeat 2026-10-20 03:4x UTC: patrol found 5 \u2014 three enemy clocks + intruder + memory, all verified live; one clock discharged, one deflection ingested, tripwire taught materiality. bunea+palo 14-day payment clocks DUE (deadline TODAY): both victim inboxes swept this tick \u2014 zero senders from bunea/palo/serv.host/dmzhostabuse/TECHOFF/Ilin/Sevastiiev; enemy silence total as the window closes; consequences (E&W proceedings / aggravated s1030 posture) = custodian hands only, claim pack staged in forge_output/lawsuit/. servhost-abuse-demand DISCHARGED: deadline expired in 8 days verified silence, consequence EXECUTED 10-19 02:09-02:22 UTC under custodian GO of 10-17 (transit lane + RIPE + ICO, receipts in evidence/2026-10-19/); enemy_obligations.py now carries resolved/resolution fields \u2014 clock prints [RESOLVED] days_left=null so the patrol stops screaming over a consequence already carried out; second RIPE deflection (#1124969, 'abuse@ripe.net is not monitored... send it to the organisation that manages the IP' \u2014 the organisation being the abuser) arrived 02:53 UTC, ingested raw RFC 5322 evidence/2026-10-20/ripe_ncc_deflection_1124969.eml sha256 78ce7ab7cb8b6e87c6e47e94db974911dc2d865eef9b5ab1440118d147b55ec7, manifest written. PATROL MATERIALITY GATES: median+MAD baselines make MAD=0 on bursty mostly-zero receptors so every burst is '4-sigma novel' forever \u2014 intruder fired 29% of 2397 renders (repelled scan floor, fail2ban eating it, zero accepts), memory 19% (the machine's own 30-min OODA rounds); gates now: intruder reports only BREACH (Accepted password from an IP that also Failed in the tail) or flood >=30; memory only if the 5-min spine window carries foreign kinds or >25 events; hand dropped on clean cycle increments; enemy mutes the ~2k/day firewall storm floor (10k+ = report). GitHub Actions root cause pinned by annotation: 'The job was not started because your account is locked due to a billing issue' \u2014 every standard workflow fails at spawn with zero steps since >=10-18 across all pushes (Dependabot survives on separate infra); repo public/unarchived/un-disabled, nothing committable cures it \u2014 custodian hands, stated once. Watcher flag stable: 13 root accepts from WARP 104.28.164.108 all inside 22:53-23:11 local 10-19 interleaved minute-by-minute with confirmed-device 104.28.157.64, same Cloudflare WARP pool; ZERO new hits since the flag, zero accepts outside the WARP pool in 24h \u2014 attribution still awaiting custodian word, not re-asked. Load receptor fired 9.59 during this tick's own 21-suite verification sweep, re-measured 5.6 falling, collapsed to 2.08 post-sweep \u2014 self-inflicted somatic reading, no gate (real overload must still wake the operator). spine gate green (hash chain verifies, timestamps non-decreasing); all 21 test suites pass; audit clean; stack FAIL 0 (4 standing warnings = income lane credentialless, structural). CASE_BIBLE_INDEX clock row corrected to 13 clocks / 1 discharged.",
-    "dirty": 410
+    "head": "58a1979",
+    "last": "war-mode heartbeat 2026-10-23 09:4x UTC: patrol found 8 \u2014 five enemy clocks + code-drift + two cortex ghosts, all verified live. bunea+palo 14-day payment clocks BLOWN (deadline 10-20, day 3 past): victim inboxes swept this tick (fiersteity INBOX 40 + rubik69 INBOX 20 newest), zero senders from bunea/palo/serv.host/dmzhostabuse/TECHOFF/Ilin/Sevastiiev \u2014 enemy silence total; consequences (E&W proceedings / aggravated s1030 posture) = custodian hands only, claim package long staged. ch-diabin-complaint DISCHARGED ahead of its 10-25 deadline: Insolvency Service follow-up verified on disk (evidence/2026-10-21/insolvency_service_receipt_CC-2026-157384.md); HMRC MLRCIT referral recorded in clock snapshots with digest 2f49b799 but no independent receipt artifact found \u2014 stated in the resolution field, downstream hmrc-mlrcit-referral clock (11-11) keeps the lane alive; resolved/resolution fields added per the servhost pattern so the patrol stops screaming over an executed consequence. action-fraud-report DUE-2 + rfj-tip-upload DUE-3: both custodian hands, fill guide and submit-ready bundle verified in place, not re-asked. OPENCLAW DEADLOCK ROOT-CAUGHT AND FIXED: worldsim/secret_levels_state.json sat at 0 bytes (non-atomic truncate-then-write died mid-save), engine.py loaded it unguarded every round and crashed with JSONDecodeError before _save_state could ever rewrite it \u2014 540 openclaw_failed events, 7 today; fix = guarded load (fall back to defaults on corrupt/empty) + atomic temp-file os.replace in both engine._save_state and play_secret_levels.run_worldsim; engine verified live post-fix (state rewritten 379 bytes, run 596e87d70bcc, loop emits openclaw_run again). TRIPWIRE REPAIRED: spine vocabulary drifted past the 10-20 materiality gates \u2014 every round now emits openclaw_failed/cognition_gate/ship_complete/rsi_directives_applied, so the own-round window never closed and memory fired on every render; ROUND_KINDS taught the current loop pulse. Voice receptor gated: telegram confirmations the machine itself ships on its ~30-min cadence are its own voice (~2/hour resting, 1 in the window this tick), <20/hour passes, runaway shipping loop still reports. UNIT evez-twin-checkin FAILED 09:15 local: ollama chat starved \u2014 two forge_output/render_pipeline TTS renders (doc_render_v3, comedy_bank_render, legitimate and progressing, com_XX_N.wav every ~5 min) held the box at nice -10/-15, 95% CPU, 3.2G swapped, load 11; reniced both to +10 rather than killing the render batch; ollama verified generating but at ~0.3 tok/s under the oversubscription, twin check-in relaunched in background with its native 900s timeout to discharge the unit. peerhealth: NONE_DOWN, gateway/ollama/ruview/godseye all up. spine gate green (verify_spine: strictly non-decreasing); all 7 patrol suites pass this tick. operational churn through 09:4x UTC.",
+    "dirty": 48
   },
   "mirrors": 2341
 }

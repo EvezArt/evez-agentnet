@@ -1256,3 +1256,8 @@
 {"ts": "2026-10-23T09:15:06.408288+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
 {"ts": "2026-10-23T09:30:05.879718+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
 {"ts": "2026-10-23T09:45:05.386792+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-23T10:00:07.794015+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-23T10:15:04.198328+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-23T10:30:07.526257+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-23T10:45:03.010208+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-23T11:00:04.099588+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
