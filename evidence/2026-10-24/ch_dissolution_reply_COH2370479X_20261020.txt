@@ -1,0 +1,138 @@
+Date: Tue, 20 Oct 2026 08:11:58 +0000
+From: no-reply <no-reply@companieshouse.gov.uk>
+To: Steven Crawford <fiersteity@gmail.com>
+Subject: RE: CREDITOR OBJECTION EVIDENCE & CONSENT: TECHOFF SRV LIMITED (16090235) — Ref: COH2370479X
+
+[2] text/plain (8.71 KiB)
+    Content-Type: text/plain; charset=utf-8
+    Content-Transfer-Encoding: base64
+
+COH2370479X
+
+Dear Steven Crawford-Maggard
+
+TECHOFF SRV LIMITED - 16090235
+
+Thank you for your email.
+
+We are unable to register your objection unless more substantial documentary evidence is provided.
+
+Please provide evidence such as invoices, court documents, general correspondence or emails between you and the company, to show that you are actively pursuing the company for an outstanding debt.
+
+Can you please show the evidence as an attachment.
+
+All evidence should be recent and dated within the last 6 months and must show the full company name, including the word 'Limited', or equivalent.
+
+On receipt of acceptable supporting evidence, we will consider whether your objection can be lodged. 
+
+I have placed a temporary hold of 14 days from today on dissolution action.  If no reply is received, dissolution action will resume after this period, which may result in the company being struck off the Register.
+
+From 1st December 2026, we will no longer accept objections by email and all objections must be submitted through our Make an objection online service.<https://www.gov.uk/object-to-a-limited-company-being-struck-off/make-an-objection>
+
+You can read more on GOV.UK - Objections to company strike off to be submitted online only from 1 December 2026 - GOV.UK<https://www.gov.uk/government/news/objections-to-company-strike-off-to-be-submitted-online-only-from-1-december-2026>
+
+This service is the quickest, safest, and easiest way of objecting to the removal of a company.
+
+ To use the online service, you’ll need to:
+
+
+  *   Create an account with Companies House
+
+  *   Provide the company name and number for the company that’s being struck off
+
+  *   Include the required evidence
+
+This process should take around 5 minutes to complete.
+
+I would be grateful if you could confirm in writing, whether you consent for Companies House to divulge your identity as the objector and provide your contact details should this information be requested.
+
+If you agree to divulge, please confirm whether you are objecting as an individual or on behalf of a company and confirm the contact details you would like us to provide to the requestor i.e. a postal address, email and/or contact number.
+
+Please note; details of the identity of objectors does not appear in the public domain. If you consent to divulge your identity, this information will only be provided to the company or a representative who has a written authority to act on their behalf.
+
+This email address is unmonitored.  If you do attempt to reply to this email, a rebound response will be sent to advise that your email will not be read. You may wish to check your spam/junk mail folder.
+
+Kind Regards
+
+David
+
+Dissolution Case Officer
+
+Dissolution Section
+
+03031234500
+
+www.gov.uk/companieshouse<http://www.gov.uk/companieshouse>
+Follow us on Twitter: @CompaniesHouse<http://www.twitter.com/companieshouse>
+
+
+From: Steven Crawford <fiersteity@gmail.com>
+Sent: 14 October 2026 18:38
+To: dissobjections <dissobjections@companieshouse.gov.uk>
+Cc: enquiries <enquiries@companieshouse.gov.uk>; Cardiff ECMS <enforcementecmscardiff@companieshouse.gov.uk>
+Subject: CREDITOR OBJECTION EVIDENCE & CONSENT: TECHOFF SRV LIMITED (16090235) — Ref: COH2370479X
+
+You don't often get email from fiersteity@gmail.com<mailto:fiersteity@gmail.com>. Learn why this is important<https://aka.ms/LearnAboutSenderIdentification>
+*** This email came from an external source. Please be cautious. ***
+<p>Dear David / Dissolution Section,</p>
+
+<p><strong>RE: Creditor Objection Supporting Evidence &amp; Consent to Divulge Identity</strong><br>
+<strong>Target Company:</strong> TECHOFF SRV LIMITED (Company No. 16090235)<br>
+<strong>Case Reference:</strong> COH2370479X<br>
+<strong>Previous / Related Ref:</strong> CAS-16244-N8Z2X3/1489657</p>
+
+<p>Thank you for your letter of 14 October 2026 placing a temporary 14-day hold on the dissolution and strike-off of <strong>TECHOFF SRV LIMITED</strong>.</p>
+
+<p>In direct response to your request, please find below (1) my formal written consent and contact details as objector, and (2) documentary evidence establishing my active pursuit of an outstanding debt against TECHOFF SRV LIMITED pursuant to Section 1002A of the Companies Act 2006.</p>
+
+<hr>
+
+<h3>1. Written Consent to Divulge Identity</h3>
+<p>I confirm in writing that I <strong>consent</strong> for Companies House to divulge my identity and contact details as the objector to the company or its authorized representative upon request.</p>
+<ul>
+<li><strong>Objector Capacity:</strong> Individual Creditor / Intended Claimant</li>
+<li><strong>Full Legal Name:</strong> Steven Crawford-Maggard</li>
+<li><strong>Postal Address:</strong> 66226 N Agua Dulce Dr, Desert Hot Springs, CA 92240, USA</li>
+<li><strong>Email Address:</strong> mailto:fiersteity@gmail.com<mailto:fiersteity@gmail.com></li>
+</ul>
+
+<hr>
+
+<h3>2. Documentary Evidence of Debt &amp; Active Pursuit</h3>
+<p>Attached and incorporated below is the formal <strong>Pre-Action Letter Before Action &amp; Formal Statutory Demand</strong> served on the company, together with the itemized <strong>Statement of Debt &amp; Loss Calculation (INV-2026-EVEZ-001)</strong> dated within the last 6 months (incident date: 22 May 2026; formal claim demand dated: 28 September 2026):</p>
+
+<blockquote>
+<p><strong>TO: TECHOFF SRV LIMITED</strong><br>
+Company Number: 16090235<br>
+Registered Office: 35 Firs Avenue, London, N11 3NE, United Kingdom<br>
+Director: Luca Palo (8 Via Leonardo Bistolfi, Milano, Italy 20134)<br>
+Date of Issue: 28 September 2026</p>
+
+<p><strong>FORMAL LETTER BEFORE ACTION / DEMAND FOR DEBT (CPR PRE-ACTION PROTOCOL)</strong><br>
+<strong>Total Debt Claimed:</strong> USD $52,290.00</p>
+
+<p><strong>Particulars of Debt:</strong><br>
+This statutory demand constitutes formal notice of liquidated pecuniary losses incurred by Claimant Steven Crawford-Maggard directly resulting from unauthorized computer intrusion and malicious traffic originating from network infrastructure owned and registered to TECHOFF SRV LIMITED (Autonomous System AS48090; IP 80.94.92.166 / DMZHOST) against Claimant&#39;s Linux server cluster (EVEZ / EVEZ-OS) on 22 May 2026, with continuing adverse routing operations:</p>
+<ol>
+<li>Emergency Cloud Infrastructure Remediation &amp; Node Rebuilds: $1,840.00</li>
+<li>Fraudulent Inference API Credit Exfiltration (OpenRouter, Inc.): $2,450.00</li>
+<li>Forensic Investigation, Telemetry Recovery &amp; Cryptographic Chain-of-Custody Labor (120 hrs @ $275/hr): $33,000.00</li>
+<li>R&amp;D Platform Milestone Interruption on EVEZ-OS Infrastructure: $15,000.00</li>
+</ol>
+<p><strong>Total Liquidated Pecuniary Debt: $52,290.00</strong></p>
+
+<p><strong>Judicial &amp; Regulatory Corroboration:</strong><br>
+The malicious infrastructure of TECHOFF SRV LIMITED is directly cited as bulletproof upstream transit in the unsealed federal indictment in the United States District Court for the Northern District of Ohio (<em>United States v. Aleksandr Alexandrovich Volosovik et al.</em>, Case No. 1:26-cr-001161-CAB), as well as FBI IC3 Complaint filed 1 October 2026 and FBI FOIPA Request 1758537-000. Full cryptographic logs are anchored in an immutable 623-block SHA-256 event ledger compliant with the Budapest Convention on Cybercrime.</p>
+</blockquote>
+
+<p>Allowing TECHOFF SRV LIMITED to be dissolved or struck off at this juncture would severely prejudice and defeat my rights as an active creditor pursuing recovery of this debt. I respectfully request that Companies House maintain the suspension of strike-off action pending formal resolution of the creditor claim or law enforcement proceedings.</p>
+
+<p>Respectfully submitted,<br>
+<strong>Steven Crawford-Maggard</strong><br>
+Lead Systems Architect, EVEZ / EVEZ-OS<br>
+mailto:fiersteity@gmail.com<mailto:fiersteity@gmail.com></p>
+This message and any attachments are intended for the persons named as addressees only and may contain confidential information. In addition they may be protected by copyright. If you receive it in error, notify us, delete it and do not make use of or copy it. You must not copy, disseminate or otherwise distribute or publish this message, except for the purposes for which this message is intended, without our consent. Please note that this e-mail has been created in the knowledge that Internet e-mail is not a 100% secure communications medium. We advise that you understand and accept this lack of security when e-mailing us. For company information, guidance and how to file documents online, please see our website www.companieshouse.gov.uk. For more details on how your personal data is handled by Companies House, please see our privacy policy: https://www.gov.uk/government/organisations/companies-house/about/personal-information-charter
+
+[3] text/html (26.54 KiB)
+    Content-Type: text/html; charset=utf-8
+    Content-Transfer-Encoding: base64

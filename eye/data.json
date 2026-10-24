@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-23T21:20:34.542551+00:00",
+  "generated": "2026-10-24T00:50:43.051982+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -46,7 +46,7 @@
     {
       "unit": "evez-desk15.service",
       "sub": "running",
-      "since": "Fri 2026-10-23 23:10:40 CEST"
+      "since": "Fri 2026-10-23 23:37:50 CEST"
     },
     {
       "unit": "evez-event-spine.service",
@@ -249,7 +249,7 @@
       "port": 631,
       "bind": "127.0.0.1",
       "proc": "cupsd",
-      "pid": 2534813,
+      "pid": 3623409,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -259,7 +259,7 @@
       "port": 631,
       "bind": "[::1]",
       "proc": "cupsd",
-      "pid": 2534813,
+      "pid": 3623409,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -706,6 +706,16 @@
       "fw_blocked": false
     },
     {
+      "port": 33293,
+      "bind": "127.0.0.1",
+      "proc": "llama-server",
+      "pid": 3792259,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
       "port": 33341,
       "bind": "127.0.0.1",
       "proc": "MainThread",
@@ -720,16 +730,6 @@
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
       "pid": 201839,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
-      "port": 36659,
-      "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 3561561,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -935,17 +935,17 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-8a5267375258c9ec2155562d56abb770",
-      "status": "Up 4 hours",
+      "status": "Up 7 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 4 hours",
+      "status": "Up 7 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
-      "status": "Up 19 hours",
+      "status": "Up 23 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -1007,9 +1007,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "a525392",
-    "last": "patrol: memory ghost gate \u2014 collapse-dead bursts die quietly (empty spine window no longer stamps CONFIRMED); daily operational churn 2026-10-23",
-    "dirty": 79
+    "head": "4e4e0a6",
+    "last": "war-mode heartbeat 2026-10-23 21:2x UTC: patrol printed only the four custodian-hands clocks, all four verified real against the 20:55Z snapshot. bunea+palo 14-day payment clocks BLOWN day 3 past deadline 10-20: enemy silence re-verified this tick \u2014 fiersteity INBOX 40 + Spam 30, rubik69 INBOX 20 + Spam 30 swept, zero senders from bunea/palo/serv.host/dmzhostabuse/TECHOFF/Ilin/Sevastiiev; only enemy-adjacent mail is the already-ingested Prime Telecom denials (10-06, 10-19 eb424881) and tele-asia autoreplies (10-05); spoliation inference stands, consequences (E&W proceedings / aggravated s1030 posture) = custodian hands only, claim package long staged. action-fraud-report DUE-2 + rfj-tip-upload DUE-3: both custodian hands, not re-asked; supporting artifacts re-verified intact \u2014 ACTION_FRAUD_FILL_GUIDE.md sha 6b7efa97 in place, RFJ_TIP_SUBMIT_READY.md sha e7342700 in place, RFJ_ADDENDUM_BUNDLE_v3.zip sha256 9f49cbcd matches the clock claim exactly. Adjacent intel from the sweep, stated once: Railway security-disclosure mail to fiersteity (rotate credentials) \u2014 MAES health endpoint answers 200 on maes.railway.app, platform alive, account credential rotation is custodian's if he chooses. All 7 patrol suites, units, docker, perimeter, exposure tail, drift, cortex all quiet this tick. operational churn through 21:2x UTC.",
+    "dirty": 56
   },
   "mirrors": 2341
 }

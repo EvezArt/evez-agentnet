@@ -25,3 +25,37 @@ joke 5 att 3: dur=27.5 ratio=0.96 reroll
 joke 5 att 4: dur=27.5 ratio=0.44 reroll
 joke 5 att 5: dur=27.4 ratio=0.05 reroll
 joke 5 att 6: dur=27.5 ratio=0.05 reroll
+joke 5 att 7: dur=28.4 ratio=0.08 reroll
+joke 6 att 0: dur=27.5 ratio=0.21 reroll
+joke 6 att 1: dur=28.4 ratio=0.22 reroll
+joke 6 att 2: dur=27.4 ratio=0.83 reroll
+joke 6 att 3: dur=28.4 ratio=0.27 reroll
+joke 6 att 4: dur=27.5 ratio=0.22 reroll
+joke 6 att 5: dur=27.5 ratio=0.96 reroll
+joke 6 att 6: dur=27.5 ratio=0.11 reroll
+joke 6 att 7: dur=27.5 ratio=0.20 reroll
+joke 7: already sealed — skip
+joke 8: already sealed — skip
+joke 9: already sealed — skip
+joke 10: already sealed — skip
+joke 11: already sealed — skip
+joke 12 att 0: dur=27.5 ratio=0.31 reroll
+joke 12 att 1: dur=28.4 ratio=0.97 reroll
+joke 12 att 2: dur=27.5 ratio=0.38 reroll
+joke 12 att 3: dur=27.5 ratio=0.55 reroll
+joke 12 att 4: dur=18.4 ratio=0.44 reroll
+joke 12 att 5: dur=27.5 ratio=0.34 reroll
+joke 12 att 6: dur=28.4 ratio=0.25 reroll
+joke 12 att 7: dur=27.5 ratio=0.38 reroll
+joke 13: already sealed — skip
+COMEDY BANK DONE: 0/14 sealed
+=== comedy done 2026-10-23T22:23:27Z count=10 ===
+=== final assembly + gate ===
+/root/evez-media-venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/root/evez-media-venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+segments expected: 49, missing: 0
+FINAL: dur=568.5s speech=462.2s ratio=0.81 gaps>0.9s=35
+EPISODE GATE FAILED — no ship
+=== ENDGAME DONE rc=2 2026-10-23T22:25:43Z ===
