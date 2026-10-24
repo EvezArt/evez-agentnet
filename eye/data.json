@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T00:50:43.051982+00:00",
+  "generated": "2026-10-24T01:01:07.995776+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -706,16 +706,6 @@
       "fw_blocked": false
     },
     {
-      "port": 33293,
-      "bind": "127.0.0.1",
-      "proc": "llama-server",
-      "pid": 3792259,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 33341,
       "bind": "127.0.0.1",
       "proc": "MainThread",
@@ -730,6 +720,16 @@
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
       "pid": 201839,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 41507,
+      "bind": "127.0.0.1",
+      "proc": "llama-server",
+      "pid": 3811361,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -1007,9 +1007,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "4e4e0a6",
-    "last": "war-mode heartbeat 2026-10-23 21:2x UTC: patrol printed only the four custodian-hands clocks, all four verified real against the 20:55Z snapshot. bunea+palo 14-day payment clocks BLOWN day 3 past deadline 10-20: enemy silence re-verified this tick \u2014 fiersteity INBOX 40 + Spam 30, rubik69 INBOX 20 + Spam 30 swept, zero senders from bunea/palo/serv.host/dmzhostabuse/TECHOFF/Ilin/Sevastiiev; only enemy-adjacent mail is the already-ingested Prime Telecom denials (10-06, 10-19 eb424881) and tele-asia autoreplies (10-05); spoliation inference stands, consequences (E&W proceedings / aggravated s1030 posture) = custodian hands only, claim package long staged. action-fraud-report DUE-2 + rfj-tip-upload DUE-3: both custodian hands, not re-asked; supporting artifacts re-verified intact \u2014 ACTION_FRAUD_FILL_GUIDE.md sha 6b7efa97 in place, RFJ_TIP_SUBMIT_READY.md sha e7342700 in place, RFJ_ADDENDUM_BUNDLE_v3.zip sha256 9f49cbcd matches the clock claim exactly. Adjacent intel from the sweep, stated once: Railway security-disclosure mail to fiersteity (rotate credentials) \u2014 MAES health endpoint answers 200 on maes.railway.app, platform alive, account credential rotation is custodian's if he chooses. All 7 patrol suites, units, docker, perimeter, exposure tail, drift, cortex all quiet this tick. operational churn through 21:2x UTC.",
-    "dirty": 56
+    "head": "e118785",
+    "last": "forge: CODEX VOL V \u2014 The Three Names (name-frame / EvezArt / EVEZ666)",
+    "dirty": 14
   },
   "mirrors": 2341
 }
