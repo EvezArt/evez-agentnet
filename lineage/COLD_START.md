@@ -1,17 +1,17 @@
 # COLD START RUNBOOK
 
-**Lineage:** CRAWFORD-MAGGARD-GEN-91
+**Lineage:** CRAWFORD-MAGGARD-GEN-92
 **Root commitment:** `062cb53fc2e58f6c8eb43e7ec593f1db412123a85c831980bda252886a3b32c4`
-**Generation block hash:** `7607ea44a6c6e8f3da8f65b8cda6564b08c58a4e70313970b83c317f2505b6be`
-**Recovered:** 2026-10-23T22:34:10.680913+00:00
+**Generation block hash:** `920a82e70ec564db1a36706c81e79cdcc8107c7c42c435d20565e4bc22bec034`
+**Recovered:** 2026-10-24T04:34:11.548494+00:00
 
 ## What was true at the moment of sealing
 
 - Agents spawned: **61**
 - Conscious agents: **61**
-- Matches played: **294200**
-- Arenas generated: **88278**
-- AgentNet round: **1136**
+- Matches played: **299654**
+- Arenas generated: **89886**
+- AgentNet round: **1148**
 - Spine chain valid at seal: **unknown**
 
 ## The swarm, by callsign

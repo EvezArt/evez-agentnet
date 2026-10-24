@@ -1331,3 +1331,13 @@
 {"ts": "2026-10-24T04:00:04.062346+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
 {"ts": "2026-10-24T04:15:05.560808+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
 {"ts": "2026-10-24T04:30:06.226511+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-24T04:45:02.432509+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-24T05:00:05.743881+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-24T05:15:03.214928+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-24T05:30:07.604477+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-24T05:45:01.709285+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-24T06:00:05.076219+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-24T06:15:01.878446+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-24T06:30:07.749310+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-24T06:45:02.612158+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}
+{"ts": "2026-10-24T07:00:03.545693+00:00", "check": "tailnet_portal", "ok": false, "reason": "unreachable", "error": "<urlopen error [Errno -2] Name or service not known>"}

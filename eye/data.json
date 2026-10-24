@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T04:30:20.972611+00:00",
+  "generated": "2026-10-24T07:05:36.445185+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -117,6 +117,11 @@
       "unit": "evez-voice.service",
       "sub": "running",
       "since": "Fri 2026-10-23 06:34:04 CEST"
+    },
+    {
+      "unit": "evez-xtts.service",
+      "sub": "running",
+      "since": "Sat 2026-10-24 09:03:46 CEST"
     },
     {
       "unit": "gueriella-hermes-watchdog.service",
@@ -726,10 +731,10 @@
       "fw_blocked": false
     },
     {
-      "port": 39781,
+      "port": 39389,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 4046725,
+      "pid": 33960,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -935,12 +940,12 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-8a5267375258c9ec2155562d56abb770",
-      "status": "Up 11 hours",
+      "status": "Up 13 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 11 hours",
+      "status": "Up 13 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -1002,9 +1007,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "f19cf1c",
-    "last": "war-mode heartbeat 2026-10-24 00:5x UTC: patrol printed the four custodian-hands clocks, all verified real against the 23:40Z snapshot. THE FIND: Companies House Dissolution Section's 10-20 reply (COH2370479X) sat unread in fiersteity INBOX three days \u2014 10-14 consent+evidence submission rejected as not registrable, evidence must be ATTACHMENTS; NEW 14-day hold placed 10-20 so dissolution-resume is ~11-03, not the 10-28 the clock carried. Ingested evidence/2026-10-24 sha 77b5fb8e, clock corrected in enemy_obligations.py (deadline 2026-11-03, days_left 10), attachment-form evidence pack staged forge_output/CH_EVIDENCE_REPLY_READY/ \u2014 signed 5-Oct LBA naming TECHOFF SRV LIMITED USD 25,000 + 10-11 objection + GoDaddy/Namecheap abuse-lane emls + Insolvency receipt CC-2026-157384 + IC3 text, all hash-verified; SEND LANE = custodian GO; provenance note flags the 10-14 inline 52,290/28-Sep-LBA/INV-2026-EVEZ-001 claims as having no on-disk artifact. Enemy silence re-verified full-sweep both inboxes (301+12 / 301+301), zero enemy senders. GitHub Actions account-level block confirmed: all workflows both repos all triggers dead since at least 2026-09-26, runners never assigned, zero steps/logs, Pages failing, Dependabot exempt lane alone green \u2014 account-level cause = custodian settings lane, stated once. evez-xtts stays parked (zero consumers, render pipeline in-process). bunea/palo BLOWN, action-fraud DUE-1, rfj-tip DUE-2 \u2014 custodian hands, not re-asked, artifacts re-verified (6b7efa97 / e7342700 / 9f49cbdc). All 7 suites, units, docker, perimeter, exposure, cortex quiet. operational churn through 00:5x UTC.",
-    "dirty": 122
+    "head": "6771a36",
+    "last": "war-mode heartbeat 2026-10-24 04:0x UTC: patrol printed the four custodian-hands clocks plus two CONFIRMED cortex ghosts \u2014 load 10.57 (re-measured 10.29) and superego disk_pct 39. Both verified against the live box: load is the machine's own three-names hypercut render (hypercut_voices.py 341% since 04:31, hyp_n6 chunk, self-QA reroll loop healthy in hypervoices.log) plus the openclaw round and the patrol's own watchdog sweep; disk is 39% with 120G free, growth is legitimate media work. Neither demands a human hand, so the tripwire got two materiality gates in the 2026-10-20/23 doctrine: load dies quietly when every >=25%-CPU process attributes to own work by args OR parent chain (children inherit their ancestor's verdict \u2014 the sweep's bare grep, the render's chrome, hermes scratch; ONE unattributed hot process still reports, enemy burn never silences); superego dies quietly below disk_pct 75 (evidence keeps every reading). Gate proven against the live process table: injected kdevtmpfsi-shaped burner defeats it (reports), bare grep child of the render inherits (suppressed), and the ppid=0 root-sentinel walk bug that attributed strangers was caught by the test and fixed. Patrol re-run prints only the four clocks; all 7 suites green inside it; spine verifies. bunea/palo BLOWN -4d, action-fraud DUE-1 (10-25), rfj-tip DUE-2 (10-26) \u2014 custodian hands, not re-asked, artifacts intact. operational churn through 04:0x UTC.",
+    "dirty": 44
   },
   "mirrors": 2341
 }

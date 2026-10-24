@@ -3,7 +3,7 @@
   "returncode": 0,
   "stdout": "{\n  \"posted_live\": 0,\n  \"blocked_on_credentials\": 4,\n  \"staged_for_steven\": 5,\n  \"receipts\": \"/root/evez-agentnet/evidence/outreach_receipts.jsonl\",\n  \"honesty\": \"No platform was marked successful unless an HTTP 200/201 actually came back.\"\n}\n",
   "stderr": "",
-  "started": 1792814691.0406728,
-  "finished": 1792814692.2242715,
-  "at": "2026-10-24T04:04:52.225672+00:00"
+  "started": 1792825496.0735257,
+  "finished": 1792825497.2234206,
+  "at": "2026-10-24T07:04:57.223456+00:00"
 }
