@@ -1,0 +1,33 @@
+#!/bin/bash
+# living_forms_capture.sh — chrome first (warm profile), probe till lit, then record 250s.
+pkill -f 'gc-hyper3' 2>/dev/null
+sleep 1
+DISPLAY=:99 google-chrome --no-sandbox --disable-gpu --kiosk --no-first-run \
+  --no-default-browser-check --window-position=0,0 --window-size=1920,1080 \
+  --user-data-dir=/tmp/gc-hyper3 \
+  'file:///root/evez-agentnet/forge_output/render_pipeline/living_forms_film.html' \
+  > /dev/null 2>&1 &
+echo 'chrome up, probing...'
+LIT=0
+for i in $(seq 1 60); do
+  ffmpeg -y -v error -f x11grab -video_size 1920x1080 -framerate 1 -i :99 -frames:v 1 /tmp/probe_lf.png 2>/dev/null
+  B=$(python3 -c "
+from PIL import Image
+import numpy as np
+try:
+    im = np.asarray(Image.open('/tmp/probe_lf.png').convert('L'), dtype=float)
+    print(1 if float((im > 25).mean()) > 0.12 else 0)
+except Exception:
+    print(0)
+")
+  if [ "$B" = "1" ]; then echo "SCREEN LIT at probe $i"; LIT=1; break; fi
+  sleep 5
+done
+if [ "$LIT" = "1" ]; then
+  ffmpeg -y -v error -f x11grab -draw_mouse 0 -video_size 1920x1080 -framerate 24 \
+    -i :99 -t 245 -pix_fmt yuv420p -c:v libx264 -preset veryfast -crf 23 \
+    /root/evez-agentnet/forge_output/render_pipeline/living_forms_raw.mp4
+  echo CAPTURE_DONE
+else
+  echo SCREEN_NEVER_LIT
+fi

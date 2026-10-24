@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T07:05:36.445185+00:00",
+  "generated": "2026-10-24T09:27:25.456690+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -119,11 +119,6 @@
       "since": "Fri 2026-10-23 06:34:04 CEST"
     },
     {
-      "unit": "evez-xtts.service",
-      "sub": "running",
-      "since": "Sat 2026-10-24 09:03:46 CEST"
-    },
-    {
       "unit": "gueriella-hermes-watchdog.service",
       "sub": "running",
       "since": "Fri 2026-10-23 06:34:04 CEST"
@@ -161,7 +156,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Sat 2026-10-24 04:11:26 CEST"
+      "since": "Sat 2026-10-24 10:17:39 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -604,7 +599,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3897678,
+      "pid": 115423,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -614,7 +609,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 3897678,
+      "pid": 115423,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -721,10 +716,10 @@
       "fw_blocked": false
     },
     {
-      "port": 39321,
+      "port": 37013,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3897678,
+      "pid": 115423,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -940,12 +935,12 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-8a5267375258c9ec2155562d56abb770",
-      "status": "Up 13 hours",
+      "status": "Up 16 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 13 hours",
+      "status": "Up 16 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -1007,9 +1002,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "6771a36",
-    "last": "war-mode heartbeat 2026-10-24 04:0x UTC: patrol printed the four custodian-hands clocks plus two CONFIRMED cortex ghosts \u2014 load 10.57 (re-measured 10.29) and superego disk_pct 39. Both verified against the live box: load is the machine's own three-names hypercut render (hypercut_voices.py 341% since 04:31, hyp_n6 chunk, self-QA reroll loop healthy in hypervoices.log) plus the openclaw round and the patrol's own watchdog sweep; disk is 39% with 120G free, growth is legitimate media work. Neither demands a human hand, so the tripwire got two materiality gates in the 2026-10-20/23 doctrine: load dies quietly when every >=25%-CPU process attributes to own work by args OR parent chain (children inherit their ancestor's verdict \u2014 the sweep's bare grep, the render's chrome, hermes scratch; ONE unattributed hot process still reports, enemy burn never silences); superego dies quietly below disk_pct 75 (evidence keeps every reading). Gate proven against the live process table: injected kdevtmpfsi-shaped burner defeats it (reports), bare grep child of the render inherits (suppressed), and the ppid=0 root-sentinel walk bug that attributed strangers was caught by the test and fixed. Patrol re-run prints only the four clocks; all 7 suites green inside it; spine verifies. bunea/palo BLOWN -4d, action-fraud DUE-1 (10-25), rfj-tip DUE-2 (10-26) \u2014 custodian hands, not re-asked, artifacts intact. operational churn through 04:0x UTC.",
-    "dirty": 44
+    "head": "5c9626c",
+    "last": "war-mode heartbeat 2026-10-24 06:5x UTC: patrol printed only the four custodian-hands clocks, third consecutive identical tick \u2014 bunea/palo 14-day payment BLOWN -4d (enemy silence, no resolution marker, consequence stage E&W proceedings / aggravated s1030 posture armed and custodian-gated), action-fraud-report DUE-1 (deadline 10-25), rfj-tip-upload DUE-2 (deadline 10-26). All four re-verified against enemy_obligations.py CLOCKS and live artifacts this tick: ACTION_FRAUD_FILL_GUIDE.md sha 6b7efa97 intact, RFJ_TIP_SUBMIT_READY.md sha e7342700 intact, RFJ_ADDENDUM_BUNDLE_v3.zip sha 9f49cbcd matches the clock claim exactly. Both remaining lanes are hands-only (Action Fraud portal or 0300 123 2040 from own device; @RFJ_English from own Telegram) \u2014 not re-asked. Patrol-internal suites, units, docker, perimeter, exposure tail, drift, cortex all quiet, no new breakage since the 04:0x tick. Spine gate passed before commit: hash chain all entries verify, timestamps strictly non-decreasing. operational churn through 06:5x UTC.",
+    "dirty": 60
   },
   "mirrors": 2341
 }

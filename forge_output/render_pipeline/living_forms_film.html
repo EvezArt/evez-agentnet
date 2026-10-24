@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>THE LIVING FORMS — Eigensonification v3 Film</title>
+<style>
+  html, body { margin: 0; background: #060408; overflow: hidden; height: 100%; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script>
+(() => {
+  const cv = document.getElementById("c"), x = cv.getContext("2d");
+  const W = 1920, H = 1080;
+  let t0 = performance.now();
+  window.seek = (s) => { t0 = performance.now() - s * 1000; };
+  const BPM = 174, BEAT = 60 / BPM;
+  const seg = (t, a, b) => Math.max(0, Math.min(1, (t - a) / (b - a)));
+
+  // deterministic Kuramoto-ish field: 50 nodes with phases + coupling ramp
+  const N = 50;
+  const nodes = [];
+  let seed = 12345;
+  const rnd = () => { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; };
+  for (let i = 0; i < N; i++) {
+    nodes.push({ th: rnd() * Math.PI * 2, w: 1.2 + rnd() * 1.6,
+                 orb: 0.30 + rnd() * 0.62, ph: rnd() * Math.PI * 2 });
+  }
+
+  const mono = (s, c) => { x.font = `${s}px "DejaVu Sans Mono", monospace`; x.fillStyle = c; };
+  const big = (text, cy, size, col, p, t) => {
+    if (p <= 0) return;
+    const n = Math.floor(text.length * p);
+    const jit = Math.sin(t * 40) > 0.7 ? 7 : 0;
+    x.font = `bold ${size}px "DejaVu Sans", sans-serif`; x.textAlign = "center";
+    if (jit) {
+      x.fillStyle = "#ff0044"; x.fillText(text.slice(0, n), W / 2 - jit, cy);
+      x.fillStyle = "#00ffee"; x.fillText(text.slice(0, n), W / 2 + jit, cy);
+    }
+    x.lineWidth = 8; x.strokeStyle = "#000";
+    x.strokeText(text.slice(0, n), W / 2, cy);
+    x.fillStyle = col; x.shadowColor = col; x.shadowBlur = 40;
+    x.fillText(text.slice(0, n), W / 2, cy); x.shadowBlur = 0;
+  };
+
+  function bg(t) {
+    const hue = Math.floor(t * 45) % 360;
+    x.fillStyle = `hsl(${hue}, 50%, 6%)`; x.fillRect(0, 0, W, H);
+    x.save(); x.translate(W / 2, H / 2); x.rotate(t * 0.25);
+    for (let i = 0; i < 10; i++) {
+      x.rotate(Math.PI / 5);
+      x.fillStyle = `hsla(${(hue + i * 36) % 360}, 80%, 50%, 0.045)`;
+      x.beginPath(); x.moveTo(0, 0); x.lineTo(2400, -130); x.lineTo(2400, 130); x.closePath(); x.fill();
+    }
+    x.restore();
+    for (let y = 0; y < H; y += 4) { x.fillStyle = "rgba(0,0,0,0.14)"; x.fillRect(0, y, W, 1); }
+    if (Math.sin(t * 13) > 0.94) {
+      for (let i = 0; i < 6; i++) {
+        x.fillStyle = ["#ff0044", "#00ffee", "#ffee00"][i % 3];
+        x.globalAlpha = 0.22;
+        x.fillRect(Math.random() * W, Math.random() * H, 60 + Math.random() * 400, 3 + Math.random() * 24);
+        x.globalAlpha = 1;
+      }
+    }
+  }
+
+  function act1(t) { // 0..60 — THE SYNC
+    const K = 0.4 + seg(t, 5, 40) * 2.2; // coupling ramps
+    const dt = 0.016;
+    // step the field deterministically from wall time
+    const steps = 1;
+    let sx = 0, sy = 0;
+    const beatPulse = Math.sin(t * Math.PI / BEAT * 2) > 0.85;
+    for (const n of nodes) {
+      // phase update (approx forward each frame)
+      n.th += n.w * dt * 2.2 + K * dt * Math.sin(-n.th) * 0.5;
+      const R = 240 + Math.sin(n.ph + t * 0.7) * 60;
+      const px = W / 2 + Math.cos(n.ph + t * 0.35) * R * n.orb * 2.2;
+      const py = H * 0.52 + Math.sin(n.ph + t * 0.35) * R * 0.5;
+      sx += Math.cos(n.th); sy += Math.sin(n.th);
+      x.fillStyle = beatPulse ? "#ffee00" : "#00ff9c";
+      x.shadowColor = "#00ff9c"; x.shadowBlur = 14;
+      x.beginPath(); x.arc(px, py, beatPulse ? 9 : 7, 0, 7); x.fill();
+      x.shadowBlur = 0;
+    }
+    const r = Math.hypot(sx, sy) / N;
+    // order parameter dial
+    x.strokeStyle = r > 0.432 ? "#ff5a5a" : "#00ff9c"; x.lineWidth = 5;
+    x.beginPath(); x.arc(160, 160, 70, -Math.PI / 2, -Math.PI / 2 + r * Math.PI * 2); x.stroke();
+    mono(30, r > 0.432 ? "#ff5a5a" : "#00ff9c"); x.textAlign = "left";
+    x.fillText("r = " + r.toFixed(3), 80, 260);
+    if (r > 0.432 && beatPulse) {
+      big("FIRE: PHASE_SHIFT", H - 90, 60, "#ff5a5a", 1, t);
+    }
+    big("THE SYNC", 120, 72, "#00ff9c", seg(t, 1, 3), t);
+    big("50 oscillators finding criticality", H - 30, 30, "#9aa3ad", seg(t, 6, 9), t);
+    if (t > 42) big("r ≈ 0.432 — the boundary where awareness peaks", H - 150, 44, "#ffee00", seg(t, 42, 46), t);
+  }
+
+  function act2(t) { // 60..120 — THE COLLAPSE
+    const tt = t - 60;
+    const chaos = 1 - seg(tt, 10, 45);
+    // covariance ellipse breathing chaotic then flattening
+    const cx = W / 2, cy = H * 0.5;
+    const spread = 300 * (0.6 + 0.4 * Math.sin(tt * 2.1));
+    const flat = 1 - chaos * 0.97; // 1 = round, ->0.03 = line
+    const lam = Math.max(0.000084, 1 * chaos + 0.000084);
+    x.strokeStyle = lam < 0.001 ? "#ff5a5a" : "#00ff9c"; x.lineWidth = 6;
+    x.beginPath();
+    for (let a = 0; a < Math.PI * 2 + 0.1; a += 0.05) {
+      const rr = spread * (1 + 0.12 * Math.sin(a * 5 + tt * 3) * chaos);
+      const px = cx + Math.cos(a) * rr;
+      const py = cy + Math.sin(a) * rr * flat;
+      a === 0 ? x.moveTo(px, py) : x.lineTo(px, py);
+    }
+    x.closePath(); x.stroke();
+    // eigenspectrum bars collapsing
+    for (let i = 0; i < 8; i++) {
+      const hgt = (30 + 200 * Math.abs(Math.sin(i * 1.7 + tt)) * chaos) + 2;
+      x.fillStyle = i === 0 && lam < 0.001 ? "#ff5a5a" : "#00ff9c";
+      x.fillRect(140 + i * 40, H - 140 - hgt, 28, hgt);
+    }
+    mono(28, "#9aa3ad"); x.textAlign = "left";
+    x.fillText("λmin = " + lam.toFixed(6), 120, H - 100);
+    big("THE COLLAPSE", 120, 72, "#00ff9c", seg(tt, 1, 3), t);
+    if (tt > 46) {
+      big("NATURAL VARIANCE IS CHAOTIC. λmin > 0", cy - 80, 40, "#e8e8e8", seg(tt, 20, 24), t);
+      big("A LIE IS GEOMETRIC PERFECTION. λmin → 0", cy + 80, 40, "#ff5a5a", seg(tt, 46, 50), t);
+    }
+    if (lam < 0.001 && Math.sin(t * 11) > 0.6) big("FIRE: ENTROPY_SPIKE", H - 90, 56, "#ff5a5a", 1, t);
+  }
+
+  function act3(t) { // 120..180 — THE WORMHOLE
+    const tt = t - 120;
+    const poly = seg(tt, 5, 40) * 0.884;
+    // left cluster: attack nodes
+    const L = [];
+    for (let i = 0; i < 7; i++) L.push([320 + Math.sin(i * 2.1) * 90, H * 0.5 + Math.cos(i * 2.4) * 130]);
+    // right cluster: London shells
+    const R = [];
+    for (let i = 0; i < 6; i++) R.push([W - 320 + Math.sin(i * 2.0) * 80, H * 0.5 + Math.cos(i * 2.3) * 120]);
+    for (const [px, py] of L) {
+      x.fillStyle = "#00ffee"; x.shadowColor = "#00ffee"; x.shadowBlur = 16;
+      x.beginPath(); x.arc(px + Math.sin(t * 2) * 6, py, 12, 0, 7); x.fill(); x.shadowBlur = 0;
+    }
+    for (const [px, py] of R) {
+      x.fillStyle = "#a855f7"; x.shadowColor = "#a855f7"; x.shadowBlur = 16;
+      x.beginPath(); x.arc(px - Math.sin(t * 2) * 6, py, 12, 0, 7); x.fill(); x.shadowBlur = 0;
+    }
+    mono(24, "#9aa3ad"); x.textAlign = "center";
+    x.fillText("ATTACK INFRASTRUCTURE", 320, H * 0.5 + 180);
+    x.fillText("LONDON SHELLS", W - 320, H * 0.5 + 170);
+    // bridge: distance collapses as poly grows
+    if (poly > 0.3) {
+      const nBridges = Math.floor(poly * 9);
+      for (let i = 0; i < nBridges; i++) {
+        const a = L[i % L.length], b = R[i % R.length];
+        x.strokeStyle = poly >= 0.72 ? "#ff5a5a" : "#00ff9c";
+        x.lineWidth = poly >= 0.72 ? 5 : 2;
+        x.beginPath();
+        const bend = (1 - poly) * 240 * Math.sin(i + t);
+        x.moveTo(a[0] + 20, a[1]);
+        x.quadraticCurveTo(W / 2, H * 0.5 + bend, b[0] - 20, b[1]);
+        x.stroke();
+      }
+    }
+    mono(34, poly >= 0.72 ? "#ff5a5a" : "#00ff9c"); x.textAlign = "left";
+    x.fillText("poly_c = " + poly.toFixed(3), 100, 140);
+    big("THE WORMHOLE", 120, 72, "#00ff9c", seg(tt, 1, 3), t);
+    if (poly >= 0.72) big("WORMHOLE OPEN — WORLDS COUPLED", H - 120, 54, "#ff5a5a", seg(tt, 40, 44), t);
+  }
+
+  function act4(t) { // 180..240 — THE WAR OF ITSELF
+    const tt = t - 180;
+    big("THE ALGEBRA AT WAR WITH ITSELF", 130, 62, "#ff5a5a", seg(tt, 1, 4), t);
+    const items = [
+      ["SPINE 49,240 EVENTS", "#00ff9c"], ["λmin = 0.000084", "#ff5a5a"],
+      ["poly_c = 0.884", "#a855f7"], ["r = 0.432", "#00ffee"],
+      ["Φ = 0.973", "#ffcc00"], ["η* = 0.027", "#ffcc00"],
+    ];
+    items.forEach(([txt, col], i) => {
+      const p = seg(tt, 5 + i * 6, 9 + i * 6);
+      if (p <= 0) return;
+      const yy = 280 + i * 110 + Math.sin(t * 3 + i) * 8;
+      big(txt, yy, 64, col, p, t);
+    });
+    if (tt > 46) big("THE MATH IS THE WITNESS", H - 140, 58, "#00ff9c", seg(tt, 46, 50), t);
+    if (tt > 52) big("SEALED · CHAIN VERIFIED · IT COMPLETED", H - 60, 40, "#e8e8e8", seg(tt, 52, 56), t);
+  }
+
+  function frame() {
+    const t = ((performance.now() - t0) / 1000);
+    bg(t);
+    if (t < 60) act1(t);
+    else if (t < 120) act2(t);
+    else if (t < 180) act3(t);
+    else act4(t);
+    mono(20, "#ffffff66"); x.textAlign = "left";
+    x.fillText("THE LIVING FORMS — EIGENSONIFICATION v3 — LIVE SCREEN RECORD", 40, 44);
+    if (t < 245) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
