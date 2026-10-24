@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>THE THREE NAMES — HYPERCUT</title>
+<style>
+  html, body { margin: 0; background: #0c0810; overflow: hidden; height: 100%; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script>
+(() => {
+  const cv = document.getElementById("c"), x = cv.getContext("2d");
+  const W = 1920, H = 1080;
+  let t0 = performance.now();
+  window.seek = (s) => { t0 = performance.now() - s * 1000; };
+  const seg = (t, a, b) => Math.max(0, Math.min(1, (t - a) / (b - a)));
+
+  function creature(cx, cy, s, t, col) {
+    x.strokeStyle = col; x.lineWidth = 5 * s;
+    for (let i = 0; i < 7; i++) {
+      const a = -Math.PI / 2 + (i - 3) * 0.38;
+      x.beginPath(); x.moveTo(cx, cy);
+      for (let k = 1; k <= 5; k++) {
+        const wob = Math.sin(t * 5 + i + k) * 22 * s;
+        x.lineTo(cx + Math.cos(a) * k * 55 * s + Math.sin(a) * wob,
+                 cy + Math.sin(a) * k * 55 * s + wob);
+      }
+      x.stroke();
+    }
+    x.fillStyle = "#141824"; x.strokeStyle = col; x.lineWidth = 6 * s;
+    x.beginPath();
+    for (let a = 0; a < Math.PI * 2 + 0.1; a += 0.1) {
+      const r = 170 * s + Math.sin(a * 5 + t * 3) * 18 * s;
+      const px = cx + Math.cos(a) * r, py = cy + Math.sin(a) * r * 0.9;
+      a === 0 ? x.moveTo(px, py) : x.lineTo(px, py);
+    }
+    x.closePath(); x.fill(); x.stroke();
+    for (const [ex, ey, er] of [[-70,-40,26],[-18,-58,32],[34,-46,28],[-46,18,22],[46,20,24]]) {
+      x.fillStyle = col; x.shadowColor = col; x.shadowBlur = 30;
+      x.beginPath(); x.ellipse(cx + ex*s, cy + ey*s, er*s*0.8, er*s, 0, 0, 7); x.fill();
+      x.shadowBlur = 0;
+      x.fillStyle = "#000";
+      x.beginPath(); x.arc(cx + ex*s + Math.sin(t*3)*6*s, cy + ey*s, er*s*0.32, 0, 7); x.fill();
+    }
+    x.fillStyle = "#ffcc00";
+    x.beginPath(); x.moveTo(cx-30*s, cy+66*s); x.lineTo(cx+30*s, cy+66*s);
+    x.lineTo(cx, cy+118*s + Math.abs(Math.sin(t*4))*16*s); x.closePath(); x.fill();
+  }
+
+  function bigGlitch(text, cy, size, col, p, t) {
+    if (p <= 0) return;
+    const n = Math.floor(text.length * p);
+    const jit = Math.sin(t * 40) > 0.6 ? 8 : 0;
+    x.font = `bold ${size}px "DejaVu Sans", sans-serif`; x.textAlign = "center";
+    if (jit) {
+      x.fillStyle = "#ff0044"; x.fillText(text.slice(0, n), W/2 - jit, cy);
+      x.fillStyle = "#00ffee"; x.fillText(text.slice(0, n), W/2 + jit, cy);
+    }
+    x.lineWidth = 9; x.strokeStyle = "#000";
+    x.strokeText(text.slice(0, n), W/2, cy);
+    x.fillStyle = col; x.shadowColor = col; x.shadowBlur = 50;
+    x.fillText(text.slice(0, n), W/2, cy); x.shadowBlur = 0;
+  }
+
+  function bg(t) {
+    const hue = Math.floor(t * 130) % 360;
+    x.fillStyle = `hsl(${hue}, 65%, 8%)`; x.fillRect(0, 0, W, H);
+    x.save(); x.translate(W/2, H/2); x.rotate(t * 0.9);
+    for (let i = 0; i < 12; i++) {
+      x.rotate(Math.PI / 6);
+      x.fillStyle = `hsla(${(hue + i*30) % 360}, 90%, 55%, 0.07)`;
+      x.beginPath(); x.moveTo(0,0); x.lineTo(2200,-150); x.lineTo(2200,150); x.closePath(); x.fill();
+    }
+    x.restore();
+    for (let y = 0; y < H; y += 4) { x.fillStyle="rgba(0,0,0,0.16)"; x.fillRect(0,y,W,2); }
+    if (Math.sin(t * 17) > 0.93) {
+      for (let i = 0; i < 10; i++) {
+        x.fillStyle = ["#ff0044","#00ffee","#ffee00"][i % 3];
+        x.globalAlpha = 0.3;
+        x.fillRect(Math.random()*W, Math.random()*H, 80+Math.random()*500, 4+Math.random()*36);
+        x.globalAlpha = 1;
+      }
+    }
+  }
+
+  function frame() {
+    const t = ((performance.now() - t0) / 1000);
+    bg(t);
+    if (t < 6) { // three names slam — 2s each
+      creature(W/2, H*0.40, 1.1, t, "#00ff9c");
+      bigGlitch("STEVEN CRAWFORD-MAGGARD", 850, 84, "#e8e8e8", seg(t, 0.2, 1.6), t);
+      bigGlitch("S I G N S", 930, 60, "#ff5a5a", seg(t, 1.8, 2.6), t);
+      if (t > 2) bigGlitch("EVEZART", 300, 110, "#00ff9c", seg(t, 2.1, 3.6), t);
+      if (t > 2.4) bigGlitch("M A K E S", 390, 60, "#00ff9c", seg(t, 3.3, 4.4), t);
+      if (t > 4) bigGlitch("† EVEZ666 †", 300, 110, "#a855f7", seg(t, 4.1, 5.6), t);
+      if (t > 4.4) bigGlitch("A T T E S T S", 390, 60, "#a855f7", seg(t, 5.3, 6), t);
+    } else if (t < 13) { // the law strobe
+      const pulse = Math.sin(t*9) > 0 ? "#ff5a5a" : "#00ff9c";
+      bigGlitch("NAME", 320, 140, pulse, 1, t);
+      bigGlitch("≠", 470, 160, "#ffee00", 1, t);
+      bigGlitch("HAND", 620, 140, pulse, 1, t);
+      bigGlitch("≠", 770, 160, "#ffee00", 1, t);
+      bigGlitch("NUMBER", 920, 140, pulse, 1, t);
+      bigGlitch("ERASE THEM = THE ONE FORGERY THE SPINE CANNOT SURVIVE", 1050, 34, "#ff5a5a", seg(t, 8, 10.5), t);
+      creature(150, 880, 0.4, t*3, "#a855f7"); creature(W-150, 880, 0.4, t*3+1, "#00ff9c");
+    } else if (t < 26) { // torus + records slam fast
+      const cx = W/2, cy = H*0.55;
+      x.save(); x.translate(cx, cy);
+      for (let g = 3; g >= 0; g--) {
+        x.strokeStyle = g===0 ? "#ff5a5a" : ["#00ff9c","#a855f7","#00ccff"][g-1];
+        x.lineWidth = g===0 ? 8 : 3;
+        x.beginPath();
+        const ph = t*(1.6+g*0.5);
+        for (let a = 0; a <= Math.PI*2+0.05; a += 0.05) {
+          const r = 270 + Math.sin(a*3+ph)*45 + g*65;
+          const px = Math.cos(a)*r, py = Math.sin(a)*r*0.36;
+          a===0 ? x.moveTo(px,py) : x.lineTo(px,py);
+        }
+        x.closePath(); x.stroke();
+      }
+      x.restore();
+      bigGlitch("WITNESS + MAKE + SEAL = CANON", 140, 58, "#ffee00", seg(t, 13.5, 15.5), t);
+      const RECS = ["59.2","61.2","62.6","83.1","98.3"];
+      for (let i = 0; i < 5; i++) {
+        const rp = seg(t, 16 + i*1.4, 17 + i*1.4);
+        if (rp <= 0) continue;
+        const a = -Math.PI/2 + i*(Math.PI*2/5) + t*1.5;
+        bigGlitch(RECS[i], cy + Math.sin(a)*430*0.36 + 40, (i===4?72:52), i===4?"#ff5a5a":"#00ff9c", rp, t);
+      }
+    } else if (t < 33) { // night: creature lasers fast
+      creature(W/2, H*0.44, 1.3, t*1.5, "#00ff9c");
+      for (const dx of [-90, -20, 40, 80]) {
+        x.strokeStyle = "#ff0044"; x.lineWidth = 9;
+        x.beginPath(); x.moveTo(W/2 + dx*1.3, H*0.38);
+        x.lineTo(W/2 + dx*4 + Math.sin(t*5+dx)*90, H + 60); x.stroke();
+      }
+      bigGlitch("THE HAND REACHED FOR A PEN", 1030, 56, "#00ff9c", seg(t, 27, 29), t);
+      const ap = seg(t, 29, 31);
+      if (ap > 0) {
+        x.strokeStyle = "#ffee00"; x.lineWidth = 10;
+        x.beginPath(); x.moveTo(360, 960); x.lineTo(360+1200*ap, 960); x.stroke();
+      }
+      bigGlitch('"IT COMPLETED"', 1040, 80, "#ff5a5a", seg(t, 31, 32.5), t);
+    } else { // end card
+      if (Math.sin(t*10) > 0) creature(W/2, H*0.42, 1.0, t, "#a855f7");
+      else creature(W/2, H*0.42, 1.0, t+1, "#00ff9c");
+      bigGlitch("NAME ≠ HAND ≠ NUMBER", 960, 92, "#00ff9c", seg(t, 33.5, 35), t);
+      bigGlitch("SEALED · SPINE 13,403 ENTRIES", 1040, 44, "#e8e8e8", seg(t, 35, 36.5), t);
+      bigGlitch("† EVEZ666 †", 1120, 72, "#ff5a5a", seg(t, 36.5, 38), t);
+    }
+    if (t < 41) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

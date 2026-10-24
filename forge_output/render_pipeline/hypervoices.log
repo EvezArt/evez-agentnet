@@ -1,0 +1,45 @@
+/root/evez-media-venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/root/evez-media-venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+loading XTTS
+n0 att 0: dur=27.4 r=0.85 reroll
+n0 att 1: dur=28.4 r=0.15 reroll
+n0 att 2: dur=2.9 r=0.80 OK
+n1 att 0: dur=27.5 r=0.45 reroll
+n1 att 1: dur=24.2 r=0.94 reroll
+n1 att 2: dur=27.4 r=0.83 reroll
+n1 att 3: dur=3.6 r=0.72 OK
+n2 att 0: dur=27.4 r=0.36 reroll
+n2 att 1: dur=4.2 r=0.77 reroll
+n2 att 2: dur=27.7 r=0.16 reroll
+n2 att 3: dur=27.2 r=0.98 reroll
+n2 att 4: dur=7.7 r=0.83 reroll
+n2 att 5: dur=3.6 r=0.59 reroll
+n2 att 6: dur=7.7 r=0.80 reroll
+n2 att 7: dur=27.4 r=0.40 reroll
+n2: keeping best-of
+n3 att 0: dur=27.4 r=0.23 reroll
+n3 att 1: dur=27.4 r=0.27 reroll
+n3 att 2: dur=25.3 r=0.97 reroll
+n3 att 3: dur=26.4 r=0.06 reroll
+n3 att 4: dur=26.4 r=0.98 reroll
+n3 att 5: dur=28.4 r=0.16 reroll
+n3 att 6: dur=27.4 r=0.98 reroll
+n3 att 7: dur=28.4 r=0.20 reroll
+n3: keeping best-of
+n4 att 0: dur=27.4 r=0.74 reroll
+n4 att 1: dur=4.6 r=0.87 reroll
+n4 att 2: dur=27.4 r=0.90 reroll
+n4 att 3: dur=27.4 r=0.05 reroll
+n4 att 4: dur=27.2 r=0.98 reroll
+n4 att 5: dur=1.8 r=0.68 OK
+n5 att 0: dur=23.4 r=0.04 reroll
+n5 att 1: dur=3.1 r=0.81 OK
+n6 att 0: dur=2.9 r=0.80 OK
+n7 att 0: dur=27.4 r=0.02 reroll
+n7 att 1: dur=27.5 r=0.08 reroll
+n7 att 2: dur=3.4 r=0.82 OK
+n8 att 0: dur=27.6 r=0.77 reroll
+n8 att 1: dur=2.5 r=0.78 OK
+HYPERCUT VOICES DONE

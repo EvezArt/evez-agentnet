@@ -256,3 +256,20 @@ commands on this box on Oct 3 ~07:16–07:29.
 | 93.152.221.37 | 20 | 2026-10-23 | 2c3e62389449 | contact only — no attribution |
 | 45.194.92.221 | 19 | 2026-10-23 | 1cee544c4aa8 | contact only — no attribution |
 | 219.153.113.99 | 15 | 2026-10-23 | 9378c7945204 | contact only — no attribution |
+
+### 2026-10-24
+
+| Source | Strikes (24h) | First seen | Stamp | Note |
+|---|---|---|---|---|
+| 91.92.42.200 | 57 | 2026-10-24 | b7f9168b9894 | contact only — no attribution |
+| 5.188.206.194 | 27 | 2026-10-24 | f92c47f1c22d | contact only — no attribution |
+| 85.217.163.132 | 21 | 2026-10-24 | 4041605cd936 | contact only — no attribution |
+| 78.128.112.6 | 16 | 2026-10-24 | ff3c61a7a2bf | contact only — no attribution |
+| 18.119.209.50 | 15 | 2026-10-24 | 3069a61bf56c | contact only — no attribution |
+| 3.131.24.55 | 14 | 2026-10-24 | 751b3043e20e | contact only — no attribution |
+| 18.190.15.50 | 14 | 2026-10-24 | 6443cb72a8fc | contact only — no attribution |
+| 34.228.104.231 | 14 | 2026-10-24 | afb5f724a0bd | contact only — no attribution |
+| 78.128.113.74 | 14 | 2026-10-24 | 1eb34d9a1399 | contact only — no attribution |
+| 18.217.208.51 | 14 | 2026-10-24 | f449cf262330 | contact only — no attribution |
+| 46.151.178.14 | 13 | 2026-10-24 | 46a22e16336b | contact only — no attribution |
+| 45.74.59.2 | 12 | 2026-10-24 | dcfd42630fd7 | contact only — no attribution |

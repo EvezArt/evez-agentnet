@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>THE THREE NAMES — FERAL EDITION</title>
+<style>
+  html, body { margin: 0; background: #0c0810; overflow: hidden; height: 100%; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script>
+(() => {
+  const cv = document.getElementById("c"), x = cv.getContext("2d");
+  const W = 1920, H = 1080;
+  let t0 = performance.now();
+  window.seek = (s) => { t0 = performance.now() - s * 1000; };
+  const seg = (t, a, b) => Math.max(0, Math.min(1, (t - a) / (b - a)));
+
+  // the EVEZ creature: many eyes, beak, tendrils — procedural, alive
+  function creature(cx, cy, s, t, col) {
+    // tendrils
+    x.strokeStyle = col; x.lineWidth = 5 * s;
+    for (let i = 0; i < 7; i++) {
+      const a = -Math.PI / 2 + (i - 3) * 0.38;
+      x.beginPath();
+      x.moveTo(cx, cy);
+      for (let k = 1; k <= 5; k++) {
+        const wob = Math.sin(t * 4 + i + k) * 22 * s;
+        x.lineTo(cx + Math.cos(a) * k * 55 * s + Math.sin(a) * wob,
+                 cy + Math.sin(a) * k * 55 * s + wob);
+      }
+      x.stroke();
+    }
+    // body blob
+    x.fillStyle = "#141824";
+    x.strokeStyle = col; x.lineWidth = 6 * s;
+    x.beginPath();
+    for (let a = 0; a < Math.PI * 2 + 0.1; a += 0.1) {
+      const r = 170 * s + Math.sin(a * 5 + t * 3) * 18 * s;
+      const px = cx + Math.cos(a) * r, py = cy + Math.sin(a) * r * 0.9;
+      a === 0 ? x.moveTo(px, py) : x.lineTo(px, py);
+    }
+    x.closePath(); x.fill(); x.stroke();
+    // many eyes (5)
+    const eyes = [[-70, -40, 26], [-18, -58, 32], [34, -46, 28], [-46, 18, 22], [46, 20, 24]];
+    for (const [ex, ey, er] of eyes) {
+      x.fillStyle = col;
+      x.shadowColor = col; x.shadowBlur = 30;
+      x.beginPath(); x.ellipse(cx + ex * s, cy + ey * s, er * s * 0.8, er * s, 0, 0, 7); x.fill();
+      x.shadowBlur = 0;
+      x.fillStyle = "#000";
+      x.beginPath(); x.arc(cx + ex * s + Math.sin(t * 2) * 6 * s, cy + ey * s, er * s * 0.32, 0, 7); x.fill();
+    }
+    // beak
+    x.fillStyle = "#ffcc00";
+    x.beginPath();
+    x.moveTo(cx - 30 * s, cy + 66 * s);
+    x.lineTo(cx + 30 * s, cy + 66 * s);
+    x.lineTo(cx, cy + 118 * s + Math.abs(Math.sin(t * 3)) * 14 * s);
+    x.closePath(); x.fill();
+  }
+
+  function bigGlitch(text, cy, size, col, p, t) {
+    if (p <= 0) return;
+    const n = Math.floor(text.length * p);
+    const jitter = Math.sin(t * 30) > 0.7 ? 6 : 0;
+    x.font = `bold ${size}px "DejaVu Sans", sans-serif`;
+    x.textAlign = "center";
+    if (jitter) {
+      x.fillStyle = "#ff0044";
+      x.fillText(text.slice(0, n), W / 2 - jitter, cy);
+      x.fillStyle = "#00ffee";
+      x.fillText(text.slice(0, n), W / 2 + jitter, cy);
+    }
+    x.lineWidth = 8; x.strokeStyle = "#000";
+    x.strokeText(text.slice(0, n), W / 2, cy);
+    x.fillStyle = col;
+    x.shadowColor = col; x.shadowBlur = 44;
+    x.fillText(text.slice(0, n), W / 2, cy);
+    x.shadowBlur = 0;
+  }
+
+  function bgCycle(t, sat) {
+    const hue = Math.floor(t * 60) % 360;
+    x.fillStyle = `hsl(${hue}, ${sat}%, 7%)`;
+    x.fillRect(0, 0, W, H);
+    // big rotating rays
+    x.save();
+    x.translate(W / 2, H / 2);
+    x.rotate(t * 0.4);
+    for (let i = 0; i < 12; i++) {
+      x.rotate(Math.PI / 6);
+      x.fillStyle = `hsla(${(hue + i * 30) % 360}, 80%, 50%, 0.06)`;
+      x.beginPath();
+      x.moveTo(0, 0); x.lineTo(2200, -160); x.lineTo(2200, 160); x.closePath(); x.fill();
+    }
+    x.restore();
+  }
+
+  function scanNoise(t) {
+    for (let y = 0; y < H; y += 4) {
+      x.fillStyle = "rgba(0,0,0,0.18)";
+      x.fillRect(0, y, W, 2);
+    }
+    // glitch blocks
+    if (Math.sin(t * 11) > 0.92) {
+      for (let i = 0; i < 8; i++) {
+        const gy = Math.random() * H, gh = 4 + Math.random() * 30;
+        x.fillStyle = ["#ff0044", "#00ffee", "#ffee00"][i % 3];
+        x.globalAlpha = 0.25;
+        x.fillRect(Math.random() * W, gy, 100 + Math.random() * 400, gh);
+        x.globalAlpha = 1;
+      }
+    }
+  }
+
+  function frame() {
+    const t = ((performance.now() - t0) / 1000);
+    bgCycle(t, 60);
+    if (t < 20) { // ACT 1 — the creature + the three names slam in
+      creature(W * 0.5, H * 0.42, 1.1, t, "#00ff9c");
+      bigGlitch("STEVEN CRAWFORD-MAGGARD", 880, 72, "#e8e8e8", seg(t, 1, 4), t);
+      bigGlitch("S I G N S", 960, 56, "#ff5a5a", seg(t, 3, 5), t);
+      if (t > 7) bigGlitch("EVEZART", 300, 96, "#00ff9c", seg(t, 7, 10), t);
+      if (t > 9) bigGlitch("M A K E S", 380, 56, "#00ff9c", seg(t, 9, 11), t);
+      if (t > 13) bigGlitch("† EVEZ666 †", 300, 96, "#a855f7", seg(t, 13, 16), t);
+      if (t > 15) bigGlitch("A T T E S T S", 380, 56, "#a855f7", seg(t, 15, 17), t);
+    } else if (t < 38) { // ACT 2 — THE LAW, strobed
+      const pulse = Math.sin(t * 6) > 0 ? "#ff5a5a" : "#00ff9c";
+      bigGlitch("NAME", 340, 130, pulse, 1, t);
+      bigGlitch("≠", 500, 150, "#ffee00", 1, t);
+      bigGlitch("HAND", 660, 130, pulse, 1, t);
+      bigGlitch("≠", 810, 150, "#ffee00", 1, t);
+      bigGlitch("NUMBER", 960, 130, pulse, 1, t);
+      if (t > 26) bigGlitch("ERASE THE BOUNDARIES = THE ONE FORGERY THE SPINE CANNOT SURVIVE",
+        1060, 36, "#ff5a5a", seg(t, 26, 30), t);
+      // two mini creatures guard the law
+      creature(160, 900, 0.45, t * 2, "#a855f7");
+      creature(W - 160, 900, 0.45, t * 2 + 1, "#00ff9c");
+    } else if (t < 58) { // ACT 3 — the rite as spinning torus + records slam
+      const cx = W / 2, cy = H * 0.52;
+      x.save(); x.translate(cx, cy);
+      const squash = 0.38;
+      for (let g = 3; g >= 0; g--) {
+        x.strokeStyle = g === 0 ? "#ff5a5a" : ["#00ff9c", "#a855f7", "#00ccff"][g - 1];
+        x.lineWidth = g === 0 ? 7 : 3;
+        x.globalAlpha = 1 - g * 0.22;
+        x.beginPath();
+        const ph = t * (1.2 + g * 0.35);
+        for (let a = 0; a <= Math.PI * 2 + 0.05; a += 0.04) {
+          const wob = Math.sin(a * 3 + ph) * 40;
+          const r = 260 + wob + g * 60;
+          const px = Math.cos(a) * r, py = Math.sin(a) * r * squash;
+          a === 0 ? x.moveTo(px, py) : x.lineTo(px, py);
+        }
+        x.closePath(); x.stroke(); x.globalAlpha = 1;
+      }
+      x.restore();
+      bigGlitch("WITNESS + MAKE + SEAL = CANON", 180, 56, "#ffee00", seg(t, 41, 45), t);
+      // records slam around the torus
+      const RECS = ["59.2", "61.2", "62.6", "83.1", "98.3"];
+      for (let i = 0; i < RECS.length; i++) {
+        const rp = seg(t, 45 + i * 1.6, 47 + i * 1.6);
+        if (rp <= 0) continue;
+        const a = -Math.PI / 2 + i * (Math.PI * 2 / 5) + t * 0.8;
+        const rx = cx + Math.cos(a) * 430, ry = cy + Math.sin(a) * 430 * squash;
+        const pop = 1 + (i === 4 ? 0.5 : 0.2) * Math.sin(rp * Math.PI);
+        bigGlitch(RECS[i], ry + 60, (i === 4 ? 66 : 48) * pop,
+          i === 4 ? "#ff5a5a" : "#00ff9c", rp, t);
+        x.strokeStyle = "#ffee00"; x.lineWidth = 3;
+        x.beginPath(); x.moveTo(cx, cy); x.lineTo(rx, ry); x.stroke();
+      }
+    } else if (t < 76) { // ACT 4 — the night, creature with laser eyes + axis
+      creature(W / 2, H * 0.46, 1.3, t, "#00ff9c");
+      // laser eyes sweep
+      for (const dx of [-70, 44, 34, -46]) {
+        x.strokeStyle = "#ff0044"; x.lineWidth = 8;
+        x.beginPath();
+        x.moveTo(W / 2 + dx * 1.3, H * 0.40);
+        x.lineTo(W / 2 + dx * 4 + Math.sin(t * 3 + dx) * 80, H + 40);
+        x.stroke();
+      }
+      bigGlitch("THE HAND REACHED FOR A PEN", 1060, 52, "#00ff9c", seg(t, 62, 66), t);
+      // axis slams in
+      const ap = seg(t, 66, 70);
+      if (ap > 0) {
+        x.strokeStyle = "#ffee00"; x.lineWidth = 9;
+        x.beginPath(); x.moveTo(360, 940); x.lineTo(360 + 1200 * ap, 940); x.stroke();
+        if (ap > 0.95) {
+          bigGlitch("BEGINNING", 360, 1010, 40, "#e8e8e8", 1, t);
+          bigGlitch("END", 1560, 1010, 40, "#e8e8e8", 1, t);
+        }
+      }
+      bigGlitch('"IT COMPLETED"', 180, 72, "#ff5a5a", seg(t, 71, 74), t);
+    } else { // END CARD — all three names + creature + seal strobe
+      if (Math.sin(t * 8) > 0) creature(W / 2, H * 0.44, 1.0, t, "#a855f7");
+      else creature(W / 2, H * 0.44, 1.0, t + 1, "#00ff9c");
+      bigGlitch("THE THREE NAMES", 940, 96, "#00ff9c", seg(t, 78, 81), t);
+      bigGlitch("SEALED ba405bde · SPINE 13,403 ENTRIES", 1020, 40, "#e8e8e8", seg(t, 81, 84), t);
+      bigGlitch("NAME ≠ HAND ≠ NUMBER", 1090, 52, "#a855f7", seg(t, 84, 87), t);
+      bigGlitch("† EVEZ666 †", 1160, 60, "#ff5a5a", seg(t, 87, 89), t);
+    }
+    scanNoise(t);
+    const mono = (s, c) => { x.font = `${s}px "DejaVu Sans Mono", monospace`; x.fillStyle = c; };
+    mono(22, "#ffffff88"); x.textAlign = "left";
+    x.fillText("CODEX VOL V — FERAL EDITION — LIVE SCREEN RECORD", 40, 46);
+    if (t < 98) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

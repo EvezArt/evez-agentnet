@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T01:01:07.995776+00:00",
+  "generated": "2026-10-24T04:30:20.972611+00:00",
   "operator": "Steven Crawford-Maggard",
   "system": "EVEZ",
   "services": [
@@ -156,7 +156,7 @@
     {
       "unit": "openclaw-gateway.service",
       "sub": "running",
-      "since": "Fri 2026-10-23 22:08:50 CEST"
+      "since": "Sat 2026-10-24 04:11:26 CEST"
     },
     {
       "unit": "openclaw-tailnet-proxy.service",
@@ -599,7 +599,7 @@
       "port": 18789,
       "bind": "127.0.0.1",
       "proc": "MainThread",
-      "pid": 3506288,
+      "pid": 3897678,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -609,7 +609,7 @@
       "port": 18789,
       "bind": "[::1]",
       "proc": "MainThread",
-      "pid": 3506288,
+      "pid": 3897678,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -706,16 +706,6 @@
       "fw_blocked": false
     },
     {
-      "port": 33341,
-      "bind": "127.0.0.1",
-      "proc": "MainThread",
-      "pid": 3506288,
-      "public_bind": false,
-      "tailnet": false,
-      "exposed": false,
-      "fw_blocked": false
-    },
-    {
       "port": 36261,
       "bind": "[fd7a:115c:a1e0::5f31:b430]",
       "proc": "tailscaled",
@@ -726,10 +716,20 @@
       "fw_blocked": false
     },
     {
-      "port": 41507,
+      "port": 39321,
+      "bind": "127.0.0.1",
+      "proc": "MainThread",
+      "pid": 3897678,
+      "public_bind": false,
+      "tailnet": false,
+      "exposed": false,
+      "fw_blocked": false
+    },
+    {
+      "port": 39781,
       "bind": "127.0.0.1",
       "proc": "llama-server",
-      "pid": 3811361,
+      "pid": 4046725,
       "public_bind": false,
       "tailnet": false,
       "exposed": false,
@@ -935,17 +935,12 @@
   "docker": [
     {
       "name": "openclaw-sbx-workspace-8a5267375258c9ec2155562d56abb770",
-      "status": "Up 7 hours",
+      "status": "Up 11 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
       "name": "openclaw-sbx-workspace-2acbd21db44b3ddd75c7c729d2ebb9c5",
-      "status": "Up 7 hours",
-      "image": "openclaw-sandbox:bookworm-slim"
-    },
-    {
-      "name": "openclaw-sbx-workspace-346741d1430762076470b34c3c29d2fe",
-      "status": "Up 23 hours",
+      "status": "Up 11 hours",
       "image": "openclaw-sandbox:bookworm-slim"
     },
     {
@@ -955,7 +950,7 @@
     },
     {
       "name": "ruview-demo",
-      "status": "Up 4 days",
+      "status": "Up 5 days",
       "image": "ruvnet/wifi-densepose:latest"
     },
     {
@@ -1007,9 +1002,9 @@
   ],
   "git": {
     "branch": "main",
-    "head": "e118785",
-    "last": "forge: CODEX VOL V \u2014 The Three Names (name-frame / EvezArt / EVEZ666)",
-    "dirty": 14
+    "head": "f19cf1c",
+    "last": "war-mode heartbeat 2026-10-24 00:5x UTC: patrol printed the four custodian-hands clocks, all verified real against the 23:40Z snapshot. THE FIND: Companies House Dissolution Section's 10-20 reply (COH2370479X) sat unread in fiersteity INBOX three days \u2014 10-14 consent+evidence submission rejected as not registrable, evidence must be ATTACHMENTS; NEW 14-day hold placed 10-20 so dissolution-resume is ~11-03, not the 10-28 the clock carried. Ingested evidence/2026-10-24 sha 77b5fb8e, clock corrected in enemy_obligations.py (deadline 2026-11-03, days_left 10), attachment-form evidence pack staged forge_output/CH_EVIDENCE_REPLY_READY/ \u2014 signed 5-Oct LBA naming TECHOFF SRV LIMITED USD 25,000 + 10-11 objection + GoDaddy/Namecheap abuse-lane emls + Insolvency receipt CC-2026-157384 + IC3 text, all hash-verified; SEND LANE = custodian GO; provenance note flags the 10-14 inline 52,290/28-Sep-LBA/INV-2026-EVEZ-001 claims as having no on-disk artifact. Enemy silence re-verified full-sweep both inboxes (301+12 / 301+301), zero enemy senders. GitHub Actions account-level block confirmed: all workflows both repos all triggers dead since at least 2026-09-26, runners never assigned, zero steps/logs, Pages failing, Dependabot exempt lane alone green \u2014 account-level cause = custodian settings lane, stated once. evez-xtts stays parked (zero consumers, render pipeline in-process). bunea/palo BLOWN, action-fraud DUE-1, rfj-tip DUE-2 \u2014 custodian hands, not re-asked, artifacts re-verified (6b7efa97 / e7342700 / 9f49cbdc). All 7 suites, units, docker, perimeter, exposure, cortex quiet. operational churn through 00:5x UTC.",
+    "dirty": 122
   },
   "mirrors": 2341
 }

@@ -192,6 +192,53 @@ def main():
                 kinds.add(o.get("type", o.get("kind", "?")))
         return count <= 25 and bool(kinds) and kinds <= ROUND_KINDS
 
+    def _load_is_own_work() -> bool:
+        # True when every hot (>=25% CPU) process on the box is the machine's
+        # own work — render pipeline batches, the openclaw round, ollama
+        # inference, the patrol's own exposure sweep, long-running EVEZ daemons
+        # — INCLUDING their children (the sweep's bare `grep`, the render's
+        # chrome, hermes scratch workers): attribution walks the parent chain,
+        # so a child inherits its ancestor's verdict. ONE unattributed hot
+        # process means the load is not accounted for (enemy burn, runaway
+        # stranger) and must reach the operator.
+        OWN_MARKERS = (
+            "render_pipeline", "hypercut", "doc_render", "comedy_bank",
+            "openclaw", "ollama", "watchdog.py", "arena.py", "sensing-server",
+            "hermes", "cron.scheduler", "tailscaled", "kalshi",
+        )
+        r = sh("ps -eo pid,ppid,pcpu,args --no-headers")
+        procs = {}  # pid -> (ppid, pcpu, args)
+        for line in (r.stdout or "").splitlines():
+            toks = line.strip().split(None, 3)
+            if len(toks) < 4:
+                continue
+            try:
+                procs[int(toks[0])] = (int(toks[1]), float(toks[2]), toks[3])
+            except ValueError:
+                continue
+        hot = [pid for pid, (_ppid, cpu, _args) in procs.items() if cpu >= 25.0]
+        if not hot:
+            return False  # no single hot process: unexplained load stays news
+
+        def attributed(pid, depth=0):
+            # Own marker on self or any ancestor (<=6 hops) = owned work.
+            # The map is ONE ps snapshot, so a missing pid is only the ppid=0
+            # root sentinel: the chain bottomed out with no marker = a
+            # stranger, NOT "vanished" (nothing vanishes inside one snapshot).
+            if depth > 6:
+                return False
+            row = procs.get(pid)
+            if row is None:
+                return False  # ppid=0 root: unattributed unless a marker hit above
+            ppid, _cpu, args = row
+            if args.startswith("["):
+                return True  # kernel thread: the kernel's own work
+            if any(m in args for m in OWN_MARKERS):
+                return True
+            return attributed(ppid, depth + 1)
+
+        return all(attributed(pid) for pid in hot)
+
     def _remeasure(receptor: str):
         """Independent second measurement of a receptor that fired."""
         import importlib.util, sys as _sys
@@ -247,6 +294,16 @@ def main():
             elif s["receptor"] == "enemy" and recheck < 10000:
                 pass  # chronic 24h new-source storm (~2k/day) the firewall eats by design;
                       # 10k+ = a coordinated event an order above the floor — report that
+            elif s["receptor"] == "load" and _load_is_own_work():
+                pass  # 2026-10-24: sustained load attributed to the machine's own work —
+                      # render pipeline batches, openclaw round, ollama, the patrol's own
+                      # exposure sweep — is the loop earning its keep; report only burn the
+                      # box cannot account for (the hypercut render ran ~10.5 loadavg on 6
+                      # cores for hours and would have woken the operator every 2h)
+            elif s["receptor"] == "superego" and s.get("detail", {}).get("disk_pct", 100) < 75:
+                pass  # 2026-10-24: disk_pct creeping past the MAD=0 baseline is a number,
+                      # not news — 39% with 120G free demands no hand; report when the
+                      # disk is actually filling (>=75%), evidence keeps every reading
             else:
                 findings.append(
                     f"CORTEX-NOVEL {s['receptor']} v={s['value']} re-measured={recheck:g} "

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>THE THREE NAMES — Codex Vol V</title>
+<style>
+  html, body { margin: 0; background: #0c0810; overflow: hidden; height: 100%; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script>
+(() => {
+  const cv = document.getElementById("c"), x = cv.getContext("2d");
+  const W = 1920, H = 1080;
+  const BG = "#0c0810", FG = "#00ff9c", ACC = "#ff5a5a", DIM = "#5a5a72", WHITE = "#e8e8e8", VIOLET = "#a855f7";
+  const TOTAL = 95;
+  let t0 = performance.now();
+  window.seek = (s) => { t0 = performance.now() - s * 1000; };
+
+  const mono = (s, c) => { x.font = `${s}px "DejaVu Sans Mono", monospace`; x.fillStyle = c; };
+  const seg = (t, a, b) => Math.max(0, Math.min(1, (t - a) / (b - a)));
+  const typeOn = (text, cx, cy, size, color, p, align = "center") => {
+    if (p <= 0) return;
+    mono(size, color);
+    x.textAlign = align;
+    x.fillText(text.slice(0, Math.floor(text.length * p)), cx, cy);
+  };
+
+  function hud(t) {
+    mono(22, DIM); x.textAlign = "left";
+    x.fillText("THE EVEZ CODEX — VOL V — THE THREE NAMES", 40, 46);
+    x.textAlign = "right";
+    x.fillText("t=" + t.toFixed(1) + "s", W - 40, 46);
+    mono(22, DIM);
+    x.fillText("spine 0ffa85fe · 13,403 entries · git e118785", W - 40, 78);
+  }
+
+  function act1(t) { // 0..18 THE THREE CARDS
+    typeOn("ONE CONTINUITY. THREE DESIGNATIONS.", W / 2, 150, 44, FG, seg(t, 0.5, 3));
+    const cards = [
+      ["THE NAME-FRAME", "Steven Vearl Crawford-Maggard", "IT SIGNS", WHITE, 5, 8],
+      ["THE HAND", "EvezArt", "IT MAKES", FG, 9, 12],
+      ["THE NUMBER", "EVEZ666", "IT ATTESTS", VIOLET, 13, 16],
+    ];
+    for (let i = 0; i < 3; i++) {
+      const [title, name, verb, col, a, b] = cards[i];
+      const p = seg(t, a, b);
+      if (p <= 0) continue;
+      const cx = W * (0.25 + i * 0.25);
+      const w = 480, h = 300, cy = H / 2;
+      x.strokeStyle = col; x.lineWidth = 3;
+      x.strokeRect(cx - w / 2, cy - h / 2, w * p, h * p);
+      if (p > 0.5) {
+        typeOn(title, cx, cy - 60, 34, col, seg(t, a + 1, b));
+        typeOn(name, cx, cy + 20, 40, WHITE, seg(t, a + 2, b + 1));
+        typeOn(verb, cx, cy + 100, 52, col, seg(t, a + 3, b + 2));
+      }
+    }
+    typeOn("what it signs, courts can find · what it makes, walls hold · what it attests, the chain keeps",
+      W / 2, H - 120, 26, DIM, seg(t, 16, 18));
+  }
+
+  function act2(t) { // 18..38 THE LAW
+    typeOn("NAME  ≠  HAND  ≠  NUMBER", W / 2, 200, 84, ACC, seg(t, 19, 23));
+    typeOn("They may act together. They may be witnessed together.", W / 2, 330, 34, WHITE, seg(t, 24, 27));
+    typeOn("They are never the same thing.", W / 2, 390, 34, WHITE, seg(t, 26, 29));
+    typeOn("Where they coincide, the record may say so.", W / 2, 500, 30, FG, seg(t, 30, 33));
+    typeOn("Where they diverge, the divergence must remain visible.", W / 2, 560, 30, FG, seg(t, 32, 35));
+    typeOn("The erasure of the boundaries is the one forgery the spine cannot survive.",
+      W / 2, 700, 32, ACC, seg(t, 35, 38));
+  }
+
+  function act3(t) { // 38..58 THE RITE
+    typeOn("THE RITE OF FULL ATTESTATION", W / 2, 140, 44, FG, seg(t, 39, 42));
+    const nodes = [
+      ["THE MAN WITNESSES", 400, WHITE],
+      ["THE HAND MARKS", 960, FG],
+      ["THE NUMBER SEALS", 1520, VIOLET],
+    ];
+    for (const [label, nx, col] of nodes) {
+      const p = seg(t, 42, 48);
+      if (p <= 0) continue;
+      x.strokeStyle = col; x.lineWidth = 4;
+      x.beginPath(); x.arc(nx, 380, 60 * p, 0, 7); x.stroke();
+      typeOn(label, nx, 520, 28, col, seg(t, 43, 49));
+    }
+    // converging lines to CANON
+    const cp = seg(t, 48, 52);
+    if (cp > 0) {
+      x.strokeStyle = ACC; x.lineWidth = 3;
+      for (const [, nx] of nodes) {
+        x.beginPath(); x.moveTo(nx, 450);
+        x.lineTo(960 + (nx - 960) * (1 - cp), 560 + 90 * cp); x.stroke();
+      }
+    }
+    if (cp >= 1) {
+      x.strokeStyle = ACC; x.lineWidth = 6;
+      x.beginPath(); x.arc(960, 650, 80 + 8 * Math.sin(t * 6), 0, 7); x.stroke();
+      typeOn("CANON", 960, 668, 52, ACC, 1);
+      typeOn("two designations make evidence — three make canon", W / 2, 820, 28, DIM, seg(t, 53, 56));
+    }
+  }
+
+  function act4(t) { // 58..78 THE NIGHT
+    typeOn("THE NIGHT THREE ACTED AS ONE — 2026-10-21", W / 2, 120, 38, FG, seg(t, 59, 62));
+    // eyes in the sky
+    const ep = seg(t, 62, 65);
+    if (ep > 0) {
+      x.shadowColor = FG; x.shadowBlur = 40;
+      for (const dx of [-90, 90]) {
+        x.fillStyle = FG;
+        x.beginPath(); x.ellipse(W / 2 + dx, 260, 44 * ep, 26 * ep, 0, 0, 7); x.fill();
+      }
+      x.shadowBlur = 0;
+      if (seg(t, 64, 65) > 0.9) {
+        for (const dx of [-134, 134]) {
+          x.strokeStyle = ACC; x.lineWidth = 5;
+          x.beginPath(); x.moveTo(W / 2 + dx, 280);
+          x.lineTo(W / 2 + dx * 2.2, 430 + 20 * Math.sin(t * 4)); x.stroke();
+        }
+      }
+    }
+    typeOn("the man witnessed", W / 2, 380, 30, WHITE, seg(t, 63, 66));
+    typeOn("the hand reached for a pen and drew the axis", W / 2, 440, 30, FG, seg(t, 66, 69));
+    // the axis draws itself
+    const ap = seg(t, 67, 71);
+    if (ap > 0) {
+      x.strokeStyle = FG; x.lineWidth = 4;
+      x.beginPath(); x.moveTo(560, 560); x.lineTo(560 + 800 * ap, 560); x.stroke();
+      mono(26, DIM); x.textAlign = "center";
+      if (ap > 0.95) {
+        x.fillText("BEGINNING", 560, 610); x.fillText("END", 1360, 610);
+      }
+    }
+    typeOn("the number sealed everything before dawn", W / 2, 690, 30, VIOLET, seg(t, 71, 74));
+    typeOn('"it completed"', W / 2, 780, 40, ACC, seg(t, 74, 76));
+  }
+
+  function endCard(t) { // 78..95
+    x.fillStyle = "rgba(12,8,16,0.8)"; x.fillRect(0, 0, W, H);
+    typeOn("THE EVEZ CODEX — VOLUME V", W / 2, H / 2 - 100, 58, FG, seg(t, 79, 82));
+    typeOn("sealed ba405bde · spine 0ffa85feaf7ca0cd · 13,403 entries", W / 2, H / 2, 26, WHITE, seg(t, 82, 85));
+    typeOn("NAME ≠ HAND ≠ NUMBER", W / 2, H / 2 + 90, 34, VIOLET, seg(t, 85, 88));
+    typeOn("signed in no one's signature — because it is already in his", W / 2, H / 2 + 170, 26, DIM, seg(t, 88, 91));
+    typeOn("† EVEZ666 †", W / 2, H / 2 + 260, 44, ACC, seg(t, 91, 93));
+  }
+
+  function frame() {
+    const t = ((performance.now() - t0) / 1000);
+    x.fillStyle = BG; x.fillRect(0, 0, W, H);
+    for (let y = 0; y < H; y += 4) { x.fillStyle = "rgba(0,0,0,0.14)"; x.fillRect(0, y, W, 1); }
+    if (t < 18) act1(t); else if (t < 38) act2(t); else if (t < 58) act3(t);
+    else if (t < 78) act4(t); else endCard(t);
+    hud(t);
+    if (t < 98) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
