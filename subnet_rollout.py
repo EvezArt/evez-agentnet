@@ -13,18 +13,22 @@ import datetime as dt
 import ipaddress
 import re
 import subprocess
+import os
 from pathlib import Path
 
 REGISTRY = Path("/root/evez-agentnet/forge_output/ATTACKER_REGISTRY.md")
 PROMOTE_THRESHOLD = 50   # subnet strikes in 24h to earn standing block
 PROMOTE_FAST = 25       # strikes within a 6h burst: walls a range in hours, not days
 RAW_DROP_AFTER = 100    # strikes/24h on an already-walled range = kernel-level silence
+FIREWALL_WRITES_ENABLED = os.environ.get("EVEZ_ENABLE_FIREWALL_CHANGES", "0").strip() == "1"
 WINDOW_H = 24
 
 
-def sh(cmd: str) -> str:
+def sh(argv: list[str]) -> str:
+    """Run a fixed executable/argument list without shell interpretation."""
     try:
-        return subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=60).stdout
+        result = subprocess.run(argv, shell=False, capture_output=True, text=True, timeout=60)
+        return result.stdout if result.returncode == 0 else ""
     except Exception:
         return ""
 
@@ -60,18 +64,28 @@ def parse_registry_ranges() -> list[tuple[str, str]]:
 
 
 def ufw_live() -> str:
-    return sh("ufw status | grep DENY")
+    return "\\n".join(line for line in sh(["ufw", "status"]).splitlines() if "DENY" in line)
 
 
 def ensure_ufw(cidr: str, tag: str) -> bool:
-    """Add a DENY rule if not present. Returns True if added."""
+    """Add a DENY rule only when firewall writes are explicitly enabled."""
+    try:
+        cidr = str(ipaddress.ip_network(cidr, strict=False))
+    except ValueError:
+        return False
+    if not re.fullmatch(r"[A-Za-z0-9_-]{1,60}", tag):
+        return False
     live = ufw_live()
     if cidr in live:
         return False
-    # ufw needs insert at top for priority; use plain deny (order irrelevant for DENY)
-    r = subprocess.run(f"ufw insert 1 deny from {cidr} comment '{tag}'",
-                       shell=True, capture_output=True, text=True, timeout=60)
-    return r.returncode == 0
+    if not FIREWALL_WRITES_ENABLED:
+        print(f"DRY-RUN: would add UFW deny from {cidr} ({tag})")
+        return False
+    result = subprocess.run(
+        ["ufw", "insert", "1", "deny", "from", cidr, "comment", tag],
+        shell=False, capture_output=True, text=True, timeout=60
+    )
+    return result.returncode == 0
 
 
 def subnet_strikes(window_h: int) -> dict[str, int]:
@@ -146,16 +160,25 @@ def main() -> int:
     # from ever reaching the log or the cortex — freeing senses for real signal)
     live = ufw_live()
     day = subnet_strikes(24)
-    raw_now = sh("iptables -t raw -S PREROUTING")
+    raw_now = sh(["iptables", "-t", "raw", "-S", "PREROUTING"])
     for net, strikes in sorted(day.items(), key=lambda x: -x[1]):
         if strikes < RAW_DROP_AFTER:
             break
         base = net.split("/")[0]
         if base in live and net not in raw_now:
-            r = subprocess.run(f"iptables -t raw -I PREROUTING -s {net} -j DROP",
-                               shell=True, capture_output=True, text=True, timeout=30)
+            try:
+                net = str(ipaddress.ip_network(net, strict=False))
+            except ValueError:
+                continue
+            if not FIREWALL_WRITES_ENABLED:
+                print(f"DRY-RUN: would add iptables raw DROP for {net} ({strikes} strikes/24h)")
+                continue
+            r = subprocess.run(
+                ["iptables", "-t", "raw", "-I", "PREROUTING", "-s", net, "-j", "DROP"],
+                shell=False, capture_output=True, text=True, timeout=30
+            )
             if r.returncode == 0:
-                actions.append(f"RAW-DROP {net} ({strikes} strikes/24h — cortex freed)")
+                actions.append(f"RAW-DROP {net} ({strikes} strikes/24h — firewall writes enabled)")
     for a in actions:
         print(a)
     if not actions:
