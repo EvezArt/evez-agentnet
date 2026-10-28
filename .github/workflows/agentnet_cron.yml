@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: agentnet-state-writer
+  cancel-in-progress: false
+
 jobs:
   run-orchestrator:
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
