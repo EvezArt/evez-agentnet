@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: agentnet-state-writer
+  cancel-in-progress: false
+
 jobs:
   run-orchestrator:
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
@@ -39,6 +43,7 @@ jobs:
           LOG_LEVEL: INFO
           MAX_DRAFTS_PER_ROUND: '3'
           MAX_SHIPS_PER_ROUND: '2'
+          EVEZ_ENABLE_EXTERNAL_PUBLISHING: ${{ vars.EVEZ_ENABLE_EXTERNAL_PUBLISHING || '0' }}
         run: python orchestrator.py
 
       - name: Commit spine + logs

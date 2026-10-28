@@ -5,6 +5,13 @@ on:
     - cron: '*/15 * * * *'   # every 15 minutes, 24/7
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+concurrency:
+  group: agentnet-reachout-state-writer
+  cancel-in-progress: false
+
 jobs:
   reach-out-sweep:
     runs-on: ubuntu-latest
@@ -23,6 +30,9 @@ jobs:
       - name: Run OpenClaw Reach-Out
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ABLY_API_KEY: ${{ secrets.ABLY_API_KEY }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          EVEZ_ENABLE_EXTERNAL_PUBLISHING: ${{ vars.EVEZ_ENABLE_EXTERNAL_PUBLISHING || '0' }}
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           ABLY_API_KEY: ${{ secrets.ABLY_API_KEY }}
         run: python openclaw/reach_out.py
@@ -33,4 +43,4 @@ jobs:
           git config user.email "openclaw@evez.art"
           git add scanner/scan_results.jsonl spine/reach_out_events.jsonl || true
           git diff --cached --quiet || git commit -m "chore: reach-out sweep $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          git push || true
+          git push

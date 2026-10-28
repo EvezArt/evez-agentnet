@@ -18,26 +18,32 @@ OUT = ROOT / "eye" / "data.json"
 INTEREST = re.compile(r"evez|hermes|openclaw|guerilla", re.I)
 
 
-def sh(cmd: str, timeout: int = 40) -> str:
+def sh(argv: list[str], timeout: int = 40, cwd: Path | None = None) -> str:
+    """Run fixed argument lists without shell interpretation."""
     try:
-        return subprocess.run(cmd, shell=True, capture_output=True,
-                              text=True, timeout=timeout).stdout.strip()
-    except Exception:
+        result = subprocess.run(
+            argv, shell=False, capture_output=True, text=True,
+            timeout=max(1, min(int(timeout), 60)),
+            cwd=str(cwd) if cwd is not None else None,
+        )
+        return result.stdout.strip()
+    except (OSError, subprocess.TimeoutExpired, ValueError):
         return ""
 
 
 def collect_services() -> list[dict]:
     rows = []
-    for line in sh("systemctl list-units --type=service --state=running "
-                   "--no-pager --no-legend").splitlines():
+    for line in sh(["systemctl", "list-units", "--type=service", "--state=running", "--no-pager", "--no-legend"]).splitlines():
         m = re.match(r"\s*(\S+)\s+(\S+)\s+(\S+)", line)
         if not m or not INTEREST.search(m.group(1)):
             continue
         unit = m.group(1)
+        if not re.fullmatch(r"[A-Za-z0-9_.@:-]+", unit):
+            continue
         rows.append({
             "unit": unit,
-            "sub": sh(f"systemctl show {unit} -p SubState --value") or m.group(3),
-            "since": sh(f"systemctl show {unit} -p ActiveEnterTimestamp --value"),
+            "sub": sh(["systemctl", "show", unit, "-p", "SubState", "--value"]) or m.group(3),
+            "since": sh(["systemctl", "show", unit, "-p", "ActiveEnterTimestamp", "--value"]),
         })
     return sorted(rows, key=lambda r: r["unit"])
 
@@ -47,12 +53,12 @@ def collect_ports() -> list[dict]:
     is not an exposure; reporting it as one trains the operator to ignore red."""
     allowed = set()
     for m in re.finditer(r"--dport (\d+) -j ACCEPT",
-                         sh("iptables -S ufw-user-input 2>/dev/null")):
+                         sh(["iptables", "-S", "ufw-user-input"])):
         allowed.add(int(m.group(1)))
-    policy_drop = "-P INPUT DROP" in sh("iptables -S INPUT")
+    policy_drop = "-P INPUT DROP" in sh(["iptables", "-S", "INPUT"])
 
     rows = []
-    for line in sh("ss -ltnp").splitlines()[1:]:
+    for line in sh(["ss", "-ltnp"]).splitlines()[1:]:
         m = re.match(r"\S+\s+\S+\s+\S+\s+(\S+)\s+(.*)$", line)
         if not m:
             continue
@@ -79,7 +85,7 @@ def collect_ports() -> list[dict]:
 
 def collect_cron() -> list[dict]:
     rows = []
-    for line in sh("crontab -l").splitlines():
+    for line in sh(["crontab", "-l"]).splitlines():
         s = line.strip()
         if not s or s.startswith("#"):
             continue
@@ -92,7 +98,7 @@ def collect_cron() -> list[dict]:
 
 def collect_docker() -> list[dict]:
     rows = []
-    for line in sh("docker ps --format '{{.Names}}|{{.Status}}|{{.Image}}'").splitlines():
+    for line in sh(["docker", "ps", "--format", "{{.Names}}|{{.Status}}|{{.Image}}"]).splitlines():
         p = line.split("|")
         if len(p) >= 2:
             rows.append({"name": p[0], "status": p[1],
@@ -103,7 +109,7 @@ def collect_docker() -> list[dict]:
 def collect_checks() -> list[dict]:
     hp = ROOT / "status" / "HEALTH.md"
     if not hp.exists():
-        sh("cd /root/evez-agentnet && python3 stack_health.py")
+        sh(["python3", "stack_health.py"], cwd=ROOT)
     if not hp.exists():
         return []
     rows = []
@@ -163,13 +169,12 @@ def build() -> dict:
         "checks": collect_checks(),
         "credentials": collect_credentials(),
         "git": {
-            "branch": sh("cd /root/evez-agentnet && git rev-parse --abbrev-ref HEAD"),
-            "head": sh("cd /root/evez-agentnet && git rev-parse --short HEAD"),
-            "last": sh("cd /root/evez-agentnet && git log -1 --pretty=%s"),
-            "dirty": len([l for l in sh("cd /root/evez-agentnet && "
-                                        "git status --porcelain").splitlines() if l.strip()]),
+            "branch": sh(["git", "rev-parse", "--abbrev-ref", "HEAD"], cwd=ROOT),
+            "head": sh(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT),
+            "last": sh(["git", "log", "-1", "--pretty=%s"], cwd=ROOT),
+            "dirty": len([l for l in sh(["git", "status", "--porcelain"], cwd=ROOT).splitlines() if l.strip()]),
         },
-        "mirrors": int(sh("ls /root/evezart-sync/mirrors/*.git 2>/dev/null | wc -l") or 0),
+        "mirrors": len(list(Path("/root/evezart-sync/mirrors").glob("*.git"))),
     }
 
 
