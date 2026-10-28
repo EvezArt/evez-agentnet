@@ -13,6 +13,7 @@ import hashlib
 import datetime
 import requests
 from typing import Optional
+from pathlib import Path
 
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 DISCORD_WEBHOOK = os.environ.get("DISCORD_WEBHOOK", "")
@@ -123,6 +124,7 @@ def emit_spine_events(hits: list[dict]) -> None:
 # ──────────────────────────────────────────
 
 def write_scan_results(hits: list[dict]) -> None:
+    Path(SCAN_OUT).parent.mkdir(parents=True, exist_ok=True)
     record = {
         "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
         "scan_type": "reach_out",
