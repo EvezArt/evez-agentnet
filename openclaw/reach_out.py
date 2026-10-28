@@ -17,6 +17,7 @@ from typing import Optional
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 DISCORD_WEBHOOK = os.environ.get("DISCORD_WEBHOOK", "")
 ABLY_KEY = os.environ.get("ABLY_API_KEY", "")
+EXTERNAL_PUBLISHING_ENABLED = os.environ.get("EVEZ_ENABLE_EXTERNAL_PUBLISHING", "0").strip() == "1"
 SPINE_FILE = "spine/reach_out_events.jsonl"
 SCAN_OUT = "scanner/scan_results.jsonl"
 
@@ -78,7 +79,7 @@ def scan_github_activity() -> list[dict]:
 # ──────────────────────────────────────────
 
 def notify_discord(hits: list[dict]) -> None:
-    if not DISCORD_WEBHOOK or not hits:
+    if not EXTERNAL_PUBLISHING_ENABLED or not DISCORD_WEBHOOK or not hits:
         return
     lines = [f"🔍 **OpenClaw Reach-Out Sweep** — {datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}"]
     for h in hits[:10]:
@@ -96,21 +97,25 @@ def notify_discord(hits: list[dict]) -> None:
 # ──────────────────────────────────────────
 
 def emit_spine_events(hits: list[dict]) -> None:
-    if not ABLY_KEY or not hits:
+    """Always retain local evidence; send to Ably only with explicit opt-in."""
+    if not hits:
         return
+    Path(SPINE_FILE).parent.mkdir(parents=True, exist_ok=True)
     for hit in hits:
         hit["_spine_hash"] = hashlib.sha256(json.dumps(hit, sort_keys=True).encode()).hexdigest()
         hit["_emitted_at"] = datetime.datetime.utcnow().isoformat() + "Z"
-        # Publish to Ably channel evez-reach-out
-        r = requests.post(
-            f"https://rest.ably.io/channels/evez-reach-out/messages",
-            auth=(ABLY_KEY.split(":")[0], ABLY_KEY.split(":")[1]),
-            json={"name": "reach_out", "data": hit},
-            timeout=5,
-        )
-        # Also append to local spine file
-        with open(SPINE_FILE, "a") as f:
-            f.write(json.dumps(hit) + "\n")
+        if EXTERNAL_PUBLISHING_ENABLED and ":" in ABLY_KEY:
+            try:
+                requests.post(
+                    "https://rest.ably.io/channels/evez-reach-out/messages",
+                    auth=(ABLY_KEY.split(":", 1)[0], ABLY_KEY.split(":", 1)[1]),
+                    json={"name": "reach_out", "data": hit},
+                    timeout=5,
+                ).raise_for_status()
+            except requests.RequestException as exc:
+                print(f"[reach_out] Ably publish failed: {type(exc).__name__}")
+        with open(SPINE_FILE, "a", encoding="utf-8") as stream:
+            stream.write(json.dumps(hit) + "\n")
 
 
 # ──────────────────────────────────────────
