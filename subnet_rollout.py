@@ -64,7 +64,7 @@ def parse_registry_ranges() -> list[tuple[str, str]]:
 
 
 def ufw_live() -> str:
-    return "\\n".join(line for line in sh(["ufw", "status"]).splitlines() if "DENY" in line)
+    return "\n".join(line for line in sh(["ufw", "status"]).splitlines() if "DENY" in line)
 
 
 def ensure_ufw(cidr: str, tag: str) -> bool:
