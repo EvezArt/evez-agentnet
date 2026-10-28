@@ -30,6 +30,9 @@ jobs:
       - name: Run OpenClaw Reach-Out
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ABLY_API_KEY: ${{ secrets.ABLY_API_KEY }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          EVEZ_ENABLE_EXTERNAL_PUBLISHING: ${{ vars.EVEZ_ENABLE_EXTERNAL_PUBLISHING || '0' }}
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           ABLY_API_KEY: ${{ secrets.ABLY_API_KEY }}
         run: python openclaw/reach_out.py
