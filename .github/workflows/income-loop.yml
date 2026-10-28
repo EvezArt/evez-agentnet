@@ -3,12 +3,24 @@ name: EVEZ AgentNet — Income Loop
 # scan -> predict -> generate -> ship -> earn
 
 on:
-  schedule:
-    - cron: '0 */12 * * *'
   workflow_dispatch:
+    inputs:
+      confirm_legacy_execution:
+        description: "Explicitly confirm running the legacy duplicate orchestrator"
+        required: true
+        type: boolean
+        default: false
+
+concurrency:
+  group: agentnet-state-writer
+  cancel-in-progress: false
+
+permissions:
+  contents: write
 
 jobs:
   run:
+    if: inputs.confirm_legacy_execution == true
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
     timeout-minutes: 25
 
