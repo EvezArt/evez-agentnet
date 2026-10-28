@@ -38,6 +38,7 @@ TELEGRAM_API = "https://api.telegram.org/bot{token}/{method}"
 MASTODON_BASE = os.environ.get("MASTODON_BASE_URL", "").strip()
 MASTODON_TOKEN = os.environ.get("MASTODON_ACCESS_TOKEN", "").strip()
 GUMROAD_TOKEN = os.environ.get("GUMROAD_API_KEY", "").strip()
+EXTERNAL_PUBLISH_ENABLED = os.environ.get("EVEZ_ENABLE_EXTERNAL_PUBLISHING", "0").strip() == "1"
 
 # Reasons a draft did not reach a channel. Reported instead of a fake success.
 NOT_CONFIGURED = "channel_not_configured"
@@ -59,6 +60,20 @@ def run(drafts: list) -> dict:
         "reasons": Counter(),
         "channels_available": available_channels(),
     }
+
+    # External posts and product publication are off by default in unattended runs.
+    # Enable only after an operator has reviewed the channels and credentials.
+    if drafts and not EXTERNAL_PUBLISH_ENABLED:
+        summary["attempted"] = len(drafts)
+        summary["blocked"] = len(drafts)
+        summary["reasons"]["external_publish_disabled"] = len(drafts)
+        for draft in drafts:
+            _log_ship(
+                draft, "not_shipped:external_publish_disabled", 0.0,
+                "Set EVEZ_ENABLE_EXTERNAL_PUBLISHING=1 only after explicit review."
+            )
+        log.warning("External publishing disabled by safety gate; %d draft(s) kept unshipped.", len(drafts))
+        return summary
 
     for draft in drafts:
         summary["attempted"] += 1
