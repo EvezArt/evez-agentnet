@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import hashlib, json, os, shutil, subprocess, sys, time
+import argparse, hashlib, json, os, shutil, subprocess, sys, time
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -13,6 +13,16 @@ LEDGER = STATE / 'events.jsonl'
 QUEUE = STATE / 'queue'
 MAX_REPOS = int(os.getenv('EVEZ_MAX_REPOS', '300'))
 CYCLE_SECONDS = int(os.getenv('EVEZ_CYCLE_SECONDS', '1800'))
+
+def bounded_env_int(name, default, minimum, maximum):
+    try:
+        value = int(os.getenv(name, str(default)))
+    except (TypeError, ValueError):
+        value = default
+    return max(minimum, min(maximum, value))
+
+MAX_ACTION_SECONDS = bounded_env_int('EVEZ_ACTION_TIMEOUT_SECONDS', 600, 10, 900)
+
 
 def now():
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
@@ -111,7 +121,7 @@ def hermes(prompt):
     else:
         args=[cmd,'chat','--query-file','-','--oneshot','--quiet']
     try:
-        p=subprocess.run(args,input=prompt,text=True,capture_output=True,timeout=900,cwd=ROOT)
+        p=subprocess.run(args,input=prompt,text=True,capture_output=True,timeout=MAX_ACTION_SECONDS,cwd=ROOT)
         return {'status':'OK' if p.returncode==0 else 'ERROR','returncode':p.returncode,'output':p.stdout[-30000:],'stderr':p.stderr[-5000:]}
     except Exception as e:
         return {'status':'ERROR','output':str(e)}
@@ -139,27 +149,66 @@ def openclaw(task_file):
             'Do not delete remote data, rotate secrets, merge, deploy, or push. '+
             'Write results to data/evez-autopilot/results and return a concise evidence summary.\n\n'+
             str(task_file))
-    p=run([cmd,'agent','exec',prompt,'--cwd',str(ROOT),'--json'],timeout=1800)
+    p=run([cmd,'agent','exec',prompt,'--cwd',str(ROOT),'--json'],timeout=MAX_ACTION_SECONDS)
     return {'status':'OK' if p.returncode==0 else 'ERROR','returncode':p.returncode,'stdout':p.stdout[-20000:],'stderr':p.stderr[-5000:]}
 
-def cycle():
+def cycle(*, skip_hermes: bool = False):
     snapshot=repo_inventory()
     packet=build_packet(snapshot)
     event=append_event('GITHUB_OBSERVATION',packet,'SUPPORTED' if snapshot['status']==200 else 'UNKNOWN')
     prompt='''You are Hermes, the reasoning layer of EVEZ. You are receiving a redacted, public-source observation packet. Analyze it as an evidence reviewer. Do not invent facts. Identify contradictions, stale claims, duplication, security exposure classes, and the three highest-value next probes. Return concise actions with evidence references. Never request or echo credential values.\n\nPACKET:\n''' + json.dumps(packet,ensure_ascii=False)
-    hr=hermes(prompt)
+    if os.getenv('EVEZ_AUTOPILOT_DISABLE','0') == '1':
+        append_event('AUTOPILOT_STOPPED',{'stage':'before_hermes','reason':'kill_switch'},'BLOCKED')
+        return
+    hr=({'status':'SKIPPED','output':'Hermes invocation skipped to prevent recursive invocation from within Hermes.'}
+        if skip_hermes else hermes(prompt))
     append_event('HERMES_ANALYSIS',{'event_ref':event,'status':hr.get('status'),'output':hr.get('output','')[:30000]},'SUPPORTED' if hr.get('status')=='OK' else 'UNKNOWN')
     q=write_queue(packet,hr)
-    oc=openclaw(q)
+    if os.getenv('EVEZ_AUTOPILOT_DISABLE','0') == '1':
+        oc={'status':'DISABLED','reason':'kill_switch'}
+    else:
+        oc=openclaw(q)
     append_event('OPENCLAW_RESULT',{'queue':str(q),'status':oc.get('status'),'stdout':oc.get('stdout','')[-12000:]},'SUPPORTED' if oc.get('status')=='OK' else 'UNKNOWN')
     (STATE/'latest.json').write_text(json.dumps({'packet':packet,'hermes':hr,'openclaw':oc,'queue':str(q),'generated_at':now()},indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
     print(json.dumps({'ok':True,'repos':len(snapshot['repos']),'hermes':hr.get('status'),'openclaw':oc.get('status'),'queue':str(q),'event':event},indent=2))
 
 def main():
-    once='--once' in sys.argv
-    while True:
-        cycle()
-        if once: return
-        time.sleep(CYCLE_SECONDS)
+    parser = argparse.ArgumentParser(description='Run the bounded EVEZ operations autopilot.')
+    parser.add_argument('--once', action='store_true', help='run exactly one cycle (the default)')
+    parser.add_argument('--watch', action='store_true', help='repeat only within the explicit cycle/time budgets')
+    parser.add_argument('--max-cycles', type=int, default=1, help='maximum cycles; 1..12')
+    parser.add_argument('--max-runtime-seconds', type=int, default=1800, help='total invocation budget; 30..21600')
+    parser.add_argument('--skip-hermes', action='store_true', help='do not spawn Hermes; use from inside a Hermes session')
+    args = parser.parse_args()
 
-if __name__=='__main__': main()
+    if not 1 <= args.max_cycles <= 12:
+        parser.error('--max-cycles must be between 1 and 12')
+    if not 30 <= args.max_runtime_seconds <= 21600:
+        parser.error('--max-runtime-seconds must be between 30 and 21600')
+    if args.watch and args.max_cycles < 2:
+        parser.error('--watch requires --max-cycles of at least 2')
+
+    if os.getenv('EVEZ_AUTOPILOT_DISABLE', '0') == '1':
+        print(json.dumps({'ok':False,'status':'STOPPED','reason':'EVEZ_AUTOPILOT_DISABLE is enabled'}))
+        return 2
+
+    cycles = args.max_cycles if args.watch and not args.once else 1
+    deadline = time.monotonic() + args.max_runtime_seconds
+    for index in range(cycles):
+        if os.getenv('EVEZ_AUTOPILOT_DISABLE', '0') == '1':
+            print(json.dumps({'ok':False,'status':'STOPPED','reason':'kill switch'}))
+            return 2
+        if time.monotonic() >= deadline:
+            print(json.dumps({'ok':False,'status':'BUDGET_EXHAUSTED','cycles_started':index}))
+            break
+        cycle(skip_hermes=args.skip_hermes)
+        if index + 1 >= cycles:
+            break
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            break
+        time.sleep(min(CYCLE_SECONDS, remaining))
+    return 0
+
+if __name__=='__main__':
+    raise SystemExit(main())
