@@ -23,7 +23,7 @@ Default skill targets:
 - Hermes: ~/.hermes/skills/evez-mycelium/SKILL.md
 - OpenClaw: ~/.openclaw/workspace/skills/evez-mycelium/SKILL.md
 
-Override either destination with HERMES_SKILLS_DIR or OPENCLAW_SKILLS_DIR. The installer refuses to overwrite a different existing skill unless EVEZ_INSTALL_OVERWRITE=1 is explicitly set; it saves a .bak copy before replacement.
+Override either destination with HERMES_SKILLS_DIR or OPENCLAW_SKILLS_DIR. The installer refuses to overwrite a different existing skill unless EVEZ_INSTALL_OVERWRITE=1 is explicitly set; it saves a timestamped .bak copy before replacement.
 
 The installer copies one instruction file. It does not create startup hooks, cron jobs, daemons, hidden persistence, credentials, or repository mutations.
 
@@ -43,7 +43,7 @@ A finite watch is available only with explicit caps:
 
     python3 ops/evez_autopilot.py --watch --max-cycles 3 --max-runtime-seconds 5400
 
-Limits: at most 12 cycles and 21,600 seconds per invocation. Each Hermes/OpenClaw subprocess is bounded by EVEZ_ACTION_TIMEOUT_SECONDS (default 600; hard cap 900 seconds). The default invocation performs exactly one cycle.
+Limits: at most 12 cycles and 21,600 seconds. The outer deadline is checked between cycles; a cycle already in progress may finish after the deadline. Each Hermes/OpenClaw subprocess is bounded by EVEZ_ACTION_TIMEOUT_SECONDS (default 600; hard cap 900 seconds), and each GitHub request has its own timeout. The default invocation performs exactly one cycle.
 
 ## Execution gates
 
@@ -72,6 +72,6 @@ A generated task is a proposal, not permission to execute it. A successful API c
 
 ## Rollback and recovery
 
-The skill installer preserves an existing file as .bak when explicit overwrite is enabled. To revert, restore that backup or remove the new skill file. No code in this installer modifies repository history or running services.
+The skill installer preserves an existing file as a timestamped .bak copy when explicit overwrite is enabled. To revert, restore that backup or remove the new skill file. No code in this installer modifies repository history or running services.
 
 For operational failures, preserve the current ledger, task packet, stdout/stderr, exact source revision, and test output before attempting repair. Stop after two failed repairs on the same defect and report BLOCKED with the next discriminating test.
