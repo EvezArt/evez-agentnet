@@ -27,7 +27,7 @@ install_one() {
       printf 'Back it up and rerun with EVEZ_INSTALL_OVERWRITE=1 to replace it.\n' >&2
       return 1
     fi
-    cp -p "$target" "$target.bak"
+    cp -p "$target" "$target.bak.$(date -u +%Y%m%dT%H%M%SZ)"
   fi
 
   install -m 0644 "$SOURCE" "$target"
